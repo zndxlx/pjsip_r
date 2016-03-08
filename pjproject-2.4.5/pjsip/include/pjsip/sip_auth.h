@@ -212,7 +212,7 @@ typedef struct pjsip_auth_clt_pref
  * @param dst	    Destination client authentication preference.
  * @param src	    Source client authentication preference.
  */
-(void) pjsip_auth_clt_pref_dup(pj_pool_t *pool,
+void pjsip_auth_clt_pref_dup(pj_pool_t *pool,
 				      pjsip_auth_clt_pref *dst,
 				      const pjsip_auth_clt_pref *src);
 
@@ -241,7 +241,7 @@ typedef struct pjsip_auth_clt_sess
  * @param dst	    Destination credential.
  * @param src	    Source credential.
  */
-(void) pjsip_cred_info_dup(pj_pool_t *pool,
+void pjsip_cred_info_dup(pj_pool_t *pool,
 				  pjsip_cred_info *dst,
 				  const pjsip_cred_info *src);
 
@@ -253,7 +253,7 @@ typedef struct pjsip_auth_clt_sess
  *
  * @return	    0 if both credentials are equal.
  */
-(int) pjsip_cred_info_cmp(const pjsip_cred_info *cred1,
+int pjsip_cred_info_cmp(const pjsip_cred_info *cred1,
 				 const pjsip_cred_info *cred2);
 
 
@@ -334,7 +334,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_clt_init( pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_init( pjsip_auth_clt_sess *sess,
 					  pjsip_endpoint *endpt,
 					  pj_pool_t *pool, 
 					  unsigned options);
@@ -349,7 +349,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS on success;
  */
-(pj_status_t) pjsip_auth_clt_clone( pj_pool_t *pool,
+pj_status_t pjsip_auth_clt_clone( pj_pool_t *pool,
 					   pjsip_auth_clt_sess *sess,
 					   const pjsip_auth_clt_sess *rhs);
 
@@ -363,7 +363,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_clt_set_credentials( pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_set_credentials( pjsip_auth_clt_sess *sess,
 						     int cred_cnt,
 						     const pjsip_cred_info *c);
 
@@ -376,7 +376,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_clt_set_prefs(pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_set_prefs(pjsip_auth_clt_sess *sess,
 					      const pjsip_auth_clt_pref *p);
 
 
@@ -388,7 +388,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_clt_get_prefs(pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_get_prefs(pjsip_auth_clt_sess *sess,
 					      pjsip_auth_clt_pref *p);
 
 /**
@@ -412,7 +412,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS if successfull.
  */
-(pj_status_t) pjsip_auth_clt_init_req( pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_init_req( pjsip_auth_clt_sess *sess,
 					      pjsip_tx_data *tdata );
 
 
@@ -436,7 +436,7 @@ typedef struct pjsip_auth_srv
  *			created to respond all the authentication
  *			challenges.
  */
-(pj_status_t) pjsip_auth_clt_reinit_req(	pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_reinit_req(	pjsip_auth_clt_sess *sess,
 						const pjsip_rx_data *rdata,
 						pjsip_tx_data *old_request,
 						pjsip_tx_data **new_request );
@@ -458,7 +458,7 @@ typedef struct pjsip_auth_srv
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_srv_init( pj_pool_t *pool,
+pj_status_t pjsip_auth_srv_init( pj_pool_t *pool,
 					  pjsip_auth_srv *auth_srv,
 					  const pj_str_t *realm,
 					  pjsip_auth_lookup_cred *lookup,
@@ -503,7 +503,7 @@ typedef struct pjsip_auth_srv_init_param
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_srv_init2(
+pj_status_t pjsip_auth_srv_init2(
 				    pj_pool_t *pool,
 				    pjsip_auth_srv *auth_srv,
 				    const pjsip_auth_srv_init_param *param);
@@ -527,7 +527,7 @@ typedef struct pjsip_auth_srv_init_param
  *			- PJSIP_EAUTHINVALIDREALM
  *			- PJSIP_EAUTHINVALIDDIGEST
  */
-(pj_status_t) pjsip_auth_srv_verify( pjsip_auth_srv *auth_srv,
+pj_status_t pjsip_auth_srv_verify( pjsip_auth_srv *auth_srv,
 					    pjsip_rx_data *rdata,
 					    int *status_code );
 
@@ -548,7 +548,7 @@ typedef struct pjsip_auth_srv_init_param
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_auth_srv_challenge( pjsip_auth_srv *auth_srv,
+pj_status_t pjsip_auth_srv_challenge( pjsip_auth_srv *auth_srv,
 					       const pj_str_t *qop,
 					       const pj_str_t *nonce,
 					       const pj_str_t *opaque,
@@ -571,7 +571,7 @@ typedef struct pjsip_auth_srv_init_param
  * @param cred_info	Credential info.
  * @param method	SIP method.
  */
-(void) pjsip_auth_create_digest(pj_str_t *result,
+void pjsip_auth_create_digest(pj_str_t *result,
 				       const pj_str_t *nonce,
 				       const pj_str_t *nc,
 				       const pj_str_t *cnonce,

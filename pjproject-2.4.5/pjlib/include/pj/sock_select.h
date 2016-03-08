@@ -64,7 +64,7 @@ typedef struct pj_fd_set_t
  *
  * @param fdsetp    The descriptor set.
  */
-(void) PJ_FD_ZERO(pj_fd_set_t *fdsetp);
+void PJ_FD_ZERO(pj_fd_set_t *fdsetp);
 
 
 /**
@@ -79,7 +79,7 @@ typedef struct pj_fd_set_t
  *
  * @return          Number of descriptors in the set.
  */
-(pj_size_t) PJ_FD_COUNT(const pj_fd_set_t *fdsetp);
+pj_size_t PJ_FD_COUNT(const pj_fd_set_t *fdsetp);
 
 
 /**
@@ -90,7 +90,7 @@ typedef struct pj_fd_set_t
  * @param fd	    The socket descriptor.
  * @param fdsetp    The descriptor set.
  */
-(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp);
+void PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp);
 
 /**
  * Remove the file descriptor fd from the set pointed to by fdsetp. 
@@ -100,7 +100,7 @@ typedef struct pj_fd_set_t
  * @param fd	    The socket descriptor.
  * @param fdsetp    The descriptor set.
  */
-(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp);
+void PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp);
 
 
 /**
@@ -112,7 +112,7 @@ typedef struct pj_fd_set_t
  *
  * @return	    Nonzero if fd is member of the descriptor set.
  */
-(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp);
+pj_bool_t PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp);
 
 
 /**
@@ -135,7 +135,7 @@ typedef struct pj_fd_set_t
  * @return	    The total number of socket handles that are ready, or
  *		    zero if the time limit expired, or -1 if an error occurred.
  */
-(int) pj_sock_select( int n, 
+int pj_sock_select( int n, 
 			     pj_fd_set_t *readfds, 
 			     pj_fd_set_t *writefds,
 			     pj_fd_set_t *exceptfds, 

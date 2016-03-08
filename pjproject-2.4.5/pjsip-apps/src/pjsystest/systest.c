@@ -89,7 +89,7 @@ static gui_menu root_menu = {
 /*****************************************************************/
 
 #if defined(PJ_DARWINOS) && PJ_DARWINOS!=0
-PJ_INLINE(char *) add_path(const char *path, const char *fname)
+char * add_path(const char *path, const char *fname)
 {
     strncpy(fpath, path, PATH_LENGTH);
     strncat(fpath, fname, PATH_LENGTH);

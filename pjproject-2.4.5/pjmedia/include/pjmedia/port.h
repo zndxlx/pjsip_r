@@ -241,7 +241,7 @@ typedef struct pjmedia_port_info
  * @param pia		Pointer to port info containing audio format.
  * @return		Audio clock rate.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_SRATE(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_SRATE(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -254,7 +254,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_SRATE(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Audio channel count.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_CCNT(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_CCNT(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -267,7 +267,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_CCNT(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Number of bits per sample.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_BITS(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_BITS(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -281,7 +281,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_BITS(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Frame interval in msec.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_PTIME(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_PTIME(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -295,7 +295,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_PTIME(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Samples per frame value.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_SPF(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_SPF(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -309,7 +309,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_SPF(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Bitrate, in bits per second.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_AVG_BPS(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_AVG_BPS(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -323,7 +323,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_AVG_BPS(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Bitrate, in bits per second.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_MAX_BPS(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_MAX_BPS(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -337,7 +337,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_MAX_BPS(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Frame size in bytes.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_AVG_FSZ(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_AVG_FSZ(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -351,7 +351,7 @@ PJ_INLINE(unsigned) PJMEDIA_PIA_AVG_FSZ(const pjmedia_port_info *pia)
  * @param pia		Pointer to port info containing audio format.
  * @return		Frame size in bytes.
  */
-PJ_INLINE(unsigned) PJMEDIA_PIA_MAX_FSZ(const pjmedia_port_info *pia)
+unsigned PJMEDIA_PIA_MAX_FSZ(const pjmedia_port_info *pia)
 {
     pj_assert(pia->fmt.type==PJMEDIA_TYPE_AUDIO &&
 	      pia->fmt.detail_type==PJMEDIA_FORMAT_DETAIL_AUDIO);
@@ -416,7 +416,7 @@ typedef struct pjmedia_port
  *
  * @return		    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_port_info_init( pjmedia_port_info *info,
+pj_status_t pjmedia_port_info_init( pjmedia_port_info *info,
 					     const pj_str_t *name,
 					     unsigned signature,
 					     unsigned clock_rate,
@@ -436,7 +436,7 @@ typedef struct pjmedia_port
  *
  * @return		    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_port_info_init2(pjmedia_port_info *info,
+pj_status_t pjmedia_port_info_init2(pjmedia_port_info *info,
 					     const pj_str_t *name,
 					     unsigned signature,
 					     pjmedia_dir dir,
@@ -452,7 +452,7 @@ typedef struct pjmedia_port
  * @return	    The clock source or NULL if clock source is not present
  *                  in the port.
  */
-(pjmedia_clock_src *) pjmedia_port_get_clock_src( pjmedia_port *port,
+pjmedia_clock_src * pjmedia_port_get_clock_src( pjmedia_port *port,
                                                          pjmedia_dir dir );
 
 
@@ -464,7 +464,7 @@ typedef struct pjmedia_port
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_port_get_frame( pjmedia_port *port,
+pj_status_t pjmedia_port_get_frame( pjmedia_port *port,
 					     pjmedia_frame *frame );
 
 /**
@@ -475,7 +475,7 @@ typedef struct pjmedia_port
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_port_put_frame( pjmedia_port *port,
+pj_status_t pjmedia_port_put_frame( pjmedia_port *port,
 					     pjmedia_frame *frame );
 
 /**
@@ -485,7 +485,7 @@ typedef struct pjmedia_port
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_port_destroy( pjmedia_port *port );
+pj_status_t pjmedia_port_destroy( pjmedia_port *port );
 
 
 

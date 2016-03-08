@@ -126,7 +126,7 @@ static pjmedia_transport_op transport_udp_op =
 /**
  * Create loopback transport.
  */
-(pj_status_t) pjmedia_transport_loop_create(pjmedia_endpt *endpt,
+pj_status_t pjmedia_transport_loop_create(pjmedia_endpt *endpt,
 						  pjmedia_transport **p_tp)
 {
     struct transport_loop *tp;
@@ -152,7 +152,7 @@ static pjmedia_transport_op transport_udp_op =
 }
 
 
-(pj_status_t) pjmedia_transport_loop_disable_rx( pjmedia_transport *tp,
+pj_status_t pjmedia_transport_loop_disable_rx( pjmedia_transport *tp,
 						       void *user,
 						       pj_bool_t disabled)
 {

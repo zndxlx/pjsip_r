@@ -47,7 +47,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS when the formats in offer and answer match.
  */
-(pj_status_t) pjmedia_codec_amr_match_sdp( pj_pool_t *pool,
+pj_status_t pjmedia_codec_amr_match_sdp( pj_pool_t *pool,
 						  pjmedia_sdp_media *offer,
 						  unsigned o_fmt_idx,
 						  pjmedia_sdp_media *answer,

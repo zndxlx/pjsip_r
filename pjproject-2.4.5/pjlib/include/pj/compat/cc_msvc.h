@@ -56,9 +56,9 @@
 #endif
 
 #ifdef __cplusplus
-#  define PJ_INLINE_SPECIFIER	inline
+#  define _SPECIFIER	inline
 #else
-#  define PJ_INLINE_SPECIFIER	static __inline
+#  define _SPECIFIER	static __inline
 #endif
 
 #define PJ_EXPORT_DECL_SPECIFIER    __declspec(dllexport)

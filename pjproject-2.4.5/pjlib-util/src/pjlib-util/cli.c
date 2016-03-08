@@ -281,19 +281,19 @@ static pj_status_t get_available_cmds(pj_cli_sess *sess,
 				      pj_cli_cmd_spec **p_cmd,
 				      pj_cli_exec_info *info);
 
-(pj_cli_cmd_id) pj_cli_get_cmd_id(const pj_cli_cmd_spec *cmd)
+pj_cli_cmd_id pj_cli_get_cmd_id(const pj_cli_cmd_spec *cmd)
 {
     return cmd->id;
 }
 
-(void) pj_cli_cfg_default(pj_cli_cfg *param)
+void pj_cli_cfg_default(pj_cli_cfg *param)
 {
     pj_assert(param);
     pj_bzero(param, sizeof(*param));
     pj_strset2(&param->name, "");
 }
 
-(void) pj_cli_exec_info_default(pj_cli_exec_info *param)
+void pj_cli_exec_info_default(pj_cli_exec_info *param)
 {
     pj_assert(param);
     pj_bzero(param, sizeof(*param));
@@ -302,7 +302,7 @@ static pj_status_t get_available_cmds(pj_cli_sess *sess,
     param->cmd_ret = PJ_SUCCESS;
 }
 
-(void) pj_cli_write_log(pj_cli_t *cli,
+void pj_cli_write_log(pj_cli_t *cli,
                               int level,
                               const char *buffer,
                               int len)
@@ -319,7 +319,7 @@ static pj_status_t get_available_cmds(pj_cli_sess *sess,
     }
 }
 
-(void) pj_cli_sess_write_msg(pj_cli_sess *sess,                               
+void pj_cli_sess_write_msg(pj_cli_sess *sess,                               
 				   const char *buffer,
 				   pj_size_t len)
 {
@@ -355,7 +355,7 @@ static pj_status_t cmd_handler(pj_cli_cmd_val *cval)
     }
 }
 
-(pj_status_t) pj_cli_create(pj_cli_cfg *cfg,
+pj_status_t pj_cli_create(pj_cli_cfg *cfg,
                                   pj_cli_t **p_cli)
 {
     pj_pool_t *pool;
@@ -405,20 +405,20 @@ static pj_status_t cmd_handler(pj_cli_cmd_val *cval)
     return PJ_SUCCESS;
 }
 
-(pj_cli_cfg*) pj_cli_get_param(pj_cli_t *cli)
+pj_cli_cfg* pj_cli_get_param(pj_cli_t *cli)
 {
     PJ_ASSERT_RETURN(cli, NULL);
 
     return &cli->cfg;
 }
 
-(void) pj_cli_register_front_end(pj_cli_t *cli,
+void pj_cli_register_front_end(pj_cli_t *cli,
                                        pj_cli_front_end *fe)
 {
     pj_list_push_back(&cli->fe_head, fe);
 }
 
-(void) pj_cli_quit(pj_cli_t *cli, pj_cli_sess *req,
+void pj_cli_quit(pj_cli_t *cli, pj_cli_sess *req,
 			 pj_bool_t restart)
 {
     pj_cli_front_end *fe;
@@ -438,21 +438,21 @@ static pj_status_t cmd_handler(pj_cli_cmd_val *cval)
     }
 }
 
-(pj_bool_t) pj_cli_is_quitting(pj_cli_t *cli)
+pj_bool_t pj_cli_is_quitting(pj_cli_t *cli)
 {
     PJ_ASSERT_RETURN(cli, PJ_FALSE);
 
     return cli->is_quitting;
 }
 
-(pj_bool_t) pj_cli_is_restarting(pj_cli_t *cli)
+pj_bool_t pj_cli_is_restarting(pj_cli_t *cli)
 {
     PJ_ASSERT_RETURN(cli, PJ_FALSE);
 
     return cli->is_restarting;
 }
 
-(void) pj_cli_destroy(pj_cli_t *cli)
+void pj_cli_destroy(pj_cli_t *cli)
 {
     pj_cli_front_end *fe;
 
@@ -474,7 +474,7 @@ static pj_status_t cmd_handler(pj_cli_cmd_val *cval)
     pj_pool_release(cli->pool);
 }
 
-(void) pj_cli_sess_end_session(pj_cli_sess *sess)
+void pj_cli_sess_end_session(pj_cli_sess *sess)
 {
     pj_assert(sess);
 
@@ -808,7 +808,7 @@ static pj_status_t add_cmd_node(pj_cli_t *cli,
     return status;
 }
 
-(pj_status_t) pj_cli_add_cmd_from_xml(pj_cli_t *cli,
+pj_status_t pj_cli_add_cmd_from_xml(pj_cli_t *cli,
 					    pj_cli_cmd_spec *group,
                                             const pj_str_t *xml,
                                             pj_cli_cmd_handler handler,
@@ -837,7 +837,7 @@ static pj_status_t add_cmd_node(pj_cli_t *cli,
     return status;
 }
 
-(pj_status_t) pj_cli_sess_parse(pj_cli_sess *sess,
+pj_status_t pj_cli_sess_parse(pj_cli_sess *sess,
 				      char *cmdline,
 				      pj_cli_cmd_val *val,
 				      pj_pool_t *pool,
@@ -952,7 +952,7 @@ static pj_status_t add_cmd_node(pj_cli_t *cli,
     return status;
 }
 
-(pj_status_t) pj_cli_sess_exec(pj_cli_sess *sess,
+pj_status_t pj_cli_sess_exec(pj_cli_sess *sess,
 				      char *cmdline,
 				      pj_pool_t *pool,
 				      pj_cli_exec_info *info)

@@ -24,7 +24,7 @@
 /*
  * Initialize the SSL socket configuration with the default values.
  */
-(void) pj_ssl_sock_param_default(pj_ssl_sock_param *param)
+void pj_ssl_sock_param_default(pj_ssl_sock_param *param)
 {
     pj_bzero(param, sizeof(*param));
 
@@ -48,7 +48,7 @@
 }
 
 
-(pj_status_t) pj_ssl_cert_get_verify_status_strings(
+pj_status_t pj_ssl_cert_get_verify_status_strings(
 						pj_uint32_t verify_status, 
 						const char *error_strings[],
 						unsigned *count)

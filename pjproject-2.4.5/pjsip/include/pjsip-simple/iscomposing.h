@@ -63,7 +63,7 @@ PJ_BEGIN_DECL
  *			    NULL will be returned when there's not enough
  *			    memory to allocate the message.
  */
-(pj_xml_node*) pjsip_iscomposing_create_xml(pj_pool_t *pool,
+pj_xml_node* pjsip_iscomposing_create_xml(pj_pool_t *pool,
 						   pj_bool_t is_composing,
 						   const pj_time_val *lst_actv,
 						   const pj_str_t *content_tp,
@@ -93,7 +93,7 @@ PJ_BEGIN_DECL
  *			    indication. NULL will be returned when there's not
  *			    enough memory to allocate the message.
  */
-(pjsip_msg_body*) pjsip_iscomposing_create_body( pj_pool_t *pool,
+pjsip_msg_body* pjsip_iscomposing_create_body( pj_pool_t *pool,
 						   pj_bool_t is_composing,
 						   const pj_time_val *lst_actv,
 						   const pj_str_t *content_tp,
@@ -114,7 +114,7 @@ PJ_BEGIN_DECL
  *
  * @return		    PJ_SUCCESS if message can be successfully parsed.
  */
-(pj_status_t) pjsip_iscomposing_parse( pj_pool_t *pool,
+pj_status_t pjsip_iscomposing_parse( pj_pool_t *pool,
 					      char *msg,
 					      pj_size_t len,
 					      pj_bool_t *p_is_composing,

@@ -81,7 +81,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_create( pj_pool_factory *pf,
+pj_status_t pjmedia_endpt_create( pj_pool_factory *pf,
 					   pj_ioqueue_t *ioqueue,
 					   unsigned worker_cnt,
 					   pjmedia_endpt **p_endpt);
@@ -93,7 +93,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_destroy(pjmedia_endpt *endpt);
+pj_status_t pjmedia_endpt_destroy(pjmedia_endpt *endpt);
 
 /**
  * Change the value of a flag.
@@ -104,7 +104,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @reurn		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_set_flag(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_set_flag(pjmedia_endpt *endpt,
 					    pjmedia_endpt_flag flag,
 					    const void *value);
 
@@ -117,7 +117,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  *  @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_get_flag(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_get_flag(pjmedia_endpt *endpt,
 					    pjmedia_endpt_flag flag,
 					    void *value);
 
@@ -128,7 +128,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		The ioqueue instance of the media endpoint.
  */
-(pj_ioqueue_t*) pjmedia_endpt_get_ioqueue(pjmedia_endpt *endpt);
+pj_ioqueue_t* pjmedia_endpt_get_ioqueue(pjmedia_endpt *endpt);
 
 
 /**
@@ -137,7 +137,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  * @param endpt		The media endpoint instance.
  * @return		The number of worker threads on the media endpoint
  */
-(unsigned) pjmedia_endpt_get_thread_count(pjmedia_endpt *endpt);
+unsigned pjmedia_endpt_get_thread_count(pjmedia_endpt *endpt);
 
 /**
  * Get a reference to one of the worker threads of the media endpoint 
@@ -147,7 +147,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		pj_thread_t or NULL
  */
-(pj_thread_t*) pjmedia_endpt_get_thread(pjmedia_endpt *endpt, 
+pj_thread_t* pjmedia_endpt_get_thread(pjmedia_endpt *endpt, 
 					       unsigned index);
 
 /**
@@ -157,7 +157,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_stop_threads(pjmedia_endpt *endpt);
+pj_status_t pjmedia_endpt_stop_threads(pjmedia_endpt *endpt);
 
 
 /**
@@ -170,7 +170,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		Memory pool.
  */
-(pj_pool_t*) pjmedia_endpt_create_pool( pjmedia_endpt *endpt,
+pj_pool_t* pjmedia_endpt_create_pool( pjmedia_endpt *endpt,
 					       const char *name,
 					       pj_size_t initial,
 					       pj_size_t increment);
@@ -183,7 +183,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  * @return		The instance of codec manager belonging to
  *			this media endpoint.
  */
-(pjmedia_codec_mgr*) pjmedia_endpt_get_codec_mgr(pjmedia_endpt *endpt);
+pjmedia_codec_mgr* pjmedia_endpt_get_codec_mgr(pjmedia_endpt *endpt);
 
 
 /**
@@ -206,7 +206,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_create_sdp( pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_sdp( pjmedia_endpt *endpt,
 					       pj_pool_t *pool,
 					       unsigned stream_cnt,
 					       const pjmedia_sock_info sock_info[],
@@ -225,7 +225,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_endpt_create_base_sdp(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_base_sdp(pjmedia_endpt *endpt,
 						   pj_pool_t *pool,
 						   const pj_str_t *sess_name,
 						   const pj_sockaddr *origin,
@@ -242,7 +242,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_endpt_create_audio_sdp(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_audio_sdp(pjmedia_endpt *endpt,
                                                     pj_pool_t *pool,
                                                     const pjmedia_sock_info*si,
                                                     unsigned options,
@@ -259,7 +259,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_endpt_create_video_sdp(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_video_sdp(pjmedia_endpt *endpt,
                                                     pj_pool_t *pool,
                                                     const pjmedia_sock_info*si,
                                                     unsigned options,
@@ -272,7 +272,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_dump(pjmedia_endpt *endpt);
+pj_status_t pjmedia_endpt_dump(pjmedia_endpt *endpt);
 
 
 /**
@@ -287,7 +287,7 @@ typedef void (*pjmedia_endpt_exit_callback)(pjmedia_endpt *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_endpt_atexit(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_atexit(pjmedia_endpt *endpt,
 					  pjmedia_endpt_exit_callback func);
 
 

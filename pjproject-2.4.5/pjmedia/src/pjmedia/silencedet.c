@@ -90,7 +90,7 @@ struct pjmedia_silence_det
 
 
 
-(pj_status_t) pjmedia_silence_det_create( pj_pool_t *pool,
+pj_status_t pjmedia_silence_det_create( pj_pool_t *pool,
 						unsigned clock_rate,
 						unsigned samples_per_frame,
 						pjmedia_silence_det **p_sd)
@@ -117,7 +117,7 @@ struct pjmedia_silence_det
 }
 
 
-(pj_status_t) pjmedia_silence_det_set_name( pjmedia_silence_det *sd,
+pj_status_t pjmedia_silence_det_set_name( pjmedia_silence_det *sd,
 						  const char *name)
 {
     PJ_ASSERT_RETURN(sd && name, PJ_EINVAL);
@@ -127,7 +127,7 @@ struct pjmedia_silence_det
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_silence_det_set_adaptive(pjmedia_silence_det *sd,
+pj_status_t pjmedia_silence_det_set_adaptive(pjmedia_silence_det *sd,
 						     int threshold)
 {
     PJ_ASSERT_RETURN(sd, PJ_EINVAL);
@@ -141,7 +141,7 @@ struct pjmedia_silence_det
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_silence_det_set_fixed( pjmedia_silence_det *sd,
+pj_status_t pjmedia_silence_det_set_fixed( pjmedia_silence_det *sd,
 						   int threshold )
 {
     PJ_ASSERT_RETURN(sd, PJ_EINVAL);
@@ -155,7 +155,7 @@ struct pjmedia_silence_det
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_silence_det_set_params( pjmedia_silence_det *sd,
+pj_status_t pjmedia_silence_det_set_params( pjmedia_silence_det *sd,
 						    int before_silence,
 						    int recalc_time1,
 						    int recalc_time2)
@@ -177,7 +177,7 @@ struct pjmedia_silence_det
 }
 
 
-(pj_status_t) pjmedia_silence_det_disable( pjmedia_silence_det *sd )
+pj_status_t pjmedia_silence_det_disable( pjmedia_silence_det *sd )
 {
     PJ_ASSERT_RETURN(sd, PJ_EINVAL);
 
@@ -187,7 +187,7 @@ struct pjmedia_silence_det
 }
 
 
-(pj_int32_t) pjmedia_calc_avg_signal( const pj_int16_t samples[],
+pj_int32_t pjmedia_calc_avg_signal( const pj_int16_t samples[],
 					    pj_size_t count)
 {
     pj_uint32_t sum = 0;
@@ -208,7 +208,7 @@ struct pjmedia_silence_det
     return (pj_int32_t)(sum / count);
 }
 
-(pj_bool_t) pjmedia_silence_det_apply( pjmedia_silence_det *sd,
+pj_bool_t pjmedia_silence_det_apply( pjmedia_silence_det *sd,
 					     pj_uint32_t level)
 {
     int avg_recent_level;
@@ -314,7 +314,7 @@ struct pjmedia_silence_det
 }
 
 
-(pj_bool_t) pjmedia_silence_det_detect( pjmedia_silence_det *sd,
+pj_bool_t pjmedia_silence_det_detect( pjmedia_silence_det *sd,
 					      const pj_int16_t samples[],
 					      pj_size_t count,
 					      pj_int32_t *p_level)

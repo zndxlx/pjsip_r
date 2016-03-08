@@ -197,14 +197,14 @@ static pj_status_t stun_auth_get_password(const pj_stun_msg *msg,
 					  pj_str_t *data);
 
 
-(const char*) pj_ice_get_cand_type_name(pj_ice_cand_type type)
+const char* pj_ice_get_cand_type_name(pj_ice_cand_type type)
 {
     PJ_ASSERT_RETURN(type <= PJ_ICE_CAND_TYPE_RELAYED, "???");
     return cand_type_names[type];
 }
 
 
-(const char*) pj_ice_sess_role_name(pj_ice_sess_role role)
+const char* pj_ice_sess_role_name(pj_ice_sess_role role)
 {
     switch (role) {
     case PJ_ICE_SESS_ROLE_UNKNOWN:
@@ -239,7 +239,7 @@ static int get_type_prefix(pj_ice_cand_type type)
  * server using the same protocol.  Otherwise, their foundation is
  * different.
  */
-(void) pj_ice_calc_foundation(pj_pool_t *pool,
+void pj_ice_calc_foundation(pj_pool_t *pool,
 				    pj_str_t *foundation,
 				    pj_ice_cand_type type,
 				    const pj_sockaddr *base_addr)
@@ -317,7 +317,7 @@ static pj_status_t init_comp(pj_ice_sess *ice,
 
 
 /* Init options with default values */
-(void) pj_ice_sess_options_default(pj_ice_sess_options *opt)
+void pj_ice_sess_options_default(pj_ice_sess_options *opt)
 {
     opt->aggressive = PJ_TRUE;
     opt->nominated_check_delay = PJ_ICE_NOMINATED_CHECK_DELAY;
@@ -328,7 +328,7 @@ static pj_status_t init_comp(pj_ice_sess *ice,
 /*
  * Create ICE session.
  */
-(pj_status_t) pj_ice_sess_create(pj_stun_config *stun_cfg,
+pj_status_t pj_ice_sess_create(pj_stun_config *stun_cfg,
 				       const char *name,
 				       pj_ice_sess_role role,
 				       unsigned comp_cnt,
@@ -432,7 +432,7 @@ static pj_status_t init_comp(pj_ice_sess *ice,
 /*
  * Get the value of various options of the ICE session.
  */
-(pj_status_t) pj_ice_sess_get_options(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_get_options(pj_ice_sess *ice,
 					    pj_ice_sess_options *opt)
 {
     PJ_ASSERT_RETURN(ice, PJ_EINVAL);
@@ -443,7 +443,7 @@ static pj_status_t init_comp(pj_ice_sess *ice,
 /*
  * Specify various options for this ICE session.
  */
-(pj_status_t) pj_ice_sess_set_options(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_set_options(pj_ice_sess *ice,
 					    const pj_ice_sess_options *opt)
 {
     PJ_ASSERT_RETURN(ice && opt, PJ_EINVAL);
@@ -512,7 +512,7 @@ static void destroy_ice(pj_ice_sess *ice,
 /*
  * Destroy
  */
-(pj_status_t) pj_ice_sess_destroy(pj_ice_sess *ice)
+pj_status_t pj_ice_sess_destroy(pj_ice_sess *ice)
 {
     PJ_ASSERT_RETURN(ice, PJ_EINVAL);
     destroy_ice(ice, PJ_SUCCESS);
@@ -523,7 +523,7 @@ static void destroy_ice(pj_ice_sess *ice,
 /*
  * Change session role. 
  */
-(pj_status_t) pj_ice_sess_change_role(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_change_role(pj_ice_sess *ice,
 					    pj_ice_sess_role new_role)
 {
     PJ_ASSERT_RETURN(ice, PJ_EINVAL);
@@ -540,7 +540,7 @@ static void destroy_ice(pj_ice_sess *ice,
 /*
  * Change type preference
  */
-(pj_status_t) pj_ice_sess_set_prefs(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_set_prefs(pj_ice_sess *ice,
 					  const pj_uint8_t prefs[4])
 {
     unsigned i;
@@ -708,7 +708,7 @@ static pj_uint32_t CALC_CAND_PRIO(pj_ice_sess *ice,
 /*
  * Add ICE candidate
  */
-(pj_status_t) pj_ice_sess_add_cand(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_add_cand(pj_ice_sess *ice,
 					 unsigned comp_id,
 					 unsigned transport_id,
 					 pj_ice_cand_type type,
@@ -776,7 +776,7 @@ on_error:
 
 
 /* Find default candidate ID for the component */
-(pj_status_t) pj_ice_sess_find_default_cand(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_find_default_cand(pj_ice_sess *ice,
 						  unsigned comp_id,
 						  int *cand_id)
 {
@@ -884,7 +884,7 @@ static pj_timestamp CALC_CHECK_PRIO(const pj_ice_sess *ice,
 }
 
 
-PJ_INLINE(int) CMP_CHECK_PRIO(const pj_ice_sess_check *c1,
+int CMP_CHECK_PRIO(const pj_ice_sess_check *c1,
 			      const pj_ice_sess_check *c2)
 {
     return pj_cmp_timestamp(&c1->prio, &c2->prio);
@@ -1596,7 +1596,7 @@ static pj_bool_t on_check_complete(pj_ice_sess *ice,
 
 
 /* Create checklist by pairing local candidates with remote candidates */
-(pj_status_t) pj_ice_sess_create_check_list(
+pj_status_t pj_ice_sess_create_check_list(
 			      pj_ice_sess *ice,
 			      const pj_str_t *rem_ufrag,
 			      const pj_str_t *rem_passwd,
@@ -2007,7 +2007,7 @@ static const pj_str_t *find_str(const pj_str_t *strlist[], unsigned count,
  * application will be notified about the connectivity check status in
  * #pj_ice_sess_cb callback.
  */
-(pj_status_t) pj_ice_sess_start_check(pj_ice_sess *ice)
+pj_status_t pj_ice_sess_start_check(pj_ice_sess *ice)
 {
     pj_ice_sess_checklist *clist;
     const pj_ice_sess_cand *cand0;
@@ -2884,7 +2884,7 @@ static pj_status_t on_stun_rx_indication(pj_stun_session *sess,
 }
 
 
-(pj_status_t) pj_ice_sess_send_data(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_send_data(pj_ice_sess *ice,
 					  unsigned comp_id,
 					  const void *data,
 					  pj_size_t data_len)
@@ -2943,7 +2943,7 @@ on_return:
 }
 
 
-(pj_status_t) pj_ice_sess_on_rx_pkt(pj_ice_sess *ice,
+pj_status_t pj_ice_sess_on_rx_pkt(pj_ice_sess *ice,
 					  unsigned comp_id,
 					  unsigned transport_id,
 					  void *pkt,

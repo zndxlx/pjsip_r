@@ -64,15 +64,15 @@ typedef struct g722_enc_t {
 } g722_enc_t;
 
 
-(pj_status_t) g722_enc_init(g722_enc_t *enc);
+pj_status_t g722_enc_init(g722_enc_t *enc);
 
-(pj_status_t) g722_enc_encode(g722_enc_t *enc, 
+pj_status_t g722_enc_encode(g722_enc_t *enc, 
 				     pj_int16_t in[], 
 				     pj_size_t nsamples,
 				     void *out,
 				     pj_size_t *out_size);
 
-(pj_status_t) g722_enc_deinit(g722_enc_t *enc);
+pj_status_t g722_enc_deinit(g722_enc_t *enc);
 
 #endif /* __PJMEDIA_CODEC_G722_ENC_H__ */
 

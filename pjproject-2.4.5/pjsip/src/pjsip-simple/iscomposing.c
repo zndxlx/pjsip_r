@@ -49,7 +49,7 @@ static const pj_str_t STR_XSI_SLOC_NAME =  { "xsi:schemaLocation", 18 };
 static const pj_str_t STR_XSI_SLOC_VAL =   { "urn:ietf:params:xml:ns:im-composing iscomposing.xsd", 51 };
 
 
-(pj_xml_node*) pjsip_iscomposing_create_xml( pj_pool_t *pool,
+pj_xml_node* pjsip_iscomposing_create_xml( pj_pool_t *pool,
 						   pj_bool_t is_composing,
 						   const pj_time_val *lst_actv,
 						   const pj_str_t *content_tp,
@@ -130,7 +130,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
 
 
 
-(pjsip_msg_body*) pjsip_iscomposing_create_body( pj_pool_t *pool,
+pjsip_msg_body* pjsip_iscomposing_create_body( pj_pool_t *pool,
 						   pj_bool_t is_composing,
 						   const pj_time_val *lst_actv,
 						   const pj_str_t *content_tp,
@@ -159,7 +159,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
 }
 
 
-(pj_status_t) pjsip_iscomposing_parse( pj_pool_t *pool,
+pj_status_t pjsip_iscomposing_parse( pj_pool_t *pool,
 					     char *msg,
 					     pj_size_t len,
 					     pj_bool_t *p_is_composing,

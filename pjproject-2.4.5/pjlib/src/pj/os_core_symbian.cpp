@@ -305,14 +305,14 @@ TInt PjSymbianOS::ConvertFromUnicode(TDes8 &aForeign, const TDesC16 &aUnicode)
 // PJLIB os.h implementation
 //
 
-(pj_uint32_t) pj_getpid(void)
+pj_uint32_t pj_getpid(void)
 {
     return 0;
 }
 
 
 /* Set Symbian specific parameters */
-(pj_status_t) pj_symbianos_set_params(pj_symbianos_params *prm) 
+pj_status_t pj_symbianos_set_params(pj_symbianos_params *prm) 
 {
     PJ_ASSERT_RETURN(prm != NULL, PJ_EINVAL);
     PjSymbianOS::Instance()->SetParameters(prm);
@@ -321,7 +321,7 @@ TInt PjSymbianOS::ConvertFromUnicode(TDes8 &aForeign, const TDesC16 &aUnicode)
 
 
 /* Set connection status */
-(void) pj_symbianos_set_connection_status(pj_bool_t up)
+void pj_symbianos_set_connection_status(pj_bool_t up)
 {
     PjSymbianOS::Instance()->SetConnectionStatus(up != 0);
 }
@@ -331,7 +331,7 @@ TInt PjSymbianOS::ConvertFromUnicode(TDes8 &aForeign, const TDesC16 &aUnicode)
  * pj_init(void).
  * Init PJLIB!
  */
-(pj_status_t) pj_init(void)
+pj_status_t pj_init(void)
 {
 	char stack_ptr;
     pj_status_t status;
@@ -388,7 +388,7 @@ on_error:
 }
 
 
-(pj_status_t) pj_atexit(pj_exit_callback func)
+pj_status_t pj_atexit(pj_exit_callback func)
 {
     if (atexit_count >= PJ_ARRAY_SIZE(atexit_func))
 	return PJ_ETOOMANY;
@@ -399,7 +399,7 @@ on_error:
 
 
 
-(void) pj_shutdown(void)
+void pj_shutdown(void)
 {
     /* Only perform shutdown operation when 'initialized' reaches zero */
     pj_assert(initialized > 0);
@@ -485,7 +485,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Wait the completion of any Symbian active objects. 
  */
-(pj_bool_t) pj_symbianos_poll(int priority, int ms_timeout)
+pj_bool_t pj_symbianos_poll(int priority, int ms_timeout)
 {
     CPollTimeoutTimer *timer = NULL;
     
@@ -516,7 +516,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_is_registered()
  */
-(pj_bool_t) pj_thread_is_registered(void)
+pj_bool_t pj_thread_is_registered(void)
 {
     return PJ_FALSE;
 }
@@ -525,7 +525,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Get thread priority value for the thread.
  */
-(int) pj_thread_get_prio(pj_thread_t *thread)
+int pj_thread_get_prio(pj_thread_t *thread)
 {
     PJ_UNUSED_ARG(thread);
     return 1;
@@ -535,7 +535,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Set the thread priority.
  */
-(pj_status_t) pj_thread_set_prio(pj_thread_t *thread,  int prio)
+pj_status_t pj_thread_set_prio(pj_thread_t *thread,  int prio)
 {
     PJ_UNUSED_ARG(thread);
     PJ_UNUSED_ARG(prio);
@@ -546,7 +546,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Get the lowest priority value available on this system.
  */
-(int) pj_thread_get_prio_min(pj_thread_t *thread)
+int pj_thread_get_prio_min(pj_thread_t *thread)
 {
     PJ_UNUSED_ARG(thread);
     return 1;
@@ -556,7 +556,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Get the highest priority value available on this system.
  */
-(int) pj_thread_get_prio_max(pj_thread_t *thread)
+int pj_thread_get_prio_max(pj_thread_t *thread)
 {
     PJ_UNUSED_ARG(thread);
     return 1;
@@ -566,7 +566,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_get_os_handle()
  */
-(void*) pj_thread_get_os_handle(pj_thread_t *thread) 
+void* pj_thread_get_os_handle(pj_thread_t *thread) 
 {
     PJ_UNUSED_ARG(thread);
     return NULL;
@@ -575,7 +575,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_register(..)
  */
-(pj_status_t) pj_thread_register ( const char *cstr_thread_name,
+pj_status_t pj_thread_register ( const char *cstr_thread_name,
 					 pj_thread_desc desc,
                                          pj_thread_t **thread_ptr)
 {
@@ -589,7 +589,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_create(...)
  */
-(pj_status_t) pj_thread_create( pj_pool_t *pool, 
+pj_status_t pj_thread_create( pj_pool_t *pool, 
 				      const char *thread_name,
 				      pj_thread_proc *proc, 
 				      void *arg,
@@ -612,7 +612,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread-get_name()
  */
-(const char*) pj_thread_get_name(pj_thread_t *p)
+const char* pj_thread_get_name(pj_thread_t *p)
 {
     pj_assert(p == &main_thread);
     return p->obj_name;
@@ -621,7 +621,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_resume()
  */
-(pj_status_t) pj_thread_resume(pj_thread_t *p)
+pj_status_t pj_thread_resume(pj_thread_t *p)
 {
     PJ_UNUSED_ARG(p);
     return PJ_EINVALIDOP;
@@ -630,7 +630,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_this()
  */
-(pj_thread_t*) pj_thread_this(void)
+pj_thread_t* pj_thread_this(void)
 {
     return &main_thread;
 }
@@ -638,7 +638,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_join()
  */
-(pj_status_t) pj_thread_join(pj_thread_t *rec)
+pj_status_t pj_thread_join(pj_thread_t *rec)
 {
     PJ_UNUSED_ARG(rec);
     return PJ_EINVALIDOP;
@@ -647,7 +647,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_destroy()
  */
-(pj_status_t) pj_thread_destroy(pj_thread_t *rec)
+pj_status_t pj_thread_destroy(pj_thread_t *rec)
 {
     PJ_UNUSED_ARG(rec);
     return PJ_EINVALIDOP;
@@ -656,7 +656,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_sleep()
  */
-(pj_status_t) pj_thread_sleep(unsigned msec)
+pj_status_t pj_thread_sleep(unsigned msec)
 {
     User::After(msec*1000);
 
@@ -669,7 +669,7 @@ void CPollTimeoutTimer::DoCancel()
  * pj_thread_local_alloc()
  */
 
-(pj_status_t) pj_thread_local_alloc(long *index)
+pj_status_t pj_thread_local_alloc(long *index)
 {
     unsigned i;
 
@@ -691,7 +691,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_local_free()
  */
-(void) pj_thread_local_free(long index)
+void pj_thread_local_free(long index)
 {
     PJ_ASSERT_ON_FAIL(index >= 0 && index < (int)PJ_ARRAY_SIZE(tls_vars) &&
 		     tls_vars[index] != 0, return);
@@ -703,7 +703,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_local_set()
  */
-(pj_status_t) pj_thread_local_set(long index, void *value)
+pj_status_t pj_thread_local_set(long index, void *value)
 {
     pj_thread_t *rec = pj_thread_this();
 
@@ -717,7 +717,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_thread_local_get()
  */
-(void*) pj_thread_local_get(long index)
+void* pj_thread_local_get(long index)
 {
     pj_thread_t *rec = pj_thread_this();
 
@@ -732,7 +732,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Create atomic variable.
  */
-(pj_status_t) pj_atomic_create( pj_pool_t *pool, 
+pj_status_t pj_atomic_create( pj_pool_t *pool, 
 				      pj_atomic_value_t initial,
 				      pj_atomic_t **atomic )
 {
@@ -745,7 +745,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Destroy atomic variable.
  */
-(pj_status_t) pj_atomic_destroy( pj_atomic_t *atomic_var )
+pj_status_t pj_atomic_destroy( pj_atomic_t *atomic_var )
 {
     PJ_UNUSED_ARG(atomic_var);
     return PJ_SUCCESS;
@@ -755,7 +755,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Set the value of an atomic type, and return the previous value.
  */
-(void) pj_atomic_set( pj_atomic_t *atomic_var, 
+void pj_atomic_set( pj_atomic_t *atomic_var, 
 			    pj_atomic_value_t value)
 {
     atomic_var->value = value;
@@ -765,7 +765,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Get the value of an atomic type.
  */
-(pj_atomic_value_t) pj_atomic_get(pj_atomic_t *atomic_var)
+pj_atomic_value_t pj_atomic_get(pj_atomic_t *atomic_var)
 {
     return atomic_var->value;
 }
@@ -774,7 +774,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Increment the value of an atomic type.
  */
-(void) pj_atomic_inc(pj_atomic_t *atomic_var)
+void pj_atomic_inc(pj_atomic_t *atomic_var)
 {
     ++atomic_var->value;
 }
@@ -783,7 +783,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Increment the value of an atomic type and get the result.
  */
-(pj_atomic_value_t) pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
+pj_atomic_value_t pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
 {
     return ++atomic_var->value;
 }
@@ -792,7 +792,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Decrement the value of an atomic type.
  */
-(void) pj_atomic_dec(pj_atomic_t *atomic_var)
+void pj_atomic_dec(pj_atomic_t *atomic_var)
 {
     --atomic_var->value;
 }	
@@ -801,7 +801,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Decrement the value of an atomic type and get the result.
  */
-(pj_atomic_value_t) pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
+pj_atomic_value_t pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
 {
     return --atomic_var->value;
 }
@@ -810,7 +810,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Add a value to an atomic type.
  */
-(void) pj_atomic_add( pj_atomic_t *atomic_var,
+void pj_atomic_add( pj_atomic_t *atomic_var,
 			    pj_atomic_value_t value)
 {
     atomic_var->value += value;
@@ -820,7 +820,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Add a value to an atomic type and get the result.
  */
-(pj_atomic_value_t) pj_atomic_add_and_get( pj_atomic_t *atomic_var,
+pj_atomic_value_t pj_atomic_add_and_get( pj_atomic_t *atomic_var,
 			                         pj_atomic_value_t value)
 {
     atomic_var->value += value;
@@ -831,7 +831,7 @@ void CPollTimeoutTimer::DoCancel()
 
 /////////////////////////////////////////////////////////////////////////////
 
-(pj_status_t) pj_mutex_create( pj_pool_t *pool, 
+pj_status_t pj_mutex_create( pj_pool_t *pool, 
                                      const char *name,
 				     int type, 
                                      pj_mutex_t **mutex)
@@ -847,7 +847,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_mutex_create_simple()
  */
-(pj_status_t) pj_mutex_create_simple( pj_pool_t *pool, 
+pj_status_t pj_mutex_create_simple( pj_pool_t *pool, 
                                             const char *name,
 					    pj_mutex_t **mutex )
 {
@@ -855,7 +855,7 @@ void CPollTimeoutTimer::DoCancel()
 }
 
 
-(pj_status_t) pj_mutex_create_recursive( pj_pool_t *pool,
+pj_status_t pj_mutex_create_recursive( pj_pool_t *pool,
 					       const char *name,
 					       pj_mutex_t **mutex )
 {
@@ -866,7 +866,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_mutex_lock()
  */
-(pj_status_t) pj_mutex_lock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_lock(pj_mutex_t *mutex)
 {
     pj_assert(mutex == DUMMY_MUTEX);
     return PJ_SUCCESS;
@@ -875,7 +875,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_mutex_trylock()
  */
-(pj_status_t) pj_mutex_trylock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_trylock(pj_mutex_t *mutex)
 {
     pj_assert(mutex == DUMMY_MUTEX);
     return PJ_SUCCESS;
@@ -884,7 +884,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_mutex_unlock()
  */
-(pj_status_t) pj_mutex_unlock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_unlock(pj_mutex_t *mutex)
 {
     pj_assert(mutex == DUMMY_MUTEX);
     return PJ_SUCCESS;
@@ -893,7 +893,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_mutex_destroy()
  */
-(pj_status_t) pj_mutex_destroy(pj_mutex_t *mutex)
+pj_status_t pj_mutex_destroy(pj_mutex_t *mutex)
 {
     pj_assert(mutex == DUMMY_MUTEX);
     return PJ_SUCCESS;
@@ -912,7 +912,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Enter critical section.
  */
-(void) pj_enter_critical_section(void)
+void pj_enter_critical_section(void)
 {
     /* Nothing to do */
 }
@@ -921,7 +921,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Leave critical section.
  */
-(void) pj_leave_critical_section(void)
+void pj_leave_critical_section(void)
 {
     /* Nothing to do */
 }
@@ -932,7 +932,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Create semaphore.
  */
-(pj_status_t) pj_sem_create( pj_pool_t *pool, 
+pj_status_t pj_sem_create( pj_pool_t *pool, 
                                    const char *name,
 				   unsigned initial, 
                                    unsigned max,
@@ -955,7 +955,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Wait for semaphore.
  */
-(pj_status_t) pj_sem_wait(pj_sem_t *sem)
+pj_status_t pj_sem_wait(pj_sem_t *sem)
 {
     if (sem->value > 0) {
 	sem->value--;
@@ -970,7 +970,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Try wait for semaphore.
  */
-(pj_status_t) pj_sem_trywait(pj_sem_t *sem)
+pj_status_t pj_sem_trywait(pj_sem_t *sem)
 {
     if (sem->value > 0) {
 	sem->value--;
@@ -985,7 +985,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Release semaphore.
  */
-(pj_status_t) pj_sem_post(pj_sem_t *sem)
+pj_status_t pj_sem_post(pj_sem_t *sem)
 {
     sem->value++;
     return PJ_SUCCESS;
@@ -995,7 +995,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Destroy semaphore.
  */
-(pj_status_t) pj_sem_destroy(pj_sem_t *sem)
+pj_status_t pj_sem_destroy(pj_sem_t *sem)
 {
     PJ_UNUSED_ARG(sem);
     return PJ_SUCCESS;
@@ -1006,7 +1006,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * The implementation of stack checking. 
  */
-(void) pj_thread_check_stack(const char *file, int line)
+void pj_thread_check_stack(const char *file, int line)
 {
     char stk_ptr;
     pj_uint32_t usage;
@@ -1032,7 +1032,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Get maximum stack usage statistic. 
  */
-(pj_uint32_t) pj_thread_get_stack_max_usage(pj_thread_t *thread)
+pj_uint32_t pj_thread_get_stack_max_usage(pj_thread_t *thread)
 {
     return thread->stk_max_usage;
 }
@@ -1040,7 +1040,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * Dump thread stack status. 
  */
-(pj_status_t) pj_thread_get_stack_info(pj_thread_t *thread,
+pj_status_t pj_thread_get_stack_info(pj_thread_t *thread,
 					     const char **file,
 					     int *line)
 {
@@ -1056,7 +1056,7 @@ void CPollTimeoutTimer::DoCancel()
 /*
  * pj_run_app()
  */
-(int) pj_run_app(pj_main_func_ptr main_func, int argc, char *argv[],
+int pj_run_app(pj_main_func_ptr main_func, int argc, char *argv[],
                        unsigned flags)
 {
     return (*main_func)(argc, argv);

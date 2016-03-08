@@ -196,7 +196,7 @@ static void destroy_tdata(pj_stun_tx_data *tdata, pj_bool_t force)
 /*
  * Destroy the transmit data.
  */
-(void) pj_stun_msg_destroy_tdata( pj_stun_session *sess,
+void pj_stun_msg_destroy_tdata( pj_stun_session *sess,
 					pj_stun_tx_data *tdata)
 {
     PJ_UNUSED_ARG(sess);
@@ -490,7 +490,7 @@ static pj_status_t stun_tsx_on_send_msg(pj_stun_client_tsx *tsx,
 
 /* **************************************************************************/
 
-(pj_status_t) pj_stun_session_create( pj_stun_config *cfg,
+pj_status_t pj_stun_session_create( pj_stun_config *cfg,
 					    const char *name,
 					    const pj_stun_session_cb *cb,
 					    pj_bool_t fingerprint,
@@ -569,7 +569,7 @@ static void stun_sess_on_destroy(void *comp)
     TRACE_((THIS_FILE, "STUN session %p destroyed", sess));
 }
 
-(pj_status_t) pj_stun_session_destroy(pj_stun_session *sess)
+pj_status_t pj_stun_session_destroy(pj_stun_session *sess)
 {
     pj_stun_tx_data *tdata;
 
@@ -611,7 +611,7 @@ static void stun_sess_on_destroy(void *comp)
 }
 
 
-(pj_status_t) pj_stun_session_set_user_data( pj_stun_session *sess,
+pj_status_t pj_stun_session_set_user_data( pj_stun_session *sess,
 						   void *user_data)
 {
     PJ_ASSERT_RETURN(sess, PJ_EINVAL);
@@ -621,19 +621,19 @@ static void stun_sess_on_destroy(void *comp)
     return PJ_SUCCESS;
 }
 
-(void*) pj_stun_session_get_user_data(pj_stun_session *sess)
+void* pj_stun_session_get_user_data(pj_stun_session *sess)
 {
     PJ_ASSERT_RETURN(sess, NULL);
     return sess->user_data;
 }
 
-(pj_grp_lock_t *) pj_stun_session_get_grp_lock(pj_stun_session *sess)
+pj_grp_lock_t * pj_stun_session_get_grp_lock(pj_stun_session *sess)
 {
     PJ_ASSERT_RETURN(sess, NULL);
     return sess->grp_lock;
 }
 
-(pj_status_t) pj_stun_session_set_software_name(pj_stun_session *sess,
+pj_status_t pj_stun_session_set_software_name(pj_stun_session *sess,
 						      const pj_str_t *sw)
 {
     PJ_ASSERT_RETURN(sess, PJ_EINVAL);
@@ -646,7 +646,7 @@ static void stun_sess_on_destroy(void *comp)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_stun_session_set_credential(pj_stun_session *sess,
+pj_status_t pj_stun_session_set_credential(pj_stun_session *sess,
 						 pj_stun_auth_type auth_type,
 						 const pj_stun_auth_cred *cred)
 {
@@ -665,14 +665,14 @@ static void stun_sess_on_destroy(void *comp)
     return PJ_SUCCESS;
 }
 
-(void) pj_stun_session_set_log( pj_stun_session *sess,
+void pj_stun_session_set_log( pj_stun_session *sess,
 				      unsigned flags)
 {
     PJ_ASSERT_ON_FAIL(sess, return);
     sess->log_flag = flags;
 }
 
-(pj_bool_t) pj_stun_session_use_fingerprint(pj_stun_session *sess,
+pj_bool_t pj_stun_session_use_fingerprint(pj_stun_session *sess,
 						  pj_bool_t use)
 {
     pj_bool_t old_use;
@@ -726,7 +726,7 @@ static pj_status_t get_auth(pj_stun_session *sess,
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_stun_session_create_req(pj_stun_session *sess,
+pj_status_t pj_stun_session_create_req(pj_stun_session *sess,
 					       int method,
 					       pj_uint32_t magic,
 					       const pj_uint8_t tsx_id[12],
@@ -799,7 +799,7 @@ on_error:
     return status;
 }
 
-(pj_status_t) pj_stun_session_create_ind(pj_stun_session *sess,
+pj_status_t pj_stun_session_create_ind(pj_stun_session *sess,
 					       int msg_type,
 					       pj_stun_tx_data **p_tdata)
 {
@@ -839,7 +839,7 @@ on_error:
 /*
  * Create a STUN response message.
  */
-(pj_status_t) pj_stun_session_create_res( pj_stun_session *sess,
+pj_status_t pj_stun_session_create_res( pj_stun_session *sess,
 						const pj_stun_rx_data *rdata,
 						unsigned err_code,
 						const pj_str_t *err_msg,
@@ -916,7 +916,7 @@ static void dump_tx_msg(pj_stun_session *sess, const pj_stun_msg *msg,
 }
 
 
-(pj_status_t) pj_stun_session_send_msg( pj_stun_session *sess,
+pj_status_t pj_stun_session_send_msg( pj_stun_session *sess,
 					      void *token,
 					      pj_bool_t cache_res,
 					      pj_bool_t retransmit,
@@ -1053,7 +1053,7 @@ on_return:
 /*
  * Create and send STUN response message.
  */
-(pj_status_t) pj_stun_session_respond( pj_stun_session *sess, 
+pj_status_t pj_stun_session_respond( pj_stun_session *sess, 
 					     const pj_stun_rx_data *rdata,
 					     unsigned code, 
 					     const char *errmsg,
@@ -1091,7 +1091,7 @@ on_return:
 /*
  * Cancel outgoing STUN transaction. 
  */
-(pj_status_t) pj_stun_session_cancel_req( pj_stun_session *sess,
+pj_status_t pj_stun_session_cancel_req( pj_stun_session *sess,
 						pj_stun_tx_data *tdata,
 						pj_bool_t notify,
 						pj_status_t notify_status)
@@ -1123,7 +1123,7 @@ on_return:
 /*
  * Explicitly request retransmission of the request.
  */
-(pj_status_t) pj_stun_session_retransmit_req(pj_stun_session *sess,
+pj_status_t pj_stun_session_retransmit_req(pj_stun_session *sess,
 						   pj_stun_tx_data *tdata,
                                                    pj_bool_t mod_count)
 {
@@ -1415,7 +1415,7 @@ static void dump_rx_msg(pj_stun_session *sess, const pj_stun_msg *msg,
 }
 
 /* Incoming packet */
-(pj_status_t) pj_stun_session_on_rx_pkt(pj_stun_session *sess,
+pj_status_t pj_stun_session_on_rx_pkt(pj_stun_session *sess,
 					      const void *packet,
 					      pj_size_t pkt_size,
 					      unsigned options,

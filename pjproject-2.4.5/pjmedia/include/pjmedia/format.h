@@ -462,7 +462,7 @@ typedef struct pjmedia_video_format_info
  *
  * @return			The samples per frame value.
  */
-PJ_INLINE(unsigned) PJMEDIA_SPF(unsigned clock_rate, unsigned usec_ptime,
+unsigned PJMEDIA_SPF(unsigned clock_rate, unsigned usec_ptime,
 				unsigned channel_count)
 {
 #if PJ_HAS_INT64
@@ -479,7 +479,7 @@ PJ_INLINE(unsigned) PJMEDIA_SPF(unsigned clock_rate, unsigned usec_ptime,
 /**
  * Variant of #PJMEDIA_SPF() which takes frame rate instead of ptime.
  */
-PJ_INLINE(unsigned) PJMEDIA_SPF2(unsigned clock_rate, const pjmedia_ratio *fr,
+unsigned PJMEDIA_SPF2(unsigned clock_rate, const pjmedia_ratio *fr,
 				 unsigned channel_count)
 {
 #if PJ_HAS_INT64
@@ -503,7 +503,7 @@ PJ_INLINE(unsigned) PJMEDIA_SPF2(unsigned clock_rate, const pjmedia_ratio *fr,
  *
  * @return			Frame size in bytes.
  */
-PJ_INLINE(unsigned) PJMEDIA_FSZ(unsigned bps, unsigned usec_ptime)
+unsigned PJMEDIA_FSZ(unsigned bps, unsigned usec_ptime)
 {
 #if PJ_HAS_INT64
     return ((unsigned)((pj_uint64_t)bps * usec_ptime / PJ_UINT64(8000000)));
@@ -523,7 +523,7 @@ PJ_INLINE(unsigned) PJMEDIA_FSZ(unsigned bps, unsigned usec_ptime)
  *
  * @return			The ptime value (in usec).
  */
-PJ_INLINE(unsigned) PJMEDIA_PTIME(const pjmedia_ratio *frame_rate)
+unsigned PJMEDIA_PTIME(const pjmedia_ratio *frame_rate)
 {
 #if PJ_HAS_INT64
     return ((unsigned)((pj_uint64_t)1000000 * \
@@ -544,7 +544,7 @@ PJ_INLINE(unsigned) PJMEDIA_PTIME(const pjmedia_ratio *frame_rate)
  * @param pafd		Pointer to pjmedia_audio_format_detail
  * @return		Samples per frame
  */
-PJ_INLINE(unsigned) PJMEDIA_AFD_SPF(const pjmedia_audio_format_detail *pafd)
+unsigned PJMEDIA_AFD_SPF(const pjmedia_audio_format_detail *pafd)
 {
     return PJMEDIA_SPF(pafd->clock_rate, pafd->frame_time_usec,
 		       pafd->channel_count);
@@ -558,7 +558,7 @@ PJ_INLINE(unsigned) PJMEDIA_AFD_SPF(const pjmedia_audio_format_detail *pafd)
  * @param afd		Pointer to pjmedia_audio_format_detail
  * @return		Average frame size.
  */
-PJ_INLINE(unsigned) PJMEDIA_AFD_AVG_FSZ(const pjmedia_audio_format_detail *afd)
+unsigned PJMEDIA_AFD_AVG_FSZ(const pjmedia_audio_format_detail *afd)
 {
     return PJMEDIA_FSZ(afd->avg_bps, afd->frame_time_usec);
 }
@@ -571,7 +571,7 @@ PJ_INLINE(unsigned) PJMEDIA_AFD_AVG_FSZ(const pjmedia_audio_format_detail *afd)
  * @param afd		Pointer to pjmedia_audio_format_detail
  * @return		Average frame size.
  */
-PJ_INLINE(unsigned) PJMEDIA_AFD_MAX_FSZ(const pjmedia_audio_format_detail *afd)
+unsigned PJMEDIA_AFD_MAX_FSZ(const pjmedia_audio_format_detail *afd)
 {
     return PJMEDIA_FSZ(afd->max_bps, afd->frame_time_usec);
 }
@@ -589,7 +589,7 @@ PJ_INLINE(unsigned) PJMEDIA_AFD_MAX_FSZ(const pjmedia_audio_format_detail *afd)
  * @param avg_bps		Average bitrate.
  * @param max_bps		Maximum bitrate.
  */
-PJ_INLINE(void) pjmedia_format_init_audio(pjmedia_format *fmt,
+void pjmedia_format_init_audio(pjmedia_format *fmt,
 				          pj_uint32_t fmt_id,
 					  unsigned clock_rate,
 					  unsigned channel_count,
@@ -631,7 +631,7 @@ PJ_INLINE(void) pjmedia_format_init_audio(pjmedia_format *fmt,
  * @param avg_bps	Average bitrate.
  * @param max_bps	Maximum bitrate.
  */
-(void) pjmedia_format_init_video(pjmedia_format *fmt,
+void pjmedia_format_init_video(pjmedia_format *fmt,
 					pj_uint32_t fmt_id,
 					unsigned width,
 					unsigned height,
@@ -646,7 +646,7 @@ PJ_INLINE(void) pjmedia_format_init_audio(pjmedia_format *fmt,
  *
  * @return		Pointer to destination format.
  */
-(pjmedia_format*) pjmedia_format_copy(pjmedia_format *dst,
+pjmedia_format* pjmedia_format_copy(pjmedia_format *dst,
 					     const pjmedia_format *src);
 
 /**
@@ -662,7 +662,7 @@ PJ_INLINE(void) pjmedia_format_init_audio(pjmedia_format *fmt,
  * 			structure, or NULL if the format doesn't contain
  * 			audio detail.
  */
-(pjmedia_audio_format_detail*)
+pjmedia_audio_format_detail*
 pjmedia_format_get_audio_format_detail(const pjmedia_format *fmt,
 				       pj_bool_t assert_valid);
 
@@ -679,7 +679,7 @@ pjmedia_format_get_audio_format_detail(const pjmedia_format *fmt,
  * 			structure, or NULL if the format doesn't contain
  * 			video detail.
  */
-(pjmedia_video_format_detail*)
+pjmedia_video_format_detail*
 pjmedia_format_get_video_format_detail(const pjmedia_format *fmt,
 				       pj_bool_t assert_valid);
 
@@ -707,7 +707,7 @@ typedef struct pjmedia_video_format_mgr pjmedia_video_format_mgr;
  *
  * @return		PJ_SUCCESS on success, or the appripriate error value.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_video_format_mgr_create(pj_pool_t *pool,
 				unsigned max_fmt,
 				unsigned options,
@@ -718,7 +718,7 @@ pjmedia_video_format_mgr_create(pj_pool_t *pool,
  *
  * @return		The instance.
  */
-(pjmedia_video_format_mgr*) pjmedia_video_format_mgr_instance(void);
+pjmedia_video_format_mgr* pjmedia_video_format_mgr_instance(void);
 
 /**
  * Manually assign a specific video manager instance as the singleton
@@ -730,7 +730,7 @@ pjmedia_video_format_mgr_create(pj_pool_t *pool,
  * 			Application may specify NULL to clear the singleton
  * 			singleton instance.
  */
-(void)
+void
 pjmedia_video_format_mgr_set_instance(pjmedia_video_format_mgr *mgr);
 
 /**
@@ -745,7 +745,7 @@ pjmedia_video_format_mgr_set_instance(pjmedia_video_format_mgr *mgr);
  *
  * @return		The video format info.
  */
-(const pjmedia_video_format_info*)
+const pjmedia_video_format_info*
 pjmedia_get_video_format_info(pjmedia_video_format_mgr *mgr,
 			      pj_uint32_t id);
 
@@ -767,7 +767,7 @@ pjmedia_get_video_format_info(pjmedia_video_format_mgr *mgr,
  *
  * @return		PJ_SUCCESS on success, or the appripriate error value.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_register_video_format_info(pjmedia_video_format_mgr *mgr,
 				   pjmedia_video_format_info *vfi);
 
@@ -780,7 +780,7 @@ pjmedia_register_video_format_info(pjmedia_video_format_mgr *mgr,
  * 			manager still must have been created prior to
  * 			calling this function).
  */
-(void) pjmedia_video_format_mgr_destroy(pjmedia_video_format_mgr *mgr);
+void pjmedia_video_format_mgr_destroy(pjmedia_video_format_mgr *mgr);
 
 PJ_END_DECL
 

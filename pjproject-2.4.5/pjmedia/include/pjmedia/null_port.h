@@ -51,7 +51,7 @@ PJ_BEGIN_DECL
  *
  * @return			PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_null_port_create( pj_pool_t *pool,
+pj_status_t pjmedia_null_port_create( pj_pool_t *pool,
 					       unsigned sampling_rate,
 					       unsigned channel_count,
 					       unsigned samples_per_frame,

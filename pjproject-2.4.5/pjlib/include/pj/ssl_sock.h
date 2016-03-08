@@ -198,7 +198,7 @@ typedef struct pj_ssl_cert_info {
  *
  * @return		PJ_SUCCESS when successful.
  */
-(pj_status_t) pj_ssl_cert_load_from_files(pj_pool_t *pool,
+pj_status_t pj_ssl_cert_load_from_files(pj_pool_t *pool,
 						 const pj_str_t *CA_file,
 						 const pj_str_t *cert_file,
 						 const pj_str_t *privkey_file,
@@ -224,7 +224,7 @@ typedef struct pj_ssl_cert_info {
  *
  * @return		PJ_SUCCESS when successful.
  */
-(pj_status_t) pj_ssl_cert_load_from_files2(
+pj_status_t pj_ssl_cert_load_from_files2(
 						pj_pool_t *pool,
 						const pj_str_t *CA_file,
 						const pj_str_t *CA_path,
@@ -245,7 +245,7 @@ typedef struct pj_ssl_cert_info {
  * @return		The length of the dump result, or -1 when buffer size
  *			is not sufficient.
  */
-(pj_ssize_t) pj_ssl_cert_info_dump(const pj_ssl_cert_info *ci,
+pj_ssize_t pj_ssl_cert_info_dump(const pj_ssl_cert_info *ci,
 					  const char *indent,
 					  char *buf,
 					  pj_size_t buf_size);
@@ -263,7 +263,7 @@ typedef struct pj_ssl_cert_info {
  *
  * @return		PJ_SUCCESS when successful.
  */
-(pj_status_t) pj_ssl_cert_get_verify_status_strings(
+pj_status_t pj_ssl_cert_get_verify_status_strings(
 						 pj_uint32_t verify_status, 
 						 const char *error_strings[],
 						 unsigned *count);
@@ -361,7 +361,7 @@ typedef enum pj_ssl_cipher {
  *
  * @return		PJ_SUCCESS when successful.
  */
-(pj_status_t) pj_ssl_cipher_get_availables(pj_ssl_cipher ciphers[],
+pj_status_t pj_ssl_cipher_get_availables(pj_ssl_cipher ciphers[],
 					          unsigned *cipher_num);
 
 
@@ -372,7 +372,7 @@ typedef enum pj_ssl_cipher {
  *
  * @return		PJ_TRUE when supported.
  */
-(pj_bool_t) pj_ssl_cipher_is_supported(pj_ssl_cipher cipher);
+pj_bool_t pj_ssl_cipher_is_supported(pj_ssl_cipher cipher);
 
 
 /**
@@ -383,7 +383,7 @@ typedef enum pj_ssl_cipher {
  * @return		The cipher name or NULL if cipher is not recognized/
  *			supported.
  */
-(const char*) pj_ssl_cipher_name(pj_ssl_cipher cipher);
+const char* pj_ssl_cipher_name(pj_ssl_cipher cipher);
 
 
 /**
@@ -396,7 +396,7 @@ typedef enum pj_ssl_cipher {
  * @return		The cipher ID or PJ_TLS_UNKNOWN_CIPHER if the cipher
  *			name string is not recognized/supported.
  */
-(pj_ssl_cipher) pj_ssl_cipher_id(const char *cipher_name);
+pj_ssl_cipher pj_ssl_cipher_id(const char *cipher_name);
 
 
 /**
@@ -860,7 +860,7 @@ typedef struct pj_ssl_sock_param
  *
  * @param param		The parameter to be initialized.
  */
-(void) pj_ssl_sock_param_default(pj_ssl_sock_param *param);
+void pj_ssl_sock_param_default(pj_ssl_sock_param *param);
 
 
 /**
@@ -872,7 +872,7 @@ typedef struct pj_ssl_sock_param
  *
  * @return		PJ_SUCCESS when successful.
  */
-(pj_status_t) pj_ssl_sock_create(pj_pool_t *pool,
+pj_status_t pj_ssl_sock_create(pj_pool_t *pool,
 					const pj_ssl_sock_param *param,
 					pj_ssl_sock_t **p_ssock);
 
@@ -892,7 +892,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_set_certificate(
+pj_status_t pj_ssl_sock_set_certificate(
 					    pj_ssl_sock_t *ssock,
 					    pj_pool_t *pool,
 					    const pj_ssl_cert_t *cert);
@@ -906,7 +906,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_close(pj_ssl_sock_t *ssock);
+pj_status_t pj_ssl_sock_close(pj_ssl_sock_t *ssock);
 
 
 /**
@@ -921,7 +921,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_set_user_data(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_set_user_data(pj_ssl_sock_t *ssock,
 					       void *user_data);
 
 /**
@@ -932,7 +932,7 @@ typedef struct pj_ssl_sock_param
  *
  * @return		The user data.
  */
-(void*) pj_ssl_sock_get_user_data(pj_ssl_sock_t *ssock);
+void* pj_ssl_sock_get_user_data(pj_ssl_sock_t *ssock);
 
 
 /**
@@ -943,7 +943,7 @@ typedef struct pj_ssl_sock_param
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pj_ssl_sock_get_info(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_get_info(pj_ssl_sock_t *ssock,
 					  pj_ssl_sock_info *info);
 
 
@@ -969,7 +969,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_start_read(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_start_read(pj_ssl_sock_t *ssock,
 					    pj_pool_t *pool,
 					    unsigned buff_size,
 					    pj_uint32_t flags);
@@ -988,7 +988,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_start_read2(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_start_read2(pj_ssl_sock_t *ssock,
 					     pj_pool_t *pool,
 					     unsigned buff_size,
 					     void *readbuf[],
@@ -1007,7 +1007,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_start_recvfrom(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_start_recvfrom(pj_ssl_sock_t *ssock,
 						pj_pool_t *pool,
 						unsigned buff_size,
 						pj_uint32_t flags);
@@ -1026,7 +1026,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_start_recvfrom2(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_start_recvfrom2(pj_ssl_sock_t *ssock,
 						 pj_pool_t *pool,
 						 unsigned buff_size,
 						 void *readbuf[],
@@ -1052,7 +1052,7 @@ typedef struct pj_ssl_sock_param
  *			\a on_data_sent() will be called when data is actually
  *			sent. Any other return value indicates error condition.
  */
-(pj_status_t) pj_ssl_sock_send(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_send(pj_ssl_sock_t *ssock,
 				      pj_ioqueue_op_key_t *send_key,
 				      const void *data,
 				      pj_ssize_t *size,
@@ -1079,7 +1079,7 @@ typedef struct pj_ssl_sock_param
  *			called when data is actually sent. Any other return
  *			value indicates error condition.
  */
-(pj_status_t) pj_ssl_sock_sendto(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_sendto(pj_ssl_sock_t *ssock,
 					pj_ioqueue_op_key_t *send_key,
 					const void *data,
 					pj_ssize_t *size,
@@ -1108,7 +1108,7 @@ typedef struct pj_ssl_sock_param
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_ssl_sock_start_accept(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_start_accept(pj_ssl_sock_t *ssock,
 					      pj_pool_t *pool,
 					      const pj_sockaddr_t *local_addr,
 					      int addr_len);
@@ -1132,7 +1132,7 @@ typedef struct pj_ssl_sock_param
  *			callback will be called when connection is complete. 
  *			Any other return value indicates error condition.
  */
-(pj_status_t) pj_ssl_sock_start_connect(pj_ssl_sock_t *ssock,
+pj_status_t pj_ssl_sock_start_connect(pj_ssl_sock_t *ssock,
 					       pj_pool_t *pool,
 					       const pj_sockaddr_t *localaddr,
 					       const pj_sockaddr_t *remaddr,
@@ -1153,7 +1153,7 @@ typedef struct pj_ssl_sock_param
  *			waiting for completion, or the appropriate error code 
  *			on failure.
  */
-(pj_status_t) pj_ssl_sock_renegotiate(pj_ssl_sock_t *ssock);
+pj_status_t pj_ssl_sock_renegotiate(pj_ssl_sock_t *ssock);
 
 
 /**

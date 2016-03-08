@@ -338,13 +338,13 @@ mlt_sqvh_bitcount_category_6
 
 
 UWord16 *table_of_code_tables[NUM_CATEGORIES-1] = {
-(UWord16 *)mlt_sqvh_code_category_0,
-(UWord16 *)mlt_sqvh_code_category_1,
-(UWord16 *)mlt_sqvh_code_category_2,
-(UWord16 *)mlt_sqvh_code_category_3,
-(UWord16 *)mlt_sqvh_code_category_4,
-(UWord16 *)mlt_sqvh_code_category_5,
-(UWord16 *)mlt_sqvh_code_category_6
+UWord16 *mlt_sqvh_code_category_0,
+UWord16 *mlt_sqvh_code_category_1,
+UWord16 *mlt_sqvh_code_category_2,
+UWord16 *mlt_sqvh_code_category_3,
+UWord16 *mlt_sqvh_code_category_4,
+UWord16 *mlt_sqvh_code_category_5,
+UWord16 *mlt_sqvh_code_category_6
 };
 
 Word16 mlt_decoder_tree_category_0[180][2] = {
@@ -517,12 +517,12 @@ Word16 mlt_decoder_tree_category_6[31][2] = {
 {  27, -19},{ -25, -13},{ -21,  28},{  29, -30},{ -27,  30},{ -15, -29},{ -23, -31},};
 
 Word16 *table_of_decoder_tables[NUM_CATEGORIES-1] = {
-(Word16 *)mlt_decoder_tree_category_0,
-(Word16 *)mlt_decoder_tree_category_1,
-(Word16 *)mlt_decoder_tree_category_2,
-(Word16 *)mlt_decoder_tree_category_3,
-(Word16 *)mlt_decoder_tree_category_4,
-(Word16 *)mlt_decoder_tree_category_5,
-(Word16 *)mlt_decoder_tree_category_6,
+Word16 *mlt_decoder_tree_category_0,
+Word16 *mlt_decoder_tree_category_1,
+Word16 *mlt_decoder_tree_category_2,
+Word16 *mlt_decoder_tree_category_3,
+Word16 *mlt_decoder_tree_category_4,
+Word16 *mlt_decoder_tree_category_5,
+Word16 *mlt_decoder_tree_category_6,
 };
 

@@ -551,7 +551,7 @@ struct pjmedia_transport_info
  *
  * @param info	    Transport info to be initialized.
  */
-PJ_INLINE(void) pjmedia_transport_info_init(pjmedia_transport_info *info)
+void pjmedia_transport_info_init(pjmedia_transport_info *info)
 {
     pj_bzero(info, sizeof(pjmedia_transport_info));
     info->sock_info.rtp_sock = info->sock_info.rtcp_sock = PJ_INVALID_SOCKET;
@@ -569,7 +569,7 @@ PJ_INLINE(void) pjmedia_transport_info_init(pjmedia_transport_info *info)
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_get_info(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_get_info(pjmedia_transport *tp,
 						  pjmedia_transport_info *info)
 {
     if (tp && tp->op && tp->op->get_info)
@@ -589,7 +589,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_get_info(pjmedia_transport *tp,
  * @return	    Pointer to media transport specific info, or NULL if
  * 		    specific info for the transport type is not found.
  */
-PJ_INLINE(void*) pjmedia_transport_info_get_spc_info(
+void* pjmedia_transport_info_get_spc_info(
 						pjmedia_transport_info *info,
 						pjmedia_transport_type type)
 {
@@ -623,7 +623,7 @@ PJ_INLINE(void*) pjmedia_transport_info_get_spc_info(
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_attach(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_attach(pjmedia_transport *tp,
 					        void *user_data,
 					        const pj_sockaddr_t *rem_addr,
 						const pj_sockaddr_t *rem_rtcp,
@@ -652,7 +652,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_attach(pjmedia_transport *tp,
  * @param user_data User data which must match the previously set value
  *		    on attachment.
  */
-PJ_INLINE(void) pjmedia_transport_detach(pjmedia_transport *tp,
+void pjmedia_transport_detach(pjmedia_transport *tp,
 					 void *user_data)
 {
     tp->op->detach(tp, user_data);
@@ -671,7 +671,7 @@ PJ_INLINE(void) pjmedia_transport_detach(pjmedia_transport *tp,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_send_rtp(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_send_rtp(pjmedia_transport *tp,
 						  const void *pkt,
 						  pj_size_t size)
 {
@@ -691,7 +691,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_send_rtp(pjmedia_transport *tp,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_send_rtcp(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_send_rtcp(pjmedia_transport *tp,
 						  const void *pkt,
 						  pj_size_t size)
 {
@@ -714,7 +714,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_send_rtcp(pjmedia_transport *tp,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_send_rtcp2(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_send_rtcp2(pjmedia_transport *tp,
 						    const pj_sockaddr_t *addr,
 						    unsigned addr_len,
 						    const void *pkt,
@@ -742,7 +742,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_send_rtcp2(pjmedia_transport *tp,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_media_create(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_media_create(pjmedia_transport *tp,
 				    pj_pool_t *sdp_pool,
 				    unsigned options,
 				    const pjmedia_sdp_session *rem_sdp,
@@ -772,7 +772,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_media_create(pjmedia_transport *tp,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_encode_sdp(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_encode_sdp(pjmedia_transport *tp,
 					    pj_pool_t *sdp_pool,
 					    pjmedia_sdp_session *sdp,
 					    const pjmedia_sdp_session *rem_sdp,
@@ -800,7 +800,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_encode_sdp(pjmedia_transport *tp,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_media_start(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_media_start(pjmedia_transport *tp,
 				    pj_pool_t *tmp_pool,
 				    const pjmedia_sdp_session *sdp_local,
 				    const pjmedia_sdp_session *sdp_remote,
@@ -822,7 +822,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_media_start(pjmedia_transport *tp,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_media_stop(pjmedia_transport *tp)
+pj_status_t pjmedia_transport_media_stop(pjmedia_transport *tp)
 {
     return (*tp->op->media_stop)(tp);
 }
@@ -836,7 +836,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_media_stop(pjmedia_transport *tp)
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_close(pjmedia_transport *tp)
+pj_status_t pjmedia_transport_close(pjmedia_transport *tp)
 {
     if (tp->op->destroy)
 	return (*tp->op->destroy)(tp);
@@ -856,7 +856,7 @@ PJ_INLINE(pj_status_t) pjmedia_transport_close(pjmedia_transport *tp)
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_transport_simulate_lost(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_simulate_lost(pjmedia_transport *tp,
 						       pjmedia_dir dir,
 						       unsigned pct_lost)
 {

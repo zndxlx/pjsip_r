@@ -27,7 +27,7 @@
 #include <pjsua-lib/pjsua.h>
 
 
-PJ_INLINE(pj_str_t) PyString_to_pj_str(const PyObject *obj)
+pj_str_t PyString_to_pj_str(const PyObject *obj)
 {
     pj_str_t str;
 

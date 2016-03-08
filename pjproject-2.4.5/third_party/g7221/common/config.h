@@ -17,8 +17,8 @@
 
 /* Declare/define a function that may be expanded as inline. */
 #if PJMEDIA_LIBG7221_FUNCS_INLINED
-#  define LIBG7221_DECL(type)  PJ_INLINE(type)
-#  define LIBG7221_DEF(type)   PJ_INLINE(type)
+#  define LIBG7221_DECL(type)  (type)
+#  define LIBG7221_DEF(type)   (type)
 #else
 #  define LIBG7221_DECL(type)  (type)
 #  define LIBG7221_DEF(type)   (type)

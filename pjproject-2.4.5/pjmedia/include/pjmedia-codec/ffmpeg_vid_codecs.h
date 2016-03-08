@@ -43,7 +43,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_ffmpeg_vid_init(pjmedia_vid_codec_mgr *mgr,
+pj_status_t pjmedia_codec_ffmpeg_vid_init(pjmedia_vid_codec_mgr *mgr,
                                                    pj_pool_factory *pf);
 
 
@@ -53,7 +53,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_ffmpeg_vid_deinit(void);
+pj_status_t pjmedia_codec_ffmpeg_vid_deinit(void);
 
 
 PJ_END_DECL

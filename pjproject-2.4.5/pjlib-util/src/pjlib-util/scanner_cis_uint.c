@@ -24,20 +24,20 @@
  */
 
 
-(void) pj_cis_buf_init( pj_cis_buf_t *cis_buf)
+void pj_cis_buf_init( pj_cis_buf_t *cis_buf)
 {
     /* Do nothing. */
     PJ_UNUSED_ARG(cis_buf);
 }
 
-(pj_status_t) pj_cis_init(pj_cis_buf_t *cis_buf, pj_cis_t *cis)
+pj_status_t pj_cis_init(pj_cis_buf_t *cis_buf, pj_cis_t *cis)
 {
     PJ_UNUSED_ARG(cis_buf);
     pj_bzero(cis->cis_buf, sizeof(cis->cis_buf));
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_cis_dup( pj_cis_t *new_cis, pj_cis_t *existing)
+pj_status_t pj_cis_dup( pj_cis_t *new_cis, pj_cis_t *existing)
 {
     pj_memcpy(new_cis, existing, sizeof(pj_cis_t));
     return PJ_SUCCESS;

@@ -46,7 +46,7 @@ static pj_status_t stereo_destroy(pjmedia_port *this_port);
 
 
 
-(pj_status_t) pjmedia_stereo_port_create( pj_pool_t *pool,
+pj_status_t pjmedia_stereo_port_create( pj_pool_t *pool,
 						pjmedia_port *dn_port,
 						unsigned channel_count,
 						unsigned options,

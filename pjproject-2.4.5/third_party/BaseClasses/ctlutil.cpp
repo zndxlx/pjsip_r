@@ -716,7 +716,7 @@ CPosPassThru::GetPositions(__out_opt LONGLONG *pCurrent, __out_opt LONGLONG * pS
 
 HRESULT
 CPosPassThru::GetSeekingLongLong
-( HRESULT (__stdcall IMediaSeeking::*pMethod)( __out LONGLONG * )
+ HRESULT (__stdcall IMediaSeeking::*pMethod( __out LONGLONG * )
 , LONGLONG * pll
 )
 {

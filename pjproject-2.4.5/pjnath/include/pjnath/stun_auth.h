@@ -332,7 +332,7 @@ typedef struct pj_stun_req_cred_info
  * @param dst		Destination credential.
  * @param src		Source credential.
  */
-(void) pj_stun_auth_cred_dup(pj_pool_t *pool,
+void pj_stun_auth_cred_dup(pj_pool_t *pool,
 				      pj_stun_auth_cred *dst,
 				      const pj_stun_auth_cred *src);
 
@@ -343,7 +343,7 @@ typedef struct pj_stun_req_cred_info
  * @param dst		Destination credential.
  * @param src		Source credential.
  */
-(void) pj_stun_req_cred_info_dup(pj_pool_t *pool,
+void pj_stun_req_cred_info_dup(pj_pool_t *pool,
 					pj_stun_req_cred_info *dst,
 					const pj_stun_req_cred_info *src);
 
@@ -364,7 +364,7 @@ typedef struct pj_stun_req_cred_info
  * @param data_type	Password encoding.
  * @param data		The password.
  */
-(void) pj_stun_create_key(pj_pool_t *pool,
+void pj_stun_create_key(pj_pool_t *pool,
 				 pj_str_t *key,
 				 const pj_str_t *realm,
 				 const pj_str_t *username,
@@ -399,7 +399,7 @@ typedef struct pj_stun_req_cred_info
  *			NULL, an appropriate response will be returned in
  *			\a p_response.
  */
-(pj_status_t) pj_stun_authenticate_request(const pj_uint8_t *pkt,
+pj_status_t pj_stun_authenticate_request(const pj_uint8_t *pkt,
 					          unsigned pkt_len,
 					          const pj_stun_msg *msg,
 					          pj_stun_auth_cred *cred,
@@ -418,7 +418,7 @@ typedef struct pj_stun_req_cred_info
  *
  * @return		Non-zero if the STUN message can be authenticated.
  */
-(pj_bool_t) pj_stun_auth_valid_for_msg(const pj_stun_msg *msg);
+pj_bool_t pj_stun_auth_valid_for_msg(const pj_stun_msg *msg);
 
 
 /**
@@ -439,7 +439,7 @@ typedef struct pj_stun_req_cred_info
  *
  * @return		PJ_SUCCESS if credential is verified successfully.
  */
-(pj_status_t) pj_stun_authenticate_response(const pj_uint8_t *pkt,
+pj_status_t pj_stun_authenticate_response(const pj_uint8_t *pkt,
 					           unsigned pkt_len,
 					           const pj_stun_msg *msg,
 					           const pj_str_t *key);

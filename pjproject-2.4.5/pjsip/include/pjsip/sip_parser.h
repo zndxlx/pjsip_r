@@ -126,7 +126,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS if success, or the appropriate error code.
  */
-(pj_status_t) pjsip_register_hdr_parser( const char *hname,
+pj_status_t pjsip_register_hdr_parser( const char *hname,
 						const char *hshortname,
 						pjsip_parse_hdr_func *fptr);
 
@@ -141,7 +141,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return		zero if unregistration was successfull.
  */
-(pj_status_t) pjsip_unregister_hdr_parser( const char *hname,
+pj_status_t pjsip_unregister_hdr_parser( const char *hname,
 						  const char *hshortname,
 						  pjsip_parse_hdr_func *fptr);
 
@@ -153,7 +153,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return		zero on success.
  */
-(pj_status_t) pjsip_register_uri_parser( char *scheme,
+pj_status_t pjsip_register_uri_parser( char *scheme,
 					        pjsip_parse_uri_func *func);
 
 /**
@@ -166,7 +166,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return		zero if the registration was successfull.
  */
-(pj_status_t) pjsip_unregister_uri_parser( const char *scheme,
+pj_status_t pjsip_unregister_uri_parser( const char *scheme,
 						  pjsip_parse_uri_func *func);
 
 /**
@@ -185,7 +185,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  * @return		The URI or NULL when failed. No exception is thrown by 
  *			this function (or any public parser functions).
  */
-(pjsip_uri*) pjsip_parse_uri( pj_pool_t *pool, 
+pjsip_uri* pjsip_parse_uri( pj_pool_t *pool, 
 				     char *buf, pj_size_t size,
 				     unsigned options);
 
@@ -198,7 +198,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS if a status line is parsed successfully.
  */
-(pj_status_t) pjsip_parse_status_line(char *buf, pj_size_t size,
+pj_status_t pjsip_parse_status_line(char *buf, pj_size_t size,
 					     pjsip_status_line *status_line);
 
 
@@ -218,7 +218,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  * @return		The message or NULL when failed. No exception is thrown
  *			by this function (or any public parser functions).
  */
-(pjsip_msg *) pjsip_parse_msg( pj_pool_t *pool, 
+pjsip_msg * pjsip_parse_msg( pj_pool_t *pool, 
 				      char *buf, pj_size_t size,
 				      pjsip_parser_err_report *err_list);
 
@@ -238,7 +238,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return              The message inside the rdata if successfull, or NULL.
  */
-(pjsip_msg *) pjsip_parse_rdata( char *buf, pj_size_t size,
+pjsip_msg * pjsip_parse_rdata( char *buf, pj_size_t size,
                                         pjsip_rx_data *rdata );
 
 /**
@@ -253,7 +253,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS if a message is found, or an error code.
  */
-(pj_status_t) pjsip_find_msg(const char *buf, 
+pj_status_t pjsip_find_msg(const char *buf, 
                                     pj_size_t size, 
 				    pj_bool_t is_datagram, 
                                     pj_size_t *msg_size);
@@ -279,7 +279,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  * @return		The instance of the header if parsing was successful,
  *			or otherwise a NULL pointer will be returned.
  */
-(void*) pjsip_parse_hdr( pj_pool_t *pool, const pj_str_t *hname,
+void* pjsip_parse_hdr( pj_pool_t *pool, const pj_str_t *hname,
 				char *line, pj_size_t size,
 				int *parsed_len);
 
@@ -303,7 +303,7 @@ typedef void* (pjsip_parse_uri_func)(pj_scanner *scanner, pj_pool_t *pool,
  *			Upon error, the \a hlist argument MAY contain 
  *			successfully parsed headers.
  */
-(pj_status_t) pjsip_parse_headers( pj_pool_t *pool, char *input,
+pj_status_t pjsip_parse_headers( pj_pool_t *pool, char *input,
 				          pj_size_t size, pjsip_hdr *hlist,
 				          unsigned options);
 
@@ -385,7 +385,7 @@ typedef struct pjsip_parser_const_t
 /**
  * Get parser constants.
  */
-(const pjsip_parser_const_t*) pjsip_parser_const(void);
+const pjsip_parser_const_t* pjsip_parser_const(void);
 
 
 /*
@@ -397,21 +397,21 @@ enum
 };
 
 /* Parse parameter in header (matching the character as token) */
-(void) pjsip_parse_param_imp(pj_scanner *scanner, pj_pool_t *pool,
+void pjsip_parse_param_imp(pj_scanner *scanner, pj_pool_t *pool,
 			     	    pj_str_t *pname, pj_str_t *pvalue,
 			     	    unsigned opt);
 /* Parse parameter in URL (matching the character as paramchar) */
-(void) pjsip_parse_uri_param_imp(pj_scanner *scanner, pj_pool_t *pool,
+void pjsip_parse_uri_param_imp(pj_scanner *scanner, pj_pool_t *pool,
 				 	pj_str_t *pname, pj_str_t *pvalue,
 				 	unsigned opt);
-(void) pjsip_concat_param_imp(pj_str_t *param, pj_pool_t *pool, 
+void pjsip_concat_param_imp(pj_str_t *param, pj_pool_t *pool, 
 			     	     const pj_str_t *pname, 
 				     const pj_str_t *pvalue, 
 			     	     int sepchar);
-(void) pjsip_parse_end_hdr_imp ( pj_scanner *scanner );
+void pjsip_parse_end_hdr_imp ( pj_scanner *scanner );
 
 /* Parse generic array header */
-(void) pjsip_parse_generic_array_hdr_imp(pjsip_generic_array_hdr *hdr,
+void pjsip_parse_generic_array_hdr_imp(pjsip_generic_array_hdr *hdr,
 						pj_scanner *scanner);
 
 

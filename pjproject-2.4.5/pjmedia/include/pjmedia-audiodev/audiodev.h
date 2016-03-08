@@ -445,7 +445,7 @@ typedef struct pjmedia_aud_dev_factory pjmedia_aud_dev_factory;
 
 /* typedef for factory creation function */
 typedef pjmedia_aud_dev_factory*
-(*pjmedia_aud_dev_factory_create_func_ptr)(pj_pool_factory*);
+*pjmedia_aud_dev_factory_create_func_ptr(pj_pool_factory*);
 
 
 /**
@@ -457,7 +457,7 @@ typedef pjmedia_aud_dev_factory*
  *
  * @return		Capability name.
  */
-(const char*) pjmedia_aud_dev_cap_name(pjmedia_aud_dev_cap cap,
+const char* pjmedia_aud_dev_cap_name(pjmedia_aud_dev_cap cap,
 					      const char **p_desc);
 
 
@@ -473,7 +473,7 @@ typedef pjmedia_aud_dev_factory*
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_param_set_cap(pjmedia_aud_param *param,
+pj_status_t pjmedia_aud_param_set_cap(pjmedia_aud_param *param,
 					       pjmedia_aud_dev_cap cap,
 					       const void *pval);
 
@@ -491,7 +491,7 @@ typedef pjmedia_aud_dev_factory*
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_param_get_cap(const pjmedia_aud_param *param,
+pj_status_t pjmedia_aud_param_get_cap(const pjmedia_aud_param *param,
 					       pjmedia_aud_dev_cap cap,
 					       void *pval);
 
@@ -506,7 +506,7 @@ typedef pjmedia_aud_dev_factory*
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_subsys_init(pj_pool_factory *pf);
+pj_status_t pjmedia_aud_subsys_init(pj_pool_factory *pf);
 
 
 /**
@@ -514,7 +514,7 @@ typedef pjmedia_aud_dev_factory*
  *
  * @return		The pool factory.
  */
-(pj_pool_factory*) pjmedia_aud_subsys_get_pool_factory(void);
+pj_pool_factory* pjmedia_aud_subsys_get_pool_factory(void);
 
 
 /**
@@ -526,7 +526,7 @@ typedef pjmedia_aud_dev_factory*
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_subsys_shutdown(void);
+pj_status_t pjmedia_aud_subsys_shutdown(void);
 
 
 /**
@@ -538,7 +538,7 @@ typedef pjmedia_aud_dev_factory*
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_aud_register_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
 
 
@@ -553,7 +553,7 @@ pjmedia_aud_register_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
 
 
@@ -568,7 +568,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_dev_refresh(void);
+pj_status_t pjmedia_aud_dev_refresh(void);
 
 
 /**
@@ -576,7 +576,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  *
  * @return		The number of sound devices installed in the system.
  */
-(unsigned) pjmedia_aud_dev_count(void);
+unsigned pjmedia_aud_dev_count(void);
 
 
 /**
@@ -589,7 +589,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_dev_get_info(pjmedia_aud_dev_index id,
+pj_status_t pjmedia_aud_dev_get_info(pjmedia_aud_dev_index id,
 					      pjmedia_aud_dev_info *info);
 
 
@@ -602,7 +602,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  *
  * @return		PJ_SUCCESS if the device can be found.
  */
-(pj_status_t) pjmedia_aud_dev_lookup(const char *drv_name,
+pj_status_t pjmedia_aud_dev_lookup(const char *drv_name,
 					    const char *dev_name,
 					    pjmedia_aud_dev_index *id);
 
@@ -618,7 +618,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_dev_default_param(pjmedia_aud_dev_index id,
+pj_status_t pjmedia_aud_dev_default_param(pjmedia_aud_dev_index id,
 						   pjmedia_aud_param *param);
 
 
@@ -636,7 +636,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_create(const pjmedia_aud_param *param,
+pj_status_t pjmedia_aud_stream_create(const pjmedia_aud_param *param,
 					       pjmedia_aud_rec_cb rec_cb,
 					       pjmedia_aud_play_cb play_cb,
 					       void *user_data,
@@ -652,7 +652,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_get_param(pjmedia_aud_stream *strm,
+pj_status_t pjmedia_aud_stream_get_param(pjmedia_aud_stream *strm,
 						  pjmedia_aud_param *param);
 
 /**
@@ -668,7 +668,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_get_cap(pjmedia_aud_stream *strm,
+pj_status_t pjmedia_aud_stream_get_cap(pjmedia_aud_stream *strm,
 						pjmedia_aud_dev_cap cap,
 						void *value);
 
@@ -683,7 +683,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_set_cap(pjmedia_aud_stream *strm,
+pj_status_t pjmedia_aud_stream_set_cap(pjmedia_aud_stream *strm,
 						pjmedia_aud_dev_cap cap,
 						const void *value);
 
@@ -695,7 +695,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_start(pjmedia_aud_stream *strm);
+pj_status_t pjmedia_aud_stream_start(pjmedia_aud_stream *strm);
 
 /**
  * Stop the stream.
@@ -705,7 +705,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_stop(pjmedia_aud_stream *strm);
+pj_status_t pjmedia_aud_stream_stop(pjmedia_aud_stream *strm);
 
 /**
  * Destroy the stream.
@@ -715,7 +715,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf);
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-(pj_status_t) pjmedia_aud_stream_destroy(pjmedia_aud_stream *strm);
+pj_status_t pjmedia_aud_stream_destroy(pjmedia_aud_stream *strm);
 
 
 /**

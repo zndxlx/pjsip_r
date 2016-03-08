@@ -194,7 +194,7 @@ static pj_status_t file_read3(pj_oshandle_t fd, void *data, pj_ssize_t size,
 /*
  * Create AVI player port.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_avi_player_create_streams(pj_pool_t *pool,
                                   const char *filename,
 				  unsigned options,
@@ -527,14 +527,14 @@ on_error:
     return status;
 }
 
-(unsigned)
+unsigned
 pjmedia_avi_streams_get_num_streams(pjmedia_avi_streams *streams)
 {
     pj_assert(streams);
     return streams->num_streams;
 }
 
-(pjmedia_avi_stream *)
+pjmedia_avi_stream *
 pjmedia_avi_streams_get_stream(pjmedia_avi_streams *streams,
                                unsigned idx)
 {
@@ -542,7 +542,7 @@ pjmedia_avi_streams_get_stream(pjmedia_avi_streams *streams,
     return (idx < streams->num_streams ? streams->streams[idx] : NULL);
 }
 
-(pjmedia_avi_stream *)
+pjmedia_avi_stream *
 pjmedia_avi_streams_get_stream_by_media(pjmedia_avi_streams *streams,
                                         unsigned start_idx,
                                         pjmedia_type media_type)
@@ -560,7 +560,7 @@ pjmedia_avi_streams_get_stream_by_media(pjmedia_avi_streams *streams,
 /*
  * Get the data length, in bytes.
  */
-(pj_ssize_t) pjmedia_avi_stream_get_len(pjmedia_avi_stream *stream)
+pj_ssize_t pjmedia_avi_stream_get_len(pjmedia_avi_stream *stream)
 {
     struct avi_reader_port *fport;
 
@@ -580,7 +580,7 @@ pjmedia_avi_streams_get_stream_by_media(pjmedia_avi_streams *streams,
  * Register a callback to be called when the file reading has reached the
  * end of file.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_avi_stream_set_eof_cb( pjmedia_avi_stream *stream,
 			       void *user_data,
 			       pj_status_t (*cb)(pjmedia_avi_stream *stream,

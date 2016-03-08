@@ -83,7 +83,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 /*
  * Get string representation of negotiator state.
  */
-(const char*) pjmedia_sdp_neg_state_str(pjmedia_sdp_neg_state state)
+const char* pjmedia_sdp_neg_state_str(pjmedia_sdp_neg_state state)
 {
     if ((int)state >=0 && state < (pjmedia_sdp_neg_state)PJ_ARRAY_SIZE(state_str))
 	return state_str[state];
@@ -95,7 +95,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 /*
  * Create with local offer.
  */
-(pj_status_t) pjmedia_sdp_neg_create_w_local_offer( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_create_w_local_offer( pj_pool_t *pool,
 				      const pjmedia_sdp_session *local,
 				      pjmedia_sdp_neg **p_neg)
 {
@@ -127,7 +127,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 /*
  * Create with remote offer and initial local offer/answer.
  */
-(pj_status_t) pjmedia_sdp_neg_create_w_remote_offer(pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_create_w_remote_offer(pj_pool_t *pool,
 				      const pjmedia_sdp_session *initial,
 				      const pjmedia_sdp_session *remote,
 				      pjmedia_sdp_neg **p_neg)
@@ -175,7 +175,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 /*
  * Set codec order preference.
  */
-(pj_status_t) pjmedia_sdp_neg_set_prefer_remote_codec_order(
+pj_status_t pjmedia_sdp_neg_set_prefer_remote_codec_order(
 						pjmedia_sdp_neg *neg,
 						pj_bool_t prefer_remote)
 {
@@ -188,7 +188,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 /*
  * Set multiple codec answering.
  */
-(pj_status_t) pjmedia_sdp_neg_set_answer_multiple_codecs(
+pj_status_t pjmedia_sdp_neg_set_answer_multiple_codecs(
                         pjmedia_sdp_neg *neg,
                         pj_bool_t answer_multiple)
 {
@@ -201,7 +201,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 /*
  * Get SDP negotiator state.
  */
-(pjmedia_sdp_neg_state) pjmedia_sdp_neg_get_state( pjmedia_sdp_neg *neg )
+pjmedia_sdp_neg_state pjmedia_sdp_neg_get_state( pjmedia_sdp_neg *neg )
 {
     /* Check arguments are valid. */
     PJ_ASSERT_RETURN(neg != NULL, PJMEDIA_SDP_NEG_STATE_NULL);
@@ -209,7 +209,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 }
 
 
-(pj_status_t) pjmedia_sdp_neg_get_active_local( pjmedia_sdp_neg *neg,
+pj_status_t pjmedia_sdp_neg_get_active_local( pjmedia_sdp_neg *neg,
 					const pjmedia_sdp_session **local)
 {
     PJ_ASSERT_RETURN(neg && local, PJ_EINVAL);
@@ -220,7 +220,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 }
 
 
-(pj_status_t) pjmedia_sdp_neg_get_active_remote( pjmedia_sdp_neg *neg,
+pj_status_t pjmedia_sdp_neg_get_active_remote( pjmedia_sdp_neg *neg,
 				   const pjmedia_sdp_session **remote)
 {
     PJ_ASSERT_RETURN(neg && remote, PJ_EINVAL);
@@ -231,7 +231,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 }
 
 
-(pj_bool_t) pjmedia_sdp_neg_was_answer_remote(pjmedia_sdp_neg *neg)
+pj_bool_t pjmedia_sdp_neg_was_answer_remote(pjmedia_sdp_neg *neg)
 {
     PJ_ASSERT_RETURN(neg, PJ_FALSE);
 
@@ -239,7 +239,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
 }
 
 
-(pj_status_t) pjmedia_sdp_neg_get_neg_remote( pjmedia_sdp_neg *neg,
+pj_status_t pjmedia_sdp_neg_get_neg_remote( pjmedia_sdp_neg *neg,
 				const pjmedia_sdp_session **remote)
 {
     PJ_ASSERT_RETURN(neg && remote, PJ_EINVAL);
@@ -249,7 +249,7 @@ static pj_status_t custom_fmt_match( pj_pool_t *pool,
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_sdp_neg_get_neg_local( pjmedia_sdp_neg *neg,
+pj_status_t pjmedia_sdp_neg_get_neg_local( pjmedia_sdp_neg *neg,
 			       const pjmedia_sdp_session **local)
 {
     PJ_ASSERT_RETURN(neg && local, PJ_EINVAL);
@@ -288,14 +288,14 @@ static pjmedia_sdp_media *sdp_media_clone_deactivate(
 /*
  * Modify local SDP and wait for remote answer.
  */
-(pj_status_t) pjmedia_sdp_neg_modify_local_offer( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_modify_local_offer( pj_pool_t *pool,
 				    pjmedia_sdp_neg *neg,
 				    const pjmedia_sdp_session *local)
 {
     return pjmedia_sdp_neg_modify_local_offer2(pool, neg, 0, local);
 }
 
-(pj_status_t) pjmedia_sdp_neg_modify_local_offer2(
+pj_status_t pjmedia_sdp_neg_modify_local_offer2(
                                     pj_pool_t *pool,
 				    pjmedia_sdp_neg *neg,
                                     unsigned flags,
@@ -407,7 +407,7 @@ static pjmedia_sdp_media *sdp_media_clone_deactivate(
 }
 
 
-(pj_status_t) pjmedia_sdp_neg_send_local_offer( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_send_local_offer( pj_pool_t *pool,
 				  pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session **offer)
 {
@@ -448,7 +448,7 @@ static pjmedia_sdp_media *sdp_media_clone_deactivate(
 }
 
 
-(pj_status_t) pjmedia_sdp_neg_set_remote_answer( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_set_remote_answer( pj_pool_t *pool,
 				   pjmedia_sdp_neg *neg,
 				   const pjmedia_sdp_session *remote)
 {
@@ -470,7 +470,7 @@ static pjmedia_sdp_media *sdp_media_clone_deactivate(
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_sdp_neg_set_remote_offer( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_set_remote_offer( pj_pool_t *pool,
 				  pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session *remote)
 {
@@ -491,7 +491,7 @@ static pjmedia_sdp_media *sdp_media_clone_deactivate(
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_sdp_neg_set_local_answer( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_set_local_answer( pj_pool_t *pool,
 				  pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session *local)
 {
@@ -535,7 +535,7 @@ static pjmedia_sdp_media *sdp_media_clone_deactivate(
     return PJ_SUCCESS;
 }
 
-(pj_bool_t) pjmedia_sdp_neg_has_local_answer(pjmedia_sdp_neg *neg)
+pj_bool_t pjmedia_sdp_neg_has_local_answer(pjmedia_sdp_neg *neg)
 {
     pj_assert(neg && neg->state==PJMEDIA_SDP_NEG_STATE_WAIT_NEGO);
     return !neg->has_remote_answer;
@@ -964,7 +964,7 @@ static pj_status_t process_answer(pj_pool_t *pool,
 /* Internal function to rewrite the format string in SDP attribute rtpmap
  * and fmtp.
  */
-PJ_INLINE(void) rewrite_pt(pj_pool_t *pool, pj_str_t *attr_val,
+void rewrite_pt(pj_pool_t *pool, pj_str_t *attr_val,
 			   const pj_str_t *old_pt, const pj_str_t *new_pt)
 {
     int len_diff = (int)(new_pt->slen - old_pt->slen);
@@ -1398,7 +1398,7 @@ static pj_status_t create_answer( pj_pool_t *pool,
 }
 
 /* Cancel offer */
-(pj_status_t) pjmedia_sdp_neg_cancel_offer(pjmedia_sdp_neg *neg)
+pj_status_t pjmedia_sdp_neg_cancel_offer(pjmedia_sdp_neg *neg)
 {
     PJ_ASSERT_RETURN(neg, PJ_EINVAL);
 
@@ -1434,7 +1434,7 @@ static pj_status_t create_answer( pj_pool_t *pool,
 
 
 /* The best bit: SDP negotiation function! */
-(pj_status_t) pjmedia_sdp_neg_negotiate( pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_negotiate( pj_pool_t *pool,
 					       pjmedia_sdp_neg *neg,
 					       pj_bool_t allow_asym)
 {
@@ -1526,7 +1526,7 @@ static pj_status_t custom_fmt_match(pj_pool_t *pool,
 }
 
 /* Register customized SDP format negotiation callback function. */
-(pj_status_t) pjmedia_sdp_neg_register_fmt_match_cb(
+pj_status_t pjmedia_sdp_neg_register_fmt_match_cb(
 					const pj_str_t *fmt_name,
 					pjmedia_sdp_neg_fmt_match_cb cb)
 {
@@ -1576,7 +1576,7 @@ static pj_status_t custom_fmt_match(pj_pool_t *pool,
 
 
 /* Match format in the SDP media offer and answer. */
-(pj_status_t) pjmedia_sdp_neg_fmt_match(pj_pool_t *pool,
+pj_status_t pjmedia_sdp_neg_fmt_match(pj_pool_t *pool,
 					      pjmedia_sdp_media *offer,
 					      unsigned o_fmt_idx,
 					      pjmedia_sdp_media *answer,

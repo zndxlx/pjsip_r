@@ -122,7 +122,7 @@ static void ioqueue_on_connect_complete(pj_ioqueue_key_t *key,
 					pj_status_t status);
 #endif
 
-(void) pj_activesock_cfg_default(pj_activesock_cfg *cfg)
+void pj_activesock_cfg_default(pj_activesock_cfg *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
     cfg->async_cnt = 1;
@@ -167,7 +167,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(void) pj_activesock_set_iphone_os_bg(pj_activesock_t *asock,
+void pj_activesock_set_iphone_os_bg(pj_activesock_t *asock,
 					    int val)
 {
     asock->bg_setting = val;
@@ -177,13 +177,13 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 	activesock_destroy_iphone_os_stream(asock);
 }
 
-(void) pj_activesock_enable_iphone_os_bg(pj_bool_t val)
+void pj_activesock_enable_iphone_os_bg(pj_bool_t val)
 {
     ios_bg_support = val;
 }
 #endif
 
-(pj_status_t) pj_activesock_create( pj_pool_t *pool,
+pj_status_t pj_activesock_create( pj_pool_t *pool,
 					  pj_sock_t sock,
 					  int sock_type,
 					  const pj_activesock_cfg *opt,
@@ -245,7 +245,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(pj_status_t) pj_activesock_create_udp( pj_pool_t *pool,
+pj_status_t pj_activesock_create_udp( pj_pool_t *pool,
 					      const pj_sockaddr *addr,
 					      const pj_activesock_cfg *opt,
 					      pj_ioqueue_t *ioqueue,
@@ -294,7 +294,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_activesock_close(pj_activesock_t *asock)
+pj_status_t pj_activesock_close(pj_activesock_t *asock)
 {
     PJ_ASSERT_RETURN(asock, PJ_EINVAL);
     asock->shutdown = SHUT_RX | SHUT_TX;
@@ -312,7 +312,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(pj_status_t) pj_activesock_set_user_data( pj_activesock_t *asock,
+pj_status_t pj_activesock_set_user_data( pj_activesock_t *asock,
 						 void *user_data)
 {
     PJ_ASSERT_RETURN(asock, PJ_EINVAL);
@@ -321,14 +321,14 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(void*) pj_activesock_get_user_data(pj_activesock_t *asock)
+void* pj_activesock_get_user_data(pj_activesock_t *asock)
 {
     PJ_ASSERT_RETURN(asock, NULL);
     return asock->user_data;
 }
 
 
-(pj_status_t) pj_activesock_start_read(pj_activesock_t *asock,
+pj_status_t pj_activesock_start_read(pj_activesock_t *asock,
 					     pj_pool_t *pool,
 					     unsigned buff_size,
 					     pj_uint32_t flags)
@@ -349,7 +349,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(pj_status_t) pj_activesock_start_read2( pj_activesock_t *asock,
+pj_status_t pj_activesock_start_read2( pj_activesock_t *asock,
 					       pj_pool_t *pool,
 					       unsigned buff_size,
 					       void *readbuf[],
@@ -387,7 +387,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(pj_status_t) pj_activesock_start_recvfrom(pj_activesock_t *asock,
+pj_status_t pj_activesock_start_recvfrom(pj_activesock_t *asock,
 						 pj_pool_t *pool,
 						 unsigned buff_size,
 						 pj_uint32_t flags)
@@ -409,7 +409,7 @@ static void activesock_create_iphone_os_stream(pj_activesock_t *asock)
 }
 
 
-(pj_status_t) pj_activesock_start_recvfrom2( pj_activesock_t *asock,
+pj_status_t pj_activesock_start_recvfrom2( pj_activesock_t *asock,
 						   pj_pool_t *pool,
 						   unsigned buff_size,
 						   void *readbuf[],
@@ -660,7 +660,7 @@ static pj_status_t send_remaining(pj_activesock_t *asock,
 }
 
 
-(pj_status_t) pj_activesock_send( pj_activesock_t *asock,
+pj_status_t pj_activesock_send( pj_activesock_t *asock,
 					pj_ioqueue_op_key_t *send_key,
 					const void *data,
 					pj_ssize_t *size,
@@ -710,7 +710,7 @@ static pj_status_t send_remaining(pj_activesock_t *asock,
 }
 
 
-(pj_status_t) pj_activesock_sendto( pj_activesock_t *asock,
+pj_status_t pj_activesock_sendto( pj_activesock_t *asock,
 					  pj_ioqueue_op_key_t *send_key,
 					  const void *data,
 					  pj_ssize_t *size,
@@ -781,7 +781,7 @@ static void ioqueue_on_write_complete(pj_ioqueue_key_t *key,
 }
 
 #if PJ_HAS_TCP
-(pj_status_t) pj_activesock_start_accept(pj_activesock_t *asock,
+pj_status_t pj_activesock_start_accept(pj_activesock_t *asock,
 					       pj_pool_t *pool)
 {
     unsigned i;
@@ -912,7 +912,7 @@ static void ioqueue_on_accept_complete(pj_ioqueue_key_t *key,
 }
 
 
-(pj_status_t) pj_activesock_start_connect( pj_activesock_t *asock,
+pj_status_t pj_activesock_start_connect( pj_activesock_t *asock,
 						 pj_pool_t *pool,
 						 const pj_sockaddr_t *remaddr,
 						 int addr_len)

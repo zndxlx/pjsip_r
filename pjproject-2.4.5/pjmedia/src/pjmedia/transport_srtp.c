@@ -291,7 +291,7 @@ const char* get_libsrtp_errstr(int err)
 static pj_bool_t libsrtp_initialized;
 static void pjmedia_srtp_deinit_lib(pjmedia_endpt *endpt);
 
-(pj_status_t) pjmedia_srtp_init_lib(pjmedia_endpt *endpt)
+pj_status_t pjmedia_srtp_init_lib(pjmedia_endpt *endpt)
 {
 #if PJMEDIA_LIBSRTP_AUTO_INIT_DEINIT
     if (libsrtp_initialized == PJ_FALSE) {
@@ -399,7 +399,7 @@ static pj_bool_t srtp_crypto_empty(const pjmedia_srtp_crypto* c)
 }
 
 
-(void) pjmedia_srtp_setting_default(pjmedia_srtp_setting *opt)
+void pjmedia_srtp_setting_default(pjmedia_srtp_setting *opt)
 {
     unsigned i;
 
@@ -419,7 +419,7 @@ static pj_bool_t srtp_crypto_empty(const pjmedia_srtp_crypto* c)
 /*
  * Create an SRTP media transport.
  */
-(pj_status_t) pjmedia_transport_srtp_create(
+pj_status_t pjmedia_transport_srtp_create(
 				       pjmedia_endpt *endpt,
 				       pjmedia_transport *tp,
 				       const pjmedia_srtp_setting *opt,
@@ -517,7 +517,7 @@ static pj_bool_t srtp_crypto_empty(const pjmedia_srtp_crypto* c)
 /*
  * Initialize and start SRTP session with the given parameters.
  */
-(pj_status_t) pjmedia_transport_srtp_start(
+pj_status_t pjmedia_transport_srtp_start(
 			   pjmedia_transport *tp,
 			   const pjmedia_srtp_crypto *tx,
 			   const pjmedia_srtp_crypto *rx)
@@ -693,7 +693,7 @@ on_return:
 /*
  * Stop SRTP session.
  */
-(pj_status_t) pjmedia_transport_srtp_stop(pjmedia_transport *srtp)
+pj_status_t pjmedia_transport_srtp_stop(pjmedia_transport *srtp)
 {
     transport_srtp *p_srtp = (transport_srtp*) srtp;
     err_status_t err;
@@ -729,7 +729,7 @@ on_return:
     return PJ_SUCCESS;
 }
 
-(pjmedia_transport *) pjmedia_transport_srtp_get_member(
+pjmedia_transport * pjmedia_transport_srtp_get_member(
 						pjmedia_transport *tp)
 {
     transport_srtp *srtp = (transport_srtp*) tp;
@@ -1727,7 +1727,7 @@ static pj_status_t transport_media_stop(pjmedia_transport *tp)
 }
 
 /* Utility */
-(pj_status_t) pjmedia_transport_srtp_decrypt_pkt(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_srtp_decrypt_pkt(pjmedia_transport *tp,
 						       pj_bool_t is_rtp,
 						       void *pkt,
 						       int *pkt_len)

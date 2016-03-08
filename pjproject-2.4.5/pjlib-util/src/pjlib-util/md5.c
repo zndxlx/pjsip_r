@@ -55,7 +55,7 @@ static void MD5Transform(pj_uint32_t buf[4], pj_uint32_t const in[16]);
  * Start MD5 accumulation.  Set bit count to 0 and buffer to mysterious
  * initialization constants.
  */
-(void) pj_md5_init(pj_md5_context *ctx)
+void pj_md5_init(pj_md5_context *ctx)
 {
     ctx->buf[0] = 0x67452301;
     ctx->buf[1] = 0xefcdab89;
@@ -70,7 +70,7 @@ static void MD5Transform(pj_uint32_t buf[4], pj_uint32_t const in[16]);
  * Update context to reflect the concatenation of another buffer full
  * of bytes.
  */
-(void) pj_md5_update( pj_md5_context *ctx, 
+void pj_md5_update( pj_md5_context *ctx, 
 			    unsigned char const *buf, unsigned len)
 {
     pj_uint32_t t;
@@ -119,7 +119,7 @@ static void MD5Transform(pj_uint32_t buf[4], pj_uint32_t const in[16]);
  * Final wrapup - pad to 64-byte boundary with the bit pattern 
  * 1 0* (64-bit count of bits processed, MSB-first)
  */
-(void) pj_md5_final(pj_md5_context *ctx, unsigned char digest[16])
+void pj_md5_final(pj_md5_context *ctx, unsigned char digest[16])
 {
     unsigned count;
     unsigned char *p;

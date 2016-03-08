@@ -85,7 +85,7 @@ static int get_machine_speed_mhz()
     return atoi(pos)+1;
 }
 
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     if (machine_speed_mhz == 0) {
 	machine_speed_mhz = get_machine_speed_mhz();
@@ -102,7 +102,7 @@ static int get_machine_speed_mhz()
     return 0;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     if (machine_speed_mhz == 0) {
 	machine_speed_mhz = get_machine_speed_mhz();
@@ -129,7 +129,7 @@ static int get_machine_speed_mhz()
 #	define NSEC_PER_SEC	1000000000
 #endif
 
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     mach_timespec_t tp;
     int ret;
@@ -152,7 +152,7 @@ static int get_machine_speed_mhz()
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     freq->u32.hi = 0;
     freq->u32.lo = NSEC_PER_SEC;
@@ -167,7 +167,7 @@ static int get_machine_speed_mhz()
 
 #define NSEC_PER_SEC	1000000000
 
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     struct timespec tp;
 
@@ -182,7 +182,7 @@ static int get_machine_speed_mhz()
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     freq->u32.hi = 0;
     freq->u32.lo = NSEC_PER_SEC;
@@ -196,7 +196,7 @@ static int get_machine_speed_mhz()
 
 #define USEC_PER_SEC	1000000
 
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     struct timeval tv;
 
@@ -211,7 +211,7 @@ static int get_machine_speed_mhz()
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     freq->u32.hi = 0;
     freq->u32.lo = USEC_PER_SEC;

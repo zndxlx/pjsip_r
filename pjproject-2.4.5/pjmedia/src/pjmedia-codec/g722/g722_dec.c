@@ -483,7 +483,7 @@ static void rx_qmf(g722_dec_t *dec, int rl, int rh, int *xout1, int *xout2)
 }
 
 
-(pj_status_t) g722_dec_init(g722_dec_t *dec)
+pj_status_t g722_dec_init(g722_dec_t *dec)
 {
     PJ_ASSERT_RETURN(dec, PJ_EINVAL);
 
@@ -495,7 +495,7 @@ static void rx_qmf(g722_dec_t *dec, int rl, int rh, int *xout1, int *xout2)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) g722_dec_decode( g722_dec_t *dec, 
+pj_status_t g722_dec_decode( g722_dec_t *dec, 
 				    void *in, 
 				    pj_size_t in_size,
 				    pj_int16_t out[],
@@ -539,7 +539,7 @@ static void rx_qmf(g722_dec_t *dec, int rl, int rh, int *xout1, int *xout2)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) g722_dec_deinit(g722_dec_t *dec)
+pj_status_t g722_dec_deinit(g722_dec_t *dec)
 {
     pj_bzero(dec, sizeof(g722_dec_t));
 

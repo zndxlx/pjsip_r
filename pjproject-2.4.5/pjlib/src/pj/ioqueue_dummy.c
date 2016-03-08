@@ -62,7 +62,7 @@ struct pj_ioqueue_t
 {
 };
 
-(pj_status_t) pj_ioqueue_create( pj_pool_t *pool, 
+pj_status_t pj_ioqueue_create( pj_pool_t *pool, 
 				       pj_size_t max_fd,
 				       int max_threads,
 				       pj_ioqueue_t **ptr_ioqueue)
@@ -70,19 +70,19 @@ struct pj_ioqueue_t
     return PJ_ENOTSUP;
 }
 
-(pj_status_t) pj_ioqueue_destroy(pj_ioqueue_t *ioque)
+pj_status_t pj_ioqueue_destroy(pj_ioqueue_t *ioque)
 {
     return PJ_ENOTSUP;
 }
 
-(pj_status_t) pj_ioqueue_set_lock( pj_ioqueue_t *ioque, 
+pj_status_t pj_ioqueue_set_lock( pj_ioqueue_t *ioque, 
 					 pj_lock_t *lock,
 					 pj_bool_t auto_delete )
 {
     return PJ_ENOTSUP;
 }
 
-(pj_status_t) pj_ioqueue_register_sock( pj_pool_t *pool,
+pj_status_t pj_ioqueue_register_sock( pj_pool_t *pool,
 					      pj_ioqueue_t *ioque,
 					      pj_sock_t sock,
 					      void *user_data,
@@ -92,24 +92,24 @@ struct pj_ioqueue_t
     return PJ_ENOTSUP;
 }
 
-(pj_status_t) pj_ioqueue_unregister( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_unregister( pj_ioqueue_t *ioque,
 					   pj_ioqueue_key_t *key)
 {
     return PJ_ENOTSUP;
 }
 
-(void*) pj_ioqueue_get_user_data( pj_ioqueue_key_t *key )
+void* pj_ioqueue_get_user_data( pj_ioqueue_key_t *key )
 {
     return NULL;
 }
 
 
-(int) pj_ioqueue_poll( pj_ioqueue_t *ioque, const pj_time_val *timeout)
+int pj_ioqueue_poll( pj_ioqueue_t *ioque, const pj_time_val *timeout)
 {
     return -1;
 }
 
-(pj_status_t) pj_ioqueue_read( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_read( pj_ioqueue_t *ioque,
 				     pj_ioqueue_key_t *key,
 				     void *buffer,
 				     pj_size_t buflen)
@@ -117,7 +117,7 @@ struct pj_ioqueue_t
     return -1;
 }
 
-(pj_status_t) pj_ioqueue_recv( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_recv( pj_ioqueue_t *ioque,
 				     pj_ioqueue_key_t *key,
 				     void *buffer,
 				     pj_size_t buflen,
@@ -126,7 +126,7 @@ struct pj_ioqueue_t
     return -1;
 }
 
-(pj_status_t) pj_ioqueue_recvfrom( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_recvfrom( pj_ioqueue_t *ioque,
 					 pj_ioqueue_key_t *key,
 					 void *buffer,
 					 pj_size_t buflen,
@@ -137,7 +137,7 @@ struct pj_ioqueue_t
     return -1;
 }
 
-(pj_status_t) pj_ioqueue_write( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_write( pj_ioqueue_t *ioque,
 				      pj_ioqueue_key_t *key,
 				      const void *data,
 				      pj_size_t datalen)
@@ -145,7 +145,7 @@ struct pj_ioqueue_t
     return -1;
 }
 
-(pj_status_t) pj_ioqueue_send( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_send( pj_ioqueue_t *ioque,
 				     pj_ioqueue_key_t *key,
 				     const void *data,
 				     pj_size_t datalen,
@@ -154,7 +154,7 @@ struct pj_ioqueue_t
     return -1;
 }
 
-(pj_status_t) pj_ioqueue_sendto( pj_ioqueue_t *ioque,
+pj_status_t pj_ioqueue_sendto( pj_ioqueue_t *ioque,
 				       pj_ioqueue_key_t *key,
 				       const void *data,
 				       pj_size_t datalen,
@@ -169,7 +169,7 @@ struct pj_ioqueue_t
 /*
  * Initiate overlapped accept() operation.
  */
-(pj_status_t) pj_ioqueue_accept( pj_ioqueue_t *ioqueue,
+pj_status_t pj_ioqueue_accept( pj_ioqueue_t *ioqueue,
 				       pj_ioqueue_key_t *key,
 				       pj_sock_t *new_sock,
 				       pj_sockaddr_t *local,
@@ -183,7 +183,7 @@ struct pj_ioqueue_t
  * Initiate overlapped connect() operation (well, it's non-blocking actually,
  * since there's no overlapped version of connect()).
  */
-(pj_status_t) pj_ioqueue_connect( pj_ioqueue_t *ioqueue,
+pj_status_t pj_ioqueue_connect( pj_ioqueue_t *ioqueue,
 					pj_ioqueue_key_t *key,
 					const pj_sockaddr_t *addr,
 					int addrlen )

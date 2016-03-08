@@ -47,7 +47,7 @@ PJ_BEGIN_DECL
  *
  * @return		    The Unicode string, NULL terminated.
  */
-(wchar_t*) pj_ansi_to_unicode(const char *str, int len,
+wchar_t* pj_ansi_to_unicode(const char *str, int len,
 				     wchar_t *wbuf, int wbuf_count);
 
 
@@ -61,7 +61,7 @@ PJ_BEGIN_DECL
  *
  * @return		    The ANSI string, NULL terminated.
  */
-(char*) pj_unicode_to_ansi(const wchar_t *wstr, pj_ssize_t len,
+char* pj_unicode_to_ansi(const wchar_t *wstr, pj_ssize_t len,
 				  char *buf, int buf_size);
 
 

@@ -79,7 +79,7 @@ struct pj_xml_node
  *
  * @return	    XML root node, or NULL if the XML document can not be parsed.
  */
-(pj_xml_node*) pj_xml_parse( pj_pool_t *pool, char *msg, pj_size_t len);
+pj_xml_node* pj_xml_parse( pj_pool_t *pool, char *msg, pj_size_t len);
 
 
 /**
@@ -94,7 +94,7 @@ struct pj_xml_node
  * @return	    The size of the printed message, or -1 if there is not 
  *		    sufficient space in the buffer to print the message.
  */
-(int) pj_xml_print( const pj_xml_node *node, char *buf, pj_size_t len,
+int pj_xml_print( const pj_xml_node *node, char *buf, pj_size_t len,
 			   pj_bool_t prolog);
 
 /**
@@ -105,7 +105,7 @@ struct pj_xml_node
  *
  * @return	    Cloned XML node, or NULL on fail.
  */
-(pj_xml_node*) pj_xml_clone( pj_pool_t *pool, const pj_xml_node *rhs);
+pj_xml_node* pj_xml_clone( pj_pool_t *pool, const pj_xml_node *rhs);
 
 
 /**
@@ -116,7 +116,7 @@ struct pj_xml_node
  *
  * @return	    The new node.
  */
-(pj_xml_node*) pj_xml_node_new(pj_pool_t *pool, const pj_str_t *name);
+pj_xml_node* pj_xml_node_new(pj_pool_t *pool, const pj_str_t *name);
 
 
 /**
@@ -128,7 +128,7 @@ struct pj_xml_node
  *
  * @return	    The new XML attribute.
  */
-(pj_xml_attr*) pj_xml_attr_new(pj_pool_t *pool, const pj_str_t *name,
+pj_xml_attr* pj_xml_attr_new(pj_pool_t *pool, const pj_str_t *name,
 				      const pj_str_t *value);
 
 /**
@@ -137,7 +137,7 @@ struct pj_xml_node
  * @param parent    Parent node.
  * @param node	    Node to be added to parent.
  */
-(void) pj_xml_add_node( pj_xml_node *parent, pj_xml_node *node );
+void pj_xml_add_node( pj_xml_node *parent, pj_xml_node *node );
 
 
 /**
@@ -146,7 +146,7 @@ struct pj_xml_node
  * @param node	    Node.
  * @param attr	    Attribute to add to node.
  */
-(void) pj_xml_add_attr( pj_xml_node *node, pj_xml_attr *attr );
+void pj_xml_add_attr( pj_xml_node *node, pj_xml_attr *attr );
 
 /**
  * Find first direct child node with the specified name.
@@ -156,7 +156,7 @@ struct pj_xml_node
  *
  * @return	    XML node found or NULL.
  */
-(pj_xml_node*) pj_xml_find_node(const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_node(const pj_xml_node *parent, 
 				       const pj_str_t *name);
 
 /**
@@ -168,7 +168,7 @@ struct pj_xml_node
  *
  * @return	    XML node found or NULL.
  */
-(pj_xml_node*) pj_xml_find_next_node(const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_next_node(const pj_xml_node *parent, 
 					    const pj_xml_node *node,
 					    const pj_str_t *name);
 
@@ -181,7 +181,7 @@ struct pj_xml_node
  *
  * @return	    XML node found or NULL.
  */
-(pj_xml_node*) pj_xml_find_node_rec(const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_node_rec(const pj_xml_node *parent, 
 					   const pj_str_t *name);
 
 
@@ -195,7 +195,7 @@ struct pj_xml_node
  *
  * @return	    XML attribute found, or NULL.
  */
-(pj_xml_attr*) pj_xml_find_attr(const pj_xml_node *node, 
+pj_xml_attr* pj_xml_find_attr(const pj_xml_node *node, 
 				       const pj_str_t *name,
 				       const pj_str_t *value);
 
@@ -211,7 +211,7 @@ struct pj_xml_node
  *
  * @return	    The first matched node, or NULL.
  */
-(pj_xml_node*) pj_xml_find( const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find( const pj_xml_node *parent, 
 				   const pj_str_t *name,
 				   const void *data, 
 				   pj_bool_t (*match)(const pj_xml_node *, 
@@ -230,7 +230,7 @@ struct pj_xml_node
  *
  * @return	    The first matched node, or NULL.
  */
-(pj_xml_node*) pj_xml_find_rec(const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_rec(const pj_xml_node *parent, 
 				      const pj_str_t *name,
 				      const void *data, 
 				      pj_bool_t (*match)(const pj_xml_node*, 

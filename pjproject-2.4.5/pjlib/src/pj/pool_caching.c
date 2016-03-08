@@ -50,7 +50,7 @@ static pj_size_t pool_sizes[PJ_CACHING_POOL_ARRAY_SIZE] =
 #define START_SIZE  5
 
 
-(void) pj_caching_pool_init( pj_caching_pool *cp, 
+void pj_caching_pool_init( pj_caching_pool *cp, 
 				   const pj_pool_factory_policy *policy,
 				   pj_size_t max_capacity)
 {
@@ -81,7 +81,7 @@ static pj_size_t pool_sizes[PJ_CACHING_POOL_ARRAY_SIZE] =
     pj_lock_create_simple_mutex(pool, "cachingpool", &cp->lock);
 }
 
-(void) pj_caching_pool_destroy( pj_caching_pool *cp )
+void pj_caching_pool_destroy( pj_caching_pool *cp )
 {
     int i;
     pj_pool_t *pool;

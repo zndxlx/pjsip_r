@@ -43,12 +43,12 @@ _DATA(const char*) PJ_VERSION = PJ_MAKE_VERSION3_2(PJ_VERSION_NUM_MAJOR,
 /*
  * Get PJLIB version string.
  */
-(const char*) pj_get_version(void)
+const char* pj_get_version(void)
 {
     return PJ_VERSION;
 }
 
-(void) pj_dump_config(void)
+void pj_dump_config(void)
 {
     PJ_LOG(3, (id, "PJLIB (c)2008-2009 Teluu Inc."));
     PJ_LOG(3, (id, "Dumping configurations:"));

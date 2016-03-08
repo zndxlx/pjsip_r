@@ -635,7 +635,7 @@ PJ_BEGIN_DECL
  * @return	    The error message as NULL terminated string,
  *                  wrapped with pj_str_t.
  */
-(pj_str_t) pjmedia_strerror( pj_status_t status, char *buffer,
+pj_str_t pjmedia_strerror( pj_status_t status, char *buffer,
 				    pj_size_t bufsize);
 
 

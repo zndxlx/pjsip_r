@@ -19,7 +19,7 @@
  */
 #include <pj/addr_resolv.h>
 
-(pj_status_t) pj_gethostbyname(const pj_str_t *hostname, pj_hostent *phe)
+pj_status_t pj_gethostbyname(const pj_str_t *hostname, pj_hostent *phe)
 {
     return -1;
 }

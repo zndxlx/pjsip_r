@@ -652,7 +652,7 @@ static pj_status_t pack_g7221( ipp_private_t *codec_data, void *pkt,
 #include <pjmedia-codec/g7221.h>
 
 
-(pj_status_t) pjmedia_codec_g7221_set_pcm_shift(int val)
+pj_status_t pjmedia_codec_g7221_set_pcm_shift(int val)
 {
     PJ_ASSERT_RETURN(val >= 0, PJ_EINVAL);
 
@@ -666,7 +666,7 @@ static pj_status_t pack_g7221( ipp_private_t *codec_data, void *pkt,
 /*
  * Initialize and register IPP codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_ipp_init( pjmedia_endpt *endpt )
+pj_status_t pjmedia_codec_ipp_init( pjmedia_endpt *endpt )
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_str_t codec_name;
@@ -749,7 +749,7 @@ on_error:
 /*
  * Unregister IPP codecs factory from pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_ipp_deinit(void)
+pj_status_t pjmedia_codec_ipp_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

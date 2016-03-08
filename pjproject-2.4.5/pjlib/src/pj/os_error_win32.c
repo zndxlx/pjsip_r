@@ -113,22 +113,22 @@ static const struct {
 
 
 
-(pj_status_t) pj_get_os_error(void)
+pj_status_t pj_get_os_error(void)
 {
     return PJ_STATUS_FROM_OS(GetLastError());
 }
 
-(void) pj_set_os_error(pj_status_t code)
+void pj_set_os_error(pj_status_t code)
 {
     SetLastError(PJ_STATUS_TO_OS(code));
 }
 
-(pj_status_t) pj_get_netos_error(void)
+pj_status_t pj_get_netos_error(void)
 {
     return PJ_STATUS_FROM_OS(WSAGetLastError());
 }
 
-(void) pj_set_netos_error(pj_status_t code)
+void pj_set_netos_error(pj_status_t code)
 {
     WSASetLastError(PJ_STATUS_TO_OS(code));
 }

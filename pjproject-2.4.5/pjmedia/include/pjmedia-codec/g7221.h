@@ -101,7 +101,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g7221_init( pjmedia_endpt *endpt );
+pj_status_t pjmedia_codec_g7221_init( pjmedia_endpt *endpt );
 
 
 /**
@@ -122,7 +122,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g7221_set_mode(unsigned sample_rate, 
+pj_status_t pjmedia_codec_g7221_set_mode(unsigned sample_rate, 
 						  unsigned bitrate, 
 						  pj_bool_t enabled);
 
@@ -142,7 +142,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g7221_set_pcm_shift(int val);
+pj_status_t pjmedia_codec_g7221_set_pcm_shift(int val);
 
 
 
@@ -151,7 +151,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g7221_deinit(void);
+pj_status_t pjmedia_codec_g7221_deinit(void);
 
 
 PJ_END_DECL

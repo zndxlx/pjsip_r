@@ -27,12 +27,12 @@
 
 _DATA(const unsigned) PJ_GUID_STRING_LENGTH=32;
 
-(unsigned) pj_GUID_STRING_LENGTH()
+unsigned pj_GUID_STRING_LENGTH()
 {
     return PJ_GUID_STRING_LENGTH;
 }
 
-PJ_INLINE(void) hex2digit(unsigned value, char *p)
+void hex2digit(unsigned value, char *p)
 {
     static char hex[] = {'0', '1', '2', '3', '4', '5', '6', '7',
 			 '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
@@ -59,7 +59,7 @@ static void guid_to_str( GUID *guid, pj_str_t *str )
 }
 
 
-(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
+pj_str_t* pj_generate_unique_string(pj_str_t *str)
 {
     GUID guid;
 

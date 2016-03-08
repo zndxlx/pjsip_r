@@ -32,14 +32,14 @@ static void resolve_stun_entry(pjsua_stun_resolve *sess);
 struct pjsua_data pjsua_var;
 
 
-(struct pjsua_data*) pjsua_get_var(void)
+struct pjsua_data* pjsua_get_var(void)
 {
     return &pjsua_var;
 }
 
 
 /* Display error */
-(void) pjsua_perror( const char *sender, const char *title, 
+void pjsua_perror( const char *sender, const char *title, 
 			   pj_status_t status)
 {
     char errmsg[PJ_ERR_MSG_SIZE];
@@ -74,7 +74,7 @@ static void init_data()
 }
 
 
-(void) pjsua_logging_config_default(pjsua_logging_config *cfg)
+void pjsua_logging_config_default(pjsua_logging_config *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
 
@@ -90,7 +90,7 @@ static void init_data()
 #endif
 }
 
-(void) pjsua_logging_config_dup(pj_pool_t *pool,
+void pjsua_logging_config_dup(pj_pool_t *pool,
 				      pjsua_logging_config *dst,
 				      const pjsua_logging_config *src)
 {
@@ -98,7 +98,7 @@ static void init_data()
     pj_strdup_with_null(pool, &dst->log_filename, &src->log_filename);
 }
 
-(void) pjsua_config_default(pjsua_config *cfg)
+void pjsua_config_default(pjsua_config *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
 
@@ -116,7 +116,7 @@ static void init_data()
     pjsip_timer_setting_default(&cfg->timer_setting);
 }
 
-(void) pjsua_config_dup(pj_pool_t *pool,
+void pjsua_config_dup(pj_pool_t *pool,
 			      pjsua_config *dst,
 			      const pjsua_config *src)
 {
@@ -142,7 +142,7 @@ static void init_data()
     }
 }
 
-(void) pjsua_msg_data_init(pjsua_msg_data *msg_data)
+void pjsua_msg_data_init(pjsua_msg_data *msg_data)
 {
     pj_bzero(msg_data, sizeof(*msg_data));
     pj_list_init(&msg_data->hdr_list);
@@ -150,7 +150,7 @@ static void init_data()
     pj_list_init(&msg_data->multipart_parts);
 }
 
-(pjsua_msg_data*) pjsua_msg_data_clone(pj_pool_t *pool,
+pjsua_msg_data* pjsua_msg_data_clone(pj_pool_t *pool,
                                              const pjsua_msg_data *rhs)
 {
     pjsua_msg_data *msg_data;
@@ -188,13 +188,13 @@ static void init_data()
     return msg_data;
 }
 
-(void) pjsua_transport_config_default(pjsua_transport_config *cfg)
+void pjsua_transport_config_default(pjsua_transport_config *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
     pjsip_tls_setting_default(&cfg->tls_setting);
 }
 
-(void) pjsua_transport_config_dup(pj_pool_t *pool,
+void pjsua_transport_config_dup(pj_pool_t *pool,
 					pjsua_transport_config *dst,
 					const pjsua_transport_config *src)
 {
@@ -203,7 +203,7 @@ static void init_data()
     pj_strdup(pool, &dst->bound_addr, &src->bound_addr);
 }
 
-(void) pjsua_ice_config_from_media_config( pj_pool_t *pool,
+void pjsua_ice_config_from_media_config( pj_pool_t *pool,
                                            pjsua_ice_config *dst,
                                            const pjsua_media_config *src)
 {
@@ -216,7 +216,7 @@ static void init_data()
     dst->ice_always_update = src->ice_always_update;
 }
 
-(void) pjsua_ice_config_dup( pj_pool_t *pool,
+void pjsua_ice_config_dup( pj_pool_t *pool,
                                 pjsua_ice_config *dst,
                                 const pjsua_ice_config *src)
 {
@@ -224,7 +224,7 @@ static void init_data()
     pj_memcpy(dst, src, sizeof(*src));
 }
 
-(void) pjsua_turn_config_from_media_config(pj_pool_t *pool,
+void pjsua_turn_config_from_media_config(pj_pool_t *pool,
                                                  pjsua_turn_config *dst,
                                                  const pjsua_media_config *src)
 {
@@ -241,7 +241,7 @@ static void init_data()
     }
 }
 
-(void) pjsua_turn_config_dup(pj_pool_t *pool,
+void pjsua_turn_config_dup(pj_pool_t *pool,
                                    pjsua_turn_config *dst,
                                    const pjsua_turn_config *src)
 {
@@ -253,7 +253,7 @@ static void init_data()
     }
 }
 
-(void) pjsua_acc_config_default(pjsua_acc_config *cfg)
+void pjsua_acc_config_default(pjsua_acc_config *cfg)
 {
     pjsua_media_config med_cfg;
 
@@ -304,12 +304,12 @@ static void init_data()
     cfg->mwi_expires = PJSIP_MWI_DEFAULT_EXPIRES;
 }
 
-(void) pjsua_buddy_config_default(pjsua_buddy_config *cfg)
+void pjsua_buddy_config_default(pjsua_buddy_config *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
 }
 
-(void) pjsua_media_config_default(pjsua_media_config *cfg)
+void pjsua_media_config_default(pjsua_media_config *cfg)
 {
     const pj_sys_info *si = pj_get_sys_info();
     pj_str_t dev_model = {"iPhone5", 7};
@@ -628,7 +628,7 @@ static void log_writer(int level, const char *buffer, int len)
  * Application can call this function at any time (after pjsua_create(), of
  * course) to change logging settings.
  */
-(pj_status_t) pjsua_reconfigure_logging(const pjsua_logging_config *cfg)
+pj_status_t pjsua_reconfigure_logging(const pjsua_logging_config *cfg)
 {
     pj_status_t status;
 
@@ -702,7 +702,7 @@ static int worker_thread(void *arg)
 }
 
 
-(void) pjsua_stop_worker_threads(void)
+void pjsua_stop_worker_threads(void)
 {
     unsigned i;
 
@@ -755,7 +755,7 @@ static void init_random_seed(void)
 /*
  * Instantiate pjsua application.
  */
-(pj_status_t) pjsua_create(void)
+pj_status_t pjsua_create(void)
 {
     pj_status_t status;
 
@@ -860,7 +860,7 @@ static void init_random_seed(void)
  * optional, and the default values will be used when the config is not
  * specified.
  */
-(pj_status_t) pjsua_init( const pjsua_config *ua_cfg,
+pj_status_t pjsua_init( const pjsua_config *ua_cfg,
 				const pjsua_logging_config *log_cfg,
 				const pjsua_media_config *media_cfg)
 {
@@ -1376,7 +1376,7 @@ on_return:
 /*
  * Resolve STUN server.
  */
-(pj_status_t) pjsua_resolve_stun_servers( unsigned count,
+pj_status_t pjsua_resolve_stun_servers( unsigned count,
 						pj_str_t srv[],
 						pj_bool_t wait,
 						void *token,
@@ -1438,7 +1438,7 @@ on_return:
 /*
  * Cancel pending STUN resolution.
  */
-(pj_status_t) pjsua_cancel_stun_resolution( void *token,
+pj_status_t pjsua_cancel_stun_resolution( void *token,
 						  pj_bool_t notify_cb)
 {
     pjsua_stun_resolve *sess;
@@ -1553,7 +1553,7 @@ pj_status_t resolve_stun_server(pj_bool_t wait)
 /*
  * Destroy pjsua.
  */
-(pj_status_t) pjsua_destroy2(unsigned flags)
+pj_status_t pjsua_destroy2(unsigned flags)
 {
     int i;  /* Must be signed */
 
@@ -1788,12 +1788,12 @@ void pjsua_set_state(pjsua_state new_state)
 }
 
 /* Get state */
-(pjsua_state) pjsua_get_state(void)
+pjsua_state pjsua_get_state(void)
 {
     return pjsua_var.state;
 }
 
-(pj_status_t) pjsua_destroy(void)
+pj_status_t pjsua_destroy(void)
 {
     return pjsua_destroy2(0);
 }
@@ -1806,7 +1806,7 @@ void pjsua_set_state(pjsua_state new_state)
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsua_start(void)
+pj_status_t pjsua_start(void)
 {
     pj_status_t status;
 
@@ -1837,7 +1837,7 @@ on_return:
  * Poll pjsua for events, and if necessary block the caller thread for
  * the specified maximum interval (in miliseconds).
  */
-(int) pjsua_handle_events(unsigned msec_timeout)
+int pjsua_handle_events(unsigned msec_timeout)
 {
 #if defined(PJ_SYMBIAN) && PJ_SYMBIAN != 0
 
@@ -1867,7 +1867,7 @@ on_return:
 /*
  * Create memory pool.
  */
-(pj_pool_t*) pjsua_pool_create( const char *name, pj_size_t init_size,
+pj_pool_t* pjsua_pool_create( const char *name, pj_size_t init_size,
 				      pj_size_t increment)
 {
     /* Pool factory is thread safe, no need to lock */
@@ -1881,7 +1881,7 @@ on_return:
  * needed for example to register module, create transports, etc.
  * Probably is only valid after #pjsua_init() is called.
  */
-(pjsip_endpoint*) pjsua_get_pjsip_endpt(void)
+pjsip_endpoint* pjsua_get_pjsip_endpt(void)
 {
     return pjsua_var.endpt;
 }
@@ -1890,7 +1890,7 @@ on_return:
  * Internal function to get media endpoint instance.
  * Only valid after #pjsua_init() is called.
  */
-(pjmedia_endpt*) pjsua_get_pjmedia_endpt(void)
+pjmedia_endpt* pjsua_get_pjmedia_endpt(void)
 {
     return pjsua_var.med_endpt;
 }
@@ -1898,7 +1898,7 @@ on_return:
 /*
  * Internal function to get PJSUA pool factory.
  */
-(pj_pool_factory*) pjsua_get_pool_factory(void)
+pj_pool_factory* pjsua_get_pool_factory(void)
 {
     return &pjsua_var.cp.factory;
 }
@@ -2087,7 +2087,7 @@ static pj_status_t create_sip_udp_sock(int af,
 /*
  * Create SIP transport.
  */
-(pj_status_t) pjsua_transport_create( pjsip_transport_type_e type,
+pj_status_t pjsua_transport_create( pjsip_transport_type_e type,
 					    const pjsua_transport_config *cfg,
 					    pjsua_transport_id *p_id)
 {
@@ -2325,7 +2325,7 @@ on_return:
 /*
  * Register transport that has been created by application.
  */
-(pj_status_t) pjsua_transport_register( pjsip_transport *tp,
+pj_status_t pjsua_transport_register( pjsip_transport *tp,
 					      pjsua_transport_id *p_id)
 {
     unsigned id;
@@ -2361,7 +2361,7 @@ on_return:
 /*
  * Enumerate all transports currently created in the system.
  */
-(pj_status_t) pjsua_enum_transports( pjsua_transport_id id[],
+pj_status_t pjsua_enum_transports( pjsua_transport_id id[],
 					   unsigned *p_count )
 {
     unsigned i, count;
@@ -2388,7 +2388,7 @@ on_return:
 /*
  * Get information about transports.
  */
-(pj_status_t) pjsua_transport_get_info( pjsua_transport_id id,
+pj_status_t pjsua_transport_get_info( pjsua_transport_id id,
 					      pjsua_transport_info *info)
 {
     pjsua_transport_data *t = &pjsua_var.tpdata[id];
@@ -2466,7 +2466,7 @@ on_return:
 /*
  * Disable a transport or re-enable it.
  */
-(pj_status_t) pjsua_transport_set_enable( pjsua_transport_id id,
+pj_status_t pjsua_transport_set_enable( pjsua_transport_id id,
 						pj_bool_t enabled)
 {
     /* Make sure id is in range. */
@@ -2488,7 +2488,7 @@ on_return:
 /*
  * Close the transport.
  */
-(pj_status_t) pjsua_transport_close( pjsua_transport_id id,
+pj_status_t pjsua_transport_close( pjsua_transport_id id,
 					   pj_bool_t force )
 {
     pj_status_t status;
@@ -2732,7 +2732,7 @@ static void nat_detect_cb(void *user_data,
 /*
  * Detect NAT type.
  */
-(pj_status_t) pjsua_detect_nat_type()
+pj_status_t pjsua_detect_nat_type()
 {
     pj_status_t status;
 
@@ -2772,7 +2772,7 @@ static void nat_detect_cb(void *user_data,
 /*
  * Get NAT type.
  */
-(pj_status_t) pjsua_get_nat_type(pj_stun_nat_type *type)
+pj_status_t pjsua_get_nat_type(pj_stun_nat_type *type)
 {
     *type = pjsua_var.nat_type;
     return pjsua_var.nat_status;
@@ -2781,7 +2781,7 @@ static void nat_detect_cb(void *user_data,
 /*
  * Verify that valid url is given.
  */
-(pj_status_t) pjsua_verify_url(const char *c_url)
+pj_status_t pjsua_verify_url(const char *c_url)
 {
     pjsip_uri *p;
     pj_pool_t *pool;
@@ -2805,7 +2805,7 @@ static void nat_detect_cb(void *user_data,
 /*
  * Verify that valid SIP url is given.
  */
-(pj_status_t) pjsua_verify_sip_url(const char *c_url)
+pj_status_t pjsua_verify_sip_url(const char *c_url)
 {
     pjsip_uri *p;
     pj_pool_t *pool;
@@ -2835,7 +2835,7 @@ static void nat_detect_cb(void *user_data,
  * Schedule a timer entry. 
  */
 #if PJ_TIMER_DEBUG
-(pj_status_t) pjsua_schedule_timer_dbg( pj_timer_entry *entry,
+pj_status_t pjsua_schedule_timer_dbg( pj_timer_entry *entry,
                                               const pj_time_val *delay,
                                               const char *src_file,
                                               int src_line)
@@ -2844,7 +2844,7 @@ static void nat_detect_cb(void *user_data,
                                           src_file, src_line);
 }
 #else
-(pj_status_t) pjsua_schedule_timer( pj_timer_entry *entry,
+pj_status_t pjsua_schedule_timer( pj_timer_entry *entry,
 					  const pj_time_val *delay)
 {
     return pjsip_endpt_schedule_timer(pjsua_var.endpt, entry, delay);
@@ -2873,13 +2873,13 @@ static void timer_cb( pj_timer_heap_t *th,
  * Schedule a timer callback. 
  */
 #if PJ_TIMER_DEBUG
-(pj_status_t) pjsua_schedule_timer2_dbg( void (*cb)(void *user_data),
+pj_status_t pjsua_schedule_timer2_dbg( void (*cb)(void *user_data),
                                                void *user_data,
                                                unsigned msec_delay,
                                                const char *src_file,
                                                int src_line)
 #else
-(pj_status_t) pjsua_schedule_timer2( void (*cb)(void *user_data),
+pj_status_t pjsua_schedule_timer2( void (*cb)(void *user_data),
                                            void *user_data,
                                            unsigned msec_delay)
 #endif
@@ -2921,7 +2921,7 @@ static void timer_cb( pj_timer_heap_t *th,
  * Cancel the previously scheduled timer.
  *
  */
-(void) pjsua_cancel_timer(pj_timer_entry *entry)
+void pjsua_cancel_timer(pj_timer_entry *entry)
 {
     pjsip_endpt_cancel_timer(pjsua_var.endpt, entry);
 }
@@ -2993,7 +2993,7 @@ pj_status_t normalize_route_uri(pj_pool_t *pool, pj_str_t *uri)
  * This is a utility function to dump the stack states to log, using
  * verbosity level 3.
  */
-(void) pjsua_dump(pj_bool_t detail)
+void pjsua_dump(pj_bool_t detail)
 {
     unsigned old_decor;
     unsigned i;

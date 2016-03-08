@@ -1262,7 +1262,7 @@ static PyObject *py_pjsua_transport_get_info(PyObject *pSelf, PyObject *pArgs)
  * py_pjsua_transport_set_enable
  */
 static PyObject *py_pjsua_transport_set_enable
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {
     pj_status_t status;
     int id;
@@ -3082,7 +3082,7 @@ static PyTypeObject PyTyp_pjmedia_codec_param =
  * py_pjsua_conf_get_max_ports
  */
 static PyObject *py_pjsua_conf_get_max_ports
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int ret;
     
@@ -3101,7 +3101,7 @@ static PyObject *py_pjsua_conf_get_max_ports
  * py_pjsua_conf_get_active_ports
  */
 static PyObject *py_pjsua_conf_get_active_ports
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int ret;
 
@@ -3155,7 +3155,7 @@ static PyObject *py_pjsua_enum_conf_ports(PyObject *pSelf, PyObject *pArgs)
  * py_pjsua_conf_get_port_info
  */
 static PyObject *py_pjsua_conf_get_port_info
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int id;
     PyObj_pjsua_conf_port_info * obj;
@@ -3193,7 +3193,7 @@ static PyObject *py_pjsua_conf_get_port_info
  * py_pjsua_conf_add_port
  */
 static PyObject *py_pjsua_conf_add_port
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int p_id;
     PyObject * oportObj;
@@ -3238,7 +3238,7 @@ static PyObject *py_pjsua_conf_add_port
  * py_pjsua_conf_remove_port
  */
 static PyObject *py_pjsua_conf_remove_port
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int id;
     int status;	
@@ -3260,7 +3260,7 @@ static PyObject *py_pjsua_conf_remove_port
  * py_pjsua_conf_connect
  */
 static PyObject *py_pjsua_conf_connect
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int source, sink;
     int status;	
@@ -3282,7 +3282,7 @@ static PyObject *py_pjsua_conf_connect
  * py_pjsua_conf_disconnect
  */
 static PyObject *py_pjsua_conf_disconnect
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int source, sink;
     int status;	
@@ -3304,7 +3304,7 @@ static PyObject *py_pjsua_conf_disconnect
  * py_pjsua_player_create
  */
 static PyObject *py_pjsua_player_create
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int id;
     int options;
@@ -3329,7 +3329,7 @@ static PyObject *py_pjsua_player_create
  * py_pjsua_player_get_conf_port
  */
 static PyObject *py_pjsua_player_get_conf_port
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int id, port_id;	
@@ -3351,7 +3351,7 @@ static PyObject *py_pjsua_player_get_conf_port
  * py_pjsua_player_set_pos
  */
 static PyObject *py_pjsua_player_set_pos
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int id;
     pj_uint32_t samples;
@@ -3374,7 +3374,7 @@ static PyObject *py_pjsua_player_set_pos
  * py_pjsua_player_destroy
  */
 static PyObject *py_pjsua_player_destroy
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int id;
     int status;	
@@ -3397,7 +3397,7 @@ static PyObject *py_pjsua_player_destroy
  * !modified @ 261206
  */
 static PyObject *py_pjsua_recorder_create
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int p_id;
     int options;
@@ -3436,7 +3436,7 @@ static PyObject *py_pjsua_recorder_create
  * py_pjsua_recorder_get_conf_port
  */
 static PyObject *py_pjsua_recorder_get_conf_port
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int id, port_id;	
@@ -3458,7 +3458,7 @@ static PyObject *py_pjsua_recorder_get_conf_port
  * py_pjsua_recorder_destroy
  */
 static PyObject *py_pjsua_recorder_destroy
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int id;
     int status;	
@@ -3532,7 +3532,7 @@ static PyObject *py_pjsua_enum_snd_devs(PyObject *pSelf, PyObject *pArgs)
  * py_pjsua_get_snd_dev
  */
 static PyObject *py_pjsua_get_snd_dev
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int capture_dev, playback_dev;
     int status;	
@@ -3554,7 +3554,7 @@ static PyObject *py_pjsua_get_snd_dev
  * py_pjsua_set_snd_dev
  */
 static PyObject *py_pjsua_set_snd_dev
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int capture_dev, playback_dev;
     int status;	
@@ -3576,7 +3576,7 @@ static PyObject *py_pjsua_set_snd_dev
  * py_pjsua_set_null_snd_dev
  */
 static PyObject *py_pjsua_set_null_snd_dev
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int status;	
@@ -3598,7 +3598,7 @@ static PyObject *py_pjsua_set_null_snd_dev
  * py_pjsua_set_no_snd_dev
  */
 static PyObject *py_pjsua_set_no_snd_dev
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     PyObj_pjmedia_port * obj;	
@@ -3620,7 +3620,7 @@ static PyObject *py_pjsua_set_no_snd_dev
  * py_pjsua_set_ec
  */
 static PyObject *py_pjsua_set_ec
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int options;
     int tail_ms;
@@ -3643,7 +3643,7 @@ static PyObject *py_pjsua_set_ec
  * py_pjsua_get_ec_tail
  */
 static PyObject *py_pjsua_get_ec_tail
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int status;	
@@ -3713,7 +3713,7 @@ static PyObject *py_pjsua_enum_codecs(PyObject *pSelf, PyObject *pArgs)
  * py_pjsua_codec_set_priority
  */
 static PyObject *py_pjsua_codec_set_priority
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int status;	
@@ -3739,7 +3739,7 @@ static PyObject *py_pjsua_codec_set_priority
  * py_pjsua_codec_get_param
  */
 static PyObject *py_pjsua_codec_get_param
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int status;	
@@ -3781,7 +3781,7 @@ static PyObject *py_pjsua_codec_get_param
  * py_pjsua_codec_set_param
  */
 static PyObject *py_pjsua_codec_set_param
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int status;	
@@ -4296,7 +4296,7 @@ static PyTypeObject PyTyp_pjsua_call_info =
  * py_pjsua_call_get_max_count
  */
 static PyObject *py_pjsua_call_get_max_count
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int count;
 
@@ -4317,7 +4317,7 @@ static PyObject *py_pjsua_call_get_max_count
  * py_pjsua_call_get_count
  */
 static PyObject *py_pjsua_call_get_count
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     
     int count;	
@@ -4373,7 +4373,7 @@ static PyObject *py_pjsua_enum_calls(PyObject *pSelf, PyObject *pArgs)
  * py_pjsua_call_make_call
  */
 static PyObject *py_pjsua_call_make_call
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int acc_id;
@@ -4424,7 +4424,7 @@ static PyObject *py_pjsua_call_make_call
  * py_pjsua_call_is_active
  */
 static PyObject *py_pjsua_call_is_active
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     int isActive;	
@@ -4446,7 +4446,7 @@ static PyObject *py_pjsua_call_is_active
  * py_pjsua_call_has_media
  */
 static PyObject *py_pjsua_call_has_media
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     int hasMedia;	
@@ -4468,7 +4468,7 @@ static PyObject *py_pjsua_call_has_media
  * py_pjsua_call_get_conf_port
  */
 static PyObject *py_pjsua_call_get_conf_port
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     int port_id;	
@@ -4490,7 +4490,7 @@ static PyObject *py_pjsua_call_get_conf_port
  * py_pjsua_call_get_info
  */
 static PyObject *py_pjsua_call_get_info
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     int status;
@@ -4562,7 +4562,7 @@ static PyObject *py_pjsua_call_get_info
  * py_pjsua_call_set_user_data
  */
 static PyObject *py_pjsua_call_set_user_data
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     int user_data;	
@@ -4585,7 +4585,7 @@ static PyObject *py_pjsua_call_set_user_data
  * py_pjsua_call_get_user_data
  */
 static PyObject *py_pjsua_call_get_user_data
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     void * user_data;	
@@ -4607,7 +4607,7 @@ static PyObject *py_pjsua_call_get_user_data
  * py_pjsua_call_answer
  */
 static PyObject *py_pjsua_call_answer
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;
@@ -4660,7 +4660,7 @@ static PyObject *py_pjsua_call_answer
  * py_pjsua_call_hangup
  */
 static PyObject *py_pjsua_call_hangup
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;
@@ -4709,7 +4709,7 @@ static PyObject *py_pjsua_call_hangup
  * py_pjsua_call_set_hold
  */
 static PyObject *py_pjsua_call_set_hold
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;    
@@ -4747,7 +4747,7 @@ static PyObject *py_pjsua_call_set_hold
  * py_pjsua_call_reinvite
  */
 static PyObject *py_pjsua_call_reinvite
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;    
@@ -4786,7 +4786,7 @@ static PyObject *py_pjsua_call_reinvite
  * py_pjsua_call_xfer
  */
 static PyObject *py_pjsua_call_xfer
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;
@@ -4829,7 +4829,7 @@ static PyObject *py_pjsua_call_xfer
  * py_pjsua_call_xfer_replaces
  */
 static PyObject *py_pjsua_call_xfer_replaces
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;
@@ -4871,7 +4871,7 @@ static PyObject *py_pjsua_call_xfer_replaces
  * py_pjsua_call_dial_dtmf
  */
 static PyObject *py_pjsua_call_dial_dtmf
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     PyObject * sd;
@@ -4895,7 +4895,7 @@ static PyObject *py_pjsua_call_dial_dtmf
  * py_pjsua_call_send_im
  */
 static PyObject *py_pjsua_call_send_im
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;
@@ -4952,7 +4952,7 @@ static PyObject *py_pjsua_call_send_im
  * py_pjsua_call_send_typing_ind
  */
 static PyObject *py_pjsua_call_send_typing_ind
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    
     int status;
     int call_id;    
@@ -4991,7 +4991,7 @@ static PyObject *py_pjsua_call_send_typing_ind
  * py_pjsua_call_hangup_all
  */
 static PyObject *py_pjsua_call_hangup_all
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
 
     PJ_UNUSED_ARG(pSelf);
@@ -5011,7 +5011,7 @@ static PyObject *py_pjsua_call_hangup_all
  * py_pjsua_call_dump
  */
 static PyObject *py_pjsua_call_dump
-(PyObject *pSelf, PyObject *pArgs)
+PyObject *pSelf, PyObject *pArgs
 {    	
     int call_id;
     int with_media;

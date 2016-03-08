@@ -105,7 +105,7 @@ struct pjmedia_endpt
 /**
  * Initialize and get the instance of media endpoint.
  */
-(pj_status_t) pjmedia_endpt_create(pj_pool_factory *pf,
+pj_status_t pjmedia_endpt_create(pj_pool_factory *pf,
 					 pj_ioqueue_t *ioqueue,
 					 unsigned worker_cnt,
 					 pjmedia_endpt **p_endpt)
@@ -196,7 +196,7 @@ on_error:
 /**
  * Get the codec manager instance.
  */
-(pjmedia_codec_mgr*) pjmedia_endpt_get_codec_mgr(pjmedia_endpt *endpt)
+pjmedia_codec_mgr* pjmedia_endpt_get_codec_mgr(pjmedia_endpt *endpt)
 {
     return &endpt->codec_mgr;
 }
@@ -204,7 +204,7 @@ on_error:
 /**
  * Deinitialize media endpoint.
  */
-(pj_status_t) pjmedia_endpt_destroy (pjmedia_endpt *endpt)
+pj_status_t pjmedia_endpt_destroy (pjmedia_endpt *endpt)
 {
     exit_cb *ecb;
 
@@ -233,7 +233,7 @@ on_error:
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_endpt_set_flag( pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_set_flag( pjmedia_endpt *endpt,
 					    pjmedia_endpt_flag flag,
 					    const void *value)
 {
@@ -250,7 +250,7 @@ on_error:
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_endpt_get_flag( pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_get_flag( pjmedia_endpt *endpt,
 					    pjmedia_endpt_flag flag,
 					    void *value)
 {
@@ -270,7 +270,7 @@ on_error:
 /**
  * Get the ioqueue instance of the media endpoint.
  */
-(pj_ioqueue_t*) pjmedia_endpt_get_ioqueue(pjmedia_endpt *endpt)
+pj_ioqueue_t* pjmedia_endpt_get_ioqueue(pjmedia_endpt *endpt)
 {
     PJ_ASSERT_RETURN(endpt, NULL);
     return endpt->ioqueue;
@@ -279,7 +279,7 @@ on_error:
 /**
  * Get the number of worker threads in media endpoint.
  */
-(unsigned) pjmedia_endpt_get_thread_count(pjmedia_endpt *endpt)
+unsigned pjmedia_endpt_get_thread_count(pjmedia_endpt *endpt)
 {
     PJ_ASSERT_RETURN(endpt, 0);
     return endpt->thread_cnt;
@@ -288,7 +288,7 @@ on_error:
 /**
  * Get a reference to one of the worker threads of the media endpoint 
  */
-(pj_thread_t*) pjmedia_endpt_get_thread(pjmedia_endpt *endpt, 
+pj_thread_t* pjmedia_endpt_get_thread(pjmedia_endpt *endpt, 
 					      unsigned index)
 {
     PJ_ASSERT_RETURN(endpt, NULL);
@@ -302,7 +302,7 @@ on_error:
 /**
  * Stop and destroy the worker threads of the media endpoint
  */
-(pj_status_t) pjmedia_endpt_stop_threads(pjmedia_endpt *endpt)
+pj_status_t pjmedia_endpt_stop_threads(pjmedia_endpt *endpt)
 {
     unsigned i;
 
@@ -340,7 +340,7 @@ static int PJ_THREAD_FUNC worker_proc(void *arg)
 /**
  * Create pool.
  */
-(pj_pool_t*) pjmedia_endpt_create_pool( pjmedia_endpt *endpt,
+pj_pool_t* pjmedia_endpt_create_pool( pjmedia_endpt *endpt,
 					      const char *name,
 					      pj_size_t initial,
 					      pj_size_t increment)
@@ -399,7 +399,7 @@ static pj_status_t init_sdp_media(pjmedia_sdp_media *m,
 }
 
 /* Create m=audio SDP media line */
-(pj_status_t) pjmedia_endpt_create_audio_sdp(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_audio_sdp(pjmedia_endpt *endpt,
                                                    pj_pool_t *pool,
                                                    const pjmedia_sock_info *si,
                                                    unsigned options,
@@ -582,7 +582,7 @@ static pj_status_t init_sdp_media(pjmedia_sdp_media *m,
 #if defined(PJMEDIA_HAS_VIDEO) && (PJMEDIA_HAS_VIDEO != 0)
 
 /* Create m=video SDP media line */
-(pj_status_t) pjmedia_endpt_create_video_sdp(pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_video_sdp(pjmedia_endpt *endpt,
                                                    pj_pool_t *pool,
                                                    const pjmedia_sock_info *si,
                                                    unsigned options,
@@ -749,7 +749,7 @@ static pj_status_t init_sdp_media(pjmedia_sdp_media *m,
  * Create a "blank" SDP session description. The SDP will contain basic SDP
  * fields such as origin, time, and name, but without any media lines.
  */
-(pj_status_t) pjmedia_endpt_create_base_sdp( pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_base_sdp( pjmedia_endpt *endpt,
 						   pj_pool_t *pool,
 						   const pj_str_t *sess_name,
 						   const pj_sockaddr *origin,
@@ -803,7 +803,7 @@ static pj_status_t init_sdp_media(pjmedia_sdp_media *m,
  * Create a SDP session description that describes the endpoint
  * capability.
  */
-(pj_status_t) pjmedia_endpt_create_sdp( pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_create_sdp( pjmedia_endpt *endpt,
 					      pj_pool_t *pool,
 					      unsigned stream_cnt,
 					      const pjmedia_sock_info sock_info[],
@@ -874,7 +874,7 @@ static const char *good_number(char *buf, pj_int32_t val)
 }
 #endif
 
-(pj_status_t) pjmedia_endpt_dump(pjmedia_endpt *endpt)
+pj_status_t pjmedia_endpt_dump(pjmedia_endpt *endpt)
 {
 
 #if PJ_LOG_MAX_LEVEL >= 3
@@ -934,7 +934,7 @@ static const char *good_number(char *buf, pj_int32_t val)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_endpt_atexit( pjmedia_endpt *endpt,
+pj_status_t pjmedia_endpt_atexit( pjmedia_endpt *endpt,
 					  pjmedia_endpt_exit_callback func)
 {
     exit_cb *new_cb;

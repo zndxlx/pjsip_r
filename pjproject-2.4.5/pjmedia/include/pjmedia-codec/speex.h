@@ -98,7 +98,7 @@ enum pjmedia_speex_options
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_speex_init( pjmedia_endpt *endpt,
+pj_status_t pjmedia_codec_speex_init( pjmedia_endpt *endpt,
 					       unsigned options,
 					       int quality,
 					       int complexity );
@@ -112,7 +112,7 @@ enum pjmedia_speex_options
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_speex_init_default(pjmedia_endpt *endpt);
+pj_status_t pjmedia_codec_speex_init_default(pjmedia_endpt *endpt);
 
 
 /**
@@ -126,7 +126,7 @@ enum pjmedia_speex_options
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_speex_set_param(unsigned clock_rate,
+pj_status_t pjmedia_codec_speex_set_param(unsigned clock_rate,
 						   int quality,
 						   int complexity);
 
@@ -137,7 +137,7 @@ enum pjmedia_speex_options
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_speex_deinit(void);
+pj_status_t pjmedia_codec_speex_deinit(void);
 
 
 PJ_END_DECL

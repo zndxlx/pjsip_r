@@ -1267,13 +1267,13 @@ static void PlayCb(TAPSCommBuffer &buf, void *user_data)
  * C compatible declaration of APS factory.
  */
 PJ_BEGIN_DECL
-(pjmedia_aud_dev_factory*) pjmedia_aps_factory(pj_pool_factory *pf);
+pjmedia_aud_dev_factory* pjmedia_aps_factory(pj_pool_factory *pf);
 PJ_END_DECL
 
 /*
  * Init APS audio driver.
  */
-(pjmedia_aud_dev_factory*) pjmedia_aps_factory(pj_pool_factory *pf)
+pjmedia_aud_dev_factory* pjmedia_aps_factory(pj_pool_factory *pf)
 {
     struct aps_factory *f;
     pj_pool_t *pool;

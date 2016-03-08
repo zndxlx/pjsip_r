@@ -213,7 +213,7 @@ static void kthread_launcher(void *arg)
     kernel_thread(&thread_proc, arg, 0);
 }
 
-(pj_status_t) pj_init(void)
+pj_status_t pj_init(void)
 {
     pj_status_t rc;
 
@@ -233,12 +233,12 @@ static void kthread_launcher(void *arg)
     return PJ_SUCCESS;
 }
 
-(pj_uint32_t) pj_getpid(void)
+pj_uint32_t pj_getpid(void)
 {
     return 1;
 }
 
-(pj_status_t) pj_thread_register ( const char *cstr_thread_name,
+pj_status_t pj_thread_register ( const char *cstr_thread_name,
 					 pj_thread_desc desc,
 					 pj_thread_t **ptr_thread)
 {
@@ -303,7 +303,7 @@ pj_status_t pj_thread_init(void)
     return pj_thread_register("pjlib-main", (long*)&main_thread, &dummy);
 }
 
-(pj_status_t) pj_thread_create( pj_pool_t *pool, const char *thread_name,
+pj_status_t pj_thread_create( pj_pool_t *pool, const char *thread_name,
 				      pj_thread_proc *proc, void *arg,
 				      pj_size_t stack_size, unsigned flags,
 				      pj_thread_t **ptr_thread)
@@ -371,23 +371,23 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(const char*) pj_thread_get_name(pj_thread_t *thread)
+const char* pj_thread_get_name(pj_thread_t *thread)
 {
     return thread->obj_name;
 }
 
-(pj_status_t) pj_thread_resume(pj_thread_t *thread)
+pj_status_t pj_thread_resume(pj_thread_t *thread)
 {
     up(&thread->suspend_sem);
     return PJ_SUCCESS;
 }
 
-(pj_thread_t*) pj_thread_this(void)
+pj_thread_t* pj_thread_this(void)
 {
     return (pj_thread_t*)pj_thread_local_get(thread_tls_id);
 }
 
-(pj_status_t) pj_thread_join(pj_thread_t *p)
+pj_status_t pj_thread_join(pj_thread_t *p)
 {
     TRACE_((THIS_FILE, "pj_thread_join()"));
     down(&p->startstop_sem);
@@ -395,13 +395,13 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_thread_destroy(pj_thread_t *thread)
+pj_status_t pj_thread_destroy(pj_thread_t *thread)
 {
     PJ_ASSERT_RETURN(thread != NULL, PJ_EINVALIDOP);
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_thread_sleep(unsigned msec)
+pj_status_t pj_thread_sleep(unsigned msec)
 {
     pj_highprec_t ticks;
     pj_thread_t *thread = pj_thread_this();
@@ -424,7 +424,7 @@ pj_status_t pj_thread_init(void)
 
 
 ///////////////////////////////////////////////////////////////////////////////
-(pj_status_t) pj_atomic_create( pj_pool_t *pool, 
+pj_status_t pj_atomic_create( pj_pool_t *pool, 
 				      pj_atomic_value_t value,
 				      pj_atomic_t **ptr_var)
 {
@@ -437,39 +437,39 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_atomic_destroy( pj_atomic_t *var )
+pj_status_t pj_atomic_destroy( pj_atomic_t *var )
 {
     return PJ_SUCCESS;
 }
 
-(void) pj_atomic_set(pj_atomic_t *var, pj_atomic_value_t value)
+void pj_atomic_set(pj_atomic_t *var, pj_atomic_value_t value)
 {
     atomic_set(&var->atom, value);
 }
 
-(pj_atomic_value_t) pj_atomic_get(pj_atomic_t *var)
+pj_atomic_value_t pj_atomic_get(pj_atomic_t *var)
 {
     return atomic_read(&var->atom);
 }
 
-(void) pj_atomic_inc(pj_atomic_t *var)
+void pj_atomic_inc(pj_atomic_t *var)
 {
     atomic_inc(&var->atom);
 }
 
-(void) pj_atomic_dec(pj_atomic_t *var)
+void pj_atomic_dec(pj_atomic_t *var)
 {
     atomic_dec(&var->atom);
 }
 
-(void) pj_atomic_add( pj_atomic_t *var, pj_atomic_value_t value )
+void pj_atomic_add( pj_atomic_t *var, pj_atomic_value_t value )
 {
     atomic_add(value, &var->atom);
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
-(pj_status_t) pj_thread_local_alloc(long *index)
+pj_status_t pj_thread_local_alloc(long *index)
 {
     if (tls_id >= MAX_TLS_ID)
 	return PJ_ETOOMANY;
@@ -479,19 +479,19 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(void) pj_thread_local_free(long index)
+void pj_thread_local_free(long index)
 {
     pj_assert(index >= 0 && index < MAX_TLS_ID);
 }
 
-(pj_status_t) pj_thread_local_set(long index, void *value)
+pj_status_t pj_thread_local_set(long index, void *value)
 {
     pj_assert(index >= 0 && index < MAX_TLS_ID);
     tls_values[index] = value;
     return PJ_SUCCESS;
 }
 
-(void*) pj_thread_local_get(long index)
+void* pj_thread_local_get(long index)
 {
     pj_assert(index >= 0 && index < MAX_TLS_ID);
     return tls_values[index];
@@ -499,19 +499,19 @@ pj_status_t pj_thread_init(void)
 
 
 ///////////////////////////////////////////////////////////////////////////////
-(void) pj_enter_critical_section(void)
+void pj_enter_critical_section(void)
 {
     spin_lock_irqsave(&critical_section, spinlock_flags);
 }
 
-(void) pj_leave_critical_section(void)
+void pj_leave_critical_section(void)
 {
     spin_unlock_irqrestore(&critical_section, spinlock_flags);
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////
-(pj_status_t) pj_mutex_create( pj_pool_t *pool, 
+pj_status_t pj_mutex_create( pj_pool_t *pool, 
 				     const char *name, 
 				     int type,
 				     pj_mutex_t **ptr_mutex)
@@ -535,20 +535,20 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_mutex_create_simple( pj_pool_t *pool, const char *name,
+pj_status_t pj_mutex_create_simple( pj_pool_t *pool, const char *name,
 					    pj_mutex_t **mutex )
 {
     return pj_mutex_create(pool, name, PJ_MUTEX_SIMPLE, mutex);
 }
 
-(pj_status_t) pj_mutex_create_recursive( pj_pool_t *pool,
+pj_status_t pj_mutex_create_recursive( pj_pool_t *pool,
 					       const char *name,
 					       pj_mutex_t **mutex )
 {
     return pj_mutex_create( pool, name, PJ_MUTEX_RECURSE, mutex);
 }
 
-(pj_status_t) pj_mutex_lock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_lock(pj_mutex_t *mutex)
 {
     PJ_ASSERT_RETURN(mutex, PJ_EINVAL);
 
@@ -568,7 +568,7 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_mutex_trylock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_trylock(pj_mutex_t *mutex)
 {
     long rc;
 
@@ -594,7 +594,7 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_mutex_unlock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_unlock(pj_mutex_t *mutex)
 {
     PJ_ASSERT_RETURN(mutex, PJ_EINVAL);
 
@@ -617,7 +617,7 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_mutex_destroy(pj_mutex_t *mutex)
+pj_status_t pj_mutex_destroy(pj_mutex_t *mutex)
 {
     PJ_ASSERT_RETURN(mutex != NULL, PJ_EINVAL);
 
@@ -625,7 +625,7 @@ pj_status_t pj_thread_init(void)
 }
 
 #if defined(PJ_DEBUG) && PJ_DEBUG != 0
-(pj_bool_t) pj_mutex_is_locked(pj_mutex_t *mutex)
+pj_bool_t pj_mutex_is_locked(pj_mutex_t *mutex)
 {
     if (mutex->recursive)
 	return mutex->owner == pj_thread_this();
@@ -637,7 +637,7 @@ pj_status_t pj_thread_init(void)
 
 #if defined(PJ_HAS_SEMAPHORE) && PJ_HAS_SEMAPHORE != 0
 
-(pj_status_t) pj_sem_create(  pj_pool_t *pool, 
+pj_status_t pj_sem_create(  pj_pool_t *pool, 
                                     const char *name,
 				    unsigned initial, 
                                     unsigned max,
@@ -654,7 +654,7 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_sem_wait(pj_sem_t *sem)
+pj_status_t pj_sem_wait(pj_sem_t *sem)
 {
     PJ_ASSERT_RETURN(pool && sem, PJ_EINVAL);
 
@@ -662,7 +662,7 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_sem_trywait(pj_sem_t *sem)
+pj_status_t pj_sem_trywait(pj_sem_t *sem)
 {
     int rc;
 
@@ -676,7 +676,7 @@ pj_status_t pj_thread_init(void)
     }
 }
 
-(pj_status_t) pj_sem_post(pj_sem_t *sem)
+pj_status_t pj_sem_post(pj_sem_t *sem)
 {
     PJ_ASSERT_RETURN(pool && sem, PJ_EINVAL);
 
@@ -684,7 +684,7 @@ pj_status_t pj_thread_init(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_sem_destroy(pj_sem_t *sem)
+pj_status_t pj_sem_destroy(pj_sem_t *sem)
 {
     PJ_ASSERT_RETURN(pool && sem, PJ_EINVAL);
 

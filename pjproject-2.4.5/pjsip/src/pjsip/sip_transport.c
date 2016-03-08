@@ -247,7 +247,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Register new transport type to PJSIP.
  */
-(pj_status_t) pjsip_transport_register_type( unsigned tp_flag,
+pj_status_t pjsip_transport_register_type( unsigned tp_flag,
 						   const char *tp_name,
 						   int def_port,
 						   int *p_tp_type)
@@ -283,7 +283,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Get transport type from name.
  */
-(pjsip_transport_type_e) pjsip_transport_get_type_from_name(const pj_str_t *name)
+pjsip_transport_type_e pjsip_transport_get_type_from_name(const pj_str_t *name)
 {
     unsigned i;
 
@@ -305,7 +305,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Get the transport type for the specified flags.
  */
-(pjsip_transport_type_e) pjsip_transport_get_type_from_flag(unsigned flag)
+pjsip_transport_type_e pjsip_transport_get_type_from_flag(unsigned flag)
 {
     unsigned i;
 
@@ -323,7 +323,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Get the socket address family of a given transport type.
  */
-(int) pjsip_transport_type_get_af(pjsip_transport_type_e type)
+int pjsip_transport_type_get_af(pjsip_transport_type_e type)
 {
     if (type & PJSIP_TRANSPORT_IPV6)
 	return pj_AF_INET6();
@@ -331,7 +331,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 	return pj_AF_INET();
 }
 
-(unsigned) pjsip_transport_get_flag_from_type(pjsip_transport_type_e type)
+unsigned pjsip_transport_get_flag_from_type(pjsip_transport_type_e type)
 {
     /* Return transport flag. */
     return get_tpname(type)->flag;
@@ -340,7 +340,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Get the default SIP port number for the specified type.
  */
-(int) pjsip_transport_get_default_port_for_type(pjsip_transport_type_e type)
+int pjsip_transport_get_default_port_for_type(pjsip_transport_type_e type)
 {
     /* Return the port. */
     return get_tpname(type)->port;
@@ -349,7 +349,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Get transport name.
  */
-(const char*) pjsip_transport_get_type_name(pjsip_transport_type_e type)
+const char* pjsip_transport_get_type_name(pjsip_transport_type_e type)
 {
     /* Return the name. */
     return get_tpname(type)->name.ptr;
@@ -358,7 +358,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Get transport description.
  */
-(const char*) pjsip_transport_get_type_desc(pjsip_transport_type_e type)
+const char* pjsip_transport_get_type_desc(pjsip_transport_type_e type)
 {
     /* Return the description. */
     return get_tpname(type)->description;
@@ -374,7 +374,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Add transport/listener reference in the selector.
  */
-(void) pjsip_tpselector_add_ref(pjsip_tpselector *sel)
+void pjsip_tpselector_add_ref(pjsip_tpselector *sel)
 {
     if (sel->type == PJSIP_TPSELECTOR_TRANSPORT && sel->u.transport != NULL)
 	pjsip_transport_add_ref(sel->u.transport);
@@ -386,7 +386,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Decrement transport/listener reference in the selector.
  */
-(void) pjsip_tpselector_dec_ref(pjsip_tpselector *sel)
+void pjsip_tpselector_dec_ref(pjsip_tpselector *sel)
 {
     if (sel->type == PJSIP_TPSELECTOR_TRANSPORT && sel->u.transport != NULL)
 	pjsip_transport_dec_ref(sel->u.transport);
@@ -404,7 +404,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Create new transmit buffer.
  */
-(pj_status_t) pjsip_tx_data_create( pjsip_tpmgr *mgr,
+pj_status_t pjsip_tx_data_create( pjsip_tpmgr *mgr,
 					  pjsip_tx_data **p_tdata )
 {
     pj_pool_t *pool;
@@ -459,7 +459,7 @@ static struct transport_names_t *get_tpname(pjsip_transport_type_e type)
 /*
  * Add reference to tx buffer.
  */
-(void) pjsip_tx_data_add_ref( pjsip_tx_data *tdata )
+void pjsip_tx_data_add_ref( pjsip_tx_data *tdata )
 {
     pj_atomic_inc(tdata->ref_cnt);
 }
@@ -489,7 +489,7 @@ static void tx_data_destroy(pjsip_tx_data *tdata)
  * Decrease transport data reference, destroy it when the reference count
  * reaches zero.
  */
-(pj_status_t) pjsip_tx_data_dec_ref( pjsip_tx_data *tdata )
+pj_status_t pjsip_tx_data_dec_ref( pjsip_tx_data *tdata )
 {
     pj_assert( pj_atomic_get(tdata->ref_cnt) > 0);
     if (pj_atomic_dec_and_get(tdata->ref_cnt) <= 0) {
@@ -504,7 +504,7 @@ static void tx_data_destroy(pjsip_tx_data *tdata)
  * Invalidate the content of the print buffer to force the message to be
  * re-printed when sent.
  */
-(void) pjsip_tx_data_invalidate_msg( pjsip_tx_data *tdata )
+void pjsip_tx_data_invalidate_msg( pjsip_tx_data *tdata )
 {
     tdata->buf.cur = tdata->buf.start;
     tdata->info = NULL;
@@ -513,7 +513,7 @@ static void tx_data_destroy(pjsip_tx_data *tdata)
 /*
  * Print the SIP message to transmit data buffer's internal buffer.
  */
-(pj_status_t) pjsip_tx_data_encode(pjsip_tx_data *tdata)
+pj_status_t pjsip_tx_data_encode(pjsip_tx_data *tdata)
 {
     /* Allocate buffer if necessary. */
     if (tdata->buf.start == NULL) {
@@ -549,7 +549,7 @@ static void tx_data_destroy(pjsip_tx_data *tdata)
     return PJ_SUCCESS;
 }
 
-(pj_bool_t) pjsip_tx_data_is_valid( pjsip_tx_data *tdata )
+pj_bool_t pjsip_tx_data_is_valid( pjsip_tx_data *tdata )
 {
     return tdata->buf.cur != tdata->buf.start;
 }
@@ -589,7 +589,7 @@ static char *get_msg_info(pj_pool_t *pool, const char *obj_name,
     return info;
 }
 
-(char*) pjsip_tx_data_get_info( pjsip_tx_data *tdata )
+char* pjsip_tx_data_get_info( pjsip_tx_data *tdata )
 {
     PJ_ASSERT_RETURN(tdata, "NULL");
 
@@ -609,7 +609,7 @@ static char *get_msg_info(pj_pool_t *pool, const char *obj_name,
     return tdata->info;
 }
 
-(pj_status_t) pjsip_tx_data_set_transport(pjsip_tx_data *tdata,
+pj_status_t pjsip_tx_data_set_transport(pjsip_tx_data *tdata,
 						const pjsip_tpselector *sel)
 {
     PJ_ASSERT_RETURN(tdata && sel, PJ_EINVAL);
@@ -627,7 +627,7 @@ static char *get_msg_info(pj_pool_t *pool, const char *obj_name,
 }
 
 
-(char*) pjsip_rx_data_get_info(pjsip_rx_data *rdata)
+char* pjsip_rx_data_get_info(pjsip_rx_data *rdata)
 {
     char obj_name[PJ_MAX_OBJ_NAME];
 
@@ -645,7 +645,7 @@ static char *get_msg_info(pj_pool_t *pool, const char *obj_name,
 }
 
 /* Clone pjsip_rx_data. */
-(pj_status_t) pjsip_rx_data_clone( const pjsip_rx_data *src,
+pj_status_t pjsip_rx_data_clone( const pjsip_rx_data *src,
                                          unsigned flags,
                                          pjsip_rx_data **p_rdata)
 {
@@ -717,7 +717,7 @@ static char *get_msg_info(pj_pool_t *pool, const char *obj_name,
 }
 
 /* Free previously cloned pjsip_rx_data. */
-(pj_status_t) pjsip_rx_data_free_cloned(pjsip_rx_data *rdata)
+pj_status_t pjsip_rx_data_free_cloned(pjsip_rx_data *rdata)
 {
     PJ_ASSERT_RETURN(rdata, PJ_EINVAL);
 
@@ -773,7 +773,7 @@ static pj_status_t mod_on_tx_msg(pjsip_tx_data *tdata)
 /*
  * Send a SIP message using the specified transport.
  */
-(pj_status_t) pjsip_transport_send(  pjsip_transport *tr, 
+pj_status_t pjsip_transport_send(  pjsip_transport *tr, 
 					   pjsip_tx_data *tdata,
 					   const pj_sockaddr_t *addr,
 					   int addr_len,
@@ -870,7 +870,7 @@ static void send_raw_callback(pjsip_transport *transport,
 
 
 /* Send raw data */
-(pj_status_t) pjsip_tpmgr_send_raw(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_send_raw(pjsip_tpmgr *mgr,
 					 pjsip_transport_type_e tp_type,
 					 const pjsip_tpselector *sel,
 					 pjsip_tx_data *tdata,
@@ -955,7 +955,7 @@ static void transport_idle_callback(pj_timer_heap_t *timer_heap,
 /*
  * Add ref.
  */
-(pj_status_t) pjsip_transport_add_ref( pjsip_transport *tp )
+pj_status_t pjsip_transport_add_ref( pjsip_transport *tp )
 {
     PJ_ASSERT_RETURN(tp != NULL, PJ_EINVAL);
 
@@ -977,7 +977,7 @@ static void transport_idle_callback(pj_timer_heap_t *timer_heap,
 /*
  * Dec ref.
  */
-(pj_status_t) pjsip_transport_dec_ref( pjsip_transport *tp )
+pj_status_t pjsip_transport_dec_ref( pjsip_transport *tp )
 {
     PJ_ASSERT_RETURN(tp != NULL, PJ_EINVAL);
 
@@ -1019,7 +1019,7 @@ static void transport_idle_callback(pj_timer_heap_t *timer_heap,
 /**
  * Register a transport.
  */
-(pj_status_t) pjsip_transport_register( pjsip_tpmgr *mgr,
+pj_status_t pjsip_transport_register( pjsip_tpmgr *mgr,
 					      pjsip_transport *tp )
 {
     int key_len;
@@ -1124,7 +1124,7 @@ static pj_status_t destroy_transport( pjsip_tpmgr *mgr,
 /*
  * Start graceful shutdown procedure for this transport. 
  */
-(pj_status_t) pjsip_transport_shutdown(pjsip_transport *tp)
+pj_status_t pjsip_transport_shutdown(pjsip_transport *tp)
 {
     pjsip_tpmgr *mgr;
     pj_status_t status;
@@ -1179,7 +1179,7 @@ static pj_status_t destroy_transport( pjsip_tpmgr *mgr,
 /**
  * Unregister transport.
  */
-(pj_status_t) pjsip_transport_destroy( pjsip_transport *tp)
+pj_status_t pjsip_transport_destroy( pjsip_transport *tp)
 {
     pjsip_tp_state_callback state_cb;
 
@@ -1208,7 +1208,7 @@ static pj_status_t destroy_transport( pjsip_tpmgr *mgr,
  *****************************************************************************/
 
 
-(pj_status_t) pjsip_tpmgr_register_tpfactory( pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_register_tpfactory( pjsip_tpmgr *mgr,
 						    pjsip_tpfactory *tpf)
 {
     pjsip_tpfactory *p;
@@ -1245,7 +1245,7 @@ static pj_status_t destroy_transport( pjsip_tpmgr *mgr,
 /**
  * Unregister factory.
  */
-(pj_status_t) pjsip_tpmgr_unregister_tpfactory( pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_unregister_tpfactory( pjsip_tpmgr *mgr,
 						      pjsip_tpfactory *tpf)
 {
     pj_lock_acquire(mgr->lock);
@@ -1258,7 +1258,7 @@ static pj_status_t destroy_transport( pjsip_tpmgr *mgr,
     return PJ_SUCCESS;
 }
 
-(void) pjsip_tpmgr_fla2_param_default(pjsip_tpmgr_fla2_param *prm)
+void pjsip_tpmgr_fla2_param_default(pjsip_tpmgr_fla2_param *prm)
 {
     pj_bzero(prm, sizeof(*prm));
 }
@@ -1272,7 +1272,7 @@ static pj_status_t destroy_transport( pjsip_tpmgr *mgr,
 /*
  * Create a new transport manager.
  */
-(pj_status_t) pjsip_tpmgr_create( pj_pool_t *pool,
+pj_status_t pjsip_tpmgr_create( pj_pool_t *pool,
 					pjsip_endpoint *endpt,
 					pjsip_rx_callback rx_cb,
 					pjsip_tx_callback tx_cb,
@@ -1368,7 +1368,7 @@ static pj_status_t get_net_interface(pjsip_transport_type_e tp_type,
  * In this implementation, it will only select the transport based on
  * the transport type in the request.
  */
-(pj_status_t) pjsip_tpmgr_find_local_addr2(pjsip_tpmgr *tpmgr,
+pj_status_t pjsip_tpmgr_find_local_addr2(pjsip_tpmgr *tpmgr,
 						 pj_pool_t *pool,
 						 pjsip_tpmgr_fla2_param *prm)
 {
@@ -1500,7 +1500,7 @@ on_return:
     return status;
 }
 
-(pj_status_t) pjsip_tpmgr_find_local_addr( pjsip_tpmgr *tpmgr,
+pj_status_t pjsip_tpmgr_find_local_addr( pjsip_tpmgr *tpmgr,
 						 pj_pool_t *pool,
 						 pjsip_transport_type_e type,
 						 const pjsip_tpselector *sel,
@@ -1528,7 +1528,7 @@ on_return:
  * Return number of transports currently registered to the transport
  * manager.
  */
-(unsigned) pjsip_tpmgr_get_transport_count(pjsip_tpmgr *mgr)
+unsigned pjsip_tpmgr_get_transport_count(pjsip_tpmgr *mgr)
 {
     pj_hash_iterator_t itr_val;
     pj_hash_iterator_t *itr;
@@ -1552,7 +1552,7 @@ on_return:
  *
  * Destroy transport manager.
  */
-(pj_status_t) pjsip_tpmgr_destroy( pjsip_tpmgr *mgr )
+pj_status_t pjsip_tpmgr_destroy( pjsip_tpmgr *mgr )
 {
     pj_hash_iterator_t itr_val;
     pj_hash_iterator_t *itr;
@@ -1651,7 +1651,7 @@ on_return:
  *
  * Called by tranports when they receive a new packet.
  */
-(pj_ssize_t) pjsip_tpmgr_receive_packet( pjsip_tpmgr *mgr,
+pj_ssize_t pjsip_tpmgr_receive_packet( pjsip_tpmgr *mgr,
 					       pjsip_rx_data *rdata)
 {
     pjsip_transport *tr = rdata->tp_info.transport;
@@ -1902,7 +1902,7 @@ finish_process_fragment:
  * Get transport suitable to communicate to remote. Create a new one
  * if necessary.
  */
-(pj_status_t) pjsip_tpmgr_acquire_transport(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_acquire_transport(pjsip_tpmgr *mgr,
 						  pjsip_transport_type_e type,
 						  const pj_sockaddr_t *remote,
 						  int addr_len,
@@ -1919,7 +1919,7 @@ finish_process_fragment:
  * Get transport suitable to communicate to remote. Create a new one
  * if necessary.
  */
-(pj_status_t) pjsip_tpmgr_acquire_transport2(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_acquire_transport2(pjsip_tpmgr *mgr,
 						   pjsip_transport_type_e type,
 						   const pj_sockaddr_t *remote,
 						   int addr_len,
@@ -2092,7 +2092,7 @@ finish_process_fragment:
 /**
  * Dump transport info.
  */
-(void) pjsip_tpmgr_dump_transports(pjsip_tpmgr *mgr)
+void pjsip_tpmgr_dump_transports(pjsip_tpmgr *mgr)
 {
 #if PJ_LOG_MAX_LEVEL >= 3
     pj_hash_iterator_t itr_val;
@@ -2145,7 +2145,7 @@ finish_process_fragment:
 /**
  * Set callback of global transport state notification.
  */
-(pj_status_t) pjsip_tpmgr_set_state_cb(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_set_state_cb(pjsip_tpmgr *mgr,
 					     pjsip_tp_state_callback cb)
 {
     PJ_ASSERT_RETURN(mgr, PJ_EINVAL);
@@ -2158,7 +2158,7 @@ finish_process_fragment:
 /**
  * Get callback of global transport state notification.
  */
-(pjsip_tp_state_callback) pjsip_tpmgr_get_state_cb(
+pjsip_tp_state_callback pjsip_tpmgr_get_state_cb(
 					     const pjsip_tpmgr *mgr)
 {
     PJ_ASSERT_RETURN(mgr, NULL);
@@ -2220,7 +2220,7 @@ on_return:
 /**
  * Add a listener to the specified transport for transport state notification.
  */
-(pj_status_t) pjsip_transport_add_state_listener (
+pj_status_t pjsip_transport_add_state_listener (
 					    pjsip_transport *tp,
 					    pjsip_tp_state_callback cb,
 					    void *user_data,
@@ -2265,7 +2265,7 @@ on_return:
  * Remove a listener from the specified transport for transport state 
  * notification.
  */
-(pj_status_t) pjsip_transport_remove_state_listener (
+pj_status_t pjsip_transport_remove_state_listener (
 				    pjsip_transport *tp,
 				    pjsip_tp_state_listener_key *key,
 				    const void *user_data)
@@ -2308,7 +2308,7 @@ on_return:
 /*
  * Set callback of data dropping.
  */
-(pj_status_t) pjsip_tpmgr_set_drop_data_cb(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_set_drop_data_cb(pjsip_tpmgr *mgr,
 						 pjsip_tp_on_rx_dropped_cb cb)
 {
     PJ_ASSERT_RETURN(mgr, PJ_EINVAL);

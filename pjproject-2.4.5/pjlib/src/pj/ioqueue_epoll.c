@@ -199,7 +199,7 @@ static void scan_closing_keys(pj_ioqueue_t *ioqueue);
 /*
  * pj_ioqueue_name()
  */
-(const char*) pj_ioqueue_name(void)
+const char* pj_ioqueue_name(void)
 {
 #if defined(PJ_LINUX_KERNEL) && PJ_LINUX_KERNEL!=0
 	return "epoll-kernel";
@@ -213,7 +213,7 @@ static void scan_closing_keys(pj_ioqueue_t *ioqueue);
  *
  * Create select ioqueue.
  */
-(pj_status_t) pj_ioqueue_create( pj_pool_t *pool, 
+pj_status_t pj_ioqueue_create( pj_pool_t *pool, 
                                        pj_size_t max_fd,
                                        pj_ioqueue_t **p_ioqueue)
 {
@@ -309,7 +309,7 @@ static void scan_closing_keys(pj_ioqueue_t *ioqueue);
  *
  * Destroy ioqueue.
  */
-(pj_status_t) pj_ioqueue_destroy(pj_ioqueue_t *ioqueue)
+pj_status_t pj_ioqueue_destroy(pj_ioqueue_t *ioqueue)
 {
     pj_ioqueue_key_t *key;
 
@@ -350,7 +350,7 @@ static void scan_closing_keys(pj_ioqueue_t *ioqueue);
  *
  * Register a socket to ioqueue.
  */
-(pj_status_t) pj_ioqueue_register_sock2(pj_pool_t *pool,
+pj_status_t pj_ioqueue_register_sock2(pj_pool_t *pool,
 					      pj_ioqueue_t *ioqueue,
 					      pj_sock_t sock,
 					      pj_grp_lock_t *grp_lock,
@@ -449,7 +449,7 @@ on_return:
     return rc;
 }
 
-(pj_status_t) pj_ioqueue_register_sock( pj_pool_t *pool,
+pj_status_t pj_ioqueue_register_sock( pj_pool_t *pool,
 					      pj_ioqueue_t *ioqueue,
 					      pj_sock_t sock,
 					      void *user_data,
@@ -500,7 +500,7 @@ static void decrement_counter(pj_ioqueue_key_t *key)
  *
  * Unregister handle from ioqueue.
  */
-(pj_status_t) pj_ioqueue_unregister( pj_ioqueue_key_t *key)
+pj_status_t pj_ioqueue_unregister( pj_ioqueue_key_t *key)
 {
     pj_ioqueue_t *ioqueue;
     struct epoll_event ev;
@@ -649,7 +649,7 @@ static void scan_closing_keys(pj_ioqueue_t *ioqueue)
  * pj_ioqueue_poll()
  *
  */
-(int) pj_ioqueue_poll( pj_ioqueue_t *ioqueue, const pj_time_val *timeout)
+int pj_ioqueue_poll( pj_ioqueue_t *ioqueue, const pj_time_val *timeout)
 {
     int i, count, processed;
     int msec;

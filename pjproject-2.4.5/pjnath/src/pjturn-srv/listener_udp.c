@@ -58,7 +58,7 @@ static void udp_dec_ref(pj_turn_transport *tp,
 /*
  * Create a new listener on the specified port.
  */
-(pj_status_t) pj_turn_listener_create_udp( pj_turn_srv *srv,
+pj_status_t pj_turn_listener_create_udp( pj_turn_srv *srv,
 					        int af,
 					        const pj_str_t *bound_addr,
 					        unsigned port,

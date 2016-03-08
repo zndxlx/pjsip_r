@@ -35,9 +35,9 @@
 #define PJ_CC_VER_3             (__ARMCC_VERSION%10000)
 
 #ifdef __cplusplus
-#  define PJ_INLINE_SPECIFIER	inline
+#  define _SPECIFIER	inline
 #else
-#  define PJ_INLINE_SPECIFIER	static __inline
+#  define _SPECIFIER	static __inline
 #endif
 
 #define PJ_THREAD_FUNC	

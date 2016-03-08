@@ -44,7 +44,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_cis_add_range(pj_cis_t *cis, int cstart, int cend)
+void pj_cis_add_range(pj_cis_t *cis, int cstart, int cend)
 {
     /* Can not set zero. This is the requirement of the parser. */
     pj_assert(cstart > 0);
@@ -55,18 +55,18 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_cis_add_alpha(pj_cis_t *cis)
+void pj_cis_add_alpha(pj_cis_t *cis)
 {
     pj_cis_add_range( cis, 'a', 'z'+1);
     pj_cis_add_range( cis, 'A', 'Z'+1);
 }
 
-(void) pj_cis_add_num(pj_cis_t *cis)
+void pj_cis_add_num(pj_cis_t *cis)
 {
     pj_cis_add_range( cis, '0', '9'+1);
 }
 
-(void) pj_cis_add_str( pj_cis_t *cis, const char *str)
+void pj_cis_add_str( pj_cis_t *cis, const char *str)
 {
     while (*str) {
         PJ_CIS_SET(cis, *str);
@@ -74,7 +74,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_cis_add_cis( pj_cis_t *cis, const pj_cis_t *rhs)
+void pj_cis_add_cis( pj_cis_t *cis, const pj_cis_t *rhs)
 {
     int i;
     for (i=0; i<256; ++i) {
@@ -83,7 +83,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_cis_del_range( pj_cis_t *cis, int cstart, int cend)
+void pj_cis_del_range( pj_cis_t *cis, int cstart, int cend)
 {
     while (cstart != cend) {
         PJ_CIS_CLR(cis, cstart);
@@ -91,7 +91,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_cis_del_str( pj_cis_t *cis, const char *str)
+void pj_cis_del_str( pj_cis_t *cis, const char *str)
 {
     while (*str) {
         PJ_CIS_CLR(cis, *str);
@@ -99,7 +99,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_cis_invert( pj_cis_t *cis )
+void pj_cis_invert( pj_cis_t *cis )
 {
     unsigned i;
     /* Can not set zero. This is the requirement of the parser. */
@@ -111,7 +111,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_scan_init( pj_scanner *scanner, char *bufstart, 
+void pj_scan_init( pj_scanner *scanner, char *bufstart, 
 			   pj_size_t buflen, unsigned options, 
 			   pj_syn_err_func_ptr callback )
 {
@@ -129,13 +129,13 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_fini( pj_scanner *scanner )
+void pj_scan_fini( pj_scanner *scanner )
 {
     PJ_CHECK_STACK();
     PJ_UNUSED_ARG(scanner);
 }
 
-(void) pj_scan_skip_whitespace( pj_scanner *scanner )
+void pj_scan_skip_whitespace( pj_scanner *scanner )
 {
     register char *s = scanner->curptr;
 
@@ -190,7 +190,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_scan_skip_line( pj_scanner *scanner )
+void pj_scan_skip_line( pj_scanner *scanner )
 {
     char *s = pj_ansi_strchr(scanner->curptr, '\n');
     if (!s) {
@@ -201,7 +201,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
    }
 }
 
-(int) pj_scan_peek( pj_scanner *scanner,
+int pj_scan_peek( pj_scanner *scanner,
 			  const pj_cis_t *spec, pj_str_t *out)
 {
     register char *s = scanner->curptr;
@@ -220,7 +220,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(int) pj_scan_peek_n( pj_scanner *scanner,
+int pj_scan_peek_n( pj_scanner *scanner,
 			     pj_size_t len, pj_str_t *out)
 {
     char *endpos = scanner->curptr + len;
@@ -235,7 +235,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(int) pj_scan_peek_until( pj_scanner *scanner,
+int pj_scan_peek_until( pj_scanner *scanner,
 				const pj_cis_t *spec, 
 				pj_str_t *out)
 {
@@ -254,7 +254,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get( pj_scanner *scanner,
+void pj_scan_get( pj_scanner *scanner,
 			  const pj_cis_t *spec, pj_str_t *out)
 {
     register char *s = scanner->curptr;
@@ -285,7 +285,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_unescape( pj_scanner *scanner,
+void pj_scan_get_unescape( pj_scanner *scanner,
 				   const pj_cis_t *spec, pj_str_t *out)
 {
     register char *s = scanner->curptr;
@@ -340,7 +340,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_quote( pj_scanner *scanner,
+void pj_scan_get_quote( pj_scanner *scanner,
 				int begin_quote, int end_quote, 
 				pj_str_t *out)
 {
@@ -349,7 +349,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     pj_scan_get_quotes(scanner, &beg, &end, 1, out);
 }
 
-(void) pj_scan_get_quotes(pj_scanner *scanner,
+void pj_scan_get_quotes(pj_scanner *scanner,
                                 const char *begin_quote, const char *end_quote,
                                 int qsize, pj_str_t *out)
 {
@@ -421,7 +421,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_n( pj_scanner *scanner,
+void pj_scan_get_n( pj_scanner *scanner,
 			    unsigned N, pj_str_t *out)
 {
     if (scanner->curptr + N > scanner->end) {
@@ -439,7 +439,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(int) pj_scan_get_char( pj_scanner *scanner )
+int pj_scan_get_char( pj_scanner *scanner )
 {
     int chr = *scanner->curptr;
 
@@ -457,7 +457,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_newline( pj_scanner *scanner )
+void pj_scan_get_newline( pj_scanner *scanner )
 {
     if (!PJ_SCAN_IS_NEWLINE(*scanner->curptr)) {
 	pj_scan_syntax_err(scanner);
@@ -494,7 +494,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_until( pj_scanner *scanner,
+void pj_scan_get_until( pj_scanner *scanner,
 				const pj_cis_t *spec, pj_str_t *out)
 {
     register char *s = scanner->curptr;
@@ -518,7 +518,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_until_ch( pj_scanner *scanner, 
+void pj_scan_get_until_ch( pj_scanner *scanner, 
 				   int until_char, pj_str_t *out)
 {
     register char *s = scanner->curptr;
@@ -542,7 +542,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_get_until_chr( pj_scanner *scanner,
+void pj_scan_get_until_chr( pj_scanner *scanner,
 				     const char *until_spec, pj_str_t *out)
 {
     register char *s = scanner->curptr;
@@ -567,7 +567,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     }
 }
 
-(void) pj_scan_advance_n( pj_scanner *scanner,
+void pj_scan_advance_n( pj_scanner *scanner,
 				 unsigned N, pj_bool_t skip_ws)
 {
     if (scanner->curptr + N > scanner->end) {
@@ -583,7 +583,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(int) pj_scan_strcmp( pj_scanner *scanner, const char *s, int len)
+int pj_scan_strcmp( pj_scanner *scanner, const char *s, int len)
 {
     if (scanner->curptr + len > scanner->end) {
 	pj_scan_syntax_err(scanner);
@@ -593,7 +593,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(int) pj_scan_stricmp( pj_scanner *scanner, const char *s, int len)
+int pj_scan_stricmp( pj_scanner *scanner, const char *s, int len)
 {
     if (scanner->curptr + len > scanner->end) {
 	pj_scan_syntax_err(scanner);
@@ -602,7 +602,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     return pj_ansi_strnicmp(scanner->curptr, s, len);
 }
 
-(int) pj_scan_stricmp_alnum( pj_scanner *scanner, const char *s, 
+int pj_scan_stricmp_alnum( pj_scanner *scanner, const char *s, 
 				   int len)
 {
     if (scanner->curptr + len > scanner->end) {
@@ -612,7 +612,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
     return strnicmp_alnum(scanner->curptr, s, len);
 }
 
-(void) pj_scan_save_state( const pj_scanner *scanner, 
+void pj_scan_save_state( const pj_scanner *scanner, 
 				 pj_scan_state *state)
 {
     state->curptr = scanner->curptr;
@@ -621,7 +621,7 @@ static void pj_scan_syntax_err(pj_scanner *scanner)
 }
 
 
-(void) pj_scan_restore_state( pj_scanner *scanner, 
+void pj_scan_restore_state( pj_scanner *scanner, 
 				    pj_scan_state *state)
 {
     scanner->curptr = state->curptr;

@@ -122,7 +122,7 @@ typedef struct pjsip_tcp_transport_cfg
  * @param cfg		The structure to initialize.
  * @param af		Address family to be used.
  */
-(void) pjsip_tcp_transport_cfg_default(pjsip_tcp_transport_cfg *cfg,
+void pjsip_tcp_transport_cfg_default(pjsip_tcp_transport_cfg *cfg,
 					      int af);
 
 
@@ -152,7 +152,7 @@ typedef struct pjsip_tcp_transport_cfg
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_tcp_transport_start(pjsip_endpoint *endpt,
+pj_status_t pjsip_tcp_transport_start(pjsip_endpoint *endpt,
 					       const pj_sockaddr_in *local,
 					       unsigned async_cnt,
 					       pjsip_tpfactory **p_factory);
@@ -187,7 +187,7 @@ typedef struct pjsip_tcp_transport_cfg
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_tcp_transport_start2(pjsip_endpoint *endpt,
+pj_status_t pjsip_tcp_transport_start2(pjsip_endpoint *endpt,
 					        const pj_sockaddr_in *local,
 					        const pjsip_host_port *a_name,
 					        unsigned async_cnt,
@@ -206,7 +206,7 @@ typedef struct pjsip_tcp_transport_cfg
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_tcp_transport_start3(
+pj_status_t pjsip_tcp_transport_start3(
 					pjsip_endpoint *endpt,
 					const pjsip_tcp_transport_cfg *cfg,
 					pjsip_tpfactory **p_factory
@@ -223,7 +223,7 @@ typedef struct pjsip_tcp_transport_cfg
  * @return		The socket handle, or PJ_INVALID_SOCKET if no socket
  *			is currently being used.
  */
-(pj_sock_t) pjsip_tcp_transport_get_socket(pjsip_transport *transport);
+pj_sock_t pjsip_tcp_transport_get_socket(pjsip_transport *transport);
 
 PJ_END_DECL
 

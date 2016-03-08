@@ -22,7 +22,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-(pj_status_t) pj_gettimeofday(pj_time_val *tv)
+pj_status_t pj_gettimeofday(pj_time_val *tv)
 {
     struct timeb tb;
 

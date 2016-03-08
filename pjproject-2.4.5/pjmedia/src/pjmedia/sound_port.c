@@ -213,7 +213,7 @@ static pj_status_t rec_cb_ext(void *user_data, pjmedia_frame *frame)
 }
 
 /* Initialize with default values (zero) */
-(void) pjmedia_snd_port_param_default(pjmedia_snd_port_param *prm)
+void pjmedia_snd_port_param_default(pjmedia_snd_port_param *prm)
 {
     pj_bzero(prm, sizeof(*prm));
 }
@@ -362,7 +362,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Create bidirectional port.
  */
-(pj_status_t) pjmedia_snd_port_create( pj_pool_t *pool,
+pj_status_t pjmedia_snd_port_create( pj_pool_t *pool,
 					     int rec_id,
 					     int play_id,
 					     unsigned clock_rate,
@@ -403,7 +403,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Create sound recorder AEC.
  */
-(pj_status_t) pjmedia_snd_port_create_rec( pj_pool_t *pool,
+pj_status_t pjmedia_snd_port_create_rec( pj_pool_t *pool,
 						 int dev_id,
 						 unsigned clock_rate,
 						 unsigned channel_count,
@@ -441,7 +441,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Create sound player port.
  */
-(pj_status_t) pjmedia_snd_port_create_player( pj_pool_t *pool,
+pj_status_t pjmedia_snd_port_create_player( pj_pool_t *pool,
 						    int dev_id,
 						    unsigned clock_rate,
 						    unsigned channel_count,
@@ -479,7 +479,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Create sound port.
  */
-(pj_status_t) pjmedia_snd_port_create2(pj_pool_t *pool,
+pj_status_t pjmedia_snd_port_create2(pj_pool_t *pool,
 					     const pjmedia_snd_port_param *prm,
 					     pjmedia_snd_port **p_port)
 {
@@ -531,7 +531,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Destroy port (also destroys the sound device).
  */
-(pj_status_t) pjmedia_snd_port_destroy(pjmedia_snd_port *snd_port)
+pj_status_t pjmedia_snd_port_destroy(pjmedia_snd_port *snd_port)
 {
     PJ_ASSERT_RETURN(snd_port, PJ_EINVAL);
 
@@ -542,7 +542,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Retrieve the sound stream associated by this sound device port.
  */
-(pjmedia_aud_stream*) pjmedia_snd_port_get_snd_stream(
+pjmedia_aud_stream* pjmedia_snd_port_get_snd_stream(
 						pjmedia_snd_port *snd_port)
 {
     PJ_ASSERT_RETURN(snd_port, NULL);
@@ -553,7 +553,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Change EC settings.
  */
-(pj_status_t) pjmedia_snd_port_set_ec( pjmedia_snd_port *snd_port,
+pj_status_t pjmedia_snd_port_set_ec( pjmedia_snd_port *snd_port,
 					     pj_pool_t *pool,
 					     unsigned tail_ms,
 					     unsigned options)
@@ -673,7 +673,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 
 
 /* Get AEC tail length */
-(pj_status_t) pjmedia_snd_port_get_ec_tail( pjmedia_snd_port *snd_port,
+pj_status_t pjmedia_snd_port_get_ec_tail( pjmedia_snd_port *snd_port,
 						  unsigned *p_length)
 {
     PJ_ASSERT_RETURN(snd_port && p_length, PJ_EINVAL);
@@ -716,7 +716,7 @@ static pj_status_t stop_sound_device( pjmedia_snd_port *snd_port )
 /*
  * Get clock source.
  */
-(pjmedia_clock_src *)
+pjmedia_clock_src *
 pjmedia_snd_port_get_clock_src( pjmedia_snd_port *snd_port,
                                 pjmedia_dir dir )
 {
@@ -728,7 +728,7 @@ pjmedia_snd_port_get_clock_src( pjmedia_snd_port *snd_port,
 /*
  * Connect a port.
  */
-(pj_status_t) pjmedia_snd_port_connect( pjmedia_snd_port *snd_port,
+pj_status_t pjmedia_snd_port_connect( pjmedia_snd_port *snd_port,
 					      pjmedia_port *port)
 {
     pjmedia_audio_format_detail *afd;
@@ -761,7 +761,7 @@ pjmedia_snd_port_get_clock_src( pjmedia_snd_port *snd_port,
 /*
  * Get the connected port.
  */
-(pjmedia_port*) pjmedia_snd_port_get_port(pjmedia_snd_port *snd_port)
+pjmedia_port* pjmedia_snd_port_get_port(pjmedia_snd_port *snd_port)
 {
     PJ_ASSERT_RETURN(snd_port, NULL);
     return snd_port->port;
@@ -771,7 +771,7 @@ pjmedia_snd_port_get_clock_src( pjmedia_snd_port *snd_port,
 /*
  * Disconnect port.
  */
-(pj_status_t) pjmedia_snd_port_disconnect(pjmedia_snd_port *snd_port)
+pj_status_t pjmedia_snd_port_disconnect(pjmedia_snd_port *snd_port)
 {
     PJ_ASSERT_RETURN(snd_port, PJ_EINVAL);
 

@@ -450,7 +450,7 @@ struct pj_ioqueue_key_t
 /*
  * Return the name of the ioqueue implementation.
  */
-(const char*) pj_ioqueue_name(void)
+const char* pj_ioqueue_name(void)
 {
     return "ioqueue-symbian";
 }
@@ -459,7 +459,7 @@ struct pj_ioqueue_key_t
 /*
  * Create a new I/O Queue framework.
  */
-(pj_status_t) pj_ioqueue_create(	pj_pool_t *pool, 
+pj_status_t pj_ioqueue_create(	pj_pool_t *pool, 
 					pj_size_t max_fd,
 					pj_ioqueue_t **p_ioqueue)
 {
@@ -476,7 +476,7 @@ struct pj_ioqueue_key_t
 /*
  * Destroy the I/O queue.
  */
-(pj_status_t) pj_ioqueue_destroy( pj_ioqueue_t *ioq )
+pj_status_t pj_ioqueue_destroy( pj_ioqueue_t *ioq )
 {
     PJ_UNUSED_ARG(ioq);
     return PJ_SUCCESS;
@@ -486,7 +486,7 @@ struct pj_ioqueue_key_t
 /*
  * Set the lock object to be used by the I/O Queue. 
  */
-(pj_status_t) pj_ioqueue_set_lock( pj_ioqueue_t *ioq, 
+pj_status_t pj_ioqueue_set_lock( pj_ioqueue_t *ioq, 
 					 pj_lock_t *lock,
 					 pj_bool_t auto_delete )
 {
@@ -500,7 +500,7 @@ struct pj_ioqueue_key_t
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_ioqueue_set_default_concurrency(pj_ioqueue_t *ioqueue,
+pj_status_t pj_ioqueue_set_default_concurrency(pj_ioqueue_t *ioqueue,
 													   pj_bool_t allow)
 {
 	/* Not supported, just return PJ_SUCCESS silently */
@@ -512,7 +512,7 @@ struct pj_ioqueue_key_t
 /*
  * Register a socket to the I/O queue framework. 
  */
-(pj_status_t) pj_ioqueue_register_sock( pj_pool_t *pool,
+pj_status_t pj_ioqueue_register_sock( pj_pool_t *pool,
 					      pj_ioqueue_t *ioq,
 					      pj_sock_t sock,
 					      void *user_data,
@@ -528,7 +528,7 @@ struct pj_ioqueue_key_t
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_ioqueue_register_sock2(pj_pool_t *pool,
+pj_status_t pj_ioqueue_register_sock2(pj_pool_t *pool,
 					      pj_ioqueue_t *ioqueue,
 					      pj_sock_t sock,
 					      pj_grp_lock_t *grp_lock,
@@ -544,7 +544,7 @@ struct pj_ioqueue_key_t
 /*
  * Unregister from the I/O Queue framework. 
  */
-(pj_status_t) pj_ioqueue_unregister( pj_ioqueue_key_t *key )
+pj_status_t pj_ioqueue_unregister( pj_ioqueue_key_t *key )
 {
     if (key == NULL || key->cbObj == NULL)
 	return PJ_SUCCESS;
@@ -571,7 +571,7 @@ struct pj_ioqueue_key_t
 /*
  * Get user data associated with an ioqueue key.
  */
-(void*) pj_ioqueue_get_user_data( pj_ioqueue_key_t *key )
+void* pj_ioqueue_get_user_data( pj_ioqueue_key_t *key )
 {
     return key->cbObj->get_user_data();
 }
@@ -581,7 +581,7 @@ struct pj_ioqueue_key_t
  * Set or change the user data to be associated with the file descriptor or
  * handle or socket descriptor.
  */
-(pj_status_t) pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
                                               void *user_data,
                                               void **old_data)
 {
@@ -596,7 +596,7 @@ struct pj_ioqueue_key_t
 /*
  * Initialize operation key.
  */
-(void) pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
+void pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
 				     pj_size_t size )
 {
     pj_bzero(op_key, size);
@@ -606,7 +606,7 @@ struct pj_ioqueue_key_t
 /*
  * Check if operation is pending on the specified operation key.
  */
-(pj_bool_t) pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
+pj_bool_t pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
                                          pj_ioqueue_op_key_t *op_key )
 {
     return key->cbObj->get_op_key()==op_key &&
@@ -618,7 +618,7 @@ struct pj_ioqueue_key_t
  * Post completion status to the specified operation key and call the
  * appropriate callback. 
  */
-(pj_status_t) pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
                                                 pj_ioqueue_op_key_t *op_key,
                                                 pj_ssize_t bytes_status )
 {
@@ -634,7 +634,7 @@ struct pj_ioqueue_key_t
  * Instruct I/O Queue to accept incoming connection on the specified 
  * listening socket.
  */
-(pj_status_t) pj_ioqueue_accept( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_accept( pj_ioqueue_key_t *key,
                                        pj_ioqueue_op_key_t *op_key,
 				       pj_sock_t *new_sock,
 				       pj_sockaddr_t *local,
@@ -649,7 +649,7 @@ struct pj_ioqueue_key_t
 /*
  * Initiate non-blocking socket connect.
  */
-(pj_status_t) pj_ioqueue_connect( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_connect( pj_ioqueue_key_t *key,
 					const pj_sockaddr_t *addr,
 					int addrlen )
 {
@@ -686,7 +686,7 @@ struct pj_ioqueue_key_t
 /*
  * Poll the I/O Queue for completed events.
  */
-(int) pj_ioqueue_poll( pj_ioqueue_t *ioq,
+int pj_ioqueue_poll( pj_ioqueue_t *ioq,
 			     const pj_time_val *timeout)
 {
     /* Polling is not necessary on Symbian, since all async activities
@@ -701,7 +701,7 @@ struct pj_ioqueue_key_t
 /*
  * Instruct the I/O Queue to read from the specified handle.
  */
-(pj_status_t) pj_ioqueue_recv( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_recv( pj_ioqueue_key_t *key,
                                      pj_ioqueue_op_key_t *op_key,
 				     void *buffer,
 				     pj_ssize_t *length,
@@ -722,7 +722,7 @@ struct pj_ioqueue_key_t
  * normally called for socket, and the remote address will also be returned
  * along with the data.
  */
-(pj_status_t) pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
                                          pj_ioqueue_op_key_t *op_key,
 					 void *buffer,
 					 pj_ssize_t *length,
@@ -759,7 +759,7 @@ struct pj_ioqueue_key_t
 /*
  * Instruct the I/O Queue to write to the handle.
  */
-(pj_status_t) pj_ioqueue_send( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_send( pj_ioqueue_key_t *key,
                                      pj_ioqueue_op_key_t *op_key,
 				     const void *data,
 				     pj_ssize_t *length,
@@ -796,7 +796,7 @@ struct pj_ioqueue_key_t
 /*
  * Instruct the I/O Queue to write to the handle.
  */
-(pj_status_t) pj_ioqueue_sendto( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_sendto( pj_ioqueue_key_t *key,
                                        pj_ioqueue_op_key_t *op_key,
 				       const void *data,
 				       pj_ssize_t *length,
@@ -842,7 +842,7 @@ struct pj_ioqueue_key_t
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
 											   pj_bool_t allow)
 {
 	/* Not supported, just return PJ_SUCCESS silently */
@@ -851,14 +851,14 @@ struct pj_ioqueue_key_t
 	return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_ioqueue_lock_key(pj_ioqueue_key_t *key)
+pj_status_t pj_ioqueue_lock_key(pj_ioqueue_key_t *key)
 {
 	/* Not supported, just return PJ_SUCCESS silently */
 	PJ_UNUSED_ARG(key);
 	return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_ioqueue_unlock_key(pj_ioqueue_key_t *key)
+pj_status_t pj_ioqueue_unlock_key(pj_ioqueue_key_t *key)
 {
 	/* Not supported, just return PJ_SUCCESS silently */
 	PJ_UNUSED_ARG(key);

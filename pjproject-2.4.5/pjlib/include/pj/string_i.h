@@ -20,7 +20,7 @@
 
 #include <pj/pool.h>
 
-PJ_IDEF(pj_str_t) pj_str(char *str)
+pj_str_t pj_str(char *str)
 {
     pj_str_t dst;
     dst.ptr = str;
@@ -28,7 +28,7 @@ PJ_IDEF(pj_str_t) pj_str(char *str)
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strdup(pj_pool_t *pool,
+pj_str_t* pj_strdup(pj_pool_t *pool,
 			      pj_str_t *dst,
 			      const pj_str_t *src)
 {
@@ -44,7 +44,7 @@ PJ_IDEF(pj_str_t*) pj_strdup(pj_pool_t *pool,
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strdup_with_null( pj_pool_t *pool,
+pj_str_t* pj_strdup_with_null( pj_pool_t *pool,
 					pj_str_t *dst,
 					const pj_str_t *src)
 {
@@ -57,7 +57,7 @@ PJ_IDEF(pj_str_t*) pj_strdup_with_null( pj_pool_t *pool,
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strdup2(pj_pool_t *pool,
+pj_str_t* pj_strdup2(pj_pool_t *pool,
 			      pj_str_t *dst,
 			      const char *src)
 {
@@ -71,7 +71,7 @@ PJ_IDEF(pj_str_t*) pj_strdup2(pj_pool_t *pool,
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strdup2_with_null( pj_pool_t *pool,
+pj_str_t* pj_strdup2_with_null( pj_pool_t *pool,
 					 pj_str_t *dst,
 					 const char *src)
 {
@@ -84,21 +84,21 @@ PJ_IDEF(pj_str_t*) pj_strdup2_with_null( pj_pool_t *pool,
     return dst;
 }
 
-PJ_IDEF(pj_str_t) pj_strdup3(pj_pool_t *pool, const char *src)
+pj_str_t pj_strdup3(pj_pool_t *pool, const char *src)
 {
     pj_str_t temp;
     pj_strdup2(pool, &temp, src);
     return temp;
 }
 
-PJ_IDEF(pj_str_t*) pj_strassign( pj_str_t *dst, pj_str_t *src )
+pj_str_t* pj_strassign( pj_str_t *dst, pj_str_t *src )
 {
     dst->ptr = src->ptr;
     dst->slen = src->slen;
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strcpy(pj_str_t *dst, const pj_str_t *src)
+pj_str_t* pj_strcpy(pj_str_t *dst, const pj_str_t *src)
 {
     dst->slen = src->slen;
     if (src->slen > 0)
@@ -106,7 +106,7 @@ PJ_IDEF(pj_str_t*) pj_strcpy(pj_str_t *dst, const pj_str_t *src)
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strcpy2(pj_str_t *dst, const char *src)
+pj_str_t* pj_strcpy2(pj_str_t *dst, const char *src)
 {
     dst->slen = src ? pj_ansi_strlen(src) : 0;
     if (dst->slen > 0)
@@ -114,7 +114,7 @@ PJ_IDEF(pj_str_t*) pj_strcpy2(pj_str_t *dst, const char *src)
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strncpy( pj_str_t *dst, const pj_str_t *src, 
+pj_str_t* pj_strncpy( pj_str_t *dst, const pj_str_t *src, 
 			       pj_ssize_t max)
 {
     if (max > src->slen) max = src->slen;
@@ -123,7 +123,7 @@ PJ_IDEF(pj_str_t*) pj_strncpy( pj_str_t *dst, const pj_str_t *src,
     return dst;
 }
 
-PJ_IDEF(pj_str_t*) pj_strncpy_with_null( pj_str_t *dst, const pj_str_t *src,
+pj_str_t* pj_strncpy_with_null( pj_str_t *dst, const pj_str_t *src,
 					 pj_ssize_t max)
 {
     if (max <= src->slen)
@@ -138,7 +138,7 @@ PJ_IDEF(pj_str_t*) pj_strncpy_with_null( pj_str_t *dst, const pj_str_t *src,
 }
 
 
-PJ_IDEF(int) pj_strcmp( const pj_str_t *str1, const pj_str_t *str2)
+int pj_strcmp( const pj_str_t *str1, const pj_str_t *str2)
 {
     if (str1->slen == 0) {
 	return str2->slen==0 ? 0 : -1;
@@ -156,7 +156,7 @@ PJ_IDEF(int) pj_strcmp( const pj_str_t *str1, const pj_str_t *str2)
     }
 }
 
-PJ_IDEF(int) pj_strncmp( const pj_str_t *str1, const pj_str_t *str2, 
+int pj_strncmp( const pj_str_t *str1, const pj_str_t *str2, 
 			 pj_size_t len)
 {
     pj_str_t copy1, copy2;
@@ -176,7 +176,7 @@ PJ_IDEF(int) pj_strncmp( const pj_str_t *str1, const pj_str_t *str2,
     return pj_strcmp(str1, str2);
 }
 
-PJ_IDEF(int) pj_strncmp2( const pj_str_t *str1, const char *str2, 
+int pj_strncmp2( const pj_str_t *str1, const char *str2, 
 			  pj_size_t len)
 {
     pj_str_t copy2;
@@ -191,7 +191,7 @@ PJ_IDEF(int) pj_strncmp2( const pj_str_t *str1, const char *str2,
     return pj_strncmp(str1, &copy2, len);
 }
 
-PJ_IDEF(int) pj_strcmp2( const pj_str_t *str1, const char *str2 )
+int pj_strcmp2( const pj_str_t *str1, const char *str2 )
 {
     pj_str_t copy2;
 
@@ -206,7 +206,7 @@ PJ_IDEF(int) pj_strcmp2( const pj_str_t *str1, const char *str2 )
     return pj_strcmp(str1, &copy2);
 }
 
-PJ_IDEF(int) pj_stricmp( const pj_str_t *str1, const pj_str_t *str2)
+int pj_stricmp( const pj_str_t *str1, const pj_str_t *str2)
 {
     if (str1->slen == 0) {
 	return str2->slen==0 ? 0 : -1;
@@ -225,7 +225,7 @@ PJ_IDEF(int) pj_stricmp( const pj_str_t *str1, const pj_str_t *str2)
 }
 
 #if defined(PJ_HAS_STRICMP_ALNUM) && PJ_HAS_STRICMP_ALNUM!=0
-PJ_IDEF(int) strnicmp_alnum( const char *str1, const char *str2,
+int strnicmp_alnum( const char *str1, const char *str2,
 			     int len)
 {
     if (len==0)
@@ -258,7 +258,7 @@ PJ_IDEF(int) strnicmp_alnum( const char *str1, const char *str2,
     }
 }
 
-PJ_IDEF(int) pj_stricmp_alnum(const pj_str_t *str1, const pj_str_t *str2)
+int pj_stricmp_alnum(const pj_str_t *str1, const pj_str_t *str2)
 {
     register int len = str1->slen;
 
@@ -295,7 +295,7 @@ PJ_IDEF(int) pj_stricmp_alnum(const pj_str_t *str1, const pj_str_t *str2)
 }
 #endif	/* PJ_HAS_STRICMP_ALNUM */
 
-PJ_IDEF(int) pj_stricmp2( const pj_str_t *str1, const char *str2)
+int pj_stricmp2( const pj_str_t *str1, const char *str2)
 {
     pj_str_t copy2;
 
@@ -310,7 +310,7 @@ PJ_IDEF(int) pj_stricmp2( const pj_str_t *str1, const char *str2)
     return pj_stricmp(str1, &copy2);
 }
 
-PJ_IDEF(int) pj_strnicmp( const pj_str_t *str1, const pj_str_t *str2, 
+int pj_strnicmp( const pj_str_t *str1, const pj_str_t *str2, 
 			  pj_size_t len)
 {
     pj_str_t copy1, copy2;
@@ -330,7 +330,7 @@ PJ_IDEF(int) pj_strnicmp( const pj_str_t *str1, const pj_str_t *str2,
     return pj_stricmp(str1, str2);
 }
 
-PJ_IDEF(int) pj_strnicmp2( const pj_str_t *str1, const char *str2, 
+int pj_strnicmp2( const pj_str_t *str1, const char *str2, 
 			   pj_size_t len)
 {
     pj_str_t copy2;
@@ -345,7 +345,7 @@ PJ_IDEF(int) pj_strnicmp2( const pj_str_t *str1, const char *str2,
     return pj_strnicmp(str1, &copy2, len);
 }
 
-PJ_IDEF(void) pj_strcat(pj_str_t *dst, const pj_str_t *src)
+void pj_strcat(pj_str_t *dst, const pj_str_t *src)
 {
     if (src->slen) {
 	pj_memcpy(dst->ptr + dst->slen, src->ptr, src->slen);
@@ -353,7 +353,7 @@ PJ_IDEF(void) pj_strcat(pj_str_t *dst, const pj_str_t *src)
     }
 }
 
-PJ_IDEF(void) pj_strcat2(pj_str_t *dst, const char *str)
+void pj_strcat2(pj_str_t *dst, const char *str)
 {
     pj_size_t len = str? pj_ansi_strlen(str) : 0;
     if (len) {
@@ -362,7 +362,7 @@ PJ_IDEF(void) pj_strcat2(pj_str_t *dst, const char *str)
     }
 }
 
-PJ_IDEF(pj_str_t*) pj_strtrim( pj_str_t *str )
+pj_str_t* pj_strtrim( pj_str_t *str )
 {
     pj_strltrim(str);
     pj_strrtrim(str);

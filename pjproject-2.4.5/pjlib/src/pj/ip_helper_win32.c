@@ -363,7 +363,7 @@ static pj_status_t enum_ipv4_ipv6_interface(int af,
 /*
  * Enumerate the local IP interface currently active in the host.
  */
-(pj_status_t) pj_enum_ip_interface(int af,
+pj_status_t pj_enum_ip_interface(int af,
 					 unsigned *p_cnt,
 					 pj_sockaddr ifs[])
 {
@@ -382,7 +382,7 @@ static pj_status_t enum_ipv4_ipv6_interface(int af,
 /*
  * Enumerate the IP routing table for this host.
  */
-(pj_status_t) pj_enum_ip_route(unsigned *p_cnt,
+pj_status_t pj_enum_ip_route(unsigned *p_cnt,
 				     pj_ip_route_entry routes[])
 {
     char ipTabBuff[1024];

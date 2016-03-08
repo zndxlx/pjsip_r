@@ -1,7 +1,7 @@
 Hello
 
   This is a small list of steps in order to build portaudio
-(Currently v19-devel) into a VC6 DLL and lib file.
+Currently v19-devel into a VC6 DLL and lib file.
 This DLL contains all 3 current win32 PA APIS (MM/DS/ASIO)
 
 1)Copy the source dirs that comes with the ASIO SDK inside src\hostapi\asio\ASIOSDK
@@ -66,11 +66,11 @@ This DLL contains all 3 current win32 PA APIS (MM/DS/ASIO)
 
 Have fun!
 
-(*): you may want to add/remove some DLL entry points.
+*: you may want to add/remove some DLL entry points.
 Right now those 6 entries are _not_ from portaudio.h
 
-(from portaudio.def)
-(...)
+from portaudio.def
+...
 PaAsio_GetAvailableLatencyValues    @50
 PaAsio_ShowControlPanel             @51
 PaUtil_InitializeX86PlainConverters @52

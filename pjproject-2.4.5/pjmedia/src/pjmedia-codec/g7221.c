@@ -228,7 +228,7 @@ static pj_bool_t validate_mode(unsigned sample_rate, unsigned bitrate)
 }
 
 #if defined(PJ_IS_LITTLE_ENDIAN) && PJ_IS_LITTLE_ENDIAN!=0
-PJ_INLINE(void) swap_bytes(pj_uint16_t *buf, unsigned count)
+void swap_bytes(pj_uint16_t *buf, unsigned count)
 {
     pj_uint16_t *end = buf + count;
     while (buf != end) {
@@ -243,7 +243,7 @@ PJ_INLINE(void) swap_bytes(pj_uint16_t *buf, unsigned count)
 /*
  * Initialize and register G722.1 codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_g7221_init( pjmedia_endpt *endpt )
+pj_status_t pjmedia_codec_g7221_init( pjmedia_endpt *endpt )
 {
     pjmedia_codec_mgr *codec_mgr;
     codec_mode *mode;
@@ -371,7 +371,7 @@ on_error:
 /**
  * Enable and disable G722.1 modes, including non-standard modes.
  */
-(pj_status_t) pjmedia_codec_g7221_set_mode(unsigned sample_rate, 
+pj_status_t pjmedia_codec_g7221_set_mode(unsigned sample_rate, 
 						 unsigned bitrate, 
 						 pj_bool_t enabled)
 {
@@ -443,7 +443,7 @@ on_error:
 /*
  * Set level adjustment.
  */
-(pj_status_t)  pjmedia_codec_g7221_set_pcm_shift(int val)
+pj_status_t  pjmedia_codec_g7221_set_pcm_shift(int val)
 {
     codec_factory.pcm_shift = val;
     return PJ_SUCCESS;
@@ -452,7 +452,7 @@ on_error:
 /*
  * Unregister G722.1 codec factory from pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_g7221_deinit(void)
+pj_status_t pjmedia_codec_g7221_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

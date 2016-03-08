@@ -181,7 +181,7 @@ static pjmedia_converter_factory libswscale_factory =
     NULL					/* op will be init-ed later  */
 };
 
-(pj_status_t)
+pj_status_t
 pjmedia_libswscale_converter_init(pjmedia_converter_mgr *mgr)
 {
     libswscale_factory.op = &libswscale_factory_op;
@@ -190,7 +190,7 @@ pjmedia_libswscale_converter_init(pjmedia_converter_mgr *mgr)
 }
 
 
-(pj_status_t)
+pj_status_t
 pjmedia_libswscale_converter_shutdown(pjmedia_converter_mgr *mgr,
 				      pj_pool_t *pool)
 {

@@ -127,7 +127,7 @@ static void dump_answer(unsigned index, const pj_dns_parsed_rr *rr)
 }
 
 
-(void) pj_dns_dump_packet(const pj_dns_parsed_packet *res)
+void pj_dns_dump_packet(const pj_dns_parsed_packet *res)
 {
     unsigned i;
 

@@ -160,7 +160,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_create(pj_pool_t *pool,
+pj_status_t pjmedia_jbuf_create(pj_pool_t *pool,
 					 const pj_str_t *name,
 					 unsigned frame_size,
 					 unsigned ptime,
@@ -176,7 +176,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_set_fixed( pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_set_fixed( pjmedia_jbuf *jb,
 					     unsigned prefetch);
 
 
@@ -197,7 +197,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_set_adaptive( pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_set_adaptive( pjmedia_jbuf *jb,
 					        unsigned prefetch,
 					        unsigned min_prefetch,
 						unsigned max_prefetch);
@@ -212,7 +212,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_set_discard(pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_set_discard(pjmedia_jbuf *jb,
 					      pjmedia_jb_discard_algo algo);
 
 
@@ -223,7 +223,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_destroy(pjmedia_jbuf *jb);
+pj_status_t pjmedia_jbuf_destroy(pjmedia_jbuf *jb);
 
 
 /**
@@ -234,7 +234,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_reset(pjmedia_jbuf *jb);
+pj_status_t pjmedia_jbuf_reset(pjmedia_jbuf *jb);
 
 /**
  * Put a frame to the jitter buffer. If the frame can be accepted (based
@@ -250,7 +250,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  * @param size		The frame size.
  * @param frame_seq	The frame sequence number.
  */
-(void) pjmedia_jbuf_put_frame( pjmedia_jbuf *jb, 
+void pjmedia_jbuf_put_frame( pjmedia_jbuf *jb, 
 				      const void *frame, 
 				      pj_size_t size, 
 				      int frame_seq);
@@ -273,7 +273,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  * @param frame_seq	The frame sequence number.
  * @param discarded	Flag whether the frame is discarded by jitter buffer.
  */
-(void) pjmedia_jbuf_put_frame2( pjmedia_jbuf *jb, 
+void pjmedia_jbuf_put_frame2( pjmedia_jbuf *jb, 
 				       const void *frame, 
 				       pj_size_t size, 
 				       pj_uint32_t bit_info,
@@ -299,7 +299,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  * @param frame_ts	The frame timestamp.
  * @param discarded	Flag whether the frame is discarded by jitter buffer.
  */
-(void) pjmedia_jbuf_put_frame3( pjmedia_jbuf *jb, 
+void pjmedia_jbuf_put_frame3( pjmedia_jbuf *jb, 
 				       const void *frame, 
 				       pj_size_t size, 
 				       pj_uint32_t bit_info,
@@ -331,7 +331,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *			buffer will copy the frame to the buffer, and frame
  *			type will be set to PJMEDIA_JB_NORMAL_FRAME.
  */
-(void) pjmedia_jbuf_get_frame( pjmedia_jbuf *jb, 
+void pjmedia_jbuf_get_frame( pjmedia_jbuf *jb, 
 				      void *frame, 
 				      char *p_frm_type);
 
@@ -349,7 +349,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *			exactly start and end at the octet boundary, so this
  *			field may be used for specifying start & end bit offset.
  */
-(void) pjmedia_jbuf_get_frame2(pjmedia_jbuf *jb, 
+void pjmedia_jbuf_get_frame2(pjmedia_jbuf *jb, 
 				      void *frame, 
 				      pj_size_t *size, 
 				      char *p_frm_type,
@@ -372,7 +372,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  * @param ts		Frame timestamp.
  * @param seq		Frame sequence number.
  */
-(void) pjmedia_jbuf_get_frame3(pjmedia_jbuf *jb, 
+void pjmedia_jbuf_get_frame3(pjmedia_jbuf *jb, 
 				      void *frame, 
 				      pj_size_t *size, 
 				      char *p_frm_type,
@@ -398,7 +398,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  * @param ts		Frame timestamp.
  * @param seq		Frame sequence number.
  */
-(void) pjmedia_jbuf_peek_frame(pjmedia_jbuf *jb,
+void pjmedia_jbuf_peek_frame(pjmedia_jbuf *jb,
 				      unsigned offset,
 				      const void **frame, 
 				      pj_size_t *size, 
@@ -416,7 +416,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		The number of frame successfully removed.
  */
-(unsigned) pjmedia_jbuf_remove_frame(pjmedia_jbuf *jb, 
+unsigned pjmedia_jbuf_remove_frame(pjmedia_jbuf *jb, 
 					    unsigned frame_cnt);
 
 /**
@@ -426,7 +426,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_TRUE if it is full.
  */
-(pj_bool_t) pjmedia_jbuf_is_full(const pjmedia_jbuf *jb);
+pj_bool_t pjmedia_jbuf_is_full(const pjmedia_jbuf *jb);
 
 
 /**
@@ -437,7 +437,7 @@ typedef struct pjmedia_jbuf pjmedia_jbuf;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_jbuf_get_state( const pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_get_state( const pjmedia_jbuf *jb,
 					     pjmedia_jb_state *state );
 
 

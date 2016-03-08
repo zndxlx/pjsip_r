@@ -109,14 +109,14 @@ struct pj_timer_heap_t
 
 
 
-PJ_INLINE(void) lock_timer_heap( pj_timer_heap_t *ht )
+void lock_timer_heap( pj_timer_heap_t *ht )
 {
     if (ht->lock) {
 	pj_lock_acquire(ht->lock);
     }
 }
 
-PJ_INLINE(void) unlock_timer_heap( pj_timer_heap_t *ht )
+void unlock_timer_heap( pj_timer_heap_t *ht )
 {
     if (ht->lock) {
 	pj_lock_release(ht->lock);
@@ -362,7 +362,7 @@ static int cancel( pj_timer_heap_t *ht,
 /*
  * Calculate memory size required to create a timer heap.
  */
-(pj_size_t) pj_timer_heap_mem_size(pj_size_t count)
+pj_size_t pj_timer_heap_mem_size(pj_size_t count)
 {
     return /* size of the timer heap itself: */
            sizeof(pj_timer_heap_t) + 
@@ -375,7 +375,7 @@ static int cancel( pj_timer_heap_t *ht,
 /*
  * Create a new timer heap.
  */
-(pj_status_t) pj_timer_heap_create( pj_pool_t *pool,
+pj_status_t pj_timer_heap_create( pj_pool_t *pool,
 					  pj_size_t size,
                                           pj_timer_heap_t **p_heap)
 {
@@ -427,7 +427,7 @@ static int cancel( pj_timer_heap_t *ht,
     return PJ_SUCCESS;
 }
 
-(void) pj_timer_heap_destroy( pj_timer_heap_t *ht )
+void pj_timer_heap_destroy( pj_timer_heap_t *ht )
 {
     if (ht->lock && ht->auto_delete_lock) {
         pj_lock_destroy(ht->lock);
@@ -435,7 +435,7 @@ static int cancel( pj_timer_heap_t *ht,
     }
 }
 
-(void) pj_timer_heap_set_lock(  pj_timer_heap_t *ht,
+void pj_timer_heap_set_lock(  pj_timer_heap_t *ht,
                                       pj_lock_t *lock,
                                       pj_bool_t auto_del )
 {
@@ -447,7 +447,7 @@ static int cancel( pj_timer_heap_t *ht,
 }
 
 
-(unsigned) pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
+unsigned pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
                                                           unsigned count )
 {
     unsigned old_count = ht->max_entries_per_poll;
@@ -455,7 +455,7 @@ static int cancel( pj_timer_heap_t *ht,
     return old_count;
 }
 
-(pj_timer_entry*) pj_timer_entry_init( pj_timer_entry *entry,
+pj_timer_entry* pj_timer_entry_init( pj_timer_entry *entry,
                                              int id,
                                              void *user_data,
                                              pj_timer_heap_callback *cb )
@@ -471,7 +471,7 @@ static int cancel( pj_timer_heap_t *ht,
     return entry;
 }
 
-(pj_bool_t) pj_timer_entry_running( pj_timer_entry *entry )
+pj_bool_t pj_timer_entry_running( pj_timer_entry *entry )
 {
     return (entry->_timer_id >= 1);
 }
@@ -527,7 +527,7 @@ static pj_status_t schedule_w_grp_lock(pj_timer_heap_t *ht,
 
 
 #if PJ_TIMER_DEBUG
-(pj_status_t) pj_timer_heap_schedule_dbg( pj_timer_heap_t *ht,
+pj_status_t pj_timer_heap_schedule_dbg( pj_timer_heap_t *ht,
 						pj_timer_entry *entry,
 						const pj_time_val *delay,
 						const char *src_file,
@@ -537,7 +537,7 @@ static pj_status_t schedule_w_grp_lock(pj_timer_heap_t *ht,
                                    src_file, src_line);
 }
 
-(pj_status_t) pj_timer_heap_schedule_w_grp_lock_dbg(
+pj_status_t pj_timer_heap_schedule_w_grp_lock_dbg(
 						pj_timer_heap_t *ht,
 						pj_timer_entry *entry,
 						const pj_time_val *delay,
@@ -551,14 +551,14 @@ static pj_status_t schedule_w_grp_lock(pj_timer_heap_t *ht,
 }
 
 #else
-(pj_status_t) pj_timer_heap_schedule( pj_timer_heap_t *ht,
+pj_status_t pj_timer_heap_schedule( pj_timer_heap_t *ht,
                                             pj_timer_entry *entry,
                                             const pj_time_val *delay)
 {
     return schedule_w_grp_lock(ht, entry, delay, PJ_FALSE, 1, NULL);
 }
 
-(pj_status_t) pj_timer_heap_schedule_w_grp_lock(pj_timer_heap_t *ht,
+pj_status_t pj_timer_heap_schedule_w_grp_lock(pj_timer_heap_t *ht,
                                                       pj_timer_entry *entry,
                                                       const pj_time_val *delay,
                                                       int id_val,
@@ -592,20 +592,20 @@ static int cancel_timer(pj_timer_heap_t *ht,
     return count;
 }
 
-(int) pj_timer_heap_cancel( pj_timer_heap_t *ht,
+int pj_timer_heap_cancel( pj_timer_heap_t *ht,
 				  pj_timer_entry *entry)
 {
     return cancel_timer(ht, entry, 0, 0);
 }
 
-(int) pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
+int pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
                                            pj_timer_entry *entry,
                                            int id_val)
 {
     return cancel_timer(ht, entry, F_SET_ID | F_DONT_ASSERT, id_val);
 }
 
-(unsigned) pj_timer_heap_poll( pj_timer_heap_t *ht, 
+unsigned pj_timer_heap_poll( pj_timer_heap_t *ht, 
                                      pj_time_val *next_delay )
 {
     pj_time_val now;
@@ -660,14 +660,14 @@ static int cancel_timer(pj_timer_heap_t *ht,
     return count;
 }
 
-(pj_size_t) pj_timer_heap_count( pj_timer_heap_t *ht )
+pj_size_t pj_timer_heap_count( pj_timer_heap_t *ht )
 {
     PJ_ASSERT_RETURN(ht, 0);
 
     return ht->cur_size;
 }
 
-(pj_status_t) pj_timer_heap_earliest_time( pj_timer_heap_t * ht,
+pj_status_t pj_timer_heap_earliest_time( pj_timer_heap_t * ht,
 					         pj_time_val *timeval)
 {
     pj_assert(ht->cur_size != 0);
@@ -682,7 +682,7 @@ static int cancel_timer(pj_timer_heap_t *ht,
 }
 
 #if PJ_TIMER_DEBUG
-(void) pj_timer_heap_dump(pj_timer_heap_t *ht)
+void pj_timer_heap_dump(pj_timer_heap_t *ht)
 {
     lock_timer_heap(ht);
 

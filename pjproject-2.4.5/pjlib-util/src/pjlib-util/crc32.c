@@ -148,12 +148,12 @@ static const pj_uint32_t crc_tab[] = {
 #endif
 
 
-(void) pj_crc32_init(pj_crc32_context *ctx)
+void pj_crc32_init(pj_crc32_context *ctx)
 {
     ctx->crc_state = 0;
 }
 
-(pj_uint32_t) pj_crc32_update(pj_crc32_context *ctx, 
+pj_uint32_t pj_crc32_update(pj_crc32_context *ctx, 
 				    const pj_uint8_t *data,
 				    pj_size_t nbytes)
 {
@@ -182,7 +182,7 @@ static const pj_uint32_t crc_tab[] = {
     return ctx->crc_state;
 }
 
-(pj_uint32_t) pj_crc32_final(pj_crc32_context *ctx)
+pj_uint32_t pj_crc32_final(pj_crc32_context *ctx)
 {
     return CRC32_SWAP(ctx->crc_state);
 }
@@ -190,13 +190,13 @@ static const pj_uint32_t crc_tab[] = {
 
 #else
 
-(void) pj_crc32_init(pj_crc32_context *ctx)
+void pj_crc32_init(pj_crc32_context *ctx)
 {
     ctx->crc_state = CRC32_NEGL;
 }
 
 
-(pj_uint32_t) pj_crc32_update(pj_crc32_context *ctx, 
+pj_uint32_t pj_crc32_update(pj_crc32_context *ctx, 
 				    const pj_uint8_t *octets,
 				    pj_size_t len)
 
@@ -222,7 +222,7 @@ static const pj_uint32_t crc_tab[] = {
     return crc ^ CRC32_NEGL;
 }
 
-(pj_uint32_t) pj_crc32_final(pj_crc32_context *ctx)
+pj_uint32_t pj_crc32_final(pj_crc32_context *ctx)
 {
     ctx->crc_state ^= CRC32_NEGL;
     return ctx->crc_state;
@@ -231,7 +231,7 @@ static const pj_uint32_t crc_tab[] = {
 #endif
 
 
-(pj_uint32_t) pj_crc32_calc( const pj_uint8_t *data,
+pj_uint32_t pj_crc32_calc( const pj_uint8_t *data,
 				   pj_size_t nbytes)
 {
     pj_crc32_context ctx;

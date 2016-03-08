@@ -44,7 +44,7 @@ static pj_status_t ec_get_frame(pjmedia_port *this_port,
 static pj_status_t ec_on_destroy(pjmedia_port *this_port);
 
 
-(pj_status_t) pjmedia_echo_port_create(pj_pool_t *pool,
+pj_status_t pjmedia_echo_port_create(pj_pool_t *pool,
 					     pjmedia_port *dn_port,
 					     unsigned tail_ms,
 					     unsigned latency_ms,

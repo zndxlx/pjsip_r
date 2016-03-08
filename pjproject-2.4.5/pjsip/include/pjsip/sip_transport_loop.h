@@ -50,7 +50,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_loop_start( pjsip_endpoint *endpt,
+pj_status_t pjsip_loop_start( pjsip_endpoint *endpt,
 				       pjsip_transport **transport);
 
 
@@ -65,7 +65,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_loop_set_discard( pjsip_transport *tp,
+pj_status_t pjsip_loop_set_discard( pjsip_transport *tp,
 					     pj_bool_t discard,
 					     pj_bool_t *prev_value );
 
@@ -87,7 +87,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_loop_set_failure( pjsip_transport *tp,
+pj_status_t pjsip_loop_set_failure( pjsip_transport *tp,
 					     int fail_flag,
 					     int *prev_value );
 
@@ -104,7 +104,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_loop_set_recv_delay( pjsip_transport *tp,
+pj_status_t pjsip_loop_set_recv_delay( pjsip_transport *tp,
 						unsigned delay,
 						unsigned *prev_value);
 
@@ -120,7 +120,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_loop_set_send_callback_delay( pjsip_transport *tp,
+pj_status_t pjsip_loop_set_send_callback_delay( pjsip_transport *tp,
 							 unsigned delay,
 							 unsigned *prev_value);
 
@@ -133,7 +133,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_loop_set_delay( pjsip_transport *tp,
+pj_status_t pjsip_loop_set_delay( pjsip_transport *tp,
 					   unsigned delay );
 
 

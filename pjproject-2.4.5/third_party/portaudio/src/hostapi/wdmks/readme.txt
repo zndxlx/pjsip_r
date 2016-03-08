@@ -20,7 +20,7 @@ an alpha release with zero guarantee not to crash on any particular
 system. So far it has only been tested in the author's development
 environment, which means a Win2k/SP2 PIII laptop with integrated 
 SoundMAX driver and USB Tascam US-428 compiled with both MinGW
-(GCC 3.3) and MSVC++6 using the MS DirectX 9 SDK.
+GCC 3.3 and MSVC++6 using the MS DirectX 9 SDK.
 It has been most widely tested with the MinGW build, with most of the
 test programs (particularly paqa_devs and paqa_errs) passing.
 There are some notable failures: patest_out_underflow and both of the

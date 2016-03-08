@@ -24,7 +24,7 @@
 /*
  * Parse fmtp for specified format/payload type.
  */
-(pj_status_t) pjmedia_stream_info_parse_fmtp( pj_pool_t *pool,
+pj_status_t pjmedia_stream_info_parse_fmtp( pj_pool_t *pool,
 						    const pjmedia_sdp_media *m,
 						    unsigned pt,
 						    pjmedia_codec_fmtp *fmtp)

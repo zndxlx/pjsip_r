@@ -173,7 +173,7 @@ typedef struct pjmedia_vid_codec_param
  *
  * @return	    Duplicated codec parameter.
  */
-(pjmedia_vid_codec_param*) pjmedia_vid_codec_param_clone(
+pjmedia_vid_codec_param* pjmedia_vid_codec_param_clone(
 					pj_pool_t *pool, 
 					const pjmedia_vid_codec_param *src);
 
@@ -405,7 +405,7 @@ typedef struct pjmedia_vid_codec_mgr pjmedia_vid_codec_mgr;
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_vid_codec_mgr_create(pj_pool_t *pool,
+pj_status_t pjmedia_vid_codec_mgr_create(pj_pool_t *pool,
                                                   pjmedia_vid_codec_mgr **mgr);
 
 
@@ -418,7 +418,7 @@ typedef struct pjmedia_vid_codec_mgr pjmedia_vid_codec_mgr;
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_vid_codec_mgr_destroy(pjmedia_vid_codec_mgr *mgr);
+pj_status_t pjmedia_vid_codec_mgr_destroy(pjmedia_vid_codec_mgr *mgr);
 
 
 /**
@@ -426,7 +426,7 @@ typedef struct pjmedia_vid_codec_mgr pjmedia_vid_codec_mgr;
  *
  * @return	    The default codec manager instance or NULL if none.
  */
-(pjmedia_vid_codec_mgr*) pjmedia_vid_codec_mgr_instance(void);
+pjmedia_vid_codec_mgr* pjmedia_vid_codec_mgr_instance(void);
 
 
 /**
@@ -434,7 +434,7 @@ typedef struct pjmedia_vid_codec_mgr pjmedia_vid_codec_mgr;
  *
  * @param mgr	    The codec manager instance.
  */
-(void) pjmedia_vid_codec_mgr_set_instance(pjmedia_vid_codec_mgr* mgr);
+void pjmedia_vid_codec_mgr_set_instance(pjmedia_vid_codec_mgr* mgr);
 
 
 /** 
@@ -447,7 +447,7 @@ typedef struct pjmedia_vid_codec_mgr pjmedia_vid_codec_mgr;
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_register_factory( pjmedia_vid_codec_mgr *mgr,
 				        pjmedia_vid_codec_factory *factory);
 
@@ -462,7 +462,7 @@ pjmedia_vid_codec_mgr_register_factory( pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_unregister_factory( pjmedia_vid_codec_mgr *mgr, 
 				          pjmedia_vid_codec_factory *factory);
 
@@ -482,7 +482,7 @@ pjmedia_vid_codec_mgr_unregister_factory( pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_codec_mgr_enum_codecs(pjmedia_vid_codec_mgr *mgr,
 				  unsigned *count,
 				  pjmedia_vid_codec_info info[],
@@ -500,7 +500,7 @@ pjmedia_vid_codec_mgr_enum_codecs(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_get_codec_info( pjmedia_vid_codec_mgr *mgr,
 				      unsigned pt,
 				      const pjmedia_vid_codec_info **info);
@@ -516,7 +516,7 @@ pjmedia_vid_codec_mgr_get_codec_info( pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_get_codec_info2(pjmedia_vid_codec_mgr *mgr,
 				      pjmedia_format_id fmt_id,
 				      const pjmedia_vid_codec_info **info);
@@ -533,7 +533,7 @@ pjmedia_vid_codec_mgr_get_codec_info2(pjmedia_vid_codec_mgr *mgr,
  * @return	    The null terminated codec info string, or NULL if
  *		    the buffer is not long enough.
  */
-(char*) pjmedia_vid_codec_info_to_id(const pjmedia_vid_codec_info *info,
+char* pjmedia_vid_codec_info_to_id(const pjmedia_vid_codec_info *info,
                                             char *id, unsigned max_len );
 
 
@@ -556,7 +556,7 @@ pjmedia_vid_codec_mgr_get_codec_info2(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS if at least one codec info is found.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_find_codecs_by_id(pjmedia_vid_codec_mgr *mgr,
 					const pj_str_t *codec_id,
 					unsigned *count,
@@ -580,7 +580,7 @@ pjmedia_vid_codec_mgr_find_codecs_by_id(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS if at least one codec info is found.
  */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_codec_mgr_set_codec_priority(pjmedia_vid_codec_mgr *mgr, 
 					 const pj_str_t *codec_id,
 					 pj_uint8_t prio);
@@ -598,7 +598,7 @@ pjmedia_vid_codec_mgr_set_codec_priority(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_get_default_param(pjmedia_vid_codec_mgr *mgr,
 					const pjmedia_vid_codec_info *info,
 					pjmedia_vid_codec_param *param);
@@ -617,7 +617,7 @@ pjmedia_vid_codec_mgr_get_default_param(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_set_default_param(pjmedia_vid_codec_mgr *mgr,
 				        const pjmedia_vid_codec_info *info,
 				        const pjmedia_vid_codec_param *param);
@@ -635,7 +635,7 @@ pjmedia_vid_codec_mgr_set_default_param(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_vid_codec_mgr_alloc_codec( pjmedia_vid_codec_mgr *mgr, 
 			           const pjmedia_vid_codec_info *info,
 			           pjmedia_vid_codec **p_codec);
@@ -650,7 +650,7 @@ pjmedia_vid_codec_mgr_alloc_codec( pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCESS on success.
  */
-(pj_status_t) pjmedia_vid_codec_mgr_dealloc_codec(
+pj_status_t pjmedia_vid_codec_mgr_dealloc_codec(
                                                 pjmedia_vid_codec_mgr *mgr, 
 						pjmedia_vid_codec *codec);
 
@@ -665,7 +665,7 @@ pjmedia_vid_codec_mgr_alloc_codec( pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_vid_codec_init( pjmedia_vid_codec *codec, 
+pj_status_t pjmedia_vid_codec_init( pjmedia_vid_codec *codec, 
 					       pj_pool_t *pool )
 {
     return (*codec->op->init)(codec, pool);
@@ -684,7 +684,7 @@ PJ_INLINE(pj_status_t) pjmedia_vid_codec_init( pjmedia_vid_codec *codec,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_vid_codec_open(pjmedia_vid_codec *codec,
+pj_status_t pjmedia_vid_codec_open(pjmedia_vid_codec *codec,
                                               pjmedia_vid_codec_param *param)
 {
     return (*codec->op->open)(codec, param);
@@ -699,7 +699,7 @@ PJ_INLINE(pj_status_t) pjmedia_vid_codec_open(pjmedia_vid_codec *codec,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_vid_codec_close( pjmedia_vid_codec *codec )
+pj_status_t pjmedia_vid_codec_close( pjmedia_vid_codec *codec )
 {
     return (*codec->op->close)(codec);
 }
@@ -716,7 +716,7 @@ PJ_INLINE(pj_status_t) pjmedia_vid_codec_close( pjmedia_vid_codec *codec )
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t)
+pj_status_t
 pjmedia_vid_codec_modify(pjmedia_vid_codec *codec,
                          const pjmedia_vid_codec_param *param)
 {
@@ -732,7 +732,7 @@ pjmedia_vid_codec_modify(pjmedia_vid_codec *codec,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t)
+pj_status_t
 pjmedia_vid_codec_get_param(pjmedia_vid_codec *codec,
 			    pjmedia_vid_codec_param *param)
 {
@@ -762,7 +762,7 @@ pjmedia_vid_codec_get_param(pjmedia_vid_codec *codec,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_INLINE(pj_status_t)
+pj_status_t
 pjmedia_vid_codec_encode_begin( pjmedia_vid_codec *codec,
 				const pjmedia_vid_encode_opt *opt,
 				const pjmedia_frame *input,
@@ -790,7 +790,7 @@ pjmedia_vid_codec_encode_begin( pjmedia_vid_codec *codec,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_INLINE(pj_status_t)
+pj_status_t
 pjmedia_vid_codec_encode_more( pjmedia_vid_codec *codec,
 			       unsigned out_size,
 			       pjmedia_frame *output,
@@ -823,7 +823,7 @@ pjmedia_vid_codec_encode_more( pjmedia_vid_codec *codec,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_INLINE(pj_status_t) pjmedia_vid_codec_decode(pjmedia_vid_codec *codec,
+pj_status_t pjmedia_vid_codec_decode(pjmedia_vid_codec *codec,
 						pj_size_t pkt_count,
 						pjmedia_frame packets[],
 						unsigned out_size,
@@ -842,7 +842,7 @@ PJ_INLINE(pj_status_t) pjmedia_vid_codec_decode(pjmedia_vid_codec *codec,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_INLINE(pj_status_t) pjmedia_vid_codec_recover(pjmedia_vid_codec *codec,
+pj_status_t pjmedia_vid_codec_recover(pjmedia_vid_codec *codec,
                                                  unsigned out_size,
                                                  pjmedia_frame *output)
 {

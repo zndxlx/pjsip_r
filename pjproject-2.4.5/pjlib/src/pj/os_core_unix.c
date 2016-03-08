@@ -155,7 +155,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
  * pj_init(void).
  * Init PJLIB!
  */
-(pj_status_t) pj_init(void)
+pj_status_t pj_init(void)
 {
     char dummy_guid[PJ_GUID_MAX_LENGTH];
     pj_str_t guid;
@@ -220,7 +220,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * pj_atexit()
  */
-(pj_status_t) pj_atexit(void (*func)(void))
+pj_status_t pj_atexit(void (*func)(void))
 {
     if (atexit_count >= PJ_ARRAY_SIZE(atexit_func))
 	return PJ_ETOOMANY;
@@ -232,7 +232,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * pj_shutdown(void)
  */
-(void) pj_shutdown()
+void pj_shutdown()
 {
     int i;
 
@@ -275,7 +275,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * pj_getpid(void)
  */
-(pj_uint32_t) pj_getpid(void)
+pj_uint32_t pj_getpid(void)
 {
     PJ_CHECK_STACK();
     return getpid();
@@ -284,7 +284,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * Check if this thread has been registered to PJLIB.
  */
-(pj_bool_t) pj_thread_is_registered(void)
+pj_bool_t pj_thread_is_registered(void)
 {
 #if PJ_HAS_THREADS
     return pj_thread_local_get(thread_tls_id) != 0;
@@ -298,7 +298,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * Get thread priority value for the thread.
  */
-(int) pj_thread_get_prio(pj_thread_t *thread)
+int pj_thread_get_prio(pj_thread_t *thread)
 {
 #if PJ_HAS_THREADS
     struct sched_param param;
@@ -320,7 +320,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * Set the thread priority.
  */
-(pj_status_t) pj_thread_set_prio(pj_thread_t *thread,  int prio)
+pj_status_t pj_thread_set_prio(pj_thread_t *thread,  int prio)
 {
 #if PJ_HAS_THREADS
     struct sched_param param;
@@ -350,7 +350,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * Get the lowest priority value available on this system.
  */
-(int) pj_thread_get_prio_min(pj_thread_t *thread)
+int pj_thread_get_prio_min(pj_thread_t *thread)
 {
     struct sched_param param;
     int policy;
@@ -375,7 +375,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * Get the highest priority value available on this system.
  */
-(int) pj_thread_get_prio_max(pj_thread_t *thread)
+int pj_thread_get_prio_max(pj_thread_t *thread)
 {
     struct sched_param param;
     int policy;
@@ -400,7 +400,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * Get native thread handle
  */
-(void*) pj_thread_get_os_handle(pj_thread_t *thread)
+void* pj_thread_get_os_handle(pj_thread_t *thread)
 {
     PJ_ASSERT_RETURN(thread, NULL);
 
@@ -415,7 +415,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type);
 /*
  * pj_thread_register(..)
  */
-(pj_status_t) pj_thread_register ( const char *cstr_thread_name,
+pj_status_t pj_thread_register ( const char *cstr_thread_name,
 					 pj_thread_desc desc,
 					 pj_thread_t **ptr_thread)
 {
@@ -550,7 +550,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_create(...)
  */
-(pj_status_t) pj_thread_create( pj_pool_t *pool,
+pj_status_t pj_thread_create( pj_pool_t *pool,
 				      const char *thread_name,
 				      pj_thread_proc *proc,
 				      void *arg,
@@ -649,7 +649,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread-get_name()
  */
-(const char*) pj_thread_get_name(pj_thread_t *p)
+const char* pj_thread_get_name(pj_thread_t *p)
 {
 #if PJ_HAS_THREADS
     pj_thread_t *rec = (pj_thread_t*)p;
@@ -666,7 +666,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_resume()
  */
-(pj_status_t) pj_thread_resume(pj_thread_t *p)
+pj_status_t pj_thread_resume(pj_thread_t *p)
 {
     pj_status_t rc;
 
@@ -681,7 +681,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_this()
  */
-(pj_thread_t*) pj_thread_this(void)
+pj_thread_t* pj_thread_this(void)
 {
 #if PJ_HAS_THREADS
     pj_thread_t *rec = (pj_thread_t*)pj_thread_local_get(thread_tls_id);
@@ -708,7 +708,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_join()
  */
-(pj_status_t) pj_thread_join(pj_thread_t *p)
+pj_status_t pj_thread_join(pj_thread_t *p)
 {
 #if PJ_HAS_THREADS
     pj_thread_t *rec = (pj_thread_t *)p;
@@ -742,7 +742,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_destroy()
  */
-(pj_status_t) pj_thread_destroy(pj_thread_t *p)
+pj_status_t pj_thread_destroy(pj_thread_t *p)
 {
     PJ_CHECK_STACK();
 
@@ -758,7 +758,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_sleep()
  */
-(pj_status_t) pj_thread_sleep(unsigned msec)
+pj_status_t pj_thread_sleep(unsigned msec)
 {
 /* TODO: should change this to something like PJ_OS_HAS_NANOSLEEP */
 #if defined(PJ_RTEMS) && PJ_RTEMS!=0
@@ -803,7 +803,7 @@ static void *thread_main(void *param)
  * pj_thread_check_stack()
  * Implementation for PJ_CHECK_STACK()
  */
-(void) pj_thread_check_stack(const char *file, int line)
+void pj_thread_check_stack(const char *file, int line)
 {
     char stk_ptr;
     pj_uint32_t usage;
@@ -827,7 +827,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_get_stack_max_usage()
  */
-(pj_uint32_t) pj_thread_get_stack_max_usage(pj_thread_t *thread)
+pj_uint32_t pj_thread_get_stack_max_usage(pj_thread_t *thread)
 {
     return thread->stk_max_usage;
 }
@@ -835,7 +835,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_get_stack_info()
  */
-(pj_status_t) pj_thread_get_stack_info( pj_thread_t *thread,
+pj_status_t pj_thread_get_stack_info( pj_thread_t *thread,
 					      const char **file,
 					      int *line )
 {
@@ -852,7 +852,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_create()
  */
-(pj_status_t) pj_atomic_create( pj_pool_t *pool,
+pj_status_t pj_atomic_create( pj_pool_t *pool,
 				      pj_atomic_value_t initial,
 				      pj_atomic_t **ptr_atomic)
 {
@@ -877,7 +877,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_destroy()
  */
-(pj_status_t) pj_atomic_destroy( pj_atomic_t *atomic_var )
+pj_status_t pj_atomic_destroy( pj_atomic_t *atomic_var )
 {
     PJ_ASSERT_RETURN(atomic_var, PJ_EINVAL);
 #if PJ_HAS_THREADS
@@ -890,7 +890,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_set()
  */
-(void) pj_atomic_set(pj_atomic_t *atomic_var, pj_atomic_value_t value)
+void pj_atomic_set(pj_atomic_t *atomic_var, pj_atomic_value_t value)
 {
     PJ_CHECK_STACK();
 
@@ -906,7 +906,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_get()
  */
-(pj_atomic_value_t) pj_atomic_get(pj_atomic_t *atomic_var)
+pj_atomic_value_t pj_atomic_get(pj_atomic_t *atomic_var)
 {
     pj_atomic_value_t oldval;
 
@@ -925,7 +925,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_inc_and_get()
  */
-(pj_atomic_value_t) pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
+pj_atomic_value_t pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
 {
     pj_atomic_value_t new_value;
 
@@ -944,7 +944,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_inc()
  */
-(void) pj_atomic_inc(pj_atomic_t *atomic_var)
+void pj_atomic_inc(pj_atomic_t *atomic_var)
 {
     pj_atomic_inc_and_get(atomic_var);
 }
@@ -952,7 +952,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_dec_and_get()
  */
-(pj_atomic_value_t) pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
+pj_atomic_value_t pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
 {
     pj_atomic_value_t new_value;
 
@@ -972,7 +972,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_dec()
  */
-(void) pj_atomic_dec(pj_atomic_t *atomic_var)
+void pj_atomic_dec(pj_atomic_t *atomic_var)
 {
     pj_atomic_dec_and_get(atomic_var);
 }
@@ -980,7 +980,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_add_and_get()
  */
-(pj_atomic_value_t) pj_atomic_add_and_get( pj_atomic_t *atomic_var,
+pj_atomic_value_t pj_atomic_add_and_get( pj_atomic_t *atomic_var,
                                                  pj_atomic_value_t value )
 {
     pj_atomic_value_t new_value;
@@ -1002,7 +1002,7 @@ static void *thread_main(void *param)
 /*
  * pj_atomic_add()
  */
-(void) pj_atomic_add( pj_atomic_t *atomic_var,
+void pj_atomic_add( pj_atomic_t *atomic_var,
                             pj_atomic_value_t value )
 {
     pj_atomic_add_and_get(atomic_var, value);
@@ -1012,7 +1012,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_local_alloc()
  */
-(pj_status_t) pj_thread_local_alloc(long *p_index)
+pj_status_t pj_thread_local_alloc(long *p_index)
 {
 #if PJ_HAS_THREADS
     pthread_key_t key;
@@ -1046,7 +1046,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_local_free()
  */
-(void) pj_thread_local_free(long index)
+void pj_thread_local_free(long index)
 {
     PJ_CHECK_STACK();
 #if PJ_HAS_THREADS
@@ -1059,7 +1059,7 @@ static void *thread_main(void *param)
 /*
  * pj_thread_local_set()
  */
-(pj_status_t) pj_thread_local_set(long index, void *value)
+pj_status_t pj_thread_local_set(long index, void *value)
 {
     //Can't check stack because this function is called in the
     //beginning before main thread is initialized.
@@ -1074,7 +1074,7 @@ static void *thread_main(void *param)
 #endif
 }
 
-(void*) pj_thread_local_get(long index)
+void* pj_thread_local_get(long index)
 {
     //Can't check stack because this function is called
     //by PJ_CHECK_STACK() itself!!!
@@ -1088,14 +1088,14 @@ static void *thread_main(void *param)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-(void) pj_enter_critical_section(void)
+void pj_enter_critical_section(void)
 {
 #if PJ_HAS_THREADS
     pj_mutex_lock(&critical_section);
 #endif
 }
 
-(void) pj_leave_critical_section(void)
+void pj_leave_critical_section(void)
 {
 #if PJ_HAS_THREADS
     pj_mutex_unlock(&critical_section);
@@ -1106,7 +1106,7 @@ static void *thread_main(void *param)
 ///////////////////////////////////////////////////////////////////////////////
 #if defined(PJ_LINUX) && PJ_LINUX!=0
 PJ_BEGIN_DECL
-(int) pthread_mutexattr_settype(pthread_mutexattr_t*,int);
+int pthread_mutexattr_settype(pthread_mutexattr_t*,int);
 PJ_END_DECL
 #endif
 
@@ -1197,7 +1197,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_create()
  */
-(pj_status_t) pj_mutex_create(pj_pool_t *pool,
+pj_status_t pj_mutex_create(pj_pool_t *pool,
 				    const char *name,
 				    int type,
 				    pj_mutex_t **ptr_mutex)
@@ -1225,7 +1225,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_create_simple()
  */
-(pj_status_t) pj_mutex_create_simple( pj_pool_t *pool,
+pj_status_t pj_mutex_create_simple( pj_pool_t *pool,
                                             const char *name,
 					    pj_mutex_t **mutex )
 {
@@ -1235,7 +1235,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_create_recursive()
  */
-(pj_status_t) pj_mutex_create_recursive( pj_pool_t *pool,
+pj_status_t pj_mutex_create_recursive( pj_pool_t *pool,
 					       const char *name,
 					       pj_mutex_t **mutex )
 {
@@ -1245,7 +1245,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_lock()
  */
-(pj_status_t) pj_mutex_lock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_lock(pj_mutex_t *mutex)
 {
 #if PJ_HAS_THREADS
     pj_status_t status;
@@ -1297,7 +1297,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_unlock()
  */
-(pj_status_t) pj_mutex_unlock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_unlock(pj_mutex_t *mutex)
 {
 #if PJ_HAS_THREADS
     pj_status_t status;
@@ -1335,7 +1335,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_trylock()
  */
-(pj_status_t) pj_mutex_trylock(pj_mutex_t *mutex)
+pj_status_t pj_mutex_trylock(pj_mutex_t *mutex)
 {
 #if PJ_HAS_THREADS
     int status;
@@ -1379,7 +1379,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 /*
  * pj_mutex_destroy()
  */
-(pj_status_t) pj_mutex_destroy(pj_mutex_t *mutex)
+pj_status_t pj_mutex_destroy(pj_mutex_t *mutex)
 {
     enum { RETRY = 4 };
     int status = 0;
@@ -1413,7 +1413,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name, int type)
 }
 
 #if PJ_DEBUG
-(pj_bool_t) pj_mutex_is_locked(pj_mutex_t *mutex)
+pj_bool_t pj_mutex_is_locked(pj_mutex_t *mutex)
 {
 #if PJ_HAS_THREADS
     return mutex->owner == pj_thread_this();
@@ -1440,7 +1440,7 @@ struct pj_rwmutex_t
     pthread_rwlock_t rwlock;
 };
 
-(pj_status_t) pj_rwmutex_create(pj_pool_t *pool, const char *name,
+pj_status_t pj_rwmutex_create(pj_pool_t *pool, const char *name,
 				      pj_rwmutex_t **p_mutex)
 {
     pj_rwmutex_t *rwm;
@@ -1463,7 +1463,7 @@ struct pj_rwmutex_t
  * Lock the mutex for reading.
  *
  */
-(pj_status_t) pj_rwmutex_lock_read(pj_rwmutex_t *mutex)
+pj_status_t pj_rwmutex_lock_read(pj_rwmutex_t *mutex)
 {
     pj_status_t status;
 
@@ -1478,7 +1478,7 @@ struct pj_rwmutex_t
  * Lock the mutex for writing.
  *
  */
-(pj_status_t) pj_rwmutex_lock_write(pj_rwmutex_t *mutex)
+pj_status_t pj_rwmutex_lock_write(pj_rwmutex_t *mutex)
 {
     pj_status_t status;
 
@@ -1493,7 +1493,7 @@ struct pj_rwmutex_t
  * Release read lock.
  *
  */
-(pj_status_t) pj_rwmutex_unlock_read(pj_rwmutex_t *mutex)
+pj_status_t pj_rwmutex_unlock_read(pj_rwmutex_t *mutex)
 {
     return pj_rwmutex_unlock_write(mutex);
 }
@@ -1502,7 +1502,7 @@ struct pj_rwmutex_t
  * Release write lock.
  *
  */
-(pj_status_t) pj_rwmutex_unlock_write(pj_rwmutex_t *mutex)
+pj_status_t pj_rwmutex_unlock_write(pj_rwmutex_t *mutex)
 {
     pj_status_t status;
 
@@ -1517,7 +1517,7 @@ struct pj_rwmutex_t
  * Destroy reader/writer mutex.
  *
  */
-(pj_status_t) pj_rwmutex_destroy(pj_rwmutex_t *mutex)
+pj_status_t pj_rwmutex_destroy(pj_rwmutex_t *mutex)
 {
     pj_status_t status;
 
@@ -1537,7 +1537,7 @@ struct pj_rwmutex_t
 /*
  * pj_sem_create()
  */
-(pj_status_t) pj_sem_create( pj_pool_t *pool,
+pj_status_t pj_sem_create( pj_pool_t *pool,
 				   const char *name,
 				   unsigned initial,
 				   unsigned max,
@@ -1613,7 +1613,7 @@ struct pj_rwmutex_t
 /*
  * pj_sem_wait()
  */
-(pj_status_t) pj_sem_wait(pj_sem_t *sem)
+pj_status_t pj_sem_wait(pj_sem_t *sem)
 {
 #if PJ_HAS_THREADS
     int result;
@@ -1647,7 +1647,7 @@ struct pj_rwmutex_t
 /*
  * pj_sem_trywait()
  */
-(pj_status_t) pj_sem_trywait(pj_sem_t *sem)
+pj_status_t pj_sem_trywait(pj_sem_t *sem)
 {
 #if PJ_HAS_THREADS
     int result;
@@ -1674,7 +1674,7 @@ struct pj_rwmutex_t
 /*
  * pj_sem_post()
  */
-(pj_status_t) pj_sem_post(pj_sem_t *sem)
+pj_status_t pj_sem_post(pj_sem_t *sem)
 {
 #if PJ_HAS_THREADS
     int result;
@@ -1695,7 +1695,7 @@ struct pj_rwmutex_t
 /*
  * pj_sem_destroy()
  */
-(pj_status_t) pj_sem_destroy(pj_sem_t *sem)
+pj_status_t pj_sem_destroy(pj_sem_t *sem)
 {
 #if PJ_HAS_THREADS
     int result;
@@ -1729,7 +1729,7 @@ struct pj_rwmutex_t
 /*
  * pj_event_create()
  */
-(pj_status_t) pj_event_create(pj_pool_t *pool, const char *name,
+pj_status_t pj_event_create(pj_pool_t *pool, const char *name,
 				    pj_bool_t manual_reset, pj_bool_t initial,
 				    pj_event_t **ptr_event)
 {
@@ -1780,7 +1780,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_event_wait()
  */
-(pj_status_t) pj_event_wait(pj_event_t *event)
+pj_status_t pj_event_wait(pj_event_t *event)
 {
     pthread_mutex_lock(&event->mutex.mutex);
     event->threads_waiting++;
@@ -1795,7 +1795,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_event_trywait()
  */
-(pj_status_t) pj_event_trywait(pj_event_t *event)
+pj_status_t pj_event_trywait(pj_event_t *event)
 {
     pj_status_t status;
 
@@ -1812,7 +1812,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_event_set()
  */
-(pj_status_t) pj_event_set(pj_event_t *event)
+pj_status_t pj_event_set(pj_event_t *event)
 {
     pthread_mutex_lock(&event->mutex.mutex);
     event->threads_to_release = 1;
@@ -1828,7 +1828,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_event_pulse()
  */
-(pj_status_t) pj_event_pulse(pj_event_t *event)
+pj_status_t pj_event_pulse(pj_event_t *event)
 {
     pthread_mutex_lock(&event->mutex.mutex);
     if (event->threads_waiting) {
@@ -1847,7 +1847,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_event_reset()
  */
-(pj_status_t) pj_event_reset(pj_event_t *event)
+pj_status_t pj_event_reset(pj_event_t *event)
 {
     pthread_mutex_lock(&event->mutex.mutex);
     event->state = EV_STATE_OFF;
@@ -1859,7 +1859,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_event_destroy()
  */
-(pj_status_t) pj_event_destroy(pj_event_t *event)
+pj_status_t pj_event_destroy(pj_event_t *event)
 {
     pj_mutex_destroy(&event->mutex);
     pthread_cond_destroy(&event->cond);
@@ -1877,7 +1877,7 @@ static void event_on_one_release(pj_event_t *event)
 /**
  * Set terminal color.
  */
-(pj_status_t) pj_term_set_color(pj_color_t color)
+pj_status_t pj_term_set_color(pj_color_t color)
 {
     /* put bright prefix to ansi_color */
     char ansi_color[12] = "\033[01;3";
@@ -1935,7 +1935,7 @@ static void event_on_one_release(pj_event_t *event)
 /**
  * Get current terminal foreground color.
  */
-(pj_color_t) pj_term_get_color(void)
+pj_color_t pj_term_get_color(void)
 {
     return 0;
 }
@@ -1946,7 +1946,7 @@ static void event_on_one_release(pj_event_t *event)
 /*
  * pj_run_app()
  */
-(int) pj_run_app(pj_main_func_ptr main_func, int argc, char *argv[],
+int pj_run_app(pj_main_func_ptr main_func, int argc, char *argv[],
                        unsigned flags)
 {
     return (*main_func)(argc, argv);

@@ -19,7 +19,7 @@
 #include <pjmedia-codec.h>
 #include <pjmedia/g711.h>
 
-(void) pjmedia_audio_codec_config_default(pjmedia_audio_codec_config*cfg)
+void pjmedia_audio_codec_config_default(pjmedia_audio_codec_config*cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
     cfg->speex.option = 0;
@@ -29,7 +29,7 @@
     cfg->passthrough.setting.ilbc_mode = cfg->ilbc.mode;
 }
 
-(pj_status_t)
+pj_status_t
 pjmedia_codec_register_audio_codecs(pjmedia_endpt *endpt,
                                     const pjmedia_audio_codec_config *c)
 {

@@ -40,7 +40,7 @@
 #   define pj_highprec_div(a1,a2)   do_div(a1,a2)
 #   define pj_highprec_mod(a1,a2)   (a1=do_mod(a1, a2))
 
-    PJ_INLINE(pj_int64_t) do_mod( pj_int64_t a1, pj_int64_t a2)
+    (pj_int64_t) do_mod( pj_int64_t a1, pj_int64_t a2)
     {
 	return do_div(a1,a2);
     }

@@ -61,7 +61,7 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 }
 
 
-(pjxpidf_pres*) pjxpidf_create(pj_pool_t *pool, const pj_str_t *uri_cstr)
+pjxpidf_pres* pjxpidf_create(pj_pool_t *pool, const pj_str_t *uri_cstr)
 {
     pjxpidf_pres *pres;
     pj_xml_node *presentity;
@@ -117,7 +117,7 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 
 
 
-(pjxpidf_pres*) pjxpidf_parse(pj_pool_t *pool, char *text, pj_size_t len)
+pjxpidf_pres* pjxpidf_parse(pj_pool_t *pool, char *text, pj_size_t len)
 {
     pjxpidf_pres *pres;
     pj_xml_node *node;
@@ -166,13 +166,13 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 }
 
 
-(int) pjxpidf_print( pjxpidf_pres *pres, char *text, pj_size_t len)
+int pjxpidf_print( pjxpidf_pres *pres, char *text, pj_size_t len)
 {
     return pj_xml_print(pres, text, len, PJ_TRUE);
 }
 
 
-(pj_str_t*) pjxpidf_get_uri(pjxpidf_pres *pres)
+pj_str_t* pjxpidf_get_uri(pjxpidf_pres *pres)
 {
     pj_xml_node *presentity;
     pj_xml_attr *attr;
@@ -189,7 +189,7 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 }
 
 
-(pj_status_t) pjxpidf_set_uri(pj_pool_t *pool, pjxpidf_pres *pres, 
+pj_status_t pjxpidf_set_uri(pj_pool_t *pool, pjxpidf_pres *pres, 
 				    const pj_str_t *uri)
 {
     pj_xml_node *presentity;
@@ -235,7 +235,7 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 }
 
 
-(pj_bool_t) pjxpidf_get_status(pjxpidf_pres *pres)
+pj_bool_t pjxpidf_get_status(pjxpidf_pres *pres)
 {
     pj_xml_node *atom;
     pj_xml_node *addr;
@@ -267,7 +267,7 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 }
 
 
-(pj_status_t) pjxpidf_set_status(pjxpidf_pres *pres, pj_bool_t online_status)
+pj_status_t pjxpidf_set_status(pjxpidf_pres *pres, pj_bool_t online_status)
 {
     pj_xml_node *atom;
     pj_xml_node *addr;

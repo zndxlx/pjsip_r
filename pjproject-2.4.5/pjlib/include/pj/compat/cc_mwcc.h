@@ -35,7 +35,7 @@
 #define PJ_CC_VER_3		0
 
 
-#define PJ_INLINE_SPECIFIER	static inline
+#define _SPECIFIER	static inline
 #define PJ_THREAD_FUNC	
 #define PJ_NORETURN		
 #define PJ_ATTR_NORETURN	__attribute__ ((noreturn))

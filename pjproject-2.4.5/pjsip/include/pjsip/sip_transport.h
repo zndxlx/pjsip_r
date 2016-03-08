@@ -106,7 +106,7 @@ enum pjsip_transport_flags_e
  *		    PJSIP_ETYPEEXISTS if the same transport type has
  *		    already been registered.
  */
-(pj_status_t) pjsip_transport_register_type(unsigned tp_flag,
+pj_status_t pjsip_transport_register_type(unsigned tp_flag,
 						   const char *tp_name,
 						   int def_port,
 						   int *p_tp_type);
@@ -121,7 +121,7 @@ enum pjsip_transport_flags_e
  *		    the name is not recognized as the name of supported 
  *		    transport.
  */
-(pjsip_transport_type_e) 
+pjsip_transport_type_e 
 pjsip_transport_get_type_from_name(const pj_str_t *name);
 
 /**
@@ -131,7 +131,7 @@ pjsip_transport_get_type_from_name(const pj_str_t *name);
  *
  * @return	    Transport type.
  */
-(pjsip_transport_type_e) 
+pjsip_transport_type_e 
 pjsip_transport_get_type_from_flag(unsigned flag);
 
 /**
@@ -141,7 +141,7 @@ pjsip_transport_get_type_from_flag(unsigned flag);
  *
  * @return	    Transport type.
  */
-(int) pjsip_transport_type_get_af(pjsip_transport_type_e type);
+int pjsip_transport_type_get_af(pjsip_transport_type_e type);
 
 /**
  * Get transport flag from type.
@@ -150,7 +150,7 @@ pjsip_transport_get_type_from_flag(unsigned flag);
  *
  * @return	    Transport flags.
  */
-(unsigned)
+unsigned
 pjsip_transport_get_flag_from_type( pjsip_transport_type_e type );
 
 /**
@@ -161,7 +161,7 @@ pjsip_transport_get_flag_from_type( pjsip_transport_type_e type );
  * @return	    The port number, which is the default SIP port number for
  *		    the specified type.
  */
-(int) 
+int 
 pjsip_transport_get_default_port_for_type(pjsip_transport_type_e type);
 
 /**
@@ -171,7 +171,7 @@ pjsip_transport_get_default_port_for_type(pjsip_transport_type_e type);
  *
  * @return	    Transport name.
  */
-(const char*) pjsip_transport_get_type_name(pjsip_transport_type_e t);
+const char* pjsip_transport_get_type_name(pjsip_transport_type_e t);
 
 /**
  * Get longer description for the specified transport type.
@@ -180,7 +180,7 @@ pjsip_transport_get_default_port_for_type(pjsip_transport_type_e type);
  *
  * @return	    Transport description.
  */
-(const char*) pjsip_transport_get_type_desc(pjsip_transport_type_e t);
+const char* pjsip_transport_get_type_desc(pjsip_transport_type_e t);
 
 
 
@@ -244,14 +244,14 @@ typedef struct pjsip_tpselector
  *
  * @param sel	The transport selector.
  */
-(void) pjsip_tpselector_add_ref(pjsip_tpselector *sel);
+void pjsip_tpselector_add_ref(pjsip_tpselector *sel);
 
 
 /**
  * Decrement transport/listener reference in the selector.
  * @param sel	The transport selector
  */
-(void) pjsip_tpselector_dec_ref(pjsip_tpselector *sel);
+void pjsip_tpselector_dec_ref(pjsip_tpselector *sel);
 
 
 /*****************************************************************************
@@ -425,7 +425,7 @@ struct pjsip_rx_data
  *
  * @return	    Printable information.
  */
-(char*) pjsip_rx_data_get_info(pjsip_rx_data *rdata);
+char* pjsip_rx_data_get_info(pjsip_rx_data *rdata);
 
 /**
  * Clone pjsip_rx_data. This will duplicate the contents of
@@ -444,7 +444,7 @@ struct pjsip_rx_data
  *
  * @return	    PJ_SUCCESS on success or the appropriate error.
  */
-(pj_status_t) pjsip_rx_data_clone(const pjsip_rx_data *src,
+pj_status_t pjsip_rx_data_clone(const pjsip_rx_data *src,
                                          unsigned flags,
                                          pjsip_rx_data **p_rdata);
 
@@ -461,7 +461,7 @@ struct pjsip_rx_data
  *
  * @return	    PJ_SUCCESS on success or the appropriate error.
  */
-(pj_status_t) pjsip_rx_data_free_cloned(pjsip_rx_data *rdata);
+pj_status_t pjsip_rx_data_free_cloned(pjsip_rx_data *rdata);
 
 
 /*****************************************************************************
@@ -642,7 +642,7 @@ struct pjsip_tx_data
  *
  * @see pjsip_endpt_create_tdata
  */
-(pj_status_t) pjsip_tx_data_create( pjsip_tpmgr *mgr,
+pj_status_t pjsip_tx_data_create( pjsip_tpmgr *mgr,
 					   pjsip_tx_data **tdata );
 
 /**
@@ -652,7 +652,7 @@ struct pjsip_tx_data
  *
  * @param tdata	    The transmit buffer.
  */
-(void) pjsip_tx_data_add_ref( pjsip_tx_data *tdata );
+void pjsip_tx_data_add_ref( pjsip_tx_data *tdata );
 
 /**
  * Decrement reference counter of the transmit buffer.
@@ -664,7 +664,7 @@ struct pjsip_tx_data
  *		    status is non-zero. A status PJSIP_EBUFDESTROYED will be
  *		    returned to inform that buffer is destroyed.
  */
-(pj_status_t) pjsip_tx_data_dec_ref( pjsip_tx_data *tdata );
+pj_status_t pjsip_tx_data_dec_ref( pjsip_tx_data *tdata );
 
 /**
  * Print the SIP message to transmit data buffer's internal buffer. This
@@ -675,7 +675,7 @@ struct pjsip_tx_data
  *
  * @return	    PJ_SUCCESS on success of the appropriate error code.
  */
-(pj_status_t) pjsip_tx_data_encode(pjsip_tx_data *tdata);
+pj_status_t pjsip_tx_data_encode(pjsip_tx_data *tdata);
 
 /**
  * Check if transmit data buffer contains a valid message.
@@ -683,7 +683,7 @@ struct pjsip_tx_data
  * @param tdata	    The transmit buffer.
  * @return	    Non-zero (PJ_TRUE) if buffer contains a valid message.
  */
-(pj_bool_t) pjsip_tx_data_is_valid( pjsip_tx_data *tdata );
+pj_bool_t pjsip_tx_data_is_valid( pjsip_tx_data *tdata );
 
 /**
  * Invalidate the print buffer to force message to be re-printed. Call
@@ -695,7 +695,7 @@ struct pjsip_tx_data
  *
  * @param tdata	    The transmit buffer.
  */
-(void) pjsip_tx_data_invalidate_msg( pjsip_tx_data *tdata );
+void pjsip_tx_data_invalidate_msg( pjsip_tx_data *tdata );
 
 /**
  * Get short printable info about the transmit data. This will normally return
@@ -705,7 +705,7 @@ struct pjsip_tx_data
  *
  * @return	    Null terminated info string.
  */
-(char*) pjsip_tx_data_get_info( pjsip_tx_data *tdata );
+char* pjsip_tx_data_get_info( pjsip_tx_data *tdata );
 
 /**
  * Set the explicit transport to be used when sending this transmit data.
@@ -718,7 +718,7 @@ struct pjsip_tx_data
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_tx_data_set_transport(pjsip_tx_data *tdata,
+pj_status_t pjsip_tx_data_set_transport(pjsip_tx_data *tdata,
 						 const pjsip_tpselector *sel);
 
 
@@ -881,7 +881,7 @@ struct pjsip_transport
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_transport_register( pjsip_tpmgr *mgr,
+pj_status_t pjsip_transport_register( pjsip_tpmgr *mgr,
 					       pjsip_transport *tp );
 
 
@@ -898,7 +898,7 @@ struct pjsip_transport
  *
  * @return		    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_transport_shutdown(pjsip_transport *tp);
+pj_status_t pjsip_transport_shutdown(pjsip_transport *tp);
 
 /**
  * Destroy a transport when there is no object currently uses the transport.
@@ -912,7 +912,7 @@ struct pjsip_transport
  *			Some of possible errors are PJSIP_EBUSY if the 
  *			transport's reference counter is not zero.
  */
-(pj_status_t) pjsip_transport_destroy( pjsip_transport *tp);
+pj_status_t pjsip_transport_destroy( pjsip_transport *tp);
 
 /**
  * Add reference counter to the specified transport. Any objects that wishes
@@ -923,7 +923,7 @@ struct pjsip_transport
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pjsip_transport_add_ref( pjsip_transport *tp );
+pj_status_t pjsip_transport_add_ref( pjsip_transport *tp );
 
 /**
  * Decrement reference counter of the specified transport. When an object no
@@ -937,7 +937,7 @@ struct pjsip_transport
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_transport_dec_ref( pjsip_transport *tp );
+pj_status_t pjsip_transport_dec_ref( pjsip_transport *tp );
 
 
 /**
@@ -960,7 +960,7 @@ struct pjsip_transport
  *			keep the remainder part and report it again to
  *			this function once more data/packet is received.
  */
-(pj_ssize_t) pjsip_tpmgr_receive_packet(pjsip_tpmgr *mgr,
+pj_ssize_t pjsip_tpmgr_receive_packet(pjsip_tpmgr *mgr,
 					       pjsip_rx_data *rdata);
 
 
@@ -1044,7 +1044,7 @@ struct pjsip_tpfactory
  *
  * @return		PJ_SUCCESS if listener was successfully created.
  */
-(pj_status_t) pjsip_tpmgr_register_tpfactory(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_register_tpfactory(pjsip_tpmgr *mgr,
 						    pjsip_tpfactory *tpf);
 
 /**
@@ -1055,7 +1055,7 @@ struct pjsip_tpfactory
  *
  * @return		PJ_SUCCESS is sucessfully unregistered.
  */
-(pj_status_t) pjsip_tpmgr_unregister_tpfactory(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_unregister_tpfactory(pjsip_tpmgr *mgr,
 						      pjsip_tpfactory *tpf);
 
 
@@ -1099,7 +1099,7 @@ typedef pj_status_t (*pjsip_tx_callback)(pjsip_endpoint *ep, pjsip_tx_data*td);
  *
  * @return	    PJ_SUCCESS or the appropriate error code on error.
  */
-(pj_status_t) pjsip_tpmgr_create( pj_pool_t *pool,
+pj_status_t pjsip_tpmgr_create( pj_pool_t *pool,
 					 pjsip_endpoint * endpt,
 					 pjsip_rx_callback rx_cb,
 					 pjsip_tx_callback tx_cb,
@@ -1126,7 +1126,7 @@ typedef pj_status_t (*pjsip_tx_callback)(pjsip_endpoint *ep, pjsip_tx_data*td);
  *
  * @return	    PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pjsip_tpmgr_find_local_addr( pjsip_tpmgr *tpmgr,
+pj_status_t pjsip_tpmgr_find_local_addr( pjsip_tpmgr *tpmgr,
 						  pj_pool_t *pool,
 						  pjsip_transport_type_e type,
 						  const pjsip_tpselector *sel,
@@ -1183,7 +1183,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @param prm	    The parameter to be initialized.
  */
-(void) pjsip_tpmgr_fla2_param_default(pjsip_tpmgr_fla2_param *prm);
+void pjsip_tpmgr_fla2_param_default(pjsip_tpmgr_fla2_param *prm);
 
 /**
  * Find out the appropriate local address info (IP address and port) to
@@ -1199,7 +1199,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @return	    PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pjsip_tpmgr_find_local_addr2(pjsip_tpmgr *tpmgr,
+pj_status_t pjsip_tpmgr_find_local_addr2(pjsip_tpmgr *tpmgr,
                                                   pj_pool_t *pool,
                                                   pjsip_tpmgr_fla2_param *prm);
 
@@ -1211,7 +1211,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @return	    Number of transports.
  */
-(unsigned) pjsip_tpmgr_get_transport_count(pjsip_tpmgr *mgr);
+unsigned pjsip_tpmgr_get_transport_count(pjsip_tpmgr *mgr);
 
 
 /**
@@ -1223,7 +1223,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_tpmgr_destroy(pjsip_tpmgr *mgr);
+pj_status_t pjsip_tpmgr_destroy(pjsip_tpmgr *mgr);
 
 
 /**
@@ -1231,7 +1231,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @param mgr	    The transport manager.
  */
-(void) pjsip_tpmgr_dump_transports(pjsip_tpmgr *mgr);
+void pjsip_tpmgr_dump_transports(pjsip_tpmgr *mgr);
 
 
 /*****************************************************************************
@@ -1259,7 +1259,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_tpmgr_acquire_transport(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_acquire_transport(pjsip_tpmgr *mgr,
 						   pjsip_transport_type_e type,
 						   const pj_sockaddr_t *remote,
 						   int addr_len,
@@ -1286,7 +1286,7 @@ typedef struct pjsip_tpmgr_fla2_param
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_tpmgr_acquire_transport2(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_acquire_transport2(pjsip_tpmgr *mgr,
 						    pjsip_transport_type_e type,
 						    const pj_sockaddr_t *remote,
 						    int addr_len,
@@ -1331,7 +1331,7 @@ typedef void (*pjsip_tp_send_callback)(void *token, pjsip_tx_data *tdata,
  *		    indicates immediate failure, and in this case the 
  *		    callback will not be called.
  */
-(pj_status_t) pjsip_transport_send( pjsip_transport *tr, 
+pj_status_t pjsip_transport_send( pjsip_transport *tr, 
 					   pjsip_tx_data *tdata,
 					   const pj_sockaddr_t *addr,
 					   int addr_len,
@@ -1371,7 +1371,7 @@ typedef void (*pjsip_tp_send_callback)(void *token, pjsip_tx_data *tdata,
  *		    indicates immediate failure, and in this case the 
  *		    callback will not be called.
  */
-(pj_status_t) pjsip_tpmgr_send_raw(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_send_raw(pjsip_tpmgr *mgr,
 					  pjsip_transport_type_e tp_type,
 					  const pjsip_tpselector *sel,
 					  pjsip_tx_data *tdata,
@@ -1463,7 +1463,7 @@ typedef void (*pjsip_tp_state_callback)(
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_tpmgr_set_state_cb(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_set_state_cb(pjsip_tpmgr *mgr,
 					      pjsip_tp_state_callback cb);
 
 
@@ -1474,7 +1474,7 @@ typedef void (*pjsip_tp_state_callback)(
  *
  * @return	    The transport state callback or NULL if it is not set.
  */
-(pjsip_tp_state_callback) pjsip_tpmgr_get_state_cb(
+pjsip_tp_state_callback pjsip_tpmgr_get_state_cb(
 					      const pjsip_tpmgr *mgr);
 
 
@@ -1489,7 +1489,7 @@ typedef void (*pjsip_tp_state_callback)(
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_transport_add_state_listener (
+pj_status_t pjsip_transport_add_state_listener (
 					    pjsip_transport *tp,
 					    pjsip_tp_state_callback cb,
 					    void *user_data,
@@ -1506,7 +1506,7 @@ typedef void (*pjsip_tp_state_callback)(
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_transport_remove_state_listener (
+pj_status_t pjsip_transport_remove_state_listener (
 				    pjsip_transport *tp,
 				    pjsip_tp_state_listener_key *key,
 				    const void *user_data);
@@ -1569,7 +1569,7 @@ typedef void (*pjsip_tp_on_rx_dropped_cb)(pjsip_tp_dropped_data *data);
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_tpmgr_set_drop_data_cb(pjsip_tpmgr *mgr,
+pj_status_t pjsip_tpmgr_set_drop_data_cb(pjsip_tpmgr *mgr,
 						  pjsip_tp_on_rx_dropped_cb cb);
 
 

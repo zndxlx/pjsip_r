@@ -78,7 +78,7 @@ static void base256to64(pj_uint8_t c1, pj_uint8_t c2, pj_uint8_t c3,
 }
 
 
-(pj_status_t) pj_base64_encode(const pj_uint8_t *input, int in_len,
+pj_status_t pj_base64_encode(const pj_uint8_t *input, int in_len,
 				     char *output, int *out_len)
 {
     const pj_uint8_t *pi = input;
@@ -121,7 +121,7 @@ static void base256to64(pj_uint8_t c1, pj_uint8_t c2, pj_uint8_t c3,
 }
 
 
-(pj_status_t) pj_base64_decode(const pj_str_t *input, 
+pj_status_t pj_base64_decode(const pj_str_t *input, 
 				     pj_uint8_t *out, int *out_len)
 {
     const char *buf = input->ptr;

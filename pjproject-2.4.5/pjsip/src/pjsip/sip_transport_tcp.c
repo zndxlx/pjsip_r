@@ -226,7 +226,7 @@ static void tcp_init_shutdown(struct tcp_transport *tcp, pj_status_t status)
 /*
  * Initialize pjsip_tcp_transport_cfg structure with default values.
  */
-(void) pjsip_tcp_transport_cfg_default(pjsip_tcp_transport_cfg *cfg,
+void pjsip_tcp_transport_cfg_default(pjsip_tcp_transport_cfg *cfg,
 					     int af)
 {
     pj_bzero(cfg, sizeof(*cfg));
@@ -245,7 +245,7 @@ static void tcp_init_shutdown(struct tcp_transport *tcp, pj_status_t status)
  * This is the public API to create, initialize, register, and start the
  * TCP listener.
  */
-(pj_status_t) pjsip_tcp_transport_start3(
+pj_status_t pjsip_tcp_transport_start3(
 					pjsip_endpoint *endpt,
 					const pjsip_tcp_transport_cfg *cfg,
 					pjsip_tpfactory **p_factory
@@ -502,7 +502,7 @@ on_error:
  * This is the public API to create, initialize, register, and start the
  * TCP listener.
  */
-(pj_status_t) pjsip_tcp_transport_start2(pjsip_endpoint *endpt,
+pj_status_t pjsip_tcp_transport_start2(pjsip_endpoint *endpt,
 					       const pj_sockaddr_in *local,
 					       const pjsip_host_port *a_name,
 					       unsigned async_cnt,
@@ -531,7 +531,7 @@ on_error:
  * This is the public API to create, initialize, register, and start the
  * TCP listener.
  */
-(pj_status_t) pjsip_tcp_transport_start( pjsip_endpoint *endpt,
+pj_status_t pjsip_tcp_transport_start( pjsip_endpoint *endpt,
 					       const pj_sockaddr_in *local,
 					       unsigned async_cnt,
 					       pjsip_tpfactory **p_factory)
@@ -1606,7 +1606,7 @@ static void tcp_keep_alive_timer(pj_timer_heap_t *th, pj_timer_entry *e)
 }
 
 
-(pj_sock_t) pjsip_tcp_transport_get_socket(pjsip_transport *transport)
+pj_sock_t pjsip_tcp_transport_get_socket(pjsip_transport *transport)
 {
     struct tcp_transport *tcp = (struct tcp_transport*)transport;
 

@@ -201,7 +201,7 @@ static pj_status_t get_speex_info( struct speex_param *p )
 /*
  * Initialize and register Speex codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_speex_init( pjmedia_endpt *endpt,
+pj_status_t pjmedia_codec_speex_init( pjmedia_endpt *endpt,
 					      unsigned options,
 					      int quality,
 					      int complexity )
@@ -303,7 +303,7 @@ on_error:
 /*
  * Initialize with default settings.
  */
-(pj_status_t) pjmedia_codec_speex_init_default(pjmedia_endpt *endpt)
+pj_status_t pjmedia_codec_speex_init_default(pjmedia_endpt *endpt)
 {
     return pjmedia_codec_speex_init(endpt, 0, -1, -1);
 }
@@ -311,7 +311,7 @@ on_error:
 /*
  * Change the settings of Speex codec.
  */
-(pj_status_t) pjmedia_codec_speex_set_param(unsigned clock_rate,
+pj_status_t pjmedia_codec_speex_set_param(unsigned clock_rate,
 						  int quality,
 						  int complexity)
 {
@@ -352,7 +352,7 @@ on_error:
  * Unregister Speex codec factory from pjmedia endpoint and deinitialize
  * the Speex codec library.
  */
-(pj_status_t) pjmedia_codec_speex_deinit(void)
+pj_status_t pjmedia_codec_speex_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

@@ -112,7 +112,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @param opt	    The option.
  */
-(void) pjsip_publishc_opt_default(pjsip_publishc_opt *opt);
+void pjsip_publishc_opt_default(pjsip_publishc_opt *opt);
 
 
 /**
@@ -122,7 +122,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_init_module(pjsip_endpoint *endpt);
+pj_status_t pjsip_publishc_init_module(pjsip_endpoint *endpt);
 
 
 /**
@@ -136,7 +136,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_create( pjsip_endpoint *endpt, 
+pj_status_t pjsip_publishc_create( pjsip_endpoint *endpt, 
 					    const pjsip_publishc_opt *opt,
 					    void *token,
 				            pjsip_publishc_cb *cb, 
@@ -152,7 +152,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_destroy(pjsip_publishc *pubc);
+pj_status_t pjsip_publishc_destroy(pjsip_publishc *pubc);
 
 
 
@@ -162,7 +162,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  * @param pubc	    The client publication structure.
  * @return pool	    handle.
  */
-(pj_pool_t*) pjsip_publishc_get_pool(pjsip_publishc *pubc);
+pj_pool_t* pjsip_publishc_get_pool(pjsip_publishc *pubc);
 
 
 /**
@@ -184,7 +184,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_init(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_init(pjsip_publishc *pubc,
 					 const pj_str_t *event,
 					 const pj_str_t *target_uri,
 					 const pj_str_t *from_uri,
@@ -201,7 +201,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_set_credentials(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_credentials(pjsip_publishc *pubc,
 						    int count,
 						    const pjsip_cred_info c[]);
 
@@ -213,7 +213,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_set_route_set(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_route_set(pjsip_publishc *pubc,
 						  const pjsip_route_hdr *rs);
 
 
@@ -233,7 +233,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_set_headers(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_headers(pjsip_publishc *pubc,
 						const pjsip_hdr *hdr_list);
 
 /**
@@ -247,7 +247,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_set_via_sent_by(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_via_sent_by(pjsip_publishc *pubc,
 				                    pjsip_host_port *via_addr,
                                                     pjsip_transport *via_tp);
 
@@ -274,7 +274,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_publish(pjsip_publishc *pubc, 
+pj_status_t pjsip_publishc_publish(pjsip_publishc *pubc, 
 					     pj_bool_t auto_refresh,
 					     pjsip_tx_data **p_tdata);
 
@@ -287,7 +287,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_publishc_unpublish(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_unpublish(pjsip_publishc *pubc,
 					      pjsip_tx_data **p_tdata);
 
 
@@ -302,7 +302,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *
  * @return	    PU_SUCCESS on successfull.
  */
-(pj_status_t) pjsip_publishc_update_expires(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_update_expires(pjsip_publishc *pubc,
 					           pj_uint32_t expires );
 
 
@@ -329,7 +329,7 @@ typedef void pjsip_publishc_cb(struct pjsip_publishc_cbparam *param);
  *		      request is in progress, or
  *		    - other status code to indicate the error.
  */
-(pj_status_t) pjsip_publishc_send(pjsip_publishc *pubc, 
+pj_status_t pjsip_publishc_send(pjsip_publishc *pubc, 
 					 pjsip_tx_data *tdata);
 
 

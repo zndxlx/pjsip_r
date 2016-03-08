@@ -72,7 +72,7 @@
 
 #if 1
 /* See if both integers have the same sign */
-PJ_INLINE(int) cmp(const char *expr, int i, int j)
+int cmp(const char *expr, int i, int j)
 {
     int r = !((i>0 && j>0) || (i<0 && j<0) || (i==0 && j==0));
     if (r) {
@@ -82,7 +82,7 @@ PJ_INLINE(int) cmp(const char *expr, int i, int j)
 }
 #else
 /* For strict comparison, must be equal */
-PJ_INLINE(int) cmp(const char *expr, int i, int j)
+int cmp(const char *expr, int i, int j)
 {
     PJ_UNUSED_ARG(expr);
     return i!=j;

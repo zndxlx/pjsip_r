@@ -83,7 +83,7 @@ static pj_uint8_t* find_next_nal_unit(pj_uint8_t *start,
 /*
  * Create H264 packetizer.
  */
-(pj_status_t) pjmedia_h264_packetizer_create(
+pj_status_t pjmedia_h264_packetizer_create(
 				pj_pool_t *pool,
 				const pjmedia_h264_packetizer_cfg *cfg,
 				pjmedia_h264_packetizer **p)
@@ -117,7 +117,7 @@ static pj_uint8_t* find_next_nal_unit(pj_uint8_t *start,
 /*
  * Generate an RTP payload from H.264 frame bitstream, in-place processing.
  */
-(pj_status_t) pjmedia_h264_packetize(pjmedia_h264_packetizer *pktz,
+pj_status_t pjmedia_h264_packetize(pjmedia_h264_packetizer *pktz,
 					   pj_uint8_t *buf,
                                            pj_size_t buf_len,
                                            unsigned *pos,
@@ -340,7 +340,7 @@ static pj_uint8_t* find_next_nal_unit(pj_uint8_t *start,
  * fragmentation format (FU-A/B), so we will only manage the "prev_lost"
  * state for the FU-A/B packets.
  */
-(pj_status_t) pjmedia_h264_unpacketize(pjmedia_h264_packetizer *pktz,
+pj_status_t pjmedia_h264_unpacketize(pjmedia_h264_packetizer *pktz,
 					     const pj_uint8_t *payload,
                                              pj_size_t   payload_len,
                                              pj_uint8_t *bits,

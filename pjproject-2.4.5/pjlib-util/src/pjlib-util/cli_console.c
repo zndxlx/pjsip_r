@@ -99,7 +99,7 @@ static void console_destroy(pj_cli_front_end *fe)
     pj_pool_release(cfe->pool);
 }
 
-(void) pj_cli_console_cfg_default(pj_cli_console_cfg *param)
+void pj_cli_console_cfg_default(pj_cli_console_cfg *param)
 {
     pj_assert(param);
 
@@ -108,7 +108,7 @@ static void console_destroy(pj_cli_front_end *fe)
     param->quit_command.slen = 0;
 }
 
-(pj_status_t) pj_cli_console_create(pj_cli_t *cli,
+pj_status_t pj_cli_console_create(pj_cli_t *cli,
 					  const pj_cli_console_cfg *param,
 					  pj_cli_sess **p_sess,
 					  pj_cli_front_end **p_fe)
@@ -520,7 +520,7 @@ static int readline_thread(void * p)
     return 0;
 }
 
-(pj_status_t) pj_cli_console_process(pj_cli_sess *sess,
+pj_status_t pj_cli_console_process(pj_cli_sess *sess,
 					   char *buf,
 					   unsigned maxlen)
 {

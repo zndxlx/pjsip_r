@@ -69,7 +69,7 @@ typedef struct pjmedia_plc pjmedia_plc;
  *
  * @return		    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_plc_create( pj_pool_t *pool,
+pj_status_t pjmedia_plc_create( pj_pool_t *pool,
 					 unsigned clock_rate,
 					 unsigned samples_per_frame,
 					 unsigned options,
@@ -86,7 +86,7 @@ typedef struct pjmedia_plc pjmedia_plc;
  *
  * @return		    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_plc_save( pjmedia_plc *plc,
+pj_status_t pjmedia_plc_save( pjmedia_plc *plc,
 				       pj_int16_t *frame );
 
 
@@ -99,7 +99,7 @@ typedef struct pjmedia_plc pjmedia_plc;
  *
  * @return		    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_plc_generate( pjmedia_plc *plc,
+pj_status_t pjmedia_plc_generate( pjmedia_plc *plc,
 					   pj_int16_t *frame );
 
 

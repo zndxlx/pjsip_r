@@ -192,7 +192,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS if response has been created successfully.
  */
-(pj_status_t) pjsip_auth_create_aka_response(
+pj_status_t pjsip_auth_create_aka_response(
 					     pj_pool_t *pool,
 					     const pjsip_digest_challenge*chal,
 					     const pjsip_cred_info *cred,

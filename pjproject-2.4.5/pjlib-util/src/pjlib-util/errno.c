@@ -175,7 +175,7 @@ pj_str_t pjlib_util_strerror(pj_status_t statcode,
 }
 
 
-(pj_status_t) pjlib_util_init(void)
+pj_status_t pjlib_util_init(void)
 {
     pj_status_t status;
     

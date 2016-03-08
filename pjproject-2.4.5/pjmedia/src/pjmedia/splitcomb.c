@@ -204,7 +204,7 @@ static pj_status_t rport_on_destroy(pjmedia_port *this_port);
 /*
  * Create the splitter/combiner.
  */
-(pj_status_t) pjmedia_splitcomb_create( pj_pool_t *pool,
+pj_status_t pjmedia_splitcomb_create( pj_pool_t *pool,
 					      unsigned clock_rate,
 					      unsigned channel_count,
 					      unsigned samples_per_frame,
@@ -270,7 +270,7 @@ static pj_status_t rport_on_destroy(pjmedia_port *this_port);
 /*
  * Attach media port with the same phase as the splitter/combiner.
  */
-(pj_status_t) pjmedia_splitcomb_set_channel( pjmedia_port *splitcomb,
+pj_status_t pjmedia_splitcomb_set_channel( pjmedia_port *splitcomb,
 						   unsigned ch_num,
 						   unsigned options,
 						   pjmedia_port *port)
@@ -299,7 +299,7 @@ static pj_status_t rport_on_destroy(pjmedia_port *this_port);
 /*
  * Create reverse phase port for the specified channel.
  */
-(pj_status_t) pjmedia_splitcomb_create_rev_channel( pj_pool_t *pool,
+pj_status_t pjmedia_splitcomb_create_rev_channel( pj_pool_t *pool,
 				      pjmedia_port *splitcomb,
 				      unsigned ch_num,
 				      unsigned options,

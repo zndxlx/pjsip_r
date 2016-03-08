@@ -156,7 +156,7 @@ static int cmp_mod_name(void *name, const void *mod)
  * properly initialize the module, and assign a unique module ID for the 
  * module.
  */
-(pj_status_t) pjsip_endpt_register_module( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_register_module( pjsip_endpoint *endpt,
 						 pjsip_module *mod )
 {
     pj_status_t status = PJ_SUCCESS;
@@ -229,7 +229,7 @@ on_return:
  * The endpoint will then call the stop and unload function in the module to 
  * properly shutdown the module.
  */
-(pj_status_t) pjsip_endpt_unregister_module( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_unregister_module( pjsip_endpoint *endpt,
 						   pjsip_module *mod )
 {
     pj_status_t status;
@@ -306,7 +306,7 @@ static pj_status_t unload_module(pjsip_endpoint *endpt,
 /*
  * Get the value of the specified capability header field.
  */
-(const pjsip_hdr*) pjsip_endpt_get_capability( pjsip_endpoint *endpt,
+const pjsip_hdr* pjsip_endpt_get_capability( pjsip_endpoint *endpt,
 						     int htype,
 						     const pj_str_t *hname)
 {
@@ -330,7 +330,7 @@ static pj_status_t unload_module(pjsip_endpoint *endpt,
 /*
  * Check if the specified capability is supported.
  */
-(pj_bool_t) pjsip_endpt_has_capability( pjsip_endpoint *endpt,
+pj_bool_t pjsip_endpt_has_capability( pjsip_endpoint *endpt,
 					      int htype,
 					      const pj_str_t *hname,
 					      const pj_str_t *token)
@@ -357,7 +357,7 @@ static pj_status_t unload_module(pjsip_endpoint *endpt,
  * Add or register new capabilities as indicated by the tags to the
  * appropriate header fields in the endpoint.
  */
-(pj_status_t) pjsip_endpt_add_capability( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_add_capability( pjsip_endpoint *endpt,
 						pjsip_module *mod,
 						int htype,
 						const pj_str_t *hname,
@@ -414,7 +414,7 @@ static pj_status_t unload_module(pjsip_endpoint *endpt,
 /*
  * Get additional headers to be put in outgoing request message.
  */
-(const pjsip_hdr*) pjsip_endpt_get_request_headers(pjsip_endpoint *endpt)
+const pjsip_hdr* pjsip_endpt_get_request_headers(pjsip_endpoint *endpt)
 {
     return &endpt->req_hdr;
 }
@@ -423,7 +423,7 @@ static pj_status_t unload_module(pjsip_endpoint *endpt,
 /*
  * Initialize endpoint.
  */
-(pj_status_t) pjsip_endpt_create(pj_pool_factory *pf,
+pj_status_t pjsip_endpt_create(pj_pool_factory *pf,
 				       const char *name,
                                        pjsip_endpoint **p_endpt)
 {
@@ -572,7 +572,7 @@ on_error:
 /*
  * Destroy endpoint.
  */
-(void) pjsip_endpt_destroy(pjsip_endpoint *endpt)
+void pjsip_endpt_destroy(pjsip_endpoint *endpt)
 {
     pjsip_module *mod;
     exit_cb *ecb;
@@ -637,7 +637,7 @@ on_error:
 /*
  * Get endpoint name.
  */
-(const pj_str_t*) pjsip_endpt_name(const pjsip_endpoint *endpt)
+const pj_str_t* pjsip_endpt_name(const pjsip_endpoint *endpt)
 {
     return &endpt->name;
 }
@@ -646,7 +646,7 @@ on_error:
 /*
  * Create new pool.
  */
-(pj_pool_t*) pjsip_endpt_create_pool( pjsip_endpoint *endpt,
+pj_pool_t* pjsip_endpt_create_pool( pjsip_endpoint *endpt,
 					       const char *pool_name,
 					       pj_size_t initial,
 					       pj_size_t increment )
@@ -678,7 +678,7 @@ on_error:
  * Return back pool to endpoint's pool manager to be either destroyed or
  * recycled.
  */
-(void) pjsip_endpt_release_pool( pjsip_endpoint *endpt, pj_pool_t *pool )
+void pjsip_endpt_release_pool( pjsip_endpoint *endpt, pj_pool_t *pool )
 {
     PJ_LOG(6, (THIS_FILE, "Releasing pool %s", pj_pool_getobjname(pool)));
 
@@ -694,7 +694,7 @@ on_error:
 }
 
 
-(pj_status_t) pjsip_endpt_handle_events2(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_handle_events2(pjsip_endpoint *endpt,
 					       const pj_time_val *max_timeout,
 					       unsigned *p_count)
 {
@@ -763,7 +763,7 @@ on_error:
 /*
  * Handle events.
  */
-(pj_status_t) pjsip_endpt_handle_events(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_handle_events(pjsip_endpoint *endpt,
 					      const pj_time_val *max_timeout)
 {
     return pjsip_endpt_handle_events2(endpt, max_timeout, NULL);
@@ -773,7 +773,7 @@ on_error:
  * Schedule timer.
  */
 #if PJ_TIMER_DEBUG
-(pj_status_t) pjsip_endpt_schedule_timer_dbg(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_schedule_timer_dbg(pjsip_endpoint *endpt,
 						    pj_timer_entry *entry,
 						    const pj_time_val *delay,
 						    const char *src_file,
@@ -785,7 +785,7 @@ on_error:
                                       src_file, src_line);
 }
 #else
-(pj_status_t) pjsip_endpt_schedule_timer( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_schedule_timer( pjsip_endpoint *endpt,
 						pj_timer_entry *entry,
 						const pj_time_val *delay )
 {
@@ -798,7 +798,7 @@ on_error:
 /*
  * Cancel the previously registered timer.
  */
-(void) pjsip_endpt_cancel_timer( pjsip_endpoint *endpt, 
+void pjsip_endpt_cancel_timer( pjsip_endpoint *endpt, 
 				       pj_timer_entry *entry )
 {
     PJ_LOG(6, (THIS_FILE, "pjsip_endpt_cancel_timer(entry=%p)", entry));
@@ -808,19 +808,19 @@ on_error:
 /*
  * Get the timer heap instance of the SIP endpoint.
  */
-(pj_timer_heap_t*) pjsip_endpt_get_timer_heap(pjsip_endpoint *endpt)
+pj_timer_heap_t* pjsip_endpt_get_timer_heap(pjsip_endpoint *endpt)
 {
     return endpt->timer_heap;
 }
 
 /* Init with default */
-(void) pjsip_process_rdata_param_default(pjsip_process_rdata_param *p)
+void pjsip_process_rdata_param_default(pjsip_process_rdata_param *p)
 {
     pj_bzero(p, sizeof(*p));
 }
 
 /* Distribute rdata */
-(pj_status_t) pjsip_endpt_process_rx_data( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_process_rx_data( pjsip_endpoint *endpt,
                                                  pjsip_rx_data *rdata,
                                                  pjsip_process_rdata_param *p,
                                                  pj_bool_t *p_handled)
@@ -1094,7 +1094,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Create transmit data buffer.
  */
-(pj_status_t) pjsip_endpt_create_tdata(  pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_create_tdata(  pjsip_endpoint *endpt,
 					       pjsip_tx_data **p_tdata)
 {
     return pjsip_tx_data_create(endpt->transport_mgr, p_tdata);
@@ -1103,7 +1103,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Create the DNS resolver instance. 
  */
-(pj_status_t) pjsip_endpt_create_resolver(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_create_resolver(pjsip_endpoint *endpt,
 						pj_dns_resolver **p_resv)
 {
 #if PJSIP_HAS_RESOLVER
@@ -1121,7 +1121,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Set DNS resolver to be used by the SIP resolver.
  */
-(pj_status_t) pjsip_endpt_set_resolver( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_set_resolver( pjsip_endpoint *endpt,
 					      pj_dns_resolver *resv)
 {
     return pjsip_resolver_set_resolver(endpt->resolver, resv);
@@ -1130,7 +1130,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Set DNS external resolver implementation to be used by the SIP resolver.
  */
-(pj_status_t) pjsip_endpt_set_ext_resolver(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_set_ext_resolver(pjsip_endpoint *endpt,
 						 pjsip_ext_resolver *ext_res)
 {
     return pjsip_resolver_set_ext_resolver(endpt->resolver, ext_res);
@@ -1139,7 +1139,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Get the DNS resolver being used by the SIP resolver.
  */
-(pj_dns_resolver*) pjsip_endpt_get_resolver(pjsip_endpoint *endpt)
+pj_dns_resolver* pjsip_endpt_get_resolver(pjsip_endpoint *endpt)
 {
     PJ_ASSERT_RETURN(endpt, NULL);
     return pjsip_resolver_get_resolver(endpt->resolver);
@@ -1148,7 +1148,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Resolve
  */
-(void) pjsip_endpt_resolve( pjsip_endpoint *endpt,
+void pjsip_endpt_resolve( pjsip_endpoint *endpt,
 				  pj_pool_t *pool,
 				  pjsip_host_info *target,
 				  void *token,
@@ -1160,7 +1160,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Get transport manager.
  */
-(pjsip_tpmgr*) pjsip_endpt_get_tpmgr(pjsip_endpoint *endpt)
+pjsip_tpmgr* pjsip_endpt_get_tpmgr(pjsip_endpoint *endpt)
 {
     return endpt->transport_mgr;
 }
@@ -1168,7 +1168,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Get ioqueue instance.
  */
-(pj_ioqueue_t*) pjsip_endpt_get_ioqueue(pjsip_endpoint *endpt)
+pj_ioqueue_t* pjsip_endpt_get_ioqueue(pjsip_endpoint *endpt)
 {
     return endpt->ioqueue;
 }
@@ -1176,7 +1176,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Find/create transport.
  */
-(pj_status_t) pjsip_endpt_acquire_transport(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_acquire_transport(pjsip_endpoint *endpt,
 						  pjsip_transport_type_e type,
 						  const pj_sockaddr_t *remote,
 						  int addr_len,
@@ -1191,7 +1191,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Find/create transport.
  */
-(pj_status_t) pjsip_endpt_acquire_transport2(pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_acquire_transport2(pjsip_endpoint *endpt,
 						   pjsip_transport_type_e type,
 						   const pj_sockaddr_t *remote,
 						   int addr_len,
@@ -1207,7 +1207,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Report error.
  */
-(void) pjsip_endpt_log_error(  pjsip_endpoint *endpt,
+void pjsip_endpt_log_error(  pjsip_endpoint *endpt,
 				     const char *sender,
                                      pj_status_t error_code,
                                      const char *format,
@@ -1255,7 +1255,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 /*
  * Dump endpoint.
  */
-(void) pjsip_endpt_dump( pjsip_endpoint *endpt, pj_bool_t detail )
+void pjsip_endpt_dump( pjsip_endpoint *endpt, pj_bool_t detail )
 {
 #if PJ_LOG_MAX_LEVEL >= 3
     PJ_LOG(5, (THIS_FILE, "pjsip_endpt_dump()"));
@@ -1302,7 +1302,7 @@ static pj_status_t endpt_on_tx_msg( pjsip_endpoint *endpt,
 }
 
 
-(pj_status_t) pjsip_endpt_atexit( pjsip_endpoint *endpt,
+pj_status_t pjsip_endpt_atexit( pjsip_endpoint *endpt,
 					pjsip_endpt_exit_callback func)
 {
     exit_cb *new_cb;

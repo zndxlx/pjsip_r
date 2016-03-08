@@ -105,7 +105,7 @@ void pjmedia_rtcp_xr_fini(pjmedia_rtcp_xr_session *session)
     PJ_UNUSED_ARG(session);
 }
 
-(void) pjmedia_rtcp_build_rtcp_xr( pjmedia_rtcp_xr_session *sess, 
+void pjmedia_rtcp_build_rtcp_xr( pjmedia_rtcp_xr_session *sess, 
 					 unsigned rpt_types,
 					 void **rtcp_pkt, int *len)
 {
@@ -783,7 +783,7 @@ void pjmedia_rtcp_xr_tx_rtp( pjmedia_rtcp_xr_session *session,
     PJ_UNUSED_ARG(ptsize);
 }
 
-(pj_status_t) pjmedia_rtcp_xr_update_info( 
+pj_status_t pjmedia_rtcp_xr_update_info( 
 					 pjmedia_rtcp_xr_session *sess,
 					 unsigned info,
 					 pj_int32_t val)

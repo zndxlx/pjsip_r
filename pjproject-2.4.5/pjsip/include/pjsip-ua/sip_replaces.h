@@ -239,7 +239,7 @@ typedef struct pjsip_replaces_hdr
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_replaces_init_module(pjsip_endpoint *endpt);
+pj_status_t pjsip_replaces_init_module(pjsip_endpoint *endpt);
 
 
 /**
@@ -249,7 +249,7 @@ typedef struct pjsip_replaces_hdr
  *
  * @return	    An empty Replaces header instance.
  */
-(pjsip_replaces_hdr*) pjsip_replaces_hdr_create(pj_pool_t *pool);
+pjsip_replaces_hdr* pjsip_replaces_hdr_create(pj_pool_t *pool);
 
 
 /**
@@ -282,7 +282,7 @@ typedef struct pjsip_replaces_hdr
  *		      parameter SHOULD be set with a final response message
  *		      to be sent to the sender of the request.
  */
-(pj_status_t) pjsip_replaces_verify_request(pjsip_rx_data *rdata,
+pj_status_t pjsip_replaces_verify_request(pjsip_rx_data *rdata,
 						   pjsip_dialog **p_dlg,
 						   pj_bool_t lock_dlg,
 						   pjsip_tx_data **p_tdata);

@@ -77,7 +77,7 @@ static void* stack_alloc(pj_pool_factory *factory, pj_size_t size)
 }
 
 
-(pj_pool_t*) pj_pool_create_on_buf(const char *name,
+pj_pool_t* pj_pool_create_on_buf(const char *name,
 					 void *buf,
 					 pj_size_t size)
 {

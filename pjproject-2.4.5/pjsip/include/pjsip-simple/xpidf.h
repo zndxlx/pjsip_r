@@ -54,7 +54,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    XPIDF document.
  */
-(pjxpidf_pres*) pjxpidf_create(pj_pool_t *pool, const pj_str_t *uri);
+pjxpidf_pres* pjxpidf_create(pj_pool_t *pool, const pj_str_t *uri);
 
 
 /**
@@ -66,7 +66,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    XPIDF document.
  */
-(pjxpidf_pres*) pjxpidf_parse(pj_pool_t *pool, char *text, pj_size_t len);
+pjxpidf_pres* pjxpidf_parse(pj_pool_t *pool, char *text, pj_size_t len);
 
 
 /**
@@ -78,7 +78,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    The length printed.
  */
-(int) pjxpidf_print( pjxpidf_pres *pres, char *text, pj_size_t len);
+int pjxpidf_print( pjxpidf_pres *pres, char *text, pj_size_t len);
 
 
 /**
@@ -88,7 +88,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    The URI, or an empty string.
  */
-(pj_str_t*) pjxpidf_get_uri(pjxpidf_pres *pres);
+pj_str_t* pjxpidf_get_uri(pjxpidf_pres *pres);
 
 
 /**
@@ -100,7 +100,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    Zero on success.
  */
-(pj_status_t) pjxpidf_set_uri(pj_pool_t *pool, pjxpidf_pres *pres, 
+pj_status_t pjxpidf_set_uri(pj_pool_t *pool, pjxpidf_pres *pres, 
 				     const pj_str_t *uri);
 
 
@@ -111,7 +111,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    True to indicate the contact is online.
  */
-(pj_bool_t) pjxpidf_get_status(pjxpidf_pres *pres);
+pj_bool_t pjxpidf_get_status(pjxpidf_pres *pres);
 
 
 /**
@@ -122,7 +122,7 @@ typedef pj_xml_node pjxpidf_pres;
  *
  * @return	    Zero on success.
  */
-(pj_status_t) pjxpidf_set_status(pjxpidf_pres *pres, pj_bool_t status);
+pj_status_t pjxpidf_set_status(pjxpidf_pres *pres, pj_bool_t status);
 
 
 /**

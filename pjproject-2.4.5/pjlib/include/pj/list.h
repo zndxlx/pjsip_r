@@ -85,7 +85,7 @@ struct pj_list
  *
  * @param node The list head.
  */
-PJ_INLINE(void) pj_list_init(pj_list_type * node)
+void pj_list_init(pj_list_type * node)
 {
     ((pj_list*)node)->next = ((pj_list*)node)->prev = node;
 }
@@ -99,7 +99,7 @@ PJ_INLINE(void) pj_list_init(pj_list_type * node)
  * @return Non-zero if the list is empty, or zero if it is not empty.
  *
  */
-PJ_INLINE(int) pj_list_empty(const pj_list_type * node)
+int pj_list_empty(const pj_list_type * node)
 {
     return ((pj_list*)node)->next == node;
 }
@@ -113,7 +113,7 @@ PJ_INLINE(int) pj_list_empty(const pj_list_type * node)
  *
  * @return void.
  */
-PJ_IDECL(void)	pj_list_insert_before(pj_list_type *pos, pj_list_type *node);
+void	pj_list_insert_before(pj_list_type *pos, pj_list_type *node);
 
 
 /**
@@ -123,7 +123,7 @@ PJ_IDECL(void)	pj_list_insert_before(pj_list_type *pos, pj_list_type *node);
  * @param list	The list. 
  * @param node	The element to be inserted.
  */
-PJ_INLINE(void) pj_list_push_back(pj_list_type *list, pj_list_type *node)
+void pj_list_push_back(pj_list_type *list, pj_list_type *node)
 {
     pj_list_insert_before(list, node);
 }
@@ -135,7 +135,7 @@ PJ_INLINE(void) pj_list_push_back(pj_list_type *list, pj_list_type *node)
  * @param lst	    The target list.
  * @param nodes	    Nodes list.
  */
-PJ_IDECL(void) pj_list_insert_nodes_before(pj_list_type *lst,
+void pj_list_insert_nodes_before(pj_list_type *lst,
 					   pj_list_type *nodes);
 
 /**
@@ -147,7 +147,7 @@ PJ_IDECL(void) pj_list_insert_nodes_before(pj_list_type *lst,
  *
  * @return void.
  */
-PJ_IDECL(void) pj_list_insert_after(pj_list_type *pos, pj_list_type *node);
+void pj_list_insert_after(pj_list_type *pos, pj_list_type *node);
 
 
 /**
@@ -157,7 +157,7 @@ PJ_IDECL(void) pj_list_insert_after(pj_list_type *pos, pj_list_type *node);
  * @param list	The list. 
  * @param node	The element to be inserted.
  */
-PJ_INLINE(void) pj_list_push_front(pj_list_type *list, pj_list_type *node)
+void pj_list_push_front(pj_list_type *list, pj_list_type *node)
 {
     pj_list_insert_after(list, node);
 }
@@ -169,7 +169,7 @@ PJ_INLINE(void) pj_list_push_front(pj_list_type *list, pj_list_type *node)
  * @param lst	    The target list.
  * @param nodes	    Nodes list.
  */
-PJ_IDECL(void) pj_list_insert_nodes_after(pj_list_type *lst,
+void pj_list_insert_nodes_after(pj_list_type *lst,
 					  pj_list_type *nodes);
 
 
@@ -187,7 +187,7 @@ PJ_IDECL(void) pj_list_insert_nodes_after(pj_list_type *lst,
  *
  * @return void.
  */
-PJ_IDECL(void) pj_list_merge_first(pj_list_type *list1, pj_list_type *list2);
+void pj_list_merge_first(pj_list_type *list1, pj_list_type *list2);
 
 
 /**
@@ -205,7 +205,7 @@ PJ_IDECL(void) pj_list_merge_first(pj_list_type *list1, pj_list_type *list2);
  *
  * @return void.
  */
-PJ_IDECL(void) pj_list_merge_last( pj_list_type *list1, pj_list_type *list2);
+void pj_list_merge_last( pj_list_type *list1, pj_list_type *list2);
 
 
 /**
@@ -213,7 +213,7 @@ PJ_IDECL(void) pj_list_merge_last( pj_list_type *list1, pj_list_type *list2);
  *
  * @param node	    The element to be erased.
  */
-PJ_IDECL(void) pj_list_erase(pj_list_type *node);
+void pj_list_erase(pj_list_type *node);
 
 
 /**
@@ -225,7 +225,7 @@ PJ_IDECL(void) pj_list_erase(pj_list_type *node);
  * @return The node itself if it is found in the list, or NULL if it is not 
  *         found in the list.
  */
-PJ_IDECL(pj_list_type*) pj_list_find_node(pj_list_type *list, 
+pj_list_type* pj_list_find_node(pj_list_type *list, 
 					  pj_list_type *node);
 
 
@@ -243,7 +243,7 @@ PJ_IDECL(pj_list_type*) pj_list_find_node(pj_list_type *list,
  *
  * @return The first node that matched, or NULL if it is not found.
  */
-PJ_IDECL(pj_list_type*) pj_list_search(pj_list_type *list, void *value,
+pj_list_type* pj_list_search(pj_list_type *list, void *value,
 				       int (*comp)(void *value, 
 						   const pj_list_type *node)
 				       );
@@ -256,7 +256,7 @@ PJ_IDECL(pj_list_type*) pj_list_search(pj_list_type *list, void *value,
  *
  * @return	    Number of elements.
  */
-PJ_IDECL(pj_size_t) pj_list_size(const pj_list_type *list);
+pj_size_t pj_list_size(const pj_list_type *list);
 
 
 /**

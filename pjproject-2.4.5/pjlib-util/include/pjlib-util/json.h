@@ -116,7 +116,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param el		The element.
  * @param name		Name to be given to the element, or NULL.
  */
-(void) pj_json_elem_null(pj_json_elem *el, pj_str_t *name);
+void pj_json_elem_null(pj_json_elem *el, pj_str_t *name);
 
 /**
  * Initialize boolean element with the specified value.
@@ -125,7 +125,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param name		Name to be given to the element, or NULL.
  * @param val		The value.
  */
-(void) pj_json_elem_bool(pj_json_elem *el, pj_str_t *name,
+void pj_json_elem_bool(pj_json_elem *el, pj_str_t *name,
                                 pj_bool_t val);
 
 /**
@@ -135,7 +135,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param name		Name to be given to the element, or NULL.
  * @param val		The value.
  */
-(void) pj_json_elem_number(pj_json_elem *el, pj_str_t *name,
+void pj_json_elem_number(pj_json_elem *el, pj_str_t *name,
                                   float val);
 
 /**
@@ -145,7 +145,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param name		Name to be given to the element, or NULL.
  * @param val		The value.
  */
-(void) pj_json_elem_string(pj_json_elem *el, pj_str_t *name,
+void pj_json_elem_string(pj_json_elem *el, pj_str_t *name,
                                   pj_str_t *val);
 
 /**
@@ -154,7 +154,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param el		The element.
  * @param name		Name to be given to the element, or NULL.
  */
-(void) pj_json_elem_array(pj_json_elem *el, pj_str_t *name);
+void pj_json_elem_array(pj_json_elem *el, pj_str_t *name);
 
 /**
  * Initialize element as an empty object
@@ -162,7 +162,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param el		The element.
  * @param name		Name to be given to the element, or NULL.
  */
-(void) pj_json_elem_obj(pj_json_elem *el, pj_str_t *name);
+void pj_json_elem_obj(pj_json_elem *el, pj_str_t *name);
 
 /**
  * Add an element to an object or array.
@@ -170,7 +170,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  * @param el		The object or array element.
  * @param child		Element to be added to the object or array.
  */
-(void) pj_json_elem_add(pj_json_elem *el, pj_json_elem *child);
+void pj_json_elem_add(pj_json_elem *el, pj_json_elem *child);
 
 /**
  * Parse a JSON document in the buffer. The buffer MUST be NULL terminated,
@@ -184,7 +184,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  *
  * @return		The root element from the document.
  */
-(pj_json_elem*) pj_json_parse(pj_pool_t *pool,
+pj_json_elem* pj_json_parse(pj_pool_t *pool,
                                      char *buffer,
                                      unsigned *size,
                                      pj_json_err_info *err_info);
@@ -200,7 +200,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  *
  * @return		PJ_SUCCESS on success or the appropriate error.
  */
-(pj_status_t)   pj_json_write(const pj_json_elem *elem,
+pj_status_t   pj_json_write(const pj_json_elem *elem,
                                      char *buffer, unsigned *size);
 
 /**
@@ -215,7 +215,7 @@ typedef pj_status_t (*pj_json_writer)(const char *s,
  *
  * @return		PJ_SUCCESS on success or the appropriate error.
  */
-(pj_status_t)   pj_json_writef(const pj_json_elem *elem,
+pj_status_t   pj_json_writef(const pj_json_elem *elem,
                                       pj_json_writer writer,
                                       void *user_data);
 

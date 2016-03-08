@@ -115,7 +115,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS if module is successfully initialized.
  */
-(pj_status_t) pjsip_timer_init_module(pjsip_endpoint *endpt);
+pj_status_t pjsip_timer_init_module(pjsip_endpoint *endpt);
 
 
 /**
@@ -125,7 +125,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_setting_default(pjsip_timer_setting *setting);
+pj_status_t pjsip_timer_setting_default(pjsip_timer_setting *setting);
 
 
 /**
@@ -139,7 +139,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_init_session(
+pj_status_t pjsip_timer_init_session(
 					pjsip_inv_session *inv,
 					const pjsip_timer_setting *setting);
 
@@ -151,7 +151,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		An empty Session-Expires header instance.
  */
-(pjsip_sess_expires_hdr*) pjsip_sess_expires_hdr_create(
+pjsip_sess_expires_hdr* pjsip_sess_expires_hdr_create(
 							pj_pool_t *pool);
 
 
@@ -162,7 +162,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		An empty Min-SE header instance.
  */
-(pjsip_min_se_hdr*) pjsip_min_se_hdr_create(pj_pool_t *pool);
+pjsip_min_se_hdr* pjsip_min_se_hdr_create(pj_pool_t *pool);
 
 
 /**
@@ -177,7 +177,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_update_req(pjsip_inv_session *inv,
+pj_status_t pjsip_timer_update_req(pjsip_inv_session *inv,
 					    pjsip_tx_data *tdata);
 
 
@@ -196,7 +196,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_process_resp(pjsip_inv_session *inv,
+pj_status_t pjsip_timer_process_resp(pjsip_inv_session *inv,
 					      const pjsip_rx_data *rdata,
 					      pjsip_status_code *st_code);
 
@@ -210,7 +210,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		 PJ_SUCCESS on successful.
  */
-(pj_status_t)  pjsip_timer_handle_refresh_error(
+pj_status_t  pjsip_timer_handle_refresh_error(
 					    pjsip_inv_session *inv,
 					    pjsip_event *event);
 
@@ -228,7 +228,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_process_req(pjsip_inv_session *inv,
+pj_status_t pjsip_timer_process_req(pjsip_inv_session *inv,
 					     const pjsip_rx_data *rdata,
 					     pjsip_status_code *st_code);
 
@@ -247,7 +247,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_update_resp(pjsip_inv_session *inv,
+pj_status_t pjsip_timer_update_resp(pjsip_inv_session *inv,
 					     pjsip_tx_data *tdata);
 
 /**
@@ -260,7 +260,7 @@ typedef struct pjsip_min_se_hdr
  *
  * @return		PJ_SUCCESS on successful.
  */
-(pj_status_t) pjsip_timer_end_session(pjsip_inv_session *inv);
+pj_status_t pjsip_timer_end_session(pjsip_inv_session *inv);
 
 
 

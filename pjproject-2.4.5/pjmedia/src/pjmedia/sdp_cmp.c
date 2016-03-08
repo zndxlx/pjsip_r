@@ -156,7 +156,7 @@ static pj_status_t compare_attr(unsigned count1,
 }
 
 /* Compare media descriptor */
-(pj_status_t) pjmedia_sdp_media_cmp( const pjmedia_sdp_media *sd1,
+pj_status_t pjmedia_sdp_media_cmp( const pjmedia_sdp_media *sd1,
 					   const pjmedia_sdp_media *sd2,
 					   unsigned option)
 {
@@ -220,7 +220,7 @@ static pj_status_t compare_attr(unsigned count1,
 /*
  * Compare two SDP session for equality.
  */
-(pj_status_t) pjmedia_sdp_session_cmp( const pjmedia_sdp_session *sd1,
+pj_status_t pjmedia_sdp_session_cmp( const pjmedia_sdp_session *sd1,
 					     const pjmedia_sdp_session *sd2,
 					     unsigned option)
 {
@@ -295,7 +295,7 @@ static pj_status_t compare_attr(unsigned count1,
 }
 
 
-(pj_status_t) pjmedia_sdp_conn_cmp(const pjmedia_sdp_conn *conn1, 
+pj_status_t pjmedia_sdp_conn_cmp(const pjmedia_sdp_conn *conn1, 
 					 const pjmedia_sdp_conn *conn2,
 					 unsigned option)
 {

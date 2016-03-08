@@ -315,7 +315,7 @@ static pj_status_t parse_amr(codec_private_t *codec_data, void *pkt,
 /*
  * Initialize and register passthrough codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_passthrough_init( pjmedia_endpt *endpt )
+pj_status_t pjmedia_codec_passthrough_init( pjmedia_endpt *endpt )
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_str_t codec_name;
@@ -380,7 +380,7 @@ on_error:
 /*
  * Initialize and register passthrough codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_passthrough_init2( 
+pj_status_t pjmedia_codec_passthrough_init2( 
 		      pjmedia_endpt *endpt,
 		      const pjmedia_codec_passthrough_setting *setting)
 {
@@ -429,7 +429,7 @@ on_error:
 /*
  * Unregister passthrough codecs factory from pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_passthrough_deinit(void)
+pj_status_t pjmedia_codec_passthrough_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     unsigned i;

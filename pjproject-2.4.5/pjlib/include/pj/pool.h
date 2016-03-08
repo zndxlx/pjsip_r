@@ -377,7 +377,7 @@ struct pj_pool_t
  *
  * @return                  The memory pool, or NULL.
  */
-PJ_IDECL(pj_pool_t*) pj_pool_create(pj_pool_factory *factory, 
+pj_pool_t* pj_pool_create(pj_pool_factory *factory, 
 				    const char *name,
 				    pj_size_t initial_size, 
 				    pj_size_t increment_size,
@@ -388,7 +388,7 @@ PJ_IDECL(pj_pool_t*) pj_pool_create(pj_pool_factory *factory,
  *
  * @param pool	    Memory pool.
  */
-PJ_IDECL(void) pj_pool_release( pj_pool_t *pool );
+void pj_pool_release( pj_pool_t *pool );
 
 /**
  * Get pool object name.
@@ -397,7 +397,7 @@ PJ_IDECL(void) pj_pool_release( pj_pool_t *pool );
  *
  * @return pool name as NULL terminated string.
  */
-PJ_IDECL(const char *) pj_pool_getobjname( const pj_pool_t *pool );
+const char * pj_pool_getobjname( const pj_pool_t *pool );
 
 /**
  * Reset the pool to its state when it was initialized.
@@ -408,7 +408,7 @@ PJ_IDECL(const char *) pj_pool_getobjname( const pj_pool_t *pool );
  *
  * @param pool the pool.
  */
-(void) pj_pool_reset( pj_pool_t *pool );
+void pj_pool_reset( pj_pool_t *pool );
 
 
 /**
@@ -421,7 +421,7 @@ PJ_IDECL(const char *) pj_pool_getobjname( const pj_pool_t *pool );
  *
  * @return the capacity.
  */
-PJ_IDECL(pj_size_t) pj_pool_get_capacity( pj_pool_t *pool );
+pj_size_t pj_pool_get_capacity( pj_pool_t *pool );
 
 /**
  * Get the total size of user allocation request.
@@ -430,7 +430,7 @@ PJ_IDECL(pj_size_t) pj_pool_get_capacity( pj_pool_t *pool );
  *
  * @return the total size.
  */
-PJ_IDECL(pj_size_t) pj_pool_get_used_size( pj_pool_t *pool );
+pj_size_t pj_pool_get_used_size( pj_pool_t *pool );
 
 /**
  * Allocate storage with the specified size from the pool.
@@ -444,7 +444,7 @@ PJ_IDECL(pj_size_t) pj_pool_get_used_size( pj_pool_t *pool );
  *
  * @see PJ_POOL_ALLOC_T
  */
-PJ_IDECL(void*) pj_pool_alloc( pj_pool_t *pool, pj_size_t size);
+void* pj_pool_alloc( pj_pool_t *pool, pj_size_t size);
 
 /**
  * Allocate storage  from the pool, and initialize it to zero.
@@ -457,7 +457,7 @@ PJ_IDECL(void*) pj_pool_alloc( pj_pool_t *pool, pj_size_t size);
  *
  * @return pointer to the allocated memory.
  */
-PJ_IDECL(void*) pj_pool_calloc( pj_pool_t *pool, pj_size_t count, 
+void* pj_pool_calloc( pj_pool_t *pool, pj_size_t count, 
 				pj_size_t elem);
 
 
@@ -471,7 +471,7 @@ PJ_IDECL(void*) pj_pool_calloc( pj_pool_t *pool, pj_size_t count,
  *
  * @see PJ_POOL_ZALLOC_T
  */
-PJ_INLINE(void*) pj_pool_zalloc(pj_pool_t *pool, pj_size_t size)
+void* pj_pool_zalloc(pj_pool_t *pool, pj_size_t size)
 {
     return pj_pool_calloc(pool, 1, size);
 }
@@ -508,8 +508,8 @@ PJ_INLINE(void*) pj_pool_zalloc(pj_pool_t *pool, pj_size_t size)
 /*
  * Internal functions
  */
-PJ_IDECL(void*) pj_pool_alloc_from_block(pj_pool_block *block, pj_size_t size);
-(void*) pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size);
+void* pj_pool_alloc_from_block(pj_pool_block *block, pj_size_t size);
+void* pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size);
 
 
 	
@@ -623,7 +623,7 @@ _DATA(int) PJ_NO_MEMORY_EXCEPTION;
 /**
  * Get #PJ_NO_MEMORY_EXCEPTION constant.
  */ 
-(int) pj_NO_MEMORY_EXCEPTION(void);
+int pj_NO_MEMORY_EXCEPTION(void);
 
 /**
  * This global variable points to default memory pool factory policy.
@@ -642,7 +642,7 @@ _DATA(pj_pool_factory_policy) pj_pool_factory_default_policy;
  *
  * @return the pool policy.
  */
-(const pj_pool_factory_policy*) pj_pool_factory_get_default_policy(void);
+const pj_pool_factory_policy* pj_pool_factory_get_default_policy(void);
 
 
 /**
@@ -736,7 +736,7 @@ struct pj_pool_factory
  * @param callback          Callback.
  * @return                  The pool object, or NULL.
  */
-(pj_pool_t*) pj_pool_create_int(	pj_pool_factory *factory, 
+pj_pool_t* pj_pool_create_int(	pj_pool_factory *factory, 
 					const char *name,
 					pj_size_t initial_size, 
 					pj_size_t increment_size,
@@ -749,7 +749,7 @@ struct pj_pool_factory
  * @param increment_size    Increment size.
  * @param callback          Callback function.
  */
-(void) pj_pool_init_int( pj_pool_t *pool, 
+void pj_pool_init_int( pj_pool_t *pool, 
 				const char *name,
 				pj_size_t increment_size,
 				pj_pool_callback *callback);
@@ -758,7 +758,7 @@ struct pj_pool_factory
  * This function is intended to be used by pool factory implementors.
  * @param pool      The memory pool.
  */
-(void) pj_pool_destroy_int( pj_pool_t *pool );
+void pj_pool_destroy_int( pj_pool_t *pool );
 
 
 /**
@@ -766,7 +766,7 @@ struct pj_pool_factory
  * @param pf	    The pool factory.
  * @param detail    Detail state required.
  */
-PJ_INLINE(void) pj_pool_factory_dump( pj_pool_factory *pf,
+void pj_pool_factory_dump( pj_pool_factory *pf,
 				      pj_bool_t detail )
 {
     (*pf->dump_status)(pf, detail);
@@ -877,7 +877,7 @@ struct pj_caching_pool
  *			list plus the capacity of the pool is still below this
  *			value.
  */
-(void) pj_caching_pool_init( pj_caching_pool *ch_pool, 
+void pj_caching_pool_init( pj_caching_pool *ch_pool, 
 				    const pj_pool_factory_policy *policy,
 				    pj_size_t max_capacity);
 
@@ -887,7 +887,7 @@ struct pj_caching_pool
  *
  * @param ch_pool	The caching pool.
  */
-(void) pj_caching_pool_destroy( pj_caching_pool *ch_pool );
+void pj_caching_pool_destroy( pj_caching_pool *ch_pool );
 
 /**
  * @}	// PJ_CACHING_POOL

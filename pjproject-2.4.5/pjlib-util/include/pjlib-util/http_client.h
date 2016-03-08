@@ -349,7 +349,7 @@ typedef struct pj_http_req_callback
  *
  * @param param		The parameter to be initialized.
  */
-(void) pj_http_req_param_default(pj_http_req_param *param);
+void pj_http_req_param_default(pj_http_req_param *param);
 
 /**
  * Add a header element/field. Application MUST make sure that 
@@ -362,7 +362,7 @@ typedef struct pj_http_req_callback
  * @return	        PJ_SUCCESS if the operation has been successful,
  *		        or the appropriate error code on failure.
  */
-(pj_status_t) pj_http_headers_add_elmt(pj_http_headers *headers, 
+pj_status_t pj_http_headers_add_elmt(pj_http_headers *headers, 
                                               pj_str_t *name, 
                                               pj_str_t *val);
 
@@ -378,7 +378,7 @@ typedef struct pj_http_req_callback
  * @return	        PJ_SUCCESS if the operation has been successful,
  *		        or the appropriate error code on failure.
  */
-(pj_status_t) pj_http_headers_add_elmt2(pj_http_headers *headers, 
+pj_status_t pj_http_headers_add_elmt2(pj_http_headers *headers, 
                                                char *name, char *val);
 
 /**
@@ -390,7 +390,7 @@ typedef struct pj_http_req_callback
  * @return	        PJ_SUCCESS if the operation has been successful,
  *		        or the appropriate error code on failure.
  */
-(pj_status_t) pj_http_req_parse_url(const pj_str_t *url, 
+pj_status_t pj_http_req_parse_url(const pj_str_t *url, 
                                            pj_http_url *hurl);
 
 /**
@@ -410,7 +410,7 @@ typedef struct pj_http_req_callback
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-(pj_status_t) pj_http_req_create(pj_pool_t *pool,
+pj_status_t pj_http_req_create(pj_pool_t *pool,
                                         const pj_str_t *url,
 					pj_timer_heap_t *timer,
 					pj_ioqueue_t *ioqueue,
@@ -426,7 +426,7 @@ typedef struct pj_http_req_callback
  * @param http_req  The http request.
  * @param timeout   Timeout value for HTTP request operation.
  */
-(void) pj_http_req_set_timeout(pj_http_req *http_req,
+void pj_http_req_set_timeout(pj_http_req *http_req,
                                       const pj_time_val* timeout);
 
 /**
@@ -438,7 +438,7 @@ typedef struct pj_http_req_callback
  *  - PJ_SUCCESS    if success
  *  - non-zero      which indicates the appropriate error code.
  */
-(pj_status_t) pj_http_req_start(pj_http_req *http_req);
+pj_status_t pj_http_req_start(pj_http_req *http_req);
 
 /**
  * Cancel the asynchronous HTTP request. 
@@ -452,7 +452,7 @@ typedef struct pj_http_req_callback
  *  - PJ_SUCCESS    if success
  *  - non-zero      which indicates the appropriate error code.
  */
-(pj_status_t) pj_http_req_cancel(pj_http_req *http_req,
+pj_status_t pj_http_req_cancel(pj_http_req *http_req,
                                         pj_bool_t notify);
 
 /**
@@ -462,7 +462,7 @@ typedef struct pj_http_req_callback
  *
  * @return              PJ_SUCCESS if success.
  */
-(pj_status_t) pj_http_req_destroy(pj_http_req *http_req);
+pj_status_t pj_http_req_destroy(pj_http_req *http_req);
 
 /**
  * Find out whether the http request is running.
@@ -472,7 +472,7 @@ typedef struct pj_http_req_callback
  * @return	        PJ_TRUE if a request is pending, or
  *		        PJ_FALSE if idle
  */
-(pj_bool_t) pj_http_req_is_running(const pj_http_req *http_req);
+pj_bool_t pj_http_req_is_running(const pj_http_req *http_req);
 
 /**
  * Retrieve the user data previously associated with this http
@@ -482,7 +482,7 @@ typedef struct pj_http_req_callback
  *
  * @return	    The user data.
  */
-(void *) pj_http_req_get_user_data(pj_http_req *http_req);
+void * pj_http_req_get_user_data(pj_http_req *http_req);
 
 /**
  * @}

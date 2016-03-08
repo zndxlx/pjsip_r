@@ -67,7 +67,7 @@ PJ_BEGIN_DECL
  * @return		    PJ_SUCCESS on success, or the appropriate
  *			    error code.
  */
-(pj_status_t) pjmedia_splitcomb_create(pj_pool_t *pool,
+pj_status_t pjmedia_splitcomb_create(pj_pool_t *pool,
 					      unsigned clock_rate,
 					      unsigned channel_count,
 					      unsigned samples_per_frame,
@@ -90,7 +90,7 @@ PJ_BEGIN_DECL
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-(pj_status_t) pjmedia_splitcomb_set_channel(pjmedia_port *splitcomb,
+pj_status_t pjmedia_splitcomb_set_channel(pjmedia_port *splitcomb,
 						   unsigned ch_num,
 						   unsigned options,
 						   pjmedia_port *port);
@@ -120,7 +120,7 @@ PJ_BEGIN_DECL
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-(pj_status_t) 
+pj_status_t 
 pjmedia_splitcomb_create_rev_channel( pj_pool_t *pool,
 				      pjmedia_port *splitcomb,
 				      unsigned ch_num,

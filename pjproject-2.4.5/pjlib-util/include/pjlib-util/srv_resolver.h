@@ -180,7 +180,7 @@ typedef void pj_dns_srv_resolver_cb(void *user_data,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_dns_srv_resolve(const pj_str_t *domain_name,
+pj_status_t pj_dns_srv_resolve(const pj_str_t *domain_name,
 					const pj_str_t *res_name,
 					unsigned def_port,
 					pj_pool_t *pool,
@@ -200,7 +200,7 @@ typedef void pj_dns_srv_resolver_cb(void *user_data,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code,
  */
-(pj_status_t) pj_dns_srv_cancel_query(pj_dns_srv_async_query *query,
+pj_status_t pj_dns_srv_cancel_query(pj_dns_srv_async_query *query,
 					     pj_bool_t notify);
 
 

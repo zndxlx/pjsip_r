@@ -63,7 +63,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_gsm_init( pjmedia_endpt *endpt );
+pj_status_t pjmedia_codec_gsm_init( pjmedia_endpt *endpt );
 
 
 
@@ -73,7 +73,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_gsm_deinit(void);
+pj_status_t pjmedia_codec_gsm_deinit(void);
 
 
 PJ_END_DECL

@@ -21,21 +21,21 @@
 #include <linux/time.h>
 
 #if 0
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     ts->u32.hi = 0;
     ts->u32.lo = jiffies;
     return 0;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     freq->u32.hi = 0;
     freq->u32.lo = HZ;
     return 0;
 }
 #elif 0
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     struct timespec tv;
     
@@ -48,14 +48,14 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     freq->u32.hi = 0;
     freq->u32.lo = NSEC_PER_SEC;
     return 0;
 }
 #else
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     struct timeval tv;
     
@@ -68,7 +68,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     freq->u32.hi = 0;
     freq->u32.lo = USEC_PER_SEC;

@@ -82,14 +82,14 @@ static pj_status_t create_mutex_lock( pj_pool_t *pool,
 }
 
 
-(pj_status_t) pj_lock_create_simple_mutex( pj_pool_t *pool,
+pj_status_t pj_lock_create_simple_mutex( pj_pool_t *pool,
 						 const char *name,
 						 pj_lock_t **lock )
 {
     return create_mutex_lock(pool, name, PJ_MUTEX_SIMPLE, lock);
 }
 
-(pj_status_t) pj_lock_create_recursive_mutex( pj_pool_t *pool,
+pj_status_t pj_lock_create_recursive_mutex( pj_pool_t *pool,
 						    const char *name,
 						    pj_lock_t **lock )
 {
@@ -115,7 +115,7 @@ static pj_lock_t null_lock_template =
     &null_op
 };
 
-(pj_status_t) pj_lock_create_null_mutex( pj_pool_t *pool,
+pj_status_t pj_lock_create_null_mutex( pj_pool_t *pool,
 					       const char *name,
 					       pj_lock_t **lock )
 {
@@ -143,7 +143,7 @@ static pj_lock_t sem_lock_template =
     (FPTR) &pj_sem_destroy
 };
 
-(pj_status_t) pj_lock_create_semaphore(  pj_pool_t *pool,
+pj_status_t pj_lock_create_semaphore(  pj_pool_t *pool,
 					       const char *name,
 					       unsigned initial,
 					       unsigned max,
@@ -174,25 +174,25 @@ static pj_lock_t sem_lock_template =
 #endif	/* PJ_HAS_SEMAPHORE */
 
 
-(pj_status_t) pj_lock_acquire( pj_lock_t *lock )
+pj_status_t pj_lock_acquire( pj_lock_t *lock )
 {
     PJ_ASSERT_RETURN(lock != NULL, PJ_EINVAL);
     return (*lock->acquire)(lock->lock_object);
 }
 
-(pj_status_t) pj_lock_tryacquire( pj_lock_t *lock )
+pj_status_t pj_lock_tryacquire( pj_lock_t *lock )
 {
     PJ_ASSERT_RETURN(lock != NULL, PJ_EINVAL);
     return (*lock->tryacquire)(lock->lock_object);
 }
 
-(pj_status_t) pj_lock_release( pj_lock_t *lock )
+pj_status_t pj_lock_release( pj_lock_t *lock )
 {
     PJ_ASSERT_RETURN(lock != NULL, PJ_EINVAL);
     return (*lock->release)(lock->lock_object);
 }
 
-(pj_status_t) pj_lock_destroy( pj_lock_t *lock )
+pj_status_t pj_lock_destroy( pj_lock_t *lock )
 {
     PJ_ASSERT_RETURN(lock != NULL, PJ_EINVAL);
     return (*lock->destroy)(lock->lock_object);
@@ -252,7 +252,7 @@ struct pj_grp_lock_t
 };
 
 
-(void) pj_grp_lock_config_default(pj_grp_lock_config *cfg)
+void pj_grp_lock_config_default(pj_grp_lock_config *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
 }
@@ -400,7 +400,7 @@ static pj_status_t grp_lock_destroy(LOCK_OBJ *p)
 }
 
 
-(pj_status_t) pj_grp_lock_create( pj_pool_t *pool,
+pj_status_t pj_grp_lock_create( pj_pool_t *pool,
                                         const pj_grp_lock_config *cfg,
                                         pj_grp_lock_t **p_grp_lock)
 {
@@ -452,7 +452,7 @@ on_error:
     return status;
 }
 
-(pj_status_t) pj_grp_lock_create_w_handler( pj_pool_t *pool,
+pj_status_t pj_grp_lock_create_w_handler( pj_pool_t *pool,
                                         	  const pj_grp_lock_config *cfg,
                                         	  void *member,
                                                   void (*handler)(void *member),
@@ -468,27 +468,27 @@ on_error:
     return status;
 }
 
-(pj_status_t) pj_grp_lock_destroy( pj_grp_lock_t *grp_lock)
+pj_status_t pj_grp_lock_destroy( pj_grp_lock_t *grp_lock)
 {
     return grp_lock_destroy(grp_lock);
 }
 
-(pj_status_t) pj_grp_lock_acquire( pj_grp_lock_t *grp_lock)
+pj_status_t pj_grp_lock_acquire( pj_grp_lock_t *grp_lock)
 {
     return grp_lock_acquire(grp_lock);
 }
 
-(pj_status_t) pj_grp_lock_tryacquire( pj_grp_lock_t *grp_lock)
+pj_status_t pj_grp_lock_tryacquire( pj_grp_lock_t *grp_lock)
 {
     return grp_lock_tryacquire(grp_lock);
 }
 
-(pj_status_t) pj_grp_lock_release( pj_grp_lock_t *grp_lock)
+pj_status_t pj_grp_lock_release( pj_grp_lock_t *grp_lock)
 {
     return grp_lock_release(grp_lock);
 }
 
-(pj_status_t) pj_grp_lock_replace( pj_grp_lock_t *old_lock,
+pj_status_t pj_grp_lock_replace( pj_grp_lock_t *old_lock,
                                          pj_grp_lock_t *new_lock)
 {
     grp_destroy_callback *ocb;
@@ -512,7 +512,7 @@ on_error:
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_grp_lock_add_handler( pj_grp_lock_t *glock,
+pj_status_t pj_grp_lock_add_handler( pj_grp_lock_t *glock,
                                              pj_pool_t *pool,
                                              void *comp,
                                              void (*destroy)(void *comp))
@@ -520,7 +520,7 @@ on_error:
     return grp_lock_add_handler(glock, pool, comp, destroy, PJ_TRUE);
 }
 
-(pj_status_t) pj_grp_lock_del_handler( pj_grp_lock_t *glock,
+pj_status_t pj_grp_lock_del_handler( pj_grp_lock_t *glock,
                                              void *comp,
                                              void (*destroy)(void *comp))
 {
@@ -561,7 +561,7 @@ static pj_status_t grp_lock_dec_ref(pj_grp_lock_t *glock)
 }
 
 #if PJ_GRP_LOCK_DEBUG
-(pj_status_t) pj_grp_lock_add_ref_dbg(pj_grp_lock_t *glock,
+pj_status_t pj_grp_lock_add_ref_dbg(pj_grp_lock_t *glock,
                                             const char *file,
                                             int line)
 {
@@ -594,7 +594,7 @@ static pj_status_t grp_lock_dec_ref(pj_grp_lock_t *glock)
     return status;
 }
 
-(pj_status_t) pj_grp_lock_dec_ref_dbg(pj_grp_lock_t *glock,
+pj_status_t pj_grp_lock_dec_ref_dbg(pj_grp_lock_t *glock,
                                             const char *file,
                                             int line)
 {
@@ -621,23 +621,23 @@ static pj_status_t grp_lock_dec_ref(pj_grp_lock_t *glock)
     return grp_lock_dec_ref(glock);
 }
 #else
-(pj_status_t) pj_grp_lock_add_ref(pj_grp_lock_t *glock)
+pj_status_t pj_grp_lock_add_ref(pj_grp_lock_t *glock)
 {
     return grp_lock_add_ref(glock);
 }
 
-(pj_status_t) pj_grp_lock_dec_ref(pj_grp_lock_t *glock)
+pj_status_t pj_grp_lock_dec_ref(pj_grp_lock_t *glock)
 {
     return grp_lock_dec_ref(glock);
 }
 #endif
 
-(int) pj_grp_lock_get_ref(pj_grp_lock_t *glock)
+int pj_grp_lock_get_ref(pj_grp_lock_t *glock)
 {
     return pj_atomic_get(glock->ref_cnt);
 }
 
-(pj_status_t) pj_grp_lock_chain_lock( pj_grp_lock_t *glock,
+pj_status_t pj_grp_lock_chain_lock( pj_grp_lock_t *glock,
                                             pj_lock_t *lock,
                                             int pos)
 {
@@ -666,7 +666,7 @@ static pj_status_t grp_lock_dec_ref(pj_grp_lock_t *glock)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_grp_lock_unchain_lock( pj_grp_lock_t *glock,
+pj_status_t pj_grp_lock_unchain_lock( pj_grp_lock_t *glock,
                                               pj_lock_t *lock)
 {
     grp_lock_item *lck;
@@ -692,7 +692,7 @@ static pj_status_t grp_lock_dec_ref(pj_grp_lock_t *glock)
     return PJ_SUCCESS;
 }
 
-(void) pj_grp_lock_dump(pj_grp_lock_t *grp_lock)
+void pj_grp_lock_dump(pj_grp_lock_t *grp_lock)
 {
 #if PJ_GRP_LOCK_DEBUG
     grp_lock_ref *ref = grp_lock->ref_list.next;

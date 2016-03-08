@@ -26,7 +26,7 @@
 
 #define THIS_FILE   "stun_simple.c"
 
-(pj_status_t) pjstun_create_bind_req( pj_pool_t *pool, 
+pj_status_t pjstun_create_bind_req( pj_pool_t *pool, 
 					     void **msg, pj_size_t *len,
 					     pj_uint32_t id_hi, 
 					     pj_uint32_t id_lo)
@@ -49,7 +49,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjstun_parse_msg( void *buf, pj_size_t len, 
+pj_status_t pjstun_parse_msg( void *buf, pj_size_t len, 
 				       pjstun_msg *msg)
 {
     pj_uint16_t msg_type, msg_len;
@@ -115,7 +115,7 @@
     return PJ_SUCCESS;
 }
 
-(void*) pjstun_msg_find_attr( pjstun_msg *msg, pjstun_attr_type t)
+void* pjstun_msg_find_attr( pjstun_msg *msg, pjstun_attr_type t)
 {
     int i;
 

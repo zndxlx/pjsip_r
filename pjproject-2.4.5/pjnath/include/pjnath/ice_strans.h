@@ -459,7 +459,7 @@ typedef enum pj_ice_strans_state
  *
  * @param cfg		The configuration to be initialized.
  */
-(void) pj_ice_strans_cfg_default(pj_ice_strans_cfg *cfg);
+void pj_ice_strans_cfg_default(pj_ice_strans_cfg *cfg);
 
 
 /**
@@ -469,7 +469,7 @@ typedef enum pj_ice_strans_state
  * @param dst		Destination.
  * @param src		Source.
  */
-(void) pj_ice_strans_cfg_copy(pj_pool_t *pool,
+void pj_ice_strans_cfg_copy(pj_pool_t *pool,
 				     pj_ice_strans_cfg *dst,
 				     const pj_ice_strans_cfg *src);
 
@@ -490,7 +490,7 @@ typedef enum pj_ice_strans_state
  * @return		PJ_SUCCESS if ICE stream transport is created
  *			successfully.
  */
-(pj_status_t) pj_ice_strans_create(const char *name,
+pj_status_t pj_ice_strans_create(const char *name,
 					  const pj_ice_strans_cfg *cfg,
 					  unsigned comp_cnt,
 					  void *user_data,
@@ -504,7 +504,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		ICE session state.
  */
-(pj_ice_strans_state) pj_ice_strans_get_state(pj_ice_strans *ice_st);
+pj_ice_strans_state pj_ice_strans_get_state(pj_ice_strans *ice_st);
 
 
 /**
@@ -514,7 +514,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		String.
  */
-(const char*) pj_ice_strans_state_name(pj_ice_strans_state state);
+const char* pj_ice_strans_state_name(pj_ice_strans_state state);
 
 
 /**
@@ -526,7 +526,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pj_ice_strans_destroy(pj_ice_strans *ice_st);
+pj_status_t pj_ice_strans_destroy(pj_ice_strans *ice_st);
 
 
 /**
@@ -536,7 +536,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		The user data.
  */
-(void*) pj_ice_strans_get_user_data(pj_ice_strans *ice_st);
+void* pj_ice_strans_get_user_data(pj_ice_strans *ice_st);
 
 
 /**
@@ -548,7 +548,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-(pj_status_t) pj_ice_strans_get_options(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_get_options(pj_ice_strans *ice_st,
 					       pj_ice_sess_options *opt);
 
 /**
@@ -561,7 +561,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-(pj_status_t) pj_ice_strans_set_options(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_set_options(pj_ice_strans *ice_st,
 					       const pj_ice_sess_options *opt);
 
 /**
@@ -571,7 +571,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		The group lock.
  */
-(pj_grp_lock_t *) pj_ice_strans_get_grp_lock(pj_ice_strans *ice_st);
+pj_grp_lock_t * pj_ice_strans_get_grp_lock(pj_ice_strans *ice_st);
 
 /**
  * Initialize the ICE session in the ICE stream transport.
@@ -590,7 +590,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pj_ice_strans_init_ice(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_init_ice(pj_ice_strans *ice_st,
 					    pj_ice_sess_role role,
 					    const pj_str_t *local_ufrag,
 					    const pj_str_t *local_passwd);
@@ -604,7 +604,7 @@ typedef enum pj_ice_strans_state
  * @return		PJ_TRUE if #pj_ice_strans_init_ice() has been
  *			called.
  */
-(pj_bool_t) pj_ice_strans_has_sess(pj_ice_strans *ice_st);
+pj_bool_t pj_ice_strans_has_sess(pj_ice_strans *ice_st);
 
 
 /**
@@ -615,7 +615,7 @@ typedef enum pj_ice_strans_state
  * @return		PJ_TRUE if ICE session has been created and ICE 
  *			negotiation negotiation is in progress.
  */
-(pj_bool_t) pj_ice_strans_sess_is_running(pj_ice_strans *ice_st);
+pj_bool_t pj_ice_strans_sess_is_running(pj_ice_strans *ice_st);
 
 
 /**
@@ -626,7 +626,7 @@ typedef enum pj_ice_strans_state
  * @return		PJ_TRUE if ICE session has been created and the
  *			negotiation is complete.
  */
-(pj_bool_t) pj_ice_strans_sess_is_complete(pj_ice_strans *ice_st);
+pj_bool_t pj_ice_strans_sess_is_complete(pj_ice_strans *ice_st);
 
 
 /**
@@ -640,7 +640,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		The running number of components.
  */
-(unsigned) pj_ice_strans_get_running_comp_cnt(pj_ice_strans *ice_st);
+unsigned pj_ice_strans_get_running_comp_cnt(pj_ice_strans *ice_st);
 
 
 /**
@@ -669,7 +669,7 @@ typedef enum pj_ice_strans_state
  * @return		PJ_SUCCESS if the strings have been retrieved
  *			successfully.
  */
-(pj_status_t) pj_ice_strans_get_ufrag_pwd(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_get_ufrag_pwd(pj_ice_strans *ice_st,
 						 pj_str_t *loc_ufrag,
 						 pj_str_t *loc_pwd,
 						 pj_str_t *rem_ufrag,
@@ -684,7 +684,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		The number of candidates.
  */
-(unsigned) pj_ice_strans_get_cands_count(pj_ice_strans *ice_st,
+unsigned pj_ice_strans_get_cands_count(pj_ice_strans *ice_st,
 					        unsigned comp_id);
 
 /**
@@ -700,7 +700,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pj_ice_strans_enum_cands(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_enum_cands(pj_ice_strans *ice_st,
 					      unsigned comp_id,
 					      unsigned *count,
 					      pj_ice_sess_cand cand[]);
@@ -717,7 +717,7 @@ typedef enum pj_ice_strans_state
  * @param cand		Pointer to receive the default candidate
  *			information.
  */
-(pj_status_t) pj_ice_strans_get_def_cand(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_get_def_cand(pj_ice_strans *ice_st,
 						unsigned comp_id,
 						pj_ice_sess_cand *cand);
 
@@ -729,7 +729,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		Current ICE role.
  */
-(pj_ice_sess_role) pj_ice_strans_get_role(pj_ice_strans *ice_st);
+pj_ice_sess_role pj_ice_strans_get_role(pj_ice_strans *ice_st);
 
 
 /**
@@ -744,7 +744,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-(pj_status_t) pj_ice_strans_change_role(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_change_role(pj_ice_strans *ice_st,
 					       pj_ice_sess_role new_role);
 
 
@@ -770,7 +770,7 @@ typedef enum pj_ice_strans_state
  *
  * @return		PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pj_ice_strans_start_ice(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_start_ice(pj_ice_strans *ice_st,
 					     const pj_str_t *rem_ufrag,
 					     const pj_str_t *rem_passwd,
 					     unsigned rcand_cnt,
@@ -787,7 +787,7 @@ typedef enum pj_ice_strans_state
  * @return		The valid pair as ICE checklist structure if the
  *			pair exist.
  */
-(const pj_ice_sess_check*) 
+const pj_ice_sess_check* 
 pj_ice_strans_get_valid_pair(const pj_ice_strans *ice_st,
 			     unsigned comp_id);
 
@@ -813,7 +813,7 @@ pj_ice_strans_get_valid_pair(const pj_ice_strans *ice_st,
  *
  * @return		PJ_SUCCESS, or the appropriate error code.
  */
-(pj_status_t) pj_ice_strans_stop_ice(pj_ice_strans *ice_st);
+pj_status_t pj_ice_strans_stop_ice(pj_ice_strans *ice_st);
 
 
 /**
@@ -837,7 +837,7 @@ pj_ice_strans_get_valid_pair(const pj_ice_strans *ice_st,
  *
  * @return		PJ_SUCCESS if data is sent successfully.
  */
-(pj_status_t) pj_ice_strans_sendto(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_sendto(pj_ice_strans *ice_st,
 					  unsigned comp_id,
 					  const void *data,
 					  pj_size_t data_len,

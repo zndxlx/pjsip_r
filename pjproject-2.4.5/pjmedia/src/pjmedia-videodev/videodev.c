@@ -138,7 +138,7 @@ static struct vid_subsys
 } vid_subsys;
 
 /* API: get capability name/info */
-(const char*) pjmedia_vid_dev_cap_name(pjmedia_vid_dev_cap cap,
+const char* pjmedia_vid_dev_cap_name(pjmedia_vid_dev_cap cap,
 					     const char **p_desc)
 {
     const char *desc;
@@ -210,7 +210,7 @@ static pj_status_t get_cap_pointer(const pjmedia_vid_dev_param *param,
 }
 
 /* API: set cap value to param */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_dev_param_set_cap( pjmedia_vid_dev_param *param,
 			       pjmedia_vid_dev_cap cap,
 			       const void *pval)
@@ -230,7 +230,7 @@ pjmedia_vid_dev_param_set_cap( pjmedia_vid_dev_param *param,
 }
 
 /* API: get cap value from param */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_dev_param_get_cap( const pjmedia_vid_dev_param *param,
 			       pjmedia_vid_dev_cap cap,
 			       void *pval)
@@ -356,7 +356,7 @@ static void deinit_driver(unsigned drv_idx)
 }
 
 /* API: Initialize the video device subsystem. */
-(pj_status_t) pjmedia_vid_dev_subsys_init(pj_pool_factory *pf)
+pj_status_t pjmedia_vid_dev_subsys_init(pj_pool_factory *pf)
 {
     unsigned i;
     pj_status_t status = PJ_SUCCESS;
@@ -423,7 +423,7 @@ static void deinit_driver(unsigned drv_idx)
 }
 
 /* API: register a video device factory to the video device subsystem. */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_register_factory(pjmedia_vid_dev_factory_create_func_ptr adf,
                              pjmedia_vid_dev_factory *factory)
 {
@@ -457,7 +457,7 @@ pjmedia_vid_register_factory(pjmedia_vid_dev_factory_create_func_ptr adf,
 }
 
 /* API: unregister a video device factory from the video device subsystem. */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_unregister_factory(pjmedia_vid_dev_factory_create_func_ptr adf,
                                pjmedia_vid_dev_factory *factory)
 {
@@ -485,13 +485,13 @@ pjmedia_vid_unregister_factory(pjmedia_vid_dev_factory_create_func_ptr adf,
 }
 
 /* API: get the pool factory registered to the video device subsystem. */
-(pj_pool_factory*) pjmedia_vid_dev_subsys_get_pool_factory(void)
+pj_pool_factory* pjmedia_vid_dev_subsys_get_pool_factory(void)
 {
     return vid_subsys.pf;
 }
 
 /* API: Shutdown the video device subsystem. */
-(pj_status_t) pjmedia_vid_dev_subsys_shutdown(void)
+pj_status_t pjmedia_vid_dev_subsys_shutdown(void)
 {
     unsigned i;
 
@@ -514,7 +514,7 @@ pjmedia_vid_unregister_factory(pjmedia_vid_dev_factory_create_func_ptr adf,
 }
 
 /* API: Refresh the list of video devices installed in the system. */
-(pj_status_t) pjmedia_vid_dev_refresh(void)
+pj_status_t pjmedia_vid_dev_refresh(void)
 {
     unsigned i;
     
@@ -535,7 +535,7 @@ pjmedia_vid_unregister_factory(pjmedia_vid_dev_factory_create_func_ptr adf,
 }
 
 /* API: Get the number of video devices installed in the system. */
-(unsigned) pjmedia_vid_dev_count(void)
+unsigned pjmedia_vid_dev_count(void)
 {
     return vid_subsys.dev_cnt;
 }
@@ -611,7 +611,7 @@ static pj_status_t lookup_dev(pjmedia_vid_dev_index id,
 }
 
 /* API: lookup device id */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_dev_get_local_index(pjmedia_vid_dev_index id,
                                 pjmedia_vid_dev_factory **p_f,
                                 unsigned *p_local_index)
@@ -620,7 +620,7 @@ pjmedia_vid_dev_get_local_index(pjmedia_vid_dev_index id,
 }
 
 /* API: from factory and local index, get global index */
-(pj_status_t)
+pj_status_t
 pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
                                  unsigned local_idx,
                                  pjmedia_vid_dev_index *pid)
@@ -632,7 +632,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: Get device information. */
-(pj_status_t) pjmedia_vid_dev_get_info(pjmedia_vid_dev_index id,
+pj_status_t pjmedia_vid_dev_get_info(pjmedia_vid_dev_index id,
 					     pjmedia_vid_dev_info *info)
 {
     pjmedia_vid_dev_factory *f;
@@ -659,7 +659,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: find device */
-(pj_status_t) pjmedia_vid_dev_lookup( const char *drv_name,
+pj_status_t pjmedia_vid_dev_lookup( const char *drv_name,
 					    const char *dev_name,
 					    pjmedia_vid_dev_index *id)
 {
@@ -705,7 +705,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 /* API: Initialize the video device parameters with default values for the
  * specified device.
  */
-(pj_status_t) pjmedia_vid_dev_default_param(pj_pool_t *pool,
+pj_status_t pjmedia_vid_dev_default_param(pj_pool_t *pool,
                                                   pjmedia_vid_dev_index id,
 						  pjmedia_vid_dev_param *param)
 {
@@ -735,7 +735,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: Open video stream object using the specified parameters. */
-(pj_status_t) pjmedia_vid_dev_stream_create(
+pj_status_t pjmedia_vid_dev_stream_create(
 					pjmedia_vid_dev_param *prm,
 					const pjmedia_vid_dev_cb *cb,
 					void *user_data,
@@ -800,7 +800,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: Get the running parameters for the specified video stream. */
-(pj_status_t) pjmedia_vid_dev_stream_get_param(
+pj_status_t pjmedia_vid_dev_stream_get_param(
 					    pjmedia_vid_dev_stream *strm,
 					    pjmedia_vid_dev_param *param)
 {
@@ -821,7 +821,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: Get the value of a specific capability of the video stream. */
-(pj_status_t) pjmedia_vid_dev_stream_get_cap(
+pj_status_t pjmedia_vid_dev_stream_get_cap(
 					    pjmedia_vid_dev_stream *strm,
 					    pjmedia_vid_dev_cap cap,
 					    void *value)
@@ -830,7 +830,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: Set the value of a specific capability of the video stream. */
-(pj_status_t) pjmedia_vid_dev_stream_set_cap(
+pj_status_t pjmedia_vid_dev_stream_set_cap(
 					    pjmedia_vid_dev_stream *strm,
 					    pjmedia_vid_dev_cap cap,
 					    const void *value)
@@ -860,7 +860,7 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: Start the stream. */
-(pj_status_t) pjmedia_vid_dev_stream_start(pjmedia_vid_dev_stream *strm)
+pj_status_t pjmedia_vid_dev_stream_start(pjmedia_vid_dev_stream *strm)
 {
     pj_status_t status;
 
@@ -874,13 +874,13 @@ pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
 }
 
 /* API: has it been started? */
-(pj_bool_t)
+pj_bool_t
 pjmedia_vid_dev_stream_is_running(pjmedia_vid_dev_stream *strm)
 {
     return strm->sys.is_running;
 }
 
-(pj_status_t) pjmedia_vid_dev_stream_get_frame(
+pj_status_t pjmedia_vid_dev_stream_get_frame(
 					    pjmedia_vid_dev_stream *strm,
 					    pjmedia_frame *frame)
 {
@@ -888,7 +888,7 @@ pjmedia_vid_dev_stream_is_running(pjmedia_vid_dev_stream *strm)
     return strm->op->get_frame(strm, frame);
 }
 
-(pj_status_t) pjmedia_vid_dev_stream_put_frame(
+pj_status_t pjmedia_vid_dev_stream_put_frame(
 					    pjmedia_vid_dev_stream *strm,
                                             const pjmedia_frame *frame)
 {
@@ -897,14 +897,14 @@ pjmedia_vid_dev_stream_is_running(pjmedia_vid_dev_stream *strm)
 }
 
 /* API: Stop the stream. */
-(pj_status_t) pjmedia_vid_dev_stream_stop(pjmedia_vid_dev_stream *strm)
+pj_status_t pjmedia_vid_dev_stream_stop(pjmedia_vid_dev_stream *strm)
 {
     strm->sys.is_running = PJ_FALSE;
     return strm->op->stop(strm);
 }
 
 /* API: Destroy the stream. */
-(pj_status_t) pjmedia_vid_dev_stream_destroy(
+pj_status_t pjmedia_vid_dev_stream_destroy(
 						pjmedia_vid_dev_stream *strm)
 {
     strm->sys.is_running = PJ_FALSE;

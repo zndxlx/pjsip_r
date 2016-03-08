@@ -48,7 +48,7 @@ typedef struct speex_ec
 /*
  * Create the AEC. 
  */
-(pj_status_t) speex_aec_create(pj_pool_t *pool,
+pj_status_t speex_aec_create(pj_pool_t *pool,
 				     unsigned clock_rate,
 				     unsigned channel_count,
 				     unsigned samples_per_frame,
@@ -141,7 +141,7 @@ typedef struct speex_ec
 /*
  * Destroy AEC
  */
-(pj_status_t) speex_aec_destroy(void *state )
+pj_status_t speex_aec_destroy(void *state )
 {
     speex_ec *echo = (speex_ec*) state;
 
@@ -164,7 +164,7 @@ typedef struct speex_ec
 /*
  * Reset AEC
  */
-(void) speex_aec_reset(void *state )
+void speex_aec_reset(void *state )
 {
     speex_ec *echo = (speex_ec*) state;
     speex_echo_state_reset(echo->state);
@@ -174,7 +174,7 @@ typedef struct speex_ec
 /*
  * Perform echo cancellation.
  */
-(pj_status_t) speex_aec_cancel_echo( void *state,
+pj_status_t speex_aec_cancel_echo( void *state,
 					   pj_int16_t *rec_frm,
 					   const pj_int16_t *play_frm,
 					   unsigned options,
@@ -205,7 +205,7 @@ typedef struct speex_ec
 /*
  * Let AEC know that a frame was queued to be played.
  */
-(pj_status_t) speex_aec_playback( void *state,
+pj_status_t speex_aec_playback( void *state,
 					pj_int16_t *play_frm )
 {
     speex_ec *echo = (speex_ec*) state;
@@ -222,7 +222,7 @@ typedef struct speex_ec
 /*
  * Perform echo cancellation to captured frame.
  */
-(pj_status_t) speex_aec_capture( void *state,
+pj_status_t speex_aec_capture( void *state,
 				       pj_int16_t *rec_frm,
 				       unsigned options )
 {

@@ -27,7 +27,7 @@
  *
  * @return		String.
  */
-(const char*) pjmedia_type_name(pjmedia_type t)
+const char* pjmedia_type_name(pjmedia_type t)
 {
     const char *type_names[] = {
 	"none",

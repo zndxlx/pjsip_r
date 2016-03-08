@@ -76,7 +76,7 @@ enum
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_udp_transport_start(pjsip_endpoint *endpt,
+pj_status_t pjsip_udp_transport_start(pjsip_endpoint *endpt,
 					       const pj_sockaddr_in *local,
 					       const pjsip_host_port *a_name,
 					       unsigned async_cnt,
@@ -85,7 +85,7 @@ enum
 /**
  * Start IPv6 UDP transport.
  */
-(pj_status_t) pjsip_udp_transport_start6(pjsip_endpoint *endpt,
+pj_status_t pjsip_udp_transport_start6(pjsip_endpoint *endpt,
 						const pj_sockaddr_in6 *local,
 						const pjsip_host_port *a_name,
 						unsigned async_cnt,
@@ -106,7 +106,7 @@ enum
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_udp_transport_attach(pjsip_endpoint *endpt,
+pj_status_t pjsip_udp_transport_attach(pjsip_endpoint *endpt,
 						pj_sock_t sock,
 						const pjsip_host_port *a_name,
 						unsigned async_cnt,
@@ -129,7 +129,7 @@ enum
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_udp_transport_attach2(pjsip_endpoint *endpt,
+pj_status_t pjsip_udp_transport_attach2(pjsip_endpoint *endpt,
 						 pjsip_transport_type_e type,
 						 pj_sock_t sock,
 						 const pjsip_host_port *a_name,
@@ -148,7 +148,7 @@ enum
  *			is currently being used (for example, when transport
  *			is being paused).
  */
-(pj_sock_t) pjsip_udp_transport_get_socket(pjsip_transport *transport);
+pj_sock_t pjsip_udp_transport_get_socket(pjsip_transport *transport);
 
 
 /**
@@ -178,7 +178,7 @@ enum
  * @return		PJ_SUCCESS if transport is paused successfully,
  *			or the appropriate error code.
  */
-(pj_status_t) pjsip_udp_transport_pause(pjsip_transport *transport,
+pj_status_t pjsip_udp_transport_pause(pjsip_transport *transport,
 					       unsigned option);
 
 /**
@@ -219,7 +219,7 @@ enum
  * @return		PJ_SUCCESS if transport can be restarted, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_udp_transport_restart(pjsip_transport *transport,
+pj_status_t pjsip_udp_transport_restart(pjsip_transport *transport,
 					         unsigned option,
 						 pj_sock_t sock,
 						 const pj_sockaddr_in *local,

@@ -26,7 +26,7 @@
 #include <pj/string.h>
 
 
-(const char *) pj_dns_get_type_name(int type)
+const char * pj_dns_get_type_name(int type)
 {
     switch (type) {
     case PJ_DNS_TYPE_A:	    return "A";
@@ -53,7 +53,7 @@ static void write16(pj_uint8_t *p, pj_uint16_t val)
 /**
  * Initialize a DNS query transaction.
  */
-(pj_status_t) pj_dns_make_query( void *packet,
+pj_status_t pj_dns_make_query( void *packet,
 				       unsigned *size,
 				       pj_uint16_t id,
 				       int qtype,
@@ -421,7 +421,7 @@ static pj_status_t parse_rr(pj_dns_parsed_rr *rr, pj_pool_t *pool,
 /*
  * Parse raw DNS packet into DNS packet structure.
  */
-(pj_status_t) pj_dns_parse_packet( pj_pool_t *pool,
+pj_status_t pj_dns_parse_packet( pj_pool_t *pool,
 				  	 const void *packet,
 					 unsigned size,
 					 pj_dns_parsed_packet **p_res)
@@ -612,7 +612,7 @@ static void copy_rr(pj_pool_t *pool, pj_dns_parsed_rr *dst,
 /*
  * Duplicate DNS packet.
  */
-(void) pj_dns_packet_dup(pj_pool_t *pool,
+void pj_dns_packet_dup(pj_pool_t *pool,
 			       const pj_dns_parsed_packet*p,
 			       unsigned options,
 			       pj_dns_parsed_packet **p_dst)
@@ -692,7 +692,7 @@ static void copy_rr(pj_pool_t *pool, pj_dns_parsed_rr *dst,
 }
 
 
-(void) pj_dns_init_srv_rr( pj_dns_parsed_rr *rec,
+void pj_dns_init_srv_rr( pj_dns_parsed_rr *rec,
 				 const pj_str_t *res_name,
 				 unsigned dnsclass,
 				 unsigned ttl,
@@ -713,7 +713,7 @@ static void copy_rr(pj_pool_t *pool, pj_dns_parsed_rr *dst,
 }
 
 
-(void) pj_dns_init_cname_rr( pj_dns_parsed_rr *rec,
+void pj_dns_init_cname_rr( pj_dns_parsed_rr *rec,
 				   const pj_str_t *res_name,
 				   unsigned dnsclass,
 				   unsigned ttl,
@@ -728,7 +728,7 @@ static void copy_rr(pj_pool_t *pool, pj_dns_parsed_rr *dst,
 }
 
 
-(void) pj_dns_init_a_rr( pj_dns_parsed_rr *rec,
+void pj_dns_init_a_rr( pj_dns_parsed_rr *rec,
 			       const pj_str_t *res_name,
 			       unsigned dnsclass,
 			       unsigned ttl,

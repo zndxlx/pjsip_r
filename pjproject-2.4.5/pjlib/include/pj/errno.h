@@ -100,25 +100,25 @@ PJ_BEGIN_DECL
  *		not call this for socket functions!
  * @see	pj_get_netos_error()
  */
-(pj_status_t) pj_get_os_error(void);
+pj_status_t pj_get_os_error(void);
 
 /**
  * Set last error.
  * @param code	pj_status_t
  */
-(void) pj_set_os_error(pj_status_t code);
+void pj_set_os_error(pj_status_t code);
 
 /**
  * Get the last error from socket operations.
  * @return	Last socket error, folded into pj_status_t.
  */
-(pj_status_t) pj_get_netos_error(void);
+pj_status_t pj_get_netos_error(void);
 
 /**
  * Set error code.
  * @param code	pj_status_t.
  */
-(void) pj_set_netos_error(pj_status_t code);
+void pj_set_netos_error(pj_status_t code);
 
 
 /**
@@ -132,7 +132,7 @@ PJ_BEGIN_DECL
  * @return	    The error message as NULL terminated string,
  *                  wrapped with pj_str_t.
  */
-(pj_str_t) pj_strerror( pj_status_t statcode, 
+pj_str_t pj_strerror( pj_status_t statcode, 
 			       char *buf, pj_size_t bufsize);
 
 /**
@@ -199,7 +199,7 @@ PJ_BEGIN_DECL
  *
  * @see PJ_PERROR()
  */
-(void) pj_perror(int log_level, const char *sender, pj_status_t status,
+void pj_perror(int log_level, const char *sender, pj_status_t status,
 		        const char *title_fmt, ...);
 
 
@@ -234,7 +234,7 @@ typedef pj_str_t (*pj_error_callback)(pj_status_t e, char *msg, pj_size_t max);
  *			occupied by other handler, or when there are too many
  *			handlers registered to PJLIB.
  */
-(pj_status_t) pj_register_strerror(pj_status_t start_code,
+pj_status_t pj_register_strerror(pj_status_t start_code,
 					  pj_status_t err_space,
 					  pj_error_callback f);
 

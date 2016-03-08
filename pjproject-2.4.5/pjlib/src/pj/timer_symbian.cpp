@@ -273,7 +273,7 @@ void CPjTimerEntry::DoCancel()
 /*
  * Calculate memory size required to create a timer heap.
  */
-(pj_size_t) pj_timer_heap_mem_size(pj_size_t count)
+pj_size_t pj_timer_heap_mem_size(pj_size_t count)
 {
     return /* size of the timer heap itself: */
            sizeof(pj_timer_heap_t) + 
@@ -286,7 +286,7 @@ void CPjTimerEntry::DoCancel()
 /*
  * Create a new timer heap.
  */
-(pj_status_t) pj_timer_heap_create( pj_pool_t *pool,
+pj_status_t pj_timer_heap_create( pj_pool_t *pool,
 					  pj_size_t size,
                                           pj_timer_heap_t **p_heap)
 {
@@ -311,7 +311,7 @@ void CPjTimerEntry::DoCancel()
     return PJ_SUCCESS;
 }
 
-(void) pj_timer_heap_destroy( pj_timer_heap_t *ht )
+void pj_timer_heap_destroy( pj_timer_heap_t *ht )
 {
     /* Cancel and delete pending active objects */
     if (ht->entries) {
@@ -333,7 +333,7 @@ void CPjTimerEntry::DoCancel()
     ht->free_slots = NULL;
 }
 
-(void) pj_timer_heap_set_lock(  pj_timer_heap_t *ht,
+void pj_timer_heap_set_lock(  pj_timer_heap_t *ht,
                                       pj_lock_t *lock,
                                       pj_bool_t auto_del )
 {
@@ -343,7 +343,7 @@ void CPjTimerEntry::DoCancel()
 }
 
 
-(unsigned) pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
+unsigned pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
                                                           unsigned count )
 {
     /* Not applicable */
@@ -351,7 +351,7 @@ void CPjTimerEntry::DoCancel()
     return ht->max_size;
 }
 
-(pj_timer_entry*) pj_timer_entry_init( pj_timer_entry *entry,
+pj_timer_entry* pj_timer_entry_init( pj_timer_entry *entry,
                                              int id,
                                              void *user_data,
                                              pj_timer_heap_callback *cb )
@@ -366,7 +366,7 @@ void CPjTimerEntry::DoCancel()
     return entry;
 }
 
-(pj_status_t) pj_timer_heap_schedule( pj_timer_heap_t *ht,
+pj_status_t pj_timer_heap_schedule( pj_timer_heap_t *ht,
 					    pj_timer_entry *entry, 
 					    const pj_time_val *delay)
 {
@@ -392,7 +392,7 @@ void CPjTimerEntry::DoCancel()
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_timer_heap_schedule_w_grp_lock(pj_timer_heap_t *ht,
+pj_status_t pj_timer_heap_schedule_w_grp_lock(pj_timer_heap_t *ht,
                                                       pj_timer_entry *entry,
                                                       const pj_time_val *delay,
                                                       int id_val,
@@ -410,7 +410,7 @@ void CPjTimerEntry::DoCancel()
     return status;
 }
 
-(int) pj_timer_heap_cancel( pj_timer_heap_t *ht,
+int pj_timer_heap_cancel( pj_timer_heap_t *ht,
 				  pj_timer_entry *entry)
 {
     PJ_ASSERT_RETURN(ht && entry, PJ_EINVAL);
@@ -429,7 +429,7 @@ void CPjTimerEntry::DoCancel()
     }
 }
 
-(int) pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
+int pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
                                            pj_timer_entry *entry,
                                            int id_val)
 {
@@ -440,7 +440,7 @@ void CPjTimerEntry::DoCancel()
     return count;
 }
 
-(unsigned) pj_timer_heap_poll( pj_timer_heap_t *ht, 
+unsigned pj_timer_heap_poll( pj_timer_heap_t *ht, 
                                      pj_time_val *next_delay )
 {
     /* Polling is not necessary on Symbian, since all async activities
@@ -454,14 +454,14 @@ void CPjTimerEntry::DoCancel()
     return 0;
 }
 
-(pj_size_t) pj_timer_heap_count( pj_timer_heap_t *ht )
+pj_size_t pj_timer_heap_count( pj_timer_heap_t *ht )
 {
     PJ_ASSERT_RETURN(ht, 0);
 
     return ht->cur_size;
 }
 
-(pj_status_t) pj_timer_heap_earliest_time( pj_timer_heap_t * ht,
+pj_status_t pj_timer_heap_earliest_time( pj_timer_heap_t * ht,
 					         pj_time_val *timeval)
 {
     /* We don't support this! */

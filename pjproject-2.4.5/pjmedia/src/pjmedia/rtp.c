@@ -39,7 +39,7 @@ static void pjmedia_rtp_seq_restart(pjmedia_rtp_seq_session *seq_ctrl,
 				    pj_uint16_t seq);
 
 
-(pj_status_t) pjmedia_rtp_session_init( pjmedia_rtp_session *ses,
+pj_status_t pjmedia_rtp_session_init( pjmedia_rtp_session *ses,
 					      int default_pt, 
 					      pj_uint32_t sender_ssrc )
 {
@@ -85,7 +85,7 @@ static void pjmedia_rtp_seq_restart(pjmedia_rtp_seq_session *seq_ctrl,
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_rtp_session_init2( 
+pj_status_t pjmedia_rtp_session_init2( 
 				    pjmedia_rtp_session *ses,
 				    pjmedia_rtp_session_setting settings)
 {
@@ -113,7 +113,7 @@ static void pjmedia_rtp_seq_restart(pjmedia_rtp_seq_session *seq_ctrl,
 }
 
 
-(pj_status_t) pjmedia_rtp_encode_rtp( pjmedia_rtp_session *ses, 
+pj_status_t pjmedia_rtp_encode_rtp( pjmedia_rtp_session *ses, 
 					    int pt, int m,
 					    int payload_len, int ts_len,
 					    const void **rtphdr, int *hdrlen )
@@ -143,7 +143,7 @@ static void pjmedia_rtp_seq_restart(pjmedia_rtp_seq_session *seq_ctrl,
 }
 
 
-(pj_status_t) pjmedia_rtp_decode_rtp( pjmedia_rtp_session *ses, 
+pj_status_t pjmedia_rtp_decode_rtp( pjmedia_rtp_session *ses, 
 					    const void *pkt, int pkt_len,
 					    const pjmedia_rtp_hdr **hdr,
 					    const void **payload,
@@ -192,14 +192,14 @@ static void pjmedia_rtp_seq_restart(pjmedia_rtp_seq_session *seq_ctrl,
 }
 
 
-(void) pjmedia_rtp_session_update( pjmedia_rtp_session *ses, 
+void pjmedia_rtp_session_update( pjmedia_rtp_session *ses, 
 					 const pjmedia_rtp_hdr *hdr,
 					 pjmedia_rtp_status *p_seq_st)
 {
     pjmedia_rtp_session_update2(ses, hdr, p_seq_st, PJ_TRUE);
 }
 
-(void) pjmedia_rtp_session_update2( pjmedia_rtp_session *ses, 
+void pjmedia_rtp_session_update2( pjmedia_rtp_session *ses, 
 					  const pjmedia_rtp_hdr *hdr,
 					  pjmedia_rtp_status *p_seq_st,
 					  pj_bool_t check_pt)

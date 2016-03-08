@@ -59,7 +59,7 @@ typedef struct pj_dns_server pj_dns_server;
  *		    otherwise the function will return the appropriate
  *		    error code.
  */
-(pj_status_t) pj_dns_server_create(pj_pool_factory *pf,
+pj_status_t pj_dns_server_create(pj_pool_factory *pf,
 				          pj_ioqueue_t *ioqueue,
 					  int af,
 					  unsigned port,
@@ -73,7 +73,7 @@ typedef struct pj_dns_server pj_dns_server;
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_dns_server_destroy(pj_dns_server *srv);
+pj_status_t pj_dns_server_destroy(pj_dns_server *srv);
 
 
 /**
@@ -85,7 +85,7 @@ typedef struct pj_dns_server pj_dns_server;
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_dns_server_add_rec(pj_dns_server *srv,
+pj_status_t pj_dns_server_add_rec(pj_dns_server *srv,
 					   unsigned count,
 					   const pj_dns_parsed_rr rr[]);
 
@@ -99,7 +99,7 @@ typedef struct pj_dns_server pj_dns_server;
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_dns_server_del_rec(pj_dns_server *srv,
+pj_status_t pj_dns_server_del_rec(pj_dns_server *srv,
 					   int dns_class,
 					   pj_dns_type type,
 					   const pj_str_t *name);

@@ -170,7 +170,7 @@ static pjsip_require_hdr *find_req_hdr(pjsip_msg *msg)
 /*
  * Get PRACK method constant. 
  */
-(const pjsip_method*) pjsip_get_prack_method(void)
+const pjsip_method* pjsip_get_prack_method(void)
 {
     return &pjsip_prack_method;
 }
@@ -179,7 +179,7 @@ static pjsip_require_hdr *find_req_hdr(pjsip_msg *msg)
 /*
  * init module
  */
-(pj_status_t) pjsip_100rel_init_module(pjsip_endpoint *endpt)
+pj_status_t pjsip_100rel_init_module(pjsip_endpoint *endpt)
 {
     if (mod_100rel.mod.id != -1)
 	return PJ_SUCCESS;
@@ -192,7 +192,7 @@ static pjsip_require_hdr *find_req_hdr(pjsip_msg *msg)
  * API: attach 100rel support in invite session. Called by
  *      sip_inv.c
  */
-(pj_status_t) pjsip_100rel_attach(pjsip_inv_session *inv)
+pj_status_t pjsip_100rel_attach(pjsip_inv_session *inv)
 {
     dlg_data *dd;
 
@@ -213,7 +213,7 @@ static pjsip_require_hdr *find_req_hdr(pjsip_msg *msg)
 /*
  * Check if incoming response has reliable provisional response feature.
  */
-(pj_bool_t) pjsip_100rel_is_reliable(pjsip_rx_data *rdata)
+pj_bool_t pjsip_100rel_is_reliable(pjsip_rx_data *rdata)
 {
     pjsip_msg *msg = rdata->msg_info.msg;
 
@@ -228,7 +228,7 @@ static pjsip_require_hdr *find_req_hdr(pjsip_msg *msg)
 /*
  * Create PRACK request for the incoming reliable provisional response.
  */
-(pj_status_t) pjsip_100rel_create_prack( pjsip_inv_session *inv,
+pj_status_t pjsip_100rel_create_prack( pjsip_inv_session *inv,
 					       pjsip_rx_data *rdata,
 					       pjsip_tx_data **p_tdata)
 {
@@ -360,7 +360,7 @@ static pjsip_require_hdr *find_req_hdr(pjsip_msg *msg)
 /*
  * Send PRACK request.
  */
-(pj_status_t) pjsip_100rel_send_prack( pjsip_inv_session *inv,
+pj_status_t pjsip_100rel_send_prack( pjsip_inv_session *inv,
 					     pjsip_tx_data *tdata)
 {
     dlg_data *dd;
@@ -391,7 +391,7 @@ static void clear_all_responses(dlg_data *dd)
 /*
  * Notify 100rel module that the invite session has been disconnected.
  */
-(pj_status_t) pjsip_100rel_end_session(pjsip_inv_session *inv)
+pj_status_t pjsip_100rel_end_session(pjsip_inv_session *inv)
 {
     dlg_data *dd;
 
@@ -451,7 +451,7 @@ static void parse_rack(const pj_str_t *rack,
 /*
  * Handle incoming PRACK request.
  */
-(pj_status_t) pjsip_100rel_on_rx_prack( pjsip_inv_session *inv,
+pj_status_t pjsip_100rel_on_rx_prack( pjsip_inv_session *inv,
 					      pjsip_rx_data *rdata)
 {
     dlg_data *dd;
@@ -693,7 +693,7 @@ static pj_bool_t has_sdp(dlg_data *dd)
 
 
 /* Send response reliably */
-(pj_status_t) pjsip_100rel_tx_response(pjsip_inv_session *inv,
+pj_status_t pjsip_100rel_tx_response(pjsip_inv_session *inv,
 					     pjsip_tx_data *tdata)
 {
     pjsip_cseq_hdr *cseq_hdr;

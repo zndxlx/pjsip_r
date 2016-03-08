@@ -46,7 +46,7 @@ PJ_BEGIN_DECL
  *
  * @return	    String with no escaped characters.
  */
-(pj_str_t) pj_str_unescape( pj_pool_t *pool, const pj_str_t *src);
+pj_str_t pj_str_unescape( pj_pool_t *pool, const pj_str_t *src);
 
 /**
  * Unescape string to destination.
@@ -56,7 +56,7 @@ PJ_BEGIN_DECL
  *
  * @return	    Target string.
  */
-(pj_str_t*) pj_strcpy_unescape(pj_str_t *dst, const pj_str_t *src);
+pj_str_t* pj_strcpy_unescape(pj_str_t *dst, const pj_str_t *src);
 
 /**
  * Copy string to destination while escaping reserved characters, up to
@@ -72,7 +72,7 @@ PJ_BEGIN_DECL
  *		    successfully, or NULL if there's not enough buffer to
  *		    escape the strings.
  */
-(pj_str_t*) pj_strncpy_escape(pj_str_t *dst, const pj_str_t *src,
+pj_str_t* pj_strncpy_escape(pj_str_t *dst, const pj_str_t *src,
 				     pj_ssize_t max, const pj_cis_t *unres);
 
 
@@ -89,7 +89,7 @@ PJ_BEGIN_DECL
  * @return	    The length of the destination, or -1 if there's not
  *		    enough buffer.
  */
-(pj_ssize_t) pj_strncpy2_escape(char *dst, const pj_str_t *src,
+pj_ssize_t pj_strncpy2_escape(char *dst, const pj_str_t *src,
 				       pj_ssize_t max, const pj_cis_t *unres);
 
 PJ_END_DECL

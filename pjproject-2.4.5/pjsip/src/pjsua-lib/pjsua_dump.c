@@ -920,7 +920,7 @@ void print_call(const char *title,
 /*
  * Dump call and media statistics to string.
  */
-(pj_status_t) pjsua_call_dump( pjsua_call_id call_id,
+pj_status_t pjsua_call_dump( pjsua_call_id call_id,
 				     pj_bool_t with_media,
 				     char *buffer,
 				     unsigned maxlen,

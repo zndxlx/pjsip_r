@@ -204,7 +204,7 @@ static const unsigned amr_bitrates_size[2] =
 /*
  * Initialize and register AMR codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_opencore_amr_init( pjmedia_endpt *endpt,
+pj_status_t pjmedia_codec_opencore_amr_init( pjmedia_endpt *endpt,
                                                      unsigned options)
 {
     pjmedia_codec_mgr *codec_mgr;
@@ -278,13 +278,13 @@ on_error:
     return status;
 }
 
-(pj_status_t)
+pj_status_t
 pjmedia_codec_opencore_amr_init_default( pjmedia_endpt *endpt )
 {
     return pjmedia_codec_opencore_amr_init(endpt, 0);
 }
 
-(pj_status_t) pjmedia_codec_opencore_amrnb_init( pjmedia_endpt *endpt )
+pj_status_t pjmedia_codec_opencore_amrnb_init( pjmedia_endpt *endpt )
 {
     return pjmedia_codec_opencore_amr_init(endpt, PJMEDIA_AMR_NO_WB);
 }
@@ -294,7 +294,7 @@ pjmedia_codec_opencore_amr_init_default( pjmedia_endpt *endpt )
  * Unregister AMR codec factory from pjmedia endpoint and deinitialize
  * the AMR codec library.
  */
-(pj_status_t) pjmedia_codec_opencore_amr_deinit(void)
+pj_status_t pjmedia_codec_opencore_amr_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;
@@ -324,7 +324,7 @@ pjmedia_codec_opencore_amr_init_default( pjmedia_endpt *endpt )
     return status;
 }
 
-(pj_status_t) pjmedia_codec_opencore_amrnb_deinit(void)
+pj_status_t pjmedia_codec_opencore_amrnb_deinit(void)
 {
     if (amr_codec_factory.init[IDX_AMR_NB] &&
         amr_codec_factory.init[IDX_AMR_WB])
@@ -365,13 +365,13 @@ amr_set_config(unsigned idx, const pjmedia_codec_amr_config *config)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjmedia_codec_opencore_amrnb_set_config(
+pj_status_t pjmedia_codec_opencore_amrnb_set_config(
                                     const pjmedia_codec_amrnb_config *config)
 {
     return amr_set_config(IDX_AMR_NB, (const pjmedia_codec_amr_config *)config);
 }
 
-(pj_status_t) pjmedia_codec_opencore_amrwb_set_config(
+pj_status_t pjmedia_codec_opencore_amrwb_set_config(
                                     const pjmedia_codec_amrwb_config *config)
 {
     return amr_set_config(IDX_AMR_WB, (const pjmedia_codec_amr_config *)config);

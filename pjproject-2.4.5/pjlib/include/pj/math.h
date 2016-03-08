@@ -82,7 +82,7 @@ typedef struct pj_math_stat
  *
  * @return          Square root result.
  */
-PJ_INLINE(unsigned) pj_isqrt(unsigned i)
+unsigned pj_isqrt(unsigned i)
 {
     unsigned res = 1, prev;
     
@@ -107,7 +107,7 @@ PJ_INLINE(unsigned) pj_isqrt(unsigned i)
  *
  * @param stat	    Statistic state.
  */
-PJ_INLINE(void) pj_math_stat_init(pj_math_stat *stat)
+void pj_math_stat_init(pj_math_stat *stat)
 {
     pj_bzero(stat, sizeof(pj_math_stat));
 }
@@ -118,7 +118,7 @@ PJ_INLINE(void) pj_math_stat_init(pj_math_stat *stat)
  * @param stat	    Statistic state.
  * @param val	    The new sample data.
  */
-PJ_INLINE(void) pj_math_stat_update(pj_math_stat *stat, int val)
+void pj_math_stat_update(pj_math_stat *stat, int val)
 {
 #if PJ_HAS_FLOATING_POINT
     float	     delta;
@@ -168,7 +168,7 @@ PJ_INLINE(void) pj_math_stat_update(pj_math_stat *stat, int val)
  *
  * @return	    The standard deviation.
  */
-PJ_INLINE(unsigned) pj_math_stat_get_stddev(const pj_math_stat *stat)
+unsigned pj_math_stat_get_stddev(const pj_math_stat *stat)
 {
     if (stat->n == 0) return 0;
     return (pj_isqrt((unsigned)(stat->m2_/stat->n)));
@@ -183,7 +183,7 @@ PJ_INLINE(unsigned) pj_math_stat_get_stddev(const pj_math_stat *stat)
  *
  * @param dev	    The standard deviation.
  */
-PJ_INLINE(void) pj_math_stat_set_stddev(pj_math_stat *stat, unsigned dev)
+void pj_math_stat_set_stddev(pj_math_stat *stat, unsigned dev)
 {
     if (stat->n == 0) 
 	stat->n = 1;

@@ -113,7 +113,7 @@ struct pjsip_publishc
 };
 
 
-(void) pjsip_publishc_opt_default(pjsip_publishc_opt *opt)
+void pjsip_publishc_opt_default(pjsip_publishc_opt *opt)
 {
     pj_bzero(opt, sizeof(*opt));
     opt->queue_request = PJSIP_PUBLISHC_QUEUE_REQUEST;
@@ -123,7 +123,7 @@ struct pjsip_publishc
 /*
  * Initialize client publication module.
  */
-(pj_status_t) pjsip_publishc_init_module(pjsip_endpoint *endpt)
+pj_status_t pjsip_publishc_init_module(pjsip_endpoint *endpt)
 {
     /* Note:
 	Commented out the capability registration below, since it's
@@ -151,7 +151,7 @@ struct pjsip_publishc
 }
 
 
-(pj_status_t) pjsip_publishc_create( pjsip_endpoint *endpt, 
+pj_status_t pjsip_publishc_create( pjsip_endpoint *endpt, 
 					   const pjsip_publishc_opt *opt,
 					   void *token,
 					   pjsip_publishc_cb *cb,	
@@ -206,7 +206,7 @@ struct pjsip_publishc
 }
 
 
-(pj_status_t) pjsip_publishc_destroy(pjsip_publishc *pubc)
+pj_status_t pjsip_publishc_destroy(pjsip_publishc *pubc)
 {
     PJ_ASSERT_RETURN(pubc, PJ_EINVAL);
 
@@ -229,7 +229,7 @@ struct pjsip_publishc
 }
 
 
-(pj_pool_t*) pjsip_publishc_get_pool(pjsip_publishc *pubc)
+pj_pool_t* pjsip_publishc_get_pool(pjsip_publishc *pubc)
 {
     return pubc->pool;
 }
@@ -246,7 +246,7 @@ static void set_expires( pjsip_publishc *pubc, pj_uint32_t expires)
 }
 
 
-(pj_status_t) pjsip_publishc_init(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_init(pjsip_publishc *pubc,
 					const pj_str_t *event,
 					const pj_str_t *target_uri,
 					const pj_str_t *from_uri,
@@ -307,7 +307,7 @@ static void set_expires( pjsip_publishc *pubc, pj_uint32_t expires)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjsip_publishc_set_credentials( pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_credentials( pjsip_publishc *pubc,
 						int count,
 						const pjsip_cred_info cred[] )
 {
@@ -315,7 +315,7 @@ static void set_expires( pjsip_publishc *pubc, pj_uint32_t expires)
     return pjsip_auth_clt_set_credentials(&pubc->auth_sess, count, cred);
 }
 
-(pj_status_t) pjsip_publishc_set_route_set( pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_route_set( pjsip_publishc *pubc,
 					      const pjsip_route_hdr *route_set)
 {
     const pjsip_route_hdr *chdr;
@@ -333,7 +333,7 @@ static void set_expires( pjsip_publishc *pubc, pj_uint32_t expires)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjsip_publishc_set_headers( pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_headers( pjsip_publishc *pubc,
 						const pjsip_hdr *hdr_list)
 {
     const pjsip_hdr *h;
@@ -350,7 +350,7 @@ static void set_expires( pjsip_publishc *pubc, pj_uint32_t expires)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjsip_publishc_set_via_sent_by(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_set_via_sent_by(pjsip_publishc *pubc,
 				                   pjsip_host_port *via_addr,
                                                    pjsip_transport *via_tp)
 {
@@ -452,7 +452,7 @@ static pj_status_t create_request(pjsip_publishc *pubc,
 }
 
 
-(pj_status_t) pjsip_publishc_publish(pjsip_publishc *pubc, 
+pj_status_t pjsip_publishc_publish(pjsip_publishc *pubc, 
 					   pj_bool_t auto_refresh,
 					   pjsip_tx_data **p_tdata)
 {
@@ -489,7 +489,7 @@ static pj_status_t create_request(pjsip_publishc *pubc,
 }
 
 
-(pj_status_t) pjsip_publishc_unpublish(pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_unpublish(pjsip_publishc *pubc,
 					     pjsip_tx_data **p_tdata)
 {
     pjsip_tx_data *tdata;
@@ -519,7 +519,7 @@ static pj_status_t create_request(pjsip_publishc *pubc,
 }
 
 
-(pj_status_t) pjsip_publishc_update_expires( pjsip_publishc *pubc,
+pj_status_t pjsip_publishc_update_expires( pjsip_publishc *pubc,
 					           pj_uint32_t expires )
 {
     PJ_ASSERT_RETURN(pubc, PJ_EINVAL);
@@ -739,7 +739,7 @@ static void tsx_callback(void *token, pjsip_event *event)
 }
 
 
-(pj_status_t) pjsip_publishc_send(pjsip_publishc *pubc, 
+pj_status_t pjsip_publishc_send(pjsip_publishc *pubc, 
 					pjsip_tx_data *tdata)
 {
     pj_status_t status;

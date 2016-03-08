@@ -25,7 +25,7 @@
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) extract_h (Word32 L_var1)
+Word16 extract_h (Word32 L_var1)
 {
     return (Word16) (L_var1 >> 16);
 }
@@ -59,7 +59,7 @@ PJ_INLINE(Word16) extract_h (Word32 L_var1)
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) extract_l (Word32 L_var1)
+Word16 extract_l (Word32 L_var1)
 {
     return (Word16) L_var1;
 }
@@ -92,7 +92,7 @@ PJ_INLINE(Word16) extract_l (Word32 L_var1)
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) saturate (Word32 L_var1)
+Word16 saturate (Word32 L_var1)
 {
     Word16 val16 = (Word16) L_var1;
 
@@ -107,7 +107,7 @@ PJ_INLINE(Word16) saturate (Word32 L_var1)
 
 
 #if PJ_HAS_INT64
-PJ_INLINE(Word32) L_saturate (pj_int64_t LL_var1)
+Word32 L_saturate (pj_int64_t LL_var1)
 {
     pj_int32_t L_var1 = (pj_int32_t)LL_var1;
     if (LL_var1 == L_var1)
@@ -153,7 +153,7 @@ PJ_INLINE(Word32) L_saturate (pj_int64_t LL_var1)
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) add (Word16 var1, Word16 var2)
+Word16 add (Word16 var1, Word16 var2)
 {
     return saturate (var1 + var2);
 }
@@ -193,7 +193,7 @@ PJ_INLINE(Word16) add (Word16 var1, Word16 var2)
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) sub (Word16 var1, Word16 var2)
+Word16 sub (Word16 var1, Word16 var2)
 {
     return saturate ((Word32) var1 - var2);
 }
@@ -228,7 +228,7 @@ PJ_INLINE(Word16) sub (Word16 var1, Word16 var2)
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) negate (Word16 var1)
+Word16 negate (Word16 var1)
 {
     return (Word16)((var1 == MIN_16) ? MAX_16 : -var1);
 }
@@ -268,7 +268,7 @@ PJ_INLINE(Word16) negate (Word16 var1)
  |             range : 0x8000 0000 <= L_var_out <= 0x7fff ffff.              |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word32) L_add (Word32 L_var1, Word32 L_var2)
+Word32 L_add (Word32 L_var1, Word32 L_var2)
 {
 #if PJ_HAS_INT64
     return L_saturate(((pj_int64_t)L_var1) + L_var2);
@@ -325,7 +325,7 @@ PJ_INLINE(Word32) L_add (Word32 L_var1, Word32 L_var2)
  |             range : 0x8000 0000 <= L_var_out <= 0x7fff ffff.              |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word32) L_sub (Word32 L_var1, Word32 L_var2)
+Word32 L_sub (Word32 L_var1, Word32 L_var2)
 {
 #if PJ_HAS_INT64
     return L_saturate((pj_int64_t)L_var1 - L_var2);
@@ -381,7 +381,7 @@ PJ_INLINE(Word32) L_sub (Word32 L_var1, Word32 L_var2)
  |             range : 0x8000 0000 <= L_var_out <= 0x7fff ffff.              |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word32) L_mult (Word16 var1, Word16 var2)
+Word32 L_mult (Word16 var1, Word16 var2)
 {
     Word32 L_var_out;
 
@@ -436,7 +436,7 @@ PJ_INLINE(Word32) L_mult (Word16 var1, Word16 var2)
  |             range : 0x8000 0000 <= L_var_out <= 0x7fff ffff.              |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word32) L_mac (Word32 L_var3, Word16 var1, Word16 var2)
+Word32 L_mac (Word32 L_var3, Word16 var1, Word16 var2)
 {
     return L_add (L_var3, L_mult (var1, var2));
 }
@@ -473,7 +473,7 @@ PJ_INLINE(Word32) L_mac (Word32 L_var3, Word16 var1, Word16 var2)
  |             range : 0xffff 8000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) itu_round (Word32 L_var1)
+Word16 itu_round (Word32 L_var1)
 {
     return extract_h (L_add (L_var1, (Word32) 0x00008000L));
 }
@@ -513,7 +513,7 @@ PJ_INLINE(Word16) itu_round (Word32 L_var1)
  |             range : 0x8000 0000 <= L_var_out <= 0x7fff ffff.              |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word32) L_shr_nocheck(Word32 L_var1, Word16 var2)
+Word32 L_shr_nocheck(Word32 L_var1, Word16 var2)
 {
 #if 1
     return L_var1 >> var2;
@@ -536,7 +536,7 @@ PJ_INLINE(Word32) L_shr_nocheck(Word32 L_var1, Word16 var2)
 #endif
 }
 
-PJ_INLINE(Word32) L_shl_nocheck (Word32 L_var1, Word16 var2)
+Word32 L_shl_nocheck (Word32 L_var1, Word16 var2)
 {
 #if PJ_HAS_INT64
     return L_saturate( ((pj_int64_t)L_var1) << var2 );
@@ -562,7 +562,7 @@ PJ_INLINE(Word32) L_shl_nocheck (Word32 L_var1, Word16 var2)
 #endif
 }
 
-PJ_INLINE(Word32) L_shr (Word32 L_var1, Word16 var2)
+Word32 L_shr (Word32 L_var1, Word16 var2)
 {
     if (var2 < 0)
     {
@@ -610,7 +610,7 @@ PJ_INLINE(Word32) L_shr (Word32 L_var1, Word16 var2)
  |             range : 0x8000 0000 <= L_var_out <= 0x7fff ffff.              |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word32) L_shl (Word32 L_var1, Word16 var2)
+Word32 L_shl (Word32 L_var1, Word16 var2)
 {
     if (var2 <= 0)
     {
@@ -653,7 +653,7 @@ PJ_INLINE(Word32) L_shl (Word32 L_var1, Word16 var2)
  |             range : 0x0000 0000 <= var_out <= 0x0000 7fff.                |
  |___________________________________________________________________________|
 */
-PJ_INLINE(Word16) abs_s (Word16 var1)
+Word16 abs_s (Word16 var1)
 {
 #if 1
     if (var1 >= 0)
@@ -683,7 +683,7 @@ PJ_INLINE(Word16) abs_s (Word16 var1)
 /* ------------------------- End of abs_s() ------------------------- */
 
 
-PJ_INLINE(Word16) shl_nocheck(Word16 var1, Word16 var2)
+Word16 shl_nocheck(Word16 var1, Word16 var2)
 {
 #if 1
     /* blp: this should be more optimized */
@@ -704,7 +704,7 @@ PJ_INLINE(Word16) shl_nocheck(Word16 var1, Word16 var2)
 #endif
 }
 
-PJ_INLINE(Word16) shr_nocheck(Word16 var1, Word16 var2)
+Word16 shr_nocheck(Word16 var1, Word16 var2)
 {
 #if 1
     /* blp: this should yield the same value */

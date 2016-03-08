@@ -49,7 +49,7 @@ PJ_BEGIN_DECL
  *
  * @param cs_buf    The scanner character specification.
  */
-(void) pj_cis_buf_init(pj_cis_buf_t *cs_buf);
+void pj_cis_buf_init(pj_cis_buf_t *cs_buf);
 
 /**
  * Create a new input specification.
@@ -61,7 +61,7 @@ PJ_BEGIN_DECL
  *                  created, or PJ_ETOOMANY if there are already too many
  *                  specifications in the buffer.
  */
-(pj_status_t) pj_cis_init(pj_cis_buf_t *cs_buf, pj_cis_t *cis);
+pj_status_t pj_cis_init(pj_cis_buf_t *cs_buf, pj_cis_t *cis);
 
 /**
  * Create a new input specification based on an existing specification.
@@ -74,7 +74,7 @@ PJ_BEGIN_DECL
  *                  created, or PJ_ETOOMANY if there are already too many
  *                  specifications in the buffer.
  */
-(pj_status_t) pj_cis_dup(pj_cis_t *new_cis, pj_cis_t *existing);
+pj_status_t pj_cis_dup(pj_cis_t *new_cis, pj_cis_t *existing);
 
 /**
  * Add the characters in the specified range '[cstart, cend)' to the 
@@ -84,21 +84,21 @@ PJ_BEGIN_DECL
  * @param cstart    The first character in the range.
  * @param cend      The next character after the last character in the range.
  */
-(void) pj_cis_add_range( pj_cis_t *cis, int cstart, int cend);
+void pj_cis_add_range( pj_cis_t *cis, int cstart, int cend);
 
 /**
  * Add alphabetic characters to the specification.
  *
  * @param cis       The scanner character specification.
  */
-(void) pj_cis_add_alpha( pj_cis_t *cis);
+void pj_cis_add_alpha( pj_cis_t *cis);
 
 /**
  * Add numeric characters to the specification.
  *
  * @param cis       The scanner character specification.
  */
-(void) pj_cis_add_num( pj_cis_t *cis);
+void pj_cis_add_num( pj_cis_t *cis);
 
 /**
  * Add the characters in the string to the specification.
@@ -106,7 +106,7 @@ PJ_BEGIN_DECL
  * @param cis       The scanner character specification.
  * @param str       The string.
  */
-(void) pj_cis_add_str( pj_cis_t *cis, const char *str);
+void pj_cis_add_str( pj_cis_t *cis, const char *str);
 
 /**
  * Add specification from another specification.
@@ -114,7 +114,7 @@ PJ_BEGIN_DECL
  * @param cis	    The specification is to be set.
  * @param rhs	    The specification to be copied.
  */
-(void) pj_cis_add_cis( pj_cis_t *cis, const pj_cis_t *rhs);
+void pj_cis_add_cis( pj_cis_t *cis, const pj_cis_t *rhs);
 
 /**
  * Delete characters in the specified range from the specification.
@@ -123,7 +123,7 @@ PJ_BEGIN_DECL
  * @param cstart    The first character in the range.
  * @param cend      The next character after the last character in the range.
  */
-(void) pj_cis_del_range( pj_cis_t *cis, int cstart, int cend);
+void pj_cis_del_range( pj_cis_t *cis, int cstart, int cend);
 
 /**
  * Delete characters in the specified string from the specification.
@@ -131,14 +131,14 @@ PJ_BEGIN_DECL
  * @param cis       The scanner character specification.
  * @param str       The string.
  */
-(void) pj_cis_del_str( pj_cis_t *cis, const char *str);
+void pj_cis_del_str( pj_cis_t *cis, const char *str);
 
 /**
  * Invert specification.
  *
  * @param cis       The scanner character specification.
  */
-(void) pj_cis_invert( pj_cis_t *cis );
+void pj_cis_invert( pj_cis_t *cis );
 
 /**
  * Check whether the specified character belongs to the specification.
@@ -148,7 +148,7 @@ PJ_BEGIN_DECL
  *
  * @return	    Non-zero if match (not necessarily one).
  */
-PJ_INLINE(int) pj_cis_match( const pj_cis_t *cis, pj_uint8_t c )
+int pj_cis_match( const pj_cis_t *cis, pj_uint8_t c )
 {
     return PJ_CIS_ISSET(cis, c);
 }
@@ -231,7 +231,7 @@ typedef struct pj_scan_state
  * @param callback  Callback to be called when the scanner encounters syntax
  *		    error condition.
  */
-(void) pj_scan_init( pj_scanner *scanner, char *bufstart, 
+void pj_scan_init( pj_scanner *scanner, char *bufstart, 
 			    pj_size_t buflen, 
 			    unsigned options,
 			    pj_syn_err_func_ptr callback );
@@ -242,7 +242,7 @@ typedef struct pj_scan_state
  *
  * @param scanner   The scanner.
  */
-(void) pj_scan_fini( pj_scanner *scanner );
+void pj_scan_fini( pj_scanner *scanner );
 
 
 /** 
@@ -252,7 +252,7 @@ typedef struct pj_scan_state
  *
  * @return Non-zero if scanner is EOF.
  */
-PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
+int pj_scan_is_eof( const pj_scanner *scanner)
 {
     return scanner->curptr >= scanner->end;
 }
@@ -271,7 +271,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @return the character right after the peek-ed position or zero if there's
  *	   no more characters.
  */
-(int) pj_scan_peek( pj_scanner *scanner,
+int pj_scan_peek( pj_scanner *scanner,
 			   const pj_cis_t *spec, pj_str_t *out);
 
 
@@ -288,7 +288,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @return the character right after the peek-ed position or zero if there's
  *	   no more characters.
  */
-(int) pj_scan_peek_n( pj_scanner *scanner,
+int pj_scan_peek_n( pj_scanner *scanner,
 			     pj_size_t len, pj_str_t *out);
 
 
@@ -304,7 +304,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @return the character right after the peek-ed position.
  */
-(int) pj_scan_peek_until( pj_scanner *scanner,
+int pj_scan_peek_until( pj_scanner *scanner,
 				 const pj_cis_t *spec, 
 				 pj_str_t *out);
 
@@ -320,7 +320,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param spec	    The spec to match input string.
  * @param out	    String to store the result.
  */
-(void) pj_scan_get( pj_scanner *scanner,
+void pj_scan_get( pj_scanner *scanner,
 			   const pj_cis_t *spec, pj_str_t *out);
 
 
@@ -333,7 +333,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param spec	    The spec to match input string.
  * @param out	    String to store the result.
  */
-(void) pj_scan_get_unescape( pj_scanner *scanner,
+void pj_scan_get_unescape( pj_scanner *scanner,
 				    const pj_cis_t *spec, pj_str_t *out);
 
 
@@ -347,7 +347,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param end_quote	The character to end the quote.
  * @param out		String to store the result.
  */
-(void) pj_scan_get_quote( pj_scanner *scanner,
+void pj_scan_get_quote( pj_scanner *scanner,
 				 int begin_quote, int end_quote, 
 				 pj_str_t *out);
 
@@ -368,7 +368,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param qsize         The size of the begin_quotes and end_quotes arrays.
  * @param out           String to store the result.
  */
-(void) pj_scan_get_quotes(pj_scanner *scanner,
+void pj_scan_get_quotes(pj_scanner *scanner,
                                  const char *begin_quotes,
                                  const char *end_quotes, int qsize,
                                  pj_str_t *out);
@@ -381,7 +381,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param N	    Number of characters to get.
  * @param out	    String to store the result.
  */
-(void) pj_scan_get_n( pj_scanner *scanner,
+void pj_scan_get_n( pj_scanner *scanner,
 			     unsigned N, pj_str_t *out);
 
 
@@ -392,7 +392,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @return The character.
  */
-(int) pj_scan_get_char( pj_scanner *scanner );
+int pj_scan_get_char( pj_scanner *scanner );
 
 
 /** 
@@ -403,7 +403,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param spec	    Get until the input match this spec.
  * @param out	    String to store the result.
  */
-(void) pj_scan_get_until( pj_scanner *scanner,
+void pj_scan_get_until( pj_scanner *scanner,
 				 const pj_cis_t *spec, pj_str_t *out);
 
 
@@ -415,7 +415,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param until_char    Get until the input match this character.
  * @param out		String to store the result.
  */
-(void) pj_scan_get_until_ch( pj_scanner *scanner, 
+void pj_scan_get_until_ch( pj_scanner *scanner, 
 				    int until_char, pj_str_t *out);
 
 
@@ -427,7 +427,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param until_spec	Get until the input match any of these characters.
  * @param out		String to store the result.
  */
-(void) pj_scan_get_until_chr( pj_scanner *scanner,
+void pj_scan_get_until_chr( pj_scanner *scanner,
 				     const char *until_spec, pj_str_t *out);
 
 /** 
@@ -439,7 +439,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param skip	    Flag to specify whether whitespace should be skipped
  *		    after skipping the characters.
  */
-(void) pj_scan_advance_n( pj_scanner *scanner,
+void pj_scan_advance_n( pj_scanner *scanner,
 				 unsigned N, pj_bool_t skip);
 
 
@@ -452,7 +452,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @return zero, <0, or >0 (just like strcmp()).
  */
-(int) pj_scan_strcmp( pj_scanner *scanner, const char *s, int len);
+int pj_scan_strcmp( pj_scanner *scanner, const char *s, int len);
 
 
 /** 
@@ -465,7 +465,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @return zero, <0, or >0 (just like strcmp()).
  */
-(int) pj_scan_stricmp( pj_scanner *scanner, const char *s, int len);
+int pj_scan_stricmp( pj_scanner *scanner, const char *s, int len);
 
 /**
  * Perform case insensitive string comparison of string in current position,
@@ -483,7 +483,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @see strnicmp_alnum, pj_stricmp_alnum
  */
-(int) pj_scan_stricmp_alnum( pj_scanner *scanner, const char *s, 
+int pj_scan_stricmp_alnum( pj_scanner *scanner, const char *s, 
 				    int len);
 
 
@@ -493,7 +493,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @param scanner   The scanner.
  */
-(void) pj_scan_get_newline( pj_scanner *scanner );
+void pj_scan_get_newline( pj_scanner *scanner );
 
 
 /** 
@@ -502,7 +502,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @param scanner   The scanner.
  */
-(void) pj_scan_skip_whitespace( pj_scanner *scanner );
+void pj_scan_skip_whitespace( pj_scanner *scanner );
 
 
 /**
@@ -510,7 +510,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @param scanner   The scanner.
  */
-(void) pj_scan_skip_line( pj_scanner *scanner );
+void pj_scan_skip_line( pj_scanner *scanner );
 
 /** 
  * Save the full scanner state.
@@ -518,7 +518,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param scanner   The scanner.
  * @param state	    Variable to store scanner's state.
  */
-(void) pj_scan_save_state( const pj_scanner *scanner, 
+void pj_scan_save_state( const pj_scanner *scanner, 
 				  pj_scan_state *state);
 
 
@@ -530,7 +530,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  * @param scanner   The scanner.
  * @param state	    State of the scanner.
  */
-(void) pj_scan_restore_state( pj_scanner *scanner, 
+void pj_scan_restore_state( pj_scanner *scanner, 
 				     pj_scan_state *state);
 
 /**
@@ -540,7 +540,7 @@ PJ_INLINE(int) pj_scan_is_eof( const pj_scanner *scanner)
  *
  * @return	    The column position.
  */
-PJ_INLINE(int) pj_scan_get_col( const pj_scanner *scanner )
+int pj_scan_get_col( const pj_scanner *scanner )
 {
     return (int)(scanner->curptr - scanner->start_line);
 }

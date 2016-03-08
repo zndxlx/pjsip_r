@@ -47,13 +47,13 @@
 int PJ_NO_MEMORY_EXCEPTION;
 
 
-(int) pj_NO_MEMORY_EXCEPTION()
+int pj_NO_MEMORY_EXCEPTION()
 {
     return PJ_NO_MEMORY_EXCEPTION;
 }
 
 /* Create pool */
-(pj_pool_t*) pj_pool_create_imp( const char *file, int line,
+pj_pool_t* pj_pool_create_imp( const char *file, int line,
 				       void *factory,
 				       const char *name,
 				       pj_size_t initial_size,
@@ -89,21 +89,21 @@ int PJ_NO_MEMORY_EXCEPTION;
 
 
 /* Release pool */
-(void) pj_pool_release_imp(pj_pool_t *pool)
+void pj_pool_release_imp(pj_pool_t *pool)
 {
     pj_pool_reset(pool);
     free(pool);
 }
 
 /* Get pool name */
-(const char*) pj_pool_getobjname_imp(pj_pool_t *pool)
+const char* pj_pool_getobjname_imp(pj_pool_t *pool)
 {
     PJ_UNUSED_ARG(pool);
     return "pooldbg";
 }
 
 /* Reset pool */
-(void) pj_pool_reset_imp(pj_pool_t *pool)
+void pj_pool_reset_imp(pj_pool_t *pool)
 {
     struct pj_pool_mem *mem;
 
@@ -118,7 +118,7 @@ int PJ_NO_MEMORY_EXCEPTION;
 }
 
 /* Get capacity */
-(pj_size_t) pj_pool_get_capacity_imp(pj_pool_t *pool)
+pj_size_t pj_pool_get_capacity_imp(pj_pool_t *pool)
 {
     PJ_UNUSED_ARG(pool);
 
@@ -127,13 +127,13 @@ int PJ_NO_MEMORY_EXCEPTION;
 }
 
 /* Get total used size */
-(pj_size_t) pj_pool_get_used_size_imp(pj_pool_t *pool)
+pj_size_t pj_pool_get_used_size_imp(pj_pool_t *pool)
 {
     return pool->used_size;
 }
 
 /* Allocate memory from the pool */
-(void*) pj_pool_alloc_imp( const char *file, int line, 
+void* pj_pool_alloc_imp( const char *file, int line, 
 				 pj_pool_t *pool, pj_size_t sz)
 {
     struct pj_pool_mem *mem;
@@ -165,7 +165,7 @@ int PJ_NO_MEMORY_EXCEPTION;
 }
 
 /* Allocate memory from the pool and zero the memory */
-(void*) pj_pool_calloc_imp( const char *file, int line, 
+void* pj_pool_calloc_imp( const char *file, int line, 
 				  pj_pool_t *pool, unsigned cnt, 
 				  unsigned elemsz)
 {
@@ -180,7 +180,7 @@ int PJ_NO_MEMORY_EXCEPTION;
 }
 
 /* Allocate memory from the pool and zero the memory */
-(void*) pj_pool_zalloc_imp( const char *file, int line, 
+void* pj_pool_zalloc_imp( const char *file, int line, 
 				  pj_pool_t *pool, pj_size_t sz)
 {
     return pj_pool_calloc_imp(file, line, pool, 1, sz); 

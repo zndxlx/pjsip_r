@@ -63,7 +63,7 @@ static void dup_bin(pj_pool_t *pool, pj_str_t *dst, const pj_str_t *src)
     }
 }
 
-(void) pjsip_cred_info_dup(pj_pool_t *pool,
+void pjsip_cred_info_dup(pj_pool_t *pool,
 				 pjsip_cred_info *dst,
 				 const pjsip_cred_info *src)
 {
@@ -82,7 +82,7 @@ static void dup_bin(pj_pool_t *pool, pj_str_t *dst, const pj_str_t *src)
 }
 
 
-(int) pjsip_cred_info_cmp(const pjsip_cred_info *cred1,
+int pjsip_cred_info_cmp(const pjsip_cred_info *cred1,
 				const pjsip_cred_info *cred2)
 {
     int result;
@@ -111,7 +111,7 @@ on_return:
     return result;
 }
 
-(void) pjsip_auth_clt_pref_dup( pj_pool_t *pool,
+void pjsip_auth_clt_pref_dup( pj_pool_t *pool,
 				      pjsip_auth_clt_pref *dst,
 				      const pjsip_auth_clt_pref *src)
 {
@@ -139,7 +139,7 @@ static void digest2str(const unsigned char digest[], char *output)
  * Create response digest based on the parameters and store the
  * digest ASCII in 'result'.
  */
-(void) pjsip_auth_create_digest( pj_str_t *result,
+void pjsip_auth_create_digest( pj_str_t *result,
 				       const pj_str_t *nonce,
 				       const pj_str_t *nc,
 				       const pj_str_t *cnonce,
@@ -482,7 +482,7 @@ static const pjsip_cred_info* auth_find_cred( const pjsip_auth_clt_sess *sess,
 
 
 /* Init client session. */
-(pj_status_t) pjsip_auth_clt_init(  pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_init(  pjsip_auth_clt_sess *sess,
 					  pjsip_endpoint *endpt,
 					  pj_pool_t *pool,
 					  unsigned options)
@@ -500,7 +500,7 @@ static const pjsip_cred_info* auth_find_cred( const pjsip_auth_clt_sess *sess,
 
 
 /* Clone session. */
-(pj_status_t) pjsip_auth_clt_clone( pj_pool_t *pool,
+pj_status_t pjsip_auth_clt_clone( pj_pool_t *pool,
 					  pjsip_auth_clt_sess *sess,
 					  const pjsip_auth_clt_sess *rhs )
 {
@@ -537,7 +537,7 @@ static const pjsip_cred_info* auth_find_cred( const pjsip_auth_clt_sess *sess,
 
 
 /* Set client credentials. */
-(pj_status_t) pjsip_auth_clt_set_credentials( pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_set_credentials( pjsip_auth_clt_sess *sess,
 						    int cred_cnt,
 						    const pjsip_cred_info *c)
 {
@@ -603,7 +603,7 @@ static const pjsip_cred_info* auth_find_cred( const pjsip_auth_clt_sess *sess,
 /*
  * Set the preference for the client authentication session.
  */
-(pj_status_t) pjsip_auth_clt_set_prefs(pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_set_prefs(pjsip_auth_clt_sess *sess,
 					     const pjsip_auth_clt_pref *p)
 {
     PJ_ASSERT_RETURN(sess && p, PJ_EINVAL);
@@ -620,7 +620,7 @@ static const pjsip_cred_info* auth_find_cred( const pjsip_auth_clt_sess *sess,
 /*
  * Get the preference for the client authentication session.
  */
-(pj_status_t) pjsip_auth_clt_get_prefs(pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_get_prefs(pjsip_auth_clt_sess *sess,
 					     pjsip_auth_clt_pref *p)
 {
     PJ_ASSERT_RETURN(sess && p, PJ_EINVAL);
@@ -814,7 +814,7 @@ static pjsip_authorization_hdr* get_header_for_realm(const pjsip_hdr *hdr_list,
 
 
 /* Initialize outgoing request. */
-(pj_status_t) pjsip_auth_clt_init_req( pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_init_req( pjsip_auth_clt_sess *sess,
 					     pjsip_tx_data *tdata )
 {
     const pjsip_method *method;
@@ -1081,7 +1081,7 @@ static pj_status_t process_auth( pj_pool_t *req_pool,
  *  - to put the newly created Authorization/Proxy-Authorization header
  *    in cached_list.
  */
-(pj_status_t) pjsip_auth_clt_reinit_req(	pjsip_auth_clt_sess *sess,
+pj_status_t pjsip_auth_clt_reinit_req(	pjsip_auth_clt_sess *sess,
 						const pjsip_rx_data *rdata,
 						pjsip_tx_data *old_request,
 						pjsip_tx_data **new_request )

@@ -131,7 +131,7 @@ typedef struct pj_pcap_file pj_pcap_file;
  *
  * @param filter    Filter to be initialized.
  */
-(void) pj_pcap_filter_default(pj_pcap_filter *filter);
+void pj_pcap_filter_default(pj_pcap_filter *filter);
 
 /**
  * Open PCAP file.
@@ -142,7 +142,7 @@ typedef struct pj_pcap_file pj_pcap_file;
  *
  * @return	    PJ_SUCCESS if file can be opened successfully.
  */
-(pj_status_t) pj_pcap_open(pj_pool_t *pool,
+pj_status_t pj_pcap_open(pj_pool_t *pool,
 				  const char *path,
 				  pj_pcap_file **p_file);
 
@@ -153,7 +153,7 @@ typedef struct pj_pcap_file pj_pcap_file;
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_pcap_close(pj_pcap_file *file);
+pj_status_t pj_pcap_close(pj_pcap_file *file);
 
 /**
  * Configure filter for reading the file. When filter is configured,
@@ -164,7 +164,7 @@ typedef struct pj_pcap_file pj_pcap_file;
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_pcap_set_filter(pj_pcap_file *file,
+pj_status_t pj_pcap_set_filter(pj_pcap_file *file,
 				        const pj_pcap_filter *filter);
 
 /**
@@ -180,7 +180,7 @@ typedef struct pj_pcap_file pj_pcap_file;
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_pcap_read_udp(pj_pcap_file *file,
+pj_status_t pj_pcap_read_udp(pj_pcap_file *file,
 				      pj_pcap_udp_hdr *udp_hdr,
 				      pj_uint8_t *udp_payload,
 				      pj_size_t *udp_payload_size);

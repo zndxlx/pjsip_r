@@ -104,7 +104,7 @@ typedef pj_uint32_t pjmedia_obj_sig;
  *
  * @return		The string.
  */
-PJ_INLINE(const char*) pjmedia_sig_name(pjmedia_obj_sig sig, char buf[])
+const char* pjmedia_sig_name(pjmedia_obj_sig sig, char buf[])
 {
     return pjmedia_fourcc_name(sig, buf);
 }

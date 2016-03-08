@@ -203,7 +203,7 @@ static pj_status_t pj_ice_strans_cfg_check_valid(const pj_ice_strans_cfg *cfg)
 /*
  * Initialize ICE transport configuration with default values.
  */
-(void) pj_ice_strans_cfg_default(pj_ice_strans_cfg *cfg)
+void pj_ice_strans_cfg_default(pj_ice_strans_cfg *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
 
@@ -226,7 +226,7 @@ static pj_status_t pj_ice_strans_cfg_check_valid(const pj_ice_strans_cfg *cfg)
 /*
  * Copy configuration.
  */
-(void) pj_ice_strans_cfg_copy( pj_pool_t *pool,
+void pj_ice_strans_cfg_copy( pj_pool_t *pool,
 				     pj_ice_strans_cfg *dst,
 				     const pj_ice_strans_cfg *src)
 {
@@ -535,7 +535,7 @@ static pj_status_t create_comp(pj_ice_strans *ice_st, unsigned comp_id)
 /*
  * Create ICE stream transport
  */
-(pj_status_t) pj_ice_strans_create( const char *name,
+pj_status_t pj_ice_strans_create( const char *name,
 					  const pj_ice_strans_cfg *cfg,
 					  unsigned comp_cnt,
 					  void *user_data,
@@ -678,13 +678,13 @@ static void destroy_ice_st(pj_ice_strans *ice_st)
 }
 
 /* Get ICE session state. */
-(pj_ice_strans_state) pj_ice_strans_get_state(pj_ice_strans *ice_st)
+pj_ice_strans_state pj_ice_strans_get_state(pj_ice_strans *ice_st)
 {
     return ice_st->state;
 }
 
 /* State string */
-(const char*) pj_ice_strans_state_name(pj_ice_strans_state state)
+const char* pj_ice_strans_state_name(pj_ice_strans_state state)
 {
     const char *names[] = {
 	"Null",
@@ -756,7 +756,7 @@ static void sess_init_update(pj_ice_strans *ice_st)
 /*
  * Destroy ICE stream transport.
  */
-(pj_status_t) pj_ice_strans_destroy(pj_ice_strans *ice_st)
+pj_status_t pj_ice_strans_destroy(pj_ice_strans *ice_st)
 {
     destroy_ice_st(ice_st);
     return PJ_SUCCESS;
@@ -766,7 +766,7 @@ static void sess_init_update(pj_ice_strans *ice_st)
 /*
  * Get user data
  */
-(void*) pj_ice_strans_get_user_data(pj_ice_strans *ice_st)
+void* pj_ice_strans_get_user_data(pj_ice_strans *ice_st)
 {
     PJ_ASSERT_RETURN(ice_st, NULL);
     return ice_st->user_data;
@@ -776,7 +776,7 @@ static void sess_init_update(pj_ice_strans *ice_st)
 /*
  * Get the value of various options of the ICE stream transport.
  */
-(pj_status_t) pj_ice_strans_get_options( pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_get_options( pj_ice_strans *ice_st,
 					       pj_ice_sess_options *opt)
 {
     PJ_ASSERT_RETURN(ice_st && opt, PJ_EINVAL);
@@ -787,7 +787,7 @@ static void sess_init_update(pj_ice_strans *ice_st)
 /*
  * Specify various options for this ICE stream transport.
  */
-(pj_status_t) pj_ice_strans_set_options(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_set_options(pj_ice_strans *ice_st,
 					      const pj_ice_sess_options *opt)
 {
     PJ_ASSERT_RETURN(ice_st && opt, PJ_EINVAL);
@@ -800,7 +800,7 @@ static void sess_init_update(pj_ice_strans *ice_st)
 /**
  * Get the group lock for this ICE stream transport.
  */
-(pj_grp_lock_t *) pj_ice_strans_get_grp_lock(pj_ice_strans *ice_st)
+pj_grp_lock_t * pj_ice_strans_get_grp_lock(pj_ice_strans *ice_st)
 {
     PJ_ASSERT_RETURN(ice_st, NULL);
     return ice_st->grp_lock;
@@ -809,7 +809,7 @@ static void sess_init_update(pj_ice_strans *ice_st)
 /*
  * Create ICE!
  */
-(pj_status_t) pj_ice_strans_init_ice(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_init_ice(pj_ice_strans *ice_st,
 					   pj_ice_sess_role role,
 					   const pj_str_t *local_ufrag,
 					   const pj_str_t *local_passwd)
@@ -912,7 +912,7 @@ on_error:
 /*
  * Check if the ICE stream transport has the ICE session created.
  */
-(pj_bool_t) pj_ice_strans_has_sess(pj_ice_strans *ice_st)
+pj_bool_t pj_ice_strans_has_sess(pj_ice_strans *ice_st)
 {
     PJ_ASSERT_RETURN(ice_st, PJ_FALSE);
     return ice_st->ice != NULL;
@@ -921,7 +921,7 @@ on_error:
 /*
  * Check if ICE negotiation is still running.
  */
-(pj_bool_t) pj_ice_strans_sess_is_running(pj_ice_strans *ice_st)
+pj_bool_t pj_ice_strans_sess_is_running(pj_ice_strans *ice_st)
 {
     return ice_st && ice_st->ice && ice_st->ice->rcand_cnt &&
 	   !pj_ice_strans_sess_is_complete(ice_st);
@@ -931,7 +931,7 @@ on_error:
 /*
  * Check if ICE negotiation has completed.
  */
-(pj_bool_t) pj_ice_strans_sess_is_complete(pj_ice_strans *ice_st)
+pj_bool_t pj_ice_strans_sess_is_complete(pj_ice_strans *ice_st)
 {
     return ice_st && ice_st->ice && ice_st->ice->is_complete;
 }
@@ -940,7 +940,7 @@ on_error:
 /*
  * Get the current/running component count.
  */
-(unsigned) pj_ice_strans_get_running_comp_cnt(pj_ice_strans *ice_st)
+unsigned pj_ice_strans_get_running_comp_cnt(pj_ice_strans *ice_st)
 {
     PJ_ASSERT_RETURN(ice_st, PJ_EINVAL);
 
@@ -955,7 +955,7 @@ on_error:
 /*
  * Get the ICE username fragment and password of the ICE session.
  */
-(pj_status_t) pj_ice_strans_get_ufrag_pwd( pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_get_ufrag_pwd( pj_ice_strans *ice_st,
 						 pj_str_t *loc_ufrag,
 						 pj_str_t *loc_pwd,
 						 pj_str_t *rem_ufrag,
@@ -978,7 +978,7 @@ on_error:
 /*
  * Get number of candidates
  */
-(unsigned) pj_ice_strans_get_cands_count(pj_ice_strans *ice_st,
+unsigned pj_ice_strans_get_cands_count(pj_ice_strans *ice_st,
 					       unsigned comp_id)
 {
     unsigned i, cnt;
@@ -999,7 +999,7 @@ on_error:
 /*
  * Enum candidates
  */
-(pj_status_t) pj_ice_strans_enum_cands(pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_enum_cands(pj_ice_strans *ice_st,
 					     unsigned comp_id,
 					     unsigned *count,
 					     pj_ice_sess_cand cand[])
@@ -1025,7 +1025,7 @@ on_error:
 /*
  * Get default candidate.
  */
-(pj_status_t) pj_ice_strans_get_def_cand( pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_get_def_cand( pj_ice_strans *ice_st,
 						unsigned comp_id,
 						pj_ice_sess_cand *cand)
 {
@@ -1049,7 +1049,7 @@ on_error:
 /*
  * Get the current ICE role.
  */
-(pj_ice_sess_role) pj_ice_strans_get_role(pj_ice_strans *ice_st)
+pj_ice_sess_role pj_ice_strans_get_role(pj_ice_strans *ice_st)
 {
     PJ_ASSERT_RETURN(ice_st && ice_st->ice, PJ_ICE_SESS_ROLE_UNKNOWN);
     return ice_st->ice->role;
@@ -1058,7 +1058,7 @@ on_error:
 /*
  * Change session role.
  */
-(pj_status_t) pj_ice_strans_change_role( pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_change_role( pj_ice_strans *ice_st,
 					       pj_ice_sess_role new_role)
 {
     PJ_ASSERT_RETURN(ice_st && ice_st->ice, PJ_EINVALIDOP);
@@ -1068,7 +1068,7 @@ on_error:
 /*
  * Start ICE processing !
  */
-(pj_status_t) pj_ice_strans_start_ice( pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_start_ice( pj_ice_strans *ice_st,
 					     const pj_str_t *rem_ufrag,
 					     const pj_str_t *rem_passwd,
 					     unsigned rem_cand_cnt,
@@ -1130,7 +1130,7 @@ on_error:
 /*
  * Get valid pair.
  */
-(const pj_ice_sess_check*)
+const pj_ice_sess_check*
 pj_ice_strans_get_valid_pair(const pj_ice_strans *ice_st,
 			     unsigned comp_id)
 {
@@ -1146,7 +1146,7 @@ pj_ice_strans_get_valid_pair(const pj_ice_strans *ice_st,
 /*
  * Stop ICE!
  */
-(pj_status_t) pj_ice_strans_stop_ice(pj_ice_strans *ice_st)
+pj_status_t pj_ice_strans_stop_ice(pj_ice_strans *ice_st)
 {
     PJ_ASSERT_RETURN(ice_st, PJ_EINVAL);
     
@@ -1171,7 +1171,7 @@ pj_ice_strans_get_valid_pair(const pj_ice_strans *ice_st,
 /*
  * Application wants to send outgoing packet.
  */
-(pj_status_t) pj_ice_strans_sendto( pj_ice_strans *ice_st,
+pj_status_t pj_ice_strans_sendto( pj_ice_strans *ice_st,
 					  unsigned comp_id,
 					  const void *data,
 					  pj_size_t data_len,

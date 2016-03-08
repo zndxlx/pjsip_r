@@ -23,13 +23,13 @@
  * DO NOT COMPILE THIS FILE ALONE!
  */
 
-(void) pj_cis_buf_init( pj_cis_buf_t *cis_buf)
+void pj_cis_buf_init( pj_cis_buf_t *cis_buf)
 {
     pj_bzero(cis_buf->cis_buf, sizeof(cis_buf->cis_buf));
     cis_buf->use_mask = 0;
 }
 
-(pj_status_t) pj_cis_init(pj_cis_buf_t *cis_buf, pj_cis_t *cis)
+pj_status_t pj_cis_init(pj_cis_buf_t *cis_buf, pj_cis_t *cis)
 {
     unsigned i;
 
@@ -47,7 +47,7 @@
     return PJ_ETOOMANY;
 }
 
-(pj_status_t) pj_cis_dup( pj_cis_t *new_cis, pj_cis_t *existing)
+pj_status_t pj_cis_dup( pj_cis_t *new_cis, pj_cis_t *existing)
 {
     pj_status_t status;
     unsigned i;

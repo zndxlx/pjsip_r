@@ -167,7 +167,7 @@ enum pjmedia_transport_ice_options
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_ice_create(pjmedia_endpt *endpt,
+pj_status_t pjmedia_ice_create(pjmedia_endpt *endpt,
 					const char *name,
 					unsigned comp_cnt,
 					const pj_ice_strans_cfg *cfg,
@@ -189,7 +189,7 @@ enum pjmedia_transport_ice_options
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_ice_create2(pjmedia_endpt *endpt,
+pj_status_t pjmedia_ice_create2(pjmedia_endpt *endpt,
 					 const char *name,
 					 unsigned comp_cnt,
 					 const pj_ice_strans_cfg *cfg,
@@ -212,7 +212,7 @@ enum pjmedia_transport_ice_options
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjmedia_ice_create3(pjmedia_endpt *endpt,
+pj_status_t pjmedia_ice_create3(pjmedia_endpt *endpt,
 					 const char *name,
 					 unsigned comp_cnt,
 					 const pj_ice_strans_cfg *cfg,
@@ -228,7 +228,7 @@ enum pjmedia_transport_ice_options
  *
  * @return		The group lock.
  */
-(pj_grp_lock_t *) pjmedia_ice_get_grp_lock(pjmedia_transport *tp);
+pj_grp_lock_t * pjmedia_ice_get_grp_lock(pjmedia_transport *tp);
 
 PJ_END_DECL
 

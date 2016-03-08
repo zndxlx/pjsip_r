@@ -112,7 +112,7 @@ typedef struct pjmedia_frame_ext_subframe {
  * @param src		    Source frame.
  * @param dst		    Destination frame.
  */
-PJ_INLINE(void) pjmedia_frame_copy(pjmedia_frame *dst,
+void pjmedia_frame_copy(pjmedia_frame *dst,
 				   const pjmedia_frame *src)
 {
     dst->type = src->type;
@@ -130,7 +130,7 @@ PJ_INLINE(void) pjmedia_frame_copy(pjmedia_frame *dst,
  * @param bitlen	    Length of subframe, in bits.
  * @param samples_cnt	    Number of audio samples in subframe.
  */
-PJ_INLINE(void) pjmedia_frame_ext_append_subframe(pjmedia_frame_ext *frm,
+void pjmedia_frame_ext_append_subframe(pjmedia_frame_ext *frm,
 						  const void *src,
 					          unsigned bitlen,
 						  unsigned samples_cnt)
@@ -162,7 +162,7 @@ PJ_INLINE(void) pjmedia_frame_ext_append_subframe(pjmedia_frame_ext *frm,
  *
  * @return		    The n-th subframe, or NULL if n is out-of-range.
  */
-PJ_INLINE(pjmedia_frame_ext_subframe*)
+pjmedia_frame_ext_subframe*
 pjmedia_frame_ext_get_subframe(const pjmedia_frame_ext *frm, unsigned n)
 {
     pjmedia_frame_ext_subframe *sf = NULL;
@@ -193,7 +193,7 @@ pjmedia_frame_ext_get_subframe(const pjmedia_frame_ext *frm, unsigned n)
  *
  * @return		    Total size of payload copied.
  */
-PJ_INLINE(unsigned)
+unsigned
 pjmedia_frame_ext_copy_payload(const pjmedia_frame_ext *frm,
 			       void *dst,
 			       unsigned maxlen)
@@ -226,7 +226,7 @@ pjmedia_frame_ext_copy_payload(const pjmedia_frame_ext *frm,
  *
  * @return		    PJ_SUCCESS when successful.
  */
-PJ_INLINE(pj_status_t)
+pj_status_t
 pjmedia_frame_ext_pop_subframes(pjmedia_frame_ext *frm, unsigned n)
 {
     pjmedia_frame_ext_subframe *sf;
@@ -263,7 +263,7 @@ pjmedia_frame_ext_pop_subframes(pjmedia_frame_ext *frm, unsigned n)
  * @param samples	The 16bit PCM samples.
  * @param count		Number of samples.
  */
-PJ_INLINE(void) pjmedia_zero_samples(pj_int16_t *samples, unsigned count)
+void pjmedia_zero_samples(pj_int16_t *samples, unsigned count)
 {
 #if 1
     pj_bzero(samples, (count<<1));
@@ -284,7 +284,7 @@ PJ_INLINE(void) pjmedia_zero_samples(pj_int16_t *samples, unsigned count)
  * by putting this functionality in one place, it enables some.
  * clever people to optimize this function.
  */
-PJ_INLINE(void) pjmedia_copy_samples(pj_int16_t *dst, const pj_int16_t *src,
+void pjmedia_copy_samples(pj_int16_t *dst, const pj_int16_t *src,
 				     unsigned count)
 {
 #if 1
@@ -307,7 +307,7 @@ PJ_INLINE(void) pjmedia_copy_samples(pj_int16_t *dst, const pj_int16_t *src,
  * by putting this functionality in one place, it enables some.
  * clever people to optimize this function.
  */
-PJ_INLINE(void) pjmedia_move_samples(pj_int16_t *dst, const pj_int16_t *src,
+void pjmedia_move_samples(pj_int16_t *dst, const pj_int16_t *src,
 				     unsigned count)
 {
 #if 1

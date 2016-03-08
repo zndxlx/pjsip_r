@@ -38,7 +38,7 @@ static void keep_alive_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Get number of current accounts.
  */
-(unsigned) pjsua_acc_get_count(void)
+unsigned pjsua_acc_get_count(void)
 {
     return pjsua_var.acc_cnt;
 }
@@ -47,7 +47,7 @@ static void keep_alive_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Check if the specified account ID is valid.
  */
-(pj_bool_t) pjsua_acc_is_valid(pjsua_acc_id acc_id)
+pj_bool_t pjsua_acc_is_valid(pjsua_acc_id acc_id)
 {
     return acc_id>=0 && acc_id<(int)PJ_ARRAY_SIZE(pjsua_var.acc) &&
 	   pjsua_var.acc[acc_id].valid;
@@ -57,7 +57,7 @@ static void keep_alive_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Set default account
  */
-(pj_status_t) pjsua_acc_set_default(pjsua_acc_id acc_id)
+pj_status_t pjsua_acc_set_default(pjsua_acc_id acc_id)
 {
     pjsua_var.default_acc = acc_id;
     return PJ_SUCCESS;
@@ -67,7 +67,7 @@ static void keep_alive_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Get default account.
  */
-(pjsua_acc_id) pjsua_acc_get_default(void)
+pjsua_acc_id pjsua_acc_get_default(void)
 {
     return pjsua_var.default_acc;
 }
@@ -76,7 +76,7 @@ static void keep_alive_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Copy account configuration.
  */
-(void) pjsua_acc_config_dup( pj_pool_t *pool,
+void pjsua_acc_config_dup( pj_pool_t *pool,
 				   pjsua_acc_config *dst,
 				   const pjsua_acc_config *src)
 {
@@ -388,7 +388,7 @@ static pj_status_t initialize_acc(unsigned acc_id)
 /*
  * Add a new account to pjsua.
  */
-(pj_status_t) pjsua_acc_add( const pjsua_acc_config *cfg,
+pj_status_t pjsua_acc_add( const pjsua_acc_config *cfg,
 				   pj_bool_t is_default,
 				   pjsua_acc_id *p_acc_id)
 {
@@ -503,7 +503,7 @@ static pj_status_t initialize_acc(unsigned acc_id)
 /*
  * Add local account
  */
-(pj_status_t) pjsua_acc_add_local( pjsua_transport_id tid,
+pj_status_t pjsua_acc_add_local( pjsua_transport_id tid,
 					 pj_bool_t is_default,
 					 pjsua_acc_id *p_acc_id)
 {
@@ -561,7 +561,7 @@ static pj_status_t initialize_acc(unsigned acc_id)
 /*
  * Set arbitrary data to be associated with the account.
  */
-(pj_status_t) pjsua_acc_set_user_data(pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_set_user_data(pjsua_acc_id acc_id,
 					    void *user_data)
 {
     PJ_ASSERT_RETURN(acc_id>=0 && acc_id<(int)PJ_ARRAY_SIZE(pjsua_var.acc),
@@ -581,7 +581,7 @@ static pj_status_t initialize_acc(unsigned acc_id)
 /*
  * Retrieve arbitrary data associated with the account.
  */
-(void*) pjsua_acc_get_user_data(pjsua_acc_id acc_id)
+void* pjsua_acc_get_user_data(pjsua_acc_id acc_id)
 {
     PJ_ASSERT_RETURN(acc_id>=0 && acc_id<(int)PJ_ARRAY_SIZE(pjsua_var.acc),
 		     NULL);
@@ -594,7 +594,7 @@ static pj_status_t initialize_acc(unsigned acc_id)
 /*
  * Delete account.
  */
-(pj_status_t) pjsua_acc_del(pjsua_acc_id acc_id)
+pj_status_t pjsua_acc_del(pjsua_acc_id acc_id)
 {
     pjsua_acc *acc;
     unsigned i;
@@ -688,7 +688,7 @@ static pj_status_t initialize_acc(unsigned acc_id)
 
 
 /* Get config */
-(pj_status_t) pjsua_acc_get_config(pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_get_config(pjsua_acc_id acc_id,
                                          pj_pool_t *pool,
                                          pjsua_acc_config *acc_cfg)
 {
@@ -766,7 +766,7 @@ static pj_bool_t update_hdr_list(pj_pool_t *pool, pjsip_hdr *dst,
 /*
  * Modify account information.
  */
-(pj_status_t) pjsua_acc_modify( pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_modify( pjsua_acc_id acc_id,
 				      const pjsua_acc_config *cfg)
 {
     pjsua_acc *acc;
@@ -1391,7 +1391,7 @@ on_return:
  * Modify account's presence status to be advertised to remote/presence
  * subscribers.
  */
-(pj_status_t) pjsua_acc_set_online_status( pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_set_online_status( pjsua_acc_id acc_id,
 						 pj_bool_t is_online)
 {
     PJ_ASSERT_RETURN(acc_id>=0 && acc_id<(int)PJ_ARRAY_SIZE(pjsua_var.acc),
@@ -1414,7 +1414,7 @@ on_return:
 /* 
  * Set online status with extended information 
  */
-(pj_status_t) pjsua_acc_set_online_status2( pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_set_online_status2( pjsua_acc_id acc_id,
 						  pj_bool_t is_online,
 						  const pjrpid_element *pr)
 {
@@ -2486,7 +2486,7 @@ pj_bool_t pjsua_sip_acc_is_using_stun(pjsua_acc_id acc_id)
 /*
  * Update registration or perform unregistration. 
  */
-(pj_status_t) pjsua_acc_set_registration( pjsua_acc_id acc_id, 
+pj_status_t pjsua_acc_set_registration( pjsua_acc_id acc_id, 
 						pj_bool_t renew)
 {
     pjsua_acc *acc;
@@ -2628,7 +2628,7 @@ on_return:
 /*
  * Get account information.
  */
-(pj_status_t) pjsua_acc_get_info( pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_get_info( pjsua_acc_id acc_id,
 					pjsua_acc_info *info)
 {
     pjsua_acc *acc = &pjsua_var.acc[acc_id];
@@ -2699,7 +2699,7 @@ on_return:
 /*
  * Enum accounts all account ids.
  */
-(pj_status_t) pjsua_enum_accs(pjsua_acc_id ids[],
+pj_status_t pjsua_enum_accs(pjsua_acc_id ids[],
 				    unsigned *count )
 {
     unsigned i, c;
@@ -2726,7 +2726,7 @@ on_return:
 /*
  * Enum accounts info.
  */
-(pj_status_t) pjsua_acc_enum_info( pjsua_acc_info info[],
+pj_status_t pjsua_acc_enum_info( pjsua_acc_info info[],
 					 unsigned *count )
 {
     unsigned i, c;
@@ -2755,7 +2755,7 @@ on_return:
  * This is an internal function to find the most appropriate account to
  * used to reach to the specified URL.
  */
-(pjsua_acc_id) pjsua_acc_find_for_outgoing(const pj_str_t *url)
+pjsua_acc_id pjsua_acc_find_for_outgoing(const pj_str_t *url)
 {
     pj_str_t tmp;
     pjsip_uri *uri;
@@ -2837,7 +2837,7 @@ on_return:
  * This is an internal function to find the most appropriate account to be
  * used to handle incoming calls.
  */
-(pjsua_acc_id) pjsua_acc_find_for_incoming(pjsip_rx_data *rdata)
+pjsua_acc_id pjsua_acc_find_for_incoming(pjsip_rx_data *rdata)
 {
     pjsip_uri *uri;
     pjsip_sip_uri *sip_uri;
@@ -2941,7 +2941,7 @@ on_return:
 /*
  * Create arbitrary requests for this account. 
  */
-(pj_status_t) pjsua_acc_create_request(pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_create_request(pjsua_acc_id acc_id,
 					     const pjsip_method *method,
 					     const pj_str_t *target,
 					     pjsip_tx_data **p_tdata)
@@ -3225,7 +3225,7 @@ pj_status_t pjsua_acc_get_uac_addr(pjsua_acc_id acc_id,
 }
 
 
-(pj_status_t) pjsua_acc_create_uac_contact( pj_pool_t *pool,
+pj_status_t pjsua_acc_create_uac_contact( pj_pool_t *pool,
 						  pj_str_t *contact,
 						  pjsua_acc_id acc_id,
 						  const pj_str_t *suri)
@@ -3302,7 +3302,7 @@ pj_status_t pjsua_acc_get_uac_addr(pjsua_acc_id acc_id,
 
 
 
-(pj_status_t) pjsua_acc_create_uas_contact( pj_pool_t *pool,
+pj_status_t pjsua_acc_create_uas_contact( pj_pool_t *pool,
 						  pj_str_t *contact,
 						  pjsua_acc_id acc_id,
 						  pjsip_rx_data *rdata )
@@ -3473,7 +3473,7 @@ pj_status_t pjsua_acc_get_uac_addr(pjsua_acc_id acc_id,
 }
 
 
-(pj_status_t) pjsua_acc_set_transport( pjsua_acc_id acc_id,
+pj_status_t pjsua_acc_set_transport( pjsua_acc_id acc_id,
 					     pjsua_transport_id tp_id)
 {
     pjsua_acc *acc;

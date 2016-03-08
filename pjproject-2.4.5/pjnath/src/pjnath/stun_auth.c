@@ -30,7 +30,7 @@
 #define THIS_FILE   "stun_auth.c"
 
 /* Duplicate credential */
-(void) pj_stun_auth_cred_dup( pj_pool_t *pool,
+void pj_stun_auth_cred_dup( pj_pool_t *pool,
 				      pj_stun_auth_cred *dst,
 				      const pj_stun_auth_cred *src)
 {
@@ -59,7 +59,7 @@
 /*
  * Duplicate request credential.
  */
-(void) pj_stun_req_cred_info_dup( pj_pool_t *pool,
+void pj_stun_req_cred_info_dup( pj_pool_t *pool,
 					pj_stun_req_cred_info *dst,
 					const pj_stun_req_cred_info *src)
 {
@@ -125,7 +125,7 @@ static void calc_md5_key(pj_uint8_t digest[16],
  * Create authentication key to be used for encoding the message with
  * MESSAGE-INTEGRITY. 
  */
-(void) pj_stun_create_key(pj_pool_t *pool,
+void pj_stun_create_key(pj_pool_t *pool,
 				pj_str_t *key,
 				const pj_str_t *realm,
 				const pj_str_t *username,
@@ -149,13 +149,13 @@ static void calc_md5_key(pj_uint8_t digest[16],
 }
 
 
-/*unused PJ_INLINE(pj_uint16_t) GET_VAL16(const pj_uint8_t *pdu, unsigned pos)
+/*unused (pj_uint16_t) GET_VAL16(const pj_uint8_t *pdu, unsigned pos)
 {
     return (pj_uint16_t) ((pdu[pos] << 8) + pdu[pos+1]);
 }*/
 
 
-PJ_INLINE(void) PUT_VAL16(pj_uint8_t *buf, unsigned pos, pj_uint16_t hval)
+void PUT_VAL16(pj_uint8_t *buf, unsigned pos, pj_uint16_t hval)
 {
     buf[pos+0] = (pj_uint8_t) ((hval & 0xFF00) >> 8);
     buf[pos+1] = (pj_uint8_t) ((hval & 0x00FF) >> 0);
@@ -212,7 +212,7 @@ static pj_status_t create_challenge(pj_pool_t *pool,
 
 
 /* Verify credential in the request */
-(pj_status_t) pj_stun_authenticate_request(const pj_uint8_t *pkt,
+pj_status_t pj_stun_authenticate_request(const pj_uint8_t *pkt,
 					         unsigned pkt_len,
 					         const pj_stun_msg *msg,
 					         pj_stun_auth_cred *cred,
@@ -498,7 +498,7 @@ on_auth_failed:
 
 
 /* Determine if STUN message can be authenticated */
-(pj_bool_t) pj_stun_auth_valid_for_msg(const pj_stun_msg *msg)
+pj_bool_t pj_stun_auth_valid_for_msg(const pj_stun_msg *msg)
 {
     unsigned msg_type = msg->hdr.type;
     const pj_stun_errcode_attr *err_attr;
@@ -541,7 +541,7 @@ on_auth_failed:
 
 
 /* Authenticate MESSAGE-INTEGRITY in the response */
-(pj_status_t) pj_stun_authenticate_response(const pj_uint8_t *pkt,
+pj_status_t pj_stun_authenticate_response(const pj_uint8_t *pkt,
 					          unsigned pkt_len,
 					          const pj_stun_msg *msg,
 					          const pj_str_t *key)

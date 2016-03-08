@@ -68,7 +68,7 @@ _DATA(const pjsip_method) pjsip_refer_method = {
     { "REFER", 5}
 };
 
-(const pjsip_method*) pjsip_get_refer_method()
+const pjsip_method* pjsip_get_refer_method()
 {
     return &pjsip_refer_method;
 }
@@ -140,7 +140,7 @@ static pjsip_evsub_user xfer_user =
 /*
  * Initialize the REFER subsystem.
  */
-(pj_status_t) pjsip_xfer_init_module(pjsip_endpoint *endpt)
+pj_status_t pjsip_xfer_init_module(pjsip_endpoint *endpt)
 {
     const pj_str_t accept = { "message/sipfrag;version=2.0", 27 };
     pj_status_t status;
@@ -171,7 +171,7 @@ static pjsip_evsub_user xfer_user =
  * Create transferer (sender of REFER request).
  *
  */
-(pj_status_t) pjsip_xfer_create_uac( pjsip_dialog *dlg,
+pj_status_t pjsip_xfer_create_uac( pjsip_dialog *dlg,
 					   const pjsip_evsub_user *user_cb,
 					   pjsip_evsub **p_evsub )
 {
@@ -214,7 +214,7 @@ on_return:
  * Create transferee (receiver of REFER request).
  *
  */
-(pj_status_t) pjsip_xfer_create_uas( pjsip_dialog *dlg,
+pj_status_t pjsip_xfer_create_uas( pjsip_dialog *dlg,
 					   const pjsip_evsub_user *user_cb,
 					   pjsip_rx_data *rdata,
 					   pjsip_evsub **p_evsub )
@@ -282,7 +282,7 @@ on_return:
  * Call this function to create request to initiate REFER subscription.
  *
  */
-(pj_status_t) pjsip_xfer_initiate( pjsip_evsub *sub,
+pj_status_t pjsip_xfer_initiate( pjsip_evsub *sub,
 					 const pj_str_t *refer_to_uri,
 					 pjsip_tx_data **p_tdata)
 {
@@ -348,7 +348,7 @@ on_return:
  * Accept the incoming REFER request by sending 2xx response.
  *
  */
-(pj_status_t) pjsip_xfer_accept( pjsip_evsub *sub,
+pj_status_t pjsip_xfer_accept( pjsip_evsub *sub,
 				       pjsip_rx_data *rdata,
 				       int st_code,
 				       const pjsip_hdr *hdr_list )
@@ -365,7 +365,7 @@ on_return:
  * For notifier, create NOTIFY request to subscriber, and set the state 
  * of the subscription. 
  */
-(pj_status_t) pjsip_xfer_notify( pjsip_evsub *sub,
+pj_status_t pjsip_xfer_notify( pjsip_evsub *sub,
 				       pjsip_evsub_state state,
 				       int xfer_st_code,
 				       const pj_str_t *xfer_st_text,
@@ -452,7 +452,7 @@ on_return:
 /*
  * Send current state and the last sipfrag body.
  */
-(pj_status_t) pjsip_xfer_current_notify( pjsip_evsub *sub,
+pj_status_t pjsip_xfer_current_notify( pjsip_evsub *sub,
 					       pjsip_tx_data **p_tdata )
 {
     pjsip_xfer *xfer;
@@ -481,7 +481,7 @@ on_return:
 /*
  * Send request message. 
  */
-(pj_status_t) pjsip_xfer_send_request( pjsip_evsub *sub,
+pj_status_t pjsip_xfer_send_request( pjsip_evsub *sub,
 					     pjsip_tx_data *tdata)
 {
     return pjsip_evsub_send_request(sub, tdata);

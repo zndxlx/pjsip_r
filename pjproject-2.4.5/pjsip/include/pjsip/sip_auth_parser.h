@@ -39,12 +39,12 @@ PJ_BEGIN_DECL
  *
  * @return      PJ_SUCCESS or the appropriate status code.
  */
-(pj_status_t) pjsip_auth_init_parser(void);
+pj_status_t pjsip_auth_init_parser(void);
 
 /**
  * DeInitialize authorization parser module.
  */
-(void) pjsip_auth_deinit_parser();
+void pjsip_auth_deinit_parser();
 
 
 

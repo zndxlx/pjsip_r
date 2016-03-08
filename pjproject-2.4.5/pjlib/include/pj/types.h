@@ -304,13 +304,13 @@ typedef int pj_exception_id_t;
  *
  * @return PJ_SUCCESS on success.
  */
-(pj_status_t) pj_init(void);
+pj_status_t pj_init(void);
 
 
 /**
  * Shutdown PJLIB.
  */
-(void) pj_shutdown(void);
+void pj_shutdown(void);
 
 /**
  * Type of callback to register to pj_atexit().
@@ -325,7 +325,7 @@ typedef void (*pj_exit_callback)(void);
  *
  * @return PJ_SUCCESS on success.
  */
-(pj_status_t) pj_atexit(pj_exit_callback func);
+pj_status_t pj_atexit(pj_exit_callback func);
 
 
 
@@ -336,7 +336,7 @@ typedef void (*pj_exit_callback)(void);
  *
  * @return	    An 16bit data with swapped byte order.
  */
-PJ_INLINE(pj_int16_t) pj_swap16(pj_int16_t val16)
+pj_int16_t pj_swap16(pj_int16_t val16)
 {
     pj_uint8_t *p = (pj_uint8_t*)&val16;
     pj_uint8_t tmp = *p;
@@ -352,7 +352,7 @@ PJ_INLINE(pj_int16_t) pj_swap16(pj_int16_t val16)
  *
  * @return	    An 32bit data with swapped byte order.
  */
-PJ_INLINE(pj_int32_t) pj_swap32(pj_int32_t val32)
+pj_int32_t pj_swap32(pj_int32_t val32)
 {
     pj_uint8_t *p = (pj_uint8_t*)&val32;
     pj_uint8_t tmp = *p;
@@ -393,7 +393,7 @@ typedef struct pj_time_val
  * Normalize the value in time value.
  * @param t     Time value to be normalized.
  */
-(void) pj_time_val_normalize(pj_time_val *t);
+void pj_time_val_normalize(pj_time_val *t);
 
 /**
  * Get the total time value in miliseconds. This is the same as

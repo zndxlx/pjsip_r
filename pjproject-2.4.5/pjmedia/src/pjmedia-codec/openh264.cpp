@@ -167,7 +167,7 @@ struct SLayerPEncCtx
   SSliceConfig			sSliceCfg;
 };
 
-(pj_status_t) pjmedia_codec_openh264_vid_init(pjmedia_vid_codec_mgr *mgr,
+pj_status_t pjmedia_codec_openh264_vid_init(pjmedia_vid_codec_mgr *mgr,
                                                     pj_pool_factory *pf)
 {
     const pj_str_t h264_name = { (char*)"H264", 4};
@@ -217,7 +217,7 @@ on_error:
 /*
  * Unregister OpenH264 codecs factory from pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_openh264_vid_deinit(void)
+pj_status_t pjmedia_codec_openh264_vid_deinit(void)
 {
     pj_status_t status = PJ_SUCCESS;
 

@@ -264,7 +264,7 @@ typedef struct pjsip_tls_state_info
  *
  * @param tls_opt   The TLS setting to be initialized.
  */
-PJ_INLINE(void) pjsip_tls_setting_default(pjsip_tls_setting *tls_opt)
+void pjsip_tls_setting_default(pjsip_tls_setting *tls_opt)
 {
     pj_memset(tls_opt, 0, sizeof(*tls_opt));
     tls_opt->reuse_addr = PJSIP_TLS_TRANSPORT_REUSEADDR;
@@ -282,7 +282,7 @@ PJ_INLINE(void) pjsip_tls_setting_default(pjsip_tls_setting *tls_opt)
  * @param dst	    Destination structure.
  * @param src	    Source structure.
  */
-PJ_INLINE(void) pjsip_tls_setting_copy(pj_pool_t *pool,
+void pjsip_tls_setting_copy(pj_pool_t *pool,
 				       pjsip_tls_setting *dst,
 				       const pjsip_tls_setting *src)
 {
@@ -335,7 +335,7 @@ PJ_INLINE(void) pjsip_tls_setting_copy(pj_pool_t *pool,
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_tls_transport_start(pjsip_endpoint *endpt,
+pj_status_t pjsip_tls_transport_start(pjsip_endpoint *endpt,
 					       const pjsip_tls_setting *opt,
 					       const pj_sockaddr_in *local,
 					       const pjsip_host_port *a_name,
@@ -373,7 +373,7 @@ PJ_INLINE(void) pjsip_tls_setting_copy(pj_pool_t *pool,
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-(pj_status_t) pjsip_tls_transport_start2(pjsip_endpoint *endpt,
+pj_status_t pjsip_tls_transport_start2(pjsip_endpoint *endpt,
  					        const pjsip_tls_setting *opt,
 					        const pj_sockaddr *local,
 					        const pjsip_host_port *a_name,

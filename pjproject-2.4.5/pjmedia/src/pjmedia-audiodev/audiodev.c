@@ -148,7 +148,7 @@ static struct aud_subsys
 } aud_subsys;
 
 /* API: get capability name/info */
-(const char*) pjmedia_aud_dev_cap_name(pjmedia_aud_dev_cap cap,
+const char* pjmedia_aud_dev_cap_name(pjmedia_aud_dev_cap cap,
 					     const char **p_desc)
 {
     const char *desc;
@@ -227,7 +227,7 @@ static pj_status_t get_cap_pointer(const pjmedia_aud_param *param,
 }
 
 /* API: set cap value to param */
-(pj_status_t) pjmedia_aud_param_set_cap( pjmedia_aud_param *param,
+pj_status_t pjmedia_aud_param_set_cap( pjmedia_aud_param *param,
 					       pjmedia_aud_dev_cap cap,
 					       const void *pval)
 {
@@ -246,7 +246,7 @@ static pj_status_t get_cap_pointer(const pjmedia_aud_param *param,
 }
 
 /* API: get cap value from param */
-(pj_status_t) pjmedia_aud_param_get_cap( const pjmedia_aud_param *param,
+pj_status_t pjmedia_aud_param_get_cap( const pjmedia_aud_param *param,
 					       pjmedia_aud_dev_cap cap,
 					       void *pval)
 {
@@ -384,7 +384,7 @@ static void deinit_driver(unsigned drv_idx)
 }
 
 /* API: Initialize the audio subsystem. */
-(pj_status_t) pjmedia_aud_subsys_init(pj_pool_factory *pf)
+pj_status_t pjmedia_aud_subsys_init(pj_pool_factory *pf)
 {
     unsigned i;
     pj_status_t status;
@@ -458,7 +458,7 @@ static void deinit_driver(unsigned drv_idx)
 }
 
 /* API: register an audio device factory to the audio subsystem. */
-(pj_status_t)
+pj_status_t
 pjmedia_aud_register_factory(pjmedia_aud_dev_factory_create_func_ptr adf)
 {
     pj_status_t status;
@@ -478,7 +478,7 @@ pjmedia_aud_register_factory(pjmedia_aud_dev_factory_create_func_ptr adf)
 }
 
 /* API: unregister an audio device factory from the audio subsystem. */
-(pj_status_t)
+pj_status_t
 pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf)
 {
     unsigned i, j;
@@ -504,13 +504,13 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf)
 }
 
 /* API: get the pool factory registered to the audio subsystem. */
-(pj_pool_factory*) pjmedia_aud_subsys_get_pool_factory(void)
+pj_pool_factory* pjmedia_aud_subsys_get_pool_factory(void)
 {
     return aud_subsys.pf;
 }
 
 /* API: Shutdown the audio subsystem. */
-(pj_status_t) pjmedia_aud_subsys_shutdown(void)
+pj_status_t pjmedia_aud_subsys_shutdown(void)
 {
     unsigned i;
 
@@ -533,7 +533,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf)
 }
 
 /* API: Refresh the list of sound devices installed in the system. */
-(pj_status_t) pjmedia_aud_dev_refresh(void)
+pj_status_t pjmedia_aud_dev_refresh(void)
 {
     unsigned i;
     
@@ -554,7 +554,7 @@ pjmedia_aud_unregister_factory(pjmedia_aud_dev_factory_create_func_ptr adf)
 }
 
 /* API: Get the number of sound devices installed in the system. */
-(unsigned) pjmedia_aud_dev_count(void)
+unsigned pjmedia_aud_dev_count(void)
 {
     return aud_subsys.dev_cnt;
 }
@@ -634,7 +634,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: Get device information. */
-(pj_status_t) pjmedia_aud_dev_get_info(pjmedia_aud_dev_index id,
+pj_status_t pjmedia_aud_dev_get_info(pjmedia_aud_dev_index id,
 					     pjmedia_aud_dev_info *info)
 {
     pjmedia_aud_dev_factory *f;
@@ -652,7 +652,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: find device */
-(pj_status_t) pjmedia_aud_dev_lookup( const char *drv_name,
+pj_status_t pjmedia_aud_dev_lookup( const char *drv_name,
 					    const char *dev_name,
 					    pjmedia_aud_dev_index *id)
 {
@@ -696,7 +696,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 /* API: Initialize the audio device parameters with default values for the
  * specified device.
  */
-(pj_status_t) pjmedia_aud_dev_default_param(pjmedia_aud_dev_index id,
+pj_status_t pjmedia_aud_dev_default_param(pjmedia_aud_dev_index id,
 						  pjmedia_aud_param *param)
 {
     pjmedia_aud_dev_factory *f;
@@ -722,7 +722,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: Open audio stream object using the specified parameters. */
-(pj_status_t) pjmedia_aud_stream_create(const pjmedia_aud_param *prm,
+pj_status_t pjmedia_aud_stream_create(const pjmedia_aud_param *prm,
 					      pjmedia_aud_rec_cb rec_cb,
 					      pjmedia_aud_play_cb play_cb,
 					      void *user_data,
@@ -791,7 +791,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: Get the running parameters for the specified audio stream. */
-(pj_status_t) pjmedia_aud_stream_get_param(pjmedia_aud_stream *strm,
+pj_status_t pjmedia_aud_stream_get_param(pjmedia_aud_stream *strm,
 						 pjmedia_aud_param *param)
 {
     pj_status_t status;
@@ -811,7 +811,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: Get the value of a specific capability of the audio stream. */
-(pj_status_t) pjmedia_aud_stream_get_cap(pjmedia_aud_stream *strm,
+pj_status_t pjmedia_aud_stream_get_cap(pjmedia_aud_stream *strm,
 					       pjmedia_aud_dev_cap cap,
 					       void *value)
 {
@@ -819,7 +819,7 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: Set the value of a specific capability of the audio stream. */
-(pj_status_t) pjmedia_aud_stream_set_cap(pjmedia_aud_stream *strm,
+pj_status_t pjmedia_aud_stream_set_cap(pjmedia_aud_stream *strm,
 					       pjmedia_aud_dev_cap cap,
 					       const void *value)
 {
@@ -827,19 +827,19 @@ static pj_status_t lookup_dev(pjmedia_aud_dev_index id,
 }
 
 /* API: Start the stream. */
-(pj_status_t) pjmedia_aud_stream_start(pjmedia_aud_stream *strm)
+pj_status_t pjmedia_aud_stream_start(pjmedia_aud_stream *strm)
 {
     return strm->op->start(strm);
 }
 
 /* API: Stop the stream. */
-(pj_status_t) pjmedia_aud_stream_stop(pjmedia_aud_stream *strm)
+pj_status_t pjmedia_aud_stream_stop(pjmedia_aud_stream *strm)
 {
     return strm->op->stop(strm);
 }
 
 /* API: Destroy the stream. */
-(pj_status_t) pjmedia_aud_stream_destroy(pjmedia_aud_stream *strm)
+pj_status_t pjmedia_aud_stream_destroy(pjmedia_aud_stream *strm)
 {
     return strm->op->destroy(strm);
 }

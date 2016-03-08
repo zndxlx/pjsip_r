@@ -94,7 +94,7 @@ typedef struct pjmedia_codec_silk_setting
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_silk_init(pjmedia_endpt *endpt);
+pj_status_t pjmedia_codec_silk_init(pjmedia_endpt *endpt);
 
 
 /**
@@ -108,7 +108,7 @@ typedef struct pjmedia_codec_silk_setting
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_silk_set_config(
+pj_status_t pjmedia_codec_silk_set_config(
 				    unsigned clock_rate, 
 				    const pjmedia_codec_silk_setting *opt);
 
@@ -119,7 +119,7 @@ typedef struct pjmedia_codec_silk_setting
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_silk_deinit(void);
+pj_status_t pjmedia_codec_silk_deinit(void);
 
 
 PJ_END_DECL

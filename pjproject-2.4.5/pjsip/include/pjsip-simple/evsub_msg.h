@@ -58,7 +58,7 @@ typedef struct pjsip_event_hdr
  *
  * @return	    New Event header instance.
  */
-(pjsip_event_hdr*) pjsip_event_hdr_create(pj_pool_t *pool);
+pjsip_event_hdr* pjsip_event_hdr_create(pj_pool_t *pool);
 
 
 /**
@@ -74,7 +74,7 @@ typedef pjsip_generic_array_hdr pjsip_allow_events_hdr;
  *
  * @return	    Allow-Events header.
  */
-(pjsip_allow_events_hdr*) 
+pjsip_allow_events_hdr* 
 pjsip_allow_events_hdr_create(pj_pool_t *pool);
 
 
@@ -100,12 +100,12 @@ typedef struct pjsip_sub_state_hdr
  *
  * @return	    Subscription-State header.
  */
-(pjsip_sub_state_hdr*) pjsip_sub_state_hdr_create(pj_pool_t *pool);
+pjsip_sub_state_hdr* pjsip_sub_state_hdr_create(pj_pool_t *pool);
 
 /**
  * Initialize parser for event notify module.
  */
-(void) pjsip_evsub_init_parser(void);
+void pjsip_evsub_init_parser(void);
 
 
 PJ_END_DECL

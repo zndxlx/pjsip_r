@@ -151,21 +151,21 @@ struct pjsip_transaction
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_tsx_layer_init_module(pjsip_endpoint *endpt);
+pj_status_t pjsip_tsx_layer_init_module(pjsip_endpoint *endpt);
 
 /**
  * Get the instance of the transaction layer module.
  *
  * @return	    The transaction layer module.
  */
-(pjsip_module*) pjsip_tsx_layer_instance(void);
+pjsip_module* pjsip_tsx_layer_instance(void);
 
 /**
  * Unregister and destroy transaction layer module.
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_tsx_layer_destroy(void);
+pj_status_t pjsip_tsx_layer_destroy(void);
 
 /**
  * Retrieve the current number of transactions currently registered
@@ -173,7 +173,7 @@ struct pjsip_transaction
  *
  * @return	    Number of transactions.
  */
-(unsigned) pjsip_tsx_layer_get_tsx_count(void);
+unsigned pjsip_tsx_layer_get_tsx_count(void);
 
 /**
  * Find a transaction with the specified key. The transaction key normally
@@ -187,7 +187,7 @@ struct pjsip_transaction
  * @return	    The matching transaction instance, or NULL if transaction
  *		    can not be found.
  */
-(pjsip_transaction*) pjsip_tsx_layer_find_tsx( const pj_str_t *key,
+pjsip_transaction* pjsip_tsx_layer_find_tsx( const pj_str_t *key,
 						      pj_bool_t lock );
 
 /**
@@ -209,7 +209,7 @@ struct pjsip_transaction
  *
  * @return          PJ_SUCCESS if successfull.
  */
-(pj_status_t) pjsip_tsx_create_uac( pjsip_module *tsx_user,
+pj_status_t pjsip_tsx_create_uac( pjsip_module *tsx_user,
 					   pjsip_tx_data *tdata,
 					   pjsip_transaction **p_tsx);
 
@@ -232,7 +232,7 @@ struct pjsip_transaction
  *
  * @return          PJ_SUCCESS if successfull.
  */
-(pj_status_t) pjsip_tsx_create_uac2(pjsip_module *tsx_user,
+pj_status_t pjsip_tsx_create_uac2(pjsip_module *tsx_user,
 					   pjsip_tx_data *tdata,
 					   pj_grp_lock_t *grp_lock,
 					   pjsip_transaction **p_tsx);
@@ -251,7 +251,7 @@ struct pjsip_transaction
  *
  * @return	    PJ_SUCCESS if successfull.
  */
-(pj_status_t) pjsip_tsx_create_uas( pjsip_module *tsx_user,
+pj_status_t pjsip_tsx_create_uas( pjsip_module *tsx_user,
 					   pjsip_rx_data *rdata,
 					   pjsip_transaction **p_tsx );
 
@@ -274,7 +274,7 @@ struct pjsip_transaction
  *
  * @return	    PJ_SUCCESS if successfull.
  */
-(pj_status_t) pjsip_tsx_create_uas2(pjsip_module *tsx_user,
+pj_status_t pjsip_tsx_create_uas2(pjsip_module *tsx_user,
 					   pjsip_rx_data *rdata,
 					   pj_grp_lock_t *grp_lock,
 					   pjsip_transaction **p_tsx );
@@ -291,7 +291,7 @@ struct pjsip_transaction
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pjsip_tsx_set_transport(pjsip_transaction *tsx,
+pj_status_t pjsip_tsx_set_transport(pjsip_transaction *tsx,
 					     const pjsip_tpselector *sel);
 
 /**
@@ -308,7 +308,7 @@ struct pjsip_transaction
  * @param tsx	    The transaction.
  * @param rdata	    The message.
  */
-(void) pjsip_tsx_recv_msg( pjsip_transaction *tsx, 
+void pjsip_tsx_recv_msg( pjsip_transaction *tsx, 
 				  pjsip_rx_data *rdata);
 
 /**
@@ -327,7 +327,7 @@ struct pjsip_transaction
  *
  * @return	    PJ_SUCCESS if successfull.
  */
-(pj_status_t) pjsip_tsx_send_msg( pjsip_transaction *tsx,
+pj_status_t pjsip_tsx_send_msg( pjsip_transaction *tsx,
 					 pjsip_tx_data *tdata);
 
 
@@ -345,7 +345,7 @@ struct pjsip_transaction
  *
  * @return	    PJ_SUCCESS if successful.
  */
-(pj_status_t) pjsip_tsx_retransmit_no_state(pjsip_transaction *tsx,
+pj_status_t pjsip_tsx_retransmit_no_state(pjsip_transaction *tsx,
 						   pjsip_tx_data *tdata);
 
 
@@ -361,7 +361,7 @@ struct pjsip_transaction
  *
  * @return          PJ_SUCCESS or the appropriate error code.
  */
-(pj_status_t) pjsip_tsx_create_key( pj_pool_t *pool,
+pj_status_t pjsip_tsx_create_key( pj_pool_t *pool,
 				           pj_str_t *key,
 				           pjsip_role_e role,
 				           const pjsip_method *method,
@@ -373,7 +373,7 @@ struct pjsip_transaction
  * @param tsx       The transaction.
  * @param code      The status code to report.
  */
-(pj_status_t) pjsip_tsx_terminate( pjsip_transaction *tsx,
+pj_status_t pjsip_tsx_terminate( pjsip_transaction *tsx,
 					  int code );
 
 
@@ -390,7 +390,7 @@ struct pjsip_transaction
  *
  * @return          PJ_SUCCESS or the appropriate error code.
  */
-(pj_status_t) pjsip_tsx_stop_retransmit(pjsip_transaction *tsx);
+pj_status_t pjsip_tsx_stop_retransmit(pjsip_transaction *tsx);
 
 
 /**
@@ -413,7 +413,7 @@ struct pjsip_transaction
  *
  * @return          PJ_SUCCESS or the appropriate error code.
  */
-(pj_status_t) pjsip_tsx_set_timeout(pjsip_transaction *tsx,
+pj_status_t pjsip_tsx_set_timeout(pjsip_transaction *tsx,
 					   unsigned millisec);
 
 
@@ -427,7 +427,7 @@ struct pjsip_transaction
  * @return	    The transaction instance associated with this message,
  *		    or NULL if the message doesn't match any transactions.
  */
-(pjsip_transaction*) pjsip_rdata_get_tsx( pjsip_rx_data *rdata );
+pjsip_transaction* pjsip_rdata_get_tsx( pjsip_rx_data *rdata );
 
 
 /**
@@ -441,19 +441,19 @@ struct pjsip_transaction
 /*
  * Dump transaction layer.
  */
-(void) pjsip_tsx_layer_dump(pj_bool_t detail);
+void pjsip_tsx_layer_dump(pj_bool_t detail);
 
 /**
  * Get the string name for the state.
  * @param state	State
  */
-(const char *) pjsip_tsx_state_str(pjsip_tsx_state_e state);
+const char * pjsip_tsx_state_str(pjsip_tsx_state_e state);
 
 /**
  * Get the role name.
  * @param role	Role.
  */
-(const char *) pjsip_role_name(pjsip_role_e role);
+const char * pjsip_role_name(pjsip_role_e role);
 
 
 PJ_END_DECL

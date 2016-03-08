@@ -27,51 +27,51 @@ PJ_BEGIN_DECL
 /*
  * Simple echo suppressor
  */
-(pj_status_t) echo_supp_create(pj_pool_t *pool,
+pj_status_t echo_supp_create(pj_pool_t *pool,
 				      unsigned clock_rate,
 				      unsigned channel_count,
 				      unsigned samples_per_frame,
 				      unsigned tail_ms,
 				      unsigned options,
 				      void **p_state );
-(pj_status_t) echo_supp_destroy(void *state);
-(void) echo_supp_reset(void *state);
-(pj_status_t) echo_supp_cancel_echo(void *state,
+pj_status_t echo_supp_destroy(void *state);
+void echo_supp_reset(void *state);
+pj_status_t echo_supp_cancel_echo(void *state,
 					   pj_int16_t *rec_frm,
 					   const pj_int16_t *play_frm,
 					   unsigned options,
 					   void *reserved );
 
-(pj_status_t) speex_aec_create(pj_pool_t *pool,
+pj_status_t speex_aec_create(pj_pool_t *pool,
 				      unsigned clock_rate,
 				      unsigned channel_count,
 				      unsigned samples_per_frame,
 				      unsigned tail_ms,
 				      unsigned options,
 				      void **p_state );
-(pj_status_t) speex_aec_destroy(void *state );
-(void) speex_aec_reset(void *state );
-(pj_status_t) speex_aec_cancel_echo(void *state,
+pj_status_t speex_aec_destroy(void *state );
+void speex_aec_reset(void *state );
+pj_status_t speex_aec_cancel_echo(void *state,
 					   pj_int16_t *rec_frm,
 					   const pj_int16_t *play_frm,
 					   unsigned options,
 					   void *reserved );
-(pj_status_t) speex_aec_playback(void *state,
+pj_status_t speex_aec_playback(void *state,
 					pj_int16_t *play_frm );
-(pj_status_t) speex_aec_capture(void *state,
+pj_status_t speex_aec_capture(void *state,
 				       pj_int16_t *rec_frm,
 				       unsigned options );
 
-(pj_status_t) ipp_aec_create(pj_pool_t *pool,
+pj_status_t ipp_aec_create(pj_pool_t *pool,
 				    unsigned clock_rate,
 				    unsigned channel_count,
 				    unsigned samples_per_frame,
 				    unsigned tail_ms,
 				    unsigned options,
 				    void **p_echo );
-(pj_status_t) ipp_aec_destroy(void *state );
-(void) ipp_aec_reset(void *state );
-(pj_status_t) ipp_aec_cancel_echo(void *state,
+pj_status_t ipp_aec_destroy(void *state );
+void ipp_aec_reset(void *state );
+pj_status_t ipp_aec_cancel_echo(void *state,
 					 pj_int16_t *rec_frm,
 					 const pj_int16_t *play_frm,
 					 unsigned options,

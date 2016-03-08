@@ -1196,7 +1196,7 @@ enum pj_stun_decode_options
  *
  * @return		The STUN message method name string.
  */
-(const char*) pj_stun_get_method_name(unsigned msg_type);
+const char* pj_stun_get_method_name(unsigned msg_type);
 
 
 /**
@@ -1206,7 +1206,7 @@ enum pj_stun_decode_options
  *
  * @return		The STUN message class name string.
  */
-(const char*) pj_stun_get_class_name(unsigned msg_type);
+const char* pj_stun_get_class_name(unsigned msg_type);
 
 
 /**
@@ -1216,7 +1216,7 @@ enum pj_stun_decode_options
  *
  * @return		The STUN attribute type name string.
  */
-(const char*) pj_stun_get_attr_name(unsigned attr_type);
+const char* pj_stun_get_attr_name(unsigned attr_type);
 
 
 /**
@@ -1226,7 +1226,7 @@ enum pj_stun_decode_options
  *
  * @return		The STUN error reason phrase.
  */
-(pj_str_t) pj_stun_get_err_reason(int err_code);
+pj_str_t pj_stun_get_err_reason(int err_code);
 
 
 /**
@@ -1235,7 +1235,7 @@ enum pj_stun_decode_options
  *
  * @return		The previous padding character.
  */
-(int) pj_stun_set_padding_char(int chr);
+int pj_stun_set_padding_char(int chr);
 
 
 /**
@@ -1251,7 +1251,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pj_stun_msg_init(pj_stun_msg *msg,
+pj_status_t pj_stun_msg_init(pj_stun_msg *msg,
 				      unsigned msg_type,
 				      pj_uint32_t magic,
 				      const pj_uint8_t tsx_id[12]);
@@ -1269,7 +1269,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pj_stun_msg_create(pj_pool_t *pool,
+pj_status_t pj_stun_msg_create(pj_pool_t *pool,
 					unsigned msg_type,
 					pj_uint32_t magic,
 					const pj_uint8_t tsx_id[12],
@@ -1283,7 +1283,7 @@ enum pj_stun_decode_options
  *
  * @return		The duplicate message.
  */
-(pj_stun_msg*) pj_stun_msg_clone(pj_pool_t *pool,
+pj_stun_msg* pj_stun_msg_clone(pj_pool_t *pool,
 					const pj_stun_msg *msg);
 
 /**
@@ -1302,7 +1302,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-(pj_status_t) pj_stun_msg_create_response(pj_pool_t *pool,
+pj_status_t pj_stun_msg_create_response(pj_pool_t *pool,
 						 const pj_stun_msg *req_msg,
 						 unsigned err_code,
 						 const pj_str_t *err_msg,
@@ -1318,7 +1318,7 @@ enum pj_stun_decode_options
  * @return		PJ_SUCCESS on success, or PJ_ETOOMANY if there are
  *			already too many attributes in the message.
  */
-(pj_status_t) pj_stun_msg_add_attr(pj_stun_msg *msg,
+pj_status_t pj_stun_msg_add_attr(pj_stun_msg *msg,
 					  pj_stun_attr_hdr *attr);
 
 
@@ -1355,7 +1355,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_encode(pj_stun_msg *msg,
+pj_status_t pj_stun_msg_encode(pj_stun_msg *msg,
 				        pj_uint8_t *pkt_buf,
 				        pj_size_t buf_size,
 				        unsigned options,
@@ -1381,7 +1381,7 @@ enum pj_stun_decode_options
  * @return		PJ_SUCCESS if the PDU is a potentially valid STUN
  *			message.
  */
-(pj_status_t) pj_stun_msg_check(const pj_uint8_t *pdu, 
+pj_status_t pj_stun_msg_check(const pj_uint8_t *pdu, 
 				       pj_size_t pdu_len, unsigned options);
 
 
@@ -1406,7 +1406,7 @@ enum pj_stun_decode_options
  * @return		PJ_SUCCESS if a STUN message has been successfully
  *			decoded.
  */
-(pj_status_t) pj_stun_msg_decode(pj_pool_t *pool,
+pj_status_t pj_stun_msg_decode(pj_pool_t *pool,
 				        const pj_uint8_t *pdu,
 				        pj_size_t pdu_len,
 				        unsigned options,
@@ -1427,7 +1427,7 @@ enum pj_stun_decode_options
  * @return		The message string output.
  */
 #if PJ_LOG_MAX_LEVEL > 0
-(char*) pj_stun_msg_dump(const pj_stun_msg *msg,
+char* pj_stun_msg_dump(const pj_stun_msg *msg,
 			        char *buffer,
 			        unsigned length,
 				unsigned *printed_len);
@@ -1449,7 +1449,7 @@ enum pj_stun_decode_options
  * @return		The attribute instance, or NULL if it cannot be
  *			found.
  */
-(pj_stun_attr_hdr*) pj_stun_msg_find_attr(const pj_stun_msg *msg,
+pj_stun_attr_hdr* pj_stun_msg_find_attr(const pj_stun_msg *msg,
 						 int attr_type,
 						 unsigned start_index);
 
@@ -1462,7 +1462,7 @@ enum pj_stun_decode_options
  *
  * @return		Duplicate attribute.
  */
-(pj_stun_attr_hdr*) pj_stun_attr_clone(pj_pool_t *pool,
+pj_stun_attr_hdr* pj_stun_attr_clone(pj_pool_t *pool,
 					      const pj_stun_attr_hdr *attr);
 
 
@@ -1480,7 +1480,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_sockaddr_attr_init(pj_stun_sockaddr_attr *attr,
+pj_status_t pj_stun_sockaddr_attr_init(pj_stun_sockaddr_attr *attr,
 						int attr_type, 
 						pj_bool_t xor_ed,
 						const pj_sockaddr_t *addr,
@@ -1501,7 +1501,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_sockaddr_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_sockaddr_attr_create(pj_pool_t *pool,
 						int attr_type, 
 						pj_bool_t xor_ed,
 						const pj_sockaddr_t *addr,
@@ -1524,7 +1524,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_sockaddr_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_sockaddr_attr(pj_pool_t *pool,
 						  pj_stun_msg *msg,
 						  int attr_type, 
 						  pj_bool_t xor_ed,
@@ -1542,7 +1542,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_string_attr_init(pj_stun_string_attr *attr,
+pj_status_t pj_stun_string_attr_init(pj_stun_string_attr *attr,
 					      pj_pool_t *pool,
 					      int attr_type,
 					      const pj_str_t *value);
@@ -1557,7 +1557,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_string_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_string_attr_create(pj_pool_t *pool,
 					        int attr_type,
 					        const pj_str_t *value,
 					        pj_stun_string_attr **p_attr);
@@ -1572,7 +1572,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_string_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_string_attr(pj_pool_t *pool,
 						 pj_stun_msg *msg,
 						 int attr_type,
 						 const pj_str_t *value);
@@ -1587,7 +1587,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_uint_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_uint_attr_create(pj_pool_t *pool,
 					      int attr_type,
 					      pj_uint32_t value,
 					      pj_stun_uint_attr **p_attr);
@@ -1602,7 +1602,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_uint_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_uint_attr(pj_pool_t *pool,
 					       pj_stun_msg *msg,
 					       int attr_type,
 					       pj_uint32_t value);
@@ -1618,7 +1618,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t)  pj_stun_uint64_attr_create(pj_pool_t *pool,
+pj_status_t  pj_stun_uint64_attr_create(pj_pool_t *pool,
 					        int attr_type,
 					        const pj_timestamp *value,
 					        pj_stun_uint64_attr **p_attr);
@@ -1634,7 +1634,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t)  pj_stun_msg_add_uint64_attr(pj_pool_t *pool,
+pj_status_t  pj_stun_msg_add_uint64_attr(pj_pool_t *pool,
 					          pj_stun_msg *msg,
 					          int attr_type,
 					          const pj_timestamp *value);
@@ -1647,7 +1647,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msgint_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_msgint_attr_create(pj_pool_t *pool,
 						pj_stun_msgint_attr **p_attr);
 
 /** 
@@ -1658,7 +1658,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_msgint_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_msgint_attr(pj_pool_t *pool,
 						 pj_stun_msg *msg);
 
 /**
@@ -1672,7 +1672,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_errcode_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_errcode_attr_create(pj_pool_t *pool,
 						int err_code,
 						const pj_str_t *err_reason,
 						pj_stun_errcode_attr **p_attr);
@@ -1689,7 +1689,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_errcode_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_errcode_attr(pj_pool_t *pool,
 						  pj_stun_msg *msg,
 						  int err_code,
 						  const pj_str_t *err_reason);
@@ -1705,7 +1705,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_unknown_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_unknown_attr_create(pj_pool_t *pool,
 						unsigned attr_cnt,
 						const pj_uint16_t attr[],
 						pj_stun_unknown_attr **p_attr);
@@ -1720,7 +1720,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_unknown_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_unknown_attr(pj_pool_t *pool,
 						  pj_stun_msg *msg,
 						  unsigned attr_cnt,
 						  const pj_uint16_t attr[]);
@@ -1738,7 +1738,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_binary_attr_init(pj_stun_binary_attr *attr,
+pj_status_t pj_stun_binary_attr_init(pj_stun_binary_attr *attr,
 					      pj_pool_t *pool,
 					      int attr_type,
 					      const pj_uint8_t *data,
@@ -1757,7 +1757,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_binary_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_binary_attr_create(pj_pool_t *pool,
 					        int attr_type,
 					        const pj_uint8_t *data,
 					        unsigned length,
@@ -1776,7 +1776,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_binary_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_binary_attr(pj_pool_t *pool,
 						 pj_stun_msg *msg,
 						 int attr_type,
 						 const pj_uint8_t *data,
@@ -1791,7 +1791,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_empty_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_empty_attr_create(pj_pool_t *pool,
 					       int attr_type,
 					       pj_stun_empty_attr **p_attr);
 
@@ -1804,7 +1804,7 @@ enum pj_stun_decode_options
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_msg_add_empty_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_empty_attr(pj_pool_t *pool,
 						pj_stun_msg *msg,
 						int attr_type);
 

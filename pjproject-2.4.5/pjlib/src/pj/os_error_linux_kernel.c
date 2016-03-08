@@ -29,22 +29,22 @@
 
 int kernel_errno;
 
-(pj_status_t) pj_get_os_error(void)
+pj_status_t pj_get_os_error(void)
 {
     return errno;
 }
 
-(void) pj_set_os_error(pj_status_t code)
+void pj_set_os_error(pj_status_t code)
 {
     errno = code;
 }
 
-(pj_status_t) pj_get_netos_error(void)
+pj_status_t pj_get_netos_error(void)
 {
     return errno;
 }
 
-(void) pj_set_netos_error(pj_status_t code)
+void pj_set_netos_error(pj_status_t code)
 {
     errno = code;
 }

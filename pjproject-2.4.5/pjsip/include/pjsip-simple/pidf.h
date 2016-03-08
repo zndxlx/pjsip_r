@@ -103,68 +103,68 @@ extern struct pjpidf_op_desc
 /******************************************************************************
  * Top level API for managing presence document. 
  *****************************************************************************/
-(pjpidf_pres*)    pjpidf_create(pj_pool_t *pool, const pj_str_t *entity);
-(pjpidf_pres*)	 pjpidf_parse(pj_pool_t *pool, char *text, int len);
-(int)		 pjpidf_print(const pjpidf_pres* pres, char *buf, int len);
+pjpidf_pres*    pjpidf_create(pj_pool_t *pool, const pj_str_t *entity);
+pjpidf_pres*	 pjpidf_parse(pj_pool_t *pool, char *text, int len);
+int		 pjpidf_print(const pjpidf_pres* pres, char *buf, int len);
 
 
 /******************************************************************************
  * API for managing Presence node.
  *****************************************************************************/
-(void)		 pjpidf_pres_construct(pj_pool_t *pool, pjpidf_pres *pres,
+void		 pjpidf_pres_construct(pj_pool_t *pool, pjpidf_pres *pres,
 					       const pj_str_t *entity);
-(pjpidf_tuple*)	 pjpidf_pres_add_tuple(pj_pool_t *pool, pjpidf_pres *pres, 
+pjpidf_tuple*	 pjpidf_pres_add_tuple(pj_pool_t *pool, pjpidf_pres *pres, 
 					       const pj_str_t *id);
-(pjpidf_tuple*)	 pjpidf_pres_get_first_tuple(pjpidf_pres *pres);
-(pjpidf_tuple*)	 pjpidf_pres_get_next_tuple(pjpidf_pres *pres, 
+pjpidf_tuple*	 pjpidf_pres_get_first_tuple(pjpidf_pres *pres);
+pjpidf_tuple*	 pjpidf_pres_get_next_tuple(pjpidf_pres *pres, 
 						    pjpidf_tuple *t);
-(pjpidf_tuple*)	 pjpidf_pres_find_tuple(pjpidf_pres *pres, 
+pjpidf_tuple*	 pjpidf_pres_find_tuple(pjpidf_pres *pres, 
 						const pj_str_t *id);
-(void)		 pjpidf_pres_remove_tuple(pjpidf_pres *pres, 
+void		 pjpidf_pres_remove_tuple(pjpidf_pres *pres, 
 						  pjpidf_tuple*);
 
-(pjpidf_note*)	 pjpidf_pres_add_note(pj_pool_t *pool, pjpidf_pres *pres, 
+pjpidf_note*	 pjpidf_pres_add_note(pj_pool_t *pool, pjpidf_pres *pres, 
 					      const pj_str_t *text);
-(pjpidf_note*)	 pjpidf_pres_get_first_note(pjpidf_pres *pres);
-(pjpidf_note*)	 pjpidf_pres_get_next_note(pjpidf_pres*, pjpidf_note*);
+pjpidf_note*	 pjpidf_pres_get_first_note(pjpidf_pres *pres);
+pjpidf_note*	 pjpidf_pres_get_next_note(pjpidf_pres*, pjpidf_note*);
 
 
 /******************************************************************************
  * API for managing Tuple node.
  *****************************************************************************/
-(void)		 pjpidf_tuple_construct(pj_pool_t *pool, pjpidf_tuple *t,
+void		 pjpidf_tuple_construct(pj_pool_t *pool, pjpidf_tuple *t,
 						const pj_str_t *id);
-(const pj_str_t*) pjpidf_tuple_get_id(const pjpidf_tuple *t );
-(void)		 pjpidf_tuple_set_id(pj_pool_t *pool, pjpidf_tuple *t, 
+const pj_str_t* pjpidf_tuple_get_id(const pjpidf_tuple *t );
+void		 pjpidf_tuple_set_id(pj_pool_t *pool, pjpidf_tuple *t, 
 					     const pj_str_t *id);
 
-(pjpidf_status*)  pjpidf_tuple_get_status(pjpidf_tuple *t);
+pjpidf_status*  pjpidf_tuple_get_status(pjpidf_tuple *t);
 
-(const pj_str_t*) pjpidf_tuple_get_contact(const pjpidf_tuple *t);
-(void)		 pjpidf_tuple_set_contact(pj_pool_t *pool, pjpidf_tuple *t, 
+const pj_str_t* pjpidf_tuple_get_contact(const pjpidf_tuple *t);
+void		 pjpidf_tuple_set_contact(pj_pool_t *pool, pjpidf_tuple *t, 
 						  const pj_str_t *contact);
-(void)		 pjpidf_tuple_set_contact_prio(pj_pool_t *pool, pjpidf_tuple *t, 
+void		 pjpidf_tuple_set_contact_prio(pj_pool_t *pool, pjpidf_tuple *t, 
 						       const pj_str_t *prio);
-(const pj_str_t*) pjpidf_tuple_get_contact_prio(const pjpidf_tuple *t);
+const pj_str_t* pjpidf_tuple_get_contact_prio(const pjpidf_tuple *t);
 
-(pjpidf_note*)	 pjpidf_tuple_add_note(pj_pool_t *pool, pjpidf_tuple *t,
+pjpidf_note*	 pjpidf_tuple_add_note(pj_pool_t *pool, pjpidf_tuple *t,
 					       const pj_str_t *text);
-(pjpidf_note*)	 pjpidf_tuple_get_first_note(pjpidf_tuple *t);
-(pjpidf_note*)	 pjpidf_tuple_get_next_note(pjpidf_tuple *t, pjpidf_note *n);
+pjpidf_note*	 pjpidf_tuple_get_first_note(pjpidf_tuple *t);
+pjpidf_note*	 pjpidf_tuple_get_next_note(pjpidf_tuple *t, pjpidf_note *n);
 
-(const pj_str_t*) pjpidf_tuple_get_timestamp(const pjpidf_tuple *t);
-(void)		 pjpidf_tuple_set_timestamp(pj_pool_t *pool, pjpidf_tuple *t,
+const pj_str_t* pjpidf_tuple_get_timestamp(const pjpidf_tuple *t);
+void		 pjpidf_tuple_set_timestamp(pj_pool_t *pool, pjpidf_tuple *t,
 						    const pj_str_t *ts);
-(void)		 pjpidf_tuple_set_timestamp_np(	pj_pool_t*, pjpidf_tuple *t,
+void		 pjpidf_tuple_set_timestamp_np(	pj_pool_t*, pjpidf_tuple *t,
 							pj_str_t *ts);
 
 
 /******************************************************************************
  * API for managing Status node.
  *****************************************************************************/
-(void)		 pjpidf_status_construct(pj_pool_t*, pjpidf_status*);
-(pj_bool_t)	 pjpidf_status_is_basic_open(const pjpidf_status*);
-(void)		 pjpidf_status_set_basic_open(pjpidf_status*, pj_bool_t);
+void		 pjpidf_status_construct(pj_pool_t*, pjpidf_status*);
+pj_bool_t	 pjpidf_status_is_basic_open(const pjpidf_status*);
+void		 pjpidf_status_set_basic_open(pjpidf_status*, pj_bool_t);
 
 
 /**

@@ -98,7 +98,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Convert 16-bit value from network byte order to host byte order.
  */
-(pj_uint16_t) pj_ntohs(pj_uint16_t netshort)
+pj_uint16_t pj_ntohs(pj_uint16_t netshort)
 {
     return ntohs(netshort);
 }
@@ -106,7 +106,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Convert 16-bit value from host byte order to network byte order.
  */
-(pj_uint16_t) pj_htons(pj_uint16_t hostshort)
+pj_uint16_t pj_htons(pj_uint16_t hostshort)
 {
     return htons(hostshort);
 }
@@ -114,7 +114,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Convert 32-bit value from network byte order to host byte order.
  */
-(pj_uint32_t) pj_ntohl(pj_uint32_t netlong)
+pj_uint32_t pj_ntohl(pj_uint32_t netlong)
 {
     return ntohl(netlong);
 }
@@ -122,7 +122,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Convert 32-bit value from host byte order to network byte order.
  */
-(pj_uint32_t) pj_htonl(pj_uint32_t hostlong)
+pj_uint32_t pj_htonl(pj_uint32_t hostlong)
 {
     return htonl(hostlong);
 }
@@ -131,7 +131,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
  * Convert an Internet host address given in network byte order
  * to string in standard numbers and dots notation.
  */
-(char*) pj_inet_ntoa(pj_in_addr in)
+char* pj_inet_ntoa(pj_in_addr in)
 {
 #define	UC(b)	(((int)b)&0xff)
     static char b[18];
@@ -149,7 +149,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
  * numbers-and-dots notation into binary data and stores it in the structure
  * that inp points to. 
  */
-(int) pj_inet_aton(const pj_str_t *ccp, struct pj_in_addr *addr)
+int pj_inet_aton(const pj_str_t *ccp, struct pj_in_addr *addr)
 {
     pj_uint32_t val;
     int base, n;
@@ -251,7 +251,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Convert address string with numbers and dots to binary IP address.
  */ 
-(pj_in_addr) pj_inet_addr(const pj_str_t *cp)
+pj_in_addr pj_inet_addr(const pj_str_t *cp)
 {
     pj_in_addr addr;
     pj_inet_aton(cp, &addr);
@@ -265,7 +265,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
  * is specified, then the function will resolve the host into the IP
  * address.
  */
-(pj_status_t) pj_sockaddr_in_set_str_addr( pj_sockaddr_in *addr,
+pj_status_t pj_sockaddr_in_set_str_addr( pj_sockaddr_in *addr,
 					         const pj_str_t *str_addr)
 {
     PJ_CHECK_STACK();
@@ -299,7 +299,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
  * may be a hostname. If hostname is specified, then the function will 
  * resolve the host into the IP address.
  */
-(pj_status_t) pj_sockaddr_in_init( pj_sockaddr_in *addr,
+pj_status_t pj_sockaddr_in_init( pj_sockaddr_in *addr,
 				         const pj_str_t *str_addr,
 					 pj_uint16_t port)
 {
@@ -314,7 +314,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Get hostname.
  */
-(const pj_str_t*) pj_gethostname(void)
+const pj_str_t* pj_gethostname(void)
 {
     static char buf[PJ_MAX_HOSTNAME];
     static pj_str_t hostname;
@@ -339,7 +339,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Get first IP address associated with the hostname.
  */
-(pj_in_addr) pj_gethostaddr(void)
+pj_in_addr pj_gethostaddr(void)
 {
     pj_sockaddr_in addr;
     const pj_str_t *hostname = pj_gethostname();
@@ -352,7 +352,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Create new socket/endpoint for communication and returns a descriptor.
  */
-(pj_status_t) pj_sock_socket(int af, int type, int proto, 
+pj_status_t pj_sock_socket(int af, int type, int proto, 
 				   pj_sock_t *sock_fd)
 {
     long result;
@@ -379,7 +379,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Bind socket.
  */
-(pj_status_t) pj_sock_bind( pj_sock_t sockfd, 
+pj_status_t pj_sock_bind( pj_sock_t sockfd, 
 				  const pj_sockaddr_t *addr,
 				  int len)
 {
@@ -408,7 +408,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Bind socket.
  */
-(pj_status_t) pj_sock_bind_in( pj_sock_t sockfd, 
+pj_status_t pj_sock_bind_in( pj_sock_t sockfd, 
 				     pj_uint32_t addr32,
 				     pj_uint16_t port)
 {
@@ -426,7 +426,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Close socket.
  */
-(pj_status_t) pj_sock_close(pj_sock_t sockfd)
+pj_status_t pj_sock_close(pj_sock_t sockfd)
 {
     long err;
 
@@ -441,7 +441,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Get remote's name.
  */
-(pj_status_t) pj_sock_getpeername( pj_sock_t sockfd,
+pj_status_t pj_sock_getpeername( pj_sock_t sockfd,
 					 pj_sockaddr_t *addr,
 					 int *namelen)
 {
@@ -466,7 +466,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Get socket name.
  */
-(pj_status_t) pj_sock_getsockname( pj_sock_t sockfd,
+pj_status_t pj_sock_getsockname( pj_sock_t sockfd,
 					 pj_sockaddr_t *addr,
 					 int *namelen)
 {
@@ -491,7 +491,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Send data
  */
-(pj_status_t) pj_sock_send( pj_sock_t sockfd,
+pj_status_t pj_sock_send( pj_sock_t sockfd,
 				  const void *buf,
 				  pj_ssize_t *len,
 				  unsigned flags)
@@ -503,7 +503,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Send data.
  */
-(pj_status_t) pj_sock_sendto( pj_sock_t sockfd,
+pj_status_t pj_sock_sendto( pj_sock_t sockfd,
 				    const void *buff,
 				    pj_ssize_t *len,
 				    unsigned flags,
@@ -534,7 +534,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Receive data.
  */
-(pj_status_t) pj_sock_recv( pj_sock_t sockfd,
+pj_status_t pj_sock_recv( pj_sock_t sockfd,
 				  void *buf,
 				  pj_ssize_t *len,
 				  unsigned flags)
@@ -545,7 +545,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Receive data.
  */
-(pj_status_t) pj_sock_recvfrom( pj_sock_t sockfd,
+pj_status_t pj_sock_recvfrom( pj_sock_t sockfd,
 				      void *buff,
 				      pj_ssize_t *size,
 				      unsigned flags,
@@ -575,7 +575,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Get socket option.
  */
-(pj_status_t) pj_sock_getsockopt( pj_sock_t sockfd,
+pj_status_t pj_sock_getsockopt( pj_sock_t sockfd,
 					pj_uint16_t level,
 					pj_uint16_t optname,
 					void *optval,
@@ -602,7 +602,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Set socket option.
  */
-(pj_status_t) pj_sock_setsockopt( pj_sock_t sockfd,
+pj_status_t pj_sock_setsockopt( pj_sock_t sockfd,
 					pj_uint16_t level,
 					pj_uint16_t optname,
 					const void *optval,
@@ -630,7 +630,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Set socket option.
  */
-(pj_status_t) pj_sock_setsockopt_params( pj_sock_t sockfd,
+pj_status_t pj_sock_setsockopt_params( pj_sock_t sockfd,
 					       const pj_sockopt_params *params)
 {
     unsigned int i = 0;
@@ -659,7 +659,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
  * Shutdown socket.
  */
 #if PJ_HAS_TCP
-(pj_status_t) pj_sock_shutdown( pj_sock_t sockfd,
+pj_status_t pj_sock_shutdown( pj_sock_t sockfd,
 				      int how)
 {
     long err;
@@ -677,7 +677,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Start listening to incoming connections.
  */
-(pj_status_t) pj_sock_listen( pj_sock_t sockfd,
+pj_status_t pj_sock_listen( pj_sock_t sockfd,
 				    int backlog)
 {
     long err;
@@ -695,7 +695,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Connect socket.
  */
-(pj_status_t) pj_sock_connect( pj_sock_t sockfd,
+pj_status_t pj_sock_connect( pj_sock_t sockfd,
 				     const pj_sockaddr_t *addr,
 				     int namelen)
 {
@@ -720,7 +720,7 @@ const pj_uint16_t PJ_SO_SNDBUF  = SO_SNDBUF;
 /*
  * Accept incoming connections
  */
-(pj_status_t) pj_sock_accept( pj_sock_t sockfd,
+pj_status_t pj_sock_accept( pj_sock_t sockfd,
 				    pj_sock_t *newsockfd,
 				    pj_sockaddr_t *addr,
 				    int *addrlen)

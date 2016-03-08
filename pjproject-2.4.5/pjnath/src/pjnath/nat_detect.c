@@ -138,7 +138,7 @@ static void sess_on_destroy(void *member);
 /*
  * Get the NAT name from the specified NAT type.
  */
-(const char*) pj_stun_get_nat_name(pj_stun_nat_type type)
+const char* pj_stun_get_nat_name(pj_stun_nat_type type)
 {
     PJ_ASSERT_RETURN(type >= 0 && type <= PJ_STUN_NAT_TYPE_PORT_RESTRICTED,
 		     "*Invalid*");
@@ -204,7 +204,7 @@ static pj_status_t get_local_interface(const pj_sockaddr_in *server,
 }
 
 
-(pj_status_t) pj_stun_detect_nat_type(const pj_sockaddr_in *server,
+pj_status_t pj_stun_detect_nat_type(const pj_sockaddr_in *server,
 					    pj_stun_config *stun_cfg,
 					    void *user_data,
 					    pj_stun_nat_detect_cb *cb)

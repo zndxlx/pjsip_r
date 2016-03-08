@@ -7,7 +7,7 @@ When creating a dialog (UAC or UAS dialog), application needs to specify local a
 
 This can be a complicated thing to do, because application needs to select the appropriate address based on the transport being used to contact remote peer, and it's not so easy especially when multiple transports are created, or when multiple interfaces are present in the host (multihoming).
 
-(Note: also similarly for client registration).
+Note: also similarly for client registration.
 
 So a change is being/to be made to allow the dialog to automate this process. If application specify NULL as the value of the local contact when creating a dialog, then the dialog should choose the best transport address according to the following rules.
 

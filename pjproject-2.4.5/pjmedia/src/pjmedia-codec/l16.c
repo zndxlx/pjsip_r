@@ -144,7 +144,7 @@ struct l16_data
 
 
 
-(pj_status_t) pjmedia_codec_l16_init(pjmedia_endpt *endpt,
+pj_status_t pjmedia_codec_l16_init(pjmedia_endpt *endpt,
 					   unsigned options)
 {
     pjmedia_codec_mgr *codec_mgr;
@@ -202,7 +202,7 @@ on_error:
     return status;
 }
 
-(pj_status_t) pjmedia_codec_l16_deinit(void)
+pj_status_t pjmedia_codec_l16_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

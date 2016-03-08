@@ -182,7 +182,7 @@ static void mod_ua_on_tsx_state( pjsip_transaction *tsx, pjsip_event *e)
 /*
  * Init user agent module and register it to the endpoint.
  */
-(pj_status_t) pjsip_ua_init_module( pjsip_endpoint *endpt,
+pj_status_t pjsip_ua_init_module( pjsip_endpoint *endpt,
 					  const pjsip_ua_init_param *prm)
 {
     pj_status_t status;
@@ -204,7 +204,7 @@ static void mod_ua_on_tsx_state( pjsip_transaction *tsx, pjsip_event *e)
  * Get the instance of the user agent.
  *
  */
-(pjsip_user_agent*) pjsip_ua_instance(void)
+pjsip_user_agent* pjsip_ua_instance(void)
 {
     return &mod_ua.mod;
 }
@@ -213,7 +213,7 @@ static void mod_ua_on_tsx_state( pjsip_transaction *tsx, pjsip_event *e)
 /*
  * Get the endpoint where this UA is currently registered.
  */
-(pjsip_endpoint*) pjsip_ua_get_endpt(pjsip_user_agent *ua)
+pjsip_endpoint* pjsip_ua_get_endpt(pjsip_user_agent *ua)
 {
     PJ_UNUSED_ARG(ua);
     pj_assert(ua == &mod_ua.mod);
@@ -224,7 +224,7 @@ static void mod_ua_on_tsx_state( pjsip_transaction *tsx, pjsip_event *e)
 /*
  * Destroy the user agent layer.
  */
-(pj_status_t) pjsip_ua_destroy(void)
+pj_status_t pjsip_ua_destroy(void)
 {
     /* Check if module already destroyed. */
     PJ_ASSERT_RETURN(mod_ua.mod.id != -1, PJ_EINVALIDOP);
@@ -238,7 +238,7 @@ static void mod_ua_on_tsx_state( pjsip_transaction *tsx, pjsip_event *e)
  * Create key to identify dialog set.
  */
 /*
-(void) pjsip_ua_create_dlg_set_key( pj_pool_t *pool,
+void pjsip_ua_create_dlg_set_key( pj_pool_t *pool,
 					  pj_str_t *set_key,
 					  const pj_str_t *call_id,
 					  const pj_str_t *local_tag)
@@ -279,7 +279,7 @@ static struct dlg_set *alloc_dlgset_node(void)
  * Register new dialog. Called by pjsip_dlg_create_uac() and
  * pjsip_dlg_create_uas();
  */
-(pj_status_t) pjsip_ua_register_dlg( pjsip_user_agent *ua,
+pj_status_t pjsip_ua_register_dlg( pjsip_user_agent *ua,
 					   pjsip_dialog *dlg )
 {
     /* Sanity check. */
@@ -358,7 +358,7 @@ static struct dlg_set *alloc_dlgset_node(void)
 }
 
 
-(pj_status_t) pjsip_ua_unregister_dlg( pjsip_user_agent *ua,
+pj_status_t pjsip_ua_unregister_dlg( pjsip_user_agent *ua,
 					     pjsip_dialog *dlg )
 {
     struct dlg_set *dlg_set;
@@ -407,12 +407,12 @@ static struct dlg_set *alloc_dlgset_node(void)
 }
 
 
-(pjsip_dialog*) pjsip_rdata_get_dlg( pjsip_rx_data *rdata )
+pjsip_dialog* pjsip_rdata_get_dlg( pjsip_rx_data *rdata )
 {
     return (pjsip_dialog*) rdata->endpt_info.mod_data[mod_ua.mod.id];
 }
 
-(pjsip_dialog*) pjsip_tsx_get_dlg( pjsip_transaction *tsx )
+pjsip_dialog* pjsip_tsx_get_dlg( pjsip_transaction *tsx )
 {
     return (pjsip_dialog*) tsx->mod_data[mod_ua.mod.id];
 }
@@ -422,7 +422,7 @@ static struct dlg_set *alloc_dlgset_node(void)
  * Retrieve the current number of dialog-set currently registered
  * in the hash table. 
  */
-(unsigned) pjsip_ua_get_dlg_set_count(void)
+unsigned pjsip_ua_get_dlg_set_count(void)
 {
     unsigned count;
 
@@ -439,7 +439,7 @@ static struct dlg_set *alloc_dlgset_node(void)
 /* 
  * Find a dialog.
  */
-(pjsip_dialog*) pjsip_ua_find_dialog(const pj_str_t *call_id,
+pjsip_dialog* pjsip_ua_find_dialog(const pj_str_t *call_id,
 					   const pj_str_t *local_tag,
 					   const pj_str_t *remote_tag,
 					   pj_bool_t lock_dialog)
@@ -937,7 +937,7 @@ static void print_dialog( const char *title,
 /*
  * Dump user agent contents (e.g. all dialogs).
  */
-(void) pjsip_ua_dump(pj_bool_t detail)
+void pjsip_ua_dump(pj_bool_t detail)
 {
 #if PJ_LOG_MAX_LEVEL >= 3
     pj_hash_iterator_t itbuf, *it;

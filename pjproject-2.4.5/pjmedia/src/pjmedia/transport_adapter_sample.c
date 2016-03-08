@@ -116,7 +116,7 @@ struct tp_adapter
 /*
  * Create the adapter.
  */
-(pj_status_t) pjmedia_tp_adapter_create( pjmedia_endpt *endpt,
+pj_status_t pjmedia_tp_adapter_create( pjmedia_endpt *endpt,
 					       const char *name,
 					       pjmedia_transport *transport,
 					       pj_bool_t del_base,

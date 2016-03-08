@@ -54,7 +54,7 @@ PJ_BEGIN_DECL
  *			initialized and registered to both endpoint
  *			and the event subscription module.
  */
-(pj_status_t) pjsip_mwi_init_module(pjsip_endpoint *endpt,
+pj_status_t pjsip_mwi_init_module(pjsip_endpoint *endpt,
 					   pjsip_module *mod_evsub);
 
 /**
@@ -62,7 +62,7 @@ PJ_BEGIN_DECL
  *
  * @return		The MWI module instance.
  */
-(pjsip_module*) pjsip_mwi_instance(void);
+pjsip_module* pjsip_mwi_instance(void);
 
 /**
  * Create MWI client subscription session.
@@ -77,7 +77,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_create_uac( pjsip_dialog *dlg,
+pj_status_t pjsip_mwi_create_uac( pjsip_dialog *dlg,
 					   const pjsip_evsub_user *user_cb,
 					   unsigned options,
 					   pjsip_evsub **p_evsub );
@@ -95,7 +95,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_create_uas( pjsip_dialog *dlg,
+pj_status_t pjsip_mwi_create_uas( pjsip_dialog *dlg,
 					   const pjsip_evsub_user *user_cb,
 					   pjsip_rx_data *rdata,
 					   pjsip_evsub **p_evsub );
@@ -112,7 +112,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS if subscription session has been destroyed.
  */
-(pj_status_t) pjsip_mwi_terminate( pjsip_evsub *sub,
+pj_status_t pjsip_mwi_terminate( pjsip_evsub *sub,
 					  pj_bool_t notify );
 
 /**
@@ -126,7 +126,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_initiate( pjsip_evsub *sub,
+pj_status_t pjsip_mwi_initiate( pjsip_evsub *sub,
 					 pj_int32_t expires,
 					 pjsip_tx_data **p_tdata);
 
@@ -141,7 +141,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_accept( pjsip_evsub *sub,
+pj_status_t pjsip_mwi_accept( pjsip_evsub *sub,
 				       pjsip_rx_data *rdata,
 				       int st_code,
 				       const pjsip_hdr *hdr_list );
@@ -163,7 +163,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_notify( pjsip_evsub *sub,
+pj_status_t pjsip_mwi_notify( pjsip_evsub *sub,
 				       pjsip_evsub_state state,
 				       const pj_str_t *state_str,
 				       const pj_str_t *reason,
@@ -180,7 +180,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_current_notify( pjsip_evsub *sub,
+pj_status_t pjsip_mwi_current_notify( pjsip_evsub *sub,
 					       pjsip_tx_data **p_tdata );
 
 
@@ -195,7 +195,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_mwi_send_request( pjsip_evsub *sub,
+pj_status_t pjsip_mwi_send_request( pjsip_evsub *sub,
 					     pjsip_tx_data *tdata );
 
 /**

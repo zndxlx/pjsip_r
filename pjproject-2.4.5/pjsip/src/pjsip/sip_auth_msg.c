@@ -45,7 +45,7 @@ static pjsip_hdr_vptr authorization_hdr_vptr =
 };
 
 
-(pjsip_authorization_hdr*) pjsip_authorization_hdr_create(pj_pool_t *pool)
+pjsip_authorization_hdr* pjsip_authorization_hdr_create(pj_pool_t *pool)
 {
     pjsip_authorization_hdr *hdr;
     hdr = PJ_POOL_ZALLOC_T(pool, pjsip_authorization_hdr);
@@ -54,7 +54,7 @@ static pjsip_hdr_vptr authorization_hdr_vptr =
     return hdr;
 }
 
-(pjsip_proxy_authorization_hdr*) pjsip_proxy_authorization_hdr_create(pj_pool_t *pool)
+pjsip_proxy_authorization_hdr* pjsip_proxy_authorization_hdr_create(pj_pool_t *pool)
 {
     pjsip_proxy_authorization_hdr *hdr;
     hdr = PJ_POOL_ZALLOC_T(pool, pjsip_proxy_authorization_hdr);
@@ -205,7 +205,7 @@ static pjsip_hdr_vptr www_authenticate_hdr_vptr =
 };
 
 
-(pjsip_www_authenticate_hdr*) pjsip_www_authenticate_hdr_create(pj_pool_t *pool)
+pjsip_www_authenticate_hdr* pjsip_www_authenticate_hdr_create(pj_pool_t *pool)
 {
     pjsip_www_authenticate_hdr *hdr;
     hdr = PJ_POOL_ZALLOC_T(pool, pjsip_www_authenticate_hdr);
@@ -215,7 +215,7 @@ static pjsip_hdr_vptr www_authenticate_hdr_vptr =
 }
 
 
-(pjsip_proxy_authenticate_hdr*) pjsip_proxy_authenticate_hdr_create(pj_pool_t *pool)
+pjsip_proxy_authenticate_hdr* pjsip_proxy_authenticate_hdr_create(pj_pool_t *pool)
 {
     pjsip_proxy_authenticate_hdr *hdr;
     hdr = PJ_POOL_ZALLOC_T(pool, pjsip_proxy_authenticate_hdr);

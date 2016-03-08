@@ -47,7 +47,7 @@ PJ_BEGIN_DECL
  *
  * @return	    Initialization status.
  */
-(pj_status_t) pjnath_init(void);
+pj_status_t pjnath_init(void);
 
 
 /**
@@ -58,7 +58,7 @@ PJ_BEGIN_DECL
  * @param status    The error status.
  */
 #if PJNATH_ERROR_LEVEL <= PJ_LOG_MAX_LEVEL
-(void) pjnath_perror(const char *sender, const char *title,
+void pjnath_perror(const char *sender, const char *title,
 			    pj_status_t status);
 #else
 # define pjnath_perror(sender, title, status)

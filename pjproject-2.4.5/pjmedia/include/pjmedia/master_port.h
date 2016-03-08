@@ -78,7 +78,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_master_port_create(pj_pool_t *pool,
+pj_status_t pjmedia_master_port_create(pj_pool_t *pool,
 						pjmedia_port *u_port,
 						pjmedia_port *d_port,
 						unsigned options,
@@ -92,7 +92,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_master_port_start(pjmedia_master_port *m);
+pj_status_t pjmedia_master_port_start(pjmedia_master_port *m);
 
 
 /**
@@ -102,7 +102,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_master_port_stop(pjmedia_master_port *m);
+pj_status_t pjmedia_master_port_stop(pjmedia_master_port *m);
 
 
 /**
@@ -120,7 +120,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *			    the function returns before a clock tick has
  *			    elapsed.
  */
-(pj_bool_t) pjmedia_master_port_wait(pjmedia_master_port *m,
+pj_bool_t pjmedia_master_port_wait(pjmedia_master_port *m,
 					    pj_bool_t wait,
 					    pj_timestamp *ts);
 
@@ -135,7 +135,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_master_port_set_uport(pjmedia_master_port *m,
+pj_status_t pjmedia_master_port_set_uport(pjmedia_master_port *m,
 						   pjmedia_port *port);
 
 
@@ -146,7 +146,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		The upstream port.
  */
-(pjmedia_port*) pjmedia_master_port_get_uport(pjmedia_master_port*m);
+pjmedia_port* pjmedia_master_port_get_uport(pjmedia_master_port*m);
 
 
 /**
@@ -159,7 +159,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_master_port_set_dport(pjmedia_master_port *m,
+pj_status_t pjmedia_master_port_set_dport(pjmedia_master_port *m,
 						   pjmedia_port *port);
 
 
@@ -170,7 +170,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		The downstream port.
  */
-(pjmedia_port*) pjmedia_master_port_get_dport(pjmedia_master_port*m);
+pjmedia_port* pjmedia_master_port_get_dport(pjmedia_master_port*m);
 
 
 /**
@@ -183,7 +183,7 @@ typedef struct pjmedia_master_port pjmedia_master_port;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_master_port_destroy(pjmedia_master_port *m,
+pj_status_t pjmedia_master_port_destroy(pjmedia_master_port *m,
 						 pj_bool_t destroy_ports);
 
 

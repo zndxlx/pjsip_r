@@ -128,7 +128,7 @@ typedef struct pjsip_hdr_name_info_t
 
 extern const pjsip_hdr_name_info_t pjsip_hdr_names[];
 
-PJ_INLINE(void) init_hdr(void *hptr, pjsip_hdr_e htype, void *vptr)
+void init_hdr(void *hptr, pjsip_hdr_e htype, void *vptr)
 {
     pjsip_hdr *hdr = (pjsip_hdr*) hptr;
     hdr->type = htype;

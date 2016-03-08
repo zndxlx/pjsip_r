@@ -86,7 +86,7 @@ typedef struct pjmedia_h263_packetizer_cfg
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_h263_packetizer_create(
+pj_status_t pjmedia_h263_packetizer_create(
 				    pj_pool_t *pool,
 				    const pjmedia_h263_packetizer_cfg *cfg,
 				    pjmedia_h263_packetizer **p_pktz);
@@ -106,7 +106,7 @@ typedef struct pjmedia_h263_packetizer_cfg
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_h263_packetize(pjmedia_h263_packetizer *pktz,
+pj_status_t pjmedia_h263_packetize(pjmedia_h263_packetizer *pktz,
 					    pj_uint8_t *bits,
                                             pj_size_t bits_len,
                                             unsigned *bits_pos,
@@ -132,7 +132,7 @@ typedef struct pjmedia_h263_packetizer_cfg
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_h263_unpacketize(pjmedia_h263_packetizer *pktz,
+pj_status_t pjmedia_h263_unpacketize(pjmedia_h263_packetizer *pktz,
 					      const pj_uint8_t *payload,
                                               pj_size_t payload_len,
                                               pj_uint8_t *bits,

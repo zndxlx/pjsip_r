@@ -29,7 +29,7 @@
 #   include <CFNetwork/CFHost.h>
 #endif
 
-(pj_status_t) pj_gethostbyname(const pj_str_t *hostname, pj_hostent *phe)
+pj_status_t pj_gethostbyname(const pj_str_t *hostname, pj_hostent *phe)
 {
     struct hostent *he;
     char copy[PJ_MAX_HOSTNAME];
@@ -61,7 +61,7 @@
 }
 
 /* Resolve IPv4/IPv6 address */
-(pj_status_t) pj_getaddrinfo(int af, const pj_str_t *nodename,
+pj_status_t pj_getaddrinfo(int af, const pj_str_t *nodename,
 				   unsigned *count, pj_addrinfo ai[])
 {
 #if defined(PJ_SOCK_HAS_GETADDRINFO) && PJ_SOCK_HAS_GETADDRINFO!=0

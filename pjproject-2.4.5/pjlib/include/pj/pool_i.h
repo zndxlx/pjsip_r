@@ -22,12 +22,12 @@
 #include <pj/string.h>
 
 
-PJ_IDEF(pj_size_t) pj_pool_get_capacity( pj_pool_t *pool )
+pj_size_t pj_pool_get_capacity( pj_pool_t *pool )
 {
     return pool->capacity;
 }
 
-PJ_IDEF(pj_size_t) pj_pool_get_used_size( pj_pool_t *pool )
+pj_size_t pj_pool_get_used_size( pj_pool_t *pool )
 {
     pj_pool_block *b = pool->block_list.next;
     pj_size_t used_size = sizeof(pj_pool_t);
@@ -38,7 +38,7 @@ PJ_IDEF(pj_size_t) pj_pool_get_used_size( pj_pool_t *pool )
     return used_size;
 }
 
-PJ_IDEF(void*) pj_pool_alloc_from_block( pj_pool_block *block, pj_size_t size )
+void* pj_pool_alloc_from_block( pj_pool_block *block, pj_size_t size )
 {
     /* The operation below is valid for size==0. 
      * When size==0, the function will return the pointer to the pool
@@ -55,7 +55,7 @@ PJ_IDEF(void*) pj_pool_alloc_from_block( pj_pool_block *block, pj_size_t size )
     return NULL;
 }
 
-PJ_IDEF(void*) pj_pool_alloc( pj_pool_t *pool, pj_size_t size)
+void* pj_pool_alloc( pj_pool_t *pool, pj_size_t size)
 {
     void *ptr = pj_pool_alloc_from_block(pool->block_list.next, size);
     if (!ptr)
@@ -64,7 +64,7 @@ PJ_IDEF(void*) pj_pool_alloc( pj_pool_t *pool, pj_size_t size)
 }
 
 
-PJ_IDEF(void*) pj_pool_calloc( pj_pool_t *pool, pj_size_t count, pj_size_t size)
+void* pj_pool_calloc( pj_pool_t *pool, pj_size_t count, pj_size_t size)
 {
     void *buf = pj_pool_alloc( pool, size*count);
     if (buf)
@@ -72,12 +72,12 @@ PJ_IDEF(void*) pj_pool_calloc( pj_pool_t *pool, pj_size_t count, pj_size_t size)
     return buf;
 }
 
-PJ_IDEF(const char *) pj_pool_getobjname( const pj_pool_t *pool )
+const char * pj_pool_getobjname( const pj_pool_t *pool )
 {
     return pool->obj_name;
 }
 
-PJ_IDEF(pj_pool_t*) pj_pool_create( pj_pool_factory *f, 
+pj_pool_t* pj_pool_create( pj_pool_factory *f, 
 				    const char *name,
 				    pj_size_t initial_size, 
 				    pj_size_t increment_size,
@@ -86,7 +86,7 @@ PJ_IDEF(pj_pool_t*) pj_pool_create( pj_pool_factory *f,
     return (*f->create_pool)(f, name, initial_size, increment_size, callback);
 }
 
-PJ_IDEF(void) pj_pool_release( pj_pool_t *pool )
+void pj_pool_release( pj_pool_t *pool )
 {
     if (pool->factory->release_pool)
 	(*pool->factory->release_pool)(pool->factory, pool);

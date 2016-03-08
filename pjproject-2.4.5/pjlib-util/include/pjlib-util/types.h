@@ -40,7 +40,7 @@ PJ_BEGIN_DECL
  *
  * @return PJ_SUCCESS on success.
  */
-(pj_status_t) pjlib_util_init(void);
+pj_status_t pjlib_util_init(void);
 
 
 

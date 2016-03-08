@@ -190,7 +190,7 @@ static void SHA1_Transform(pj_uint32_t state[5], pj_uint8_t buffer[64])
 
 
 /* SHA1Init - Initialize new context */
-(void) pj_sha1_init(pj_sha1_context* context)
+void pj_sha1_init(pj_sha1_context* context)
 {
     /* SHA1 initialization constants */
     context->state[0] = 0x67452301;
@@ -203,7 +203,7 @@ static void SHA1_Transform(pj_uint32_t state[5], pj_uint8_t buffer[64])
 
 
 /* Run your data through this. */
-(void) pj_sha1_update(pj_sha1_context* context, 
+void pj_sha1_update(pj_sha1_context* context, 
 			    const pj_uint8_t* data, const pj_size_t len)
 {
     pj_size_t i, j;
@@ -229,7 +229,7 @@ static void SHA1_Transform(pj_uint32_t state[5], pj_uint8_t buffer[64])
 
 
 /* Add padding and return the message digest. */
-(void) pj_sha1_final(pj_sha1_context* context, 
+void pj_sha1_final(pj_sha1_context* context, 
 			   pj_uint8_t digest[PJ_SHA1_DIGEST_SIZE])
 {
     pj_uint32_t i;

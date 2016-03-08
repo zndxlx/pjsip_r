@@ -157,7 +157,7 @@ static pj_xml_node *xml_parse_node( pj_pool_t *pool, pj_scanner *scanner)
     return node;
 }
 
-(pj_xml_node*) pj_xml_parse( pj_pool_t *pool, char *msg, pj_size_t len)
+pj_xml_node* pj_xml_parse( pj_pool_t *pool, char *msg, pj_size_t len)
 {
     pj_xml_node *node = NULL;
     pj_scanner scanner;
@@ -290,7 +290,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return (int)(p-buf);
 }
 
-(int) pj_xml_print(const pj_xml_node *node, char *buf, pj_size_t len,
+int pj_xml_print(const pj_xml_node *node, char *buf, pj_size_t len,
 			 pj_bool_t include_prolog)
 {
     int prolog_len = 0;
@@ -314,14 +314,14 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return printed;
 }
 
-(pj_xml_node*) pj_xml_node_new(pj_pool_t *pool, const pj_str_t *name)
+pj_xml_node* pj_xml_node_new(pj_pool_t *pool, const pj_str_t *name)
 {
     pj_xml_node *node = alloc_node(pool);
     pj_strdup(pool, &node->name, name);
     return node;
 }
 
-(pj_xml_attr*) pj_xml_attr_new( pj_pool_t *pool, const pj_str_t *name,
+pj_xml_attr* pj_xml_attr_new( pj_pool_t *pool, const pj_str_t *name,
 				      const pj_str_t *value)
 {
     pj_xml_attr *attr = alloc_attr(pool);
@@ -330,17 +330,17 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return attr;
 }
 
-(void) pj_xml_add_node( pj_xml_node *parent, pj_xml_node *node )
+void pj_xml_add_node( pj_xml_node *parent, pj_xml_node *node )
 {
     pj_list_push_back(&parent->node_head, node);
 }
 
-(void) pj_xml_add_attr( pj_xml_node *node, pj_xml_attr *attr )
+void pj_xml_add_attr( pj_xml_node *node, pj_xml_attr *attr )
 {
     pj_list_push_back(&node->attr_head, attr);
 }
 
-(pj_xml_node*) pj_xml_find_node(const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_node(const pj_xml_node *parent, 
 				      const pj_str_t *name)
 {
     const pj_xml_node *node = parent->node_head.next;
@@ -355,7 +355,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return NULL;
 }
 
-(pj_xml_node*) pj_xml_find_node_rec(const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_node_rec(const pj_xml_node *parent, 
 					  const pj_str_t *name)
 {
     const pj_xml_node *node = parent->node_head.next;
@@ -374,7 +374,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return NULL;
 }
 
-(pj_xml_node*) pj_xml_find_next_node( const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_next_node( const pj_xml_node *parent, 
 					    const pj_xml_node *node,
 					    const pj_str_t *name)
 {
@@ -390,7 +390,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
 }
 
 
-(pj_xml_attr*) pj_xml_find_attr( const pj_xml_node *node, 
+pj_xml_attr* pj_xml_find_attr( const pj_xml_node *node, 
 				       const pj_str_t *name,
 				       const pj_str_t *value)
 {
@@ -411,7 +411,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
 
 
 
-(pj_xml_node*) pj_xml_find( const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find( const pj_xml_node *parent, 
 				  const pj_str_t *name,
 				  const void *data, 
 				  pj_bool_t (*match)(const pj_xml_node *, 
@@ -441,7 +441,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return NULL;
 }
 
-(pj_xml_node*) pj_xml_find_rec( const pj_xml_node *parent, 
+pj_xml_node* pj_xml_find_rec( const pj_xml_node *parent, 
 				      const pj_str_t *name,
 				      const void *data, 
 				      pj_bool_t (*match)(const pj_xml_node*, 
@@ -479,7 +479,7 @@ static int xml_print_node( const pj_xml_node *node, int indent,
     return NULL;
 }
 
-(pj_xml_node*) pj_xml_clone( pj_pool_t *pool, const pj_xml_node *rhs)
+pj_xml_node* pj_xml_clone( pj_pool_t *pool, const pj_xml_node *rhs)
 {
     pj_xml_node *node;
     const pj_xml_attr *r_attr;

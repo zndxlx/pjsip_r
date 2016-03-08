@@ -33,7 +33,7 @@ packets between two hosts that both sit behind NATs.
 TURN allows a host behind a NAT (called the TURN client) to request that 
 another host (called the TURN server) act as a relay.  The client can 
 arrange for the server to relay packets to and from certain other hosts
-(called peers) and can control aspects of how the relaying is done.
+called peers and can control aspects of how the relaying is done.
 The client does this by obtaining an IP address and port on the
 server, called the relayed-transport-address.  When a peer sends a
 packet to the relayed-transport-address, the server relays the packet
@@ -52,7 +52,7 @@ TLS) to connect to the TURN server.
 
 <b>Authentication</b>.\n
 All TURN operations requires the use of authentication
-(it uses STUN long term autentication method), hence client must be
+it uses STUN long term autentication method, hence client must be
 configured with the correct credential to use the service.
 
 <b>Allocation</b>.\n

@@ -72,7 +72,7 @@ typedef struct pjmedia_avi_dev_param
  *
  * @param p	The parameter to be initialized.
  */
-(void) pjmedia_avi_dev_param_default(pjmedia_avi_dev_param *p);
+void pjmedia_avi_dev_param_default(pjmedia_avi_dev_param *p);
 
 
 /**
@@ -88,7 +88,7 @@ typedef struct pjmedia_avi_dev_param
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pjmedia_avi_dev_create_factory(
+pj_status_t pjmedia_avi_dev_create_factory(
 				    pj_pool_factory *pf,
 				    unsigned max_dev,
 				    pjmedia_vid_dev_factory **p_ret);
@@ -105,7 +105,7 @@ typedef struct pjmedia_avi_dev_param
  * @return		PJ_SUCCESS or the appropriate error code.
  *
  */
-(pj_status_t) pjmedia_avi_dev_alloc(pjmedia_vid_dev_factory *f,
+pj_status_t pjmedia_avi_dev_alloc(pjmedia_vid_dev_factory *f,
                                            pjmedia_avi_dev_param *param,
                                            pjmedia_vid_dev_index *p_id);
 
@@ -117,7 +117,7 @@ typedef struct pjmedia_avi_dev_param
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-(pj_status_t) pjmedia_avi_dev_get_param(pjmedia_vid_dev_index id,
+pj_status_t pjmedia_avi_dev_get_param(pjmedia_vid_dev_index id,
                                                pjmedia_avi_dev_param *param);
 
 /**
@@ -127,7 +127,7 @@ typedef struct pjmedia_avi_dev_param
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-(pj_status_t) pjmedia_avi_dev_free(pjmedia_vid_dev_index id);
+pj_status_t pjmedia_avi_dev_free(pjmedia_vid_dev_index id);
 
 /**
  * @}

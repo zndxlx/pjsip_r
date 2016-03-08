@@ -21,7 +21,7 @@
 #include <pj/guid.h>
 #include <pj/pool.h>
 
-(pj_str_t*) pj_generate_unique_string_lower(pj_str_t *str)
+pj_str_t* pj_generate_unique_string_lower(pj_str_t *str)
 {
     int i;
 
@@ -32,13 +32,13 @@
     return str;
 }
 
-(void) pj_create_unique_string(pj_pool_t *pool, pj_str_t *str)
+void pj_create_unique_string(pj_pool_t *pool, pj_str_t *str)
 {
     str->ptr = (char*)pj_pool_alloc(pool, PJ_GUID_STRING_LENGTH);
     pj_generate_unique_string(str);
 }
 
-(void) pj_create_unique_string_lower(pj_pool_t *pool, pj_str_t *str)
+void pj_create_unique_string_lower(pj_pool_t *pool, pj_str_t *str)
 {
     int i;
 

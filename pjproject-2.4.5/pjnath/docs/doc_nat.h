@@ -53,7 +53,7 @@ a firewall solution. A firewall is a security solution designed to enforce
 the security policy of an organization, while NAT is a connectivity solution
 to allow multiple hosts to use a single public IP address. Understandably
 both functionalities are difficult to separate at times, since many 
-(typically consumer) products claims to do both with the same device and
+typically consumer products claims to do both with the same device and
 simply label the device a “NAT box”. But we do want to make this distinction
 rather clear, as PJNATH is a NAT traversal helper and not a firewall bypass
 solution (yet).
@@ -180,7 +180,7 @@ loose the binding and unable to receive incoming packets from Internet.
 The original STUN (Simple Traversal of User Datagram Protocol (UDP) 
 Through Network Address Translators (NATs)) as defined by 
 <A HREF="http://www.ietf.org/rfc/rfc3489.txt">RFC 3489</A>
-(published in 2003, but the work was started as early as 2001) was 
+published in 2003, but the work was started as early as 2001 was 
 meant to be a standalone, standard-based solution for the NAT 
 connectivity problems above. It is equipped with NAT type detection 
 algoritm and methods to hole-punch the NAT in order to let traffic 
@@ -215,7 +215,7 @@ other protocols on top of it (such as TURN and ICE).
 
 Traversal Using Relay NAT (TURN), a standard-based effort started as early
 as in November 2001, was meant to be the complementary method for the 
-(old) STUN to complete the solution. The original idea was the host to use 
+old STUN to complete the solution. The original idea was the host to use 
 STUN to detect the NAT type, and when it has found that the NAT type is 
 symmetric it would use TURN to relay the traffic. But as stated above, 
 this approach was deemed to be unreliable, and now the prefered way to use

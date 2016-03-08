@@ -168,7 +168,7 @@ static pj_str_t STR_MODE = {"mode", 4};
 /*
  * Initialize and register iLBC codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_ilbc_init( pjmedia_endpt *endpt,
+pj_status_t pjmedia_codec_ilbc_init( pjmedia_endpt *endpt,
 					     int mode )
 {
     pjmedia_codec_mgr *codec_mgr;
@@ -215,7 +215,7 @@ static pj_str_t STR_MODE = {"mode", 4};
  * Unregister iLBC codec factory from pjmedia endpoint and deinitialize
  * the iLBC codec library.
  */
-(pj_status_t) pjmedia_codec_ilbc_deinit(void)
+pj_status_t pjmedia_codec_ilbc_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

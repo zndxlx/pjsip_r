@@ -23,7 +23,7 @@
 #include <stdio.h>
 #include <errno.h>
 
-(pj_status_t) pj_file_open( pj_pool_t *pool,
+pj_status_t pj_file_open( pj_pool_t *pool,
                                   const char *pathname, 
                                   unsigned flags,
                                   pj_oshandle_t *fd)
@@ -67,7 +67,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_file_close(pj_oshandle_t fd)
+pj_status_t pj_file_close(pj_oshandle_t fd)
 {
     PJ_ASSERT_RETURN(fd, PJ_EINVAL);
     if (fclose((FILE*)fd) != 0)
@@ -76,7 +76,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_file_write( pj_oshandle_t fd,
+pj_status_t pj_file_write( pj_oshandle_t fd,
                                    const void *data,
                                    pj_ssize_t *size)
 {
@@ -93,7 +93,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_file_read( pj_oshandle_t fd,
+pj_status_t pj_file_read( pj_oshandle_t fd,
                                   void *data,
                                   pj_ssize_t *size)
 {
@@ -111,14 +111,14 @@
 }
 
 /*
-(pj_bool_t) pj_file_eof(pj_oshandle_t fd, enum pj_file_access access)
+pj_bool_t pj_file_eof(pj_oshandle_t fd, enum pj_file_access access)
 {
     PJ_UNUSED_ARG(access);
     return feof((FILE*)fd) ? PJ_TRUE : 0;
 }
 */
 
-(pj_status_t) pj_file_setpos( pj_oshandle_t fd,
+pj_status_t pj_file_setpos( pj_oshandle_t fd,
                                     pj_off_t offset,
                                     enum pj_file_seek_type whence)
 {
@@ -142,7 +142,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_file_getpos( pj_oshandle_t fd,
+pj_status_t pj_file_getpos( pj_oshandle_t fd,
                                     pj_off_t *pos)
 {
     long offset;
@@ -157,7 +157,7 @@
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_file_flush(pj_oshandle_t fd)
+pj_status_t pj_file_flush(pj_oshandle_t fd)
 {
     int rc;
 

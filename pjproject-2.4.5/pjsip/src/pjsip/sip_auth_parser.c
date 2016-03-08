@@ -289,7 +289,7 @@ static pjsip_hdr* parse_hdr_proxy_authenticate( pjsip_parse_ctx *ctx )
 }
 
 
-(pj_status_t) pjsip_auth_init_parser()
+pj_status_t pjsip_auth_init_parser()
 {
     pj_status_t status;
 
@@ -309,7 +309,7 @@ static pjsip_hdr* parse_hdr_proxy_authenticate( pjsip_parse_ctx *ctx )
     return PJ_SUCCESS;
 }
 
-(void) pjsip_auth_deinit_parser()
+void pjsip_auth_deinit_parser()
 {
 }
 

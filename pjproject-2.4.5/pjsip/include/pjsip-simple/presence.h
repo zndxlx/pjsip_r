@@ -58,7 +58,7 @@ PJ_BEGIN_DECL
  *			initialized and registered to both endpoint
  *			and the event subscription module.
  */
-(pj_status_t) pjsip_pres_init_module(pjsip_endpoint *endpt,
+pj_status_t pjsip_pres_init_module(pjsip_endpoint *endpt,
 					    pjsip_module *mod_evsub);
 
 
@@ -67,7 +67,7 @@ PJ_BEGIN_DECL
  *
  * @return		The presence module instance.
  */
-(pjsip_module*) pjsip_pres_instance(void);
+pjsip_module* pjsip_pres_instance(void);
 
 
 /**
@@ -123,7 +123,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_create_uac( pjsip_dialog *dlg,
+pj_status_t pjsip_pres_create_uac( pjsip_dialog *dlg,
 					    const pjsip_evsub_user *user_cb,
 					    unsigned options,
 					    pjsip_evsub **p_evsub );
@@ -142,7 +142,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_create_uas( pjsip_dialog *dlg,
+pj_status_t pjsip_pres_create_uas( pjsip_dialog *dlg,
 					    const pjsip_evsub_user *user_cb,
 					    pjsip_rx_data *rdata,
 					    pjsip_evsub **p_evsub );
@@ -160,7 +160,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS if subscription session has been destroyed.
  */
-(pj_status_t) pjsip_pres_terminate( pjsip_evsub *sub,
+pj_status_t pjsip_pres_terminate( pjsip_evsub *sub,
 					   pj_bool_t notify );
 
 
@@ -176,7 +176,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_initiate( pjsip_evsub *sub,
+pj_status_t pjsip_pres_initiate( pjsip_evsub *sub,
 					  pj_int32_t expires,
 					  pjsip_tx_data **p_tdata);
 
@@ -190,7 +190,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_add_header( pjsip_evsub *sub,
+pj_status_t pjsip_pres_add_header( pjsip_evsub *sub,
 					    const pjsip_hdr *hdr_list );
 
 
@@ -205,7 +205,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_accept( pjsip_evsub *sub,
+pj_status_t pjsip_pres_accept( pjsip_evsub *sub,
 					pjsip_rx_data *rdata,
 				        int st_code,
 					const pjsip_hdr *hdr_list );
@@ -230,7 +230,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_notify( pjsip_evsub *sub,
+pj_status_t pjsip_pres_notify( pjsip_evsub *sub,
 					pjsip_evsub_state state,
 					const pj_str_t *state_str,
 					const pj_str_t *reason,
@@ -245,7 +245,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_current_notify( pjsip_evsub *sub,
+pj_status_t pjsip_pres_current_notify( pjsip_evsub *sub,
 					        pjsip_tx_data **p_tdata );
 
 
@@ -261,7 +261,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_send_request( pjsip_evsub *sub,
+pj_status_t pjsip_pres_send_request( pjsip_evsub *sub,
 					      pjsip_tx_data *tdata );
 
 
@@ -274,7 +274,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_get_status( pjsip_evsub *sub,
+pj_status_t pjsip_pres_get_status( pjsip_evsub *sub,
 					    pjsip_pres_status *status );
 
 
@@ -288,7 +288,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_set_status( pjsip_evsub *sub,
+pj_status_t pjsip_pres_set_status( pjsip_evsub *sub,
 					    const pjsip_pres_status *status );
 
 
@@ -305,7 +305,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_create_pidf( pj_pool_t *pool,
+pj_status_t pjsip_pres_create_pidf( pj_pool_t *pool,
 					     const pjsip_pres_status *status,
 					     const pj_str_t *entity,
 					     pjsip_msg_body **p_body );
@@ -324,7 +324,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_pres_create_xpidf(pj_pool_t *pool,
+pj_status_t pjsip_pres_create_xpidf(pj_pool_t *pool,
 					     const pjsip_pres_status *status,
 					     const pj_str_t *entity,
 					     pjsip_msg_body **p_body );
@@ -343,7 +343,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @see pjsip_pres_parse_pidf2()
  */
-(pj_status_t) pjsip_pres_parse_pidf(pjsip_rx_data *rdata,
+pj_status_t pjsip_pres_parse_pidf(pjsip_rx_data *rdata,
 					   pj_pool_t *pool,
 					   pjsip_pres_status *status);
 
@@ -362,7 +362,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @see pjsip_pres_parse_pidf()
  */
-(pj_status_t) pjsip_pres_parse_pidf2(char *body, unsigned body_len,
+pj_status_t pjsip_pres_parse_pidf2(char *body, unsigned body_len,
 					    pj_pool_t *pool,
 					    pjsip_pres_status *status);
 
@@ -379,7 +379,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @see pjsip_pres_parse_xpidf2()
  */
-(pj_status_t) pjsip_pres_parse_xpidf(pjsip_rx_data *rdata,
+pj_status_t pjsip_pres_parse_xpidf(pjsip_rx_data *rdata,
 					   pj_pool_t *pool,
 					   pjsip_pres_status *status);
 
@@ -399,7 +399,7 @@ typedef struct pjsip_pres_status pjsip_pres_status;
  *
  * @see pjsip_pres_parse_xpidf()
  */
-(pj_status_t) pjsip_pres_parse_xpidf2(char *body, unsigned body_len,
+pj_status_t pjsip_pres_parse_xpidf2(char *body, unsigned body_len,
 					     pj_pool_t *pool,
 					     pjsip_pres_status *status);
 

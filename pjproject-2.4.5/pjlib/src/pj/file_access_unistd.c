@@ -30,7 +30,7 @@
 /*
  * pj_file_exists()
  */
-(pj_bool_t) pj_file_exists(const char *filename)
+pj_bool_t pj_file_exists(const char *filename)
 {
     struct stat buf;
 
@@ -46,7 +46,7 @@
 /*
  * pj_file_size()
  */
-(pj_off_t) pj_file_size(const char *filename)
+pj_off_t pj_file_size(const char *filename)
 {
     struct stat buf;
 
@@ -62,7 +62,7 @@
 /*
  * pj_file_delete()
  */
-(pj_status_t) pj_file_delete(const char *filename)
+pj_status_t pj_file_delete(const char *filename)
 {
     PJ_ASSERT_RETURN(filename, PJ_EINVAL);
 
@@ -76,7 +76,7 @@
 /*
  * pj_file_move()
  */
-(pj_status_t) pj_file_move( const char *oldname, const char *newname)
+pj_status_t pj_file_move( const char *oldname, const char *newname)
 {
     PJ_ASSERT_RETURN(oldname && newname, PJ_EINVAL);
 
@@ -90,7 +90,7 @@
 /*
  * pj_file_getstat()
  */
-(pj_status_t) pj_file_getstat(const char *filename, 
+pj_status_t pj_file_getstat(const char *filename, 
 				    pj_file_stat *statbuf)
 {
     struct stat buf;

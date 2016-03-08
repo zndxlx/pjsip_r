@@ -27,12 +27,12 @@
 
 _DATA(const unsigned) PJ_GUID_STRING_LENGTH=36;
 
-(unsigned) pj_GUID_STRING_LENGTH()
+unsigned pj_GUID_STRING_LENGTH()
 {
     return PJ_GUID_STRING_LENGTH;
 }
 
-(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
+pj_str_t* pj_generate_unique_string(pj_str_t *str)
 {
     enum {GUID_LEN = 36};
     char sguid[GUID_LEN + 1];

@@ -89,13 +89,13 @@ __declspec(naked) __int64 rdtsc()
     }
 }
 
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     ts->u64 = rdtsc();
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     pj_status_t status;
 
@@ -127,7 +127,7 @@ static pj_timestamp g_ts_freq;
 static pj_timestamp g_ts_base;
 static pj_int64_t   g_time_base;
 
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     enum { MAX_RETRY = 10 };
     unsigned i;
@@ -223,7 +223,7 @@ static pj_status_t init_performance_counter(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     if (g_ts_freq.u64 == 0) {
 	enum { MAX_REPEAT = 10 };
@@ -268,7 +268,7 @@ static pj_status_t init_performance_counter(void)
  * Use QueryPerformanceCounter and QueryPerformanceFrequency.
  * This should be the default implementation to be used on Windows.
  */
-(pj_status_t) pj_get_timestamp(pj_timestamp *ts)
+pj_status_t pj_get_timestamp(pj_timestamp *ts)
 {
     LARGE_INTEGER val;
 
@@ -279,7 +279,7 @@ static pj_status_t init_performance_counter(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_get_timestamp_freq(pj_timestamp *freq)
+pj_status_t pj_get_timestamp_freq(pj_timestamp *freq)
 {
     LARGE_INTEGER val;
 

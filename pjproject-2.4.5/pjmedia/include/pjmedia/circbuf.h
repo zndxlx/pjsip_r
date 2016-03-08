@@ -79,7 +79,7 @@ typedef struct pjmedia_circ_buf {
  *			    created successfully, otherwise the appropriate
  *			    error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_create(pj_pool_t *pool, 
+pj_status_t pjmedia_circ_buf_create(pj_pool_t *pool, 
 					       unsigned capacity, 
 					       pjmedia_circ_buf **p_cb)
 {
@@ -105,7 +105,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_create(pj_pool_t *pool,
  *
  * @return		    PJ_SUCCESS when successful.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_reset(pjmedia_circ_buf *circbuf)
+pj_status_t pjmedia_circ_buf_reset(pjmedia_circ_buf *circbuf)
 {
     circbuf->start = circbuf->buf;
     circbuf->len = 0;
@@ -122,7 +122,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_reset(pjmedia_circ_buf *circbuf)
  *
  * @return		    The buffer length.
  */
-PJ_INLINE(unsigned) pjmedia_circ_buf_get_len(pjmedia_circ_buf *circbuf)
+unsigned pjmedia_circ_buf_get_len(pjmedia_circ_buf *circbuf)
 {
     return circbuf->len;
 }
@@ -135,7 +135,7 @@ PJ_INLINE(unsigned) pjmedia_circ_buf_get_len(pjmedia_circ_buf *circbuf)
  * @param circbuf	    The circular buffer.
  * @param len		    The new buffer length.
  */
-PJ_INLINE(void) pjmedia_circ_buf_set_len(pjmedia_circ_buf *circbuf,
+void pjmedia_circ_buf_set_len(pjmedia_circ_buf *circbuf,
 					 unsigned len)
 {
     PJMEDIA_CIRC_BUF_CHECK(len <= circbuf->capacity);
@@ -155,7 +155,7 @@ PJ_INLINE(void) pjmedia_circ_buf_set_len(pjmedia_circ_buf *circbuf,
  * @return		    PJ_SUCCESS when successful, otherwise 
  *			    the appropriate error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_adv_read_ptr(pjmedia_circ_buf *circbuf, 
+pj_status_t pjmedia_circ_buf_adv_read_ptr(pjmedia_circ_buf *circbuf, 
 						     unsigned count)
 {
     if (count >= circbuf->len)
@@ -184,7 +184,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_adv_read_ptr(pjmedia_circ_buf *circbuf,
  * @return		    PJ_SUCCESS when successful, otherwise 
  *			    the appropriate error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_adv_write_ptr(pjmedia_circ_buf *circbuf,
+pj_status_t pjmedia_circ_buf_adv_write_ptr(pjmedia_circ_buf *circbuf,
 						      unsigned count)
 {
     if (count + circbuf->len > circbuf->capacity)
@@ -207,7 +207,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_adv_write_ptr(pjmedia_circ_buf *circbuf,
  * @param reg2_len	    Pointer to store the length of the second buffer, 
  *			    in samples.
  */
-PJ_INLINE(void) pjmedia_circ_buf_get_read_regions(pjmedia_circ_buf *circbuf, 
+void pjmedia_circ_buf_get_read_regions(pjmedia_circ_buf *circbuf, 
 						  pj_int16_t **reg1, 
 						  unsigned *reg1_len, 
 						  pj_int16_t **reg2, 
@@ -242,7 +242,7 @@ PJ_INLINE(void) pjmedia_circ_buf_get_read_regions(pjmedia_circ_buf *circbuf,
  * @param reg2_len	    Pointer to store the length of the second buffer, 
  *			    in samples.
  */
-PJ_INLINE(void) pjmedia_circ_buf_get_write_regions(pjmedia_circ_buf *circbuf, 
+void pjmedia_circ_buf_get_write_regions(pjmedia_circ_buf *circbuf, 
 						   pj_int16_t **reg1, 
 						   unsigned *reg1_len, 
 						   pj_int16_t **reg2, 
@@ -278,7 +278,7 @@ PJ_INLINE(void) pjmedia_circ_buf_get_write_regions(pjmedia_circ_buf *circbuf,
  * @return		    PJ_SUCCESS when successful, otherwise 
  *			    the appropriate error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_read(pjmedia_circ_buf *circbuf, 
+pj_status_t pjmedia_circ_buf_read(pjmedia_circ_buf *circbuf, 
 					     pj_int16_t *data, 
 					     unsigned count)
 {
@@ -312,7 +312,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_read(pjmedia_circ_buf *circbuf,
  * @return		    PJ_SUCCESS when successful, otherwise
  *			    the appropriate error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_write(pjmedia_circ_buf *circbuf, 
+pj_status_t pjmedia_circ_buf_write(pjmedia_circ_buf *circbuf, 
 					      pj_int16_t *data, 
 					      unsigned count)
 {
@@ -347,7 +347,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_write(pjmedia_circ_buf *circbuf,
  * @return		    PJ_SUCCESS when successful, otherwise 
  *			    the appropriate error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_copy(pjmedia_circ_buf *circbuf, 
+pj_status_t pjmedia_circ_buf_copy(pjmedia_circ_buf *circbuf, 
 					     unsigned start_idx,
 					     pj_int16_t *data, 
 					     unsigned count)
@@ -386,7 +386,7 @@ PJ_INLINE(pj_status_t) pjmedia_circ_buf_copy(pjmedia_circ_buf *circbuf,
  * @return		    PJ_SUCCESS when successful, otherwise 
  *			    the appropriate error will be returned.
  */
-PJ_INLINE(pj_status_t) pjmedia_circ_buf_pack_buffer(pjmedia_circ_buf *circbuf)
+pj_status_t pjmedia_circ_buf_pack_buffer(pjmedia_circ_buf *circbuf)
 {
     pj_int16_t *reg1, *reg2;
     unsigned reg1cnt, reg2cnt;

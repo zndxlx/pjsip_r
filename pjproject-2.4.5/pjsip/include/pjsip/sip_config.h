@@ -251,7 +251,7 @@ typedef struct pjsip_cfg_t
  *
  * @return  Configuration instance.
  */
-(pjsip_cfg_t*) pjsip_cfg(void);
+pjsip_cfg_t* pjsip_cfg(void);
 
 #else	/* PJ_DLL */
 
@@ -263,7 +263,7 @@ extern pjsip_cfg_t pjsip_sip_cfg_var;
  *
  * @return  Configuration instance.
  */
-PJ_INLINE(pjsip_cfg_t*) pjsip_cfg(void)
+pjsip_cfg_t* pjsip_cfg(void)
 {
     return &pjsip_sip_cfg_var;
 }

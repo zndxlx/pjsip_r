@@ -27,7 +27,7 @@
 #include <pjsua-lib/pjsua.h>
 
 
-PJ_INLINE(pj_str_t) PyString_ToPJ(const PyObject *obj)
+pj_str_t PyString_ToPJ(const PyObject *obj)
 {
     pj_str_t str;
 
@@ -42,7 +42,7 @@ PJ_INLINE(pj_str_t) PyString_ToPJ(const PyObject *obj)
     return str;
 }
 
-PJ_INLINE(PyObject*) PyString_FromPJ(const pj_str_t *str)
+PyObject* PyString_FromPJ(const pj_str_t *str)
 {
     return PyString_FromStringAndSize(str->ptr, str->slen);
 }

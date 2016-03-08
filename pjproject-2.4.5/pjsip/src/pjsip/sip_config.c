@@ -64,7 +64,7 @@ pjsip_cfg_t pjsip_sip_cfg_var =
 
 
 #ifdef PJ_DLL
-(pjsip_cfg_t*) pjsip_cfg(void)
+pjsip_cfg_t* pjsip_cfg(void)
 {
     return &pjsip_sip_cfg_var;
 }

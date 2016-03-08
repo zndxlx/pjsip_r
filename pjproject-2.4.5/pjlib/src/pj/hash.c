@@ -50,7 +50,7 @@ struct pj_hash_table_t
 
 
 
-(pj_uint32_t) pj_hash_calc(pj_uint32_t hash, const void *key, 
+pj_uint32_t pj_hash_calc(pj_uint32_t hash, const void *key, 
 				 unsigned keylen)
 {
     PJ_CHECK_STACK();
@@ -70,7 +70,7 @@ struct pj_hash_table_t
     return hash;
 }
 
-(pj_uint32_t) pj_hash_calc_tolower( pj_uint32_t hval,
+pj_uint32_t pj_hash_calc_tolower( pj_uint32_t hval,
                                           char *result,
                                           const pj_str_t *key)
 {
@@ -101,7 +101,7 @@ struct pj_hash_table_t
 }
 
 
-(pj_hash_table_t*) pj_hash_create(pj_pool_t *pool, unsigned size)
+pj_hash_table_t* pj_hash_create(pj_pool_t *pool, unsigned size)
 {
     pj_hash_table_t *h;
     unsigned table_size;
@@ -222,7 +222,7 @@ static pj_hash_entry **find_entry( pj_pool_t *pool, pj_hash_table_t *ht,
     return p_entry;
 }
 
-(void *) pj_hash_get( pj_hash_table_t *ht,
+void * pj_hash_get( pj_hash_table_t *ht,
 			    const void *key, unsigned keylen,
 			    pj_uint32_t *hval)
 {
@@ -231,7 +231,7 @@ static pj_hash_entry **find_entry( pj_pool_t *pool, pj_hash_table_t *ht,
     return entry ? entry->value : NULL;
 }
 
-(void *) pj_hash_get_lower( pj_hash_table_t *ht,
+void * pj_hash_get_lower( pj_hash_table_t *ht,
 			          const void *key, unsigned keylen,
 			          pj_uint32_t *hval)
 {
@@ -264,21 +264,21 @@ static void hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
     }
 }
 
-(void) pj_hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
+void pj_hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
 			  const void *key, unsigned keylen, pj_uint32_t hval,
 			  void *value )
 {
     hash_set(pool, ht, key, keylen, hval, value, NULL, PJ_FALSE);
 }
 
-(void) pj_hash_set_lower( pj_pool_t *pool, pj_hash_table_t *ht,
+void pj_hash_set_lower( pj_pool_t *pool, pj_hash_table_t *ht,
 			        const void *key, unsigned keylen,
                                 pj_uint32_t hval, void *value )
 {
     hash_set(pool, ht, key, keylen, hval, value, NULL, PJ_TRUE);
 }
 
-(void) pj_hash_set_np( pj_hash_table_t *ht,
+void pj_hash_set_np( pj_hash_table_t *ht,
 			     const void *key, unsigned keylen, 
 			     pj_uint32_t hval, pj_hash_entry_buf entry_buf, 
 			     void *value)
@@ -286,7 +286,7 @@ static void hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
     hash_set(NULL, ht, key, keylen, hval, value, (void *)entry_buf, PJ_FALSE);
 }
 
-(void) pj_hash_set_np_lower( pj_hash_table_t *ht,
+void pj_hash_set_np_lower( pj_hash_table_t *ht,
 			           const void *key, unsigned keylen,
 			           pj_uint32_t hval,
                                    pj_hash_entry_buf entry_buf,
@@ -295,12 +295,12 @@ static void hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
     hash_set(NULL, ht, key, keylen, hval, value, (void *)entry_buf, PJ_TRUE);
 }
 
-(unsigned) pj_hash_count( pj_hash_table_t *ht )
+unsigned pj_hash_count( pj_hash_table_t *ht )
 {
     return ht->count;
 }
 
-(pj_hash_iterator_t*) pj_hash_first( pj_hash_table_t *ht,
+pj_hash_iterator_t* pj_hash_first( pj_hash_table_t *ht,
 					   pj_hash_iterator_t *it )
 {
     it->index = 0;
@@ -316,7 +316,7 @@ static void hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
     return it->entry ? it : NULL;
 }
 
-(pj_hash_iterator_t*) pj_hash_next( pj_hash_table_t *ht, 
+pj_hash_iterator_t* pj_hash_next( pj_hash_table_t *ht, 
 					  pj_hash_iterator_t *it )
 {
     it->entry = it->entry->next;
@@ -334,7 +334,7 @@ static void hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
     return it->entry ? it : NULL;
 }
 
-(void*) pj_hash_this( pj_hash_table_t *ht, pj_hash_iterator_t *it )
+void* pj_hash_this( pj_hash_table_t *ht, pj_hash_iterator_t *it )
 {
     PJ_CHECK_STACK();
     PJ_UNUSED_ARG(ht);

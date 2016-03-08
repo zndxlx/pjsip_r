@@ -205,7 +205,7 @@ typedef struct pjmedia_srtp_info
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_srtp_init_lib(pjmedia_endpt *endpt);
+pj_status_t pjmedia_srtp_init_lib(pjmedia_endpt *endpt);
 
 
 /**
@@ -213,7 +213,7 @@ typedef struct pjmedia_srtp_info
  *
  * @param opt	SRTP setting to be initialized.
  */
-(void) pjmedia_srtp_setting_default(pjmedia_srtp_setting *opt);
+void pjmedia_srtp_setting_default(pjmedia_srtp_setting *opt);
 
 
 /**
@@ -229,7 +229,7 @@ typedef struct pjmedia_srtp_info
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_transport_srtp_create(
+pj_status_t pjmedia_transport_srtp_create(
 				       pjmedia_endpt *endpt,
 				       pjmedia_transport *tp,
 				       const pjmedia_srtp_setting *opt,
@@ -256,7 +256,7 @@ typedef struct pjmedia_srtp_info
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_transport_srtp_start(
+pj_status_t pjmedia_transport_srtp_start(
 					    pjmedia_transport *srtp,
 					    const pjmedia_srtp_crypto *tx,
 					    const pjmedia_srtp_crypto *rx);
@@ -270,7 +270,7 @@ typedef struct pjmedia_srtp_info
  *
  * @see #pjmedia_transport_srtp_start() 
  */
-(pj_status_t) pjmedia_transport_srtp_stop(pjmedia_transport *srtp);
+pj_status_t pjmedia_transport_srtp_stop(pjmedia_transport *srtp);
 
 
 /**
@@ -291,7 +291,7 @@ typedef struct pjmedia_srtp_info
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_transport_srtp_decrypt_pkt(pjmedia_transport *tp,
+pj_status_t pjmedia_transport_srtp_decrypt_pkt(pjmedia_transport *tp,
 							pj_bool_t is_rtp,
 							void *pkt,
 							int *pkt_len);
@@ -304,7 +304,7 @@ typedef struct pjmedia_srtp_info
  *
  * @return		    member media transport.
  */
-(pjmedia_transport*) pjmedia_transport_srtp_get_member(
+pjmedia_transport* pjmedia_transport_srtp_get_member(
 						    pjmedia_transport *srtp);
 
 

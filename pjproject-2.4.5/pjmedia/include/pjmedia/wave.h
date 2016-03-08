@@ -157,7 +157,7 @@ typedef struct pjmedia_wave_subchunk
  *
  * @param hdr	    The WAVE header.
  */
-(void) pjmedia_wave_hdr_file_to_host( pjmedia_wave_hdr *hdr );
+void pjmedia_wave_hdr_file_to_host( pjmedia_wave_hdr *hdr );
 
 
 /**
@@ -170,7 +170,7 @@ typedef struct pjmedia_wave_subchunk
  *
  * @param hdr	    The WAVE header.
  */
-(void) pjmedia_wave_hdr_host_to_file( pjmedia_wave_hdr *hdr );
+void pjmedia_wave_hdr_host_to_file( pjmedia_wave_hdr *hdr );
 
 
 PJ_END_DECL

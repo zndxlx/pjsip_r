@@ -45,7 +45,7 @@ PJ_BEGIN_DECL
  *
  * @param seed	    Seed value.
  */
-(void) pj_srand(unsigned int seed);
+void pj_srand(unsigned int seed);
 
 
 /**
@@ -53,7 +53,7 @@ PJ_BEGIN_DECL
  *
  * @return a random integer.
  */
-(int) pj_rand(void);
+int pj_rand(void);
 
 
 /** @} */

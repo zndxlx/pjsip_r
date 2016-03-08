@@ -76,7 +76,7 @@ typedef struct pjmedia_resample pjmedia_resample;
  *
  * @return PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_resample_create(pj_pool_t *pool,
+pj_status_t pjmedia_resample_create(pj_pool_t *pool,
 					     pj_bool_t high_quality,
 					     pj_bool_t large_filter,
 					     unsigned channel_count,
@@ -95,7 +95,7 @@ typedef struct pjmedia_resample pjmedia_resample;
  * @param input			Buffer containing the input samples.
  * @param output		Buffer to store the output samples.
  */
-(void) pjmedia_resample_run( pjmedia_resample *resample,
+void pjmedia_resample_run( pjmedia_resample *resample,
 				    const pj_int16_t *input,
 				    pj_int16_t *output );
 
@@ -107,7 +107,7 @@ typedef struct pjmedia_resample pjmedia_resample;
  *
  * @return			The frame size, in number of samples.
  */
-(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample);
+unsigned pjmedia_resample_get_input_size(pjmedia_resample *resample);
 
 
 /**
@@ -115,7 +115,7 @@ typedef struct pjmedia_resample pjmedia_resample;
  *
  * @param resample		The resample session.
  */
-(void) pjmedia_resample_destroy(pjmedia_resample *resample);
+void pjmedia_resample_destroy(pjmedia_resample *resample);
 
 /**
  * @}
@@ -182,7 +182,7 @@ enum pjmedia_resample_port_options
  *
  * @return PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_resample_port_create( pj_pool_t *pool,
+pj_status_t pjmedia_resample_port_create( pj_pool_t *pool,
 						   pjmedia_port *dn_port,
 						   unsigned clock_rate,
 						   unsigned options,

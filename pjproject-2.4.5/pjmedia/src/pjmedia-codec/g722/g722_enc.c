@@ -515,7 +515,7 @@ static void tx_qmf(g722_enc_t *enc, int pcm1, int pcm2, int *lo, int *hi)
 }
 
 
-(pj_status_t) g722_enc_init(g722_enc_t *enc)
+pj_status_t g722_enc_init(g722_enc_t *enc)
 {
     PJ_ASSERT_RETURN(enc, PJ_EINVAL);
     
@@ -527,7 +527,7 @@ static void tx_qmf(g722_enc_t *enc, int pcm1, int pcm2, int *lo, int *hi)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) g722_enc_encode( g722_enc_t *enc, 
+pj_status_t g722_enc_encode( g722_enc_t *enc, 
 				     pj_int16_t in[], 
 				     pj_size_t nsamples,
 				     void *out,
@@ -566,7 +566,7 @@ static void tx_qmf(g722_enc_t *enc, int pcm1, int pcm2, int *lo, int *hi)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) g722_enc_deinit(g722_enc_t *enc)
+pj_status_t g722_enc_deinit(g722_enc_t *enc)
 {
     pj_bzero(enc, sizeof(g722_enc_t));
 

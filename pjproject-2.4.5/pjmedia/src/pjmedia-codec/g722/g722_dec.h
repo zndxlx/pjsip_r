@@ -65,15 +65,15 @@ typedef struct g722_dec_t {
 } g722_dec_t;
 
 
-(pj_status_t) g722_dec_init(g722_dec_t *dec);
+pj_status_t g722_dec_init(g722_dec_t *dec);
 
-(pj_status_t) g722_dec_decode(g722_dec_t *dec, 
+pj_status_t g722_dec_decode(g722_dec_t *dec, 
 				     void *in, 
 				     pj_size_t in_size,
 				     pj_int16_t out[],
 				     pj_size_t *nsamples);
 
-(pj_status_t) g722_dec_deinit(g722_dec_t *dec);
+pj_status_t g722_dec_deinit(g722_dec_t *dec);
 
 #endif /* __PJMEDIA_CODEC_G722_DEC_H__ */
 

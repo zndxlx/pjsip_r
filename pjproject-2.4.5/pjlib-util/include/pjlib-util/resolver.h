@@ -230,7 +230,7 @@ typedef struct pj_dns_a_record
  *
  * @param s	    The DNS settings to be initialized.
  */
-(void) pj_dns_settings_default(pj_dns_settings *s);
+void pj_dns_settings_default(pj_dns_settings *s);
 
 
 /**
@@ -257,7 +257,7 @@ typedef struct pj_dns_a_record
  *
  * @return	     PJ_SUCCESS on success, or the appropriate error code,
  */
-(pj_status_t) pj_dns_resolver_create(pj_pool_factory *pf,
+pj_status_t pj_dns_resolver_create(pj_pool_factory *pf,
 					    const char *name,
 					    unsigned options,
 					    pj_timer_heap_t *timer,
@@ -281,7 +281,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code,
  */
-(pj_status_t) pj_dns_resolver_set_ns(pj_dns_resolver *resolver,
+pj_status_t pj_dns_resolver_set_ns(pj_dns_resolver *resolver,
 					    unsigned count,
 					    const pj_str_t servers[],
 					    const pj_uint16_t ports[]);
@@ -295,7 +295,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    The query timeout setting, in seconds.
  */
-(pj_status_t) pj_dns_resolver_get_settings(pj_dns_resolver *resolver,
+pj_status_t pj_dns_resolver_get_settings(pj_dns_resolver *resolver,
 						  pj_dns_settings *st);
 
 
@@ -309,7 +309,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code,
  */
-(pj_status_t) pj_dns_resolver_set_settings(pj_dns_resolver *resolver,
+pj_status_t pj_dns_resolver_set_settings(pj_dns_resolver *resolver,
 						  const pj_dns_settings *st);
 
 
@@ -324,7 +324,7 @@ typedef struct pj_dns_a_record
  *		    argument is NULL, this function will wait forever
  *		    until events occur.
  */
-(void) pj_dns_resolver_handle_events(pj_dns_resolver *resolver,
+void pj_dns_resolver_handle_events(pj_dns_resolver *resolver,
 					    const pj_time_val *timeout);
 
 
@@ -338,7 +338,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code,
  */
-(pj_status_t) pj_dns_resolver_destroy(pj_dns_resolver *resolver,
+pj_status_t pj_dns_resolver_destroy(pj_dns_resolver *resolver,
 					     pj_bool_t notify);
 
 
@@ -373,7 +373,7 @@ typedef struct pj_dns_a_record
  *		    started successfully or response cache is available and
  *		    the user callback has been called.
  */
-(pj_status_t) pj_dns_resolver_start_query(pj_dns_resolver *resolver,
+pj_status_t pj_dns_resolver_start_query(pj_dns_resolver *resolver,
 						 const pj_str_t *name,
 						 int type,
 						 unsigned options,
@@ -390,7 +390,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code,
  */
-(pj_status_t) pj_dns_resolver_cancel_query(pj_dns_async_query *query,
+pj_status_t pj_dns_resolver_cancel_query(pj_dns_async_query *query,
 						  pj_bool_t notify);
 
 /**
@@ -403,7 +403,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    PJ_SUCCESS if response can be parsed successfully.
  */
-(pj_status_t) pj_dns_parse_a_response(const pj_dns_parsed_packet *pkt,
+pj_status_t pj_dns_parse_a_response(const pj_dns_parsed_packet *pkt,
 					     pj_dns_a_record *rec);
 
 
@@ -424,7 +424,7 @@ typedef struct pj_dns_a_record
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_dns_resolver_add_entry(pj_dns_resolver *resolver,
+pj_status_t pj_dns_resolver_add_entry(pj_dns_resolver *resolver,
 					       const pj_dns_parsed_packet *pkt,
 					       pj_bool_t set_ttl);
 
@@ -436,7 +436,7 @@ typedef struct pj_dns_a_record
  * @return	    Current number of entries being stored in the response
  *		    cache.
  */
-(unsigned) pj_dns_resolver_get_cached_count(pj_dns_resolver *resolver);
+unsigned pj_dns_resolver_get_cached_count(pj_dns_resolver *resolver);
 
 
 /**
@@ -445,7 +445,7 @@ typedef struct pj_dns_a_record
  * @param resolver  The resolver instance.
  * @param detail    Will print detailed entries.
  */
-(void) pj_dns_resolver_dump(pj_dns_resolver *resolver,
+void pj_dns_resolver_dump(pj_dns_resolver *resolver,
 				   pj_bool_t detail);
 
 

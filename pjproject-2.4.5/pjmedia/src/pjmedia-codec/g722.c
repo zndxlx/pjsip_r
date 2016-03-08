@@ -159,7 +159,7 @@ struct g722_data
 /*
  * Initialize and register G722 codec factory to pjmedia endpoint.
  */
-(pj_status_t) pjmedia_codec_g722_init( pjmedia_endpt *endpt )
+pj_status_t pjmedia_codec_g722_init( pjmedia_endpt *endpt )
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;
@@ -214,7 +214,7 @@ on_error:
  * Unregister G722 codec factory from pjmedia endpoint and deinitialize
  * the G722 codec library.
  */
-(pj_status_t) pjmedia_codec_g722_deinit(void)
+pj_status_t pjmedia_codec_g722_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;
@@ -249,7 +249,7 @@ on_error:
 /*
  * Set level adjustment.
  */
-(pj_status_t) pjmedia_codec_g722_set_pcm_shift(unsigned val)
+pj_status_t pjmedia_codec_g722_set_pcm_shift(unsigned val)
 {
     g722_codec_factory.pcm_shift = val;
     return PJ_SUCCESS;

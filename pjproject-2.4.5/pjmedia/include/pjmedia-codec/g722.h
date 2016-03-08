@@ -66,7 +66,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g722_init(pjmedia_endpt *endpt);
+pj_status_t pjmedia_codec_g722_init(pjmedia_endpt *endpt);
 
 
 /**
@@ -75,7 +75,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g722_deinit(void);
+pj_status_t pjmedia_codec_g722_deinit(void);
 
 
 /**
@@ -90,7 +90,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_codec_g722_set_pcm_shift(unsigned val);
+pj_status_t pjmedia_codec_g722_set_pcm_shift(unsigned val);
 
 
 PJ_END_DECL

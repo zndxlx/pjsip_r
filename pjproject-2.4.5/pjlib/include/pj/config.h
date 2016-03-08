@@ -982,11 +982,11 @@
  */
 
 /**
- * @def PJ_INLINE(type)
+ * @def (type)
  * @param type The return type of the function.
  * Expand the function as inline.
  */
-#define PJ_INLINE(type)	  PJ_INLINE_SPECIFIER type
+#define (type)	  _SPECIFIER type
 
 /**
  * This macro declares platform/compiler specific specifier prefix
@@ -1072,7 +1072,7 @@
  * Declare a function that will not return.
  */
 /**
- * @def PJ_IDECL_NO_RETURN(type)
+ * @def _NO_RETURN(type)
  * @param type The return type of the function.
  * Declare an inline function that will not return.
  */
@@ -1086,12 +1086,12 @@
  */
 #ifdef __cplusplus
 #  define _NO_RETURN(type)   (type) PJ_NORETURN
-#  define PJ_IDECL_NO_RETURN(type)  PJ_INLINE(type) PJ_NORETURN
+#  define _NO_RETURN(type)  (type) PJ_NORETURN
 #  define PJ_BEGIN_DECL		    extern "C" {
 #  define PJ_END_DECL		    }
 #else
 #  define _NO_RETURN(type)   PJ_NORETURN (type)
-#  define PJ_IDECL_NO_RETURN(type)  PJ_NORETURN PJ_INLINE(type)
+#  define _NO_RETURN(type)  PJ_NORETURN (type)
 #  define PJ_BEGIN_DECL
 #  define PJ_END_DECL
 #endif
@@ -1127,22 +1127,22 @@
 
 
 /**
- * @def PJ_IDECL(type)
+ * @def (type)
  * @param type  The function's return type.
  * Declare a function that may be expanded as inline.
  */
 /**
- * @def PJ_IDEF(type)
+ * @def (type)
  * @param type  The function's return type.
  * Define a function that may be expanded as inline.
  */
 
 #if PJ_FUNCTIONS_ARE_INLINED
-#  define PJ_IDECL(type)  PJ_INLINE(type)
-#  define PJ_IDEF(type)   PJ_INLINE(type)
+#  define (type)  (type)
+#  define (type)   (type)
 #else
-#  define PJ_IDECL(type)  (type)
-#  define PJ_IDEF(type)   (type)
+#  define (type)  (type)
+#  define (type)   (type)
 #endif
 
 
@@ -1247,12 +1247,12 @@ _DATA(const char*) PJ_VERSION;
  *
  * @return #PJ_VERSION constant.
  */
-(const char*) pj_get_version(void);
+const char* pj_get_version(void);
 
 /**
  * Dump configuration to log with verbosity equal to info(3).
  */
-(void) pj_dump_config(void);
+void pj_dump_config(void);
 
 PJ_END_DECL
 

@@ -26,7 +26,7 @@
  */ 
 #if !defined(PJ_QOS_IMPLEMENTATION) || PJ_QOS_IMPLEMENTATION==PJ_QOS_BSD
 
-(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
+pj_status_t pj_sock_set_qos_params(pj_sock_t sock,
 					   pj_qos_params *param)
 {
     pj_status_t last_err = PJ_ENOTSUP;
@@ -65,7 +65,7 @@
     return param->flags ? PJ_SUCCESS : last_err;
 }
 
-(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
+pj_status_t pj_sock_set_qos_type(pj_sock_t sock,
 					 pj_qos_type type)
 {
     pj_qos_params param;
@@ -79,7 +79,7 @@
 }
 
 
-(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
+pj_status_t pj_sock_get_qos_params(pj_sock_t sock,
 					   pj_qos_params *p_param)
 {
     pj_status_t last_err = PJ_ENOTSUP;
@@ -115,7 +115,7 @@
     return p_param->flags ? PJ_SUCCESS : last_err;
 }
 
-(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
+pj_status_t pj_sock_get_qos_type(pj_sock_t sock,
 					 pj_qos_type *p_type)
 {
     pj_qos_params param;

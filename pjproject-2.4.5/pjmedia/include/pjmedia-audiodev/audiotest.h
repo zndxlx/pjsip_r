@@ -101,7 +101,7 @@ typedef struct pjmedia_aud_test_results
 /**
  * Perform audio device testing.
  */
-(pj_status_t) pjmedia_aud_test(const pjmedia_aud_param *param,
+pj_status_t pjmedia_aud_test(const pjmedia_aud_param *param,
 				      pjmedia_aud_test_results *result);
 
 /**

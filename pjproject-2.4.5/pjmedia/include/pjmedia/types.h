@@ -241,7 +241,7 @@ typedef enum pjmedia_orient
  *
  * @return		String.
  */
-(const char*) pjmedia_type_name(pjmedia_type t);
+const char* pjmedia_type_name(pjmedia_type t);
 
 /**
  * A utility function to convert fourcc type of value to four letters string.
@@ -252,7 +252,7 @@ typedef enum pjmedia_orient
  *
  * @return		The string.
  */
-PJ_INLINE(const char*) pjmedia_fourcc_name(pj_uint32_t sig, char buf[])
+const char* pjmedia_fourcc_name(pj_uint32_t sig, char buf[])
 {
     buf[3] = (char)((sig >> 24) & 0xFF);
     buf[2] = (char)((sig >> 16) & 0xFF);

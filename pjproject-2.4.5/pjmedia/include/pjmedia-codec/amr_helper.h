@@ -633,7 +633,7 @@ typedef struct pjmedia_codec_amr_pack_setting {
  *
  * @return	    AMR mode.
  */
-PJ_INLINE(pj_int8_t) pjmedia_codec_amr_get_mode(unsigned bitrate)
+pj_int8_t pjmedia_codec_amr_get_mode(unsigned bitrate)
 {
     pj_int8_t mode = -1;
 
@@ -686,7 +686,7 @@ PJ_INLINE(pj_int8_t) pjmedia_codec_amr_get_mode(unsigned bitrate)
  * @return	    AMR mode.
  */
 
-PJ_INLINE(pj_int8_t) pjmedia_codec_amr_get_mode2(pj_bool_t amrnb,
+pj_int8_t pjmedia_codec_amr_get_mode2(pj_bool_t amrnb,
 						 unsigned frame_len)
 {
     int i;
@@ -719,7 +719,7 @@ PJ_INLINE(pj_int8_t) pjmedia_codec_amr_get_mode2(pj_bool_t amrnb,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_codec_amr_predecode(
+pj_status_t pjmedia_codec_amr_predecode(
 			    const pjmedia_frame *in,
 			    const pjmedia_codec_amr_pack_setting *setting,
 			    pjmedia_frame *out)
@@ -861,7 +861,7 @@ PJ_INLINE(pj_status_t) pjmedia_codec_amr_predecode(
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE (pj_status_t) pjmedia_codec_amr_pack(
+ (pj_status_t) pjmedia_codec_amr_pack(
 			    const pjmedia_frame frames[],
 			    unsigned nframes,
 			    const pjmedia_codec_amr_pack_setting *setting,
@@ -1078,7 +1078,7 @@ PJ_INLINE (pj_status_t) pjmedia_codec_amr_pack(
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_INLINE(pj_status_t) pjmedia_codec_amr_parse(
+pj_status_t pjmedia_codec_amr_parse(
 			     void *pkt, 
 			     pj_size_t pkt_size, 
 			     const pj_timestamp *ts,

@@ -22,7 +22,7 @@
 #include <pj/string.h>
 #include <pj/pool.h>
 
-(pj_str_t) pj_str_unescape( pj_pool_t *pool, const pj_str_t *src_str)
+pj_str_t pj_str_unescape( pj_pool_t *pool, const pj_str_t *src_str)
 {
     char *src = src_str->ptr;
     char *end = src + src_str->slen;
@@ -50,7 +50,7 @@
     return dst_str;
 }
 
-(pj_str_t*) pj_strcpy_unescape(pj_str_t *dst_str,
+pj_str_t* pj_strcpy_unescape(pj_str_t *dst_str,
 				     const pj_str_t *src_str)
 {
     const char *src = src_str->ptr;
@@ -71,7 +71,7 @@
     return dst_str;
 }
 
-(pj_ssize_t) pj_strncpy2_escape( char *dst_str, const pj_str_t *src_str,
+pj_ssize_t pj_strncpy2_escape( char *dst_str, const pj_str_t *src_str,
 				       pj_ssize_t max, const pj_cis_t *unres)
 {
     const char *src = src_str->ptr;
@@ -100,7 +100,7 @@
     return src==src_end ? dst-dst_str : -1;
 }
 
-(pj_str_t*) pj_strncpy_escape(pj_str_t *dst_str, 
+pj_str_t* pj_strncpy_escape(pj_str_t *dst_str, 
 				    const pj_str_t *src_str,
 				    pj_ssize_t max, const pj_cis_t *unres)
 {

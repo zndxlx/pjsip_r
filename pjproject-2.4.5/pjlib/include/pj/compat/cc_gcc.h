@@ -51,13 +51,13 @@
   #include <inttypes.h> 
   typedef int64_t		pj_int64_t;
   typedef uint64_t		pj_uint64_t;
-  #define PJ_INLINE_SPECIFIER	static __inline
+  #define _SPECIFIER	static __inline
   #define PJ_ATTR_NORETURN	
   #define PJ_ATTR_MAY_ALIAS	
 #else
   typedef long long		pj_int64_t;
   typedef unsigned long long	pj_uint64_t;
-  #define PJ_INLINE_SPECIFIER	static inline
+  #define _SPECIFIER	static inline
   #define PJ_ATTR_NORETURN	__attribute__ ((noreturn))
   #define PJ_ATTR_MAY_ALIAS	__attribute__((__may_alias__))
 #endif

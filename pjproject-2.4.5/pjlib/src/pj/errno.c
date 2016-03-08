@@ -116,7 +116,7 @@ static int pjlib_error(pj_status_t code, char *buf, pj_size_t size)
 #define IN_RANGE(val,start,end)	    ((val)>=(start) && (val)<(end))
 
 /* Register strerror handle. */
-(pj_status_t) pj_register_strerror( pj_status_t start,
+pj_status_t pj_register_strerror( pj_status_t start,
 					  pj_status_t space,
 					  pj_error_callback f)
 {
@@ -170,7 +170,7 @@ void pj_errno_clear_handlers(void)
 /*
  * pj_strerror()
  */
-(pj_str_t) pj_strerror( pj_status_t statcode, 
+pj_str_t pj_strerror( pj_status_t statcode, 
 			      char *buf, pj_size_t bufsize )
 {
     int len = -1;
@@ -244,7 +244,7 @@ static void pj_perror_imp(int log_level, const char *sender,
     invoke_log(sender, log_level, "%s: %s", titlebuf, errmsg);
 }
 
-(void) pj_perror(int log_level, const char *sender, pj_status_t status,
+void pj_perror(int log_level, const char *sender, pj_status_t status,
 		       const char *title_fmt, ...)
 {
     va_list marker;
@@ -253,7 +253,7 @@ static void pj_perror_imp(int log_level, const char *sender,
     va_end(marker);
 }
 
-(void) pj_perror_1(const char *sender, pj_status_t status,
+void pj_perror_1(const char *sender, pj_status_t status,
 			 const char *title_fmt, ...)
 {
     va_list marker;
@@ -263,7 +263,7 @@ static void pj_perror_imp(int log_level, const char *sender,
 }
 
 #else /* #if PJ_LOG_MAX_LEVEL >= 1 */
-(void) pj_perror(int log_level, const char *sender, pj_status_t status,
+void pj_perror(int log_level, const char *sender, pj_status_t status,
 		       const char *title_fmt, ...)
 {
 }
@@ -271,7 +271,7 @@ static void pj_perror_imp(int log_level, const char *sender,
 
 
 #if PJ_LOG_MAX_LEVEL >= 2
-(void) pj_perror_2(const char *sender, pj_status_t status,
+void pj_perror_2(const char *sender, pj_status_t status,
 			 const char *title_fmt, ...)
 {
     va_list marker;
@@ -282,7 +282,7 @@ static void pj_perror_imp(int log_level, const char *sender,
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 3
-(void) pj_perror_3(const char *sender, pj_status_t status,
+void pj_perror_3(const char *sender, pj_status_t status,
 			 const char *title_fmt, ...)
 {
     va_list marker;
@@ -293,7 +293,7 @@ static void pj_perror_imp(int log_level, const char *sender,
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 4
-(void) pj_perror_4(const char *sender, pj_status_t status,
+void pj_perror_4(const char *sender, pj_status_t status,
 			 const char *title_fmt, ...)
 {
     va_list marker;
@@ -304,7 +304,7 @@ static void pj_perror_imp(int log_level, const char *sender,
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 5
-(void) pj_perror_5(const char *sender, pj_status_t status,
+void pj_perror_5(const char *sender, pj_status_t status,
 			 const char *title_fmt, ...)
 {
     va_list marker;
@@ -315,7 +315,7 @@ static void pj_perror_imp(int log_level, const char *sender,
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 6
-(void) pj_perror_6(const char *sender, pj_status_t status,
+void pj_perror_6(const char *sender, pj_status_t status,
 			 const char *title_fmt, ...)
 {
     va_list marker;

@@ -98,7 +98,7 @@ typedef struct pj_addrinfo
  *
  * @return	    PJ_SUCCESS, or the appropriate error codes.
  */ 
-(pj_status_t) pj_gethostbyname(const pj_str_t *name, pj_hostent *he);
+pj_status_t pj_gethostbyname(const pj_str_t *name, pj_hostent *he);
 
 
 /**
@@ -113,7 +113,7 @@ typedef struct pj_addrinfo
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_gethostip(int af, pj_sockaddr *addr);
+pj_status_t pj_gethostip(int af, pj_sockaddr *addr);
 
 
 /**
@@ -135,7 +135,7 @@ typedef struct pj_addrinfo
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_getipinterface(int af,
+pj_status_t pj_getipinterface(int af,
                                        const pj_str_t *dst,
                                        pj_sockaddr *itf_addr,
                                        pj_bool_t allow_resolve,
@@ -154,7 +154,7 @@ typedef struct pj_addrinfo
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_getdefaultipinterface(int af,
+pj_status_t pj_getdefaultipinterface(int af,
 					      pj_sockaddr *addr);
 
 
@@ -177,7 +177,7 @@ typedef struct pj_addrinfo
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_getaddrinfo(int af, const pj_str_t *name,
+pj_status_t pj_getaddrinfo(int af, const pj_str_t *name,
 				    unsigned *count, pj_addrinfo ai[]);
 
 

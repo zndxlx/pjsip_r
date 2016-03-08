@@ -69,7 +69,7 @@ typedef struct pjsip_ua_init_param
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_ua_init_module(pjsip_endpoint *endpt,
+pj_status_t pjsip_ua_init_module(pjsip_endpoint *endpt,
 					  const pjsip_ua_init_param *prm);
 
 /**
@@ -77,7 +77,7 @@ typedef struct pjsip_ua_init_param
  *
  * @return		The user agent module instance.
  */
-(pjsip_user_agent*) pjsip_ua_instance(void);
+pjsip_user_agent* pjsip_ua_instance(void);
 
 
 /**
@@ -90,7 +90,7 @@ typedef struct pjsip_ua_init_param
  *
  * @return	    Number of dialog sets.
  */
-(pj_uint32_t) pjsip_ua_get_dlg_set_count(void);
+pj_uint32_t pjsip_ua_get_dlg_set_count(void);
 
 
 /**
@@ -110,7 +110,7 @@ typedef struct pjsip_ua_init_param
  * @return		The matching dialog instance, or NULL if no matching
  *			dialog is found.
  */
-(pjsip_dialog*) pjsip_ua_find_dialog(const pj_str_t *call_id,
+pjsip_dialog* pjsip_ua_find_dialog(const pj_str_t *call_id,
 					    const pj_str_t *local_tag,
 					    const pj_str_t *remote_tag,
 					    pj_bool_t lock_dialog);
@@ -120,14 +120,14 @@ typedef struct pjsip_ua_init_param
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjsip_ua_destroy(void);
+pj_status_t pjsip_ua_destroy(void);
 
 /**
  * Dump user agent contents (e.g. all dialogs).
  *
  * @param detail	If non-zero, list of dialogs will be printed.
  */
-(void) pjsip_ua_dump(pj_bool_t detail);
+void pjsip_ua_dump(pj_bool_t detail);
 
 /**
  * Get the endpoint instance of a user agent module.
@@ -137,7 +137,7 @@ typedef struct pjsip_ua_init_param
  * @return		The endpoint instance where the user agent is
  *			registered.
  */
-(pjsip_endpoint*) pjsip_ua_get_endpt(pjsip_user_agent *ua);
+pjsip_endpoint* pjsip_ua_get_endpt(pjsip_user_agent *ua);
 
 
 /**
@@ -149,9 +149,9 @@ typedef struct pjsip_ua_init_param
  * Internal (called by sip_dialog.c).
  */
 
-(pj_status_t) pjsip_ua_register_dlg( pjsip_user_agent *ua,
+pj_status_t pjsip_ua_register_dlg( pjsip_user_agent *ua,
 					    pjsip_dialog *dlg );
-(pj_status_t) pjsip_ua_unregister_dlg(pjsip_user_agent *ua,
+pj_status_t pjsip_ua_unregister_dlg(pjsip_user_agent *ua,
 					     pjsip_dialog *dlg );
 
 

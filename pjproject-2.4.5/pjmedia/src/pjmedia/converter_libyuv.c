@@ -634,7 +634,7 @@ static pjmedia_converter_factory libyuv_factory =
     NULL					/* op will be init-ed later  */
 };
 
-(pj_status_t)
+pj_status_t
 pjmedia_libyuv_converter_init(pjmedia_converter_mgr *mgr)
 {
     libyuv_factory.op = &libyuv_factory_op;
@@ -642,7 +642,7 @@ pjmedia_libyuv_converter_init(pjmedia_converter_mgr *mgr)
 }
 
 
-(pj_status_t)
+pj_status_t
 pjmedia_libyuv_converter_shutdown(pjmedia_converter_mgr *mgr,
 				  pj_pool_t *pool)
 {

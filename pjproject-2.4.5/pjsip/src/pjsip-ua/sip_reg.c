@@ -114,7 +114,7 @@ struct pjsip_regc
 };
 
 
-(pj_status_t) pjsip_regc_create( pjsip_endpoint *endpt, void *token,
+pj_status_t pjsip_regc_create( pjsip_endpoint *endpt, void *token,
 				       pjsip_regc_cb *cb,
 				       pjsip_regc **p_regc)
 {
@@ -166,7 +166,7 @@ struct pjsip_regc
 }
 
 
-(pj_status_t) pjsip_regc_destroy(pjsip_regc *regc)
+pj_status_t pjsip_regc_destroy(pjsip_regc *regc)
 {
     PJ_ASSERT_RETURN(regc, PJ_EINVAL);
 
@@ -196,7 +196,7 @@ struct pjsip_regc
 }
 
 
-(pj_status_t) pjsip_regc_get_info( pjsip_regc *regc,
+pj_status_t pjsip_regc_get_info( pjsip_regc *regc,
 					 pjsip_regc_info *info )
 {
     PJ_ASSERT_RETURN(regc && info, PJ_EINVAL);
@@ -231,7 +231,7 @@ struct pjsip_regc
 }
 
 
-(pj_pool_t*) pjsip_regc_get_pool(pjsip_regc *regc)
+pj_pool_t* pjsip_regc_get_pool(pjsip_regc *regc)
 {
     return regc->pool;
 }
@@ -326,7 +326,7 @@ static pj_status_t set_contact( pjsip_regc *regc,
 }
 
 
-(pj_status_t) pjsip_regc_init( pjsip_regc *regc,
+pj_status_t pjsip_regc_init( pjsip_regc *regc,
 				     const pj_str_t *srv_url,
 				     const pj_str_t *from_url,
 				     const pj_str_t *to_url,
@@ -395,7 +395,7 @@ static pj_status_t set_contact( pjsip_regc *regc,
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjsip_regc_set_credentials( pjsip_regc *regc,
+pj_status_t pjsip_regc_set_credentials( pjsip_regc *regc,
 						int count,
 						const pjsip_cred_info cred[] )
 {
@@ -403,14 +403,14 @@ static pj_status_t set_contact( pjsip_regc *regc,
     return pjsip_auth_clt_set_credentials(&regc->auth_sess, count, cred);
 }
 
-(pj_status_t) pjsip_regc_set_prefs( pjsip_regc *regc,
+pj_status_t pjsip_regc_set_prefs( pjsip_regc *regc,
 					  const pjsip_auth_clt_pref *pref)
 {
     PJ_ASSERT_RETURN(regc && pref, PJ_EINVAL);
     return pjsip_auth_clt_set_prefs(&regc->auth_sess, pref);
 }
 
-(pj_status_t) pjsip_regc_set_route_set( pjsip_regc *regc,
+pj_status_t pjsip_regc_set_route_set( pjsip_regc *regc,
 					      const pjsip_route_hdr *route_set)
 {
     const pjsip_route_hdr *chdr;
@@ -432,7 +432,7 @@ static pj_status_t set_contact( pjsip_regc *regc,
 /*
  * Bind client registration to a specific transport/listener. 
  */
-(pj_status_t) pjsip_regc_set_transport( pjsip_regc *regc,
+pj_status_t pjsip_regc_set_transport( pjsip_regc *regc,
 					      const pjsip_tpselector *sel)
 {
     PJ_ASSERT_RETURN(regc && sel, PJ_EINVAL);
@@ -445,7 +445,7 @@ static pj_status_t set_contact( pjsip_regc *regc,
 }
 
 /* Release transport */
-(pj_status_t) pjsip_regc_release_transport(pjsip_regc *regc)
+pj_status_t pjsip_regc_release_transport(pjsip_regc *regc)
 {
     PJ_ASSERT_RETURN(regc, PJ_EINVAL);
     if (regc->last_transport) {
@@ -456,7 +456,7 @@ static pj_status_t set_contact( pjsip_regc *regc,
 }
 
 
-(pj_status_t) pjsip_regc_add_headers( pjsip_regc *regc,
+pj_status_t pjsip_regc_add_headers( pjsip_regc *regc,
 					    const pjsip_hdr *hdr_list)
 {
     const pjsip_hdr *hdr;
@@ -539,7 +539,7 @@ static pj_status_t create_request(pjsip_regc *regc,
 }
 
 
-(pj_status_t) pjsip_regc_register(pjsip_regc *regc, pj_bool_t autoreg,
+pj_status_t pjsip_regc_register(pjsip_regc *regc, pj_bool_t autoreg,
 					pjsip_tx_data **p_tdata)
 {
     pjsip_msg *msg;
@@ -607,7 +607,7 @@ static pj_status_t create_request(pjsip_regc *regc,
 }
 
 
-(pj_status_t) pjsip_regc_unregister(pjsip_regc *regc,
+pj_status_t pjsip_regc_unregister(pjsip_regc *regc,
 					  pjsip_tx_data **p_tdata)
 {
     pjsip_tx_data *tdata;
@@ -660,7 +660,7 @@ static pj_status_t create_request(pjsip_regc *regc,
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pjsip_regc_unregister_all(pjsip_regc *regc,
+pj_status_t pjsip_regc_unregister_all(pjsip_regc *regc,
 					      pjsip_tx_data **p_tdata)
 {
     pjsip_tx_data *tdata;
@@ -705,7 +705,7 @@ static pj_status_t create_request(pjsip_regc *regc,
 }
 
 
-(pj_status_t) pjsip_regc_update_contact(  pjsip_regc *regc,
+pj_status_t pjsip_regc_update_contact(  pjsip_regc *regc,
 					        int contact_cnt,
 						const pj_str_t contact[] )
 {
@@ -721,7 +721,7 @@ static pj_status_t create_request(pjsip_regc *regc,
 }
 
 
-(pj_status_t) pjsip_regc_update_expires(  pjsip_regc *regc,
+pj_status_t pjsip_regc_update_expires(  pjsip_regc *regc,
 					        pj_uint32_t expires )
 {
     PJ_ASSERT_RETURN(regc, PJ_EINVAL);
@@ -828,7 +828,7 @@ static void schedule_registration ( pjsip_regc *regc, pj_int32_t expiration )
     }
 }
 
-(pj_status_t) pjsip_regc_set_reg_tsx_cb( pjsip_regc *regc,
+pj_status_t pjsip_regc_set_reg_tsx_cb( pjsip_regc *regc,
 				               pjsip_regc_tsx_cb *tsx_cb)
 {
     PJ_ASSERT_RETURN(regc, PJ_EINVAL);
@@ -837,7 +837,7 @@ static void schedule_registration ( pjsip_regc *regc, pj_int32_t expiration )
 }
 
 
-(pj_status_t) pjsip_regc_set_via_sent_by( pjsip_regc *regc,
+pj_status_t pjsip_regc_set_via_sent_by( pjsip_regc *regc,
 				                pjsip_host_port *via_addr,
                                                 pjsip_transport *via_tp)
 {
@@ -855,7 +855,7 @@ static void schedule_registration ( pjsip_regc *regc, pj_int32_t expiration )
     return PJ_SUCCESS;
 }
 
-(pj_status_t)
+pj_status_t
 pjsip_regc_set_delay_before_refresh( pjsip_regc *regc,
 				     pj_uint32_t delay )
 {
@@ -1348,7 +1348,7 @@ handle_err:
     }
 }
 
-(pj_status_t) pjsip_regc_send(pjsip_regc *regc, pjsip_tx_data *tdata)
+pj_status_t pjsip_regc_send(pjsip_regc *regc, pjsip_tx_data *tdata)
 {
     pj_status_t status;
     pjsip_cseq_hdr *cseq_hdr;

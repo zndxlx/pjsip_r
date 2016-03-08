@@ -29,7 +29,7 @@
 #endif
 
 
-(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr)
+char* pj_strstr(const pj_str_t *str, const pj_str_t *substr)
 {
     const char *s, *ends;
 
@@ -48,7 +48,7 @@
 }
 
 
-(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr)
+char* pj_stristr(const pj_str_t *str, const pj_str_t *substr)
 {
     const char *s, *ends;
 
@@ -67,7 +67,7 @@
 }
 
 
-(pj_str_t*) pj_strltrim( pj_str_t *str )
+pj_str_t* pj_strltrim( pj_str_t *str )
 {
     char *end = str->ptr + str->slen;
     register char *p = str->ptr;
@@ -78,7 +78,7 @@
     return str;
 }
 
-(pj_str_t*) pj_strrtrim( pj_str_t *str )
+pj_str_t* pj_strrtrim( pj_str_t *str )
 {
     char *end = str->ptr + str->slen;
     register char *p = end - 1;
@@ -88,7 +88,7 @@
     return str;
 }
 
-(char*) pj_create_random_string(char *str, pj_size_t len)
+char* pj_create_random_string(char *str, pj_size_t len)
 {
     unsigned i;
     char *p = str;
@@ -109,7 +109,7 @@
     return str;
 }
 
-(long) pj_strtol(const pj_str_t *str)
+long pj_strtol(const pj_str_t *str)
 {
     PJ_CHECK_STACK();
 
@@ -123,7 +123,7 @@
         return pj_strtoul(str);
 }
 
-(unsigned long) pj_strtoul(const pj_str_t *str)
+unsigned long pj_strtoul(const pj_str_t *str)
 {
     unsigned long value;
     unsigned i;
@@ -139,7 +139,7 @@
     return value;
 }
 
-(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
+unsigned long pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
 				  unsigned base)
 {
     unsigned long value;
@@ -175,7 +175,7 @@
     return value;
 }
 
-(float) pj_strtof(const pj_str_t *str)
+float pj_strtof(const pj_str_t *str)
 {
     pj_str_t part;
     char *pdot;
@@ -213,12 +213,12 @@
     return val;
 }
 
-(int) pj_utoa(unsigned long val, char *buf)
+int pj_utoa(unsigned long val, char *buf)
 {
     return pj_utoa_pad(val, buf, 0, 0);
 }
 
-(int) pj_utoa_pad( unsigned long val, char *buf, int min_dig, int pad)
+int pj_utoa_pad( unsigned long val, char *buf, int min_dig, int pad)
 {
     char *p;
     int len;

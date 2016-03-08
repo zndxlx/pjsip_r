@@ -20,7 +20,7 @@
 #include <pj/types.h>
 #include <pj/os.h>
 
-(void) pj_time_val_normalize(pj_time_val *t)
+void pj_time_val_normalize(pj_time_val *t)
 {
     PJ_CHECK_STACK();
 

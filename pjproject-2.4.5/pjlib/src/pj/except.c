@@ -38,7 +38,7 @@ static long thread_local_id = -1;
 
 
 #if !defined(PJ_EXCEPTION_USE_WIN32_SEH) || PJ_EXCEPTION_USE_WIN32_SEH==0
-(void) pj_throw_exception_(int exception_id)
+void pj_throw_exception_(int exception_id)
 {
     struct pj_exception_state_t *handler;
 
@@ -72,7 +72,7 @@ static void exception_cleanup(void)
 #endif
 }
 
-(void) pj_push_exception_handler_(struct pj_exception_state_t *rec)
+void pj_push_exception_handler_(struct pj_exception_state_t *rec)
 {
     struct pj_exception_state_t *parent_handler = NULL;
 
@@ -87,7 +87,7 @@ static void exception_cleanup(void)
     pj_thread_local_set(thread_local_id, rec);
 }
 
-(void) pj_pop_exception_handler_(struct pj_exception_state_t *rec)
+void pj_pop_exception_handler_(struct pj_exception_state_t *rec)
 {
     struct pj_exception_state_t *handler;
 
@@ -100,7 +100,7 @@ static void exception_cleanup(void)
 #endif
 
 #if defined(PJ_HAS_EXCEPTION_NAMES) && PJ_HAS_EXCEPTION_NAMES != 0
-(pj_status_t) pj_exception_id_alloc( const char *name,
+pj_status_t pj_exception_id_alloc( const char *name,
                                            pj_exception_id_t *id)
 {
     unsigned i;
@@ -124,7 +124,7 @@ static void exception_cleanup(void)
     return PJ_ETOOMANY;
 }
 
-(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
+pj_status_t pj_exception_id_free( pj_exception_id_t id )
 {
     /*
      * Start from 1 (not 0)!!!
@@ -140,7 +140,7 @@ static void exception_cleanup(void)
 
 }
 
-(const char*) pj_exception_id_name(pj_exception_id_t id)
+const char* pj_exception_id_name(pj_exception_id_t id)
 {
     static char unknown_name[32];
 
@@ -160,7 +160,7 @@ static void exception_cleanup(void)
 }
 
 #else   /* PJ_HAS_EXCEPTION_NAMES */
-(pj_status_t) pj_exception_id_alloc( const char *name,
+pj_status_t pj_exception_id_alloc( const char *name,
                                            pj_exception_id_t *id)
 {
     PJ_ASSERT_RETURN(last_exception_id < PJ_MAX_EXCEPTION_ID-1, PJ_ETOOMANY);
@@ -169,12 +169,12 @@ static void exception_cleanup(void)
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
+pj_status_t pj_exception_id_free( pj_exception_id_t id )
 {
     return PJ_SUCCESS;
 }
 
-(const char*) pj_exception_id_name(pj_exception_id_t id)
+const char* pj_exception_id_name(pj_exception_id_t id)
 {
     return "";
 }

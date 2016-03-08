@@ -193,7 +193,7 @@
     /*
      * Wrapper for select() in Linux kernel.
      */
-    PJ_INLINE(int) select(int n, fd_set *inp, fd_set *outp, fd_set *exp,
+    (int) select(int n, fd_set *inp, fd_set *outp, fd_set *exp,
 		          struct timeval *tvp)
     {
         int count;

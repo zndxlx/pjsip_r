@@ -513,7 +513,7 @@ extern struct pjsua_data pjsua_var;
 /**
  * Get the instance of pjsua
  */
-(struct pjsua_data*) pjsua_get_var(void);
+struct pjsua_data* pjsua_get_var(void);
 
 
 
@@ -536,7 +536,7 @@ pj_status_t pjsua_media_apply_xml_control(pjsua_call_id call_id,
 /**
  * Duplicate IM data.
  */
-PJ_INLINE(pjsua_im_data*) pjsua_im_data_dup(pj_pool_t *pool, 
+pjsua_im_data* pjsua_im_data_dup(pj_pool_t *pool, 
 					    const pjsua_im_data *src)
 {
     pjsua_im_data *dst;
@@ -554,21 +554,21 @@ PJ_INLINE(pjsua_im_data*) pjsua_im_data_dup(pj_pool_t *pool,
 
 #if 1
 
-PJ_INLINE(void) PJSUA_LOCK()
+void PJSUA_LOCK()
 {
     pj_mutex_lock(pjsua_var.mutex);
     pjsua_var.mutex_owner = pj_thread_this();
     ++pjsua_var.mutex_nesting_level;
 }
 
-PJ_INLINE(void) PJSUA_UNLOCK()
+void PJSUA_UNLOCK()
 {
     if (--pjsua_var.mutex_nesting_level == 0)
 	pjsua_var.mutex_owner = NULL;
     pj_mutex_unlock(pjsua_var.mutex);
 }
 
-PJ_INLINE(pj_status_t) PJSUA_TRY_LOCK()
+pj_status_t PJSUA_TRY_LOCK()
 {
     pj_status_t status;
     status = pj_mutex_trylock(pjsua_var.mutex);
@@ -579,7 +579,7 @@ PJ_INLINE(pj_status_t) PJSUA_TRY_LOCK()
     return status;
 }
 
-PJ_INLINE(pj_bool_t) PJSUA_LOCK_IS_LOCKED()
+pj_bool_t PJSUA_LOCK_IS_LOCKED()
 {
     return pjsua_var.mutex_owner == pj_thread_this();
 }
@@ -836,7 +836,7 @@ pj_status_t pjsua_vid_channel_update(pjsua_call_media *call_med,
 				     const pjmedia_sdp_session *remote_sdp);
 
 #if PJSUA_HAS_VIDEO
-(void) pjsua_vid_win_reset(pjsua_vid_win_id wid);
+void pjsua_vid_win_reset(pjsua_vid_win_id wid);
 #else
 #  define pjsua_vid_win_reset(wid)
 #endif

@@ -26,7 +26,7 @@
 
 #if !defined(PJ_WIN32) || PJ_WIN32==0
 
-(pj_status_t) pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
+pj_status_t pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
 {
     struct tm *local_time;
 
@@ -49,7 +49,7 @@
 /**
  * Encode parsed time to time value.
  */
-(pj_status_t) pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv)
+pj_status_t pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv)
 {
     struct tm local_time;
 
@@ -73,7 +73,7 @@
 /**
  * Convert local time to GMT.
  */
-(pj_status_t) pj_time_local_to_gmt(pj_time_val *tv)
+pj_status_t pj_time_local_to_gmt(pj_time_val *tv)
 {
     PJ_UNUSED_ARG(tv);
     return PJ_EBUG;
@@ -82,7 +82,7 @@
 /**
  * Convert GMT to local time.
  */
-(pj_status_t) pj_time_gmt_to_local(pj_time_val *tv)
+pj_status_t pj_time_gmt_to_local(pj_time_val *tv)
 {
     PJ_UNUSED_ARG(tv);
     return PJ_EBUG;

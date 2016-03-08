@@ -24,7 +24,7 @@
 #include <pj/string.h>
 
 
-(pjmedia_audio_format_detail*)
+pjmedia_audio_format_detail*
 pjmedia_format_get_audio_format_detail(const pjmedia_format *fmt,
 				       pj_bool_t assert_valid)
 {
@@ -41,7 +41,7 @@ pjmedia_format_get_audio_format_detail(const pjmedia_format *fmt,
 }
 
 
-(pjmedia_format*) pjmedia_format_copy(pjmedia_format *dst,
+pjmedia_format* pjmedia_format_copy(pjmedia_format *dst,
 					    const pjmedia_format *src)
 {
     return (pjmedia_format*)pj_memcpy(dst, src, sizeof(*src));
@@ -89,7 +89,7 @@ static pjmedia_video_format_info built_in_vid_fmt_info[] =
     {PJMEDIA_FORMAT_I422JPEG, "I422JPG", PJMEDIA_COLOR_MODEL_YUV, 16, 3, &apply_planar_422},
 };
 
-(void) pjmedia_format_init_video( pjmedia_format *fmt,
+void pjmedia_format_init_video( pjmedia_format *fmt,
 					pj_uint32_t fmt_id,
 					unsigned width,
 					unsigned height,
@@ -124,7 +124,7 @@ static pjmedia_video_format_info built_in_vid_fmt_info[] =
     }
 }
 
-(pjmedia_video_format_detail*)
+pjmedia_video_format_detail*
 pjmedia_format_get_video_format_detail(const pjmedia_format *fmt,
 				       pj_bool_t assert_valid)
 {
@@ -261,7 +261,7 @@ static pj_status_t apply_planar_444(const pjmedia_video_format_info *fi,
     return PJ_SUCCESS;
 }
 
-(pj_status_t)
+pj_status_t
 pjmedia_video_format_mgr_create(pj_pool_t *pool,
 				unsigned max_fmt,
 				unsigned options,
@@ -294,7 +294,7 @@ pjmedia_video_format_mgr_create(pj_pool_t *pool,
 }
 
 
-(const pjmedia_video_format_info*)
+const pjmedia_video_format_info*
 pjmedia_get_video_format_info(pjmedia_video_format_mgr *mgr,
 			      pj_uint32_t id)
 {
@@ -327,7 +327,7 @@ pjmedia_get_video_format_info(pjmedia_video_format_mgr *mgr,
 }
 
 
-(pj_status_t)
+pj_status_t
 pjmedia_register_video_format_info(pjmedia_video_format_mgr *mgr,
 				   pjmedia_video_format_info *info)
 {
@@ -364,20 +364,20 @@ pjmedia_register_video_format_info(pjmedia_video_format_mgr *mgr,
     return PJ_SUCCESS;
 }
 
-(pjmedia_video_format_mgr*) pjmedia_video_format_mgr_instance(void)
+pjmedia_video_format_mgr* pjmedia_video_format_mgr_instance(void)
 {
     pj_assert(video_format_mgr_instance != NULL);
     return video_format_mgr_instance;
 }
 
-(void)
+void
 pjmedia_video_format_mgr_set_instance(pjmedia_video_format_mgr *mgr)
 {
     video_format_mgr_instance = mgr;
 }
 
 
-(void) pjmedia_video_format_mgr_destroy(pjmedia_video_format_mgr *mgr)
+void pjmedia_video_format_mgr_destroy(pjmedia_video_format_mgr *mgr)
 {
     if (!mgr)
 	mgr = pjmedia_video_format_mgr_instance();

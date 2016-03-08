@@ -125,7 +125,7 @@ static void ka_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Retrieve the name representing the specified operation.
  */
-(const char*) pj_stun_sock_op_name(pj_stun_sock_op op)
+const char* pj_stun_sock_op_name(pj_stun_sock_op op)
 {
     const char *names[] = {
 	"?",
@@ -142,7 +142,7 @@ static void ka_timer_cb(pj_timer_heap_t *th, pj_timer_entry *te);
 /*
  * Initialize the STUN transport setting with its default values.
  */
-(void) pj_stun_sock_cfg_default(pj_stun_sock_cfg *cfg)
+void pj_stun_sock_cfg_default(pj_stun_sock_cfg *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
     cfg->max_pkt_size = PJ_STUN_SOCK_PKT_LEN;
@@ -162,7 +162,7 @@ static pj_bool_t pj_stun_sock_cfg_is_valid(const pj_stun_sock_cfg *cfg)
 /*
  * Create the STUN transport using the specified configuration.
  */
-(pj_status_t) pj_stun_sock_create( pj_stun_config *stun_cfg,
+pj_status_t pj_stun_sock_create( pj_stun_config *stun_cfg,
 					 const char *name,
 					 int af,
 					 const pj_stun_sock_cb *cb,
@@ -388,7 +388,7 @@ on_error:
 }
 
 /* Start socket. */
-(pj_status_t) pj_stun_sock_start( pj_stun_sock *stun_sock,
+pj_status_t pj_stun_sock_start( pj_stun_sock *stun_sock,
 				        const pj_str_t *domain,
 				        pj_uint16_t default_port,
 				        pj_dns_resolver *resolver)
@@ -479,7 +479,7 @@ static void stun_sock_destructor(void *obj)
 }
 
 /* Destroy */
-(pj_status_t) pj_stun_sock_destroy(pj_stun_sock *stun_sock)
+pj_status_t pj_stun_sock_destroy(pj_stun_sock *stun_sock)
 {
     TRACE_((stun_sock->obj_name, "STUN sock %p request, ref_cnt=%d",
 	    stun_sock, pj_grp_lock_get_ref(stun_sock->grp_lock)));
@@ -512,7 +512,7 @@ static void stun_sock_destructor(void *obj)
 }
 
 /* Associate user data */
-(pj_status_t) pj_stun_sock_set_user_data( pj_stun_sock *stun_sock,
+pj_status_t pj_stun_sock_set_user_data( pj_stun_sock *stun_sock,
 					        void *user_data)
 {
     PJ_ASSERT_RETURN(stun_sock, PJ_EINVAL);
@@ -522,14 +522,14 @@ static void stun_sock_destructor(void *obj)
 
 
 /* Get user data */
-(void*) pj_stun_sock_get_user_data(pj_stun_sock *stun_sock)
+void* pj_stun_sock_get_user_data(pj_stun_sock *stun_sock)
 {
     PJ_ASSERT_RETURN(stun_sock, NULL);
     return stun_sock->user_data;
 }
 
 /* Get group lock */
-(pj_grp_lock_t *) pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock)
+pj_grp_lock_t * pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock)
 {
     PJ_ASSERT_RETURN(stun_sock, NULL);
     return stun_sock->grp_lock;
@@ -620,7 +620,7 @@ on_error:
 }
 
 /* Get info */
-(pj_status_t) pj_stun_sock_get_info( pj_stun_sock *stun_sock,
+pj_status_t pj_stun_sock_get_info( pj_stun_sock *stun_sock,
 					   pj_stun_sock_info *info)
 {
     int addr_len;
@@ -698,7 +698,7 @@ on_error:
 }
 
 /* Send application data */
-(pj_status_t) pj_stun_sock_sendto( pj_stun_sock *stun_sock,
+pj_status_t pj_stun_sock_sendto( pj_stun_sock *stun_sock,
 					 pj_ioqueue_op_key_t *send_key,
 					 const void *pkt,
 					 unsigned pkt_len,

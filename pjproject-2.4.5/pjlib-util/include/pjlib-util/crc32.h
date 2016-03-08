@@ -49,7 +49,7 @@ typedef struct pj_crc32_context
  *
  * @param ctx	    CRC32 context.
  */
-(void) pj_crc32_init(pj_crc32_context *ctx);
+void pj_crc32_init(pj_crc32_context *ctx);
 
 /**
  * Feed data incrementally to the CRC32 algorithm.
@@ -60,7 +60,7 @@ typedef struct pj_crc32_context
  *
  * @return	    The current CRC32 value.
  */
-(pj_uint32_t) pj_crc32_update(pj_crc32_context *ctx, 
+pj_uint32_t pj_crc32_update(pj_crc32_context *ctx, 
 				     const pj_uint8_t *data,
 				     pj_size_t nbytes);
 
@@ -71,7 +71,7 @@ typedef struct pj_crc32_context
  *
  * @return	    The current CRC value.
  */
-(pj_uint32_t) pj_crc32_final(pj_crc32_context *ctx);
+pj_uint32_t pj_crc32_final(pj_crc32_context *ctx);
 
 /**
  * Perform one-off CRC32 calculation to the specified data.
@@ -81,7 +81,7 @@ typedef struct pj_crc32_context
  *
  * @return	    CRC value of the data.
  */
-(pj_uint32_t) pj_crc32_calc(const pj_uint8_t *data,
+pj_uint32_t pj_crc32_calc(const pj_uint8_t *data,
 				   pj_size_t nbytes);
 
 

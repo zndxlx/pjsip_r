@@ -548,7 +548,7 @@ enum pjmedia_jb_op
 };
 
 
-(pj_status_t) pjmedia_jbuf_create(pj_pool_t *pool,
+pj_status_t pjmedia_jbuf_create(pj_pool_t *pool,
 					const pj_str_t *name,
 					unsigned frame_size,
 					unsigned ptime,
@@ -590,7 +590,7 @@ enum pjmedia_jb_op
  * is to adapt the delay with actual packet delay.
  *
  */
-(pj_status_t) pjmedia_jbuf_set_fixed( pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_set_fixed( pjmedia_jbuf *jb,
 					    unsigned prefetch)
 {
     PJ_ASSERT_RETURN(jb, PJ_EINVAL);
@@ -607,7 +607,7 @@ enum pjmedia_jb_op
 /*
  * Set the jitter buffer to adaptive mode.
  */
-(pj_status_t) pjmedia_jbuf_set_adaptive( pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_set_adaptive( pjmedia_jbuf *jb,
 					       unsigned prefetch,
 					       unsigned min_prefetch,
 					       unsigned max_prefetch)
@@ -626,7 +626,7 @@ enum pjmedia_jb_op
 }
 
 
-(pj_status_t) pjmedia_jbuf_set_discard( pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_set_discard( pjmedia_jbuf *jb,
 					      pjmedia_jb_discard_algo algo)
 {
     PJ_ASSERT_RETURN(jb, PJ_EINVAL);
@@ -650,7 +650,7 @@ enum pjmedia_jb_op
 }
 
 
-(pj_status_t) pjmedia_jbuf_reset(pjmedia_jbuf *jb)
+pj_status_t pjmedia_jbuf_reset(pjmedia_jbuf *jb)
 {
     jb->jb_level	 = 0;
     jb->jb_last_op	 = JB_OP_INIT;
@@ -667,7 +667,7 @@ enum pjmedia_jb_op
 }
 
 
-(pj_status_t) pjmedia_jbuf_destroy(pjmedia_jbuf *jb)
+pj_status_t pjmedia_jbuf_destroy(pjmedia_jbuf *jb)
 {
     PJ_LOG(5, (jb->jb_name.ptr, ""
 	       "JB summary:\n"
@@ -687,7 +687,7 @@ enum pjmedia_jb_op
     return jb_framelist_destroy(&jb->jb_framelist);
 }
 
-(pj_bool_t) pjmedia_jbuf_is_full(const pjmedia_jbuf *jb)
+pj_bool_t pjmedia_jbuf_is_full(const pjmedia_jbuf *jb)
 {
     return jb->jb_framelist.size == jb->jb_framelist.max_count;
 }
@@ -899,7 +899,7 @@ static void jbuf_discard_progressive(pjmedia_jbuf *jb)
 }
 
 
-PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
+void jbuf_update(pjmedia_jbuf *jb, int oper)
 {
     if(jb->jb_last_op != oper) {
 	jb->jb_last_op = oper;
@@ -940,7 +940,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
     }
 }
 
-(void) pjmedia_jbuf_put_frame( pjmedia_jbuf *jb,
+void pjmedia_jbuf_put_frame( pjmedia_jbuf *jb,
 				     const void *frame,
 				     pj_size_t frame_size,
 				     int frame_seq)
@@ -948,7 +948,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
     pjmedia_jbuf_put_frame3(jb, frame, frame_size, 0, frame_seq, 0, NULL);
 }
 
-(void) pjmedia_jbuf_put_frame2(pjmedia_jbuf *jb,
+void pjmedia_jbuf_put_frame2(pjmedia_jbuf *jb,
 				     const void *frame,
 				     pj_size_t frame_size,
 				     pj_uint32_t bit_info,
@@ -959,7 +959,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 			    discarded);
 }
 
-(void) pjmedia_jbuf_put_frame3(pjmedia_jbuf *jb,
+void pjmedia_jbuf_put_frame3(pjmedia_jbuf *jb,
 				     const void *frame,
 				     pj_size_t frame_size,
 				     pj_uint32_t bit_info,
@@ -1024,7 +1024,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 /*
  * Get frame from jitter buffer.
  */
-(void) pjmedia_jbuf_get_frame( pjmedia_jbuf *jb,
+void pjmedia_jbuf_get_frame( pjmedia_jbuf *jb,
 				     void *frame,
 				     char *p_frame_type)
 {
@@ -1035,7 +1035,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 /*
  * Get frame from jitter buffer.
  */
-(void) pjmedia_jbuf_get_frame2(pjmedia_jbuf *jb,
+void pjmedia_jbuf_get_frame2(pjmedia_jbuf *jb,
 				     void *frame,
 				     pj_size_t *size,
 				     char *p_frame_type,
@@ -1048,7 +1048,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 /*
  * Get frame from jitter buffer.
  */
-(void) pjmedia_jbuf_get_frame3(pjmedia_jbuf *jb,
+void pjmedia_jbuf_get_frame3(pjmedia_jbuf *jb,
 				     void *frame,
 				     pj_size_t *size,
 				     char *p_frame_type,
@@ -1121,7 +1121,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 /*
  * Get jitter buffer state.
  */
-(pj_status_t) pjmedia_jbuf_get_state( const pjmedia_jbuf *jb,
+pj_status_t pjmedia_jbuf_get_state( const pjmedia_jbuf *jb,
 					    pjmedia_jb_state *state )
 {
     PJ_ASSERT_RETURN(jb && state, PJ_EINVAL);
@@ -1148,7 +1148,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 }
 
 
-(void) pjmedia_jbuf_peek_frame( pjmedia_jbuf *jb,
+void pjmedia_jbuf_peek_frame( pjmedia_jbuf *jb,
 				      unsigned offset,
 				      const void **frame,
 				      pj_size_t *size,
@@ -1171,7 +1171,7 @@ PJ_INLINE(void) jbuf_update(pjmedia_jbuf *jb, int oper)
 }
 
 
-(unsigned) pjmedia_jbuf_remove_frame(pjmedia_jbuf *jb,
+unsigned pjmedia_jbuf_remove_frame(pjmedia_jbuf *jb,
 					   unsigned frame_cnt)
 {
     unsigned count, last_discard_num;

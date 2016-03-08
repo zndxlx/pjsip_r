@@ -47,7 +47,7 @@ pj_bool_t pjsip_include_allow_hdr_in_dlg = PJSIP_INCLUDE_ALLOW_HDR_IN_DLG;
 static const pj_str_t HCONTACT = { "Contact", 7 };
 
 
-(pj_bool_t) pjsip_method_creates_dialog(const pjsip_method *m)
+pj_bool_t pjsip_method_creates_dialog(const pjsip_method *m)
 {
     const pjsip_method subscribe = { PJSIP_OTHER_METHOD, {"SUBSCRIBE", 9}};
     const pjsip_method refer = { PJSIP_OTHER_METHOD, {"REFER", 5}};
@@ -125,7 +125,7 @@ static void destroy_dialog( pjsip_dialog *dlg )
 /*
  * Create an UAC dialog.
  */
-(pj_status_t) pjsip_dlg_create_uac( pjsip_user_agent *ua,
+pj_status_t pjsip_dlg_create_uac( pjsip_user_agent *ua,
 					  const pj_str_t *local_uri,
 					  const pj_str_t *local_contact,
 					  const pj_str_t *remote_uri,
@@ -310,7 +310,7 @@ on_error:
 /*
  * Create UAS dialog.
  */
-(pj_status_t) pjsip_dlg_create_uas(   pjsip_user_agent *ua,
+pj_status_t pjsip_dlg_create_uas(   pjsip_user_agent *ua,
 					    pjsip_rx_data *rdata,
 					    const pj_str_t *contact,
 					    pjsip_dialog **p_dlg)
@@ -559,7 +559,7 @@ on_error:
 /*
  * Bind dialog to a specific transport/listener.
  */
-(pj_status_t) pjsip_dlg_set_transport( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_set_transport( pjsip_dialog *dlg,
 					     const pjsip_tpselector *sel)
 {
     /* Validate */
@@ -586,7 +586,7 @@ on_error:
 /*
  * Set "sent-by" field of Via header.
  */
-(pj_status_t) pjsip_dlg_set_via_sent_by( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_set_via_sent_by( pjsip_dialog *dlg,
 				               pjsip_host_port *via_addr,
                                                pjsip_transport *via_tp)
 {
@@ -608,7 +608,7 @@ on_error:
 /*
  * Create forked dialog from a response.
  */
-(pj_status_t) pjsip_dlg_fork( const pjsip_dialog *first_dlg,
+pj_status_t pjsip_dlg_fork( const pjsip_dialog *first_dlg,
 				    const pjsip_rx_data *rdata,
 				    pjsip_dialog **new_dlg )
 {
@@ -766,7 +766,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /*
  * Forcefully terminate dialog.
  */
-(pj_status_t) pjsip_dlg_terminate( pjsip_dialog *dlg )
+pj_status_t pjsip_dlg_terminate( pjsip_dialog *dlg )
 {
     /* Number of sessions must be zero. */
     PJ_ASSERT_RETURN(dlg->sess_count==0, PJ_EINVALIDOP);
@@ -781,7 +781,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /*
  * Set route_set
  */
-(pj_status_t) pjsip_dlg_set_route_set( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_set_route_set( pjsip_dialog *dlg,
 					     const pjsip_route_hdr *route_set )
 {
     pjsip_route_hdr *r;
@@ -816,7 +816,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /*
  * Increment session counter.
  */
-(pj_status_t) pjsip_dlg_inc_session( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_inc_session( pjsip_dialog *dlg,
 					   pjsip_module *mod )
 {
     PJ_ASSERT_RETURN(dlg && mod, PJ_EINVAL);
@@ -839,7 +839,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
  * to prevent it from being deleted. In addition, it must lock
  * the user agent's dialog table first, to prevent deadlock.
  */
-(void) pjsip_dlg_inc_lock(pjsip_dialog *dlg)
+void pjsip_dlg_inc_lock(pjsip_dialog *dlg)
 {
     PJ_LOG(6,(dlg->obj_name, "Entering pjsip_dlg_inc_lock(), sess_count=%d",
 	      dlg->sess_count));
@@ -854,7 +854,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /* Try to acquire dialog's mutex, but bail out if mutex can not be
  * acquired immediately.
  */
-(pj_status_t) pjsip_dlg_try_inc_lock(pjsip_dialog *dlg)
+pj_status_t pjsip_dlg_try_inc_lock(pjsip_dialog *dlg)
 {
     pj_status_t status;
 
@@ -880,7 +880,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
  * Unlock dialog and decrement session counter.
  * It may delete the dialog!
  */
-(void) pjsip_dlg_dec_lock(pjsip_dialog *dlg)
+void pjsip_dlg_dec_lock(pjsip_dialog *dlg)
 {
     PJ_ASSERT_ON_FAIL(dlg!=NULL, return);
 
@@ -906,7 +906,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /*
  * Decrement session counter.
  */
-(pj_status_t) pjsip_dlg_dec_session( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_dec_session( pjsip_dialog *dlg,
 					   pjsip_module *mod)
 {
     PJ_ASSERT_RETURN(dlg, PJ_EINVAL);
@@ -927,7 +927,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /*
  * Check if the module is registered as a usage
  */
-(pj_bool_t) pjsip_dlg_has_usage( pjsip_dialog *dlg,
+pj_bool_t pjsip_dlg_has_usage( pjsip_dialog *dlg,
 					  pjsip_module *mod)
 {
     unsigned index;
@@ -948,7 +948,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
 /*
  * Add usage.
  */
-(pj_status_t) pjsip_dlg_add_usage( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_add_usage( pjsip_dialog *dlg,
 					 pjsip_module *mod,
 					 void *mod_data )
 {
@@ -1016,7 +1016,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
  * Attach module specific data to the dialog. Application can also set
  * the value directly by accessing dlg->mod_data[module_id].
  */
-(pj_status_t) pjsip_dlg_set_mod_data( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_set_mod_data( pjsip_dialog *dlg,
 					    int mod_id,
 					    void *data )
 {
@@ -1031,7 +1031,7 @@ static pj_status_t unregister_and_destroy_dialog( pjsip_dialog *dlg )
  * Get module specific data previously attached to the dialog. Application
  * can also get value directly by accessing dlg->mod_data[module_id].
  */
-(void*) pjsip_dlg_get_mod_data( pjsip_dialog *dlg,
+void* pjsip_dlg_get_mod_data( pjsip_dialog *dlg,
 				      int mod_id)
 {
     PJ_ASSERT_RETURN(dlg, NULL);
@@ -1113,7 +1113,7 @@ static pj_status_t dlg_create_request_throw( pjsip_dialog *dlg,
 /*
  * Create outgoing request.
  */
-(pj_status_t) pjsip_dlg_create_request( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_create_request( pjsip_dialog *dlg,
 					      const pjsip_method *method,
 					      int cseq,
 					      pjsip_tx_data **p_tdata)
@@ -1161,7 +1161,7 @@ static pj_status_t dlg_create_request_throw( pjsip_dialog *dlg,
 /*
  * Send request statefully, and update dialog'c CSeq.
  */
-(pj_status_t) pjsip_dlg_send_request( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_send_request( pjsip_dialog *dlg,
 					    pjsip_tx_data *tdata,
 					    int mod_data_id,
 					    void *mod_data)
@@ -1343,7 +1343,7 @@ static void dlg_beautify_response(pjsip_dialog *dlg,
 /*
  * Create response.
  */
-(pj_status_t) pjsip_dlg_create_response(	pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_create_response(	pjsip_dialog *dlg,
 						pjsip_rx_data *rdata,
 						int st_code,
 						const pj_str_t *st_text,
@@ -1377,7 +1377,7 @@ static void dlg_beautify_response(pjsip_dialog *dlg,
 /*
  * Modify response.
  */
-(pj_status_t) pjsip_dlg_modify_response(	pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_modify_response(	pjsip_dialog *dlg,
 						pjsip_tx_data *tdata,
 						int st_code,
 						const pj_str_t *st_text)
@@ -1426,7 +1426,7 @@ static void dlg_beautify_response(pjsip_dialog *dlg,
 /*
  * Send response statefully.
  */
-(pj_status_t) pjsip_dlg_send_response( pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_send_response( pjsip_dialog *dlg,
 					     pjsip_transaction *tsx,
 					     pjsip_tx_data *tdata)
 {
@@ -1495,7 +1495,7 @@ static void dlg_beautify_response(pjsip_dialog *dlg,
 /*
  * Combo function to create and send response statefully.
  */
-(pj_status_t) pjsip_dlg_respond(  pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_respond(  pjsip_dialog *dlg,
 					pjsip_rx_data *rdata,
 					int st_code,
 					const pj_str_t *st_text,
@@ -2035,7 +2035,7 @@ void pjsip_dlg_on_tsx_state( pjsip_dialog *dlg,
 /*
  * Check if the specified capability is supported by remote.
  */
-(pjsip_dialog_cap_status) pjsip_dlg_remote_has_cap(
+pjsip_dialog_cap_status pjsip_dlg_remote_has_cap(
 						    pjsip_dialog *dlg,
 						    int htype,
 						    const pj_str_t *hname,
@@ -2072,7 +2072,7 @@ void pjsip_dlg_on_tsx_state( pjsip_dialog *dlg,
  * Update remote capability of ACCEPT, ALLOW, and SUPPORTED from
  * the received message.
  */
-(pj_status_t) pjsip_dlg_update_remote_cap(pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_update_remote_cap(pjsip_dialog *dlg,
 					        const pjsip_msg *msg,
 						pj_bool_t strict)
 {
@@ -2143,7 +2143,7 @@ void pjsip_dlg_on_tsx_state( pjsip_dialog *dlg,
 /*
  * Get the value of the specified capability header field of remote.
  */
-(const pjsip_hdr*) pjsip_dlg_get_remote_cap_hdr(pjsip_dialog *dlg,
+const pjsip_hdr* pjsip_dlg_get_remote_cap_hdr(pjsip_dialog *dlg,
 						      int htype,
 						      const pj_str_t *hname)
 {
@@ -2177,7 +2177,7 @@ void pjsip_dlg_on_tsx_state( pjsip_dialog *dlg,
  * Set remote capability header from a SIP header containing array
  * of capability tags/values.
  */
-(pj_status_t) pjsip_dlg_set_remote_cap_hdr(
+pj_status_t pjsip_dlg_set_remote_cap_hdr(
 				    pjsip_dialog *dlg,
 				    const pjsip_generic_array_hdr *cap_hdr)
 {
@@ -2228,7 +2228,7 @@ void pjsip_dlg_on_tsx_state( pjsip_dialog *dlg,
 /*
  * Remove a remote capability header.
  */
-(pj_status_t) pjsip_dlg_remove_remote_cap_hdr(pjsip_dialog *dlg,
+pj_status_t pjsip_dlg_remove_remote_cap_hdr(pjsip_dialog *dlg,
 						    int htype,
 						    const pj_str_t *hname)
 {

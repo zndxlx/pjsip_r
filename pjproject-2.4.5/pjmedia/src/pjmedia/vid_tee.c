@@ -67,7 +67,7 @@ static pj_status_t tee_destroy(pjmedia_port *port);
 /*
  * Create a video tee port with the specified source media port.
  */
-(pj_status_t) pjmedia_vid_tee_create( pj_pool_t *pool,
+pj_status_t pjmedia_vid_tee_create( pj_pool_t *pool,
 					    const pjmedia_format *fmt,
 					    unsigned max_dst_cnt,
 					    pjmedia_port **p_vid_tee)
@@ -163,7 +163,7 @@ static void realloc_buf(vid_tee_port *vid_tee,
 /*
  * Add a destination media port to the video tee.
  */
-(pj_status_t) pjmedia_vid_tee_add_dst_port(pjmedia_port *vid_tee,
+pj_status_t pjmedia_vid_tee_add_dst_port(pjmedia_port *vid_tee,
 						 unsigned option,
 						 pjmedia_port *port)
 {
@@ -202,7 +202,7 @@ static void realloc_buf(vid_tee_port *vid_tee,
  * Add a destination media port to the video tee. Create a converter if
  * necessary.
  */
-(pj_status_t) pjmedia_vid_tee_add_dst_port2(pjmedia_port *vid_tee,
+pj_status_t pjmedia_vid_tee_add_dst_port2(pjmedia_port *vid_tee,
 						  unsigned option,
 						  pjmedia_port *port)
 {
@@ -267,7 +267,7 @@ static void realloc_buf(vid_tee_port *vid_tee,
 /*
  * Remove a destination media port from the video tee.
  */
-(pj_status_t) pjmedia_vid_tee_remove_dst_port(pjmedia_port *vid_tee,
+pj_status_t pjmedia_vid_tee_remove_dst_port(pjmedia_port *vid_tee,
 						    pjmedia_port *port)
 {
     vid_tee_port *tee = (vid_tee_port*)vid_tee;

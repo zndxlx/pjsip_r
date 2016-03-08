@@ -69,7 +69,7 @@ PJ_BEGIN_DECL
  *
  * @return		    PJ_SUCCESS on success;
  */
-PJ_INLINE(pj_status_t) pjmedia_convert_channel_nto1(pj_int16_t mono[],
+pj_status_t pjmedia_convert_channel_nto1(pj_int16_t mono[],
 						    const pj_int16_t multi[],
 						    unsigned channel_count,
 						    unsigned samples_per_frame,
@@ -119,7 +119,7 @@ PJ_INLINE(pj_status_t) pjmedia_convert_channel_nto1(pj_int16_t mono[],
  *
  * @return		    PJ_SUCCESS on success;
  */
-PJ_INLINE(pj_status_t) pjmedia_convert_channel_1ton(pj_int16_t multi[],
+pj_status_t pjmedia_convert_channel_1ton(pj_int16_t multi[],
 						    const pj_int16_t mono[],
 						    unsigned channel_count,
 						    unsigned samples_per_frame,
@@ -189,7 +189,7 @@ typedef enum pjmedia_stereo_port_options
  *
  * @return PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_stereo_port_create( pj_pool_t *pool,
+pj_status_t pjmedia_stereo_port_create( pj_pool_t *pool,
 						 pjmedia_port *dn_port,
 						 unsigned channel_count,
 						 unsigned options,

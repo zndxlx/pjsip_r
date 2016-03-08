@@ -207,7 +207,7 @@ static unsigned long pj_strtoul_mindigit(const pj_str_t *str,
 
 
 /* Get a token and unescape */
-PJ_INLINE(void) parser_get_and_unescape(pj_scanner *scanner, pj_pool_t *pool,
+void parser_get_and_unescape(pj_scanner *scanner, pj_pool_t *pool,
 					const pj_cis_t *spec, 
 					const pj_cis_t *unesc_spec,
 					pj_str_t *token)
@@ -233,13 +233,13 @@ static void on_syntax_error(pj_scanner *scanner)
 }
 
 /* Get parser constants. */
-(const pjsip_parser_const_t*) pjsip_parser_const(void)
+const pjsip_parser_const_t* pjsip_parser_const(void)
 {
     return &pconst;
 }
 
 /* Concatenate unrecognized params into single string. */
-(void) pjsip_concat_param_imp(pj_str_t *param, pj_pool_t *pool, 
+void pjsip_concat_param_imp(pj_str_t *param, pj_pool_t *pool, 
 			     	    const pj_str_t *pname, 
 				    const pj_str_t *pvalue, 
                              	    int sepchar)
@@ -511,7 +511,7 @@ void deinit_sip_parser(void)
  * - <0 if handler is 'less' than the header name.
  * - >0 if handler is 'greater' than header name.
  */
-PJ_INLINE(int) compare_handler( const handler_rec *r1, 
+int compare_handler( const handler_rec *r1, 
 				const char *name, 
 				pj_size_t name_len,
 				pj_uint32_t hash )
@@ -591,7 +591,7 @@ static pj_status_t int_register_parser( const char *name,
 /* Register parser handler. If both header name and short name are valid,
  * then two instances of handler will be registered.
  */
-(pj_status_t) pjsip_register_hdr_parser( const char *hname,
+pj_status_t pjsip_register_hdr_parser( const char *hname,
 					       const char *hshortname,
 					       pjsip_parse_hdr_func *fptr)
 {
@@ -710,7 +710,7 @@ static pjsip_parse_uri_func* find_uri_handler(const pj_str_t *scheme)
 }
 
 /* Register URI parser. */
-(pj_status_t) pjsip_register_uri_parser( char *scheme,
+pj_status_t pjsip_register_uri_parser( char *scheme,
 					       pjsip_parse_uri_func *func)
 {
     if (uri_handler_count >= PJ_ARRAY_SIZE(uri_handler))
@@ -724,7 +724,7 @@ static pjsip_parse_uri_func* find_uri_handler(const pj_str_t *scheme)
 }
 
 /* Public function to parse SIP message. */
-(pjsip_msg*) pjsip_parse_msg( pj_pool_t *pool, 
+pjsip_msg* pjsip_parse_msg( pj_pool_t *pool, 
                                     char *buf, pj_size_t size,
 				    pjsip_parser_err_report *err_list)
 {
@@ -746,7 +746,7 @@ static pjsip_parse_uri_func* find_uri_handler(const pj_str_t *scheme)
 }
 
 /* Public function to parse as rdata.*/
-(pjsip_msg *) pjsip_parse_rdata( char *buf, pj_size_t size,
+pjsip_msg * pjsip_parse_rdata( char *buf, pj_size_t size,
                                        pjsip_rx_data *rdata )
 {
     pj_scanner scanner;
@@ -766,7 +766,7 @@ static pjsip_parse_uri_func* find_uri_handler(const pj_str_t *scheme)
 }
 
 /* Determine if a message has been received. */
-(pj_bool_t) pjsip_find_msg( const char *buf, pj_size_t size, 
+pj_bool_t pjsip_find_msg( const char *buf, pj_size_t size, 
 				  pj_bool_t is_datagram, pj_size_t *msg_size)
 {
 #if PJ_HAS_TCP
@@ -873,7 +873,7 @@ static pjsip_parse_uri_func* find_uri_handler(const pj_str_t *scheme)
 }
 
 /* Public function to parse URI */
-(pjsip_uri*) pjsip_parse_uri( pj_pool_t *pool, 
+pjsip_uri* pjsip_parse_uri( pj_pool_t *pool, 
 					 char *buf, pj_size_t size,
 					 unsigned option)
 {
@@ -1165,7 +1165,7 @@ static void parse_param_imp( pj_scanner *scanner, pj_pool_t *pool,
 }
 
 /* Parse parameter (pname ["=" pvalue]) using token. */
-(void) pjsip_parse_param_imp(pj_scanner *scanner, pj_pool_t *pool,
+void pjsip_parse_param_imp(pj_scanner *scanner, pj_pool_t *pool,
 			     	   pj_str_t *pname, pj_str_t *pvalue,
 			     	   unsigned option)
 {
@@ -1175,7 +1175,7 @@ static void parse_param_imp( pj_scanner *scanner, pj_pool_t *pool,
 
 
 /* Parse parameter (pname ["=" pvalue]) using paramchar. */
-(void) pjsip_parse_uri_param_imp( pj_scanner *scanner, pj_pool_t *pool,
+void pjsip_parse_uri_param_imp( pj_scanner *scanner, pj_pool_t *pool,
 			       		pj_str_t *pname, pj_str_t *pvalue,
 			       		unsigned option)
 {
@@ -1603,7 +1603,7 @@ static void int_parse_status_line( pj_scanner *scanner,
 /*
  * Public API to parse SIP status line.
  */
-(pj_status_t) pjsip_parse_status_line( char *buf, pj_size_t size,
+pj_status_t pjsip_parse_status_line( char *buf, pj_size_t size,
 					     pjsip_status_line *status_line)
 {
     pj_scanner scanner;
@@ -1643,7 +1643,7 @@ static void parse_hdr_end( pj_scanner *scanner )
 }
 
 /* Parse ending of header. */
-(void) pjsip_parse_end_hdr_imp( pj_scanner *scanner )
+void pjsip_parse_end_hdr_imp( pj_scanner *scanner )
 {
     parse_hdr_end(scanner);
 }
@@ -1686,7 +1686,7 @@ end:
 }
 
 /* Parse generic array header. */
-(void) pjsip_parse_generic_array_hdr_imp( pjsip_generic_array_hdr *hdr,
+void pjsip_parse_generic_array_hdr_imp( pjsip_generic_array_hdr *hdr,
 						pj_scanner *scanner)
 {
     parse_generic_array_hdr(hdr, scanner);
@@ -2246,7 +2246,7 @@ static pjsip_hdr* parse_hdr_generic_string( pjsip_parse_ctx *ctx )
 }
 
 /* Public function to parse a header value. */
-(void*) pjsip_parse_hdr( pj_pool_t *pool, const pj_str_t *hname,
+void* pjsip_parse_hdr( pj_pool_t *pool, const pj_str_t *hname,
 			       char *buf, pj_size_t size, int *parsed_len )
 {
     pj_scanner scanner;
@@ -2288,7 +2288,7 @@ static pjsip_hdr* parse_hdr_generic_string( pjsip_parse_ctx *ctx )
 }
 
 /* Parse multiple header lines */
-(pj_status_t) pjsip_parse_headers( pj_pool_t *pool, char *input,
+pj_status_t pjsip_parse_headers( pj_pool_t *pool, char *input,
 				         pj_size_t size, pjsip_hdr *hlist,
 				         unsigned options)
 {

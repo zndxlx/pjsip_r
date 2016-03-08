@@ -63,7 +63,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
  * This is a utility function to create PIDF message body from PJSIP
  * presence status (pjsip_pres_status).
  */
-(pj_status_t) pjsip_pres_create_pidf( pj_pool_t *pool,
+pj_status_t pjsip_pres_create_pidf( pj_pool_t *pool,
 					    const pjsip_pres_status *status,
 					    const pj_str_t *entity,
 					    pjsip_msg_body **p_body )
@@ -156,7 +156,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
  * This is a utility function to create X-PIDF message body from PJSIP
  * presence status (pjsip_pres_status).
  */
-(pj_status_t) pjsip_pres_create_xpidf( pj_pool_t *pool,
+pj_status_t pjsip_pres_create_xpidf( pj_pool_t *pool,
 					     const pjsip_pres_status *status,
 					     const pj_str_t *entity,
 					     pjsip_msg_body **p_body )
@@ -195,7 +195,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
 /*
  * This is a utility function to parse PIDF body into PJSIP presence status.
  */
-(pj_status_t) pjsip_pres_parse_pidf( pjsip_rx_data *rdata,
+pj_status_t pjsip_pres_parse_pidf( pjsip_rx_data *rdata,
 					   pj_pool_t *pool,
 					   pjsip_pres_status *pres_status)
 {
@@ -204,7 +204,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
 				  pool, pres_status);
 }
 
-(pj_status_t) pjsip_pres_parse_pidf2(char *body, unsigned body_len,
+pj_status_t pjsip_pres_parse_pidf2(char *body, unsigned body_len,
 					   pj_pool_t *pool,
 					   pjsip_pres_status *pres_status)
 {
@@ -254,7 +254,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
 /*
  * This is a utility function to parse X-PIDF body into PJSIP presence status.
  */
-(pj_status_t) pjsip_pres_parse_xpidf(pjsip_rx_data *rdata,
+pj_status_t pjsip_pres_parse_xpidf(pjsip_rx_data *rdata,
 					   pj_pool_t *pool,
 					   pjsip_pres_status *pres_status)
 {
@@ -263,7 +263,7 @@ static void* xml_clone_data(pj_pool_t *pool, const void *data, unsigned len)
 				   pool, pres_status);
 }
 
-(pj_status_t) pjsip_pres_parse_xpidf2(char *body, unsigned body_len,
+pj_status_t pjsip_pres_parse_xpidf2(char *body, unsigned body_len,
 					    pj_pool_t *pool,
 					    pjsip_pres_status *pres_status)
 {

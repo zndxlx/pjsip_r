@@ -66,7 +66,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return          the hash value.
  */
-(pj_uint32_t) pj_hash_calc(pj_uint32_t hval, 
+pj_uint32_t pj_hash_calc(pj_uint32_t hval, 
 				  const void *key, unsigned keylen);
 
 
@@ -81,7 +81,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return          The hash value.
  */
-(pj_uint32_t) pj_hash_calc_tolower(pj_uint32_t hval,
+pj_uint32_t pj_hash_calc_tolower(pj_uint32_t hval,
                                           char *result,
                                           const pj_str_t *key);
 
@@ -93,7 +93,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return the hash table.
  */
-(pj_hash_table_t*) pj_hash_create(pj_pool_t *pool, unsigned size);
+pj_hash_table_t* pj_hash_create(pj_pool_t *pool, unsigned size);
 
 
 /**
@@ -110,7 +110,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return the value associated with the key, or NULL if the key is not found.
  */
-(void *) pj_hash_get( pj_hash_table_t *ht,
+void * pj_hash_get( pj_hash_table_t *ht,
 			     const void *key, unsigned keylen,
 			     pj_uint32_t *hval );
 
@@ -121,7 +121,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @see pj_hash_get()
  */
-(void *) pj_hash_get_lower( pj_hash_table_t *ht,
+void * pj_hash_get_lower( pj_hash_table_t *ht,
 			           const void *key, unsigned keylen,
 			           pj_uint32_t *hval );
 
@@ -147,7 +147,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  * @param value	    value to be associated, or NULL to delete the entry with
  *		    the specified key.
  */
-(void) pj_hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
+void pj_hash_set( pj_pool_t *pool, pj_hash_table_t *ht,
 			   const void *key, unsigned keylen, pj_uint32_t hval,
 			   void *value );
 
@@ -158,7 +158,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @see pj_hash_set()
  */
-(void) pj_hash_set_lower( pj_pool_t *pool, pj_hash_table_t *ht,
+void pj_hash_set_lower( pj_pool_t *pool, pj_hash_table_t *ht,
 			         const void *key, unsigned keylen,
                                  pj_uint32_t hval, void *value );
 
@@ -181,7 +181,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  * @param value	    value to be associated, or NULL to delete the entry with
  *		    the specified key.
  */
-(void) pj_hash_set_np(pj_hash_table_t *ht,
+void pj_hash_set_np(pj_hash_table_t *ht,
 			     const void *key, unsigned keylen, 
 			     pj_uint32_t hval, pj_hash_entry_buf entry_buf, 
 			     void *value);
@@ -192,7 +192,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @see pj_hash_set_np()
  */
-(void) pj_hash_set_np_lower(pj_hash_table_t *ht,
+void pj_hash_set_np_lower(pj_hash_table_t *ht,
 			           const void *key, unsigned keylen,
 			           pj_uint32_t hval,
                                    pj_hash_entry_buf entry_buf,
@@ -205,7 +205,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return the number of entries in the hash table.
  */
-(unsigned) pj_hash_count( pj_hash_table_t *ht );
+unsigned pj_hash_count( pj_hash_table_t *ht );
 
 
 /**
@@ -216,7 +216,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return the iterator to the hash element, or NULL if no element presents.
  */
-(pj_hash_iterator_t*) pj_hash_first( pj_hash_table_t *ht,
+pj_hash_iterator_t* pj_hash_first( pj_hash_table_t *ht,
 					    pj_hash_iterator_t *it );
 
 
@@ -228,7 +228,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return the next iterator, or NULL if there's no more element.
  */
-(pj_hash_iterator_t*) pj_hash_next( pj_hash_table_t *ht, 
+pj_hash_iterator_t* pj_hash_next( pj_hash_table_t *ht, 
 					   pj_hash_iterator_t *it );
 
 /**
@@ -239,7 +239,7 @@ typedef void *pj_hash_entry_buf[(PJ_HASH_ENTRY_BUF_SIZE+sizeof(void*)-1)/(sizeof
  *
  * @return the value associated with the current element in iterator.
  */
-(void*) pj_hash_this( pj_hash_table_t *ht,
+void* pj_hash_this( pj_hash_table_t *ht,
 			     pj_hash_iterator_t *it );
 
 

@@ -109,7 +109,7 @@ static pj_highprec_t elapsed_usec( const pj_timestamp *start,
     return elapsed;
 }
 
-(pj_uint32_t) pj_elapsed_nanosec( const pj_timestamp *start,
+pj_uint32_t pj_elapsed_nanosec( const pj_timestamp *start,
                                         const pj_timestamp *stop )
 {
     pj_timestamp ts_freq;
@@ -140,25 +140,25 @@ static pj_highprec_t elapsed_usec( const pj_timestamp *start,
     return (pj_uint32_t)elapsed;
 }
 
-(pj_uint32_t) pj_elapsed_usec( const pj_timestamp *start,
+pj_uint32_t pj_elapsed_usec( const pj_timestamp *start,
                                      const pj_timestamp *stop )
 {
     return (pj_uint32_t)elapsed_usec(start, stop);
 }
 
-(pj_uint32_t) pj_elapsed_msec( const pj_timestamp *start,
+pj_uint32_t pj_elapsed_msec( const pj_timestamp *start,
                                      const pj_timestamp *stop )
 {
     return (pj_uint32_t)elapsed_msec(start, stop);
 }
 
-(pj_uint64_t) pj_elapsed_msec64(const pj_timestamp *start,
+pj_uint64_t pj_elapsed_msec64(const pj_timestamp *start,
                                       const pj_timestamp *stop )
 {
     return (pj_uint64_t)elapsed_msec(start, stop);
 }
 
-(pj_time_val) pj_elapsed_time( const pj_timestamp *start,
+pj_time_val pj_elapsed_time( const pj_timestamp *start,
                                      const pj_timestamp *stop )
 {
     pj_highprec_t elapsed = elapsed_msec(start, stop);
@@ -182,13 +182,13 @@ static pj_highprec_t elapsed_usec( const pj_timestamp *start,
     }
 }
 
-(pj_uint32_t) pj_elapsed_cycle( const pj_timestamp *start,
+pj_uint32_t pj_elapsed_cycle( const pj_timestamp *start,
                                       const pj_timestamp *stop )
 {
     return stop->u32.lo - start->u32.lo;
 }
 
-(pj_status_t) pj_gettickcount(pj_time_val *tv)
+pj_status_t pj_gettickcount(pj_time_val *tv)
 {
     pj_timestamp ts, start;
     pj_status_t status;

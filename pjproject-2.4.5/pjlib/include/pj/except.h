@@ -239,7 +239,7 @@ PJ_BEGIN_DECL
  * @return          PJ_SUCCESS on success or PJ_ETOOMANY if the library 
  *                  is running out out ids.
  */
-(pj_status_t) pj_exception_id_alloc(const char *name,
+pj_status_t pj_exception_id_alloc(const char *name,
                                            pj_exception_id_t *id);
 
 /**
@@ -249,7 +249,7 @@ PJ_BEGIN_DECL
  *
  * @return          PJ_SUCCESS or the appropriate error code.
  */
-(pj_status_t) pj_exception_id_free(pj_exception_id_t id);
+pj_status_t pj_exception_id_free(pj_exception_id_t id);
 
 /**
  * Retrieve name associated with the exception id.
@@ -258,7 +258,7 @@ PJ_BEGIN_DECL
  *
  * @return          The name associated with the specified ID.
  */
-(const char*) pj_exception_id_name(pj_exception_id_t id);
+const char* pj_exception_id_name(pj_exception_id_t id);
 
 
 /** @} */
@@ -272,7 +272,7 @@ PJ_BEGIN_DECL
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
-PJ_IDECL_NO_RETURN(void)
+_NO_RETURN(void)
 pj_throw_exception_(pj_exception_id_t id) PJ_ATTR_NORETURN
 {
     RaiseException(id,1,0,NULL);
@@ -354,12 +354,12 @@ pj_throw_exception_(pj_exception_id_t id) PJ_ATTR_NORETURN;
 /**
  * Push exception handler.
  */
-(void) pj_push_exception_handler_(struct pj_exception_state_t *rec);
+void pj_push_exception_handler_(struct pj_exception_state_t *rec);
 
 /**
  * Pop exception handler.
  */
-(void) pj_pop_exception_handler_(struct pj_exception_state_t *rec);
+void pj_pop_exception_handler_(struct pj_exception_state_t *rec);
 
 /**
  * Declare that the function will use exception.

@@ -40,7 +40,7 @@ static const int dscp_map[] =
     DSCPControl
 };
 
-(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
+pj_status_t pj_sock_set_qos_params(pj_sock_t sock,
 					   pj_qos_params *param)
 {
     PJ_UNUSED_ARG(sock);
@@ -51,7 +51,7 @@ static const int dscp_map[] =
     return PJ_ENOTSUP;
 }
 
-(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
+pj_status_t pj_sock_set_qos_type(pj_sock_t sock,
 					 pj_qos_type type)
 {
     int value;
@@ -64,7 +64,7 @@ static const int dscp_map[] =
 }
 
 
-(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
+pj_status_t pj_sock_get_qos_params(pj_sock_t sock,
 					   pj_qos_params *p_param)
 {
     PJ_UNUSED_ARG(sock);
@@ -75,7 +75,7 @@ static const int dscp_map[] =
     return PJ_ENOTSUP;
 }
 
-(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
+pj_status_t pj_sock_get_qos_type(pj_sock_t sock,
 					 pj_qos_type *p_type)
 {
     pj_status_t status;

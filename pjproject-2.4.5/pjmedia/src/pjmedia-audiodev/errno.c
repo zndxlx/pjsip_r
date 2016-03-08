@@ -68,7 +68,7 @@ static const struct
 /*
  * pjmedia_audiodev_strerror()
  */
-(pj_str_t) pjmedia_audiodev_strerror(pj_status_t statcode, 
+pj_str_t pjmedia_audiodev_strerror(pj_status_t statcode, 
 					   char *buf, pj_size_t bufsize )
 {
     pj_str_t errstr;

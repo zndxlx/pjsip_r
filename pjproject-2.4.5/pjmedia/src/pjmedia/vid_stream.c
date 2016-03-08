@@ -208,7 +208,7 @@ static pj_status_t send_rtcp(pjmedia_vid_stream *stream,
 
 #if TRACE_JB
 
-PJ_INLINE(int) trace_jb_print_timestamp(char **buf, pj_ssize_t len)
+int trace_jb_print_timestamp(char **buf, pj_ssize_t len)
 {
     pj_time_val now;
     pj_parsed_time ptime;
@@ -233,7 +233,7 @@ PJ_INLINE(int) trace_jb_print_timestamp(char **buf, pj_ssize_t len)
     return 0;
 }
 
-PJ_INLINE(int) trace_jb_print_state(pjmedia_vid_stream *stream, 
+int trace_jb_print_state(pjmedia_vid_stream *stream, 
 				    char **buf, pj_ssize_t len)
 {
     char *p = *buf;
@@ -1368,7 +1368,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Create stream.
  */
-(pj_status_t) pjmedia_vid_stream_create(
+pj_status_t pjmedia_vid_stream_create(
 					pjmedia_endpt *endpt,
 					pj_pool_t *pool,
 					pjmedia_vid_stream_info *info,
@@ -1693,7 +1693,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Destroy stream.
  */
-(pj_status_t) pjmedia_vid_stream_destroy( pjmedia_vid_stream *stream )
+pj_status_t pjmedia_vid_stream_destroy( pjmedia_vid_stream *stream )
 {
     PJ_ASSERT_RETURN(stream != NULL, PJ_EINVAL);
 
@@ -1771,7 +1771,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Get the port interface.
  */
-(pj_status_t) pjmedia_vid_stream_get_port(pjmedia_vid_stream *stream,
+pj_status_t pjmedia_vid_stream_get_port(pjmedia_vid_stream *stream,
 						pjmedia_dir dir,
 						pjmedia_port **p_port )
 {
@@ -1790,7 +1790,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Get the transport object
  */
-(pjmedia_transport*) pjmedia_vid_stream_get_transport(
+pjmedia_transport* pjmedia_vid_stream_get_transport(
 						    pjmedia_vid_stream *st)
 {
     return st->transport;
@@ -1800,7 +1800,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Get stream statistics.
  */
-(pj_status_t) pjmedia_vid_stream_get_stat(
+pj_status_t pjmedia_vid_stream_get_stat(
 					    const pjmedia_vid_stream *stream,
 					    pjmedia_rtcp_stat *stat)
 {
@@ -1814,7 +1814,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Reset the stream statistics in the middle of a stream session.
  */
-(pj_status_t) pjmedia_vid_stream_reset_stat(pjmedia_vid_stream *stream)
+pj_status_t pjmedia_vid_stream_reset_stat(pjmedia_vid_stream *stream)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
 
@@ -1827,7 +1827,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Get jitter buffer state.
  */
-(pj_status_t) pjmedia_vid_stream_get_stat_jbuf(
+pj_status_t pjmedia_vid_stream_get_stat_jbuf(
 					    const pjmedia_vid_stream *stream,
 					    pjmedia_jb_state *state)
 {
@@ -1839,7 +1839,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Get the stream info.
  */
-(pj_status_t) pjmedia_vid_stream_get_info(
+pj_status_t pjmedia_vid_stream_get_info(
 					    const pjmedia_vid_stream *stream,
 					    pjmedia_vid_stream_info *info)
 {
@@ -1852,7 +1852,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Start stream.
  */
-(pj_status_t) pjmedia_vid_stream_start(pjmedia_vid_stream *stream)
+pj_status_t pjmedia_vid_stream_start(pjmedia_vid_stream *stream)
 {
 
     PJ_ASSERT_RETURN(stream && stream->enc && stream->dec, PJ_EINVALIDOP);
@@ -1880,7 +1880,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Check status.
  */
-(pj_bool_t) pjmedia_vid_stream_is_running(pjmedia_vid_stream *stream,
+pj_bool_t pjmedia_vid_stream_is_running(pjmedia_vid_stream *stream,
                                                 pjmedia_dir dir)
 {
     pj_bool_t is_running = PJ_TRUE;
@@ -1901,7 +1901,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Pause stream.
  */
-(pj_status_t) pjmedia_vid_stream_pause(pjmedia_vid_stream *stream,
+pj_status_t pjmedia_vid_stream_pause(pjmedia_vid_stream *stream,
 					     pjmedia_dir dir)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -1929,7 +1929,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Resume stream
  */
-(pj_status_t) pjmedia_vid_stream_resume(pjmedia_vid_stream *stream,
+pj_status_t pjmedia_vid_stream_resume(pjmedia_vid_stream *stream,
 					      pjmedia_dir dir)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -1951,7 +1951,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Force stream to send video keyframe.
  */
-(pj_status_t) pjmedia_vid_stream_send_keyframe(
+pj_status_t pjmedia_vid_stream_send_keyframe(
 						pjmedia_vid_stream *stream)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -1968,7 +1968,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Send RTCP SDES.
  */
-(pj_status_t) pjmedia_vid_stream_send_rtcp_sdes(
+pj_status_t pjmedia_vid_stream_send_rtcp_sdes(
 						pjmedia_vid_stream *stream)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -1980,7 +1980,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Send RTCP BYE.
  */
-(pj_status_t) pjmedia_vid_stream_send_rtcp_bye(
+pj_status_t pjmedia_vid_stream_send_rtcp_bye(
 						pjmedia_vid_stream *stream)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -1996,7 +1996,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Initialize the video stream rate control with default settings.
  */
-(void)
+void
 pjmedia_vid_stream_rc_config_default(pjmedia_vid_stream_rc_config *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));

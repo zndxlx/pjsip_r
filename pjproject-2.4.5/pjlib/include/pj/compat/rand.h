@@ -36,7 +36,7 @@
         * When rand() is only 16 bit strong, double the strength
 	* by calling it twice!
 	*/
-       PJ_INLINE(int) platform_rand(void)
+       (int) platform_rand(void)
        {
 	   return ((rand() & 0xFFFF) << 16) | (rand() & 0xFFFF);
        }
@@ -51,7 +51,7 @@
 #  include <linux/random.h>
 #  define platform_srand(seed)
 
-   PJ_INLINE(int) platform_rand(void)
+   (int) platform_rand(void)
    {
      int value;
      get_random_bytes((void*)&value, sizeof(value));

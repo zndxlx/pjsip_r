@@ -304,7 +304,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  * @param buffer        The message itself.
  * @param len 	        Length of this message.
  */
-(void) pj_cli_write_log(pj_cli_t *cli,
+void pj_cli_write_log(pj_cli_t *cli,
                                int level,
                                const char *buffer,
                                int len);
@@ -317,7 +317,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_cli_create(pj_cli_cfg *cfg,
+pj_status_t pj_cli_create(pj_cli_cfg *cfg,
                                    pj_cli_t **p_cli);
 
 /**
@@ -327,7 +327,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @return		The command id
  */
-(pj_cli_cmd_id) pj_cli_get_cmd_id(const pj_cli_cmd_spec *cmd);
+pj_cli_cmd_id pj_cli_get_cmd_id(const pj_cli_cmd_spec *cmd);
 
 /**
  * Get the internal parameter of the CLI instance.
@@ -336,7 +336,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @return		CLI parameter instance.
  */
-(pj_cli_cfg*) pj_cli_get_param(pj_cli_t *cli);
+pj_cli_cfg* pj_cli_get_param(pj_cli_t *cli);
 
 /**
  * Call this to signal application shutdown. Typically application would
@@ -351,7 +351,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  * 			received.
  * @param restart	Indicate whether application restart is wanted.
  */
-(void) pj_cli_quit(pj_cli_t *cli, pj_cli_sess *req,
+void pj_cli_quit(pj_cli_t *cli, pj_cli_sess *req,
 			  pj_bool_t restart);
 /**
  * Check if application shutdown or restart has been requested.
@@ -360,7 +360,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @return		PJ_TRUE if pj_cli_quit() has been called.
  */
-(pj_bool_t) pj_cli_is_quitting(pj_cli_t *cli);
+pj_bool_t pj_cli_is_quitting(pj_cli_t *cli);
 
 /**
  * Check if application restart has been requested.
@@ -370,7 +370,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  * @return		PJ_TRUE if pj_cli_quit() has been called with
  * 			restart parameter set.
  */
-(pj_bool_t) pj_cli_is_restarting(pj_cli_t *cli);
+pj_bool_t pj_cli_is_restarting(pj_cli_t *cli);
 
 /**
  * Destroy a CLI application instance. This would also close all sessions
@@ -378,14 +378,14 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @param cli		The CLI application.
  */
-(void) pj_cli_destroy(pj_cli_t *cli);
+void pj_cli_destroy(pj_cli_t *cli);
 
 /**
  * Initialize a pj_cli_cfg with its default values.
  *
  * @param param  The instance to be initialized.
  */
-(void) pj_cli_cfg_default(pj_cli_cfg *param);
+void pj_cli_cfg_default(pj_cli_cfg *param);
 
 /**
  * Register a front end to the CLI application.
@@ -393,7 +393,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  * @param CLI		The CLI application.
  * @param fe		The CLI front end to be registered.
  */
-(void) pj_cli_register_front_end(pj_cli_t *cli,
+void pj_cli_register_front_end(pj_cli_t *cli,
                                         pj_cli_front_end *fe);
 
 /**
@@ -415,7 +415,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_cli_add_cmd_from_xml(pj_cli_t *cli,
+pj_status_t pj_cli_add_cmd_from_xml(pj_cli_t *cli,
 					     pj_cli_cmd_spec *group,
                                              const pj_str_t *xml,
                                              pj_cli_cmd_handler handler,
@@ -426,7 +426,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @param param		The param to be initialized.
  */
-(void) pj_cli_exec_info_default(pj_cli_exec_info *param);
+void pj_cli_exec_info_default(pj_cli_exec_info *param);
 
 /**
  * Write a log message to the specific CLI session. 
@@ -435,7 +435,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  * @param buffer        The message itself.
  * @param len 	        Length of this message.
  */
-(void) pj_cli_sess_write_msg(pj_cli_sess *sess,                               
+void pj_cli_sess_write_msg(pj_cli_sess *sess,                               
 				    const char *buffer,
 				    pj_size_t len);
 
@@ -475,7 +475,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *			      the current session. This is a signal for the
  *			      application to end it's main loop.
  */
-(pj_status_t) pj_cli_sess_parse(pj_cli_sess *sess,
+pj_status_t pj_cli_sess_parse(pj_cli_sess *sess,
 				       char *cmdline,
 				       pj_cli_cmd_val *val,
 				       pj_pool_t *pool,
@@ -491,7 +491,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  *
  * @param sess		The CLI session to be destroyed.
  */
-(void) pj_cli_sess_end_session(pj_cli_sess *sess);
+void pj_cli_sess_end_session(pj_cli_sess *sess);
 
 /**
  * Execute a command line. This function will parse the input string to find
@@ -515,7 +515,7 @@ typedef pj_status_t (*pj_cli_cmd_handler)(pj_cli_cmd_val *cval);
  * 			argument, if specified). Please see the return value
  * 			of pj_cli_sess_parse() for possible return values.
  */
-(pj_status_t) pj_cli_sess_exec(pj_cli_sess *sess,
+pj_status_t pj_cli_sess_exec(pj_cli_sess *sess,
 				      char *cmdline,
 				      pj_pool_t *pool,
 				      pj_cli_exec_info *info);

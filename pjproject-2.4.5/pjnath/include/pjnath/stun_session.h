@@ -391,7 +391,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_create(pj_stun_config *cfg,
+pj_status_t pj_stun_session_create(pj_stun_config *cfg,
 					    const char *name,
 					    const pj_stun_session_cb *cb,
 					    pj_bool_t fingerprint,
@@ -410,7 +410,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *		    being called; in this case the session will be destroyed
  *		    as soon as the last callback returns.
  */
-(pj_status_t) pj_stun_session_destroy(pj_stun_session *sess);
+pj_status_t pj_stun_session_destroy(pj_stun_session *sess);
 
 /**
  * Associated an arbitrary data with this STUN session. The user data may
@@ -421,7 +421,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_set_user_data(pj_stun_session *sess,
+pj_status_t pj_stun_session_set_user_data(pj_stun_session *sess,
 						   void *user_data);
 
 /**
@@ -432,7 +432,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    The user data associated with this STUN session.
  */
-(void*) pj_stun_session_get_user_data(pj_stun_session *sess);
+void* pj_stun_session_get_user_data(pj_stun_session *sess);
 
 /**
  * Get the group lock for this STUN session.
@@ -441,7 +441,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    The group lock.
  */
-(pj_grp_lock_t *) pj_stun_session_get_grp_lock(pj_stun_session *sess);
+pj_grp_lock_t * pj_stun_session_get_grp_lock(pj_stun_session *sess);
 
 /**
  * Set SOFTWARE name to be included in all requests and responses.
@@ -453,7 +453,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_set_software_name(pj_stun_session *sess,
+pj_status_t pj_stun_session_set_software_name(pj_stun_session *sess,
 						       const pj_str_t *sw);
 
 /**
@@ -471,7 +471,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_set_credential(pj_stun_session *sess,
+pj_status_t pj_stun_session_set_credential(pj_stun_session *sess,
 						pj_stun_auth_type auth_type,
 						const pj_stun_auth_cred *cred);
 /**
@@ -480,7 +480,7 @@ typedef enum pj_stun_sess_msg_log_flag
  * @param sess	    The STUN session instance.
  * @param flags	    Bitmask combination of #pj_stun_sess_msg_log_flag
  */
-(void) pj_stun_session_set_log(pj_stun_session *sess,
+void pj_stun_session_set_log(pj_stun_session *sess,
 				      unsigned flags);
 /**
  * Configure whether the STUN session should utilize FINGERPRINT in
@@ -492,7 +492,7 @@ typedef enum pj_stun_sess_msg_log_flag
  * @return	    The previous configured value of FINGERPRINT
  *		    utilization of the sessoin.
  */
-(pj_bool_t) pj_stun_session_use_fingerprint(pj_stun_session *sess,
+pj_bool_t pj_stun_session_use_fingerprint(pj_stun_session *sess,
 						   pj_bool_t use);
 
 /**
@@ -510,7 +510,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_create_req(pj_stun_session *sess,
+pj_status_t pj_stun_session_create_req(pj_stun_session *sess,
 						int msg_type,
 						pj_uint32_t magic,
 						const pj_uint8_t tsx_id[12],
@@ -530,7 +530,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_create_ind(pj_stun_session *sess,
+pj_status_t pj_stun_session_create_ind(pj_stun_session *sess,
 						int msg_type,
 					        pj_stun_tx_data **p_tdata);
 
@@ -555,7 +555,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(pj_status_t) pj_stun_session_create_res(pj_stun_session *sess,
+pj_status_t pj_stun_session_create_res(pj_stun_session *sess,
 						const pj_stun_rx_data *rdata,
 						unsigned err_code,
 						const pj_str_t *err_msg,
@@ -597,7 +597,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *		    application has destroyed the session in 
  *		    \a on_send_msg() callback.
  */
-(pj_status_t) pj_stun_session_send_msg(pj_stun_session *sess,
+pj_status_t pj_stun_session_send_msg(pj_stun_session *sess,
 					      void *token,
 					      pj_bool_t cache_res,
 					      pj_bool_t retransmit,
@@ -640,7 +640,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *		    application has destroyed the session in 
  *		    \a on_send_msg() callback.
  */
-(pj_status_t) pj_stun_session_respond(pj_stun_session *sess, 
+pj_status_t pj_stun_session_respond(pj_stun_session *sess, 
 					     const pj_stun_rx_data *rdata,
 					     unsigned code, 
 					     const char *err_msg,
@@ -667,7 +667,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *		    application has destroyed the session in 
  *		    \a on_request_complete() callback.
  */
-(pj_status_t) pj_stun_session_cancel_req(pj_stun_session *sess,
+pj_status_t pj_stun_session_cancel_req(pj_stun_session *sess,
 						pj_stun_tx_data *tdata,
 						pj_bool_t notify,
 						pj_status_t status);
@@ -687,7 +687,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *		    application has destroyed the session in \a on_send_msg()
  *		    callback.
  */
-(pj_status_t) pj_stun_session_retransmit_req(pj_stun_session *sess,
+pj_status_t pj_stun_session_retransmit_req(pj_stun_session *sess,
 						    pj_stun_tx_data *tdata,
                                                     pj_bool_t mod_count);
 
@@ -728,7 +728,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *			application has destroyed the session in one of the
  *			callback.
  */
-(pj_status_t) pj_stun_session_on_rx_pkt(pj_stun_session *sess,
+pj_status_t pj_stun_session_on_rx_pkt(pj_stun_session *sess,
 					       const void *packet,
 					       pj_size_t pkt_size,
 					       unsigned options,
@@ -747,7 +747,7 @@ typedef enum pj_stun_sess_msg_log_flag
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-(void) pj_stun_msg_destroy_tdata(pj_stun_session *sess,
+void pj_stun_msg_destroy_tdata(pj_stun_session *sess,
 					pj_stun_tx_data *tdata);
 
 

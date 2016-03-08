@@ -614,7 +614,7 @@ static struct attr_desc extended_attr_desc[] =
 /*
  * Get STUN message type name.
  */
-(const char*) pj_stun_get_method_name(unsigned msg_type)
+const char* pj_stun_get_method_name(unsigned msg_type)
 {
     unsigned method = PJ_STUN_GET_METHOD(msg_type);
 
@@ -628,7 +628,7 @@ static struct attr_desc extended_attr_desc[] =
 /*
  * Get STUN message class name.
  */
-(const char*) pj_stun_get_class_name(unsigned msg_type)
+const char* pj_stun_get_class_name(unsigned msg_type)
 {
     if (PJ_STUN_IS_REQUEST(msg_type))
 	return "request";
@@ -672,7 +672,7 @@ static const struct attr_desc *find_attr_desc(unsigned attr_type)
 /*
  * Get STUN attribute name.
  */
-(const char*) pj_stun_get_attr_name(unsigned attr_type)
+const char* pj_stun_get_attr_name(unsigned attr_type)
 {
     const struct attr_desc *attr_desc;
 
@@ -687,7 +687,7 @@ static const struct attr_desc *find_attr_desc(unsigned attr_type)
 /**
  * Get STUN standard reason phrase for the specified error code.
  */
-(pj_str_t) pj_stun_get_err_reason(int err_code)
+pj_str_t pj_stun_get_err_reason(int err_code)
 {
 #if 0
     /* Find error using linear search */
@@ -731,7 +731,7 @@ static const struct attr_desc *find_attr_desc(unsigned attr_type)
 /*
  * Set padding character.
  */
-(int) pj_stun_set_padding_char(int chr)
+int pj_stun_set_padding_char(int chr)
 {
     int old_pad = padding_char;
     padding_char = chr;
@@ -752,7 +752,7 @@ static pj_uint16_t GETVAL16H(const pj_uint8_t *buf, unsigned pos)
 			  (buf[pos + 1] << 0));
 }
 
-/*unused PJ_INLINE(pj_uint16_t) GETVAL16N(const pj_uint8_t *buf, unsigned pos)
+/*unused (pj_uint16_t) GETVAL16N(const pj_uint8_t *buf, unsigned pos)
 {
     return pj_htons(GETVAL16H(buf,pos));
 }*/
@@ -763,7 +763,7 @@ static void PUTVAL16H(pj_uint8_t *buf, unsigned pos, pj_uint16_t hval)
     buf[pos+1] = (pj_uint8_t) ((hval & 0x00FF) >> 0);
 }
 
-PJ_INLINE(pj_uint32_t) GETVAL32H(const pj_uint8_t *buf, unsigned pos)
+pj_uint32_t GETVAL32H(const pj_uint8_t *buf, unsigned pos)
 {
     return (pj_uint32_t) ((buf[pos + 0] << 24UL) | \
 	                  (buf[pos + 1] << 16UL) | \
@@ -771,7 +771,7 @@ PJ_INLINE(pj_uint32_t) GETVAL32H(const pj_uint8_t *buf, unsigned pos)
 			  (buf[pos + 3] <<  0UL));
 }
 
-/*unused PJ_INLINE(pj_uint32_t) GETVAL32N(const pj_uint8_t *buf, unsigned pos)
+/*unused (pj_uint32_t) GETVAL32N(const pj_uint8_t *buf, unsigned pos)
 {
     return pj_htonl(GETVAL32H(buf,pos));
 }*/
@@ -813,7 +813,7 @@ static void GETATTRHDR(const pj_uint8_t *buf, pj_stun_attr_hdr *hdr)
 /*
  * Init sockaddr attr
  */
-(pj_status_t) pj_stun_sockaddr_attr_init( pj_stun_sockaddr_attr *attr,
+pj_status_t pj_stun_sockaddr_attr_init( pj_stun_sockaddr_attr *attr,
 						int attr_type, 
 						pj_bool_t xor_ed,
 						const pj_sockaddr_t *addr,
@@ -838,7 +838,7 @@ static void GETATTRHDR(const pj_uint8_t *buf, pj_stun_attr_hdr *hdr)
 /*
  * Create a generic STUN IP address attribute for IPv4 address.
  */
-(pj_status_t) pj_stun_sockaddr_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_sockaddr_attr_create(pj_pool_t *pool,
 						 int attr_type,
 						 pj_bool_t xor_ed,
 						 const pj_sockaddr_t *addr,
@@ -858,7 +858,7 @@ static void GETATTRHDR(const pj_uint8_t *buf, pj_stun_attr_hdr *hdr)
 /*
  * Create and add generic STUN IP address attribute to a STUN message.
  */
-(pj_status_t) pj_stun_msg_add_sockaddr_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_sockaddr_attr(pj_pool_t *pool,
 						  pj_stun_msg *msg,
 						  int attr_type, 
 						  pj_bool_t xor_ed,
@@ -1132,7 +1132,7 @@ static void* clone_sockaddr_attr(pj_pool_t *pool, const void *src)
 /*
  * Initialize a STUN generic string attribute.
  */
-(pj_status_t) pj_stun_string_attr_init( pj_stun_string_attr *attr,
+pj_status_t pj_stun_string_attr_init( pj_stun_string_attr *attr,
 					      pj_pool_t *pool,
 					      int attr_type,
 					      const pj_str_t *value)
@@ -1151,7 +1151,7 @@ static void* clone_sockaddr_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a STUN generic string attribute.
  */
-(pj_status_t) pj_stun_string_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_string_attr_create(pj_pool_t *pool,
 					       int attr_type,
 					       const pj_str_t *value,
 					       pj_stun_string_attr **p_attr)
@@ -1170,7 +1170,7 @@ static void* clone_sockaddr_attr(pj_pool_t *pool, const void *src)
 /*
  * Create and add STUN generic string attribute to the message.
  */
-(pj_status_t) pj_stun_msg_add_string_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_string_attr(pj_pool_t *pool,
 						pj_stun_msg *msg,
 						int attr_type,
 						const pj_str_t *value)
@@ -1289,7 +1289,7 @@ static void* clone_string_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a STUN empty attribute.
  */
-(pj_status_t) pj_stun_empty_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_empty_attr_create(pj_pool_t *pool,
 					      int attr_type,
 					      pj_stun_empty_attr **p_attr)
 {
@@ -1309,7 +1309,7 @@ static void* clone_string_attr(pj_pool_t *pool, const void *src)
 /*
  * Create STUN empty attribute and add the attribute to the message.
  */
-(pj_status_t) pj_stun_msg_add_empty_attr( pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_empty_attr( pj_pool_t *pool,
 						pj_stun_msg *msg,
 						int attr_type)
 {
@@ -1389,7 +1389,7 @@ static void* clone_empty_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a STUN generic 32bit value attribute.
  */
-(pj_status_t) pj_stun_uint_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_uint_attr_create(pj_pool_t *pool,
 					     int attr_type,
 					     pj_uint32_t value,
 					     pj_stun_uint_attr **p_attr)
@@ -1408,7 +1408,7 @@ static void* clone_empty_attr(pj_pool_t *pool, const void *src)
 }
 
 /* Create and add STUN generic 32bit value attribute to the message. */
-(pj_status_t) pj_stun_msg_add_uint_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_uint_attr(pj_pool_t *pool,
 					      pj_stun_msg *msg,
 					      int attr_type,
 					      pj_uint32_t value)
@@ -1488,7 +1488,7 @@ static void* clone_uint_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a STUN generic 64bit value attribute.
  */
-(pj_status_t) pj_stun_uint64_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_uint64_attr_create(pj_pool_t *pool,
 					       int attr_type,
 					       const pj_timestamp *value,
 					       pj_stun_uint64_attr **p_attr)
@@ -1511,7 +1511,7 @@ static void* clone_uint_attr(pj_pool_t *pool, const void *src)
 }
 
 /* Create and add STUN generic 64bit value attribute to the message. */
-(pj_status_t)  pj_stun_msg_add_uint64_attr(pj_pool_t *pool,
+pj_status_t  pj_stun_msg_add_uint64_attr(pj_pool_t *pool,
 					         pj_stun_msg *msg,
 					         int attr_type,
 					         const pj_timestamp *value)
@@ -1594,7 +1594,7 @@ static void* clone_uint64_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a STUN MESSAGE-INTEGRITY attribute.
  */
-(pj_status_t) pj_stun_msgint_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_msgint_attr_create(pj_pool_t *pool,
 					       pj_stun_msgint_attr **p_attr)
 {
     pj_stun_msgint_attr *attr;
@@ -1610,7 +1610,7 @@ static void* clone_uint64_attr(pj_pool_t *pool, const void *src)
 }
 
 
-(pj_status_t) pj_stun_msg_add_msgint_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_msgint_attr(pj_pool_t *pool,
 						pj_stun_msg *msg)
 {
     pj_stun_msgint_attr *attr = NULL;
@@ -1693,7 +1693,7 @@ static void* clone_msgint_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a STUN ERROR-CODE attribute.
  */
-(pj_status_t) pj_stun_errcode_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_errcode_attr_create(pj_pool_t *pool,
 						int err_code,
 						const pj_str_t *err_reason,
 						pj_stun_errcode_attr **p_attr)
@@ -1725,7 +1725,7 @@ static void* clone_msgint_attr(pj_pool_t *pool, const void *src)
 }
 
 
-(pj_status_t) pj_stun_msg_add_errcode_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_errcode_attr(pj_pool_t *pool,
 						 pj_stun_msg *msg,
 						 int err_code,
 						 const pj_str_t *err_reason)
@@ -1827,7 +1827,7 @@ static void* clone_errcode_attr(pj_pool_t *pool, const void *src)
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-(pj_status_t) pj_stun_unknown_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_unknown_attr_create(pj_pool_t *pool,
 						unsigned attr_cnt,
 						const pj_uint16_t attr_array[],
 						pj_stun_unknown_attr **p_attr)
@@ -1861,7 +1861,7 @@ static void* clone_errcode_attr(pj_pool_t *pool, const void *src)
 
 
 /* Create and add STUN UNKNOWN-ATTRIBUTES attribute to the message. */
-(pj_status_t) pj_stun_msg_add_unknown_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_unknown_attr(pj_pool_t *pool,
 						 pj_stun_msg *msg,
 						 unsigned attr_cnt,
 						 const pj_uint16_t attr_type[])
@@ -1956,7 +1956,7 @@ static void* clone_unknown_attr(pj_pool_t *pool, const void *src)
 /*
  * Initialize STUN binary attribute.
  */
-(pj_status_t) pj_stun_binary_attr_init( pj_stun_binary_attr *attr,
+pj_status_t pj_stun_binary_attr_init( pj_stun_binary_attr *attr,
 					      pj_pool_t *pool,
 					      int attr_type,
 					      const pj_uint8_t *data,
@@ -1984,7 +1984,7 @@ static void* clone_unknown_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a blank binary attribute.
  */
-(pj_status_t) pj_stun_binary_attr_create(pj_pool_t *pool,
+pj_status_t pj_stun_binary_attr_create(pj_pool_t *pool,
 					       int attr_type,
 					       const pj_uint8_t *data,
 					       unsigned length,
@@ -2000,7 +2000,7 @@ static void* clone_unknown_attr(pj_pool_t *pool, const void *src)
 
 
 /* Create and add binary attr. */
-(pj_status_t) pj_stun_msg_add_binary_attr(pj_pool_t *pool,
+pj_status_t pj_stun_msg_add_binary_attr(pj_pool_t *pool,
 						pj_stun_msg *msg,
 						int attr_type,
 						const pj_uint8_t *data,
@@ -2091,7 +2091,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 /*
  * Initialize a generic STUN message.
  */
-(pj_status_t) pj_stun_msg_init( pj_stun_msg *msg,
+pj_status_t pj_stun_msg_init( pj_stun_msg *msg,
 				      unsigned msg_type,
 				      pj_uint32_t magic,
 				      const pj_uint8_t tsx_id[12])
@@ -2131,7 +2131,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 /*
  * Create a blank STUN message.
  */
-(pj_status_t) pj_stun_msg_create( pj_pool_t *pool,
+pj_status_t pj_stun_msg_create( pj_pool_t *pool,
 					unsigned msg_type,
 					pj_uint32_t magic,
 					const pj_uint8_t tsx_id[12],
@@ -2150,7 +2150,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 /*
  * Clone a STUN message with all of its attributes.
  */
-(pj_stun_msg*) pj_stun_msg_clone( pj_pool_t *pool,
+pj_stun_msg* pj_stun_msg_clone( pj_pool_t *pool,
 					const pj_stun_msg *src)
 {
     pj_stun_msg *dst;
@@ -2175,7 +2175,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 /*
  * Add STUN attribute to STUN message.
  */
-(pj_status_t) pj_stun_msg_add_attr(pj_stun_msg *msg,
+pj_status_t pj_stun_msg_add_attr(pj_stun_msg *msg,
 					 pj_stun_attr_hdr *attr)
 {
     PJ_ASSERT_RETURN(msg && attr, PJ_EINVAL);
@@ -2189,7 +2189,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 /*
  * Check that the PDU is potentially a valid STUN message.
  */
-(pj_status_t) pj_stun_msg_check(const pj_uint8_t *pdu, pj_size_t pdu_len,
+pj_status_t pj_stun_msg_check(const pj_uint8_t *pdu, pj_size_t pdu_len,
 				      unsigned options)
 {
     pj_uint32_t msg_len;
@@ -2248,7 +2248,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 
 
 /* Create error response */
-(pj_status_t) pj_stun_msg_create_response(pj_pool_t *pool,
+pj_status_t pj_stun_msg_create_response(pj_pool_t *pool,
 						const pj_stun_msg *req_msg,
 						unsigned err_code,
 						const pj_str_t *err_msg,
@@ -2292,7 +2292,7 @@ static void* clone_binary_attr(pj_pool_t *pool, const void *src)
 /*
  * Parse incoming packet into STUN message.
  */
-(pj_status_t) pj_stun_msg_decode(pj_pool_t *pool,
+pj_status_t pj_stun_msg_decode(pj_pool_t *pool,
 				       const pj_uint8_t *pdu,
 				       pj_size_t pdu_len,
 				       unsigned options,
@@ -2575,7 +2575,7 @@ static char *print_binary(const pj_uint8_t *data, unsigned data_len)
 /*
  * Print the message structure to a buffer.
  */
-(pj_status_t) pj_stun_msg_encode(pj_stun_msg *msg,
+pj_status_t pj_stun_msg_encode(pj_stun_msg *msg,
 				       pj_uint8_t *buf, pj_size_t buf_size,
 				       unsigned options,
 				       const pj_str_t *key,
@@ -2787,7 +2787,7 @@ static char *print_binary(const pj_uint8_t *data, unsigned data_len)
  * Find STUN attribute in the STUN message, starting from the specified
  * index.
  */
-(pj_stun_attr_hdr*) pj_stun_msg_find_attr( const pj_stun_msg *msg,
+pj_stun_attr_hdr* pj_stun_msg_find_attr( const pj_stun_msg *msg,
 						 int attr_type,
 						 unsigned index)
 {
@@ -2805,7 +2805,7 @@ static char *print_binary(const pj_uint8_t *data, unsigned data_len)
 /*
  * Clone a STUN attribute.
  */
-(pj_stun_attr_hdr*) pj_stun_attr_clone( pj_pool_t *pool,
+pj_stun_attr_hdr* pj_stun_attr_clone( pj_pool_t *pool,
 					      const pj_stun_attr_hdr *attr)
 {
     const struct attr_desc *adesc;

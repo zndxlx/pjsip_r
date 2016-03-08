@@ -22,7 +22,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-(pj_status_t) pj_gettimeofday(pj_time_val *tv)
+pj_status_t pj_gettimeofday(pj_time_val *tv)
 {
     struct timeval tval;
   
@@ -33,7 +33,7 @@
     return 0;
 }
 
-(pj_status_t) pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
+pj_status_t pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
 {
     pt->year = 2005;
     pt->mon = 8;
@@ -51,16 +51,16 @@
 /**
  * Encode parsed time to time value.
  */
-(pj_status_t) pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv);
+pj_status_t pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv);
 
 /**
  * Convert local time to GMT.
  */
-(pj_status_t) pj_time_local_to_gmt(pj_time_val *tv);
+pj_status_t pj_time_local_to_gmt(pj_time_val *tv);
 
 /**
  * Convert GMT to local time.
  */
-(pj_status_t) pj_time_gmt_to_local(pj_time_val *tv);
+pj_status_t pj_time_gmt_to_local(pj_time_val *tv);
 
 

@@ -50,7 +50,7 @@ static pj_status_t ioqueue_destroy(pj_ioqueue_t *ioqueue)
 /*
  * pj_ioqueue_set_lock()
  */
-(pj_status_t) pj_ioqueue_set_lock( pj_ioqueue_t *ioqueue, 
+pj_status_t pj_ioqueue_set_lock( pj_ioqueue_t *ioqueue, 
 					 pj_lock_t *lock,
 					 pj_bool_t auto_delete )
 {
@@ -134,7 +134,7 @@ static pj_status_t ioqueue_init_key( pj_pool_t *pool,
  *
  * Obtain value associated with a key.
  */
-(void*) pj_ioqueue_get_user_data( pj_ioqueue_key_t *key )
+void* pj_ioqueue_get_user_data( pj_ioqueue_key_t *key )
 {
     PJ_ASSERT_RETURN(key != NULL, NULL);
     return key->user_data;
@@ -143,7 +143,7 @@ static pj_status_t ioqueue_init_key( pj_pool_t *pool,
 /*
  * pj_ioqueue_set_user_data()
  */
-(pj_status_t) pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
                                               void *user_data,
                                               void **old_data)
 {
@@ -156,17 +156,17 @@ static pj_status_t ioqueue_init_key( pj_pool_t *pool,
     return PJ_SUCCESS;
 }
 
-PJ_INLINE(int) key_has_pending_write(pj_ioqueue_key_t *key)
+int key_has_pending_write(pj_ioqueue_key_t *key)
 {
     return !pj_list_empty(&key->write_list);
 }
 
-PJ_INLINE(int) key_has_pending_read(pj_ioqueue_key_t *key)
+int key_has_pending_read(pj_ioqueue_key_t *key)
 {
     return !pj_list_empty(&key->read_list);
 }
 
-PJ_INLINE(int) key_has_pending_accept(pj_ioqueue_key_t *key)
+int key_has_pending_accept(pj_ioqueue_key_t *key)
 {
 #if PJ_HAS_TCP
     return !pj_list_empty(&key->accept_list);
@@ -176,7 +176,7 @@ PJ_INLINE(int) key_has_pending_accept(pj_ioqueue_key_t *key)
 #endif
 }
 
-PJ_INLINE(int) key_has_pending_connect(pj_ioqueue_key_t *key)
+int key_has_pending_connect(pj_ioqueue_key_t *key)
 {
     return key->connecting;
 }
@@ -675,7 +675,7 @@ void ioqueue_dispatch_exception_event( pj_ioqueue_t *ioqueue,
  *
  * Start asynchronous recv() from the socket.
  */
-(pj_status_t) pj_ioqueue_recv(  pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_recv(  pj_ioqueue_key_t *key,
                                       pj_ioqueue_op_key_t *op_key,
 				      void *buffer,
 				      pj_ssize_t *length,
@@ -749,7 +749,7 @@ void ioqueue_dispatch_exception_event( pj_ioqueue_t *ioqueue,
  *
  * Start asynchronous recvfrom() from the socket.
  */
-(pj_status_t) pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
                                          pj_ioqueue_op_key_t *op_key,
 				         void *buffer,
 				         pj_ssize_t *length,
@@ -825,7 +825,7 @@ void ioqueue_dispatch_exception_event( pj_ioqueue_t *ioqueue,
  *
  * Start asynchronous send() to the descriptor.
  */
-(pj_status_t) pj_ioqueue_send( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_send( pj_ioqueue_key_t *key,
                                      pj_ioqueue_op_key_t *op_key,
 			             const void *data,
 			             pj_ssize_t *length,
@@ -940,7 +940,7 @@ void ioqueue_dispatch_exception_event( pj_ioqueue_t *ioqueue,
  *
  * Start asynchronous write() to the descriptor.
  */
-(pj_status_t) pj_ioqueue_sendto( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_sendto( pj_ioqueue_key_t *key,
                                        pj_ioqueue_op_key_t *op_key,
 			               const void *data,
 			               pj_ssize_t *length,
@@ -1084,7 +1084,7 @@ retry_on_restart:
 /*
  * Initiate overlapped accept() operation.
  */
-(pj_status_t) pj_ioqueue_accept( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_accept( pj_ioqueue_key_t *key,
                                        pj_ioqueue_op_key_t *op_key,
 			               pj_sock_t *new_sock,
 			               pj_sockaddr_t *local,
@@ -1161,7 +1161,7 @@ retry_on_restart:
  * Initiate overlapped connect() operation (well, it's non-blocking actually,
  * since there's no overlapped version of connect()).
  */
-(pj_status_t) pj_ioqueue_connect( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_connect( pj_ioqueue_key_t *key,
 					const pj_sockaddr_t *addr,
 					int addrlen )
 {
@@ -1207,7 +1207,7 @@ retry_on_restart:
 #endif	/* PJ_HAS_TCP */
 
 
-(void) pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
+void pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
 				     pj_size_t size )
 {
     pj_bzero(op_key, size);
@@ -1217,7 +1217,7 @@ retry_on_restart:
 /*
  * pj_ioqueue_is_pending()
  */
-(pj_bool_t) pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
+pj_bool_t pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
                                          pj_ioqueue_op_key_t *op_key )
 {
     struct generic_operation *op_rec;
@@ -1232,7 +1232,7 @@ retry_on_restart:
 /*
  * pj_ioqueue_post_completion()
  */
-(pj_status_t) pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
                                                 pj_ioqueue_op_key_t *op_key,
                                                 pj_ssize_t bytes_status )
 {
@@ -1293,7 +1293,7 @@ retry_on_restart:
     return PJ_EINVALIDOP;
 }
 
-(pj_status_t) pj_ioqueue_set_default_concurrency( pj_ioqueue_t *ioqueue,
+pj_status_t pj_ioqueue_set_default_concurrency( pj_ioqueue_t *ioqueue,
 							pj_bool_t allow)
 {
     PJ_ASSERT_RETURN(ioqueue != NULL, PJ_EINVAL);
@@ -1302,7 +1302,7 @@ retry_on_restart:
 }
 
 
-(pj_status_t) pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
+pj_status_t pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
 					       pj_bool_t allow)
 {
     PJ_ASSERT_RETURN(key, PJ_EINVAL);
@@ -1316,7 +1316,7 @@ retry_on_restart:
     return PJ_SUCCESS;
 }
 
-(pj_status_t) pj_ioqueue_lock_key(pj_ioqueue_key_t *key)
+pj_status_t pj_ioqueue_lock_key(pj_ioqueue_key_t *key)
 {
     if (key->grp_lock)
 	return pj_grp_lock_acquire(key->grp_lock);
@@ -1324,7 +1324,7 @@ retry_on_restart:
 	return pj_lock_acquire(key->lock);
 }
 
-(pj_status_t) pj_ioqueue_unlock_key(pj_ioqueue_key_t *key)
+pj_status_t pj_ioqueue_unlock_key(pj_ioqueue_key_t *key)
 {
     if (key->grp_lock)
 	return pj_grp_lock_release(key->grp_lock);

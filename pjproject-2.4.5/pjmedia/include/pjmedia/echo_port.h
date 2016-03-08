@@ -55,7 +55,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-(pj_status_t) pjmedia_echo_port_create(pj_pool_t *pool,
+pj_status_t pjmedia_echo_port_create(pj_pool_t *pool,
 					      pjmedia_port *dn_port,
 					      unsigned tail_ms,
 					      unsigned latency_ms,
