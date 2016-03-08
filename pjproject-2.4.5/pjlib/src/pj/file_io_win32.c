@@ -40,7 +40,7 @@
                                enum pj_file_access access);
 
 
-PJ_DEF(pj_status_t) pj_file_open( pj_pool_t *pool,
+(pj_status_t) pj_file_open( pj_pool_t *pool,
                                   const char *pathname, 
                                   unsigned flags,
                                   pj_oshandle_t *fd)
@@ -110,14 +110,14 @@ PJ_DEF(pj_status_t) pj_file_open( pj_pool_t *pool,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_file_close(pj_oshandle_t fd)
+(pj_status_t) pj_file_close(pj_oshandle_t fd)
 {
     if (CloseHandle(fd)==0)
         return PJ_RETURN_OS_ERROR(GetLastError());
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_file_write( pj_oshandle_t fd,
+(pj_status_t) pj_file_write( pj_oshandle_t fd,
                                    const void *data,
                                    pj_ssize_t *size)
 {
@@ -134,7 +134,7 @@ PJ_DEF(pj_status_t) pj_file_write( pj_oshandle_t fd,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_file_read( pj_oshandle_t fd,
+(pj_status_t) pj_file_read( pj_oshandle_t fd,
                                   void *data,
                                   pj_ssize_t *size)
 {
@@ -152,7 +152,7 @@ PJ_DEF(pj_status_t) pj_file_read( pj_oshandle_t fd,
 }
 
 /*
-PJ_DEF(pj_bool_t) pj_file_eof(pj_oshandle_t fd, enum pj_file_access access)
+(pj_bool_t) pj_file_eof(pj_oshandle_t fd, enum pj_file_access access)
 {
     BOOL rc;
     DWORD dummy = 0, bytes;
@@ -175,7 +175,7 @@ PJ_DEF(pj_bool_t) pj_file_eof(pj_oshandle_t fd, enum pj_file_access access)
 }
 */
 
-PJ_DEF(pj_status_t) pj_file_setpos( pj_oshandle_t fd,
+(pj_status_t) pj_file_setpos( pj_oshandle_t fd,
                                     pj_off_t offset,
                                     enum pj_file_seek_type whence)
 {
@@ -206,7 +206,7 @@ PJ_DEF(pj_status_t) pj_file_setpos( pj_oshandle_t fd,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_file_getpos( pj_oshandle_t fd,
+(pj_status_t) pj_file_getpos( pj_oshandle_t fd,
                                     pj_off_t *pos)
 {
     LONG hi32 = 0;
@@ -224,7 +224,7 @@ PJ_DEF(pj_status_t) pj_file_getpos( pj_oshandle_t fd,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_file_flush(pj_oshandle_t fd)
+(pj_status_t) pj_file_flush(pj_oshandle_t fd)
 {
     BOOL rc;
 

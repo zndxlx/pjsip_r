@@ -286,7 +286,7 @@ static void tls_init_shutdown(struct tls_transport *tls, pj_status_t status)
  * This is the public API to create, initialize, register, and start the
  * TLS listener.
  */
-PJ_DEF(pj_status_t) pjsip_tls_transport_start (pjsip_endpoint *endpt,
+(pj_status_t) pjsip_tls_transport_start (pjsip_endpoint *endpt,
 					       const pjsip_tls_setting *opt,
 					       const pj_sockaddr_in *local_in,
 					       const pjsip_host_port *a_name,
@@ -302,7 +302,7 @@ PJ_DEF(pj_status_t) pjsip_tls_transport_start (pjsip_endpoint *endpt,
                                       a_name, async_cnt, p_factory);
 }
 
-PJ_DEF(pj_status_t) pjsip_tls_transport_start2( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_tls_transport_start2( pjsip_endpoint *endpt,
  					        const pjsip_tls_setting *opt,
 					        const pj_sockaddr *local,
 					        const pjsip_host_port *a_name,

@@ -37,7 +37,7 @@
 /*
  * pj_file_exists()
  */
-PJ_DEF(pj_bool_t) pj_file_exists(const char *filename)
+(pj_bool_t) pj_file_exists(const char *filename)
 {
     _UNICODE_TEMP_BUF(wfilename,256)
     HANDLE hFile;
@@ -59,7 +59,7 @@ PJ_DEF(pj_bool_t) pj_file_exists(const char *filename)
 /*
  * pj_file_size()
  */
-PJ_DEF(pj_off_t) pj_file_size(const char *filename)
+(pj_off_t) pj_file_size(const char *filename)
 {
     _UNICODE_TEMP_BUF(wfilename,256)
     HANDLE hFile;
@@ -95,7 +95,7 @@ PJ_DEF(pj_off_t) pj_file_size(const char *filename)
 /*
  * pj_file_delete()
  */
-PJ_DEF(pj_status_t) pj_file_delete(const char *filename)
+(pj_status_t) pj_file_delete(const char *filename)
 {
     _UNICODE_TEMP_BUF(wfilename,256)
 
@@ -111,7 +111,7 @@ PJ_DEF(pj_status_t) pj_file_delete(const char *filename)
 /*
  * pj_file_move()
  */
-PJ_DEF(pj_status_t) pj_file_move( const char *oldname, const char *newname)
+(pj_status_t) pj_file_move( const char *oldname, const char *newname)
 {
     _UNICODE_TEMP_BUF(woldname,256)
     _UNICODE_TEMP_BUF(wnewname,256)
@@ -168,7 +168,7 @@ static pj_status_t file_time_to_time_val(const FILETIME *file_time,
 /*
  * pj_file_getstat()
  */
-PJ_DEF(pj_status_t) pj_file_getstat(const char *filename, pj_file_stat *stat)
+(pj_status_t) pj_file_getstat(const char *filename, pj_file_stat *stat)
 {
     _UNICODE_TEMP_BUF(wfilename,256)
     HANDLE hFile;

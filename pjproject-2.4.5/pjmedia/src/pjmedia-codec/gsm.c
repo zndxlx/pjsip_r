@@ -151,7 +151,7 @@ struct gsm_data
 /*
  * Initialize and register GSM codec factory to pjmedia endpoint.
  */
-PJ_DEF(pj_status_t) pjmedia_codec_gsm_init( pjmedia_endpt *endpt )
+(pj_status_t) pjmedia_codec_gsm_init( pjmedia_endpt *endpt )
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;
@@ -205,7 +205,7 @@ on_error:
  * Unregister GSM codec factory from pjmedia endpoint and deinitialize
  * the GSM codec library.
  */
-PJ_DEF(pj_status_t) pjmedia_codec_gsm_deinit(void)
+(pj_status_t) pjmedia_codec_gsm_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

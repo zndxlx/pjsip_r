@@ -502,7 +502,7 @@ static void typing_callback(void *token, pjsip_event *e)
  * Send instant messaging outside dialog, using the specified account for
  * route set and authentication.
  */
-PJ_DEF(pj_status_t) pjsua_im_send( pjsua_acc_id acc_id, 
+(pj_status_t) pjsua_im_send( pjsua_acc_id acc_id, 
 				   const pj_str_t *to,
 				   const pj_str_t *mime_type,
 				   const pj_str_t *content,
@@ -627,7 +627,7 @@ PJ_DEF(pj_status_t) pjsua_im_send( pjsua_acc_id acc_id,
 /*
  * Send typing indication outside dialog.
  */
-PJ_DEF(pj_status_t) pjsua_im_typing( pjsua_acc_id acc_id, 
+(pj_status_t) pjsua_im_typing( pjsua_acc_id acc_id, 
 				     const pj_str_t *to, 
 				     pj_bool_t is_typing,
 				     const pjsua_msg_data *msg_data)

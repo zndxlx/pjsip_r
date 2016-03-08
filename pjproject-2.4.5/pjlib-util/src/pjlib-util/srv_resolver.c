@@ -92,7 +92,7 @@ static void dns_callback(void *user_data,
 /*
  * The public API to invoke DNS SRV resolution.
  */
-PJ_DEF(pj_status_t) pj_dns_srv_resolve( const pj_str_t *domain_name,
+(pj_status_t) pj_dns_srv_resolve( const pj_str_t *domain_name,
 				        const pj_str_t *res_name,
 					unsigned def_port,
 					pj_pool_t *pool,
@@ -159,7 +159,7 @@ PJ_DEF(pj_status_t) pj_dns_srv_resolve( const pj_str_t *domain_name,
 /*
  * Cancel pending query.
  */
-PJ_DEF(pj_status_t) pj_dns_srv_cancel_query(pj_dns_srv_async_query *query,
+(pj_status_t) pj_dns_srv_cancel_query(pj_dns_srv_async_query *query,
 					    pj_bool_t notify)
 {
     pj_bool_t has_pending = PJ_FALSE;

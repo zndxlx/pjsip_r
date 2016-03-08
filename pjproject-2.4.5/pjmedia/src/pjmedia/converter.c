@@ -39,7 +39,7 @@ pjmedia_libswscale_converter_init(pjmedia_converter_mgr *mgr);
 pjmedia_libyuv_converter_init(pjmedia_converter_mgr *mgr);
 #endif
 
-PJ_DEF(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
 					         pjmedia_converter_mgr **p_mgr)
 {
     pjmedia_converter_mgr *mgr;
@@ -73,18 +73,18 @@ PJ_DEF(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
     return status;
 }
 
-PJ_DEF(pjmedia_converter_mgr*) pjmedia_converter_mgr_instance(void)
+(pjmedia_converter_mgr*) pjmedia_converter_mgr_instance(void)
 {
     pj_assert(converter_manager_instance != NULL);
     return converter_manager_instance;
 }
 
-PJ_DEF(void) pjmedia_converter_mgr_set_instance(pjmedia_converter_mgr *mgr)
+(void) pjmedia_converter_mgr_set_instance(pjmedia_converter_mgr *mgr)
 {
     converter_manager_instance = mgr;
 }
 
-PJ_DEF(void) pjmedia_converter_mgr_destroy(pjmedia_converter_mgr *mgr)
+(void) pjmedia_converter_mgr_destroy(pjmedia_converter_mgr *mgr)
 {
     pjmedia_converter_factory *f;
 
@@ -104,7 +104,7 @@ PJ_DEF(void) pjmedia_converter_mgr_destroy(pjmedia_converter_mgr *mgr)
 	converter_manager_instance = NULL;
 }
 
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_converter_mgr_register_factory(pjmedia_converter_mgr *mgr,
 				       pjmedia_converter_factory *factory)
 {
@@ -128,7 +128,7 @@ pjmedia_converter_mgr_register_factory(pjmedia_converter_mgr *mgr,
 }
 
 
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_converter_mgr_unregister_factory(pjmedia_converter_mgr *mgr,
 				         pjmedia_converter_factory *f,
 				         pj_bool_t destroy)
@@ -144,7 +144,7 @@ pjmedia_converter_mgr_unregister_factory(pjmedia_converter_mgr *mgr,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_converter_create(pjmedia_converter_mgr *mgr,
+(pj_status_t) pjmedia_converter_create(pjmedia_converter_mgr *mgr,
 					      pj_pool_t *pool,
 					      pjmedia_conversion_param *param,
 					      pjmedia_converter **p_cv)
@@ -175,14 +175,14 @@ PJ_DEF(pj_status_t) pjmedia_converter_create(pjmedia_converter_mgr *mgr,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_converter_convert(pjmedia_converter *cv,
+(pj_status_t) pjmedia_converter_convert(pjmedia_converter *cv,
 					       pjmedia_frame *src_frame,
 					       pjmedia_frame *dst_frame)
 {
     return (*cv->op->convert)(cv, src_frame, dst_frame);
 }
 
-PJ_DEF(void) pjmedia_converter_destroy(pjmedia_converter *cv)
+(void) pjmedia_converter_destroy(pjmedia_converter *cv)
 {
     (*cv->op->destroy)(cv);
 }

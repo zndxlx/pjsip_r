@@ -226,7 +226,7 @@ static pj_status_t file_fill_buffer(struct playlist_port *fport)
 /*
  * Create wave list player.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_playlist_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_wav_playlist_create(pj_pool_t *pool,
 						const pj_str_t *port_label,
 						const pj_str_t file_list[],
 						int file_count,
@@ -540,7 +540,7 @@ on_error:
  * Register a callback to be called when the file reading has reached the
  * end of the last file.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_playlist_set_eof_cb(pjmedia_port *port,
+(pj_status_t) pjmedia_wav_playlist_set_eof_cb(pjmedia_port *port,
 			        void *user_data,
 			        pj_status_t (*cb)(pjmedia_port *port,
 						  void *usr_data))

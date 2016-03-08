@@ -116,7 +116,7 @@ static const pj_str_t STR_APP_SIMPLE_SMS = { "application/simple-message-summary
 /*
  * Init mwi module.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_init_module( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_mwi_init_module( pjsip_endpoint *endpt,
 					   pjsip_module *mod_evsub)
 {
     pj_status_t status;
@@ -151,7 +151,7 @@ PJ_DEF(pj_status_t) pjsip_mwi_init_module( pjsip_endpoint *endpt,
 /*
  * Get mwi module instance.
  */
-PJ_DEF(pjsip_module*) pjsip_mwi_instance(void)
+(pjsip_module*) pjsip_mwi_instance(void)
 {
     return &mod_mwi;
 }
@@ -160,7 +160,7 @@ PJ_DEF(pjsip_module*) pjsip_mwi_instance(void)
 /*
  * Create client subscription.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_create_uac( pjsip_dialog *dlg,
+(pj_status_t) pjsip_mwi_create_uac( pjsip_dialog *dlg,
 					  const pjsip_evsub_user *user_cb,
 					  unsigned options,
 					  pjsip_evsub **p_evsub )
@@ -202,7 +202,7 @@ on_return:
 /*
  * Create server subscription.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_create_uas( pjsip_dialog *dlg,
+(pj_status_t) pjsip_mwi_create_uas( pjsip_dialog *dlg,
 					  const pjsip_evsub_user *user_cb,
 					  pjsip_rx_data *rdata,
 					  pjsip_evsub **p_evsub )
@@ -293,7 +293,7 @@ on_return:
 /*
  * Forcefully terminate mwi.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_terminate( pjsip_evsub *sub,
+(pj_status_t) pjsip_mwi_terminate( pjsip_evsub *sub,
 					 pj_bool_t notify )
 {
     return pjsip_evsub_terminate(sub, notify);
@@ -302,7 +302,7 @@ PJ_DEF(pj_status_t) pjsip_mwi_terminate( pjsip_evsub *sub,
 /*
  * Create SUBSCRIBE
  */
-PJ_DEF(pj_status_t) pjsip_mwi_initiate( pjsip_evsub *sub,
+(pj_status_t) pjsip_mwi_initiate( pjsip_evsub *sub,
 					pj_int32_t expires,
 					pjsip_tx_data **p_tdata)
 {
@@ -314,7 +314,7 @@ PJ_DEF(pj_status_t) pjsip_mwi_initiate( pjsip_evsub *sub,
 /*
  * Accept incoming subscription.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_accept( pjsip_evsub *sub,
+(pj_status_t) pjsip_mwi_accept( pjsip_evsub *sub,
 				      pjsip_rx_data *rdata,
 				      int st_code,
 				      const pjsip_hdr *hdr_list )
@@ -354,7 +354,7 @@ static pj_status_t mwi_create_msg_body( pjsip_mwi *mwi,
 /*
  * Create NOTIFY
  */
-PJ_DEF(pj_status_t) pjsip_mwi_notify(  pjsip_evsub *sub,
+(pj_status_t) pjsip_mwi_notify(  pjsip_evsub *sub,
 				       pjsip_evsub_state state,
 				       const pj_str_t *state_str,
 				       const pj_str_t *reason,
@@ -406,7 +406,7 @@ on_return:
 /*
  * Create NOTIFY that reflect current state.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_current_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_mwi_current_notify( pjsip_evsub *sub,
 					      pjsip_tx_data **p_tdata )
 {
     pjsip_mwi *mwi;
@@ -446,7 +446,7 @@ on_return:
 /*
  * Send request.
  */
-PJ_DEF(pj_status_t) pjsip_mwi_send_request( pjsip_evsub *sub,
+(pj_status_t) pjsip_mwi_send_request( pjsip_evsub *sub,
 					     pjsip_tx_data *tdata )
 {
     return pjsip_evsub_send_request(sub, tdata);

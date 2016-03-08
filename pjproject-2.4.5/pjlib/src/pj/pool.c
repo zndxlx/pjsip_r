@@ -34,9 +34,9 @@
 #define LOG(expr)   		    PJ_LOG(6,expr)
 #define ALIGN_PTR(PTR,ALIGNMENT)    (PTR + (-(pj_ssize_t)(PTR) & (ALIGNMENT-1)))
 
-PJ_DEF_DATA(int) PJ_NO_MEMORY_EXCEPTION;
+_DATA(int) PJ_NO_MEMORY_EXCEPTION;
 
-PJ_DEF(int) pj_NO_MEMORY_EXCEPTION()
+(int) pj_NO_MEMORY_EXCEPTION()
 {
     return PJ_NO_MEMORY_EXCEPTION;
 }
@@ -88,7 +88,7 @@ static pj_pool_block *pj_pool_create_block( pj_pool_t *pool, pj_size_t size)
  * If no space is available in all the blocks, a new block might be created
  * (depending on whether the pool is allowed to resize).
  */
-PJ_DEF(void*) pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size)
+(void*) pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size)
 {
     pj_pool_block *block = pool->block_list.next;
     void *p;
@@ -152,7 +152,7 @@ PJ_DEF(void*) pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size)
 /*
  * Internal function to initialize pool.
  */
-PJ_DEF(void) pj_pool_init_int(  pj_pool_t *pool, 
+(void) pj_pool_init_int(  pj_pool_t *pool, 
 				const char *name,
 				pj_size_t increment_size,
 				pj_pool_callback *callback)
@@ -178,7 +178,7 @@ PJ_DEF(void) pj_pool_init_int(  pj_pool_t *pool,
 /*
  * Create new memory pool.
  */
-PJ_DEF(pj_pool_t*) pj_pool_create_int( pj_pool_factory *f, const char *name,
+(pj_pool_t*) pj_pool_create_int( pj_pool_factory *f, const char *name,
 				       pj_size_t initial_size, 
 				       pj_size_t increment_size,
 				       pj_pool_callback *callback)
@@ -267,7 +267,7 @@ static void reset_pool(pj_pool_t *pool)
 /*
  * The public function to reset pool.
  */
-PJ_DEF(void) pj_pool_reset(pj_pool_t *pool)
+(void) pj_pool_reset(pj_pool_t *pool)
 {
     LOG((pool->obj_name, "reset(): cap=%d, used=%d(%d%%)", 
 	pool->capacity, pj_pool_get_used_size(pool), 
@@ -279,7 +279,7 @@ PJ_DEF(void) pj_pool_reset(pj_pool_t *pool)
 /*
  * Destroy the pool.
  */
-PJ_DEF(void) pj_pool_destroy_int(pj_pool_t *pool)
+(void) pj_pool_destroy_int(pj_pool_t *pool)
 {
     pj_size_t initial_size;
 

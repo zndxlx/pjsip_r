@@ -2001,7 +2001,7 @@ on_return:
  */
 
 /* Load credentials from files. */
-PJ_DEF(pj_status_t) pj_ssl_cert_load_from_files (pj_pool_t *pool,
+(pj_status_t) pj_ssl_cert_load_from_files (pj_pool_t *pool,
 						 const pj_str_t *CA_file,
 						 const pj_str_t *cert_file,
 						 const pj_str_t *privkey_file,
@@ -2012,7 +2012,7 @@ PJ_DEF(pj_status_t) pj_ssl_cert_load_from_files (pj_pool_t *pool,
 					privkey_file, privkey_pass, p_cert);
 }
 
-PJ_DEF(pj_status_t) pj_ssl_cert_load_from_files2(pj_pool_t *pool,
+(pj_status_t) pj_ssl_cert_load_from_files2(pj_pool_t *pool,
 						 const pj_str_t *CA_file,
 						 const pj_str_t *CA_path,
 						 const pj_str_t *cert_file,
@@ -2068,7 +2068,7 @@ PJ_DEF(pj_status_t) pj_ssl_cert_load_from_files2(pj_pool_t *pool,
 
 
 /* Get available ciphers. */
-PJ_DEF(pj_status_t) pj_ssl_cipher_get_availables(pj_ssl_cipher ciphers[],
+(pj_status_t) pj_ssl_cipher_get_availables(pj_ssl_cipher ciphers[],
 					         unsigned *cipher_num)
 {
     unsigned i;
@@ -2095,7 +2095,7 @@ PJ_DEF(pj_status_t) pj_ssl_cipher_get_availables(pj_ssl_cipher ciphers[],
 
 
 /* Get cipher name string */
-PJ_DEF(const char*) pj_ssl_cipher_name(pj_ssl_cipher cipher)
+(const char*) pj_ssl_cipher_name(pj_ssl_cipher cipher)
 {
     unsigned i;
 
@@ -2113,7 +2113,7 @@ PJ_DEF(const char*) pj_ssl_cipher_name(pj_ssl_cipher cipher)
 }
 
 /* Get cipher identifier */
-PJ_DEF(pj_ssl_cipher) pj_ssl_cipher_id(const char *cipher_name)
+(pj_ssl_cipher) pj_ssl_cipher_id(const char *cipher_name)
 {
     unsigned i;
 
@@ -2131,7 +2131,7 @@ PJ_DEF(pj_ssl_cipher) pj_ssl_cipher_id(const char *cipher_name)
 }
 
 /* Check if the specified cipher is supported by SSL/TLS backend. */
-PJ_DEF(pj_bool_t) pj_ssl_cipher_is_supported(pj_ssl_cipher cipher)
+(pj_bool_t) pj_ssl_cipher_is_supported(pj_ssl_cipher cipher)
 {
     unsigned i;
 
@@ -2152,7 +2152,7 @@ PJ_DEF(pj_bool_t) pj_ssl_cipher_is_supported(pj_ssl_cipher cipher)
 /*
  * Create SSL socket instance. 
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_create (pj_pool_t *pool,
+(pj_status_t) pj_ssl_sock_create (pj_pool_t *pool,
 					const pj_ssl_sock_param *param,
 					pj_ssl_sock_t **p_ssock)
 {
@@ -2209,7 +2209,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_create (pj_pool_t *pool,
  * Close the secure socket. This will unregister the socket from the
  * ioqueue and ultimately close the socket.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_close(pj_ssl_sock_t *ssock)
+(pj_status_t) pj_ssl_sock_close(pj_ssl_sock_t *ssock)
 {
     pj_pool_t *pool;
 
@@ -2238,7 +2238,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_close(pj_ssl_sock_t *ssock)
 /*
  * Associate arbitrary data with the secure socket.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_set_user_data(pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_set_user_data(pj_ssl_sock_t *ssock,
 					      void *user_data)
 {
     PJ_ASSERT_RETURN(ssock, PJ_EINVAL);
@@ -2252,7 +2252,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_set_user_data(pj_ssl_sock_t *ssock,
  * Retrieve the user data previously associated with this secure
  * socket.
  */
-PJ_DEF(void*) pj_ssl_sock_get_user_data(pj_ssl_sock_t *ssock)
+(void*) pj_ssl_sock_get_user_data(pj_ssl_sock_t *ssock)
 {
     PJ_ASSERT_RETURN(ssock, NULL);
 
@@ -2263,7 +2263,7 @@ PJ_DEF(void*) pj_ssl_sock_get_user_data(pj_ssl_sock_t *ssock)
 /*
  * Retrieve the local address and port used by specified SSL socket.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_get_info (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_get_info (pj_ssl_sock_t *ssock,
 					  pj_ssl_sock_info *info)
 {
     pj_bzero(info, sizeof(*info));
@@ -2308,7 +2308,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_get_info (pj_ssl_sock_t *ssock,
 /*
  * Starts read operation on this secure socket.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_start_read (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_start_read (pj_ssl_sock_t *ssock,
 					    pj_pool_t *pool,
 					    unsigned buff_size,
 					    pj_uint32_t flags)
@@ -2338,7 +2338,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_start_read (pj_ssl_sock_t *ssock,
  * supplies the buffers for the read operation so that the acive socket
  * does not have to allocate the buffers.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_start_read2 (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_start_read2 (pj_ssl_sock_t *ssock,
 					     pj_pool_t *pool,
 					     unsigned buff_size,
 					     void *readbuf[],
@@ -2380,7 +2380,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_start_read2 (pj_ssl_sock_t *ssock,
  * only for datagram sockets, and it will trigger \a on_data_recvfrom()
  * callback instead.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_start_recvfrom (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_start_recvfrom (pj_ssl_sock_t *ssock,
 						pj_pool_t *pool,
 						unsigned buff_size,
 						pj_uint32_t flags)
@@ -2399,7 +2399,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_start_recvfrom (pj_ssl_sock_t *ssock,
  * operation takes the buffer from the argument rather than creating
  * new ones.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_start_recvfrom2 (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_start_recvfrom2 (pj_ssl_sock_t *ssock,
 						 pj_pool_t *pool,
 						 unsigned buff_size,
 						 void *readbuf[],
@@ -2545,7 +2545,7 @@ static pj_status_t delay_send (pj_ssl_sock_t *ssock,
 /**
  * Send data using the socket.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_send (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_send (pj_ssl_sock_t *ssock,
 				      pj_ioqueue_op_key_t *send_key,
 				      const void *data,
 				      pj_ssize_t *size,
@@ -2589,7 +2589,7 @@ on_return:
 /**
  * Send datagram using the socket.
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_sendto (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_sendto (pj_ssl_sock_t *ssock,
 					pj_ioqueue_op_key_t *send_key,
 					const void *data,
 					pj_ssize_t *size,
@@ -2612,7 +2612,7 @@ PJ_DEF(pj_status_t) pj_ssl_sock_sendto (pj_ssl_sock_t *ssock,
 /**
  * Starts asynchronous socket accept() operations on this secure socket. 
  */
-PJ_DEF(pj_status_t) pj_ssl_sock_start_accept (pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_start_accept (pj_ssl_sock_t *ssock,
 					      pj_pool_t *pool,
 					      const pj_sockaddr_t *localaddr,
 					      int addr_len)
@@ -2826,7 +2826,7 @@ on_error:
 }
 
 
-PJ_DEF(pj_status_t) pj_ssl_sock_renegotiate(pj_ssl_sock_t *ssock)
+(pj_status_t) pj_ssl_sock_renegotiate(pj_ssl_sock_t *ssock)
 {
     int ret;
     pj_status_t status;

@@ -83,7 +83,7 @@ static void mod_util_on_tsx_state(pjsip_transaction *tsx, pjsip_event *event)
 }
 
 
-PJ_DEF(pj_status_t) pjsip_endpt_send_request(  pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_send_request(  pjsip_endpoint *endpt,
 					       pjsip_tx_data *tdata,
 					       pj_int32_t timeout,
 					       void *token,
@@ -125,7 +125,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_send_request(  pjsip_endpoint *endpt,
 /*
  * Send response statefully.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_respond(  pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_respond(  pjsip_endpoint *endpt,
 					  pjsip_module *tsx_user,
 					  pjsip_rx_data *rdata,
 					  int st_code,

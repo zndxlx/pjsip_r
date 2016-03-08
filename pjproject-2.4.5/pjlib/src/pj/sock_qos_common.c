@@ -39,7 +39,7 @@ static const pj_qos_params qos_map[] =
 
 
 /* Retrieve the mapping for the specified type */
-PJ_DEF(pj_status_t) pj_qos_get_params(pj_qos_type type, 
+(pj_status_t) pj_qos_get_params(pj_qos_type type, 
 				      pj_qos_params *p_param)
 {
     PJ_ASSERT_RETURN(type<=PJ_QOS_TYPE_CONTROL && p_param, PJ_EINVAL);
@@ -48,7 +48,7 @@ PJ_DEF(pj_status_t) pj_qos_get_params(pj_qos_type type,
 }
 
 /* Get the matching traffic type */
-PJ_DEF(pj_status_t) pj_qos_get_type( const pj_qos_params *param,
+(pj_status_t) pj_qos_get_type( const pj_qos_params *param,
 				     pj_qos_type *p_type)
 {
     unsigned dscp_type = PJ_QOS_TYPE_BEST_EFFORT,
@@ -91,7 +91,7 @@ PJ_DEF(pj_status_t) pj_qos_get_type( const pj_qos_params *param,
 }
 
 /* Apply QoS */
-PJ_DEF(pj_status_t) pj_sock_apply_qos( pj_sock_t sock,
+(pj_status_t) pj_sock_apply_qos( pj_sock_t sock,
 				       pj_qos_type qos_type,
 				       pj_qos_params *qos_params,
 				       unsigned log_level,
@@ -132,7 +132,7 @@ PJ_DEF(pj_status_t) pj_sock_apply_qos( pj_sock_t sock,
 }
 
 
-PJ_DEF(pj_status_t) pj_sock_apply_qos2( pj_sock_t sock,
+(pj_status_t) pj_sock_apply_qos2( pj_sock_t sock,
  				        pj_qos_type qos_type,
 				        const pj_qos_params *qos_params,
 				        unsigned log_level,

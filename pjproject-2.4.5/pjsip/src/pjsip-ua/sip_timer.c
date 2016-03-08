@@ -543,7 +543,7 @@ static void pjsip_timer_deinit_module(pjsip_endpoint *endpt)
 /*
  * Initialize Session Timers support in PJSIP. 
  */
-PJ_DEF(pj_status_t) pjsip_timer_init_module(pjsip_endpoint *endpt)
+(pj_status_t) pjsip_timer_init_module(pjsip_endpoint *endpt)
 {
     pj_status_t status;
 
@@ -589,7 +589,7 @@ PJ_DEF(pj_status_t) pjsip_timer_init_module(pjsip_endpoint *endpt)
 /*
  * Initialize Session Timers setting with default values.
  */
-PJ_DEF(pj_status_t) pjsip_timer_setting_default(pjsip_timer_setting *setting)
+(pj_status_t) pjsip_timer_setting_default(pjsip_timer_setting *setting)
 {
     pj_bzero(setting, sizeof(pjsip_timer_setting));
 
@@ -602,7 +602,7 @@ PJ_DEF(pj_status_t) pjsip_timer_setting_default(pjsip_timer_setting *setting)
 /*
  * Initialize Session Timers in an INVITE session. 
  */
-PJ_DEF(pj_status_t) pjsip_timer_init_session(
+(pj_status_t) pjsip_timer_init_session(
 					pjsip_inv_session *inv,
 					const pjsip_timer_setting *setting)
 {
@@ -638,7 +638,7 @@ PJ_DEF(pj_status_t) pjsip_timer_init_session(
 /*
  * Create Session-Expires header.
  */
-PJ_DEF(pjsip_sess_expires_hdr*) pjsip_sess_expires_hdr_create(
+(pjsip_sess_expires_hdr*) pjsip_sess_expires_hdr_create(
 							pj_pool_t *pool)
 {
     pjsip_sess_expires_hdr *hdr = PJ_POOL_ZALLOC_T(pool,
@@ -659,7 +659,7 @@ PJ_DEF(pjsip_sess_expires_hdr*) pjsip_sess_expires_hdr_create(
 /*
  * Create Min-SE header.
  */
-PJ_DEF(pjsip_min_se_hdr*) pjsip_min_se_hdr_create(pj_pool_t *pool)
+(pjsip_min_se_hdr*) pjsip_min_se_hdr_create(pj_pool_t *pool)
 {
     pjsip_min_se_hdr *hdr = PJ_POOL_ZALLOC_T(pool, pjsip_min_se_hdr);
 
@@ -678,7 +678,7 @@ PJ_DEF(pjsip_min_se_hdr*) pjsip_min_se_hdr_create(pj_pool_t *pool)
  * This function generates headers for Session Timers for intial and
  * refresh INVITE or UPDATE.
  */
-PJ_DEF(pj_status_t) pjsip_timer_update_req(pjsip_inv_session *inv,
+(pj_status_t) pjsip_timer_update_req(pjsip_inv_session *inv,
 					   pjsip_tx_data *tdata)
 {
     PJ_ASSERT_RETURN(inv && tdata, PJ_EINVAL);
@@ -723,7 +723,7 @@ PJ_DEF(pj_status_t) pjsip_timer_update_req(pjsip_inv_session *inv,
  * - 422 (Session Interval Too Small)
  * - 2xx final response
  */
-PJ_DEF(pj_status_t) pjsip_timer_process_resp(pjsip_inv_session *inv,
+(pj_status_t) pjsip_timer_process_resp(pjsip_inv_session *inv,
 					     const pjsip_rx_data *rdata,
 					     pjsip_status_code *st_code)
 {
@@ -930,7 +930,7 @@ PJ_DEF(pj_status_t) pjsip_timer_process_resp(pjsip_inv_session *inv,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t)  pjsip_timer_handle_refresh_error(
+(pj_status_t)  pjsip_timer_handle_refresh_error(
 					    pjsip_inv_session *inv,
 					    pjsip_event *event)
 {    
@@ -986,7 +986,7 @@ PJ_DEF(pj_status_t)  pjsip_timer_handle_refresh_error(
 /*
  * Handle incoming INVITE or UPDATE request.
  */
-PJ_DEF(pj_status_t) pjsip_timer_process_req(pjsip_inv_session *inv,
+(pj_status_t) pjsip_timer_process_req(pjsip_inv_session *inv,
 					    const pjsip_rx_data *rdata,
 					    pjsip_status_code *st_code)
 {
@@ -1126,7 +1126,7 @@ PJ_DEF(pj_status_t) pjsip_timer_process_req(pjsip_inv_session *inv,
 /*
  * Handle outgoing response with status code 2xx & 422.
  */
-PJ_DEF(pj_status_t) pjsip_timer_update_resp(pjsip_inv_session *inv,
+(pj_status_t) pjsip_timer_update_resp(pjsip_inv_session *inv,
 					    pjsip_tx_data *tdata)
 {
     pjsip_msg *msg;
@@ -1188,7 +1188,7 @@ PJ_DEF(pj_status_t) pjsip_timer_update_resp(pjsip_inv_session *inv,
 /*
  * End the Session Timers.
  */
-PJ_DEF(pj_status_t) pjsip_timer_end_session(pjsip_inv_session *inv)
+(pj_status_t) pjsip_timer_end_session(pjsip_inv_session *inv)
 {
     PJ_ASSERT_RETURN(inv, PJ_EINVAL);
 

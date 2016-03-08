@@ -30,7 +30,7 @@
  * This is an auxiliary function to initialize port info for
  * ports which deal with PCM audio.
  */
-PJ_DEF(pj_status_t) pjmedia_port_info_init( pjmedia_port_info *info,
+(pj_status_t) pjmedia_port_info_init( pjmedia_port_info *info,
 					    const pj_str_t *name,
 					    unsigned signature,
 					    unsigned clock_rate,
@@ -58,7 +58,7 @@ PJ_DEF(pj_status_t) pjmedia_port_info_init( pjmedia_port_info *info,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_port_info_init2( pjmedia_port_info *info,
+(pj_status_t) pjmedia_port_info_init2( pjmedia_port_info *info,
 					     const pj_str_t *name,
 					     unsigned signature,
 					     pjmedia_dir dir,
@@ -77,7 +77,7 @@ PJ_DEF(pj_status_t) pjmedia_port_info_init2( pjmedia_port_info *info,
 /**
  * Get a clock source from the port.
  */
-PJ_DEF(pjmedia_clock_src *) pjmedia_port_get_clock_src( pjmedia_port *port,
+(pjmedia_clock_src *) pjmedia_port_get_clock_src( pjmedia_port *port,
                                                         pjmedia_dir dir )
 {
     if (port && port->get_clock_src)
@@ -89,7 +89,7 @@ PJ_DEF(pjmedia_clock_src *) pjmedia_port_get_clock_src( pjmedia_port *port,
 /**
  * Get a frame from the port (and subsequent downstream ports).
  */
-PJ_DEF(pj_status_t) pjmedia_port_get_frame( pjmedia_port *port,
+(pj_status_t) pjmedia_port_get_frame( pjmedia_port *port,
 					    pjmedia_frame *frame )
 {
     PJ_ASSERT_RETURN(port && frame, PJ_EINVAL);
@@ -106,7 +106,7 @@ PJ_DEF(pj_status_t) pjmedia_port_get_frame( pjmedia_port *port,
 /**
  * Put a frame to the port (and subsequent downstream ports).
  */
-PJ_DEF(pj_status_t) pjmedia_port_put_frame( pjmedia_port *port,
+(pj_status_t) pjmedia_port_put_frame( pjmedia_port *port,
 					    pjmedia_frame *frame )
 {
     PJ_ASSERT_RETURN(port && frame, PJ_EINVAL);
@@ -120,7 +120,7 @@ PJ_DEF(pj_status_t) pjmedia_port_put_frame( pjmedia_port *port,
 /**
  * Destroy port (and subsequent downstream ports)
  */
-PJ_DEF(pj_status_t) pjmedia_port_destroy( pjmedia_port *port )
+(pj_status_t) pjmedia_port_destroy( pjmedia_port *port )
 {
     pj_status_t status;
 

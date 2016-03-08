@@ -69,7 +69,7 @@ static void destroy_timer_callback(pj_timer_heap_t *timer_heap,
 /*
  * Create a STUN client transaction.
  */
-PJ_DEF(pj_status_t) pj_stun_client_tsx_create(pj_stun_config *cfg,
+(pj_status_t) pj_stun_client_tsx_create(pj_stun_config *cfg,
 					      pj_pool_t *pool,
 					      pj_grp_lock_t *grp_lock,
 					      const pj_stun_tsx_cb *cb,
@@ -101,7 +101,7 @@ PJ_DEF(pj_status_t) pj_stun_client_tsx_create(pj_stun_config *cfg,
 }
 
 
-PJ_DEF(pj_status_t) pj_stun_client_tsx_schedule_destroy(
+(pj_status_t) pj_stun_client_tsx_schedule_destroy(
 				    pj_stun_client_tsx *tsx,
 				    const pj_time_val *delay)
 {
@@ -138,7 +138,7 @@ PJ_DEF(pj_status_t) pj_stun_client_tsx_schedule_destroy(
 }
 
 
-PJ_DEF(pj_status_t) pj_stun_client_tsx_destroy(pj_stun_client_tsx *tsx)
+(pj_status_t) pj_stun_client_tsx_destroy(pj_stun_client_tsx *tsx)
 {
     /*
      * Currently tsx has no objects to destroy so we don't need to do anything
@@ -152,7 +152,7 @@ PJ_DEF(pj_status_t) pj_stun_client_tsx_destroy(pj_stun_client_tsx *tsx)
 /*
  * Destroy transaction immediately.
  */
-PJ_DEF(pj_status_t) pj_stun_client_tsx_stop(pj_stun_client_tsx *tsx)
+(pj_status_t) pj_stun_client_tsx_stop(pj_stun_client_tsx *tsx)
 {
     PJ_ASSERT_RETURN(tsx, PJ_EINVAL);
 
@@ -174,7 +174,7 @@ PJ_DEF(pj_status_t) pj_stun_client_tsx_stop(pj_stun_client_tsx *tsx)
 /*
  * Check if transaction has completed.
  */
-PJ_DEF(pj_bool_t) pj_stun_client_tsx_is_complete(pj_stun_client_tsx *tsx)
+(pj_bool_t) pj_stun_client_tsx_is_complete(pj_stun_client_tsx *tsx)
 {
     PJ_ASSERT_RETURN(tsx, PJ_FALSE);
     return tsx->complete;
@@ -184,7 +184,7 @@ PJ_DEF(pj_bool_t) pj_stun_client_tsx_is_complete(pj_stun_client_tsx *tsx)
 /*
  * Set user data.
  */
-PJ_DEF(pj_status_t) pj_stun_client_tsx_set_data(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_set_data(pj_stun_client_tsx *tsx,
 						void *data)
 {
     PJ_ASSERT_RETURN(tsx, PJ_EINVAL);
@@ -196,7 +196,7 @@ PJ_DEF(pj_status_t) pj_stun_client_tsx_set_data(pj_stun_client_tsx *tsx,
 /*
  * Get the user data
  */
-PJ_DEF(void*) pj_stun_client_tsx_get_data(pj_stun_client_tsx *tsx)
+(void*) pj_stun_client_tsx_get_data(pj_stun_client_tsx *tsx)
 {
     PJ_ASSERT_RETURN(tsx, NULL);
     return tsx->user_data;
@@ -278,7 +278,7 @@ static pj_status_t tsx_transmit_msg(pj_stun_client_tsx *tsx,
 /*
  * Send outgoing message and start STUN transaction.
  */
-PJ_DEF(pj_status_t) pj_stun_client_tsx_send_msg(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_send_msg(pj_stun_client_tsx *tsx,
 						pj_bool_t retransmit,
 						void *pkt,
 						unsigned pkt_len)
@@ -391,7 +391,7 @@ static void retransmit_timer_callback(pj_timer_heap_t *timer_heap,
 /*
  * Request to retransmit the request.
  */
-PJ_DEF(pj_status_t) pj_stun_client_tsx_retransmit(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_retransmit(pj_stun_client_tsx *tsx,
                                                   pj_bool_t mod_count)
 {
     if (tsx->destroy_timer.id != 0) {
@@ -424,7 +424,7 @@ static void destroy_timer_callback(pj_timer_heap_t *timer_heap,
 /*
  * Notify the STUN transaction about the arrival of STUN response.
  */
-PJ_DEF(pj_status_t) pj_stun_client_tsx_on_rx_msg(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_on_rx_msg(pj_stun_client_tsx *tsx,
 						 const pj_stun_msg *msg,
 						 const pj_sockaddr_t *src_addr,
 						 unsigned src_addr_len)

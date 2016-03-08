@@ -21,7 +21,7 @@
 #include <pj/string.h>
 
 
-PJ_DEF(void) pj_hmac_sha1_init(pj_hmac_sha1_context *hctx, 
+(void) pj_hmac_sha1_init(pj_hmac_sha1_context *hctx, 
 			       const pj_uint8_t *key, unsigned key_len)
 {
     pj_uint8_t k_ipad[64];
@@ -62,13 +62,13 @@ PJ_DEF(void) pj_hmac_sha1_init(pj_hmac_sha1_context *hctx,
     pj_sha1_update(&hctx->context, k_ipad, 64);
 }
 
-PJ_DEF(void) pj_hmac_sha1_update(pj_hmac_sha1_context *hctx,
+(void) pj_hmac_sha1_update(pj_hmac_sha1_context *hctx,
 				 const pj_uint8_t *input, unsigned input_len)
 {
     pj_sha1_update(&hctx->context, input, input_len);
 }
 
-PJ_DEF(void) pj_hmac_sha1_final(pj_hmac_sha1_context *hctx,
+(void) pj_hmac_sha1_final(pj_hmac_sha1_context *hctx,
 				pj_uint8_t digest[20])
 {
     pj_sha1_final(&hctx->context, digest);
@@ -82,7 +82,7 @@ PJ_DEF(void) pj_hmac_sha1_final(pj_hmac_sha1_context *hctx,
     pj_sha1_final(&hctx->context, digest);
 }
 
-PJ_DEF(void) pj_hmac_sha1(const pj_uint8_t *input, unsigned input_len, 
+(void) pj_hmac_sha1(const pj_uint8_t *input, unsigned input_len, 
 			  const pj_uint8_t *key, unsigned key_len, 
 			  pj_uint8_t digest[20] )
 {

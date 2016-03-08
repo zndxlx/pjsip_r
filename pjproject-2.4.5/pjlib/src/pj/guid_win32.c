@@ -25,9 +25,9 @@
 #include <pj/os.h>
 
 
-PJ_DEF_DATA(const unsigned) PJ_GUID_STRING_LENGTH=32;
+_DATA(const unsigned) PJ_GUID_STRING_LENGTH=32;
 
-PJ_DEF(unsigned) pj_GUID_STRING_LENGTH()
+(unsigned) pj_GUID_STRING_LENGTH()
 {
     return PJ_GUID_STRING_LENGTH;
 }
@@ -59,7 +59,7 @@ static void guid_to_str( GUID *guid, pj_str_t *str )
 }
 
 
-PJ_DEF(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
+(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
 {
     GUID guid;
 

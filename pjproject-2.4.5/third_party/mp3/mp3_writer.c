@@ -241,7 +241,7 @@ static pj_status_t init_mp3_encoder(struct mp3_file_port *fport,
 /*
  * Create MP3 file writer port.
  */
-PJ_DEF(pj_status_t) 
+(pj_status_t) 
 pjmedia_mp3_writer_port_create( pj_pool_t *pool,
 				const char *filename,
 				unsigned sampling_rate,
@@ -335,7 +335,7 @@ pjmedia_mp3_writer_port_create( pj_pool_t *pool,
 /*
  * Register callback.
  */
-PJ_DEF(pj_status_t) 
+(pj_status_t) 
 pjmedia_mp3_writer_port_set_cb( pjmedia_port *port,
 				pj_size_t pos,
 				void *user_data,

@@ -46,45 +46,45 @@ static pj_json_elem* parse_elem_throw(struct parse_state *st,
                                       pj_json_elem *elem);
 
 
-PJ_DEF(void) pj_json_elem_null(pj_json_elem *el, pj_str_t *name)
+(void) pj_json_elem_null(pj_json_elem *el, pj_str_t *name)
 {
     EL_INIT(el, name, PJ_JSON_VAL_NULL);
 }
 
-PJ_DEF(void) pj_json_elem_bool(pj_json_elem *el, pj_str_t *name,
+(void) pj_json_elem_bool(pj_json_elem *el, pj_str_t *name,
                                 pj_bool_t val)
 {
     EL_INIT(el, name, PJ_JSON_VAL_BOOL);
     el->value.is_true = val;
 }
 
-PJ_DEF(void) pj_json_elem_number(pj_json_elem *el, pj_str_t *name,
+(void) pj_json_elem_number(pj_json_elem *el, pj_str_t *name,
                                   float val)
 {
     EL_INIT(el, name, PJ_JSON_VAL_NUMBER);
     el->value.num = val;
 }
 
-PJ_DEF(void) pj_json_elem_string( pj_json_elem *el, pj_str_t *name,
+(void) pj_json_elem_string( pj_json_elem *el, pj_str_t *name,
                                   pj_str_t *value)
 {
     EL_INIT(el, name, PJ_JSON_VAL_STRING);
     el->value.str = *value;
 }
 
-PJ_DEF(void) pj_json_elem_array(pj_json_elem *el, pj_str_t *name)
+(void) pj_json_elem_array(pj_json_elem *el, pj_str_t *name)
 {
     EL_INIT(el, name, PJ_JSON_VAL_ARRAY);
     pj_list_init(&el->value.children);
 }
 
-PJ_DEF(void) pj_json_elem_obj(pj_json_elem *el, pj_str_t *name)
+(void) pj_json_elem_obj(pj_json_elem *el, pj_str_t *name)
 {
     EL_INIT(el, name, PJ_JSON_VAL_OBJ);
     pj_list_init(&el->value.children);
 }
 
-PJ_DEF(void) pj_json_elem_add(pj_json_elem *el, pj_json_elem *child)
+(void) pj_json_elem_add(pj_json_elem *el, pj_json_elem *child)
 {
     pj_assert(el->type == PJ_JSON_VAL_OBJ || el->type == PJ_JSON_VAL_ARRAY);
     pj_list_push_back(&el->value.children, child);
@@ -295,7 +295,7 @@ static void on_syntax_error(pj_scanner *scanner)
     PJ_THROW(11);
 }
 
-PJ_DEF(pj_json_elem*) pj_json_parse(pj_pool_t *pool,
+(pj_json_elem*) pj_json_parse(pj_pool_t *pool,
                                     char *buffer,
                                     unsigned *size,
                                     pj_json_err_info *err_info)
@@ -362,7 +362,7 @@ static pj_status_t buf_writer(const char *s,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_json_write(const pj_json_elem *elem,
+(pj_status_t) pj_json_write(const pj_json_elem *elem,
                                   char *buffer, unsigned *size)
 {
     struct buf_writer_data buf_data;
@@ -603,7 +603,7 @@ static pj_status_t elem_write(const pj_json_elem *elem,
 
 #undef CHECK
 
-PJ_DEF(pj_status_t) pj_json_writef( const pj_json_elem *elem,
+(pj_status_t) pj_json_writef( const pj_json_elem *elem,
                                     pj_json_writer writer,
                                     void *user_data)
 {

@@ -213,7 +213,7 @@ static void* multipart_clone_data(pj_pool_t *pool, const void *data,
 /*
  * Create an empty multipart body.
  */
-PJ_DEF(pjsip_msg_body*) pjsip_multipart_create( pj_pool_t *pool,
+(pjsip_msg_body*) pjsip_multipart_create( pj_pool_t *pool,
 						const pjsip_media_type *ctype,
 						const pj_str_t *boundary)
 {
@@ -266,7 +266,7 @@ PJ_DEF(pjsip_msg_body*) pjsip_multipart_create( pj_pool_t *pool,
 /*
  * Create an empty multipart part.
  */
-PJ_DEF(pjsip_multipart_part*) pjsip_multipart_create_part(pj_pool_t *pool)
+(pjsip_multipart_part*) pjsip_multipart_create_part(pj_pool_t *pool)
 {
     pjsip_multipart_part *mp;
 
@@ -280,7 +280,7 @@ PJ_DEF(pjsip_multipart_part*) pjsip_multipart_create_part(pj_pool_t *pool)
 /*
  * Deep clone.
  */
-PJ_DEF(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_clone_part(pj_pool_t *pool,
 			   const pjsip_multipart_part *src)
 {
@@ -304,7 +304,7 @@ pjsip_multipart_clone_part(pj_pool_t *pool,
 /*
  * Add a part into multipart bodies.
  */
-PJ_DEF(pj_status_t) pjsip_multipart_add_part( pj_pool_t *pool,
+(pj_status_t) pjsip_multipart_add_part( pj_pool_t *pool,
 					      pjsip_msg_body *mp,
 					      pjsip_multipart_part *part)
 {
@@ -330,7 +330,7 @@ PJ_DEF(pj_status_t) pjsip_multipart_add_part( pj_pool_t *pool,
 /*
  * Get the first part of multipart bodies.
  */
-PJ_DEF(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_get_first_part(const pjsip_msg_body *mp)
 {
     struct multipart_data *m_data;
@@ -351,7 +351,7 @@ pjsip_multipart_get_first_part(const pjsip_msg_body *mp)
 /*
  * Get the next part after the specified part.
  */
-PJ_DEF(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_get_next_part(const pjsip_msg_body *mp,
 			      pjsip_multipart_part *part)
 {
@@ -378,7 +378,7 @@ pjsip_multipart_get_next_part(const pjsip_msg_body *mp,
 /*
  * Find a body inside multipart bodies which has the specified content type.
  */
-PJ_DEF(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_find_part( const pjsip_msg_body *mp,
 			   const pjsip_media_type *content_type,
 			   const pjsip_multipart_part *start)
@@ -504,7 +504,7 @@ static pjsip_multipart_part *parse_multipart_part(pj_pool_t *pool,
 }
 
 /* Public function to parse multipart message bodies into its parts */
-PJ_DEF(pjsip_msg_body*) pjsip_multipart_parse(pj_pool_t *pool,
+(pjsip_msg_body*) pjsip_multipart_parse(pj_pool_t *pool,
 					      char *buf, pj_size_t len,
 					      const pjsip_media_type *ctype,
 					      unsigned options)

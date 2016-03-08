@@ -752,7 +752,7 @@ static pj_bool_t tx_data_has_sdp(const pjsip_tx_data *tdata)
 /*
  * Initialize the invite module.
  */
-PJ_DEF(pj_status_t) pjsip_inv_usage_init( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_inv_usage_init( pjsip_endpoint *endpt,
 					  const pjsip_inv_callback *cb)
 {
     pj_status_t status;
@@ -782,7 +782,7 @@ PJ_DEF(pj_status_t) pjsip_inv_usage_init( pjsip_endpoint *endpt,
 /*
  * Get the instance of invite module.
  */
-PJ_DEF(pjsip_module*) pjsip_inv_usage_instance(void)
+(pjsip_module*) pjsip_inv_usage_instance(void)
 {
     return &mod_inv.mod;
 }
@@ -792,7 +792,7 @@ PJ_DEF(pjsip_module*) pjsip_inv_usage_instance(void)
 /*
  * Return the invite session for the specified dialog.
  */
-PJ_DEF(pjsip_inv_session*) pjsip_dlg_get_inv_session(pjsip_dialog *dlg)
+(pjsip_inv_session*) pjsip_dlg_get_inv_session(pjsip_dialog *dlg)
 {
     return (pjsip_inv_session*) dlg->mod_data[mod_inv.mod.id];
 }
@@ -801,7 +801,7 @@ PJ_DEF(pjsip_inv_session*) pjsip_dlg_get_inv_session(pjsip_dialog *dlg)
 /*
  * Get INVITE state name.
  */
-PJ_DEF(const char *) pjsip_inv_state_name(pjsip_inv_state state)
+(const char *) pjsip_inv_state_name(pjsip_inv_state state)
 {
     PJ_ASSERT_RETURN(state >= PJSIP_INV_STATE_NULL && 
 		     state <= PJSIP_INV_STATE_DISCONNECTED,
@@ -813,7 +813,7 @@ PJ_DEF(const char *) pjsip_inv_state_name(pjsip_inv_state state)
 /*
  * Create UAC invite session.
  */
-PJ_DEF(pj_status_t) pjsip_inv_create_uac( pjsip_dialog *dlg,
+(pj_status_t) pjsip_inv_create_uac( pjsip_dialog *dlg,
 					  const pjmedia_sdp_session *local_sdp,
 					  unsigned options,
 					  pjsip_inv_session **p_inv)
@@ -890,7 +890,7 @@ PJ_DEF(pj_status_t) pjsip_inv_create_uac( pjsip_dialog *dlg,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pjsip_rdata_sdp_info*) pjsip_rdata_get_sdp_info(pjsip_rx_data *rdata)
+(pjsip_rdata_sdp_info*) pjsip_rdata_get_sdp_info(pjsip_rx_data *rdata)
 {
     pjsip_rdata_sdp_info *sdp_info;
     pjsip_msg_body *body = rdata->msg_info.msg->body;
@@ -954,7 +954,7 @@ PJ_DEF(pjsip_rdata_sdp_info*) pjsip_rdata_get_sdp_info(pjsip_rx_data *rdata)
 /*
  * Verify incoming INVITE request.
  */
-PJ_DEF(pj_status_t) pjsip_inv_verify_request3(pjsip_rx_data *rdata,
+(pj_status_t) pjsip_inv_verify_request3(pjsip_rx_data *rdata,
                                               pj_pool_t *tmp_pool,
 					      unsigned *options,
 					      const pjmedia_sdp_session *r_sdp,
@@ -1400,7 +1400,7 @@ on_return:
 /*
  * Verify incoming INVITE request.
  */
-PJ_DEF(pj_status_t) pjsip_inv_verify_request2(pjsip_rx_data *rdata,
+(pj_status_t) pjsip_inv_verify_request2(pjsip_rx_data *rdata,
 					      unsigned *options,
 					      const pjmedia_sdp_session *r_sdp,
 					      const pjmedia_sdp_session *l_sdp,
@@ -1417,7 +1417,7 @@ PJ_DEF(pj_status_t) pjsip_inv_verify_request2(pjsip_rx_data *rdata,
 /*
  * Verify incoming INVITE request.
  */
-PJ_DEF(pj_status_t) pjsip_inv_verify_request( pjsip_rx_data *rdata,
+(pj_status_t) pjsip_inv_verify_request( pjsip_rx_data *rdata,
 					      unsigned *options,
 					      const pjmedia_sdp_session *l_sdp,
 					      pjsip_dialog *dlg,
@@ -1432,7 +1432,7 @@ PJ_DEF(pj_status_t) pjsip_inv_verify_request( pjsip_rx_data *rdata,
 /*
  * Create UAS invite session.
  */
-PJ_DEF(pj_status_t) pjsip_inv_create_uas( pjsip_dialog *dlg,
+(pj_status_t) pjsip_inv_create_uas( pjsip_dialog *dlg,
 					  pjsip_rx_data *rdata,
 					  const pjmedia_sdp_session *local_sdp,
 					  unsigned options,
@@ -1551,7 +1551,7 @@ PJ_DEF(pj_status_t) pjsip_inv_create_uas( pjsip_dialog *dlg,
 /*
  * Forcefully terminate the session.
  */
-PJ_DEF(pj_status_t) pjsip_inv_terminate( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_terminate( pjsip_inv_session *inv,
 				         int st_code,
 					 pj_bool_t notify)
 {
@@ -1599,7 +1599,7 @@ PJ_DEF(pj_status_t) pjsip_inv_terminate( pjsip_inv_session *inv,
  * Restart UAC session, possibly because app or us wants to re-send the 
  * INVITE request due to 401/407 challenge or 3xx response.
  */
-PJ_DEF(pj_status_t) pjsip_inv_uac_restart(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_uac_restart(pjsip_inv_session *inv,
 					  pj_bool_t new_offer)
 {
     PJ_ASSERT_RETURN(inv, PJ_EINVAL);
@@ -1636,7 +1636,7 @@ static int print_sdp(pjsip_msg_body *body, char *buf, pj_size_t len)
 }
 
 
-PJ_DEF(pj_status_t) pjsip_create_sdp_body( pj_pool_t *pool,
+(pj_status_t) pjsip_create_sdp_body( pj_pool_t *pool,
 					   pjmedia_sdp_session *sdp,
 					   pjsip_msg_body **p_body)
 {
@@ -1739,7 +1739,7 @@ static void cleanup_allow_sup_hdr(unsigned inv_option,
 /*
  * Create initial INVITE request.
  */
-PJ_DEF(pj_status_t) pjsip_inv_invite( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_invite( pjsip_inv_session *inv,
 				      pjsip_tx_data **p_tdata )
 {
     pjsip_tx_data *tdata;
@@ -2225,7 +2225,7 @@ static pj_status_t process_answer( pjsip_inv_session *inv,
 /*
  * Create first response to INVITE
  */
-PJ_DEF(pj_status_t) pjsip_inv_initial_answer(	pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_initial_answer(	pjsip_inv_session *inv,
 						pjsip_rx_data *rdata,
 						int st_code,
 						const pj_str_t *st_text,
@@ -2302,7 +2302,7 @@ on_return:
 /*
  * Answer INVITE request.
  */ 
-PJ_DEF(pj_status_t) pjsip_inv_answer(	pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_answer(	pjsip_inv_session *inv,
 					int st_code,
 					const pj_str_t *st_text,
 					const pjmedia_sdp_session *local_sdp,
@@ -2360,7 +2360,7 @@ on_return:
 /*
  * Set local SDP offer/answer.
  */
-PJ_DEF(pj_status_t) pjsip_inv_set_local_sdp(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_set_local_sdp(pjsip_inv_session *inv,
 					    const pjmedia_sdp_session *sdp )
 {
     const pjmedia_sdp_session *offer;
@@ -2398,7 +2398,7 @@ PJ_DEF(pj_status_t) pjsip_inv_set_local_sdp(pjsip_inv_session *inv,
 /*
  * Set SDP answer.
  */
-PJ_DEF(pj_status_t) pjsip_inv_set_sdp_answer( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_set_sdp_answer( pjsip_inv_session *inv,
 					      const pjmedia_sdp_session *sdp )
 {
     pj_status_t status;
@@ -2416,7 +2416,7 @@ PJ_DEF(pj_status_t) pjsip_inv_set_sdp_answer( pjsip_inv_session *inv,
 /*
  * End session.
  */
-PJ_DEF(pj_status_t) pjsip_inv_end_session(  pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_end_session(  pjsip_inv_session *inv,
 					    int st_code,
 					    const pj_str_t *st_text,
 					    pjsip_tx_data **p_tdata )
@@ -2532,7 +2532,7 @@ PJ_DEF(pj_status_t) pjsip_inv_end_session(  pjsip_inv_session *inv,
 /*
  * Cancel re-INVITE transaction.
  */
-PJ_DEF(pj_status_t) pjsip_inv_cancel_reinvite( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_cancel_reinvite( pjsip_inv_session *inv,
                                                pjsip_tx_data **p_tdata )
 {
     pjsip_tx_data *tdata;
@@ -2687,7 +2687,7 @@ static pj_bool_t inv_uac_recurse(pjsip_inv_session *inv, int code,
 
 
 /* Process redirection/recursion */
-PJ_DEF(pj_status_t) pjsip_inv_process_redirect( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_process_redirect( pjsip_inv_session *inv,
 						pjsip_redirect_op op,
 						pjsip_event *e)
 {
@@ -2836,7 +2836,7 @@ PJ_DEF(pj_status_t) pjsip_inv_process_redirect( pjsip_inv_session *inv,
 /*
  * Create re-INVITE.
  */
-PJ_DEF(pj_status_t) pjsip_inv_reinvite( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_reinvite( pjsip_inv_session *inv,
 					const pj_str_t *new_contact,
 					const pjmedia_sdp_session *new_offer,
 					pjsip_tx_data **p_tdata )
@@ -2929,7 +2929,7 @@ on_return:
 /*
  * Create UPDATE.
  */
-PJ_DEF(pj_status_t) pjsip_inv_update (	pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_update (	pjsip_inv_session *inv,
 					const pj_str_t *new_contact,
 					const pjmedia_sdp_session *offer,
 					pjsip_tx_data **p_tdata )
@@ -3048,7 +3048,7 @@ on_error:
 /*
  * Create an ACK request.
  */
-PJ_DEF(pj_status_t) pjsip_inv_create_ack(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_create_ack(pjsip_inv_session *inv,
 					 int cseq,
 					 pjsip_tx_data **p_tdata)
 {
@@ -3096,7 +3096,7 @@ PJ_DEF(pj_status_t) pjsip_inv_create_ack(pjsip_inv_session *inv,
 /*
  * Send a request or response message.
  */
-PJ_DEF(pj_status_t) pjsip_inv_send_msg( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_send_msg( pjsip_inv_session *inv,
 					pjsip_tx_data *tdata)
 {
     pj_status_t status;

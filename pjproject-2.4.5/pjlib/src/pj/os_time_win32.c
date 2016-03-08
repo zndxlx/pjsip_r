@@ -175,7 +175,7 @@ static pj_status_t get_base_time(void)
     return status;
 }
 
-PJ_DEF(pj_status_t) pj_gettimeofday(pj_time_val *tv)
+(pj_status_t) pj_gettimeofday(pj_time_val *tv)
 {
 #ifdef WINCE_TIME
     pj_timestamp tick;
@@ -232,7 +232,7 @@ PJ_DEF(pj_status_t) pj_gettimeofday(pj_time_val *tv)
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
+(pj_status_t) pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
 {
     LARGE_INTEGER li;
     FILETIME ft;
@@ -262,7 +262,7 @@ PJ_DEF(pj_status_t) pj_time_decode(const pj_time_val *tv, pj_parsed_time *pt)
 /**
  * Encode parsed time to time value.
  */
-PJ_DEF(pj_status_t) pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv)
+(pj_status_t) pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv)
 {
     SYSTEMTIME st;
     FILETIME ft;
@@ -293,11 +293,11 @@ PJ_DEF(pj_status_t) pj_time_encode(const pj_parsed_time *pt, pj_time_val *tv)
 /**
  * Convert local time to GMT.
  */
-PJ_DEF(pj_status_t) pj_time_local_to_gmt(pj_time_val *tv);
+(pj_status_t) pj_time_local_to_gmt(pj_time_val *tv);
 
 /**
  * Convert GMT to local time.
  */
-PJ_DEF(pj_status_t) pj_time_gmt_to_local(pj_time_val *tv);
+(pj_status_t) pj_time_gmt_to_local(pj_time_val *tv);
 
 

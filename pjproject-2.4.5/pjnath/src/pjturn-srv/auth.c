@@ -47,7 +47,7 @@ static struct cred_t
 /*
  * Initialize TURN authentication subsystem.
  */
-PJ_DEF(pj_status_t) pj_turn_auth_init(const char *realm)
+(pj_status_t) pj_turn_auth_init(const char *realm)
 {
     PJ_ASSERT_RETURN(pj_ansi_strlen(realm) < MAX_REALM, PJ_ENAMETOOLONG);
     pj_ansi_strcpy(g_realm, realm);
@@ -57,7 +57,7 @@ PJ_DEF(pj_status_t) pj_turn_auth_init(const char *realm)
 /*
  * Shutdown TURN authentication subsystem.
  */
-PJ_DEF(void) pj_turn_auth_dinit(void)
+(void) pj_turn_auth_dinit(void)
 {
     /* Nothing to do */
 }
@@ -67,7 +67,7 @@ PJ_DEF(void) pj_turn_auth_dinit(void)
  * This function is called by pj_stun_verify_credential() when
  * server needs to challenge the request with 401 response.
  */
-PJ_DEF(pj_status_t) pj_turn_get_auth(void *user_data,
+(pj_status_t) pj_turn_get_auth(void *user_data,
 				     pj_pool_t *pool,
 				     pj_str_t *realm,
 				     pj_str_t *nonce)
@@ -85,7 +85,7 @@ PJ_DEF(pj_status_t) pj_turn_get_auth(void *user_data,
  * This function is called to get the password for the specified username.
  * This function is also used to check whether the username is valid.
  */
-PJ_DEF(pj_status_t) pj_turn_get_password(const pj_stun_msg *msg,
+(pj_status_t) pj_turn_get_password(const pj_stun_msg *msg,
 					 void *user_data, 
 					 const pj_str_t *realm,
 					 const pj_str_t *username,
@@ -123,7 +123,7 @@ PJ_DEF(pj_status_t) pj_turn_get_password(const pj_stun_msg *msg,
  * in the message can be accepted. If this callback returns
  * PJ_FALSE, 438 (Stale Nonce) response will be created.
  */
-PJ_DEF(pj_bool_t) pj_turn_verify_nonce(const pj_stun_msg *msg,
+(pj_bool_t) pj_turn_verify_nonce(const pj_stun_msg *msg,
 				       void *user_data,
 				       const pj_str_t *realm,
 				       const pj_str_t *username,

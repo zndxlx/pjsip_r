@@ -34,7 +34,7 @@
 /*
  * Create MD5-AKA1 digest response.
  */
-PJ_DEF(pj_status_t) pjsip_auth_create_aka_response( 
+(pj_status_t) pjsip_auth_create_aka_response( 
 					     pj_pool_t *pool,
 					     const pjsip_digest_challenge*chal,
 					     const pjsip_cred_info *cred,

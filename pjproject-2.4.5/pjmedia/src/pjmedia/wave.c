@@ -46,12 +46,12 @@ static void wave_hdr_swap_bytes( pjmedia_wave_hdr *hdr )
 }
 
 
-PJ_DEF(void) pjmedia_wave_hdr_file_to_host( pjmedia_wave_hdr *hdr )
+(void) pjmedia_wave_hdr_file_to_host( pjmedia_wave_hdr *hdr )
 {
     wave_hdr_swap_bytes(hdr);
 }
 
-PJ_DEF(void) pjmedia_wave_hdr_host_to_file( pjmedia_wave_hdr *hdr )
+(void) pjmedia_wave_hdr_host_to_file( pjmedia_wave_hdr *hdr )
 {
     wave_hdr_swap_bytes(hdr);
 }

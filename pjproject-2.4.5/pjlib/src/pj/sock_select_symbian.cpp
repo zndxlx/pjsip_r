@@ -31,14 +31,14 @@ struct symbian_fd_set
 };
 
 
-PJ_DEF(void) PJ_FD_ZERO(pj_fd_set_t *fdsetp)
+(void) PJ_FD_ZERO(pj_fd_set_t *fdsetp)
 {
     symbian_fd_set *fds = (symbian_fd_set *)fdsetp;
     fds->count = 0;
 }
 
 
-PJ_DEF(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp)
+(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp)
 {
     symbian_fd_set *fds = (symbian_fd_set *)fdsetp;
 
@@ -47,7 +47,7 @@ PJ_DEF(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp)
 }
 
 
-PJ_DEF(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp)
+(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp)
 {
     symbian_fd_set *fds = (symbian_fd_set *)fdsetp;
     unsigned i;
@@ -62,7 +62,7 @@ PJ_DEF(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp)
 }
 
 
-PJ_DEF(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp)
+(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp)
 {
     symbian_fd_set *fds = (symbian_fd_set *)fdsetp;
     unsigned i;
@@ -76,14 +76,14 @@ PJ_DEF(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp)
     return PJ_FALSE;
 }
 
-PJ_DEF(pj_size_t) PJ_FD_COUNT(const pj_fd_set_t *fdsetp)
+(pj_size_t) PJ_FD_COUNT(const pj_fd_set_t *fdsetp)
 {
     symbian_fd_set *fds = (symbian_fd_set *)fdsetp;
     return fds->count;
 }
 
 
-PJ_DEF(int) pj_sock_select( int n, 
+(int) pj_sock_select( int n, 
 			    pj_fd_set_t *readfds, 
 			    pj_fd_set_t *writefds,
 			    pj_fd_set_t *exceptfds, 

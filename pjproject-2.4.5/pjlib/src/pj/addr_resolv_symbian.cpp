@@ -33,7 +33,7 @@
 
 
 // PJLIB API: resolve hostname
-PJ_DEF(pj_status_t) pj_gethostbyname(const pj_str_t *name, pj_hostent *he)
+(pj_status_t) pj_gethostbyname(const pj_str_t *name, pj_hostent *he)
 {
     static pj_addrinfo ai;
     static char *aliases[2];
@@ -158,7 +158,7 @@ static pj_status_t getaddrinfo_by_af(int af, const pj_str_t *name,
 }
 
 /* Resolve IPv4/IPv6 address */
-PJ_DEF(pj_status_t) pj_getaddrinfo(int af, const pj_str_t *nodename,
+(pj_status_t) pj_getaddrinfo(int af, const pj_str_t *nodename,
 				   unsigned *count, pj_addrinfo ai[]) 
 {
     unsigned start;

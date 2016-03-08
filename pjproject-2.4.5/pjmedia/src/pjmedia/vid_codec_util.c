@@ -103,7 +103,7 @@ static pj_status_t parse_custom_res_fmtp(const pj_str_t *fmtp_val,
 
 
 /* H263 fmtp parser */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_parse_h263_fmtp(
+(pj_status_t) pjmedia_vid_codec_parse_h263_fmtp(
 				    const pjmedia_codec_fmtp *fmtp,
 				    pjmedia_vid_codec_h263_fmtp *h263_fmtp)
 {
@@ -175,7 +175,7 @@ static unsigned fps_to_mpi(const pjmedia_ratio *fps)
     return mpi;
 };
 
-PJ_DEF(pj_status_t) pjmedia_vid_codec_h263_apply_fmtp(
+(pj_status_t) pjmedia_vid_codec_h263_apply_fmtp(
 				pjmedia_vid_codec_param *param)
 {
     if (param->dir & PJMEDIA_DIR_ENCODING) {
@@ -373,7 +373,7 @@ static pj_status_t init_h264_profile(const pj_str_t *profile,
 
 
 /* H264 fmtp parser */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_h264_parse_fmtp(
+(pj_status_t) pjmedia_vid_codec_h264_parse_fmtp(
 				    const pjmedia_codec_fmtp *fmtp,
 				    pjmedia_vid_codec_h264_fmtp *h264_fmtp)
 {
@@ -473,7 +473,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_h264_parse_fmtp(
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_vid_codec_h264_match_sdp(pj_pool_t *pool,
+(pj_status_t) pjmedia_vid_codec_h264_match_sdp(pj_pool_t *pool,
 						     pjmedia_sdp_media *offer,
 						     unsigned o_fmt_idx,
 						     pjmedia_sdp_media *answer,
@@ -667,7 +667,7 @@ static pj_status_t find_highest_res(pjmedia_vid_codec_h264_fmtp *fmtp,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_vid_codec_h264_apply_fmtp(
+(pj_status_t) pjmedia_vid_codec_h264_apply_fmtp(
 				pjmedia_vid_codec_param *param)
 {
     if (param->dir & PJMEDIA_DIR_ENCODING) {

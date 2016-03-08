@@ -26,7 +26,7 @@
 #if defined(PJ_HAS_STRING_H) && PJ_HAS_STRING_H != 0
 /* Nothing to do */
 #else
-PJ_DEF(int) strcasecmp(const char *s1, const char *s2)
+(int) strcasecmp(const char *s1, const char *s2)
 {
     while ((*s1==*s2) || (pj_tolower(*s1)==pj_tolower(*s2))) {
 	if (!*s1++)
@@ -36,7 +36,7 @@ PJ_DEF(int) strcasecmp(const char *s1, const char *s2)
     return (pj_tolower(*s1) < pj_tolower(*s2)) ? -1 : 1;
 }
 
-PJ_DEF(int) strncasecmp(const char *s1, const char *s2, int len)
+(int) strncasecmp(const char *s1, const char *s2, int len)
 {
     if (!len) return 0;
 
@@ -51,7 +51,7 @@ PJ_DEF(int) strncasecmp(const char *s1, const char *s2, int len)
 
 #if defined(PJ_HAS_NO_SNPRINTF) && PJ_HAS_NO_SNPRINTF != 0
 
-PJ_DEF(int) snprintf(char *s1, pj_size_t len, const char *s2, ...)
+(int) snprintf(char *s1, pj_size_t len, const char *s2, ...)
 {
     int ret;
     va_list arg;
@@ -65,7 +65,7 @@ PJ_DEF(int) snprintf(char *s1, pj_size_t len, const char *s2, ...)
     return ret;
 }
 
-PJ_DEF(int) vsnprintf(char *s1, pj_size_t len, const char *s2, va_list arg)
+(int) vsnprintf(char *s1, pj_size_t len, const char *s2, va_list arg)
 {
 #define MARK_CHAR   ((char)255)
     int rc;

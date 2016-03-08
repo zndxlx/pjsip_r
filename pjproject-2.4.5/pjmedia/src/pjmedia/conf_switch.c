@@ -213,7 +213,7 @@ static pj_status_t create_sound_port( pj_pool_t *pool,
 /*
  * Create conference bridge.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_conf_create( pj_pool_t *pool,
 					 unsigned max_ports,
 					 unsigned clock_rate,
 					 unsigned channel_count,
@@ -301,7 +301,7 @@ static pj_status_t resume_sound( pjmedia_conf *conf )
 /**
  * Destroy conference bridge.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_destroy( pjmedia_conf *conf )
+(pj_status_t) pjmedia_conf_destroy( pjmedia_conf *conf )
 {
     PJ_ASSERT_RETURN(conf != NULL, PJ_EINVAL);
 
@@ -324,7 +324,7 @@ static pj_status_t destroy_port(pjmedia_port *this_port)
 /*
  * Get port zero interface.
  */
-PJ_DEF(pjmedia_port*) pjmedia_conf_get_master_port(pjmedia_conf *conf)
+(pjmedia_port*) pjmedia_conf_get_master_port(pjmedia_conf *conf)
 {
     /* Sanity check. */
     PJ_ASSERT_RETURN(conf != NULL, NULL);
@@ -341,7 +341,7 @@ PJ_DEF(pjmedia_port*) pjmedia_conf_get_master_port(pjmedia_conf *conf)
 /*
  * Set master port name.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_set_port0_name(pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_set_port0_name(pjmedia_conf *conf,
 						const pj_str_t *name)
 {
     unsigned len;
@@ -366,7 +366,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_set_port0_name(pjmedia_conf *conf,
 /*
  * Add stream port to the conference bridge.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_add_port( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_add_port( pjmedia_conf *conf,
 					   pj_pool_t *pool,
 					   pjmedia_port *strm_port,
 					   const pj_str_t *port_name,
@@ -444,7 +444,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_add_port( pjmedia_conf *conf,
 /*
  * Add passive port.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_add_passive_port( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_add_passive_port( pjmedia_conf *conf,
 						   pj_pool_t *pool,
 						   const pj_str_t *name,
 						   unsigned clock_rate,
@@ -474,7 +474,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_add_passive_port( pjmedia_conf *conf,
 /*
  * Change TX and RX settings for the port.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_configure_port( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_configure_port( pjmedia_conf *conf,
 						  unsigned slot,
 						  pjmedia_port_op tx,
 						  pjmedia_port_op rx)
@@ -508,7 +508,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_configure_port( pjmedia_conf *conf,
 /*
  * Connect port.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_connect_port( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_connect_port( pjmedia_conf *conf,
 					       unsigned src_slot,
 					       unsigned sink_slot,
 					       int level )
@@ -638,7 +638,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_connect_port( pjmedia_conf *conf,
 /*
  * Disconnect port
  */
-PJ_DEF(pj_status_t) pjmedia_conf_disconnect_port( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_disconnect_port( pjmedia_conf *conf,
 						  unsigned src_slot,
 						  unsigned sink_slot )
 {
@@ -707,7 +707,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_disconnect_port( pjmedia_conf *conf,
 /*
  * Get number of ports currently registered to the conference bridge.
  */
-PJ_DEF(unsigned) pjmedia_conf_get_port_count(pjmedia_conf *conf)
+(unsigned) pjmedia_conf_get_port_count(pjmedia_conf *conf)
 {
     return conf->port_cnt;
 }
@@ -715,7 +715,7 @@ PJ_DEF(unsigned) pjmedia_conf_get_port_count(pjmedia_conf *conf)
 /*
  * Get total number of ports connections currently set up in the bridge.
  */
-PJ_DEF(unsigned) pjmedia_conf_get_connect_count(pjmedia_conf *conf)
+(unsigned) pjmedia_conf_get_connect_count(pjmedia_conf *conf)
 {
     return conf->connect_cnt;
 }
@@ -724,7 +724,7 @@ PJ_DEF(unsigned) pjmedia_conf_get_connect_count(pjmedia_conf *conf)
 /*
  * Remove the specified port.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_remove_port( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_remove_port( pjmedia_conf *conf,
 					      unsigned port )
 {
     struct conf_port *conf_port;
@@ -815,7 +815,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_remove_port( pjmedia_conf *conf,
 /*
  * Enum ports.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_enum_ports( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_enum_ports( pjmedia_conf *conf,
 					     unsigned ports[],
 					     unsigned *p_count )
 {
@@ -843,7 +843,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_enum_ports( pjmedia_conf *conf,
 /*
  * Get port info
  */
-PJ_DEF(pj_status_t) pjmedia_conf_get_port_info( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_get_port_info( pjmedia_conf *conf,
 						unsigned slot,
 						pjmedia_conf_port_info *info)
 {
@@ -889,7 +889,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_get_port_info( pjmedia_conf *conf,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_conf_get_ports_info(pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_get_ports_info(pjmedia_conf *conf,
 						unsigned *size,
 						pjmedia_conf_port_info info[])
 {
@@ -919,7 +919,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_get_ports_info(pjmedia_conf *conf,
 /*
  * Get signal level.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_get_signal_level( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_get_signal_level( pjmedia_conf *conf,
 						   unsigned slot,
 						   unsigned *tx_level,
 						   unsigned *rx_level)
@@ -956,7 +956,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_get_signal_level( pjmedia_conf *conf,
 /*
  * Adjust RX level of individual port.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_adjust_rx_level( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_adjust_rx_level( pjmedia_conf *conf,
 						  unsigned slot,
 						  int adj_level )
 {
@@ -998,7 +998,7 @@ PJ_DEF(pj_status_t) pjmedia_conf_adjust_rx_level( pjmedia_conf *conf,
 /*
  * Adjust TX level of individual port.
  */
-PJ_DEF(pj_status_t) pjmedia_conf_adjust_tx_level( pjmedia_conf *conf,
+(pj_status_t) pjmedia_conf_adjust_tx_level( pjmedia_conf *conf,
 						  unsigned slot,
 						  int adj_level )
 {

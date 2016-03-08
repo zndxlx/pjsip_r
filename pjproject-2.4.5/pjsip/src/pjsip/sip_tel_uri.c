@@ -94,7 +94,7 @@ static pjsip_uri_vptr tel_uri_vptr =
 };
 
 
-PJ_DEF(pjsip_tel_uri*) pjsip_tel_uri_create(pj_pool_t *pool)
+(pjsip_tel_uri*) pjsip_tel_uri_create(pj_pool_t *pool)
 {
     pjsip_tel_uri *uri = PJ_POOL_ZALLOC_T(pool, pjsip_tel_uri);
     uri->vptr = &tel_uri_vptr;
@@ -227,7 +227,7 @@ static pj_ssize_t tel_uri_print( pjsip_uri_context_e context,
  *  - The 'global-number-digits' and the 'local-number-digits' must be
  *    equal, after removing all visual separators.
  */
-PJ_DEF(int) pjsip_tel_nb_cmp(const pj_str_t *number1, const pj_str_t *number2)
+(int) pjsip_tel_nb_cmp(const pj_str_t *number1, const pj_str_t *number2)
 {
     const char *s1 = number1->ptr,
 	       *e1 = number1->ptr + number1->slen,

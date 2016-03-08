@@ -30,8 +30,8 @@
 #   include <string.h>
 #else
 
-    PJ_DECL(int) strcasecmp(const char *s1, const char *s2);
-    PJ_DECL(int) strncasecmp(const char *s1, const char *s2, int len);
+    (int) strcasecmp(const char *s1, const char *s2);
+    (int) strncasecmp(const char *s1, const char *s2, int len);
 
 #endif
 
@@ -78,8 +78,8 @@
 #   include <pj/types.h>
 #   include <pj/compat/stdarg.h>
     PJ_BEGIN_DECL
-    PJ_DECL(int) snprintf(char*s1, pj_size_t len, const char*s2, ...);
-    PJ_DECL(int) vsnprintf(char*s1, pj_size_t len, const char*s2, va_list arg);
+    (int) snprintf(char*s1, pj_size_t len, const char*s2, ...);
+    (int) vsnprintf(char*s1, pj_size_t len, const char*s2, va_list arg);
     PJ_END_DECL
 #endif
     

@@ -45,7 +45,7 @@
  * @return	    PJ_SUCCESS on success.
  */
 /*
-PJ_DEF(pj_status_t) pjsip_endpt_clone_msg( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_clone_msg( pjsip_endpoint *endpt,
 					   const pjsip_rx_data *rdata,
 					   pjsip_tx_data **p_tdata)
 {
@@ -71,7 +71,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_clone_msg( pjsip_endpoint *endpt,
  * Create new request message to be forwarded upstream to new destination URI 
  * in uri. 
  */
-PJ_DEF(pj_status_t) pjsip_endpt_create_request_fwd(pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_create_request_fwd(pjsip_endpoint *endpt,
 						   pjsip_rx_data *rdata, 
 						   const pjsip_uri *uri,
 						   const pj_str_t *branch,
@@ -246,7 +246,7 @@ on_error:
 }
 
 
-PJ_DEF(pj_status_t) pjsip_endpt_create_response_fwd( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_create_response_fwd( pjsip_endpoint *endpt,
 						     pjsip_rx_data *rdata, 
 						     unsigned options,
 						     pjsip_tx_data **p_tdata)
@@ -334,7 +334,7 @@ static void digest2str(const unsigned char digest[], char *output)
 }
 
 
-PJ_DEF(pj_str_t) pjsip_calculate_branch_id( pjsip_rx_data *rdata )
+(pj_str_t) pjsip_calculate_branch_id( pjsip_rx_data *rdata )
 {
     pj_md5_context ctx;
     pj_uint8_t digest[16];

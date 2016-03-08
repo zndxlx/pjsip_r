@@ -55,7 +55,7 @@ static pjsip_hdr_vptr replaces_hdr_vptr =
 static pjsip_endpoint *the_endpt;
 static pj_bool_t is_initialized;
 
-PJ_DEF(pjsip_replaces_hdr*) pjsip_replaces_hdr_create(pj_pool_t *pool)
+(pjsip_replaces_hdr*) pjsip_replaces_hdr_create(pj_pool_t *pool)
 {
     pjsip_replaces_hdr *hdr = PJ_POOL_ZALLOC_T(pool, pjsip_replaces_hdr);
     hdr->type = PJSIP_H_OTHER;
@@ -172,7 +172,7 @@ static void pjsip_replaces_deinit_module(pjsip_endpoint *endpt)
 /*
  * Initialize Replaces support in PJSIP. 
  */
-PJ_DEF(pj_status_t) pjsip_replaces_init_module(pjsip_endpoint *endpt)
+(pj_status_t) pjsip_replaces_init_module(pjsip_endpoint *endpt)
 {
     pj_status_t status;
     const pj_str_t STR_REPLACES = { "replaces", 8 };
@@ -211,7 +211,7 @@ PJ_DEF(pj_status_t) pjsip_replaces_init_module(pjsip_endpoint *endpt)
 /*
  * Verify that incoming request with Replaces header can be processed.
  */
-PJ_DEF(pj_status_t) pjsip_replaces_verify_request( pjsip_rx_data *rdata,
+(pj_status_t) pjsip_replaces_verify_request( pjsip_rx_data *rdata,
 						   pjsip_dialog **p_dlg,
 						   pj_bool_t lock_dlg,
 						   pjsip_tx_data **p_tdata)

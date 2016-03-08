@@ -22,7 +22,7 @@
 #include <pj/assert.h>
 #include <pj/errno.h>
 
-PJ_DEF(void) pj_array_insert( void *array,
+(void) pj_array_insert( void *array,
 			      unsigned elem_size,
 			      unsigned count,
 			      unsigned pos,
@@ -36,7 +36,7 @@ PJ_DEF(void) pj_array_insert( void *array,
     pj_memmove((char*)array + pos*elem_size, value, elem_size);
 }
 
-PJ_DEF(void) pj_array_erase( void *array,
+(void) pj_array_erase( void *array,
 			     unsigned elem_size,
 			     unsigned count,
 			     unsigned pos)
@@ -49,7 +49,7 @@ PJ_DEF(void) pj_array_erase( void *array,
     }
 }
 
-PJ_DEF(pj_status_t) pj_array_find( const void *array, 
+(pj_status_t) pj_array_find( const void *array, 
 				   unsigned elem_size, 
 				   unsigned count, 
 				   pj_status_t (*matching)(const void *value),

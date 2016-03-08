@@ -283,7 +283,7 @@ static pj_status_t init_sock(pj_dns_resolver *resv)
 
 
 /* Initialize DNS settings with default values */
-PJ_DEF(void) pj_dns_settings_default(pj_dns_settings *s)
+(void) pj_dns_settings_default(pj_dns_settings *s)
 {
     pj_bzero(s, sizeof(pj_dns_settings));
     s->qretr_delay = PJ_DNS_RESOLVER_QUERY_RETRANSMIT_DELAY;
@@ -297,7 +297,7 @@ PJ_DEF(void) pj_dns_settings_default(pj_dns_settings *s)
 /*
  * Create the resolver.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_create( pj_pool_factory *pf,
+(pj_status_t) pj_dns_resolver_create( pj_pool_factory *pf,
 					    const char *name,
 					    unsigned options,
 					    pj_timer_heap_t *timer,
@@ -378,7 +378,7 @@ on_error:
 /*
  * Destroy DNS resolver instance.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_destroy( pj_dns_resolver *resolver,
+(pj_status_t) pj_dns_resolver_destroy( pj_dns_resolver *resolver,
 					     pj_bool_t notify)
 {
     pj_hash_iterator_t it_buf, *it;
@@ -449,7 +449,7 @@ PJ_DEF(pj_status_t) pj_dns_resolver_destroy( pj_dns_resolver *resolver,
 /*
  * Configure name servers for the DNS resolver. 
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_set_ns( pj_dns_resolver *resolver,
+(pj_status_t) pj_dns_resolver_set_ns( pj_dns_resolver *resolver,
 					    unsigned count,
 					    const pj_str_t servers[],
 					    const pj_uint16_t ports[])
@@ -497,7 +497,7 @@ PJ_DEF(pj_status_t) pj_dns_resolver_set_ns( pj_dns_resolver *resolver,
 /*
  * Modify the resolver settings.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_set_settings(pj_dns_resolver *resolver,
+(pj_status_t) pj_dns_resolver_set_settings(pj_dns_resolver *resolver,
 						 const pj_dns_settings *st)
 {
     PJ_ASSERT_RETURN(resolver && st, PJ_EINVAL);
@@ -512,7 +512,7 @@ PJ_DEF(pj_status_t) pj_dns_resolver_set_settings(pj_dns_resolver *resolver,
 /*
  * Get the resolver current settings.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_get_settings( pj_dns_resolver *resolver,
+(pj_status_t) pj_dns_resolver_get_settings( pj_dns_resolver *resolver,
 						  pj_dns_settings *st)
 {
     PJ_ASSERT_RETURN(resolver && st, PJ_EINVAL);
@@ -527,7 +527,7 @@ PJ_DEF(pj_status_t) pj_dns_resolver_get_settings( pj_dns_resolver *resolver,
 /*
  * Poll for events from the resolver. 
  */
-PJ_DEF(void) pj_dns_resolver_handle_events(pj_dns_resolver *resolver,
+(void) pj_dns_resolver_handle_events(pj_dns_resolver *resolver,
 					   const pj_time_val *timeout)
 {
     PJ_ASSERT_ON_FAIL(resolver, return);
@@ -735,7 +735,7 @@ static void free_entry(pj_dns_resolver *resolver, struct cached_res *cache)
 /*
  * Create and start asynchronous DNS query for a single resource.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_start_query( pj_dns_resolver *resolver,
+(pj_status_t) pj_dns_resolver_start_query( pj_dns_resolver *resolver,
 						 const pj_str_t *name,
 						 int type,
 						 unsigned options,
@@ -893,7 +893,7 @@ on_return:
 /*
  * Cancel a pending query.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_cancel_query(pj_dns_async_query *query,
+(pj_status_t) pj_dns_resolver_cancel_query(pj_dns_async_query *query,
 						 pj_bool_t notify)
 {
     pj_dns_callback *cb;
@@ -916,7 +916,7 @@ PJ_DEF(pj_status_t) pj_dns_resolver_cancel_query(pj_dns_async_query *query,
 /* 
  * DNS response containing A packet. 
  */
-PJ_DEF(pj_status_t) pj_dns_parse_a_response(const pj_dns_parsed_packet *pkt,
+(pj_status_t) pj_dns_parse_a_response(const pj_dns_parsed_packet *pkt,
 					    pj_dns_a_record *rec)
 {
     enum { MAX_SEARCH = 20 };
@@ -1553,7 +1553,7 @@ read_next_packet:
  * for testing the resolver, however it can also be used to inject entries
  * into the resolver.
  */
-PJ_DEF(pj_status_t) pj_dns_resolver_add_entry( pj_dns_resolver *resolver,
+(pj_status_t) pj_dns_resolver_add_entry( pj_dns_resolver *resolver,
 					       const pj_dns_parsed_packet *pkt,
 					       pj_bool_t set_ttl)
 {
@@ -1601,7 +1601,7 @@ PJ_DEF(pj_status_t) pj_dns_resolver_add_entry( pj_dns_resolver *resolver,
 /*
  * Get the total number of response in the response cache.
  */
-PJ_DEF(unsigned) pj_dns_resolver_get_cached_count(pj_dns_resolver *resolver)
+(unsigned) pj_dns_resolver_get_cached_count(pj_dns_resolver *resolver)
 {
     unsigned count;
 
@@ -1618,7 +1618,7 @@ PJ_DEF(unsigned) pj_dns_resolver_get_cached_count(pj_dns_resolver *resolver)
 /*
  * Dump resolver state to the log.
  */
-PJ_DEF(void) pj_dns_resolver_dump(pj_dns_resolver *resolver,
+(void) pj_dns_resolver_dump(pj_dns_resolver *resolver,
 				  pj_bool_t detail)
 {
 #if PJ_LOG_MAX_LEVEL >= 3

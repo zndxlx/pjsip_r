@@ -213,7 +213,7 @@ pjmedia_stream_info_from_sdp( pjmedia_stream_info *si,
  *
  * @return		Jitter buffer frame type.
  */
-PJ_DEF(char) pjmedia_stream_get_last_jb_frame_type(pjmedia_stream *stream);
+(char) pjmedia_stream_get_last_jb_frame_type(pjmedia_stream *stream);
 
 
 /**

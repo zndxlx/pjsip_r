@@ -1332,7 +1332,7 @@ PJ_END_DECL
 /*
  * Init VAS audio driver.
  */
-PJ_DEF(pjmedia_aud_dev_factory*) pjmedia_symb_vas_factory(pj_pool_factory *pf)
+(pjmedia_aud_dev_factory*) pjmedia_symb_vas_factory(pj_pool_factory *pf)
 {
     struct vas_factory *f;
     pj_pool_t *pool;

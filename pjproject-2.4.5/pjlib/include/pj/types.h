@@ -304,13 +304,13 @@ typedef int pj_exception_id_t;
  *
  * @return PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_init(void);
+(pj_status_t) pj_init(void);
 
 
 /**
  * Shutdown PJLIB.
  */
-PJ_DECL(void) pj_shutdown(void);
+(void) pj_shutdown(void);
 
 /**
  * Type of callback to register to pj_atexit().
@@ -325,7 +325,7 @@ typedef void (*pj_exit_callback)(void);
  *
  * @return PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_atexit(pj_exit_callback func);
+(pj_status_t) pj_atexit(pj_exit_callback func);
 
 
 
@@ -393,7 +393,7 @@ typedef struct pj_time_val
  * Normalize the value in time value.
  * @param t     Time value to be normalized.
  */
-PJ_DECL(void) pj_time_val_normalize(pj_time_val *t);
+(void) pj_time_val_normalize(pj_time_val *t);
 
 /**
  * Get the total time value in miliseconds. This is the same as

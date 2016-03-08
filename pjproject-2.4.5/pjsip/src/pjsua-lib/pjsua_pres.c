@@ -146,7 +146,7 @@ static void unlock_buddy(struct buddy_lock *lck)
 /*
  * Get total number of buddies.
  */
-PJ_DEF(unsigned) pjsua_get_buddy_count(void)
+(unsigned) pjsua_get_buddy_count(void)
 {
     return pjsua_var.buddy_cnt;
 }
@@ -155,7 +155,7 @@ PJ_DEF(unsigned) pjsua_get_buddy_count(void)
 /*
  * Find buddy.
  */
-PJ_DEF(pjsua_buddy_id) pjsua_buddy_find(const pj_str_t *uri_str)
+(pjsua_buddy_id) pjsua_buddy_find(const pj_str_t *uri_str)
 {
     pj_str_t input;
     pj_pool_t *pool;
@@ -183,7 +183,7 @@ PJ_DEF(pjsua_buddy_id) pjsua_buddy_find(const pj_str_t *uri_str)
 /*
  * Check if buddy ID is valid.
  */
-PJ_DEF(pj_bool_t) pjsua_buddy_is_valid(pjsua_buddy_id buddy_id)
+(pj_bool_t) pjsua_buddy_is_valid(pjsua_buddy_id buddy_id)
 {
     return buddy_id>=0 && buddy_id<(int)PJ_ARRAY_SIZE(pjsua_var.buddy) &&
 	   pjsua_var.buddy[buddy_id].uri.slen != 0;
@@ -193,7 +193,7 @@ PJ_DEF(pj_bool_t) pjsua_buddy_is_valid(pjsua_buddy_id buddy_id)
 /*
  * Enum buddy IDs.
  */
-PJ_DEF(pj_status_t) pjsua_enum_buddies( pjsua_buddy_id ids[],
+(pj_status_t) pjsua_enum_buddies( pjsua_buddy_id ids[],
 					unsigned *count)
 {
     unsigned i, c;
@@ -220,7 +220,7 @@ PJ_DEF(pj_status_t) pjsua_enum_buddies( pjsua_buddy_id ids[],
 /*
  * Get detailed buddy info.
  */
-PJ_DEF(pj_status_t) pjsua_buddy_get_info( pjsua_buddy_id buddy_id,
+(pj_status_t) pjsua_buddy_get_info( pjsua_buddy_id buddy_id,
 					  pjsua_buddy_info *info)
 {
     pj_size_t total=0;
@@ -318,7 +318,7 @@ PJ_DEF(pj_status_t) pjsua_buddy_get_info( pjsua_buddy_id buddy_id,
 /*
  * Set the user data associated with the buddy object.
  */
-PJ_DEF(pj_status_t) pjsua_buddy_set_user_data( pjsua_buddy_id buddy_id,
+(pj_status_t) pjsua_buddy_set_user_data( pjsua_buddy_id buddy_id,
 					       void *user_data)
 {
     struct buddy_lock lck;
@@ -341,7 +341,7 @@ PJ_DEF(pj_status_t) pjsua_buddy_set_user_data( pjsua_buddy_id buddy_id,
 /*
  * Get the user data associated with the budy object.
  */
-PJ_DEF(void*) pjsua_buddy_get_user_data(pjsua_buddy_id buddy_id)
+(void*) pjsua_buddy_get_user_data(pjsua_buddy_id buddy_id)
 {
     struct buddy_lock lck;
     pj_status_t status;
@@ -376,7 +376,7 @@ static void reset_buddy(pjsua_buddy_id id)
 /*
  * Add new buddy.
  */
-PJ_DEF(pj_status_t) pjsua_buddy_add( const pjsua_buddy_config *cfg,
+(pj_status_t) pjsua_buddy_add( const pjsua_buddy_config *cfg,
 				     pjsua_buddy_id *p_buddy_id)
 {
     pjsip_name_addr *url;
@@ -488,7 +488,7 @@ PJ_DEF(pj_status_t) pjsua_buddy_add( const pjsua_buddy_config *cfg,
 /*
  * Delete buddy.
  */
-PJ_DEF(pj_status_t) pjsua_buddy_del(pjsua_buddy_id buddy_id)
+(pj_status_t) pjsua_buddy_del(pjsua_buddy_id buddy_id)
 {
     struct buddy_lock lck;
     pj_status_t status;
@@ -539,7 +539,7 @@ PJ_DEF(pj_status_t) pjsua_buddy_del(pjsua_buddy_id buddy_id)
 /*
  * Enable/disable buddy's presence monitoring.
  */
-PJ_DEF(pj_status_t) pjsua_buddy_subscribe_pres( pjsua_buddy_id buddy_id,
+(pj_status_t) pjsua_buddy_subscribe_pres( pjsua_buddy_id buddy_id,
 						pj_bool_t subscribe)
 {
     struct buddy_lock lck;
@@ -567,7 +567,7 @@ PJ_DEF(pj_status_t) pjsua_buddy_subscribe_pres( pjsua_buddy_id buddy_id,
 /*
  * Update buddy's presence.
  */
-PJ_DEF(pj_status_t) pjsua_buddy_update_pres(pjsua_buddy_id buddy_id)
+(pj_status_t) pjsua_buddy_update_pres(pjsua_buddy_id buddy_id)
 {
     struct buddy_lock lck;
     pj_status_t status;
@@ -608,7 +608,7 @@ PJ_DEF(pj_status_t) pjsua_buddy_update_pres(pjsua_buddy_id buddy_id)
 /*
  * Dump presence subscriptions to log file.
  */
-PJ_DEF(void) pjsua_pres_dump(pj_bool_t verbose)
+(void) pjsua_pres_dump(pj_bool_t verbose)
 {
     unsigned acc_id;
     unsigned i;
@@ -1041,7 +1041,7 @@ static pj_bool_t pres_on_rx_request(pjsip_rx_data *rdata)
 /*
  * Send NOTIFY.
  */
-PJ_DEF(pj_status_t) pjsua_pres_notify( pjsua_acc_id acc_id,
+(pj_status_t) pjsua_pres_notify( pjsua_acc_id acc_id,
 				       pjsua_srv_pres *srv_pres,
 				       pjsip_evsub_state ev_state,
 				       const pj_str_t *state_str,

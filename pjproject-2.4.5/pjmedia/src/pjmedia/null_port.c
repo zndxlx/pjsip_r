@@ -33,7 +33,7 @@ static pj_status_t null_put_frame(pjmedia_port *this_port,
 static pj_status_t null_on_destroy(pjmedia_port *this_port);
 
 
-PJ_DEF(pj_status_t) pjmedia_null_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_null_port_create( pj_pool_t *pool,
 					      unsigned sampling_rate,
 					      unsigned channel_count,
 					      unsigned samples_per_frame,

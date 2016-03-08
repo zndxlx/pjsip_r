@@ -27,7 +27,7 @@
 #include <pj/compat/high_precision.h>
 
 /* API: Init clock source */
-PJ_DEF(pj_status_t) pjmedia_clock_src_init( pjmedia_clock_src *clocksrc,
+(pj_status_t) pjmedia_clock_src_init( pjmedia_clock_src *clocksrc,
                                             pjmedia_type media_type,
                                             unsigned clock_rate,
                                             unsigned ptime_usec )
@@ -57,7 +57,7 @@ PJ_DEF(pj_status_t) pjmedia_clock_src_init( pjmedia_clock_src *clocksrc,
 }
 
 /* API: Get clock source's current timestamp */
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_clock_src_get_current_timestamp( const pjmedia_clock_src *clocksrc,
                                          pj_timestamp *timestamp)
 {
@@ -75,7 +75,7 @@ pjmedia_clock_src_get_current_timestamp( const pjmedia_clock_src *clocksrc,
 }
 
 /* API: Get clock source's time (in ms) */
-PJ_DEF(pj_uint32_t)
+(pj_uint32_t)
 pjmedia_clock_src_get_time_msec( const pjmedia_clock_src *clocksrc )
 {
     pj_timestamp ts;
@@ -134,7 +134,7 @@ static int clock_thread(void *arg);
 /*
  * Create media clock.
  */
-PJ_DEF(pj_status_t) pjmedia_clock_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_clock_create( pj_pool_t *pool,
 					  unsigned clock_rate,
 					  unsigned channel_count,
 					  unsigned samples_per_frame,
@@ -152,7 +152,7 @@ PJ_DEF(pj_status_t) pjmedia_clock_create( pj_pool_t *pool,
                                  user_data, p_clock);
 }
 
-PJ_DEF(pj_status_t) pjmedia_clock_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_clock_create2(pj_pool_t *pool,
                                           const pjmedia_clock_param *param,
 				          unsigned options,
 				          pjmedia_clock_callback *cb,
@@ -201,7 +201,7 @@ PJ_DEF(pj_status_t) pjmedia_clock_create2(pj_pool_t *pool,
 /*
  * Start the clock. 
  */
-PJ_DEF(pj_status_t) pjmedia_clock_start(pjmedia_clock *clock)
+(pj_status_t) pjmedia_clock_start(pjmedia_clock *clock)
 {
     pj_timestamp now;
     pj_status_t status;
@@ -235,7 +235,7 @@ PJ_DEF(pj_status_t) pjmedia_clock_start(pjmedia_clock *clock)
 /*
  * Stop the clock. 
  */
-PJ_DEF(pj_status_t) pjmedia_clock_stop(pjmedia_clock *clock)
+(pj_status_t) pjmedia_clock_stop(pjmedia_clock *clock)
 {
     PJ_ASSERT_RETURN(clock != NULL, PJ_EINVAL);
 
@@ -259,7 +259,7 @@ PJ_DEF(pj_status_t) pjmedia_clock_stop(pjmedia_clock *clock)
 /*
  * Update the clock. 
  */
-PJ_DEF(pj_status_t) pjmedia_clock_modify(pjmedia_clock *clock,
+(pj_status_t) pjmedia_clock_modify(pjmedia_clock *clock,
                                          const pjmedia_clock_param *param)
 {
     clock->interval.u64 = param->usec_interval * clock->freq.u64 /
@@ -287,7 +287,7 @@ PJ_INLINE(void) clock_calc_next_tick(pjmedia_clock *clock,
 /*
  * Poll the clock. 
  */
-PJ_DEF(pj_bool_t) pjmedia_clock_wait( pjmedia_clock *clock,
+(pj_bool_t) pjmedia_clock_wait( pjmedia_clock *clock,
 				      pj_bool_t wait,
 				      pj_timestamp *ts)
 {
@@ -397,7 +397,7 @@ static int clock_thread(void *arg)
 /*
  * Destroy the clock. 
  */
-PJ_DEF(pj_status_t) pjmedia_clock_destroy(pjmedia_clock *clock)
+(pj_status_t) pjmedia_clock_destroy(pjmedia_clock *clock)
 {
     PJ_ASSERT_RETURN(clock != NULL, PJ_EINVAL);
 

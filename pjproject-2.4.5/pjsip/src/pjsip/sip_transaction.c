@@ -226,7 +226,7 @@ static int  (*tsx_state_handler_uas[PJSIP_TSX_STATE_MAX])(pjsip_transaction *,
 /*
  * Get transaction state name.
  */
-PJ_DEF(const char *) pjsip_tsx_state_str(pjsip_tsx_state_e state)
+(const char *) pjsip_tsx_state_str(pjsip_tsx_state_e state)
 {
     return state_str[state];
 }
@@ -234,7 +234,7 @@ PJ_DEF(const char *) pjsip_tsx_state_str(pjsip_tsx_state_e state)
 /*
  * Get the role name.
  */
-PJ_DEF(const char *) pjsip_role_name(pjsip_role_e role)
+(const char *) pjsip_role_name(pjsip_role_e role)
 {
     return role_name[role];
 }
@@ -385,7 +385,7 @@ static pj_status_t create_tsx_key_3261( pj_pool_t *pool,
  * Create key from the incoming data, to be used to search the transaction
  * in the transaction hash table.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_create_key( pj_pool_t *pool, pj_str_t *key, 
+(pj_status_t) pjsip_tsx_create_key( pj_pool_t *pool, pj_str_t *key, 
 				          pjsip_role_e role, 
 				          const pjsip_method *method, 
 				          const pjsip_rx_data *rdata)
@@ -425,7 +425,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_create_key( pj_pool_t *pool, pj_str_t *key,
 /*
  * Create transaction layer module and registers it to the endpoint.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_layer_init_module(pjsip_endpoint *endpt)
+(pj_status_t) pjsip_tsx_layer_init_module(pjsip_endpoint *endpt)
 {
     pj_pool_t *pool;
     pj_status_t status;
@@ -503,7 +503,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_layer_init_module(pjsip_endpoint *endpt)
 /*
  * Get the instance of transaction layer module.
  */
-PJ_DEF(pjsip_module*) pjsip_tsx_layer_instance(void)
+(pjsip_module*) pjsip_tsx_layer_instance(void)
 {
     return &mod_tsx_layer.mod;
 }
@@ -512,7 +512,7 @@ PJ_DEF(pjsip_module*) pjsip_tsx_layer_instance(void)
 /*
  * Unregister and destroy transaction layer module.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_layer_destroy(void)
+(pj_status_t) pjsip_tsx_layer_destroy(void)
 {
     /* Are we registered? */
     PJ_ASSERT_RETURN(mod_tsx_layer.endpt!=NULL, PJ_EINVALIDOP);
@@ -620,7 +620,7 @@ static void mod_tsx_layer_unregister_tsx( pjsip_transaction *tsx)
  * Retrieve the current number of transactions currently registered in 
  * the hash table.
  */
-PJ_DEF(unsigned) pjsip_tsx_layer_get_tsx_count(void)
+(unsigned) pjsip_tsx_layer_get_tsx_count(void)
 {
     unsigned count;
 
@@ -638,7 +638,7 @@ PJ_DEF(unsigned) pjsip_tsx_layer_get_tsx_count(void)
 /*
  * Find a transaction.
  */
-PJ_DEF(pjsip_transaction*) pjsip_tsx_layer_find_tsx( const pj_str_t *key,
+(pjsip_transaction*) pjsip_tsx_layer_find_tsx( const pj_str_t *key,
 						     pj_bool_t lock )
 {
     pjsip_transaction *tsx;
@@ -880,7 +880,7 @@ static pj_bool_t mod_tsx_layer_on_rx_response(pjsip_rx_data *rdata)
 /*
  * Get transaction instance in the rdata.
  */
-PJ_DEF(pjsip_transaction*) pjsip_rdata_get_tsx( pjsip_rx_data *rdata )
+(pjsip_transaction*) pjsip_rdata_get_tsx( pjsip_rx_data *rdata )
 {
     return (pjsip_transaction*) 
     	   rdata->endpt_info.mod_data[mod_tsx_layer.mod.id];
@@ -890,7 +890,7 @@ PJ_DEF(pjsip_transaction*) pjsip_rdata_get_tsx( pjsip_rx_data *rdata )
 /*
  * Dump transaction layer.
  */
-PJ_DEF(void) pjsip_tsx_layer_dump(pj_bool_t detail)
+(void) pjsip_tsx_layer_dump(pj_bool_t detail)
 {
 #if PJ_LOG_MAX_LEVEL >= 3
     pj_hash_iterator_t itbuf, *it;
@@ -1266,14 +1266,14 @@ static void tsx_set_state_no_notify( pjsip_transaction *tsx,
 /*
  * Create, initialize, and register UAC transaction.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_create_uac( pjsip_module *tsx_user,
+(pj_status_t) pjsip_tsx_create_uac( pjsip_module *tsx_user,
 					  pjsip_tx_data *tdata,
 					  pjsip_transaction **p_tsx)
 {
     return pjsip_tsx_create_uac2(tsx_user, tdata, NULL, p_tsx);
 }
 
-PJ_DEF(pj_status_t) pjsip_tsx_create_uac2(pjsip_module *tsx_user,
+(pj_status_t) pjsip_tsx_create_uac2(pjsip_module *tsx_user,
 					  pjsip_tx_data *tdata,
 					  pj_grp_lock_t *grp_lock,
 					  pjsip_transaction **p_tsx)
@@ -1419,14 +1419,14 @@ PJ_DEF(pj_status_t) pjsip_tsx_create_uac2(pjsip_module *tsx_user,
 /*
  * Create, initialize, and register UAS transaction.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_create_uas( pjsip_module *tsx_user,
+(pj_status_t) pjsip_tsx_create_uas( pjsip_module *tsx_user,
 					  pjsip_rx_data *rdata,
 					  pjsip_transaction **p_tsx)
 {
     return pjsip_tsx_create_uas2(tsx_user, rdata, NULL, p_tsx);
 }
 
-PJ_DEF(pj_status_t) pjsip_tsx_create_uas2(pjsip_module *tsx_user,
+(pj_status_t) pjsip_tsx_create_uas2(pjsip_module *tsx_user,
 					  pjsip_rx_data *rdata,
 					  pj_grp_lock_t *grp_lock,
 					  pjsip_transaction **p_tsx)
@@ -1570,7 +1570,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_create_uas2(pjsip_module *tsx_user,
 /*
  * Bind transaction to a specific transport/listener. 
  */
-PJ_DEF(pj_status_t) pjsip_tsx_set_transport(pjsip_transaction *tsx,
+(pj_status_t) pjsip_tsx_set_transport(pjsip_transaction *tsx,
 					    const pjsip_tpselector *sel)
 {
     /* Must be UAC transaction */
@@ -1612,7 +1612,7 @@ static void tsx_set_status_code(pjsip_transaction *tsx,
 /*
  * Forcely terminate transaction.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_terminate( pjsip_transaction *tsx, int code )
+(pj_status_t) pjsip_tsx_terminate( pjsip_transaction *tsx, int code )
 {
     PJ_ASSERT_RETURN(tsx != NULL, PJ_EINVAL);
 
@@ -1641,7 +1641,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_terminate( pjsip_transaction *tsx, int code )
  * still considered running, and it will complete when either final
  * response is received or the transaction times out.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_stop_retransmit(pjsip_transaction *tsx)
+(pj_status_t) pjsip_tsx_stop_retransmit(pjsip_transaction *tsx)
 {
     PJ_ASSERT_RETURN(tsx != NULL, PJ_EINVAL);
     PJ_ASSERT_RETURN(tsx->role == PJSIP_ROLE_UAC &&
@@ -1667,7 +1667,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_stop_retransmit(pjsip_transaction *tsx)
  * Start a timer to terminate transaction after the specified time
  * has elapsed. 
  */
-PJ_DEF(pj_status_t) pjsip_tsx_set_timeout( pjsip_transaction *tsx,
+(pj_status_t) pjsip_tsx_set_timeout( pjsip_transaction *tsx,
 					   unsigned millisec)
 {
     pj_time_val timeout;
@@ -1709,7 +1709,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_set_timeout( pjsip_transaction *tsx,
 /*
  * This function is called by TU to send a message.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_send_msg( pjsip_transaction *tsx, 
+(pj_status_t) pjsip_tsx_send_msg( pjsip_transaction *tsx, 
 				        pjsip_tx_data *tdata )
 {
     pjsip_event event;
@@ -1755,7 +1755,7 @@ PJ_DEF(pj_status_t) pjsip_tsx_send_msg( pjsip_transaction *tsx,
  * This function is called by endpoint when incoming message for the 
  * transaction is received.
  */
-PJ_DEF(void) pjsip_tsx_recv_msg( pjsip_transaction *tsx, 
+(void) pjsip_tsx_recv_msg( pjsip_transaction *tsx, 
 				 pjsip_rx_data *rdata)
 {
     pjsip_event event;
@@ -2191,7 +2191,7 @@ static pj_status_t tsx_send_msg( pjsip_transaction *tsx,
 /*
  * Manually retransmit the last messagewithout updating the transaction state.
  */
-PJ_DEF(pj_status_t) pjsip_tsx_retransmit_no_state(pjsip_transaction *tsx,
+(pj_status_t) pjsip_tsx_retransmit_no_state(pjsip_transaction *tsx,
 						  pjsip_tx_data *tdata)
 {
     pj_status_t status;

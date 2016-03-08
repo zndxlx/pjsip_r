@@ -148,7 +148,7 @@ static int event_worker_thread(void *arg)
     return 0;
 }
 
-PJ_DEF(pj_status_t) pjmedia_event_mgr_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_event_mgr_create(pj_pool_t *pool,
                                              unsigned options,
 				             pjmedia_event_mgr **p_mgr)
 {
@@ -190,17 +190,17 @@ PJ_DEF(pj_status_t) pjmedia_event_mgr_create(pj_pool_t *pool,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pjmedia_event_mgr*) pjmedia_event_mgr_instance(void)
+(pjmedia_event_mgr*) pjmedia_event_mgr_instance(void)
 {
     return event_manager_instance;
 }
 
-PJ_DEF(void) pjmedia_event_mgr_set_instance(pjmedia_event_mgr *mgr)
+(void) pjmedia_event_mgr_set_instance(pjmedia_event_mgr *mgr)
 {
     event_manager_instance = mgr;
 }
 
-PJ_DEF(void) pjmedia_event_mgr_destroy(pjmedia_event_mgr *mgr)
+(void) pjmedia_event_mgr_destroy(pjmedia_event_mgr *mgr)
 {
     if (!mgr) mgr = pjmedia_event_mgr_instance();
     PJ_ASSERT_ON_FAIL(mgr != NULL, return);
@@ -228,7 +228,7 @@ PJ_DEF(void) pjmedia_event_mgr_destroy(pjmedia_event_mgr *mgr)
 	event_manager_instance = NULL;
 }
 
-PJ_DEF(void) pjmedia_event_init( pjmedia_event *event,
+(void) pjmedia_event_init( pjmedia_event *event,
                                  pjmedia_event_type type,
                                  const pj_timestamp *ts,
                                  const void *src)
@@ -240,7 +240,7 @@ PJ_DEF(void) pjmedia_event_init( pjmedia_event *event,
     event->epub = event->src = src;
 }
 
-PJ_DEF(pj_status_t) pjmedia_event_subscribe( pjmedia_event_mgr *mgr,
+(pj_status_t) pjmedia_event_subscribe( pjmedia_event_mgr *mgr,
                                              pjmedia_event_cb *cb,
                                              void *user_data,
                                              void *epub)
@@ -283,7 +283,7 @@ PJ_DEF(pj_status_t) pjmedia_event_subscribe( pjmedia_event_mgr *mgr,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_event_unsubscribe(pjmedia_event_mgr *mgr,
                           pjmedia_event_cb *cb,
                           void *user_data,
@@ -323,7 +323,7 @@ pjmedia_event_unsubscribe(pjmedia_event_mgr *mgr,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_event_publish( pjmedia_event_mgr *mgr,
+(pj_status_t) pjmedia_event_publish( pjmedia_event_mgr *mgr,
                                            void *epub,
                                            pjmedia_event *event,
                                            pjmedia_event_publish_flag flag)

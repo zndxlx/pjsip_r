@@ -30,12 +30,12 @@ static const char *id = "config.c";
 #define PJ_MAKE_VERSION4_2(a,b,c,d)	PJ_MAKE_VERSION4_1(a,b,c,d)
 
 #if PJ_VERSION_NUM_REV
-PJ_DEF_DATA(const char*) PJ_VERSION = PJ_MAKE_VERSION4_2(PJ_VERSION_NUM_MAJOR,
+_DATA(const char*) PJ_VERSION = PJ_MAKE_VERSION4_2(PJ_VERSION_NUM_MAJOR,
 						         PJ_VERSION_NUM_MINOR,
 						         PJ_VERSION_NUM_REV,
 						         PJ_VERSION_NUM_EXTRA);
 #else
-PJ_DEF_DATA(const char*) PJ_VERSION = PJ_MAKE_VERSION3_2(PJ_VERSION_NUM_MAJOR,
+_DATA(const char*) PJ_VERSION = PJ_MAKE_VERSION3_2(PJ_VERSION_NUM_MAJOR,
 						         PJ_VERSION_NUM_MINOR,
 						         PJ_VERSION_NUM_EXTRA);
 #endif
@@ -43,12 +43,12 @@ PJ_DEF_DATA(const char*) PJ_VERSION = PJ_MAKE_VERSION3_2(PJ_VERSION_NUM_MAJOR,
 /*
  * Get PJLIB version string.
  */
-PJ_DEF(const char*) pj_get_version(void)
+(const char*) pj_get_version(void)
 {
     return PJ_VERSION;
 }
 
-PJ_DEF(void) pj_dump_config(void)
+(void) pj_dump_config(void)
 {
     PJ_LOG(3, (id, "PJLIB (c)2008-2009 Teluu Inc."));
     PJ_LOG(3, (id, "Dumping configurations:"));

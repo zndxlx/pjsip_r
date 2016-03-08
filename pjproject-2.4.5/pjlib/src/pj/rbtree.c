@@ -194,7 +194,7 @@ static void delete_fixup( pj_rbtree *tree, pj_rbtree_node *node )
 }
 
 
-PJ_DEF(void) pj_rbtree_init( pj_rbtree *tree, pj_rbtree_comp *comp )
+(void) pj_rbtree_init( pj_rbtree *tree, pj_rbtree_comp *comp )
 {
     PJ_CHECK_STACK();
 
@@ -207,7 +207,7 @@ PJ_DEF(void) pj_rbtree_init( pj_rbtree *tree, pj_rbtree_comp *comp )
     tree->comp = comp;
 }
 
-PJ_DEF(pj_rbtree_node*) pj_rbtree_first( pj_rbtree *tree )
+(pj_rbtree_node*) pj_rbtree_first( pj_rbtree *tree )
 {
     register pj_rbtree_node *node = tree->root;
     register pj_rbtree_node *null = tree->null;
@@ -219,7 +219,7 @@ PJ_DEF(pj_rbtree_node*) pj_rbtree_first( pj_rbtree *tree )
     return node != null ? node : NULL;
 }
 
-PJ_DEF(pj_rbtree_node*) pj_rbtree_last( pj_rbtree *tree )
+(pj_rbtree_node*) pj_rbtree_last( pj_rbtree *tree )
 {
     register pj_rbtree_node *node = tree->root;
     register pj_rbtree_node *null = tree->null;
@@ -231,7 +231,7 @@ PJ_DEF(pj_rbtree_node*) pj_rbtree_last( pj_rbtree *tree )
     return node != null ? node : NULL;
 }
 
-PJ_DEF(pj_rbtree_node*) pj_rbtree_next( pj_rbtree *tree, 
+(pj_rbtree_node*) pj_rbtree_next( pj_rbtree *tree, 
 					register pj_rbtree_node *node )
 {
     register pj_rbtree_node *null = tree->null;
@@ -252,7 +252,7 @@ PJ_DEF(pj_rbtree_node*) pj_rbtree_next( pj_rbtree *tree,
     return node != null ? node : NULL;
 }
 
-PJ_DEF(pj_rbtree_node*) pj_rbtree_prev( pj_rbtree *tree, 
+(pj_rbtree_node*) pj_rbtree_prev( pj_rbtree *tree, 
 					register pj_rbtree_node *node )
 {
     register pj_rbtree_node *null = tree->null;
@@ -273,7 +273,7 @@ PJ_DEF(pj_rbtree_node*) pj_rbtree_prev( pj_rbtree *tree,
     return node != null ? node : NULL;
 }
 
-PJ_DEF(int) pj_rbtree_insert( pj_rbtree *tree, 
+(int) pj_rbtree_insert( pj_rbtree *tree, 
 			      pj_rbtree_node *element )
 {
     int rv = 0;
@@ -316,7 +316,7 @@ PJ_DEF(int) pj_rbtree_insert( pj_rbtree *tree,
 }
 
 
-PJ_DEF(pj_rbtree_node*) pj_rbtree_find( pj_rbtree *tree,
+(pj_rbtree_node*) pj_rbtree_find( pj_rbtree *tree,
 					const void *key )
 {
     int rv;
@@ -333,7 +333,7 @@ PJ_DEF(pj_rbtree_node*) pj_rbtree_find( pj_rbtree *tree,
     return node != null ? node : NULL;
 }
 
-PJ_DEF(pj_rbtree_node*) pj_rbtree_erase( pj_rbtree *tree,
+(pj_rbtree_node*) pj_rbtree_erase( pj_rbtree *tree,
 					 pj_rbtree_node *node )
 {
     pj_rbtree_node *succ;
@@ -395,7 +395,7 @@ PJ_DEF(pj_rbtree_node*) pj_rbtree_erase( pj_rbtree *tree,
 }
 
 
-PJ_DEF(unsigned) pj_rbtree_max_height( pj_rbtree *tree,
+(unsigned) pj_rbtree_max_height( pj_rbtree *tree,
 				       pj_rbtree_node *node )
 {
     unsigned l, r;
@@ -410,7 +410,7 @@ PJ_DEF(unsigned) pj_rbtree_max_height( pj_rbtree *tree,
     return l > r ? l : r;
 }
 
-PJ_DEF(unsigned) pj_rbtree_min_height( pj_rbtree *tree,
+(unsigned) pj_rbtree_min_height( pj_rbtree *tree,
 				       pj_rbtree_node *node )
 {
     unsigned l, r;

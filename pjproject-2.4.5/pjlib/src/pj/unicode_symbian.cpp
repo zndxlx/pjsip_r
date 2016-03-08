@@ -25,7 +25,7 @@
 /*
  * Convert ANSI strings to Unicode strings.
  */
-PJ_DEF(wchar_t*) pj_ansi_to_unicode( const char *str, pj_size_t len,
+(wchar_t*) pj_ansi_to_unicode( const char *str, pj_size_t len,
 				     wchar_t *wbuf, pj_size_t wbuf_count)
 {
     TPtrC8 aForeign((const TUint8*)str, (TInt)len);
@@ -51,7 +51,7 @@ PJ_DEF(wchar_t*) pj_ansi_to_unicode( const char *str, pj_size_t len,
 /*
  * Convert Unicode string to ANSI string.
  */
-PJ_DEF(char*) pj_unicode_to_ansi( const wchar_t *wstr, pj_size_t len,
+(char*) pj_unicode_to_ansi( const wchar_t *wstr, pj_size_t len,
 				  char *buf, pj_size_t buf_size)
 {
     TPtrC16 aUnicode((const TUint16*)wstr, (TInt)len);

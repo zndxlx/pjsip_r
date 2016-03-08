@@ -848,7 +848,7 @@ on_error:
 }
 
 
-PJ_DEF(pj_status_t) pjsip_udp_transport_attach( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_udp_transport_attach( pjsip_endpoint *endpt,
 						pj_sock_t sock,
 						const pjsip_host_port *a_name,
 						unsigned async_cnt,
@@ -858,7 +858,7 @@ PJ_DEF(pj_status_t) pjsip_udp_transport_attach( pjsip_endpoint *endpt,
 			    async_cnt, p_transport);
 }
 
-PJ_DEF(pj_status_t) pjsip_udp_transport_attach2( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_udp_transport_attach2( pjsip_endpoint *endpt,
 						 pjsip_transport_type_e type,
 						 pj_sock_t sock,
 						 const pjsip_host_port *a_name,
@@ -874,7 +874,7 @@ PJ_DEF(pj_status_t) pjsip_udp_transport_attach2( pjsip_endpoint *endpt,
  *
  * Create a UDP socket in the specified address and start a transport.
  */
-PJ_DEF(pj_status_t) pjsip_udp_transport_start( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_udp_transport_start( pjsip_endpoint *endpt,
 					       const pj_sockaddr_in *local_a,
 					       const pjsip_host_port *a_name,
 					       unsigned async_cnt,
@@ -916,7 +916,7 @@ PJ_DEF(pj_status_t) pjsip_udp_transport_start( pjsip_endpoint *endpt,
  *
  * Create a UDP socket in the specified address and start a transport.
  */
-PJ_DEF(pj_status_t) pjsip_udp_transport_start6(pjsip_endpoint *endpt,
+(pj_status_t) pjsip_udp_transport_start6(pjsip_endpoint *endpt,
 					       const pj_sockaddr_in6 *local_a,
 					       const pjsip_host_port *a_name,
 					       unsigned async_cnt,
@@ -955,7 +955,7 @@ PJ_DEF(pj_status_t) pjsip_udp_transport_start6(pjsip_endpoint *endpt,
 /*
  * Retrieve the internal socket handle used by the UDP transport.
  */
-PJ_DEF(pj_sock_t) pjsip_udp_transport_get_socket(pjsip_transport *transport)
+(pj_sock_t) pjsip_udp_transport_get_socket(pjsip_transport *transport)
 {
     struct udp_transport *tp;
 
@@ -970,7 +970,7 @@ PJ_DEF(pj_sock_t) pjsip_udp_transport_get_socket(pjsip_transport *transport)
 /*
  * Temporarily pause or shutdown the transport. 
  */
-PJ_DEF(pj_status_t) pjsip_udp_transport_pause(pjsip_transport *transport,
+(pj_status_t) pjsip_udp_transport_pause(pjsip_transport *transport,
 					      unsigned option)
 {
     struct udp_transport *tp;
@@ -1030,7 +1030,7 @@ PJ_DEF(pj_status_t) pjsip_udp_transport_pause(pjsip_transport *transport,
  *  - if socket is specified, replace.
  *  - if socket is not specified, create and replace.
  */
-PJ_DEF(pj_status_t) pjsip_udp_transport_restart(pjsip_transport *transport,
+(pj_status_t) pjsip_udp_transport_restart(pjsip_transport *transport,
 					        unsigned option,
 						pj_sock_t sock,
 						const pj_sockaddr_in *local,

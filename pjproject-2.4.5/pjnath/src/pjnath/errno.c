@@ -171,7 +171,7 @@ static pj_str_t pjnath_strerror2(pj_status_t statcode,
 }
 
 
-PJ_DEF(pj_status_t) pjnath_init(void)
+(pj_status_t) pjnath_init(void)
 {
     pj_status_t status;
 
@@ -190,7 +190,7 @@ PJ_DEF(pj_status_t) pjnath_init(void)
 
 #if PJNATH_ERROR_LEVEL <= PJ_LOG_MAX_LEVEL
 
-PJ_DEF(void) pjnath_perror(const char *sender, const char *title,
+(void) pjnath_perror(const char *sender, const char *title,
 			   pj_status_t status)
 {
     char errmsg[PJ_ERR_MSG_SIZE];

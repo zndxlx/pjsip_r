@@ -24,7 +24,7 @@
 #include "os_symbian.h"
 #include <e32cons.h>
 
-PJ_DEF(void) pj_log_write(int level, const char *buffer, int len)
+(void) pj_log_write(int level, const char *buffer, int len)
 {
 #if 0
     wchar_t wbuffer[PJ_LOG_MAX_SIZE];

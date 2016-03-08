@@ -59,7 +59,7 @@ static const struct
 /*
  * pjmedia_videodev_strerror()
  */
-PJ_DEF(pj_str_t) pjmedia_videodev_strerror(pj_status_t statcode,
+(pj_str_t) pjmedia_videodev_strerror(pj_status_t statcode,
 					   char *buf, pj_size_t bufsize )
 {
     pj_str_t errstr;

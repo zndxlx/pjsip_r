@@ -29,7 +29,7 @@
 #endif
 
 
-PJ_DEF(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr)
+(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr)
 {
     const char *s, *ends;
 
@@ -48,7 +48,7 @@ PJ_DEF(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr)
 }
 
 
-PJ_DEF(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr)
+(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr)
 {
     const char *s, *ends;
 
@@ -67,7 +67,7 @@ PJ_DEF(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr)
 }
 
 
-PJ_DEF(pj_str_t*) pj_strltrim( pj_str_t *str )
+(pj_str_t*) pj_strltrim( pj_str_t *str )
 {
     char *end = str->ptr + str->slen;
     register char *p = str->ptr;
@@ -78,7 +78,7 @@ PJ_DEF(pj_str_t*) pj_strltrim( pj_str_t *str )
     return str;
 }
 
-PJ_DEF(pj_str_t*) pj_strrtrim( pj_str_t *str )
+(pj_str_t*) pj_strrtrim( pj_str_t *str )
 {
     char *end = str->ptr + str->slen;
     register char *p = end - 1;
@@ -88,7 +88,7 @@ PJ_DEF(pj_str_t*) pj_strrtrim( pj_str_t *str )
     return str;
 }
 
-PJ_DEF(char*) pj_create_random_string(char *str, pj_size_t len)
+(char*) pj_create_random_string(char *str, pj_size_t len)
 {
     unsigned i;
     char *p = str;
@@ -109,7 +109,7 @@ PJ_DEF(char*) pj_create_random_string(char *str, pj_size_t len)
     return str;
 }
 
-PJ_DEF(long) pj_strtol(const pj_str_t *str)
+(long) pj_strtol(const pj_str_t *str)
 {
     PJ_CHECK_STACK();
 
@@ -123,7 +123,7 @@ PJ_DEF(long) pj_strtol(const pj_str_t *str)
         return pj_strtoul(str);
 }
 
-PJ_DEF(unsigned long) pj_strtoul(const pj_str_t *str)
+(unsigned long) pj_strtoul(const pj_str_t *str)
 {
     unsigned long value;
     unsigned i;
@@ -139,7 +139,7 @@ PJ_DEF(unsigned long) pj_strtoul(const pj_str_t *str)
     return value;
 }
 
-PJ_DEF(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
+(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
 				  unsigned base)
 {
     unsigned long value;
@@ -175,7 +175,7 @@ PJ_DEF(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
     return value;
 }
 
-PJ_DEF(float) pj_strtof(const pj_str_t *str)
+(float) pj_strtof(const pj_str_t *str)
 {
     pj_str_t part;
     char *pdot;
@@ -213,12 +213,12 @@ PJ_DEF(float) pj_strtof(const pj_str_t *str)
     return val;
 }
 
-PJ_DEF(int) pj_utoa(unsigned long val, char *buf)
+(int) pj_utoa(unsigned long val, char *buf)
 {
     return pj_utoa_pad(val, buf, 0, 0);
 }
 
-PJ_DEF(int) pj_utoa_pad( unsigned long val, char *buf, int min_dig, int pad)
+(int) pj_utoa_pad( unsigned long val, char *buf, int min_dig, int pad)
 {
     char *p;
     int len;

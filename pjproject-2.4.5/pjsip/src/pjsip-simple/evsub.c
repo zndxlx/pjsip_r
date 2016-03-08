@@ -51,13 +51,13 @@ enum
     PJSIP_NOTIFY_METHOD = PJSIP_OTHER_METHOD
 };
 
-PJ_DEF_DATA(const pjsip_method) pjsip_subscribe_method = 
+_DATA(const pjsip_method) pjsip_subscribe_method = 
 {
     (pjsip_method_e) PJSIP_SUBSCRIBE_METHOD,
     { "SUBSCRIBE", 9 }
 };
 
-PJ_DEF_DATA(const pjsip_method) pjsip_notify_method = 
+_DATA(const pjsip_method) pjsip_notify_method = 
 {
     (pjsip_method_e) PJSIP_NOTIFY_METHOD,
     { "NOTIFY", 6 }
@@ -66,7 +66,7 @@ PJ_DEF_DATA(const pjsip_method) pjsip_notify_method =
 /**
  * SUBSCRIBE method constant.
  */
-PJ_DEF(const pjsip_method*) pjsip_get_subscribe_method()
+(const pjsip_method*) pjsip_get_subscribe_method()
 {
     return &pjsip_subscribe_method;
 }
@@ -74,7 +74,7 @@ PJ_DEF(const pjsip_method*) pjsip_get_subscribe_method()
 /**
  * NOTIFY method constant.
  */
-PJ_DEF(const pjsip_method*) pjsip_get_notify_method()
+(const pjsip_method*) pjsip_get_notify_method()
 {
     return &pjsip_notify_method;
 }
@@ -281,7 +281,7 @@ static pj_status_t mod_evsub_unload(void)
 /*
  * Init and register module.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_init_module(pjsip_endpoint *endpt)
+(pj_status_t) pjsip_evsub_init_module(pjsip_endpoint *endpt)
 {
     pj_status_t status;
     pj_str_t method_tags[] = {
@@ -339,7 +339,7 @@ on_error:
 /*
  * Get the instance of the module.
  */
-PJ_DEF(pjsip_module*) pjsip_evsub_instance(void)
+(pjsip_module*) pjsip_evsub_instance(void)
 {
     PJ_ASSERT_RETURN(mod_evsub.mod.id != -1, NULL);
 
@@ -350,7 +350,7 @@ PJ_DEF(pjsip_module*) pjsip_evsub_instance(void)
 /*
  * Get the event subscription instance in the transaction.
  */
-PJ_DEF(pjsip_evsub*) pjsip_tsx_get_evsub(pjsip_transaction *tsx)
+(pjsip_evsub*) pjsip_tsx_get_evsub(pjsip_transaction *tsx)
 {
     return (pjsip_evsub*) tsx->mod_data[mod_evsub.mod.id];
 }
@@ -359,7 +359,7 @@ PJ_DEF(pjsip_evsub*) pjsip_tsx_get_evsub(pjsip_transaction *tsx)
 /*
  * Set event subscription's module data.
  */
-PJ_DEF(void) pjsip_evsub_set_mod_data( pjsip_evsub *sub, unsigned mod_id,
+(void) pjsip_evsub_set_mod_data( pjsip_evsub *sub, unsigned mod_id,
 				       void *data )
 {
     PJ_ASSERT_ON_FAIL(mod_id < PJSIP_MAX_MODULE, return);
@@ -370,7 +370,7 @@ PJ_DEF(void) pjsip_evsub_set_mod_data( pjsip_evsub *sub, unsigned mod_id,
 /*
  * Get event subscription's module data.
  */
-PJ_DEF(void*) pjsip_evsub_get_mod_data( pjsip_evsub *sub, unsigned mod_id )
+(void*) pjsip_evsub_get_mod_data( pjsip_evsub *sub, unsigned mod_id )
 {
     PJ_ASSERT_RETURN(mod_id < PJSIP_MAX_MODULE, NULL);
     return sub->mod_data[mod_id];
@@ -400,7 +400,7 @@ static struct evpkg* find_pkg(const pj_str_t *event_name)
 /*
  * Register an event package
  */
-PJ_DEF(pj_status_t) pjsip_evsub_register_pkg( pjsip_module *pkg_mod,
+(pj_status_t) pjsip_evsub_register_pkg( pjsip_module *pkg_mod,
 					      const pj_str_t *event_name,
 					      unsigned expires,
 					      unsigned accept_cnt,
@@ -468,7 +468,7 @@ PJ_DEF(pj_status_t) pjsip_evsub_register_pkg( pjsip_module *pkg_mod,
 /*
  * Retrieve Allow-Events header
  */
-PJ_DEF(const pjsip_hdr*) pjsip_evsub_get_allow_events_hdr(pjsip_module *m)
+(const pjsip_hdr*) pjsip_evsub_get_allow_events_hdr(pjsip_module *m)
 {
     struct mod_evsub *mod;
 
@@ -814,7 +814,7 @@ static pj_status_t evsub_create( pjsip_dialog *dlg,
 /*
  * Create client subscription session.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_create_uac( pjsip_dialog *dlg,
+(pj_status_t) pjsip_evsub_create_uac( pjsip_dialog *dlg,
 					    const pjsip_evsub_user *user_cb,
 					    const pj_str_t *event,
 					    unsigned option,
@@ -852,7 +852,7 @@ on_return:
 /*
  * Create server subscription session from incoming request.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_create_uas( pjsip_dialog *dlg,
+(pj_status_t) pjsip_evsub_create_uas( pjsip_dialog *dlg,
 					    const pjsip_evsub_user *user_cb,
 					    pjsip_rx_data *rdata,
 					    unsigned option,
@@ -949,7 +949,7 @@ on_return:
 /*
  * Forcefully destroy subscription.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_terminate( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_terminate( pjsip_evsub *sub,
 					   pj_bool_t notify )
 {
     PJ_ASSERT_RETURN(sub, PJ_EINVAL);
@@ -975,7 +975,7 @@ PJ_DEF(pj_status_t) pjsip_evsub_terminate( pjsip_evsub *sub,
 /*
  * Get subscription state.
  */
-PJ_DEF(pjsip_evsub_state) pjsip_evsub_get_state(pjsip_evsub *sub)
+(pjsip_evsub_state) pjsip_evsub_get_state(pjsip_evsub *sub)
 {
     return sub->state;
 }
@@ -983,7 +983,7 @@ PJ_DEF(pjsip_evsub_state) pjsip_evsub_get_state(pjsip_evsub *sub)
 /*
  * Get state name.
  */
-PJ_DEF(const char*) pjsip_evsub_get_state_name(pjsip_evsub *sub)
+(const char*) pjsip_evsub_get_state_name(pjsip_evsub *sub)
 {
     return sub->state_str.ptr;
 }
@@ -991,7 +991,7 @@ PJ_DEF(const char*) pjsip_evsub_get_state_name(pjsip_evsub *sub)
 /*
  * Get termination reason.
  */
-PJ_DEF(const pj_str_t*) pjsip_evsub_get_termination_reason(pjsip_evsub *sub)
+(const pj_str_t*) pjsip_evsub_get_termination_reason(pjsip_evsub *sub)
 {
     return &sub->term_reason;
 }
@@ -999,7 +999,7 @@ PJ_DEF(const pj_str_t*) pjsip_evsub_get_termination_reason(pjsip_evsub *sub)
 /*
  * Initiate client subscription
  */
-PJ_DEF(pj_status_t) pjsip_evsub_initiate( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_initiate( pjsip_evsub *sub,
 					  const pjsip_method *method,
 					  pj_int32_t expires,
 					  pjsip_tx_data **p_tdata)
@@ -1082,7 +1082,7 @@ on_return:
 /*
  * Add custom headers.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_add_header( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_add_header( pjsip_evsub *sub,
 					    const pjsip_hdr *hdr_list )
 {
     const pjsip_hdr *hdr;
@@ -1103,7 +1103,7 @@ PJ_DEF(pj_status_t) pjsip_evsub_add_header( pjsip_evsub *sub,
 /*
  * Accept incoming subscription request.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_accept( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_accept( pjsip_evsub *sub,
 					pjsip_rx_data *rdata,
 				        int st_code,
 					const pjsip_hdr *hdr_list )
@@ -1231,7 +1231,7 @@ static pjsip_sub_state_hdr* sub_state_create( pj_pool_t *pool,
 /*
  * Create and send NOTIFY request.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_notify( pjsip_evsub *sub,
 					pjsip_evsub_state state,
 					const pj_str_t *state_str,
 					const pj_str_t *reason,
@@ -1293,7 +1293,7 @@ on_return:
 /*
  * Create NOTIFY to reflect current status.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_current_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_current_notify( pjsip_evsub *sub,
 						pjsip_tx_data **p_tdata )
 {
     return pjsip_evsub_notify( sub, sub->state, &sub->state_str, 
@@ -1304,7 +1304,7 @@ PJ_DEF(pj_status_t) pjsip_evsub_current_notify( pjsip_evsub *sub,
 /*
  * Send request.
  */
-PJ_DEF(pj_status_t) pjsip_evsub_send_request( pjsip_evsub *sub,
+(pj_status_t) pjsip_evsub_send_request( pjsip_evsub *sub,
 					      pjsip_tx_data *tdata)
 {
     pj_status_t status;

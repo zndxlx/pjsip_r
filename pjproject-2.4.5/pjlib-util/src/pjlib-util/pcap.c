@@ -91,13 +91,13 @@ struct pj_pcap_file
 };
 
 /* Init default filter */
-PJ_DEF(void) pj_pcap_filter_default(pj_pcap_filter *filter)
+(void) pj_pcap_filter_default(pj_pcap_filter *filter)
 {
     pj_bzero(filter, sizeof(*filter));
 }
 
 /* Open pcap file */
-PJ_DEF(pj_status_t) pj_pcap_open(pj_pool_t *pool,
+(pj_status_t) pj_pcap_open(pj_pool_t *pool,
 				 const char *path,
 				 pj_pcap_file **p_file)
 {
@@ -153,7 +153,7 @@ PJ_DEF(pj_status_t) pj_pcap_open(pj_pool_t *pool,
 }
 
 /* Close pcap file */
-PJ_DEF(pj_status_t) pj_pcap_close(pj_pcap_file *file)
+(pj_status_t) pj_pcap_close(pj_pcap_file *file)
 {
     PJ_ASSERT_RETURN(file, PJ_EINVAL);
     TRACE_((file->obj_name, "PCAP file closed"));
@@ -161,7 +161,7 @@ PJ_DEF(pj_status_t) pj_pcap_close(pj_pcap_file *file)
 }
 
 /* Setup filter */
-PJ_DEF(pj_status_t) pj_pcap_set_filter(pj_pcap_file *file,
+(pj_status_t) pj_pcap_set_filter(pj_pcap_file *file,
 				       const pj_pcap_filter *fil)
 {
     PJ_ASSERT_RETURN(file && fil, PJ_EINVAL);
@@ -201,7 +201,7 @@ static pj_status_t skip(pj_oshandle_t fd, pj_off_t bytes)
 	}
 
 /* Read UDP packet */
-PJ_DEF(pj_status_t) pj_pcap_read_udp(pj_pcap_file *file,
+(pj_status_t) pj_pcap_read_udp(pj_pcap_file *file,
 				     pj_pcap_udp_hdr *udp_hdr,
 				     pj_uint8_t *udp_payload,
 				     pj_size_t *udp_payload_size)

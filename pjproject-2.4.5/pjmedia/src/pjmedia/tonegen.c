@@ -410,7 +410,7 @@ static pj_status_t tonegen_destroy(pjmedia_port *this_port);
  * When the tone generator is first created, it will be loaded with the
  * default digit map.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_tonegen_create2(pj_pool_t *pool,
 					    const pj_str_t *name,
 					    unsigned clock_rate,
 					    unsigned channel_count,
@@ -467,7 +467,7 @@ PJ_DEF(pj_status_t) pjmedia_tonegen_create2(pj_pool_t *pool,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_tonegen_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_tonegen_create( pj_pool_t *pool,
 					    unsigned clock_rate,
 					    unsigned channel_count,
 					    unsigned samples_per_frame,
@@ -484,7 +484,7 @@ PJ_DEF(pj_status_t) pjmedia_tonegen_create( pj_pool_t *pool,
 /*
  * Check if the tone generator is still busy producing some tones.
  */
-PJ_DEF(pj_bool_t) pjmedia_tonegen_is_busy(pjmedia_port *port)
+(pj_bool_t) pjmedia_tonegen_is_busy(pjmedia_port *port)
 {
     struct tonegen *tonegen = (struct tonegen*) port;
     PJ_ASSERT_RETURN(port->info.signature == SIGNATURE, PJ_TRUE);
@@ -495,7 +495,7 @@ PJ_DEF(pj_bool_t) pjmedia_tonegen_is_busy(pjmedia_port *port)
 /*
  * Instruct the tone generator to stop current processing.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_stop(pjmedia_port *port)
+(pj_status_t) pjmedia_tonegen_stop(pjmedia_port *port)
 {
     struct tonegen *tonegen = (struct tonegen*) port;
     PJ_ASSERT_RETURN(port->info.signature == SIGNATURE, PJ_EINVAL);
@@ -515,7 +515,7 @@ PJ_DEF(pj_status_t) pjmedia_tonegen_stop(pjmedia_port *port)
 /*
  * Instruct the tone generator to stop current processing.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_rewind(pjmedia_port *port)
+(pj_status_t) pjmedia_tonegen_rewind(pjmedia_port *port)
 {
     struct tonegen *tonegen = (struct tonegen*) port;
     PJ_ASSERT_RETURN(port->info.signature == SIGNATURE, PJ_EINVAL);
@@ -762,7 +762,7 @@ on_return:
 /*
  * Play tones.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_play( pjmedia_port *port,
+(pj_status_t) pjmedia_tonegen_play( pjmedia_port *port,
 					  unsigned count,
 					  const pjmedia_tone_desc tones[],
 					  unsigned options)
@@ -813,7 +813,7 @@ PJ_DEF(pj_status_t) pjmedia_tonegen_play( pjmedia_port *port,
 /*
  * Play digits.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_play_digits( pjmedia_port *port,
+(pj_status_t) pjmedia_tonegen_play_digits( pjmedia_port *port,
 						 unsigned count,
 						 const pjmedia_tone_digit digits[],
 						 unsigned options)
@@ -861,7 +861,7 @@ PJ_DEF(pj_status_t) pjmedia_tonegen_play_digits( pjmedia_port *port,
 /*
  * Get the digit-map currently used by this tone generator.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_get_digit_map(pjmedia_port *port,
+(pj_status_t) pjmedia_tonegen_get_digit_map(pjmedia_port *port,
 						  const pjmedia_tone_digit_map **m)
 {
     struct tonegen *tonegen = (struct tonegen*) port;
@@ -878,7 +878,7 @@ PJ_DEF(pj_status_t) pjmedia_tonegen_get_digit_map(pjmedia_port *port,
 /*
  * Set digit map to be used by the tone generator.
  */
-PJ_DEF(pj_status_t) pjmedia_tonegen_set_digit_map(pjmedia_port *port,
+(pj_status_t) pjmedia_tonegen_set_digit_map(pjmedia_port *port,
 						  pjmedia_tone_digit_map *m)
 {
     struct tonegen *tonegen = (struct tonegen*) port;

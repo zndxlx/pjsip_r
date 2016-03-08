@@ -97,22 +97,22 @@ static const struct {
 #endif	/* PJ_HAS_ERROR_STRING */
 
 
-PJ_DEF(pj_status_t) pj_get_os_error(void)
+(pj_status_t) pj_get_os_error(void)
 {
     return -1;
 }
 
-PJ_DEF(void) pj_set_os_error(pj_status_t code)
+(void) pj_set_os_error(pj_status_t code)
 {
     PJ_UNUSED_ARG(code);
 }
 
-PJ_DEF(pj_status_t) pj_get_netos_error(void)
+(pj_status_t) pj_get_netos_error(void)
 {
     return -1;
 }
 
-PJ_DEF(void) pj_set_netos_error(pj_status_t code)
+(void) pj_set_netos_error(pj_status_t code)
 {
     PJ_UNUSED_ARG(code);
 }
@@ -129,7 +129,7 @@ PJ_END_DECL
  * Platform specific error message. This file is called by pj_strerror() 
  * in errno.c 
  */
-PJ_DEF(int) platform_strerror( pj_os_err_type os_errcode, 
+(int) platform_strerror( pj_os_err_type os_errcode, 
 			       char *buf, pj_size_t bufsize)
 {
     int len = 0;

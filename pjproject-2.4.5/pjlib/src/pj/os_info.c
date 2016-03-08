@@ -122,7 +122,7 @@ static pj_uint32_t parse_version(char *str)
     return version;
 }
 
-PJ_DEF(const pj_sys_info*) pj_get_sys_info(void)
+(const pj_sys_info*) pj_get_sys_info(void)
 {
     static char si_buffer[PJ_SYS_INFO_BUFFER_SIZE];
     static pj_sys_info si;

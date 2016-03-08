@@ -587,7 +587,7 @@ static int find_codec_idx_by_fmt_id(pjmedia_format_id fmt_id)
 /*
  * Initialize and register FFMPEG codec factory to pjmedia endpoint.
  */
-PJ_DEF(pj_status_t) pjmedia_codec_ffmpeg_vid_init(pjmedia_vid_codec_mgr *mgr,
+(pj_status_t) pjmedia_codec_ffmpeg_vid_init(pjmedia_vid_codec_mgr *mgr,
                                                   pj_pool_factory *pf)
 {
     pj_pool_t *pool;
@@ -864,7 +864,7 @@ on_error:
 /*
  * Unregister FFMPEG codecs factory from pjmedia endpoint.
  */
-PJ_DEF(pj_status_t) pjmedia_codec_ffmpeg_vid_deinit(void)
+(pj_status_t) pjmedia_codec_ffmpeg_vid_deinit(void)
 {
     pj_status_t status = PJ_SUCCESS;
 

@@ -29,7 +29,7 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-PJ_DEF(pj_status_t) pj_gettimeofday(pj_time_val *p_tv)
+(pj_status_t) pj_gettimeofday(pj_time_val *p_tv)
 {
     struct timeval the_time;
     int rc;

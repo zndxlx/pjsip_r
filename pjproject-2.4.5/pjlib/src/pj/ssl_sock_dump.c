@@ -34,7 +34,7 @@
     }								\
     p += len;
 
-PJ_DEF(pj_ssize_t) pj_ssl_cert_info_dump(const pj_ssl_cert_info *ci,
+(pj_ssize_t) pj_ssl_cert_info_dump(const pj_ssl_cert_info *ci,
 					 const char *indent,
 					 char *buf,
 					 pj_size_t buf_size)

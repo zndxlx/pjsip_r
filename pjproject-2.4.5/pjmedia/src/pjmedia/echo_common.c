@@ -127,7 +127,7 @@ static struct ec_operations ipp_aec_op =
 /*
  * Create the echo canceller. 
  */
-PJ_DEF(pj_status_t) pjmedia_echo_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_echo_create( pj_pool_t *pool,
 					 unsigned clock_rate,
 					 unsigned samples_per_frame,
 					 unsigned tail_ms,
@@ -142,7 +142,7 @@ PJ_DEF(pj_status_t) pjmedia_echo_create( pj_pool_t *pool,
 /*
  * Create the echo canceller. 
  */
-PJ_DEF(pj_status_t) pjmedia_echo_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_echo_create2(pj_pool_t *pool,
 					 unsigned clock_rate,
 					 unsigned channel_count,
 					 unsigned samples_per_frame,
@@ -260,7 +260,7 @@ PJ_DEF(pj_status_t) pjmedia_echo_create2(pj_pool_t *pool,
 /*
  * Destroy the Echo Canceller. 
  */
-PJ_DEF(pj_status_t) pjmedia_echo_destroy(pjmedia_echo_state *echo )
+(pj_status_t) pjmedia_echo_destroy(pjmedia_echo_state *echo )
 {
     (*echo->op->ec_destroy)(echo->state);
 
@@ -277,7 +277,7 @@ PJ_DEF(pj_status_t) pjmedia_echo_destroy(pjmedia_echo_state *echo )
 /*
  * Reset the echo canceller.
  */
-PJ_DEF(pj_status_t) pjmedia_echo_reset(pjmedia_echo_state *echo )
+(pj_status_t) pjmedia_echo_reset(pjmedia_echo_state *echo )
 {
     while (!pj_list_empty(&echo->lat_buf)) {
 	struct frame *frm;
@@ -296,7 +296,7 @@ PJ_DEF(pj_status_t) pjmedia_echo_reset(pjmedia_echo_state *echo )
 /*
  * Let the Echo Canceller know that a frame has been played to the speaker.
  */
-PJ_DEF(pj_status_t) pjmedia_echo_playback( pjmedia_echo_state *echo,
+(pj_status_t) pjmedia_echo_playback( pjmedia_echo_state *echo,
 					   pj_int16_t *play_frm )
 {
     /* If EC algo has playback handler, just pass the frame. */
@@ -350,7 +350,7 @@ PJ_DEF(pj_status_t) pjmedia_echo_playback( pjmedia_echo_state *echo,
  * Let the Echo Canceller knows that a frame has been captured from 
  * the microphone.
  */
-PJ_DEF(pj_status_t) pjmedia_echo_capture( pjmedia_echo_state *echo,
+(pj_status_t) pjmedia_echo_capture( pjmedia_echo_state *echo,
 					  pj_int16_t *rec_frm,
 					  unsigned options )
 {
@@ -393,7 +393,7 @@ PJ_DEF(pj_status_t) pjmedia_echo_capture( pjmedia_echo_state *echo,
 /*
  * Perform echo cancellation.
  */
-PJ_DEF(pj_status_t) pjmedia_echo_cancel( pjmedia_echo_state *echo,
+(pj_status_t) pjmedia_echo_cancel( pjmedia_echo_state *echo,
 					 pj_int16_t *rec_frm,
 					 const pj_int16_t *play_frm,
 					 unsigned options,

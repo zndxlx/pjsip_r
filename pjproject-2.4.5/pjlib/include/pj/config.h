@@ -1035,39 +1035,39 @@
 
 
 /**
- * @def PJ_DECL(type)
+ * @def (type)
  * @param type The return type of the function.
  * Declare a function.
  */
 #if defined(PJ_DLL)
 #   if defined(PJ_EXPORTING)
-#	define PJ_DECL(type)	    PJ_EXPORT_DECL_SPECIFIER type
+#	define (type)	    PJ_EXPORT_DECL_SPECIFIER type
 #   else
-#	define PJ_DECL(type)	    PJ_IMPORT_DECL_SPECIFIER type
+#	define (type)	    PJ_IMPORT_DECL_SPECIFIER type
 #   endif
-#elif !defined(PJ_DECL)
+#elif !defined()
 #   if defined(__cplusplus)
-#	define PJ_DECL(type)	    type
+#	define (type)	    type
 #   else
-#	define PJ_DECL(type)	    extern type
+#	define (type)	    extern type
 #   endif
 #endif
 
 
 /**
- * @def PJ_DEF(type)
+ * @def (type)
  * @param type The return type of the function.
  * Define a function.
  */
 #if defined(PJ_DLL) && defined(PJ_EXPORTING)
-#   define PJ_DEF(type)		    PJ_EXPORT_DEF_SPECIFIER type
-#elif !defined(PJ_DEF)
-#   define PJ_DEF(type)		    type
+#   define (type)		    PJ_EXPORT_DEF_SPECIFIER type
+#elif !defined()
+#   define (type)		    type
 #endif
 
 
 /**
- * @def PJ_DECL_NO_RETURN(type)
+ * @def _NO_RETURN(type)
  * @param type The return type of the function.
  * Declare a function that will not return.
  */
@@ -1085,12 +1085,12 @@
  * Mark end of declaration section in a header file.
  */
 #ifdef __cplusplus
-#  define PJ_DECL_NO_RETURN(type)   PJ_DECL(type) PJ_NORETURN
+#  define _NO_RETURN(type)   (type) PJ_NORETURN
 #  define PJ_IDECL_NO_RETURN(type)  PJ_INLINE(type) PJ_NORETURN
 #  define PJ_BEGIN_DECL		    extern "C" {
 #  define PJ_END_DECL		    }
 #else
-#  define PJ_DECL_NO_RETURN(type)   PJ_NORETURN PJ_DECL(type)
+#  define _NO_RETURN(type)   PJ_NORETURN (type)
 #  define PJ_IDECL_NO_RETURN(type)  PJ_NORETURN PJ_INLINE(type)
 #  define PJ_BEGIN_DECL
 #  define PJ_END_DECL
@@ -1099,30 +1099,30 @@
 
 
 /**
- * @def PJ_DECL_DATA(type)
+ * @def _DATA(type)
  * @param type The data type.
  * Declare a global data.
  */ 
 #if defined(PJ_DLL)
 #   if defined(PJ_EXPORTING)
-#	define PJ_DECL_DATA(type)   PJ_EXPORT_DECL_SPECIFIER extern type
+#	define _DATA(type)   PJ_EXPORT_DECL_SPECIFIER extern type
 #   else
-#	define PJ_DECL_DATA(type)   PJ_IMPORT_DECL_SPECIFIER extern type
+#	define _DATA(type)   PJ_IMPORT_DECL_SPECIFIER extern type
 #   endif
-#elif !defined(PJ_DECL_DATA)
-#   define PJ_DECL_DATA(type)	    extern type
+#elif !defined(_DATA)
+#   define _DATA(type)	    extern type
 #endif
 
 
 /**
- * @def PJ_DEF_DATA(type)
+ * @def _DATA(type)
  * @param type The data type.
  * Define a global data.
  */ 
 #if defined(PJ_DLL) && defined(PJ_EXPORTING)
-#   define PJ_DEF_DATA(type)	    PJ_EXPORT_DEF_SPECIFIER type
-#elif !defined(PJ_DEF_DATA)
-#   define PJ_DEF_DATA(type)	    type
+#   define _DATA(type)	    PJ_EXPORT_DEF_SPECIFIER type
+#elif !defined(_DATA)
+#   define _DATA(type)	    type
 #endif
 
 
@@ -1141,8 +1141,8 @@
 #  define PJ_IDECL(type)  PJ_INLINE(type)
 #  define PJ_IDEF(type)   PJ_INLINE(type)
 #else
-#  define PJ_IDECL(type)  PJ_DECL(type)
-#  define PJ_IDEF(type)   PJ_DEF(type)
+#  define PJ_IDECL(type)  (type)
+#  define PJ_IDEF(type)   (type)
 #endif
 
 
@@ -1240,19 +1240,19 @@ PJ_BEGIN_DECL
 /**
  * PJLIB version string constant. @see pj_get_version()
  */
-PJ_DECL_DATA(const char*) PJ_VERSION;
+_DATA(const char*) PJ_VERSION;
 
 /**
  * Get PJLIB version string.
  *
  * @return #PJ_VERSION constant.
  */
-PJ_DECL(const char*) pj_get_version(void);
+(const char*) pj_get_version(void);
 
 /**
  * Dump configuration to log with verbosity equal to info(3).
  */
-PJ_DECL(void) pj_dump_config(void);
+(void) pj_dump_config(void);
 
 PJ_END_DECL
 

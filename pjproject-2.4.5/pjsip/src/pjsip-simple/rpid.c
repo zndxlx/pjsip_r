@@ -41,7 +41,7 @@ static const pj_str_t RPID_UNKNOWN = {"rpid:unknown", 12};
 
 
 /* Duplicate RPID element */
-PJ_DEF(void) pjrpid_element_dup(pj_pool_t *pool, pjrpid_element *dst,
+(void) pjrpid_element_dup(pj_pool_t *pool, pjrpid_element *dst,
 				const pjrpid_element *src)
 {
     pj_memcpy(dst, src, sizeof(pjrpid_element));
@@ -103,7 +103,7 @@ static pj_xml_node *find_node(const pj_xml_node *parent,
 /*
  * Add RPID element into existing PIDF document.
  */
-PJ_DEF(pj_status_t) pjrpid_add_element(pjpidf_pres *pres, 
+(pj_status_t) pjrpid_add_element(pjpidf_pres *pres, 
 				       pj_pool_t *pool,
 				       unsigned options,
 				       const pjrpid_element *elem)
@@ -216,7 +216,7 @@ static pj_status_t get_tuple_note(const pjpidf_pres *pres,
 /*
  * Get RPID element from PIDF document, if any.
  */
-PJ_DEF(pj_status_t) pjrpid_get_element(const pjpidf_pres *pres,
+(pj_status_t) pjrpid_get_element(const pjpidf_pres *pres,
 				       pj_pool_t *pool,
 				       pjrpid_element *elem)
 {

@@ -43,7 +43,7 @@ static pjsip_hdr_vptr event_hdr_vptr =
 };
 
 
-PJ_DEF(pjsip_event_hdr*) pjsip_event_hdr_create(pj_pool_t *pool)
+(pjsip_event_hdr*) pjsip_event_hdr_create(pj_pool_t *pool)
 {
     pjsip_event_hdr *hdr = PJ_POOL_ZALLOC_T(pool, pjsip_event_hdr);
     hdr->type = PJSIP_H_OTHER;
@@ -106,7 +106,7 @@ pjsip_event_hdr_shallow_clone( pj_pool_t *pool,
 /*
  * Allow-Events header.
  */
-PJ_DEF(pjsip_allow_events_hdr*) pjsip_allow_events_hdr_create(pj_pool_t *pool)
+(pjsip_allow_events_hdr*) pjsip_allow_events_hdr_create(pj_pool_t *pool)
 {
     const pj_str_t STR_ALLOW_EVENTS = { "Allow-Events", 12};
     pjsip_allow_events_hdr *hdr;
@@ -142,7 +142,7 @@ static pjsip_hdr_vptr sub_state_hdr_vptr =
 };
 
 
-PJ_DEF(pjsip_sub_state_hdr*) pjsip_sub_state_hdr_create(pj_pool_t *pool)
+(pjsip_sub_state_hdr*) pjsip_sub_state_hdr_create(pj_pool_t *pool)
 {
     pj_str_t sub_state = { "Subscription-State", 18 };
     pjsip_sub_state_hdr *hdr = PJ_POOL_ZALLOC_T(pool, pjsip_sub_state_hdr);
@@ -293,7 +293,7 @@ static pjsip_hdr* parse_hdr_sub_state( pjsip_parse_ctx *ctx )
 /*
  * Register header parsers.
  */
-PJ_DEF(void) pjsip_evsub_init_parser(void)
+(void) pjsip_evsub_init_parser(void)
 {
     pjsip_register_hdr_parser( "Event", "o",
 			       &parse_hdr_event);

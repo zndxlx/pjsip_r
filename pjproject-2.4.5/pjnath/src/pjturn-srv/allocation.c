@@ -275,7 +275,7 @@ static pj_status_t init_cred(pj_turn_allocation *alloc, const pj_stun_msg *req)
 /*
  * Create new allocation.
  */
-PJ_DEF(pj_status_t) pj_turn_allocation_create(pj_turn_transport *transport,
+(pj_status_t) pj_turn_allocation_create(pj_turn_transport *transport,
 					      const pj_sockaddr_t *src_addr,
 					      unsigned src_addr_len,
 					      const pj_stun_rx_data *rdata,
@@ -470,7 +470,7 @@ static void destroy_allocation(pj_turn_allocation *alloc)
 /*
  * Handle transport closure.
  */
-PJ_DEF(void) pj_turn_allocation_on_transport_closed( pj_turn_allocation *alloc,
+(void) pj_turn_allocation_on_transport_closed( pj_turn_allocation *alloc,
 						     pj_turn_transport *tp)
 {
     PJ_LOG(5,(alloc->obj_name, "Transport %s unexpectedly closed, destroying "
@@ -897,7 +897,7 @@ static pj_bool_t refresh_permission(pj_turn_permission *perm)
  * Handle incoming packet from client. This would have been called by
  * server upon receiving packet from a listener.
  */
-PJ_DEF(void) pj_turn_allocation_on_rx_client_pkt(pj_turn_allocation *alloc,
+(void) pj_turn_allocation_on_rx_client_pkt(pj_turn_allocation *alloc,
 						 pj_turn_pkt *pkt)
 {
     pj_bool_t is_stun;

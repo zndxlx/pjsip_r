@@ -45,7 +45,7 @@ static void clock_callback(const pj_timestamp *ts, void *user_data);
  * Create a master port.
  *
  */
-PJ_DEF(pj_status_t) pjmedia_master_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_master_port_create( pj_pool_t *pool,
 						pjmedia_port *u_port,
 						pjmedia_port *d_port,
 						unsigned options,
@@ -130,7 +130,7 @@ PJ_DEF(pj_status_t) pjmedia_master_port_create( pj_pool_t *pool,
 /*
  * Start the media flow.
  */
-PJ_DEF(pj_status_t) pjmedia_master_port_start(pjmedia_master_port *m)
+(pj_status_t) pjmedia_master_port_start(pjmedia_master_port *m)
 {
     PJ_ASSERT_RETURN(m && m->clock, PJ_EINVAL);
     PJ_ASSERT_RETURN(m->u_port && m->d_port, PJ_EINVALIDOP);
@@ -142,7 +142,7 @@ PJ_DEF(pj_status_t) pjmedia_master_port_start(pjmedia_master_port *m)
 /*
  * Stop the media flow.
  */
-PJ_DEF(pj_status_t) pjmedia_master_port_stop(pjmedia_master_port *m)
+(pj_status_t) pjmedia_master_port_stop(pjmedia_master_port *m)
 {
     PJ_ASSERT_RETURN(m && m->clock, PJ_EINVAL);
     
@@ -151,7 +151,7 @@ PJ_DEF(pj_status_t) pjmedia_master_port_stop(pjmedia_master_port *m)
 
 
 /* Poll the master port clock */
-PJ_DEF(pj_bool_t) pjmedia_master_port_wait( pjmedia_master_port *m,
+(pj_bool_t) pjmedia_master_port_wait( pjmedia_master_port *m,
 					    pj_bool_t wait,
 					    pj_timestamp *ts)
 {
@@ -205,7 +205,7 @@ static void clock_callback(const pj_timestamp *ts, void *user_data)
 /*
  * Change the upstream port.
  */
-PJ_DEF(pj_status_t) pjmedia_master_port_set_uport(pjmedia_master_port *m,
+(pj_status_t) pjmedia_master_port_set_uport(pjmedia_master_port *m,
 						     pjmedia_port *port)
 {
     PJ_ASSERT_RETURN(m && port, PJ_EINVAL);
@@ -237,7 +237,7 @@ PJ_DEF(pj_status_t) pjmedia_master_port_set_uport(pjmedia_master_port *m,
 /*
  * Get the upstream port.
  */
-PJ_DEF(pjmedia_port*) pjmedia_master_port_get_uport(pjmedia_master_port*m)
+(pjmedia_port*) pjmedia_master_port_get_uport(pjmedia_master_port*m)
 {
     PJ_ASSERT_RETURN(m, NULL);
     return m->u_port;
@@ -247,7 +247,7 @@ PJ_DEF(pjmedia_port*) pjmedia_master_port_get_uport(pjmedia_master_port*m)
 /*
  * Change the downstream port.
  */
-PJ_DEF(pj_status_t) pjmedia_master_port_set_dport(pjmedia_master_port *m,
+(pj_status_t) pjmedia_master_port_set_dport(pjmedia_master_port *m,
 						  pjmedia_port *port)
 {
     PJ_ASSERT_RETURN(m && port, PJ_EINVAL);
@@ -279,7 +279,7 @@ PJ_DEF(pj_status_t) pjmedia_master_port_set_dport(pjmedia_master_port *m,
 /*
  * Get the downstream port.
  */
-PJ_DEF(pjmedia_port*) pjmedia_master_port_get_dport(pjmedia_master_port*m)
+(pjmedia_port*) pjmedia_master_port_get_dport(pjmedia_master_port*m)
 {
     PJ_ASSERT_RETURN(m, NULL);
     return m->d_port;
@@ -290,7 +290,7 @@ PJ_DEF(pjmedia_port*) pjmedia_master_port_get_dport(pjmedia_master_port*m)
  * Destroy the master port, and optionally destroy the u_port and 
  * d_port ports.
  */
-PJ_DEF(pj_status_t) pjmedia_master_port_destroy(pjmedia_master_port *m,
+(pj_status_t) pjmedia_master_port_destroy(pjmedia_master_port *m,
 						pj_bool_t destroy_ports)
 {
     PJ_ASSERT_RETURN(m, PJ_EINVAL);

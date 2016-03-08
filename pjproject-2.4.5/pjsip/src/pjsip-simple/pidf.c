@@ -96,7 +96,7 @@ static pj_xml_attr* xml_create_attr(pj_pool_t *pool, pj_str_t *name,
 }
 
 /* Presence */
-PJ_DEF(void) pjpidf_pres_construct(pj_pool_t *pool, pjpidf_pres *pres,
+(void) pjpidf_pres_construct(pj_pool_t *pool, pjpidf_pres *pres,
 				   const pj_str_t *entity)
 {
     pj_xml_attr *attr;
@@ -108,7 +108,7 @@ PJ_DEF(void) pjpidf_pres_construct(pj_pool_t *pool, pjpidf_pres *pres,
     pj_xml_add_attr(pres, attr);
 }
 
-PJ_DEF(pjpidf_tuple*) pjpidf_pres_add_tuple(pj_pool_t *pool, pjpidf_pres *pres,
+(pjpidf_tuple*) pjpidf_pres_add_tuple(pj_pool_t *pool, pjpidf_pres *pres,
 					    const pj_str_t *id)
 {
     pjpidf_tuple *t = PJ_POOL_ALLOC_T(pool, pjpidf_tuple);
@@ -117,12 +117,12 @@ PJ_DEF(pjpidf_tuple*) pjpidf_pres_add_tuple(pj_pool_t *pool, pjpidf_pres *pres,
     return t;
 }
 
-PJ_DEF(pjpidf_tuple*) pjpidf_pres_get_first_tuple(pjpidf_pres *pres)
+(pjpidf_tuple*) pjpidf_pres_get_first_tuple(pjpidf_pres *pres)
 {
     return pj_xml_find_node(pres, &TUPLE);
 }
 
-PJ_DEF(pjpidf_tuple*) pjpidf_pres_get_next_tuple(pjpidf_pres *pres, 
+(pjpidf_tuple*) pjpidf_pres_get_next_tuple(pjpidf_pres *pres, 
 						 pjpidf_tuple *tuple)
 {
     return pj_xml_find_next_node(pres, tuple, &TUPLE);
@@ -133,18 +133,18 @@ static pj_bool_t find_tuple_by_id(const pj_xml_node *node, const void *id)
     return pj_xml_find_attr(node, &ID, (const pj_str_t*)id) != NULL;
 }
 
-PJ_DEF(pjpidf_tuple*) pjpidf_pres_find_tuple(pjpidf_pres *pres, const pj_str_t *id)
+(pjpidf_tuple*) pjpidf_pres_find_tuple(pjpidf_pres *pres, const pj_str_t *id)
 {
     return pj_xml_find(pres, &TUPLE, id, &find_tuple_by_id);
 }
 
-PJ_DEF(void) pjpidf_pres_remove_tuple(pjpidf_pres *pres, pjpidf_tuple *t)
+(void) pjpidf_pres_remove_tuple(pjpidf_pres *pres, pjpidf_tuple *t)
 {
     PJ_UNUSED_ARG(pres);
     pj_list_erase(t);
 }
 
-PJ_DEF(pjpidf_note*) pjpidf_pres_add_note(pj_pool_t *pool, pjpidf_pres *pres, 
+(pjpidf_note*) pjpidf_pres_add_note(pj_pool_t *pool, pjpidf_pres *pres, 
 					  const pj_str_t *text)
 {
     pjpidf_note *note = PJ_POOL_ALLOC_T(pool, pjpidf_note);
@@ -153,19 +153,19 @@ PJ_DEF(pjpidf_note*) pjpidf_pres_add_note(pj_pool_t *pool, pjpidf_pres *pres,
     return note;
 }
 
-PJ_DEF(pjpidf_note*) pjpidf_pres_get_first_note(pjpidf_pres *pres)
+(pjpidf_note*) pjpidf_pres_get_first_note(pjpidf_pres *pres)
 {
     return pj_xml_find_node( pres, &NOTE);
 }
 
-PJ_DEF(pjpidf_note*) pjpidf_pres_get_next_note(pjpidf_pres *t, pjpidf_note *note)
+(pjpidf_note*) pjpidf_pres_get_next_note(pjpidf_pres *t, pjpidf_note *note)
 {
     return pj_xml_find_next_node(t, note, &NOTE);
 }
 
 
 /* Tuple */
-PJ_DEF(void) pjpidf_tuple_construct(pj_pool_t *pool, pjpidf_tuple *t,
+(void) pjpidf_tuple_construct(pj_pool_t *pool, pjpidf_tuple *t,
 				    const pj_str_t *id)
 {
     pj_xml_attr *attr;
@@ -179,14 +179,14 @@ PJ_DEF(void) pjpidf_tuple_construct(pj_pool_t *pool, pjpidf_tuple *t,
     pj_xml_add_node(t, st);
 }
 
-PJ_DEF(const pj_str_t*) pjpidf_tuple_get_id(const pjpidf_tuple *t)
+(const pj_str_t*) pjpidf_tuple_get_id(const pjpidf_tuple *t)
 {
     const pj_xml_attr *attr = pj_xml_find_attr((pj_xml_node*)t, &ID, NULL);
     pj_assert(attr);
     return &attr->value;
 }
 
-PJ_DEF(void) pjpidf_tuple_set_id(pj_pool_t *pool, pjpidf_tuple *t, const pj_str_t *id)
+(void) pjpidf_tuple_set_id(pj_pool_t *pool, pjpidf_tuple *t, const pj_str_t *id)
 {
     pj_xml_attr *attr = pj_xml_find_attr(t, &ID, NULL);
     pj_assert(attr);
@@ -194,7 +194,7 @@ PJ_DEF(void) pjpidf_tuple_set_id(pj_pool_t *pool, pjpidf_tuple *t, const pj_str_
 }
 
 
-PJ_DEF(pjpidf_status*) pjpidf_tuple_get_status(pjpidf_tuple *t)
+(pjpidf_status*) pjpidf_tuple_get_status(pjpidf_tuple *t)
 {
     pjpidf_status *st = (pjpidf_status*)pj_xml_find_node(t, &STATUS);
     pj_assert(st);
@@ -202,7 +202,7 @@ PJ_DEF(pjpidf_status*) pjpidf_tuple_get_status(pjpidf_tuple *t)
 }
 
 
-PJ_DEF(const pj_str_t*) pjpidf_tuple_get_contact(const pjpidf_tuple *t)
+(const pj_str_t*) pjpidf_tuple_get_contact(const pjpidf_tuple *t)
 {
     pj_xml_node *node = pj_xml_find_node((pj_xml_node*)t, &CONTACT);
     if (!node)
@@ -210,7 +210,7 @@ PJ_DEF(const pj_str_t*) pjpidf_tuple_get_contact(const pjpidf_tuple *t)
     return &node->content;
 }
 
-PJ_DEF(void) pjpidf_tuple_set_contact(pj_pool_t *pool, pjpidf_tuple *t, 
+(void) pjpidf_tuple_set_contact(pj_pool_t *pool, pjpidf_tuple *t, 
 				      const pj_str_t *contact)
 {
     pj_xml_node *node = pj_xml_find_node(t, &CONTACT);
@@ -223,7 +223,7 @@ PJ_DEF(void) pjpidf_tuple_set_contact(pj_pool_t *pool, pjpidf_tuple *t,
     }
 }
 
-PJ_DEF(void) pjpidf_tuple_set_contact_prio(pj_pool_t *pool, pjpidf_tuple *t, 
+(void) pjpidf_tuple_set_contact_prio(pj_pool_t *pool, pjpidf_tuple *t, 
 					   const pj_str_t *prio)
 {
     pj_xml_node *node = pj_xml_find_node(t, &CONTACT);
@@ -243,7 +243,7 @@ PJ_DEF(void) pjpidf_tuple_set_contact_prio(pj_pool_t *pool, pjpidf_tuple *t,
     }
 }
 
-PJ_DEF(const pj_str_t*) pjpidf_tuple_get_contact_prio(const pjpidf_tuple *t)
+(const pj_str_t*) pjpidf_tuple_get_contact_prio(const pjpidf_tuple *t)
 {
     pj_xml_node *node = pj_xml_find_node((pj_xml_node*)t, &CONTACT);
     pj_xml_attr *attr;
@@ -257,7 +257,7 @@ PJ_DEF(const pj_str_t*) pjpidf_tuple_get_contact_prio(const pjpidf_tuple *t)
 }
 
 
-PJ_DEF(pjpidf_note*) pjpidf_tuple_add_note(pj_pool_t *pool, pjpidf_tuple *t,
+(pjpidf_note*) pjpidf_tuple_add_note(pj_pool_t *pool, pjpidf_tuple *t,
 					   const pj_str_t *text)
 {
     pjpidf_note *note = PJ_POOL_ALLOC_T(pool, pjpidf_note);
@@ -266,24 +266,24 @@ PJ_DEF(pjpidf_note*) pjpidf_tuple_add_note(pj_pool_t *pool, pjpidf_tuple *t,
     return note;
 }
 
-PJ_DEF(pjpidf_note*) pjpidf_tuple_get_first_note(pjpidf_tuple *t)
+(pjpidf_note*) pjpidf_tuple_get_first_note(pjpidf_tuple *t)
 {
     return pj_xml_find_node(t, &NOTE);
 }
 
-PJ_DEF(pjpidf_note*) pjpidf_tuple_get_next_note(pjpidf_tuple *t, pjpidf_note *n)
+(pjpidf_note*) pjpidf_tuple_get_next_note(pjpidf_tuple *t, pjpidf_note *n)
 {
     return pj_xml_find_next_node(t, n, &NOTE);
 }
 
 
-PJ_DEF(const pj_str_t*) pjpidf_tuple_get_timestamp(const pjpidf_tuple *t)
+(const pj_str_t*) pjpidf_tuple_get_timestamp(const pjpidf_tuple *t)
 {
     pj_xml_node *node = pj_xml_find_node((pj_xml_node*)t, &TIMESTAMP);
     return node ? &node->content : &EMPTY_STRING;
 }
 
-PJ_DEF(void) pjpidf_tuple_set_timestamp(pj_pool_t *pool, pjpidf_tuple *t,
+(void) pjpidf_tuple_set_timestamp(pj_pool_t *pool, pjpidf_tuple *t,
 					const pj_str_t *ts)
 {
     pj_xml_node *node = pj_xml_find_node(t, &TIMESTAMP);
@@ -297,7 +297,7 @@ PJ_DEF(void) pjpidf_tuple_set_timestamp(pj_pool_t *pool, pjpidf_tuple *t,
 }
 
 
-PJ_DEF(void) pjpidf_tuple_set_timestamp_np(pj_pool_t *pool, pjpidf_tuple *t, 
+(void) pjpidf_tuple_set_timestamp_np(pj_pool_t *pool, pjpidf_tuple *t, 
 					   pj_str_t *ts)
 {
     pj_xml_node *node = pj_xml_find_node(t, &TIMESTAMP);
@@ -311,7 +311,7 @@ PJ_DEF(void) pjpidf_tuple_set_timestamp_np(pj_pool_t *pool, pjpidf_tuple *t,
 
 
 /* Status */
-PJ_DEF(void) pjpidf_status_construct(pj_pool_t *pool, pjpidf_status *st)
+(void) pjpidf_status_construct(pj_pool_t *pool, pjpidf_status *st)
 {
     pj_xml_node *node;
 
@@ -321,7 +321,7 @@ PJ_DEF(void) pjpidf_status_construct(pj_pool_t *pool, pjpidf_status *st)
     pj_xml_add_node(st, node);
 }
 
-PJ_DEF(pj_bool_t) pjpidf_status_is_basic_open(const pjpidf_status *st)
+(pj_bool_t) pjpidf_status_is_basic_open(const pjpidf_status *st)
 {
     pj_xml_node *node = pj_xml_find_node((pj_xml_node*)st, &BASIC);
     if (!node)
@@ -329,21 +329,21 @@ PJ_DEF(pj_bool_t) pjpidf_status_is_basic_open(const pjpidf_status *st)
     return pj_stricmp(&node->content, &OPEN)==0;
 }
 
-PJ_DEF(void) pjpidf_status_set_basic_open(pjpidf_status *st, pj_bool_t open)
+(void) pjpidf_status_set_basic_open(pjpidf_status *st, pj_bool_t open)
 {
     pj_xml_node *node = pj_xml_find_node(st, &BASIC);
     if (node)
 	node->content = open ? OPEN : CLOSED;
 }
 
-PJ_DEF(pjpidf_pres*) pjpidf_create(pj_pool_t *pool, const pj_str_t *entity)
+(pjpidf_pres*) pjpidf_create(pj_pool_t *pool, const pj_str_t *entity)
 {
     pjpidf_pres *pres = PJ_POOL_ALLOC_T(pool, pjpidf_pres);
     pjpidf_pres_construct(pool, pres, entity);
     return pres;
 }
 
-PJ_DEF(pjpidf_pres*) pjpidf_parse(pj_pool_t *pool, char *text, int len)
+(pjpidf_pres*) pjpidf_parse(pj_pool_t *pool, char *text, int len)
 {
     pjpidf_pres *pres = pj_xml_parse(pool, text, len);
     if (pres && pres->name.slen >= 8) {
@@ -358,7 +358,7 @@ PJ_DEF(pjpidf_pres*) pjpidf_parse(pj_pool_t *pool, char *text, int len)
     return NULL;
 }
 
-PJ_DEF(int) pjpidf_print(const pjpidf_pres* pres, char *buf, int len)
+(int) pjpidf_print(const pjpidf_pres* pres, char *buf, int len)
 {
     return pj_xml_print(pres, buf, len, PJ_TRUE);
 }

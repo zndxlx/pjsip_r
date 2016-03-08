@@ -38,7 +38,7 @@ struct pjmedia_resample
 };
 
 
-PJ_DEF(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
 					     pj_bool_t high_quality,
 					     pj_bool_t large_filter,
 					     unsigned channel_count,
@@ -83,7 +83,7 @@ PJ_DEF(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
 }
 
 
-PJ_DEF(void) pjmedia_resample_run( pjmedia_resample *resample,
+(void) pjmedia_resample_run( pjmedia_resample *resample,
 				   const pj_int16_t *input,
 				   pj_int16_t *output )
 {
@@ -103,14 +103,14 @@ PJ_DEF(void) pjmedia_resample_run( pjmedia_resample *resample,
 }
 
 
-PJ_DEF(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample)
+(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample)
 {
     PJ_ASSERT_RETURN(resample != NULL, 0);
     return resample->in_samples_per_frame;
 }
 
 
-PJ_DEF(void) pjmedia_resample_destroy(pjmedia_resample *resample)
+(void) pjmedia_resample_destroy(pjmedia_resample *resample)
 {
     PJ_ASSERT_ON_FAIL(resample, return);
     if (resample->state) {

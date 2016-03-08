@@ -86,7 +86,7 @@ struct pjmedia_delay_buf
 };
 
 
-PJ_DEF(pj_status_t) pjmedia_delay_buf_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_delay_buf_create( pj_pool_t *pool,
 					      const char *name,
 					      unsigned clock_rate,
 					      unsigned samples_per_frame,
@@ -148,7 +148,7 @@ PJ_DEF(pj_status_t) pjmedia_delay_buf_create( pj_pool_t *pool,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_delay_buf_destroy(pjmedia_delay_buf *b)
+(pj_status_t) pjmedia_delay_buf_destroy(pjmedia_delay_buf *b)
 {
     pj_status_t status = PJ_SUCCESS;
 
@@ -260,7 +260,7 @@ static void update(pjmedia_delay_buf *b, enum OP op)
     }
 }
 
-PJ_DEF(pj_status_t) pjmedia_delay_buf_put(pjmedia_delay_buf *b,
+(pj_status_t) pjmedia_delay_buf_put(pjmedia_delay_buf *b,
 					   pj_int16_t frame[])
 {
     pj_status_t status;
@@ -318,7 +318,7 @@ PJ_DEF(pj_status_t) pjmedia_delay_buf_put(pjmedia_delay_buf *b,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_delay_buf_get( pjmedia_delay_buf *b,
+(pj_status_t) pjmedia_delay_buf_get( pjmedia_delay_buf *b,
 					   pj_int16_t frame[])
 {
     pj_status_t status = PJ_SUCCESS;
@@ -381,7 +381,7 @@ PJ_DEF(pj_status_t) pjmedia_delay_buf_get( pjmedia_delay_buf *b,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_delay_buf_reset(pjmedia_delay_buf *b)
+(pj_status_t) pjmedia_delay_buf_reset(pjmedia_delay_buf *b)
 {
     PJ_ASSERT_RETURN(b, PJ_EINVAL);
 

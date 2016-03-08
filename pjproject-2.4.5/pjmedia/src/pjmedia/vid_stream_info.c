@@ -176,7 +176,7 @@ static pj_status_t get_video_codec_info_param(pjmedia_vid_stream_info *si,
 /*
  * Create stream info from SDP media line.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_stream_info_from_sdp(
+(pj_status_t) pjmedia_vid_stream_info_from_sdp(
 					   pjmedia_vid_stream_info *si,
 					   pj_pool_t *pool,
 					   pjmedia_endpt *endpt,

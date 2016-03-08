@@ -99,7 +99,7 @@ static void timer_cb(pj_timer_heap_t *th, pj_timer_entry *e);
 
 
 /* Init config */
-PJ_DEF(void) pj_turn_sock_cfg_default(pj_turn_sock_cfg *cfg)
+(void) pj_turn_sock_cfg_default(pj_turn_sock_cfg *cfg)
 {
     pj_bzero(cfg, sizeof(*cfg));
     cfg->max_pkt_size = PJ_TURN_MAX_PKT_LEN;
@@ -111,7 +111,7 @@ PJ_DEF(void) pj_turn_sock_cfg_default(pj_turn_sock_cfg *cfg)
 /*
  * Create.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_create(pj_stun_config *cfg,
+(pj_status_t) pj_turn_sock_create(pj_stun_config *cfg,
 					int af,
 					pj_turn_tp_type conn_type,
 					const pj_turn_sock_cb *cb,
@@ -244,7 +244,7 @@ static void destroy(pj_turn_sock *turn_sock)
     pj_grp_lock_release(turn_sock->grp_lock);
 }
 
-PJ_DEF(void) pj_turn_sock_destroy(pj_turn_sock *turn_sock)
+(void) pj_turn_sock_destroy(pj_turn_sock *turn_sock)
 {
     pj_grp_lock_acquire(turn_sock->grp_lock);
     if (turn_sock->is_destroying) {
@@ -307,7 +307,7 @@ static void sess_fail(pj_turn_sock *turn_sock, const char *title,
 /*
  * Set user data.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_set_user_data( pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_set_user_data( pj_turn_sock *turn_sock,
 					       void *user_data)
 {
     PJ_ASSERT_RETURN(turn_sock, PJ_EINVAL);
@@ -318,7 +318,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_set_user_data( pj_turn_sock *turn_sock,
 /*
  * Get user data.
  */
-PJ_DEF(void*) pj_turn_sock_get_user_data(pj_turn_sock *turn_sock)
+(void*) pj_turn_sock_get_user_data(pj_turn_sock *turn_sock)
 {
     PJ_ASSERT_RETURN(turn_sock, NULL);
     return turn_sock->user_data;
@@ -327,7 +327,7 @@ PJ_DEF(void*) pj_turn_sock_get_user_data(pj_turn_sock *turn_sock)
 /*
  * Get group lock.
  */
-PJ_DEF(pj_grp_lock_t *) pj_turn_sock_get_grp_lock(pj_turn_sock *turn_sock)
+(pj_grp_lock_t *) pj_turn_sock_get_grp_lock(pj_turn_sock *turn_sock)
 {
     PJ_ASSERT_RETURN(turn_sock, NULL);
     return turn_sock->grp_lock;
@@ -336,7 +336,7 @@ PJ_DEF(pj_grp_lock_t *) pj_turn_sock_get_grp_lock(pj_turn_sock *turn_sock)
 /**
  * Get info.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_get_info(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_get_info(pj_turn_sock *turn_sock,
 					  pj_turn_session_info *info)
 {
     PJ_ASSERT_RETURN(turn_sock && info, PJ_EINVAL);
@@ -354,7 +354,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_get_info(pj_turn_sock *turn_sock,
  * Lock the TURN socket. Application may need to call this function to
  * synchronize access to other objects to avoid deadlock.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_lock(pj_turn_sock *turn_sock)
+(pj_status_t) pj_turn_sock_lock(pj_turn_sock *turn_sock)
 {
     return pj_grp_lock_acquire(turn_sock->grp_lock);
 }
@@ -362,7 +362,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_lock(pj_turn_sock *turn_sock)
 /**
  * Unlock the TURN socket.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_unlock(pj_turn_sock *turn_sock)
+(pj_status_t) pj_turn_sock_unlock(pj_turn_sock *turn_sock)
 {
     return pj_grp_lock_release(turn_sock->grp_lock);
 }
@@ -370,7 +370,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_unlock(pj_turn_sock *turn_sock)
 /*
  * Set STUN message logging for this TURN session. 
  */
-PJ_DEF(void) pj_turn_sock_set_log( pj_turn_sock *turn_sock,
+(void) pj_turn_sock_set_log( pj_turn_sock *turn_sock,
 				   unsigned flags)
 {
     pj_turn_session_set_log(turn_sock->sess, flags);
@@ -379,7 +379,7 @@ PJ_DEF(void) pj_turn_sock_set_log( pj_turn_sock *turn_sock,
 /*
  * Set software name
  */
-PJ_DEF(pj_status_t) pj_turn_sock_set_software_name( pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_set_software_name( pj_turn_sock *turn_sock,
 						    const pj_str_t *sw)
 {
     return pj_turn_session_set_software_name(turn_sock->sess, sw);
@@ -388,7 +388,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_set_software_name( pj_turn_sock *turn_sock,
 /*
  * Initialize.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_alloc(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_alloc(pj_turn_sock *turn_sock,
 				       const pj_str_t *domain,
 				       int default_port,
 				       pj_dns_resolver *resolver,
@@ -440,7 +440,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_alloc(pj_turn_sock *turn_sock,
 /*
  * Install permission
  */
-PJ_DEF(pj_status_t) pj_turn_sock_set_perm( pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_set_perm( pj_turn_sock *turn_sock,
 					   unsigned addr_cnt,
 					   const pj_sockaddr addr[],
 					   unsigned options)
@@ -454,7 +454,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_set_perm( pj_turn_sock *turn_sock,
 /*
  * Send packet.
  */ 
-PJ_DEF(pj_status_t) pj_turn_sock_sendto( pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_sendto( pj_turn_sock *turn_sock,
 					const pj_uint8_t *pkt,
 					unsigned pkt_len,
 					const pj_sockaddr_t *addr,
@@ -472,7 +472,7 @@ PJ_DEF(pj_status_t) pj_turn_sock_sendto( pj_turn_sock *turn_sock,
 /*
  * Bind a peer address to a channel number.
  */
-PJ_DEF(pj_status_t) pj_turn_sock_bind_channel( pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_bind_channel( pj_turn_sock *turn_sock,
 					      const pj_sockaddr_t *peer,
 					      unsigned addr_len)
 {

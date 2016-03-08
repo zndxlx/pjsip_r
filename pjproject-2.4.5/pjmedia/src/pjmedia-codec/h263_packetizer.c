@@ -81,7 +81,7 @@ static pj_uint8_t* find_sync_point_rev(pj_uint8_t *data,
 /*
  * Create H263 packetizer.
  */
-PJ_DEF(pj_status_t) pjmedia_h263_packetizer_create(
+(pj_status_t) pjmedia_h263_packetizer_create(
 				pj_pool_t *pool,
 				const pjmedia_h263_packetizer_cfg *cfg,
 				pjmedia_h263_packetizer **p)
@@ -110,7 +110,7 @@ PJ_DEF(pj_status_t) pjmedia_h263_packetizer_create(
 /*
  * Generate an RTP payload from H.263 frame bitstream, in-place processing.
  */
-PJ_DEF(pj_status_t) pjmedia_h263_packetize(pjmedia_h263_packetizer *pktz,
+(pj_status_t) pjmedia_h263_packetize(pjmedia_h263_packetizer *pktz,
 					   pj_uint8_t *bits,
                                            pj_size_t bits_len,
                                            unsigned *pos,
@@ -164,7 +164,7 @@ PJ_DEF(pj_status_t) pjmedia_h263_packetize(pjmedia_h263_packetizer *pktz,
 /*
  * Append an RTP payload to a H.263 picture bitstream.
  */
-PJ_DEF(pj_status_t) pjmedia_h263_unpacketize (pjmedia_h263_packetizer *pktz,
+(pj_status_t) pjmedia_h263_unpacketize (pjmedia_h263_packetizer *pktz,
 					      const pj_uint8_t *payload,
                                               pj_size_t payload_len,
                                               pj_uint8_t *bits,

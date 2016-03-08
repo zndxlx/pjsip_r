@@ -297,7 +297,7 @@ static pj_status_t get_audio_codec_info_param(pjmedia_stream_info *si,
 /*
  * Create stream info from SDP media line.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_info_from_sdp(
+(pj_status_t) pjmedia_stream_info_from_sdp(
 					   pjmedia_stream_info *si,
 					   pj_pool_t *pool,
 					   pjmedia_endpt *endpt,

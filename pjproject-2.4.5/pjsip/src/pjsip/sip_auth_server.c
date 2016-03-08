@@ -32,7 +32,7 @@
  * specified realm and to use lookup_func function to look for the credential 
  * info. 
  */
-PJ_DEF(pj_status_t) pjsip_auth_srv_init(  pj_pool_t *pool,
+(pj_status_t) pjsip_auth_srv_init(  pj_pool_t *pool,
 					  pjsip_auth_srv *auth_srv,
 					  const pj_str_t *realm,
 					  pjsip_auth_lookup_cred *lookup,
@@ -53,7 +53,7 @@ PJ_DEF(pj_status_t) pjsip_auth_srv_init(  pj_pool_t *pool,
  * specified realm and to use lookup_func function to look for the credential 
  * info. 
  */
-PJ_DEF(pj_status_t) pjsip_auth_srv_init2(
+(pj_status_t) pjsip_auth_srv_init2(
 				    pj_pool_t *pool,
 				    pjsip_auth_srv *auth_srv,
 				    const pjsip_auth_srv_init_param *param)
@@ -120,7 +120,7 @@ static pj_status_t pjsip_auth_verify( const pjsip_authorization_hdr *hdr,
  * Request the authorization server framework to verify the authorization 
  * information in the specified request in rdata.
  */
-PJ_DEF(pj_status_t) pjsip_auth_srv_verify( pjsip_auth_srv *auth_srv,
+(pj_status_t) pjsip_auth_srv_verify( pjsip_auth_srv *auth_srv,
 					   pjsip_rx_data *rdata,
 					   int *status_code)
 {
@@ -206,7 +206,7 @@ PJ_DEF(pj_status_t) pjsip_auth_srv_verify( pjsip_auth_srv *auth_srv,
  * or can leave the value to NULL to make the function fills them in with 
  * random characters.
  */
-PJ_DEF(pj_status_t) pjsip_auth_srv_challenge(  pjsip_auth_srv *auth_srv,
+(pj_status_t) pjsip_auth_srv_challenge(  pjsip_auth_srv *auth_srv,
 					       const pj_str_t *qop,
 					       const pj_str_t *nonce,
 					       const pj_str_t *opaque,

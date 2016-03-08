@@ -40,7 +40,7 @@
 #define PART_FDSET_OR_NULL(ps)	(ps ? PART_FDSET(ps) : NULL)
 #define PART_COUNT(ps)		(ps->data[0])
 
-PJ_DEF(void) PJ_FD_ZERO(pj_fd_set_t *fdsetp)
+(void) PJ_FD_ZERO(pj_fd_set_t *fdsetp)
 {
     PJ_CHECK_STACK();
     pj_assert(sizeof(pj_fd_set_t)-sizeof(pj_sock_t) >= sizeof(fd_set));
@@ -50,7 +50,7 @@ PJ_DEF(void) PJ_FD_ZERO(pj_fd_set_t *fdsetp)
 }
 
 
-PJ_DEF(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp)
+(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp)
 {
     PJ_CHECK_STACK();
     pj_assert(sizeof(pj_fd_set_t)-sizeof(pj_sock_t) >= sizeof(fd_set));
@@ -61,7 +61,7 @@ PJ_DEF(void) PJ_FD_SET(pj_sock_t fd, pj_fd_set_t *fdsetp)
 }
 
 
-PJ_DEF(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp)
+(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp)
 {
     PJ_CHECK_STACK();
     pj_assert(sizeof(pj_fd_set_t)-sizeof(pj_sock_t) >= sizeof(fd_set));
@@ -72,7 +72,7 @@ PJ_DEF(void) PJ_FD_CLR(pj_sock_t fd, pj_fd_set_t *fdsetp)
 }
 
 
-PJ_DEF(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp)
+(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(sizeof(pj_fd_set_t)-sizeof(pj_sock_t) >= sizeof(fd_set),
@@ -81,12 +81,12 @@ PJ_DEF(pj_bool_t) PJ_FD_ISSET(pj_sock_t fd, const pj_fd_set_t *fdsetp)
     return FD_ISSET(fd, PART_FDSET(fdsetp));
 }
 
-PJ_DEF(pj_size_t) PJ_FD_COUNT(const pj_fd_set_t *fdsetp)
+(pj_size_t) PJ_FD_COUNT(const pj_fd_set_t *fdsetp)
 {
     return PART_COUNT(fdsetp);
 }
 
-PJ_DEF(int) pj_sock_select( int n, 
+(int) pj_sock_select( int n, 
 			    pj_fd_set_t *readfds, 
 			    pj_fd_set_t *writefds,
 			    pj_fd_set_t *exceptfds, 

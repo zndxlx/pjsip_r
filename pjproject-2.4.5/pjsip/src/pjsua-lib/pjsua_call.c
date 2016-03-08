@@ -218,7 +218,7 @@ pj_status_t pjsua_call_subsys_start(void)
 /*
  * Get maximum number of calls configured in pjsua.
  */
-PJ_DEF(unsigned) pjsua_call_get_max_count(void)
+(unsigned) pjsua_call_get_max_count(void)
 {
     return pjsua_var.ua_cfg.max_calls;
 }
@@ -227,7 +227,7 @@ PJ_DEF(unsigned) pjsua_call_get_max_count(void)
 /*
  * Get number of currently active calls.
  */
-PJ_DEF(unsigned) pjsua_call_get_count(void)
+(unsigned) pjsua_call_get_count(void)
 {
     return pjsua_var.call_cnt;
 }
@@ -236,7 +236,7 @@ PJ_DEF(unsigned) pjsua_call_get_count(void)
 /*
  * Enum calls.
  */
-PJ_DEF(pj_status_t) pjsua_enum_calls( pjsua_call_id ids[],
+(pj_status_t) pjsua_enum_calls( pjsua_call_id ids[],
 				      unsigned *count)
 {
     unsigned i, c;
@@ -576,7 +576,7 @@ static void cleanup_call_setting_flag(pjsua_call_setting *opt)
 /*
  * Initialize call settings based on account ID.
  */
-PJ_DEF(void) pjsua_call_setting_default(pjsua_call_setting *opt)
+(void) pjsua_call_setting_default(pjsua_call_setting *opt)
 {
     pj_assert(opt);
 
@@ -636,7 +636,7 @@ static pj_status_t apply_call_setting(pjsua_call *call,
 /*
  * Make outgoing call to the specified URI using the specified account.
  */
-PJ_DEF(pj_status_t) pjsua_call_make_call(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_call_make_call(pjsua_acc_id acc_id,
 					 const pj_str_t *dest_uri,
 					 const pjsua_call_setting *opt,
 					 void *user_data,
@@ -1629,7 +1629,7 @@ on_return:
  * Check if the specified call has active INVITE session and the INVITE
  * session has not been disconnected.
  */
-PJ_DEF(pj_bool_t) pjsua_call_is_active(pjsua_call_id call_id)
+(pj_bool_t) pjsua_call_is_active(pjsua_call_id call_id)
 {
     PJ_ASSERT_RETURN(call_id>=0 && call_id<(int)pjsua_var.ua_cfg.max_calls,
 		     PJ_EINVAL);
@@ -1722,7 +1722,7 @@ pj_status_t acquire_call(const char *title,
 /*
  * Obtain detail information about the specified call.
  */
-PJ_DEF(pj_status_t) pjsua_call_get_info( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_get_info( pjsua_call_id call_id,
 					 pjsua_call_info *info)
 {
     pjsua_call *call;
@@ -1923,7 +1923,7 @@ PJ_DEF(pj_status_t) pjsua_call_get_info( pjsua_call_id call_id,
 /*
  * Check if call remote peer support the specified capability.
  */
-PJ_DEF(pjsip_dialog_cap_status) pjsua_call_remote_has_cap(
+(pjsip_dialog_cap_status) pjsua_call_remote_has_cap(
 						    pjsua_call_id call_id,
 						    int htype,
 						    const pj_str_t *hname,
@@ -1949,7 +1949,7 @@ PJ_DEF(pjsip_dialog_cap_status) pjsua_call_remote_has_cap(
 /*
  * Attach application specific data to the call.
  */
-PJ_DEF(pj_status_t) pjsua_call_set_user_data( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_set_user_data( pjsua_call_id call_id,
 					      void *user_data)
 {
     PJ_ASSERT_RETURN(call_id>=0 && call_id<(int)pjsua_var.ua_cfg.max_calls,
@@ -1963,7 +1963,7 @@ PJ_DEF(pj_status_t) pjsua_call_set_user_data( pjsua_call_id call_id,
 /*
  * Get user data attached to the call.
  */
-PJ_DEF(void*) pjsua_call_get_user_data(pjsua_call_id call_id)
+(void*) pjsua_call_get_user_data(pjsua_call_id call_id)
 {
     PJ_ASSERT_RETURN(call_id>=0 && call_id<(int)pjsua_var.ua_cfg.max_calls,
 		     NULL);
@@ -1974,7 +1974,7 @@ PJ_DEF(void*) pjsua_call_get_user_data(pjsua_call_id call_id)
 /*
  * Get remote's NAT type.
  */
-PJ_DEF(pj_status_t) pjsua_call_get_rem_nat_type(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_get_rem_nat_type(pjsua_call_id call_id,
 						pj_stun_nat_type *p_type)
 {
     PJ_ASSERT_RETURN(call_id>=0 && call_id<(int)pjsua_var.ua_cfg.max_calls,
@@ -1989,7 +1989,7 @@ PJ_DEF(pj_status_t) pjsua_call_get_rem_nat_type(pjsua_call_id call_id,
 /*
  * Get media transport info for the specified media index.
  */
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjsua_call_get_med_transport_info(pjsua_call_id call_id,
                                   unsigned med_idx,
                                   pjmedia_transport_info *t)
@@ -2099,7 +2099,7 @@ on_return:
 /*
  * Send response to incoming INVITE request.
  */
-PJ_DEF(pj_status_t) pjsua_call_answer( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_answer( pjsua_call_id call_id,
 				       unsigned code,
 				       const pj_str_t *reason,
 				       const pjsua_msg_data *msg_data)
@@ -2111,7 +2111,7 @@ PJ_DEF(pj_status_t) pjsua_call_answer( pjsua_call_id call_id,
 /*
  * Send response to incoming INVITE request.
  */
-PJ_DEF(pj_status_t) pjsua_call_answer2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_answer2(pjsua_call_id call_id,
 				       const pjsua_call_setting *opt,
 				       unsigned code,
 				       const pj_str_t *reason,
@@ -2260,7 +2260,7 @@ on_return:
  * Hangup call by using method that is appropriate according to the
  * call state.
  */
-PJ_DEF(pj_status_t) pjsua_call_hangup(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_hangup(pjsua_call_id call_id,
 				      unsigned code,
 				      const pj_str_t *reason,
 				      const pjsua_msg_data *msg_data)
@@ -2361,7 +2361,7 @@ on_return:
 /*
  * Accept or reject redirection.
  */
-PJ_DEF(pj_status_t) pjsua_call_process_redirect( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_process_redirect( pjsua_call_id call_id,
 						 pjsip_redirect_op cmd)
 {
     pjsua_call *call;
@@ -2387,13 +2387,13 @@ PJ_DEF(pj_status_t) pjsua_call_process_redirect( pjsua_call_id call_id,
 /*
  * Put the specified call on hold.
  */
-PJ_DEF(pj_status_t) pjsua_call_set_hold(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_set_hold(pjsua_call_id call_id,
 					const pjsua_msg_data *msg_data)
 {
     return pjsua_call_set_hold2(call_id, 0, msg_data);
 }
 
-PJ_DEF(pj_status_t) pjsua_call_set_hold2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_set_hold2(pjsua_call_id call_id,
                                          unsigned options,
 					 const pjsua_msg_data *msg_data)
 {
@@ -2471,7 +2471,7 @@ on_return:
 /*
  * Send re-INVITE (to release hold).
  */
-PJ_DEF(pj_status_t) pjsua_call_reinvite( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_reinvite( pjsua_call_id call_id,
                                          unsigned options,
 					 const pjsua_msg_data *msg_data)
 {
@@ -2497,7 +2497,7 @@ on_return:
 /*
  * Send re-INVITE (to release hold).
  */
-PJ_DEF(pj_status_t) pjsua_call_reinvite2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_reinvite2(pjsua_call_id call_id,
                                          const pjsua_call_setting *opt,
 					 const pjsua_msg_data *msg_data)
 {
@@ -2586,7 +2586,7 @@ on_return:
 /*
  * Send UPDATE request.
  */
-PJ_DEF(pj_status_t) pjsua_call_update( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_update( pjsua_call_id call_id,
 				       unsigned options,
 				       const pjsua_msg_data *msg_data)
 {
@@ -2612,7 +2612,7 @@ on_return:
 /*
  * Send UPDATE request.
  */
-PJ_DEF(pj_status_t) pjsua_call_update2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_update2(pjsua_call_id call_id,
 				       const pjsua_call_setting *opt,
 				       const pjsua_msg_data *msg_data)
 {
@@ -2695,7 +2695,7 @@ on_return:
 /*
  * Initiate call transfer to the specified address.
  */
-PJ_DEF(pj_status_t) pjsua_call_xfer( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_xfer( pjsua_call_id call_id,
 				     const pj_str_t *dest,
 				     const pjsua_msg_data *msg_data)
 {
@@ -2773,7 +2773,7 @@ on_return:
 /*
  * Initiate attended call transfer to the specified address.
  */
-PJ_DEF(pj_status_t) pjsua_call_xfer_replaces( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_xfer_replaces( pjsua_call_id call_id,
 					      pjsua_call_id dest_call_id,
 					      unsigned options,
 					      const pjsua_msg_data *msg_data)
@@ -2870,7 +2870,7 @@ on_error:
 /**
  * Send instant messaging inside INVITE session.
  */
-PJ_DEF(pj_status_t) pjsua_call_send_im( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_send_im( pjsua_call_id call_id,
 					const pj_str_t *mime_type,
 					const pj_str_t *content,
 					const pjsua_msg_data *msg_data,
@@ -2954,7 +2954,7 @@ on_return:
 /*
  * Send IM typing indication inside INVITE session.
  */
-PJ_DEF(pj_status_t) pjsua_call_send_typing_ind( pjsua_call_id call_id,
+(pj_status_t) pjsua_call_send_typing_ind( pjsua_call_id call_id,
 						pj_bool_t is_typing,
 						const pjsua_msg_data*msg_data)
 {
@@ -3006,7 +3006,7 @@ on_return:
 /*
  * Send arbitrary request.
  */
-PJ_DEF(pj_status_t) pjsua_call_send_request(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_send_request(pjsua_call_id call_id,
 					    const pj_str_t *method_str,
 					    const pjsua_msg_data *msg_data)
 {
@@ -3057,7 +3057,7 @@ on_return:
 /*
  * Terminate all calls.
  */
-PJ_DEF(void) pjsua_call_hangup_all(void)
+(void) pjsua_call_hangup_all(void)
 {
     unsigned i;
 

@@ -147,7 +147,7 @@ static pj_status_t vid_pasv_port_get_frame(struct pjmedia_port *this_port,
 					   pjmedia_frame *frame);
 
 
-PJ_DEF(void) pjmedia_vid_port_param_default(pjmedia_vid_port_param *prm)
+(void) pjmedia_vid_port_param_default(pjmedia_vid_port_param *prm)
 {
     pj_bzero(prm, sizeof(*prm));
     prm->active = PJ_TRUE;
@@ -476,7 +476,7 @@ static void test_find_closest_fmt(pjmedia_vid_dev_info *di)
 }
 #endif
 
-PJ_DEF(pj_status_t) pjmedia_vid_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_vid_port_create( pj_pool_t *pool,
 					     const pjmedia_vid_port_param *prm,
 					     pjmedia_vid_port **p_vid_port)
 {
@@ -682,7 +682,7 @@ on_error:
     return status;
 }
 
-PJ_DEF(void) pjmedia_vid_port_set_cb(pjmedia_vid_port *vid_port,
+(void) pjmedia_vid_port_set_cb(pjmedia_vid_port *vid_port,
 				     const pjmedia_vid_dev_cb *cb,
                                      void *user_data)
 {
@@ -691,7 +691,7 @@ PJ_DEF(void) pjmedia_vid_port_set_cb(pjmedia_vid_port *vid_port,
     vid_port->strm_cb_data = user_data;
 }
 
-PJ_DEF(pjmedia_vid_dev_stream*)
+(pjmedia_vid_dev_stream*)
 pjmedia_vid_port_get_stream(pjmedia_vid_port *vp)
 {
     PJ_ASSERT_RETURN(vp, NULL);
@@ -699,7 +699,7 @@ pjmedia_vid_port_get_stream(pjmedia_vid_port *vp)
 }
 
 
-PJ_DEF(pjmedia_port*)
+(pjmedia_port*)
 pjmedia_vid_port_get_passive_port(pjmedia_vid_port *vp)
 {
     PJ_ASSERT_RETURN(vp && vp->role==ROLE_PASSIVE, NULL);
@@ -707,7 +707,7 @@ pjmedia_vid_port_get_passive_port(pjmedia_vid_port *vp)
 }
 
 
-PJ_DEF(pjmedia_clock_src *)
+(pjmedia_clock_src *)
 pjmedia_vid_port_get_clock_src( pjmedia_vid_port *vid_port )
 {
     PJ_ASSERT_RETURN(vid_port, NULL);
@@ -729,7 +729,7 @@ pjmedia_vid_port_set_clock_src( pjmedia_vid_port *vid_port,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_vid_port_connect(pjmedia_vid_port *vp,
+(pj_status_t) pjmedia_vid_port_connect(pjmedia_vid_port *vp,
 					      pjmedia_port *port,
 					      pj_bool_t destroy)
 {
@@ -745,7 +745,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_port_connect(pjmedia_vid_port *vp,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_vid_port_disconnect(pjmedia_vid_port *vp)
+(pj_status_t) pjmedia_vid_port_disconnect(pjmedia_vid_port *vp)
 {
     PJ_ASSERT_RETURN(vp && vp->role==ROLE_ACTIVE, PJ_EINVAL);
 
@@ -757,14 +757,14 @@ PJ_DEF(pj_status_t) pjmedia_vid_port_disconnect(pjmedia_vid_port *vp)
 }
 
 
-PJ_DEF(pjmedia_port*)
+(pjmedia_port*)
 pjmedia_vid_port_get_connected_port(pjmedia_vid_port *vp)
 {
     PJ_ASSERT_RETURN(vp && vp->role==ROLE_ACTIVE, NULL);
     return vp->client_port;
 }
 
-PJ_DEF(pj_status_t) pjmedia_vid_port_start(pjmedia_vid_port *vp)
+(pj_status_t) pjmedia_vid_port_start(pjmedia_vid_port *vp)
 {
     pj_status_t status;
 
@@ -787,12 +787,12 @@ on_error:
     return status;
 }
 
-PJ_DEF(pj_bool_t) pjmedia_vid_port_is_running(pjmedia_vid_port *vp)
+(pj_bool_t) pjmedia_vid_port_is_running(pjmedia_vid_port *vp)
 {
     return pjmedia_vid_dev_stream_is_running(vp->strm);
 }
 
-PJ_DEF(pj_status_t) pjmedia_vid_port_stop(pjmedia_vid_port *vp)
+(pj_status_t) pjmedia_vid_port_stop(pjmedia_vid_port *vp)
 {
     pj_status_t status;
 
@@ -807,7 +807,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_port_stop(pjmedia_vid_port *vp)
     return status;
 }
 
-PJ_DEF(void) pjmedia_vid_port_destroy(pjmedia_vid_port *vp)
+(void) pjmedia_vid_port_destroy(pjmedia_vid_port *vp)
 {
     PJ_ASSERT_ON_FAIL(vp, return);
 

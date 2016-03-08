@@ -205,7 +205,7 @@ static void on_timer_event(pj_timer_heap_t *th, pj_timer_entry *e);
 /*
  * Create default pj_turn_alloc_param.
  */
-PJ_DEF(void) pj_turn_alloc_param_default(pj_turn_alloc_param *prm)
+(void) pj_turn_alloc_param_default(pj_turn_alloc_param *prm)
 {
     pj_bzero(prm, sizeof(*prm));
 }
@@ -213,7 +213,7 @@ PJ_DEF(void) pj_turn_alloc_param_default(pj_turn_alloc_param *prm)
 /*
  * Duplicate pj_turn_alloc_param.
  */
-PJ_DEF(void) pj_turn_alloc_param_copy( pj_pool_t *pool, 
+(void) pj_turn_alloc_param_copy( pj_pool_t *pool, 
 				       pj_turn_alloc_param *dst,
 				       const pj_turn_alloc_param *src)
 {
@@ -224,7 +224,7 @@ PJ_DEF(void) pj_turn_alloc_param_copy( pj_pool_t *pool,
 /*
  * Get TURN state name.
  */
-PJ_DEF(const char*) pj_turn_state_name(pj_turn_state_t state)
+(const char*) pj_turn_state_name(pj_turn_state_t state)
 {
     return state_names[state];
 }
@@ -232,7 +232,7 @@ PJ_DEF(const char*) pj_turn_state_name(pj_turn_state_t state)
 /*
  * Create TURN client session.
  */
-PJ_DEF(pj_status_t) pj_turn_session_create( const pj_stun_config *cfg,
+(pj_status_t) pj_turn_session_create( const pj_stun_config *cfg,
 					    const char *name,
 					    int af,
 					    pj_turn_tp_type conn_type,
@@ -445,7 +445,7 @@ static void sess_shutdown(pj_turn_session *sess,
 /*
  * Public API to destroy TURN client session.
  */
-PJ_DEF(pj_status_t) pj_turn_session_shutdown(pj_turn_session *sess)
+(pj_status_t) pj_turn_session_shutdown(pj_turn_session *sess)
 {
     PJ_ASSERT_RETURN(sess, PJ_EINVAL);
 
@@ -462,7 +462,7 @@ PJ_DEF(pj_status_t) pj_turn_session_shutdown(pj_turn_session *sess)
 /**
  * Forcefully destroy the TURN session.
  */
-PJ_DEF(pj_status_t) pj_turn_session_destroy( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_destroy( pj_turn_session *sess,
 					     pj_status_t last_err)
 {
     PJ_ASSERT_RETURN(sess, PJ_EINVAL);
@@ -478,7 +478,7 @@ PJ_DEF(pj_status_t) pj_turn_session_destroy( pj_turn_session *sess,
 /*
  * Get TURN session info.
  */
-PJ_DEF(pj_status_t) pj_turn_session_get_info( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_get_info( pj_turn_session *sess,
 					      pj_turn_session_info *info)
 {
     pj_time_val now;
@@ -509,7 +509,7 @@ PJ_DEF(pj_status_t) pj_turn_session_get_info( pj_turn_session *sess,
 /*
  * Re-assign user data.
  */
-PJ_DEF(pj_status_t) pj_turn_session_set_user_data( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_user_data( pj_turn_session *sess,
 						   void *user_data)
 {
     sess->user_data = user_data;
@@ -520,7 +520,7 @@ PJ_DEF(pj_status_t) pj_turn_session_set_user_data( pj_turn_session *sess,
 /**
  * Retrieve user data.
  */
-PJ_DEF(void*) pj_turn_session_get_user_data(pj_turn_session *sess)
+(void*) pj_turn_session_get_user_data(pj_turn_session *sess)
 {
     return sess->user_data;
 }
@@ -528,7 +528,7 @@ PJ_DEF(void*) pj_turn_session_get_user_data(pj_turn_session *sess)
 /**
  * Get group lock.
  */
-PJ_DEF(pj_grp_lock_t *) pj_turn_session_get_grp_lock(pj_turn_session *sess)
+(pj_grp_lock_t *) pj_turn_session_get_grp_lock(pj_turn_session *sess)
 {
     PJ_ASSERT_RETURN(sess, NULL);
     return sess->grp_lock;
@@ -540,7 +540,7 @@ PJ_DEF(pj_grp_lock_t *) pj_turn_session_get_grp_lock(pj_turn_session *sess)
  * @param sess		The TURN client session.
  * @param flags		Bitmask combination of #pj_stun_sess_msg_log_flag
  */
-PJ_DEF(void) pj_turn_session_set_log( pj_turn_session *sess,
+(void) pj_turn_session_set_log( pj_turn_session *sess,
 				      unsigned flags)
 {
     pj_stun_session_set_log(sess->stun, flags);
@@ -550,7 +550,7 @@ PJ_DEF(void) pj_turn_session_set_log( pj_turn_session *sess,
 /*
  * Set software name
  */
-PJ_DEF(pj_status_t) pj_turn_session_set_software_name( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_software_name( pj_turn_session *sess,
 						       const pj_str_t *sw)
 {
     pj_status_t status;
@@ -566,7 +566,7 @@ PJ_DEF(pj_status_t) pj_turn_session_set_software_name( pj_turn_session *sess,
 /**
  * Set the server or domain name of the server.
  */
-PJ_DEF(pj_status_t) pj_turn_session_set_server( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_server( pj_turn_session *sess,
 					        const pj_str_t *domain,
 						int default_port,
 						pj_dns_resolver *resolver)
@@ -686,7 +686,7 @@ on_return:
 /**
  * Set credential to be used by the session.
  */
-PJ_DEF(pj_status_t) pj_turn_session_set_credential(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_credential(pj_turn_session *sess,
 					     const pj_stun_auth_cred *cred)
 {
     PJ_ASSERT_RETURN(sess && cred, PJ_EINVAL);
@@ -705,7 +705,7 @@ PJ_DEF(pj_status_t) pj_turn_session_set_credential(pj_turn_session *sess,
 /**
  * Create TURN allocation.
  */
-PJ_DEF(pj_status_t) pj_turn_session_alloc(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_alloc(pj_turn_session *sess,
 					  const pj_turn_alloc_param *param)
 {
     pj_stun_tx_data *tdata;
@@ -788,7 +788,7 @@ PJ_DEF(pj_status_t) pj_turn_session_alloc(pj_turn_session *sess,
 /*
  * Install or renew permissions
  */
-PJ_DEF(pj_status_t) pj_turn_session_set_perm( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_perm( pj_turn_session *sess,
 					      unsigned addr_cnt,
 					      const pj_sockaddr addr[],
 					      unsigned options)
@@ -928,7 +928,7 @@ on_error:
 /**
  * Relay data to the specified peer through the session.
  */
-PJ_DEF(pj_status_t) pj_turn_session_sendto( pj_turn_session *sess,
+(pj_status_t) pj_turn_session_sendto( pj_turn_session *sess,
 					    const pj_uint8_t *pkt,
 					    unsigned pkt_len,
 					    const pj_sockaddr_t *addr,
@@ -1046,7 +1046,7 @@ on_return:
 /**
  * Bind a peer address to a channel number.
  */
-PJ_DEF(pj_status_t) pj_turn_session_bind_channel(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_bind_channel(pj_turn_session *sess,
 						 const pj_sockaddr_t *peer_adr,
 						 unsigned addr_len)
 {
@@ -1110,7 +1110,7 @@ on_return:
  * Notify TURN client session upon receiving a packet from server.
  * The packet maybe a STUN packet or ChannelData packet.
  */
-PJ_DEF(pj_status_t) pj_turn_session_on_rx_pkt(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_on_rx_pkt(pj_turn_session *sess,
 					      void *pkt,
 					      pj_size_t pkt_len,
 					      pj_size_t *parsed_len)

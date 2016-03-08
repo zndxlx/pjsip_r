@@ -37,7 +37,7 @@ static int stun_timer[] = {500, 500, 500, 500 };
 
 #define TRACE_(x)	PJ_LOG(6,x)
 
-PJ_DEF(pj_status_t) pjstun_get_mapped_addr( pj_pool_factory *pf,
+(pj_status_t) pjstun_get_mapped_addr( pj_pool_factory *pf,
 					    int sock_cnt, pj_sock_t sock[],
 					    const pj_str_t *srv1, int port1,
 					    const pj_str_t *srv2, int port2,
@@ -55,7 +55,7 @@ PJ_DEF(pj_status_t) pjstun_get_mapped_addr( pj_pool_factory *pf,
     return pjstun_get_mapped_addr2(pf, &opt, sock_cnt, sock, mapped_addr);
 }
 
-PJ_DEF(pj_status_t) pjstun_get_mapped_addr2(pj_pool_factory *pf,
+(pj_status_t) pjstun_get_mapped_addr2(pj_pool_factory *pf,
 					    const pjstun_setting *opt,
 					    int sock_cnt,
 					    pj_sock_t sock[],

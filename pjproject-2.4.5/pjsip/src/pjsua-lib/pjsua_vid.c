@@ -164,7 +164,7 @@ pj_status_t pjsua_vid_subsys_destroy(void)
     return PJ_SUCCESS;
 }
 
-PJ_DEF(const char*) pjsua_vid_win_type_name(pjsua_vid_win_type wt)
+(const char*) pjsua_vid_win_type_name(pjsua_vid_win_type wt)
 {
     const char *win_type_names[] = {
          "none",
@@ -175,7 +175,7 @@ PJ_DEF(const char*) pjsua_vid_win_type_name(pjsua_vid_win_type wt)
     return (wt < PJ_ARRAY_SIZE(win_type_names)) ? win_type_names[wt] : "??";
 }
 
-PJ_DEF(void)
+(void)
 pjsua_call_vid_strm_op_param_default(pjsua_call_vid_strm_op_param *param)
 {
     pj_bzero(param, sizeof(*param));
@@ -184,7 +184,7 @@ pjsua_call_vid_strm_op_param_default(pjsua_call_vid_strm_op_param *param)
     param->cap_dev = PJMEDIA_VID_DEFAULT_CAPTURE_DEV;
 }
 
-PJ_DEF(void) pjsua_vid_preview_param_default(pjsua_vid_preview_param *p)
+(void) pjsua_vid_preview_param_default(pjsua_vid_preview_param *p)
 {
     p->rend_id = PJMEDIA_VID_DEFAULT_RENDER_DEV;
     p->show = PJ_TRUE;
@@ -201,7 +201,7 @@ PJ_DEF(void) pjsua_vid_preview_param_default(pjsua_vid_preview_param *p)
 /*
  * Get the number of video devices installed in the system.
  */
-PJ_DEF(unsigned) pjsua_vid_dev_count(void)
+(unsigned) pjsua_vid_dev_count(void)
 {
     return pjmedia_vid_dev_count();
 }
@@ -209,7 +209,7 @@ PJ_DEF(unsigned) pjsua_vid_dev_count(void)
 /*
  * Retrieve the video device info for the specified device index.
  */
-PJ_DEF(pj_status_t) pjsua_vid_dev_get_info(pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_dev_get_info(pjmedia_vid_dev_index id,
                                            pjmedia_vid_dev_info *vdi)
 {
     return pjmedia_vid_dev_get_info(id, vdi);
@@ -218,7 +218,7 @@ PJ_DEF(pj_status_t) pjsua_vid_dev_get_info(pjmedia_vid_dev_index id,
 /*
  * Check whether the video device is currently active.
  */
-PJ_DEF(pj_bool_t) pjsua_vid_dev_is_active(pjmedia_vid_dev_index id)
+(pj_bool_t) pjsua_vid_dev_is_active(pjmedia_vid_dev_index id)
 {
     pjsua_vid_win_id wid = vid_preview_get_win(id, PJ_FALSE);
     
@@ -228,7 +228,7 @@ PJ_DEF(pj_bool_t) pjsua_vid_dev_is_active(pjmedia_vid_dev_index id)
 /*
  * Set the capability of the video device.
  */
-PJ_DEF(pj_status_t) pjsua_vid_dev_set_setting( pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_dev_set_setting( pjmedia_vid_dev_index id,
 					       pjmedia_vid_dev_cap cap,
 					       const void *pval,
 					       pj_bool_t keep)
@@ -272,7 +272,7 @@ PJ_DEF(pj_status_t) pjsua_vid_dev_set_setting( pjmedia_vid_dev_index id,
 /*
  * Get the value of the video device capability.
  */
-PJ_DEF(pj_status_t) pjsua_vid_dev_get_setting( pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_dev_get_setting( pjmedia_vid_dev_index id,
 					       pjmedia_vid_dev_cap cap,
 					       void *pval)
 {
@@ -311,7 +311,7 @@ PJ_DEF(pj_status_t) pjsua_vid_dev_get_setting( pjmedia_vid_dev_index id,
 /*
  * Enum all video devices installed in the system.
  */
-PJ_DEF(pj_status_t) pjsua_vid_enum_devs(pjmedia_vid_dev_info info[],
+(pj_status_t) pjsua_vid_enum_devs(pjmedia_vid_dev_info info[],
 					unsigned *count)
 {
     unsigned i, dev_count;
@@ -364,7 +364,7 @@ static pj_status_t find_codecs_with_rtp_packing(
 /*
  * Enum all supported video codecs in the system.
  */
-PJ_DEF(pj_status_t) pjsua_vid_enum_codecs( pjsua_codec_info id[],
+(pj_status_t) pjsua_vid_enum_codecs( pjsua_codec_info id[],
 					   unsigned *p_count )
 {
     pjmedia_vid_codec_info info[32];
@@ -405,7 +405,7 @@ PJ_DEF(pj_status_t) pjsua_vid_enum_codecs( pjsua_codec_info id[],
 /*
  * Change video codec priority.
  */
-PJ_DEF(pj_status_t) pjsua_vid_codec_set_priority( const pj_str_t *codec_id,
+(pj_status_t) pjsua_vid_codec_set_priority( const pj_str_t *codec_id,
 						  pj_uint8_t priority )
 {
     const pj_str_t all = { NULL, 0 };
@@ -421,7 +421,7 @@ PJ_DEF(pj_status_t) pjsua_vid_codec_set_priority( const pj_str_t *codec_id,
 /*
  * Get video codec parameters.
  */
-PJ_DEF(pj_status_t) pjsua_vid_codec_get_param(
+(pj_status_t) pjsua_vid_codec_get_param(
 					const pj_str_t *codec_id,
 					pjmedia_vid_codec_param *param)
 {
@@ -444,7 +444,7 @@ PJ_DEF(pj_status_t) pjsua_vid_codec_get_param(
 /*
  * Set video codec parameters.
  */
-PJ_DEF(pj_status_t) pjsua_vid_codec_set_param(
+(pj_status_t) pjsua_vid_codec_set_param(
 					const pj_str_t *codec_id,
 					const pjmedia_vid_codec_param *param)
 {
@@ -506,12 +506,12 @@ static pjsua_vid_win_id vid_preview_get_win(pjmedia_vid_dev_index id,
  *       instead. This is because this function will only return window ID
  *       if preview is currently running.
  */
-PJ_DEF(pjsua_vid_win_id) pjsua_vid_preview_get_win(pjmedia_vid_dev_index id)
+(pjsua_vid_win_id) pjsua_vid_preview_get_win(pjmedia_vid_dev_index id)
 {
     return vid_preview_get_win(id, PJ_TRUE);
 }
 
-PJ_DEF(void) pjsua_vid_win_reset(pjsua_vid_win_id wid)
+(void) pjsua_vid_win_reset(pjsua_vid_win_id wid)
 {
     pjsua_vid_win *w = &pjsua_var.win[wid];
     pj_pool_t *pool = w->pool;
@@ -1192,7 +1192,7 @@ void pjsua_vid_stop_stream(pjsua_call_media *call_med)
 /*
  * Does it have built-in preview support.
  */
-PJ_DEF(pj_bool_t) pjsua_vid_preview_has_native(pjmedia_vid_dev_index id)
+(pj_bool_t) pjsua_vid_preview_has_native(pjmedia_vid_dev_index id)
 {
     pjmedia_vid_dev_info vdi;
 
@@ -1203,7 +1203,7 @@ PJ_DEF(pj_bool_t) pjsua_vid_preview_has_native(pjmedia_vid_dev_index id)
 /*
  * Start video preview window for the specified capture device.
  */
-PJ_DEF(pj_status_t) pjsua_vid_preview_start(pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_preview_start(pjmedia_vid_dev_index id,
                                             const pjsua_vid_preview_param *prm)
 {
     pjsua_vid_win_id wid;
@@ -1291,7 +1291,7 @@ PJ_DEF(pj_status_t) pjsua_vid_preview_start(pjmedia_vid_dev_index id,
 /*
  * Stop video preview.
  */
-PJ_DEF(pj_status_t) pjsua_vid_preview_stop(pjmedia_vid_dev_index id)
+(pj_status_t) pjsua_vid_preview_stop(pjmedia_vid_dev_index id)
 {
     pjsua_vid_win_id wid = PJSUA_INVALID_ID;
     pjsua_vid_win *w;
@@ -1349,7 +1349,7 @@ PJ_DEF(pj_status_t) pjsua_vid_preview_stop(pjmedia_vid_dev_index id)
 /*
  * Enumerates all video windows.
  */
-PJ_DEF(pj_status_t) pjsua_vid_enum_wins( pjsua_vid_win_id wids[],
+(pj_status_t) pjsua_vid_enum_wins( pjsua_vid_win_id wids[],
 					 unsigned *count)
 {
     unsigned i, cnt;
@@ -1371,7 +1371,7 @@ PJ_DEF(pj_status_t) pjsua_vid_enum_wins( pjsua_vid_win_id wids[],
 /*
  * Get window info.
  */
-PJ_DEF(pj_status_t) pjsua_vid_win_get_info( pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_get_info( pjsua_vid_win_id wid,
                                             pjsua_vid_win_info *wi)
 {
     pjsua_vid_win *w;
@@ -1438,7 +1438,7 @@ PJ_DEF(pj_status_t) pjsua_vid_win_get_info( pjsua_vid_win_id wid,
 /*
  * Show or hide window.
  */
-PJ_DEF(pj_status_t) pjsua_vid_win_set_show( pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_show( pjsua_vid_win_id wid,
                                             pj_bool_t show)
 {
     pjsua_vid_win *w;
@@ -1478,7 +1478,7 @@ PJ_DEF(pj_status_t) pjsua_vid_win_set_show( pjsua_vid_win_id wid,
 /*
  * Set video window position.
  */
-PJ_DEF(pj_status_t) pjsua_vid_win_set_pos( pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_pos( pjsua_vid_win_id wid,
                                            const pjmedia_coord *pos)
 {
     pjsua_vid_win *w;
@@ -1512,7 +1512,7 @@ PJ_DEF(pj_status_t) pjsua_vid_win_set_pos( pjsua_vid_win_id wid,
 /*
  * Resize window.
  */
-PJ_DEF(pj_status_t) pjsua_vid_win_set_size( pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_size( pjsua_vid_win_id wid,
                                             const pjmedia_rect_size *size)
 {
     pjsua_vid_win *w;
@@ -1546,7 +1546,7 @@ PJ_DEF(pj_status_t) pjsua_vid_win_set_size( pjsua_vid_win_id wid,
 /*
  * Set output window.
  */
-PJ_DEF(pj_status_t) pjsua_vid_win_set_win( pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_win( pjsua_vid_win_id wid,
                                            const pjmedia_vid_dev_hwnd *win)
 {
     pjsua_vid_win *w;
@@ -1580,7 +1580,7 @@ PJ_DEF(pj_status_t) pjsua_vid_win_set_win( pjsua_vid_win_id wid,
 /*
  * Set video orientation.
  */
-PJ_DEF(pj_status_t) pjsua_vid_win_rotate( pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_rotate( pjsua_vid_win_id wid,
                                           int angle)
 {
     pjsua_vid_win *w;
@@ -2245,7 +2245,7 @@ static pj_status_t call_send_vid_keyframe(pjsua_call *call,
 /*
  * Start, stop, and/or manipulate video transmission for the specified call.
  */
-PJ_DEF(pj_status_t) pjsua_call_set_vid_strm (
+(pj_status_t) pjsua_call_set_vid_strm (
 				pjsua_call_id call_id,
 				pjsua_call_vid_strm_op op,
 				const pjsua_call_vid_strm_op_param *param)
@@ -2330,7 +2330,7 @@ on_return:
 /*
  * Get the media stream index of the default video stream in the call.
  */
-PJ_DEF(int) pjsua_call_get_vid_stream_idx(pjsua_call_id call_id)
+(int) pjsua_call_get_vid_stream_idx(pjsua_call_id call_id)
 {
     pjsua_call *call;
     int first_active, first_inactive;
@@ -2354,7 +2354,7 @@ PJ_DEF(int) pjsua_call_get_vid_stream_idx(pjsua_call_id call_id)
  * Determine if video stream for the specified call is currently running
  * for the specified direction.
  */
-PJ_DEF(pj_bool_t) pjsua_call_vid_stream_is_running( pjsua_call_id call_id,
+(pj_bool_t) pjsua_call_vid_stream_is_running( pjsua_call_id call_id,
                                                     int med_idx,
                                                     pjmedia_dir dir)
 {

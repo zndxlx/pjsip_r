@@ -23,11 +23,11 @@
 #include <pj/os.h>
 #include <pj/string.h>
 
-PJ_DEF_DATA(const unsigned) PJ_GUID_STRING_LENGTH=32;
+_DATA(const unsigned) PJ_GUID_STRING_LENGTH=32;
 
 static char guid_chars[64];
 
-PJ_DEF(unsigned) pj_GUID_STRING_LENGTH()
+(unsigned) pj_GUID_STRING_LENGTH()
 {
     return PJ_GUID_STRING_LENGTH;
 }
@@ -49,7 +49,7 @@ static void init_guid_chars(void)
     *p++ = '.';
 }
 
-PJ_DEF(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
+(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
 {
     char *p, *end;
 

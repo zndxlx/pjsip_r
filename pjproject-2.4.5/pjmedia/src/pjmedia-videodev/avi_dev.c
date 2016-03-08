@@ -141,7 +141,7 @@ static pjmedia_vid_dev_stream_op stream_op =
  */
 
 /* API */
-PJ_DEF(pj_status_t) pjmedia_avi_dev_create_factory(
+(pj_status_t) pjmedia_avi_dev_create_factory(
 				    pj_pool_factory *pf,
 				    unsigned max_dev,
 				    pjmedia_vid_dev_factory **p_ret)
@@ -291,7 +291,7 @@ static void reset_dev_info(struct avi_dev_info *adi)
 }
 
 /* API: release resources */
-PJ_DEF(pj_status_t) pjmedia_avi_dev_free(pjmedia_vid_dev_index id)
+(pj_status_t) pjmedia_avi_dev_free(pjmedia_vid_dev_index id)
 {
     pjmedia_vid_dev_factory *f;
     struct avi_factory *cf;
@@ -322,7 +322,7 @@ PJ_DEF(pj_status_t) pjmedia_avi_dev_free(pjmedia_vid_dev_index id)
 }
 
 /* API: get param */
-PJ_DEF(pj_status_t) pjmedia_avi_dev_get_param(pjmedia_vid_dev_index id,
+(pj_status_t) pjmedia_avi_dev_get_param(pjmedia_vid_dev_index id,
                                               pjmedia_avi_dev_param *prm)
 {
     pjmedia_vid_dev_factory *f;
@@ -352,13 +352,13 @@ PJ_DEF(pj_status_t) pjmedia_avi_dev_get_param(pjmedia_vid_dev_index id,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(void) pjmedia_avi_dev_param_default(pjmedia_avi_dev_param *p)
+(void) pjmedia_avi_dev_param_default(pjmedia_avi_dev_param *p)
 {
     pj_bzero(p, sizeof(*p));
 }
 
 /* API: configure the AVI */
-PJ_DEF(pj_status_t) pjmedia_avi_dev_alloc( pjmedia_vid_dev_factory *f,
+(pj_status_t) pjmedia_avi_dev_alloc( pjmedia_vid_dev_factory *f,
                                            pjmedia_avi_dev_param *p,
                                            pjmedia_vid_dev_index *p_id)
 {

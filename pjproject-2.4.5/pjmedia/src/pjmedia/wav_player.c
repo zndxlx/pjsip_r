@@ -178,7 +178,7 @@ static pj_status_t fill_buffer(struct file_reader_port *fport)
 /*
  * Create WAVE player port.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_player_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_wav_player_port_create( pj_pool_t *pool,
 						     const char *filename,
 						     unsigned ptime,
 						     unsigned options,
@@ -427,7 +427,7 @@ PJ_DEF(pj_status_t) pjmedia_wav_player_port_create( pj_pool_t *pool,
 /*
  * Get additional info about the file player.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_player_get_info(
+(pj_status_t) pjmedia_wav_player_get_info(
 					pjmedia_port *port,
 					pjmedia_wav_player_info *info)
 {
@@ -465,7 +465,7 @@ PJ_DEF(pj_status_t) pjmedia_wav_player_get_info(
 /*
  * Get the data length, in bytes.
  */
-PJ_DEF(pj_ssize_t) pjmedia_wav_player_get_len(pjmedia_port *port)
+(pj_ssize_t) pjmedia_wav_player_get_len(pjmedia_port *port)
 {
     struct file_reader_port *fport;
     pj_ssize_t size;
@@ -486,7 +486,7 @@ PJ_DEF(pj_ssize_t) pjmedia_wav_player_get_len(pjmedia_port *port)
 /*
  * Set position.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_player_port_set_pos(pjmedia_port *port,
+(pj_status_t) pjmedia_wav_player_port_set_pos(pjmedia_port *port,
 						    pj_uint32_t bytes )
 {
     struct file_reader_port *fport;
@@ -524,7 +524,7 @@ PJ_DEF(pj_status_t) pjmedia_wav_player_port_set_pos(pjmedia_port *port,
 /*
  * Get the file play position of WAV player (in bytes).
  */
-PJ_DEF(pj_ssize_t) pjmedia_wav_player_port_get_pos( pjmedia_port *port )
+(pj_ssize_t) pjmedia_wav_player_port_get_pos( pjmedia_port *port )
 {
     struct file_reader_port *fport;
     pj_size_t payload_pos;
@@ -550,7 +550,7 @@ PJ_DEF(pj_ssize_t) pjmedia_wav_player_port_get_pos( pjmedia_port *port )
  * Register a callback to be called when the file reading has reached the
  * end of file.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_player_set_eof_cb( pjmedia_port *port,
+(pj_status_t) pjmedia_wav_player_set_eof_cb( pjmedia_port *port,
 			       void *user_data,
 			       pj_status_t (*cb)(pjmedia_port *port,
 						 void *usr_data))

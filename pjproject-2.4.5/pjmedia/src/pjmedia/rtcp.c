@@ -60,7 +60,7 @@ enum {
 /*
  * Get NTP time.
  */
-PJ_DEF(pj_status_t) pjmedia_rtcp_get_ntp_time(const pjmedia_rtcp_session *sess,
+(pj_status_t) pjmedia_rtcp_get_ntp_time(const pjmedia_rtcp_session *sess,
 					      pjmedia_rtcp_ntp_rec *ntp)
 {
 /* Seconds between 1900-01-01 to 1970-01-01 */
@@ -142,7 +142,7 @@ PJ_DEF(pj_status_t) pjmedia_rtcp_get_ntp_time(const pjmedia_rtcp_session *sess,
 /*
  * Initialize RTCP session setting.
  */
-PJ_DEF(void) pjmedia_rtcp_session_setting_default(
+(void) pjmedia_rtcp_session_setting_default(
 				    pjmedia_rtcp_session_setting *settings)
 {
     pj_bzero(settings, sizeof(*settings));
@@ -153,7 +153,7 @@ PJ_DEF(void) pjmedia_rtcp_session_setting_default(
  * Initialize bidirectional RTCP statistics.
  *
  */
-PJ_DEF(void) pjmedia_rtcp_init_stat(pjmedia_rtcp_stat *stat)
+(void) pjmedia_rtcp_init_stat(pjmedia_rtcp_stat *stat)
 {
     pj_time_val now;
 
@@ -183,7 +183,7 @@ PJ_DEF(void) pjmedia_rtcp_init_stat(pjmedia_rtcp_stat *stat)
 /*
  * Initialize RTCP session.
  */
-PJ_DEF(void) pjmedia_rtcp_init(pjmedia_rtcp_session *sess, 
+(void) pjmedia_rtcp_init(pjmedia_rtcp_session *sess, 
 			       char *name,
 			       unsigned clock_rate,
 			       unsigned samples_per_frame,
@@ -204,7 +204,7 @@ PJ_DEF(void) pjmedia_rtcp_init(pjmedia_rtcp_session *sess,
 /*
  * Initialize RTCP session.
  */
-PJ_DEF(void) pjmedia_rtcp_init2( pjmedia_rtcp_session *sess,
+(void) pjmedia_rtcp_init2( pjmedia_rtcp_session *sess,
 				 const pjmedia_rtcp_session_setting *settings)
 {
     pjmedia_rtcp_sr_pkt *sr_pkt = &sess->rtcp_sr_pkt;
@@ -250,7 +250,7 @@ PJ_DEF(void) pjmedia_rtcp_init2( pjmedia_rtcp_session *sess,
 }
 
 
-PJ_DEF(void) pjmedia_rtcp_fini(pjmedia_rtcp_session *sess)
+(void) pjmedia_rtcp_fini(pjmedia_rtcp_session *sess)
 {
 #if defined(PJMEDIA_HAS_RTCP_XR) && (PJMEDIA_HAS_RTCP_XR != 0)
     pjmedia_rtcp_xr_fini(&sess->xr_session);
@@ -269,7 +269,7 @@ static void rtcp_init_seq(pjmedia_rtcp_session *sess)
     sess->jitter = 0;
 }
 
-PJ_DEF(void) pjmedia_rtcp_rx_rtp( pjmedia_rtcp_session *sess, 
+(void) pjmedia_rtcp_rx_rtp( pjmedia_rtcp_session *sess, 
 				  unsigned seq, 
 				  unsigned rtp_ts,
 				  unsigned payload)
@@ -277,7 +277,7 @@ PJ_DEF(void) pjmedia_rtcp_rx_rtp( pjmedia_rtcp_session *sess,
     pjmedia_rtcp_rx_rtp2(sess, seq, rtp_ts, payload, PJ_FALSE);
 }
 
-PJ_DEF(void) pjmedia_rtcp_rx_rtp2(pjmedia_rtcp_session *sess, 
+(void) pjmedia_rtcp_rx_rtp2(pjmedia_rtcp_session *sess, 
 				  unsigned seq, 
 				  unsigned rtp_ts,
 				  unsigned payload,
@@ -476,7 +476,7 @@ PJ_DEF(void) pjmedia_rtcp_rx_rtp2(pjmedia_rtcp_session *sess,
     sess->rtp_last_ts = rtp_ts;
 }
 
-PJ_DEF(void) pjmedia_rtcp_tx_rtp(pjmedia_rtcp_session *sess, 
+(void) pjmedia_rtcp_tx_rtp(pjmedia_rtcp_session *sess, 
 				 unsigned bytes_payload_size)
 {
     /* Update statistics */
@@ -764,7 +764,7 @@ static void parse_rtcp_bye(pjmedia_rtcp_session *sess,
 }
 
 
-PJ_DEF(void) pjmedia_rtcp_rx_rtcp( pjmedia_rtcp_session *sess,
+(void) pjmedia_rtcp_rx_rtcp( pjmedia_rtcp_session *sess,
 				   const void *pkt,
 				   pj_size_t size)
 {
@@ -801,7 +801,7 @@ PJ_DEF(void) pjmedia_rtcp_rx_rtcp( pjmedia_rtcp_session *sess,
 }
 
 
-PJ_DEF(void) pjmedia_rtcp_build_rtcp(pjmedia_rtcp_session *sess, 
+(void) pjmedia_rtcp_build_rtcp(pjmedia_rtcp_session *sess, 
 				     void **ret_p_pkt, int *len)
 {
     pj_uint32_t expected, expected_interval, received_interval, lost_interval;
@@ -951,7 +951,7 @@ PJ_DEF(void) pjmedia_rtcp_build_rtcp(pjmedia_rtcp_session *sess,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_rtcp_build_rtcp_sdes(
+(pj_status_t) pjmedia_rtcp_build_rtcp_sdes(
 					    pjmedia_rtcp_session *session, 
 					    void *buf,
 					    pj_size_t *length,
@@ -1025,7 +1025,7 @@ PJ_DEF(pj_status_t) pjmedia_rtcp_build_rtcp_sdes(
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_rtcp_build_rtcp_bye(pjmedia_rtcp_session *session,
+(pj_status_t) pjmedia_rtcp_build_rtcp_bye(pjmedia_rtcp_session *session,
 						void *buf,
 						pj_size_t *length,
 						const pj_str_t *reason)
@@ -1072,7 +1072,7 @@ PJ_DEF(pj_status_t) pjmedia_rtcp_build_rtcp_bye(pjmedia_rtcp_session *session,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_rtcp_enable_xr( pjmedia_rtcp_session *sess, 
+(pj_status_t) pjmedia_rtcp_enable_xr( pjmedia_rtcp_session *sess, 
 					    pj_bool_t enable)
 {
 #if defined(PJMEDIA_HAS_RTCP_XR) && (PJMEDIA_HAS_RTCP_XR != 0)

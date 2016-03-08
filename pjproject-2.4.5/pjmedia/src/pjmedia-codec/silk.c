@@ -186,7 +186,7 @@ silk_mode silk_get_mode_from_clock_rate(unsigned clock_rate) {
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_codec_silk_init(pjmedia_endpt *endpt)
+(pj_status_t) pjmedia_codec_silk_init(pjmedia_endpt *endpt)
 {
     pjmedia_codec_mgr *codec_mgr;
     silk_param *sp;
@@ -301,7 +301,7 @@ on_error:
  * Change the configuration setting of the SILK codec for the specified
  * clock rate.
  */
-PJ_DEF(pj_status_t) pjmedia_codec_silk_set_config(
+(pj_status_t) pjmedia_codec_silk_set_config(
 				    unsigned clock_rate, 
 				    const pjmedia_codec_silk_setting *opt)
 {
@@ -339,7 +339,7 @@ PJ_DEF(pj_status_t) pjmedia_codec_silk_set_config(
  * Unregister SILK codec factory from pjmedia endpoint and deinitialize
  * the SILK codec library.
  */
-PJ_DEF(pj_status_t) pjmedia_codec_silk_deinit(void)
+(pj_status_t) pjmedia_codec_silk_deinit(void)
 {
     pjmedia_codec_mgr *codec_mgr;
     pj_status_t status;

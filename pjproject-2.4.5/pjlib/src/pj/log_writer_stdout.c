@@ -40,7 +40,7 @@ static void term_restore_color(void)
 }
 
 
-PJ_DEF(void) pj_log_write(int level, const char *buffer, int len)
+(void) pj_log_write(int level, const char *buffer, int len)
 {
     PJ_CHECK_STACK();
     PJ_UNUSED_ARG(len);

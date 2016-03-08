@@ -21,7 +21,7 @@
 #  define LIBG7221_DEF(type)   PJ_INLINE(type)
 #else
 #  define LIBG7221_DECL(type)  (type)
-#  define LIBG7221_DEF(type)   PJ_DEF(type)
+#  define LIBG7221_DEF(type)   (type)
 #endif
 
 #endif /* __LIBG7221_CONFIG_H__ */

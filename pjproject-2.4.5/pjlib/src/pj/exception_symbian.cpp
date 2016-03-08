@@ -36,7 +36,7 @@
 
 
 #if defined(PJ_HAS_EXCEPTION_NAMES) && PJ_HAS_EXCEPTION_NAMES != 0
-PJ_DEF(pj_status_t) pj_exception_id_alloc( const char *name,
+(pj_status_t) pj_exception_id_alloc( const char *name,
                                            pj_exception_id_t *id)
 {
     unsigned i;
@@ -60,7 +60,7 @@ PJ_DEF(pj_status_t) pj_exception_id_alloc( const char *name,
     return PJ_ETOOMANY;
 }
 
-PJ_DEF(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
+(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
 {
     /*
      * Start from 1 (not 0)!!!
@@ -76,7 +76,7 @@ PJ_DEF(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
 
 }
 
-PJ_DEF(const char*) pj_exception_id_name(pj_exception_id_t id)
+(const char*) pj_exception_id_name(pj_exception_id_t id)
 {
     /*
      * Start from 1 (not 0)!!!
@@ -91,7 +91,7 @@ PJ_DEF(const char*) pj_exception_id_name(pj_exception_id_t id)
 }
 
 #else   /* PJ_HAS_EXCEPTION_NAMES */
-PJ_DEF(pj_status_t) pj_exception_id_alloc( const char *name,
+(pj_status_t) pj_exception_id_alloc( const char *name,
                                            pj_exception_id_t *id)
 {
     PJ_ASSERT_RETURN(last_exception_id < PJ_MAX_EXCEPTION_ID-1, PJ_ETOOMANY);
@@ -100,12 +100,12 @@ PJ_DEF(pj_status_t) pj_exception_id_alloc( const char *name,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
+(pj_status_t) pj_exception_id_free( pj_exception_id_t id )
 {
     return PJ_SUCCESS;
 }
 
-PJ_DEF(const char*) pj_exception_id_name(pj_exception_id_t id)
+(const char*) pj_exception_id_name(pj_exception_id_t id)
 {
     return "";
 }

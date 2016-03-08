@@ -51,7 +51,7 @@ static pj_str_t str_TEXT = { "text", 4},
 		str_PLAIN = { "plain", 5 };
 
 /* Add URI to target-set */
-PJ_DEF(pj_status_t) pjsip_target_set_add_uri( pjsip_target_set *tset,
+(pj_status_t) pjsip_target_set_add_uri( pjsip_target_set *tset,
 					      pj_pool_t *pool,
 					      const pjsip_uri *uri,
 					      int q1000)
@@ -96,7 +96,7 @@ PJ_DEF(pj_status_t) pjsip_target_set_add_uri( pjsip_target_set *tset,
 }
 
 /* Add URI's in the Contact header in the message to target-set */
-PJ_DEF(pj_status_t) pjsip_target_set_add_from_msg( pjsip_target_set *tset,
+(pj_status_t) pjsip_target_set_add_from_msg( pjsip_target_set *tset,
 						   pj_pool_t *pool,
 						   const pjsip_msg *msg)
 {
@@ -127,7 +127,7 @@ PJ_DEF(pj_status_t) pjsip_target_set_add_from_msg( pjsip_target_set *tset,
 
 
 /* Get next target, if any */
-PJ_DEF(pjsip_target*) pjsip_target_set_get_next(const pjsip_target_set *tset)
+(pjsip_target*) pjsip_target_set_get_next(const pjsip_target_set *tset)
 {
     const pjsip_target *t, *next = NULL;
 
@@ -155,7 +155,7 @@ PJ_DEF(pjsip_target*) pjsip_target_set_get_next(const pjsip_target_set *tset)
 
 
 /* Set current target */
-PJ_DEF(pj_status_t) pjsip_target_set_set_current( pjsip_target_set *tset,
+(pj_status_t) pjsip_target_set_set_current( pjsip_target_set *tset,
 						  pjsip_target *target)
 {
     PJ_ASSERT_RETURN(tset && target, PJ_EINVAL);
@@ -168,7 +168,7 @@ PJ_DEF(pj_status_t) pjsip_target_set_set_current( pjsip_target_set *tset,
 
 
 /* Assign status to a target */
-PJ_DEF(pj_status_t) pjsip_target_assign_status( pjsip_target *target,
+(pj_status_t) pjsip_target_assign_status( pjsip_target *target,
 					        pj_pool_t *pool,
 					        int status_code,
 					        const pj_str_t *reason)
@@ -287,7 +287,7 @@ static void init_request_throw( pjsip_endpoint *endpt,
 /*
  * Create arbitrary request.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_create_request(  pjsip_endpoint *endpt, 
+(pj_status_t) pjsip_endpt_create_request(  pjsip_endpoint *endpt, 
 						 const pjsip_method *method,
 						 const pj_str_t *param_target,
 						 const pj_str_t *param_from,
@@ -396,7 +396,7 @@ on_error:
     return status;
 }
 
-PJ_DEF(pj_status_t) pjsip_endpt_create_request_from_hdr( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_create_request_from_hdr( pjsip_endpoint *endpt,
 				     const pjsip_method *method,
 				     const pjsip_uri *param_target,
 				     const pjsip_from_hdr *param_from,
@@ -476,7 +476,7 @@ on_error:
 /*
  * Construct a minimal response message for the received request.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_create_response( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_create_response( pjsip_endpoint *endpt,
 						 const pjsip_rx_data *rdata,
 						 int st_code,
 						 const pj_str_t *st_text,
@@ -595,7 +595,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_create_response( pjsip_endpoint *endpt,
  * RFC3261). Note that the generation of ACK for 2xx response is different,
  * and one must not use this function to generate such ACK.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_create_ack( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_create_ack( pjsip_endpoint *endpt,
 					    const pjsip_tx_data *tdata,
 					    const pjsip_rx_data *rdata,
 					    pjsip_tx_data **ack_tdata)
@@ -694,7 +694,7 @@ on_missing_hdr:
  * Construct CANCEL request for the previously sent request, according to
  * chapter 9.1 of RFC3261.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_create_cancel( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_create_cancel( pjsip_endpoint *endpt,
 					       const pjsip_tx_data *req_tdata,
 					       pjsip_tx_data **p_tdata)
 {
@@ -801,7 +801,7 @@ on_missing_hdr:
 
 
 /* Fill-up destination information from a target URI */
-PJ_DEF(pj_status_t) pjsip_get_dest_info(const pjsip_uri *target_uri,
+(pj_status_t) pjsip_get_dest_info(const pjsip_uri *target_uri,
 				 	const pjsip_uri *request_uri,
 				 	pj_pool_t *pool,
 				 	pjsip_host_info *dest_info)
@@ -887,7 +887,7 @@ PJ_DEF(pj_status_t) pjsip_get_dest_info(const pjsip_uri *target_uri,
  * used here follows the guidelines on sending the request in RFC 3261
  * chapter 8.1.2.
  */
-PJ_DEF(pj_status_t) pjsip_get_request_dest(const pjsip_tx_data *tdata,
+(pj_status_t) pjsip_get_request_dest(const pjsip_tx_data *tdata,
 					   pjsip_host_info *dest_info )
 {
     const pjsip_uri *target_uri;
@@ -919,7 +919,7 @@ PJ_DEF(pj_status_t) pjsip_get_request_dest(const pjsip_tx_data *tdata,
  * used here follows the guidelines on sending the request in RFC 3261
  * chapter 8.1.2.
  */
-PJ_DEF(pj_status_t) pjsip_process_route_set(pjsip_tx_data *tdata,
+(pj_status_t) pjsip_process_route_set(pjsip_tx_data *tdata,
 					    pjsip_host_info *dest_info )
 {
     const pjsip_uri *new_request_uri, *target_uri;
@@ -1040,7 +1040,7 @@ PJ_DEF(pj_status_t) pjsip_process_route_set(pjsip_tx_data *tdata,
  * before #pjsip_process_route_set() function is called. This function
  * should only used internally by PJSIP client authentication module.
  */
-PJ_DEF(void) pjsip_restore_strict_route_set(pjsip_tx_data *tdata)
+(void) pjsip_restore_strict_route_set(pjsip_tx_data *tdata)
 {
     pjsip_route_hdr *first_route_hdr, *last_route_hdr;
 
@@ -1352,7 +1352,7 @@ stateless_send_resolver_callback( pj_status_t status,
  *  - establish transport (#pjsip_endpt_acquire_transport)
  *  - send the message (#pjsip_transport_send)
  */
-PJ_DEF(pj_status_t) pjsip_endpt_send_request_stateless(pjsip_endpoint *endpt, 
+(pj_status_t) pjsip_endpt_send_request_stateless(pjsip_endpoint *endpt, 
 				   pjsip_tx_data *tdata,
 				   void *token,
 				   pjsip_send_callback cb)
@@ -1401,7 +1401,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_send_request_stateless(pjsip_endpoint *endpt,
 /*
  * Send raw data to a destination.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_send_raw( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_send_raw( pjsip_endpoint *endpt,
 					  pjsip_transport_type_e tp_type,
 					  const pjsip_tpselector *sel,
 					  const void *raw_data,
@@ -1476,7 +1476,7 @@ static void send_raw_resolver_callback( pj_status_t status,
 /*
  * Send raw data to the specified destination URI. 
  */
-PJ_DEF(pj_status_t) pjsip_endpt_send_raw_to_uri(pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_send_raw_to_uri(pjsip_endpoint *endpt,
 						const pj_str_t *p_dst_uri,
 						const pjsip_tpselector *sel,
 						const void *raw_data,
@@ -1553,7 +1553,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_send_raw_to_uri(pjsip_endpoint *endpt,
  * in section 18.2.2 of RFC 3261 and RFC 3581 for calculating the destination
  * address and transport.
  */
-PJ_DEF(pj_status_t) pjsip_get_response_addr( pj_pool_t *pool,
+(pj_status_t) pjsip_get_response_addr( pj_pool_t *pool,
 					     pjsip_rx_data *rdata,
 					     pjsip_response_addr *res_addr )
 {
@@ -1735,7 +1735,7 @@ static void send_response_resolver_cb( pj_status_t status, void *token,
 /*
  * Send response.
  */
-PJ_DEF(pj_status_t) pjsip_endpt_send_response( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_send_response( pjsip_endpoint *endpt,
 					       pjsip_response_addr *res_addr,
 					       pjsip_tx_data *tdata,
 					       void *token,
@@ -1788,7 +1788,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_send_response( pjsip_endpoint *endpt,
 /*
  * Send response combo
  */
-PJ_DEF(pj_status_t) pjsip_endpt_send_response2( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_send_response2( pjsip_endpoint *endpt,
 					        pjsip_rx_data *rdata,
 					        pjsip_tx_data *tdata,
 						void *token,
@@ -1811,7 +1811,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_send_response2( pjsip_endpoint *endpt,
 /*
  * Send response
  */
-PJ_DEF(pj_status_t) pjsip_endpt_respond_stateless( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_endpt_respond_stateless( pjsip_endpoint *endpt,
 						   pjsip_rx_data *rdata,
 						   int st_code,
 						   const pj_str_t *st_text,
@@ -1879,7 +1879,7 @@ PJ_DEF(pj_status_t) pjsip_endpt_respond_stateless( pjsip_endpoint *endpt,
 /*
  * Get the event string from the event ID.
  */
-PJ_DEF(const char *) pjsip_event_str(pjsip_event_id_e e)
+(const char *) pjsip_event_str(pjsip_event_id_e e)
 {
     return event_str[e];
 }

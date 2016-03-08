@@ -85,7 +85,7 @@ static void sort_codecs(pjmedia_vid_codec_mgr *mgr);
 /*
  * Duplicate video codec parameter.
  */
-PJ_DEF(pjmedia_vid_codec_param*) pjmedia_vid_codec_param_clone(
+(pjmedia_vid_codec_param*) pjmedia_vid_codec_param_clone(
 					pj_pool_t *pool, 
 					const pjmedia_vid_codec_param *src)
 {
@@ -117,7 +117,7 @@ PJ_DEF(pjmedia_vid_codec_param*) pjmedia_vid_codec_param_clone(
 /*
  * Initialize codec manager.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_create(
+(pj_status_t) pjmedia_vid_codec_mgr_create(
                                             pj_pool_t *pool,
                                             pjmedia_vid_codec_mgr **p_mgr)
 {
@@ -148,7 +148,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_create(
 /*
  * Initialize codec manager.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_destroy (pjmedia_vid_codec_mgr *mgr)
+(pj_status_t) pjmedia_vid_codec_mgr_destroy (pjmedia_vid_codec_mgr *mgr)
 {
     if (!mgr) mgr = def_vid_codec_mgr;
     PJ_ASSERT_RETURN(mgr, PJ_EINVAL);
@@ -167,13 +167,13 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_destroy (pjmedia_vid_codec_mgr *mgr)
 }
 
 
-PJ_DEF(pjmedia_vid_codec_mgr*) pjmedia_vid_codec_mgr_instance(void)
+(pjmedia_vid_codec_mgr*) pjmedia_vid_codec_mgr_instance(void)
 {
     //pj_assert(def_vid_codec_mgr);
     return def_vid_codec_mgr;
 }
 
-PJ_DEF(void) pjmedia_vid_codec_mgr_set_instance(pjmedia_vid_codec_mgr* mgr)
+(void) pjmedia_vid_codec_mgr_set_instance(pjmedia_vid_codec_mgr* mgr)
 {
     def_vid_codec_mgr = mgr;
 }
@@ -182,7 +182,7 @@ PJ_DEF(void) pjmedia_vid_codec_mgr_set_instance(pjmedia_vid_codec_mgr* mgr)
 /*
  * Register a codec factory.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_register_factory(
+(pj_status_t) pjmedia_vid_codec_mgr_register_factory(
                                     pjmedia_vid_codec_mgr *mgr,
 				    pjmedia_vid_codec_factory *factory)
 {
@@ -239,7 +239,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_register_factory(
 /*
  * Unregister a codec factory.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_unregister_factory(
+(pj_status_t) pjmedia_vid_codec_mgr_unregister_factory(
 				pjmedia_vid_codec_mgr *mgr, 
 				pjmedia_vid_codec_factory *factory)
 {
@@ -286,7 +286,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_unregister_factory(
 /*
  * Enum all codecs.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_enum_codecs(
+(pj_status_t) pjmedia_vid_codec_mgr_enum_codecs(
                                 pjmedia_vid_codec_mgr *mgr, 
 			        unsigned *count, 
 			        pjmedia_vid_codec_info codecs[],
@@ -324,7 +324,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_enum_codecs(
 /*
  * Get codec info for the specified payload type.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_get_codec_info(
+(pj_status_t) pjmedia_vid_codec_mgr_get_codec_info(
                                     pjmedia_vid_codec_mgr *mgr,
 				    unsigned pt,
 				    const pjmedia_vid_codec_info **p_info)
@@ -353,7 +353,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_get_codec_info(
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_get_codec_info2(
+(pj_status_t) pjmedia_vid_codec_mgr_get_codec_info2(
 				    pjmedia_vid_codec_mgr *mgr,
 				    pjmedia_format_id fmt_id,
 				    const pjmedia_vid_codec_info **p_info)
@@ -386,7 +386,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_get_codec_info2(
  * Convert codec info struct into a unique codec identifier.
  * A codec identifier looks something like "H263/34".
  */
-PJ_DEF(char*) pjmedia_vid_codec_info_to_id(
+(char*) pjmedia_vid_codec_info_to_id(
                                         const pjmedia_vid_codec_info *info,
 				        char *id, unsigned max_len )
 {
@@ -414,7 +414,7 @@ PJ_DEF(char*) pjmedia_vid_codec_info_to_id(
  * "L16" is specified, then it will find "L16/8000/1", "L16/16000/1",
  * and so on, up to the maximum count specified in the argument.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_find_codecs_by_id(
+(pj_status_t) pjmedia_vid_codec_mgr_find_codecs_by_id(
                                      pjmedia_vid_codec_mgr *mgr,
 				     const pj_str_t *codec_id,
 				     unsigned *count,
@@ -506,7 +506,7 @@ static void sort_codecs(pjmedia_vid_codec_mgr *mgr)
  * are found with the same codec_id prefix, then the function sets the
  * priorities of all those codecs.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_set_codec_priority(
+(pj_status_t) pjmedia_vid_codec_mgr_set_codec_priority(
 				pjmedia_vid_codec_mgr *mgr, 
 				const pj_str_t *codec_id,
 				pj_uint8_t prio)
@@ -549,7 +549,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_set_codec_priority(
 /*
  * Allocate one codec.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_alloc_codec(
+(pj_status_t) pjmedia_vid_codec_mgr_alloc_codec(
                                         pjmedia_vid_codec_mgr *mgr, 
 					const pjmedia_vid_codec_info *info,
 					pjmedia_vid_codec **p_codec)
@@ -591,7 +591,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_alloc_codec(
 /*
  * Get default codec parameter.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_get_default_param(
+(pj_status_t) pjmedia_vid_codec_mgr_get_default_param(
                                         pjmedia_vid_codec_mgr *mgr,
 					const pjmedia_vid_codec_info *info,
 					pjmedia_vid_codec_param *param )
@@ -661,7 +661,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_get_default_param(
 /*
  * Set default codec parameter.
  */
-PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_set_default_param( 
+(pj_status_t) pjmedia_vid_codec_mgr_set_default_param( 
 					    pjmedia_vid_codec_mgr *mgr,
 					    const pjmedia_vid_codec_info *info,
 					    const pjmedia_vid_codec_param *param )
@@ -745,7 +745,7 @@ PJ_DEF(pj_status_t) pjmedia_vid_codec_mgr_set_default_param(
 /*
  * Dealloc codec.
  */
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_vid_codec_mgr_dealloc_codec(pjmedia_vid_codec_mgr *mgr,
 				    pjmedia_vid_codec *codec)
 {

@@ -60,7 +60,7 @@ static pj_status_t file_on_destroy(pjmedia_port *this_port);
 /*
  * Create file writer port.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_writer_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_wav_writer_port_create( pj_pool_t *pool,
 						     const char *filename,
 						     unsigned sampling_rate,
 						     unsigned channel_count,
@@ -228,7 +228,7 @@ PJ_DEF(pj_status_t) pjmedia_wav_writer_port_create( pj_pool_t *pool,
 /*
  * Get current writing position. 
  */
-PJ_DEF(pj_ssize_t) pjmedia_wav_writer_port_get_pos( pjmedia_port *port )
+(pj_ssize_t) pjmedia_wav_writer_port_get_pos( pjmedia_port *port )
 {
     struct file_port *fport;
 
@@ -247,7 +247,7 @@ PJ_DEF(pj_ssize_t) pjmedia_wav_writer_port_get_pos( pjmedia_port *port )
 /*
  * Register callback.
  */
-PJ_DEF(pj_status_t) pjmedia_wav_writer_port_set_cb( pjmedia_port *port,
+(pj_status_t) pjmedia_wav_writer_port_set_cb( pjmedia_port *port,
 				pj_size_t pos,
 				void *user_data,
 			        pj_status_t (*cb)(pjmedia_port *port,

@@ -28,7 +28,7 @@
 #define THIS_FILE   "sock_qos_dummy.c"
 
 
-PJ_DEF(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
+(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
 					   pj_qos_params *param)
 {
     PJ_UNUSED_ARG(sock);
@@ -39,7 +39,7 @@ PJ_DEF(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
     return PJ_ENOTSUP;
 }
 
-PJ_DEF(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
+(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
 					 pj_qos_type type)
 {
     PJ_UNUSED_ARG(sock);
@@ -51,7 +51,7 @@ PJ_DEF(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
 }
 
 
-PJ_DEF(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
+(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
 					   pj_qos_params *p_param)
 {
     PJ_UNUSED_ARG(sock);
@@ -62,7 +62,7 @@ PJ_DEF(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
     return PJ_ENOTSUP;
 }
 
-PJ_DEF(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
+(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
 					 pj_qos_type *p_type)
 {
     PJ_UNUSED_ARG(sock);

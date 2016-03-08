@@ -25,14 +25,14 @@
 
 #include <uuid/uuid.h>
 
-PJ_DEF_DATA(const unsigned) PJ_GUID_STRING_LENGTH=36;
+_DATA(const unsigned) PJ_GUID_STRING_LENGTH=36;
 
-PJ_DEF(unsigned) pj_GUID_STRING_LENGTH()
+(unsigned) pj_GUID_STRING_LENGTH()
 {
     return PJ_GUID_STRING_LENGTH;
 }
 
-PJ_DEF(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
+(pj_str_t*) pj_generate_unique_string(pj_str_t *str)
 {
     enum {GUID_LEN = 36};
     char sguid[GUID_LEN + 1];

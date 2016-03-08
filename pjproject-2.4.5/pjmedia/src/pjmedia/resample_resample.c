@@ -52,7 +52,7 @@ struct pjmedia_resample
 };
 
 
-PJ_DEF(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
 					     pj_bool_t high_quality,
 					     pj_bool_t large_filter,
 					     unsigned channel_count,
@@ -140,7 +140,7 @@ PJ_DEF(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
 
 
 
-PJ_DEF(void) pjmedia_resample_run( pjmedia_resample *resample,
+(void) pjmedia_resample_run( pjmedia_resample *resample,
 				   const pj_int16_t *input,
 				   pj_int16_t *output )
 {
@@ -284,13 +284,13 @@ PJ_DEF(void) pjmedia_resample_run( pjmedia_resample *resample,
     }
 }
 
-PJ_DEF(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample)
+(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample)
 {
     PJ_ASSERT_RETURN(resample != NULL, 0);
     return resample->frame_size;
 }
 
-PJ_DEF(void) pjmedia_resample_destroy(pjmedia_resample *resample)
+(void) pjmedia_resample_destroy(pjmedia_resample *resample)
 {
     PJ_UNUSED_ARG(resample);
 }
@@ -301,7 +301,7 @@ PJ_DEF(void) pjmedia_resample_destroy(pjmedia_resample *resample)
 /*
  * This is the configuration when sample rate conversion is disabled.
  */
-PJ_DEF(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
 					     pj_bool_t high_quality,
 					     pj_bool_t large_filter,
 					     unsigned channel_count,
@@ -322,7 +322,7 @@ PJ_DEF(pj_status_t) pjmedia_resample_create( pj_pool_t *pool,
     return PJ_EINVALIDOP;
 }
 
-PJ_DEF(void) pjmedia_resample_run( pjmedia_resample *resample,
+(void) pjmedia_resample_run( pjmedia_resample *resample,
 				   const pj_int16_t *input,
 				   pj_int16_t *output ) 
 {
@@ -331,13 +331,13 @@ PJ_DEF(void) pjmedia_resample_run( pjmedia_resample *resample,
     PJ_UNUSED_ARG(output);
 }
 
-PJ_DEF(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample) 
+(unsigned) pjmedia_resample_get_input_size(pjmedia_resample *resample) 
 {
     PJ_UNUSED_ARG(resample);
     return 0;
 }
 
-PJ_DEF(void) pjmedia_resample_destroy(pjmedia_resample *resample) 
+(void) pjmedia_resample_destroy(pjmedia_resample *resample) 
 {
     PJ_UNUSED_ARG(resample);
 }

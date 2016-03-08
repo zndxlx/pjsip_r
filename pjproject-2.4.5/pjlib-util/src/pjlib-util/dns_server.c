@@ -66,7 +66,7 @@ static pj_bool_t on_data_recvfrom(pj_activesock_t *asock,
 				  pj_status_t status);
 
 
-PJ_DEF(pj_status_t) pj_dns_server_create( pj_pool_factory *pf,
+(pj_status_t) pj_dns_server_create( pj_pool_factory *pf,
 				          pj_ioqueue_t *ioqueue,
 					  int af,
 					  unsigned port,
@@ -115,7 +115,7 @@ on_error:
 }
 
 
-PJ_DEF(pj_status_t) pj_dns_server_destroy(pj_dns_server *srv)
+(pj_status_t) pj_dns_server_destroy(pj_dns_server *srv)
 {
     PJ_ASSERT_RETURN(srv, PJ_EINVAL);
 
@@ -155,7 +155,7 @@ static struct rr* find_rr( pj_dns_server *srv,
 }
 
 
-PJ_DEF(pj_status_t) pj_dns_server_add_rec( pj_dns_server *srv,
+(pj_status_t) pj_dns_server_add_rec( pj_dns_server *srv,
 					   unsigned count,
 					   const pj_dns_parsed_rr rr_param[])
 {
@@ -180,7 +180,7 @@ PJ_DEF(pj_status_t) pj_dns_server_add_rec( pj_dns_server *srv,
 }
 
 
-PJ_DEF(pj_status_t) pj_dns_server_del_rec( pj_dns_server *srv,
+(pj_status_t) pj_dns_server_del_rec( pj_dns_server *srv,
 					   int dns_class,
 					   pj_dns_type type,
 					   const pj_str_t *name)

@@ -48,7 +48,7 @@ struct pj_rwmutex_t
  * Create reader/writer mutex.
  *
  */
-PJ_DEF(pj_status_t) pj_rwmutex_create(pj_pool_t *pool, const char *name,
+(pj_status_t) pj_rwmutex_create(pj_pool_t *pool, const char *name,
 				      pj_rwmutex_t **p_mutex)
 {
     pj_status_t status;
@@ -78,7 +78,7 @@ PJ_DEF(pj_status_t) pj_rwmutex_create(pj_pool_t *pool, const char *name,
  * Lock the mutex for reading.
  *
  */
-PJ_DEF(pj_status_t) pj_rwmutex_lock_read(pj_rwmutex_t *mutex)
+(pj_status_t) pj_rwmutex_lock_read(pj_rwmutex_t *mutex)
 {
     pj_status_t status;
 
@@ -105,7 +105,7 @@ PJ_DEF(pj_status_t) pj_rwmutex_lock_read(pj_rwmutex_t *mutex)
  * Lock the mutex for writing.
  *
  */
-PJ_DEF(pj_status_t) pj_rwmutex_lock_write(pj_rwmutex_t *mutex)
+(pj_status_t) pj_rwmutex_lock_write(pj_rwmutex_t *mutex)
 {
     PJ_ASSERT_RETURN(mutex, PJ_EINVAL);
     return pj_sem_wait(mutex->write_lock);
@@ -115,7 +115,7 @@ PJ_DEF(pj_status_t) pj_rwmutex_lock_write(pj_rwmutex_t *mutex)
  * Release read lock.
  *
  */
-PJ_DEF(pj_status_t) pj_rwmutex_unlock_read(pj_rwmutex_t *mutex)
+(pj_status_t) pj_rwmutex_unlock_read(pj_rwmutex_t *mutex)
 {
     pj_status_t status;
 
@@ -141,7 +141,7 @@ PJ_DEF(pj_status_t) pj_rwmutex_unlock_read(pj_rwmutex_t *mutex)
  * Release write lock.
  *
  */
-PJ_DEF(pj_status_t) pj_rwmutex_unlock_write(pj_rwmutex_t *mutex)
+(pj_status_t) pj_rwmutex_unlock_write(pj_rwmutex_t *mutex)
 {
     PJ_ASSERT_RETURN(mutex, PJ_EINVAL);
     pj_assert(mutex->reader_count <= 1);
@@ -153,7 +153,7 @@ PJ_DEF(pj_status_t) pj_rwmutex_unlock_write(pj_rwmutex_t *mutex)
  * Destroy reader/writer mutex.
  *
  */
-PJ_DEF(pj_status_t) pj_rwmutex_destroy(pj_rwmutex_t *mutex)
+(pj_status_t) pj_rwmutex_destroy(pj_rwmutex_t *mutex)
 {
     PJ_ASSERT_RETURN(mutex, PJ_EINVAL);
     pj_mutex_destroy(mutex->read_lock);

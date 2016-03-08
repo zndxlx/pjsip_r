@@ -59,7 +59,7 @@ struct pjmedia_plc
  * Create PLC session. This function will select the PLC algorithm to
  * use based on the arguments.
  */
-PJ_DEF(pj_status_t) pjmedia_plc_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_plc_create( pj_pool_t *pool,
 					unsigned clock_rate,
 					unsigned samples_per_frame,
 					unsigned options,
@@ -87,7 +87,7 @@ PJ_DEF(pj_status_t) pjmedia_plc_create( pj_pool_t *pool,
 /*
  * Save a good frame to PLC.
  */
-PJ_DEF(pj_status_t) pjmedia_plc_save( pjmedia_plc *plc,
+(pj_status_t) pjmedia_plc_save( pjmedia_plc *plc,
 				      pj_int16_t *frame )
 {
     PJ_ASSERT_RETURN(plc && frame, PJ_EINVAL);
@@ -100,7 +100,7 @@ PJ_DEF(pj_status_t) pjmedia_plc_save( pjmedia_plc *plc,
 /*
  * Generate a replacement for lost frame.
  */
-PJ_DEF(pj_status_t) pjmedia_plc_generate( pjmedia_plc *plc,
+(pj_status_t) pjmedia_plc_generate( pjmedia_plc *plc,
 					  pj_int16_t *frame )
 {
     PJ_ASSERT_RETURN(plc && frame, PJ_EINVAL);

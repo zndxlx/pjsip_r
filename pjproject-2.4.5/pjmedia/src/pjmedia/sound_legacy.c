@@ -49,22 +49,22 @@ struct pjmedia_snd_stream
     void		*user_user_data;
 };
 
-PJ_DEF(pj_status_t) pjmedia_snd_init(pj_pool_factory *factory)
+(pj_status_t) pjmedia_snd_init(pj_pool_factory *factory)
 {
     return pjmedia_aud_subsys_init(factory);
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_deinit(void)
+(pj_status_t) pjmedia_snd_deinit(void)
 {
     return pjmedia_aud_subsys_shutdown();
 }
 
-PJ_DEF(int) pjmedia_snd_get_dev_count(void)
+(int) pjmedia_snd_get_dev_count(void)
 {
     return pjmedia_aud_dev_count();
 }
 
-PJ_DEF(const pjmedia_snd_dev_info*) pjmedia_snd_get_dev_info(unsigned index)
+(const pjmedia_snd_dev_info*) pjmedia_snd_get_dev_info(unsigned index)
 {
     pjmedia_snd_dev_info *oi = &g_sys.info[g_sys.info_counter];
     pjmedia_aud_dev_info di;
@@ -179,7 +179,7 @@ static pj_status_t open_stream( pjmedia_dir dir,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_open_rec( int index,
+(pj_status_t) pjmedia_snd_open_rec( int index,
 					  unsigned clock_rate,
 					  unsigned channel_count,
 					  unsigned samples_per_frame,
@@ -194,7 +194,7 @@ PJ_DEF(pj_status_t) pjmedia_snd_open_rec( int index,
 		       user_data, p_snd_strm);
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_open_player( int index,
+(pj_status_t) pjmedia_snd_open_player( int index,
 					unsigned clock_rate,
 					unsigned channel_count,
 					unsigned samples_per_frame,
@@ -209,7 +209,7 @@ PJ_DEF(pj_status_t) pjmedia_snd_open_player( int index,
 		       user_data, p_snd_strm);
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_open( int rec_id,
+(pj_status_t) pjmedia_snd_open( int rec_id,
 				      int play_id,
 				      unsigned clock_rate,
 				      unsigned channel_count,
@@ -226,17 +226,17 @@ PJ_DEF(pj_status_t) pjmedia_snd_open( int rec_id,
 		       user_data, p_snd_strm);
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_stream_start(pjmedia_snd_stream *stream)
+(pj_status_t) pjmedia_snd_stream_start(pjmedia_snd_stream *stream)
 {
     return pjmedia_aud_stream_start(stream->aud_strm);
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_stream_stop(pjmedia_snd_stream *stream)
+(pj_status_t) pjmedia_snd_stream_stop(pjmedia_snd_stream *stream)
 {
     return pjmedia_aud_stream_stop(stream->aud_strm);
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_stream_get_info(pjmedia_snd_stream *strm,
+(pj_status_t) pjmedia_snd_stream_get_info(pjmedia_snd_stream *strm,
 						pjmedia_snd_stream_info *pi)
 {
     pjmedia_aud_param param;
@@ -266,7 +266,7 @@ PJ_DEF(pj_status_t) pjmedia_snd_stream_get_info(pjmedia_snd_stream *strm,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_snd_stream_close(pjmedia_snd_stream *stream)
+(pj_status_t) pjmedia_snd_stream_close(pjmedia_snd_stream *stream)
 {
     pj_status_t status;
 
@@ -278,7 +278,7 @@ PJ_DEF(pj_status_t) pjmedia_snd_stream_close(pjmedia_snd_stream *stream)
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_snd_set_latency(unsigned input_latency, 
+(pj_status_t) pjmedia_snd_set_latency(unsigned input_latency, 
 					    unsigned output_latency)
 {
     g_sys.user_rec_latency = input_latency;

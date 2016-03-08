@@ -186,7 +186,7 @@ enum {
 /*
  * Create ICE media transport.
  */
-PJ_DEF(pj_status_t) pjmedia_ice_create(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_ice_create(pjmedia_endpt *endpt,
 				       const char *name,
 				       unsigned comp_cnt,
 				       const pj_ice_strans_cfg *cfg,
@@ -199,7 +199,7 @@ PJ_DEF(pj_status_t) pjmedia_ice_create(pjmedia_endpt *endpt,
 /*
  * Create ICE media transport.
  */
-PJ_DEF(pj_status_t) pjmedia_ice_create2(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_ice_create2(pjmedia_endpt *endpt,
 				        const char *name,
 				        unsigned comp_cnt,
 				        const pj_ice_strans_cfg *cfg,
@@ -214,7 +214,7 @@ PJ_DEF(pj_status_t) pjmedia_ice_create2(pjmedia_endpt *endpt,
 /*
  * Create ICE media transport.
  */
-PJ_DEF(pj_status_t) pjmedia_ice_create3(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_ice_create3(pjmedia_endpt *endpt,
 				        const char *name,
 				        unsigned comp_cnt,
 				        const pj_ice_strans_cfg *cfg,
@@ -283,7 +283,7 @@ PJ_DEF(pj_status_t) pjmedia_ice_create3(pjmedia_endpt *endpt,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_grp_lock_t *) pjmedia_ice_get_grp_lock(pjmedia_transport *tp)
+(pj_grp_lock_t *) pjmedia_ice_get_grp_lock(pjmedia_transport *tp)
 {
     PJ_ASSERT_RETURN(tp, NULL);
     return pj_ice_strans_get_grp_lock(((struct transport_ice *)tp)->ice_st);

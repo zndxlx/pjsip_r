@@ -26,7 +26,7 @@
 #if PJ_LOG_MAX_LEVEL >= 1
 
 #if 0
-PJ_DEF_DATA(int) pj_log_max_level = PJ_LOG_MAX_LEVEL;
+_DATA(int) pj_log_max_level = PJ_LOG_MAX_LEVEL;
 #else
 static int pj_log_max_level = PJ_LOG_MAX_LEVEL;
 #endif
@@ -131,17 +131,17 @@ static int log_get_indent(void)
     return indent > LOG_MAX_INDENT ? LOG_MAX_INDENT : indent;
 }
 
-PJ_DEF(void) pj_log_add_indent(int indent)
+(void) pj_log_add_indent(int indent)
 {
     log_set_indent(log_get_raw_indent() + indent);
 }
 
-PJ_DEF(void) pj_log_push_indent(void)
+(void) pj_log_push_indent(void)
 {
     pj_log_add_indent(PJ_LOG_INDENT_SIZE);
 }
 
-PJ_DEF(void) pj_log_pop_indent(void)
+(void) pj_log_pop_indent(void)
 {
     pj_log_add_indent(-PJ_LOG_INDENT_SIZE);
 }
@@ -170,17 +170,17 @@ pj_status_t pj_log_init(void)
     return PJ_SUCCESS;
 }
 
-PJ_DEF(void) pj_log_set_decor(unsigned decor)
+(void) pj_log_set_decor(unsigned decor)
 {
     log_decor = decor;
 }
 
-PJ_DEF(unsigned) pj_log_get_decor(void)
+(unsigned) pj_log_get_decor(void)
 {
     return log_decor;
 }
 
-PJ_DEF(void) pj_log_set_color(int level, pj_color_t color)
+(void) pj_log_set_color(int level, pj_color_t color)
 {
     switch (level) 
     {
@@ -207,7 +207,7 @@ PJ_DEF(void) pj_log_set_color(int level, pj_color_t color)
     }
 }
 
-PJ_DEF(pj_color_t) pj_log_get_color(int level)
+(pj_color_t) pj_log_get_color(int level)
 {
     switch (level) {
 	case 0:
@@ -230,24 +230,24 @@ PJ_DEF(pj_color_t) pj_log_get_color(int level)
     }
 }
 
-PJ_DEF(void) pj_log_set_level(int level)
+(void) pj_log_set_level(int level)
 {
     pj_log_max_level = level;
 }
 
 #if 1
-PJ_DEF(int) pj_log_get_level(void)
+(int) pj_log_get_level(void)
 {
     return pj_log_max_level;
 }
 #endif
 
-PJ_DEF(void) pj_log_set_log_func( pj_log_func *func )
+(void) pj_log_set_log_func( pj_log_func *func )
 {
     log_writer = func;
 }
 
-PJ_DEF(pj_log_func*) pj_log_get_log_func(void)
+(pj_log_func*) pj_log_get_log_func(void)
 {
     return log_writer;
 }
@@ -313,7 +313,7 @@ static pj_bool_t is_logging_suspended(void)
     }
 }
 
-PJ_DEF(void) pj_log( const char *sender, int level, 
+(void) pj_log( const char *sender, int level, 
 		     const char *format, va_list marker)
 {
     pj_time_val now;
@@ -479,7 +479,7 @@ PJ_DEF(void) pj_log( const char *sender, int level,
 }
 
 /*
-PJ_DEF(void) pj_log_0(const char *obj, const char *format, ...)
+(void) pj_log_0(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);
@@ -488,7 +488,7 @@ PJ_DEF(void) pj_log_0(const char *obj, const char *format, ...)
 }
 */
 
-PJ_DEF(void) pj_log_1(const char *obj, const char *format, ...)
+(void) pj_log_1(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);
@@ -498,7 +498,7 @@ PJ_DEF(void) pj_log_1(const char *obj, const char *format, ...)
 #endif	/* PJ_LOG_MAX_LEVEL >= 1 */
 
 #if PJ_LOG_MAX_LEVEL >= 2
-PJ_DEF(void) pj_log_2(const char *obj, const char *format, ...)
+(void) pj_log_2(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);
@@ -508,7 +508,7 @@ PJ_DEF(void) pj_log_2(const char *obj, const char *format, ...)
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 3
-PJ_DEF(void) pj_log_3(const char *obj, const char *format, ...)
+(void) pj_log_3(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);
@@ -518,7 +518,7 @@ PJ_DEF(void) pj_log_3(const char *obj, const char *format, ...)
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 4
-PJ_DEF(void) pj_log_4(const char *obj, const char *format, ...)
+(void) pj_log_4(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);
@@ -528,7 +528,7 @@ PJ_DEF(void) pj_log_4(const char *obj, const char *format, ...)
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 5
-PJ_DEF(void) pj_log_5(const char *obj, const char *format, ...)
+(void) pj_log_5(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);
@@ -538,7 +538,7 @@ PJ_DEF(void) pj_log_5(const char *obj, const char *format, ...)
 #endif
 
 #if PJ_LOG_MAX_LEVEL >= 6
-PJ_DEF(void) pj_log_6(const char *obj, const char *format, ...)
+(void) pj_log_6(const char *obj, const char *format, ...)
 {
     va_list arg;
     va_start(arg, format);

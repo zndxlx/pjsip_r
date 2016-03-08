@@ -266,7 +266,7 @@ typedef struct echo_supp
 /*
  * Create.
  */
-PJ_DEF(pj_status_t) echo_supp_create( pj_pool_t *pool,
+(pj_status_t) echo_supp_create( pj_pool_t *pool,
 				      unsigned clock_rate,
 				      unsigned channel_count,
 				      unsigned samples_per_frame,
@@ -330,7 +330,7 @@ PJ_DEF(pj_status_t) echo_supp_create( pj_pool_t *pool,
 /*
  * Destroy.
  */
-PJ_DEF(pj_status_t) echo_supp_destroy(void *state)
+(pj_status_t) echo_supp_destroy(void *state)
 {
     PJ_UNUSED_ARG(state);
     return PJ_SUCCESS;
@@ -340,7 +340,7 @@ PJ_DEF(pj_status_t) echo_supp_destroy(void *state)
 /*
  * Hard reset
  */
-PJ_DEF(void) echo_supp_reset(void *state)
+(void) echo_supp_reset(void *state)
 {
     unsigned i;
     echo_supp *ec = (echo_supp*) state;
@@ -370,7 +370,7 @@ PJ_DEF(void) echo_supp_reset(void *state)
  * Soft reset to force the EC to re-learn without having to discard all
  * rec and playback history.
  */
-PJ_DEF(void) echo_supp_soft_reset(void *state)
+(void) echo_supp_soft_reset(void *state)
 {
     unsigned i;
 
@@ -660,7 +660,7 @@ static void amplify_frame(pj_int16_t *frm, unsigned length,
 /*
  * Perform echo cancellation.
  */
-PJ_DEF(pj_status_t) echo_supp_cancel_echo( void *state,
+(pj_status_t) echo_supp_cancel_echo( void *state,
 					   pj_int16_t *rec_frm,
 					   const pj_int16_t *play_frm,
 					   unsigned options,

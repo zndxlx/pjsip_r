@@ -185,7 +185,7 @@ static void CHECK_ADDR_LEN(const pj_sockaddr *addr, int len)
 /*
  * Convert 16-bit value from network byte order to host byte order.
  */
-PJ_DEF(pj_uint16_t) pj_ntohs(pj_uint16_t netshort)
+(pj_uint16_t) pj_ntohs(pj_uint16_t netshort)
 {
     return ntohs(netshort);
 }
@@ -193,7 +193,7 @@ PJ_DEF(pj_uint16_t) pj_ntohs(pj_uint16_t netshort)
 /*
  * Convert 16-bit value from host byte order to network byte order.
  */
-PJ_DEF(pj_uint16_t) pj_htons(pj_uint16_t hostshort)
+(pj_uint16_t) pj_htons(pj_uint16_t hostshort)
 {
     return htons(hostshort);
 }
@@ -201,7 +201,7 @@ PJ_DEF(pj_uint16_t) pj_htons(pj_uint16_t hostshort)
 /*
  * Convert 32-bit value from network byte order to host byte order.
  */
-PJ_DEF(pj_uint32_t) pj_ntohl(pj_uint32_t netlong)
+(pj_uint32_t) pj_ntohl(pj_uint32_t netlong)
 {
     return ntohl(netlong);
 }
@@ -209,7 +209,7 @@ PJ_DEF(pj_uint32_t) pj_ntohl(pj_uint32_t netlong)
 /*
  * Convert 32-bit value from host byte order to network byte order.
  */
-PJ_DEF(pj_uint32_t) pj_htonl(pj_uint32_t hostlong)
+(pj_uint32_t) pj_htonl(pj_uint32_t hostlong)
 {
     return htonl(hostlong);
 }
@@ -218,7 +218,7 @@ PJ_DEF(pj_uint32_t) pj_htonl(pj_uint32_t hostlong)
  * Convert an Internet host address given in network byte order
  * to string in standard numbers and dots notation.
  */
-PJ_DEF(char*) pj_inet_ntoa(pj_in_addr inaddr)
+(char*) pj_inet_ntoa(pj_in_addr inaddr)
 {
 #if !defined(PJ_LINUX) && !defined(PJ_LINUX_KERNEL)
     return inet_ntoa(*(struct in_addr*)&inaddr);
@@ -234,7 +234,7 @@ PJ_DEF(char*) pj_inet_ntoa(pj_in_addr inaddr)
  * numbers-and-dots notation into binary data and stores it in the structure
  * that inp points to. 
  */
-PJ_DEF(int) pj_inet_aton(const pj_str_t *cp, struct pj_in_addr *inp)
+(int) pj_inet_aton(const pj_str_t *cp, struct pj_in_addr *inp)
 {
     char tempaddr[PJ_INET_ADDRSTRLEN];
 
@@ -267,7 +267,7 @@ PJ_DEF(int) pj_inet_aton(const pj_str_t *cp, struct pj_in_addr *inp)
 /*
  * Convert text to IPv4/IPv6 address.
  */
-PJ_DEF(pj_status_t) pj_inet_pton(int af, const pj_str_t *src, void *dst)
+(pj_status_t) pj_inet_pton(int af, const pj_str_t *src, void *dst)
 {
     char tempaddr[PJ_INET6_ADDRSTRLEN];
 
@@ -356,7 +356,7 @@ PJ_DEF(pj_status_t) pj_inet_pton(int af, const pj_str_t *src, void *dst)
 /*
  * Convert IPv4/IPv6 address to text.
  */
-PJ_DEF(pj_status_t) pj_inet_ntop(int af, const void *src,
+(pj_status_t) pj_inet_ntop(int af, const void *src,
 				 char *dst, int size)
 
 {
@@ -444,7 +444,7 @@ PJ_DEF(pj_status_t) pj_inet_ntop(int af, const void *src,
 /*
  * Get hostname.
  */
-PJ_DEF(const pj_str_t*) pj_gethostname(void)
+(const pj_str_t*) pj_gethostname(void)
 {
     static char buf[PJ_MAX_HOSTNAME];
     static pj_str_t hostname;
@@ -467,7 +467,7 @@ PJ_DEF(const pj_str_t*) pj_gethostname(void)
 /*
  * Create new socket/endpoint for communication and returns a descriptor.
  */
-PJ_DEF(pj_status_t) pj_sock_socket(int af, 
+(pj_status_t) pj_sock_socket(int af, 
 				   int type, 
 				   int proto,
 				   pj_sock_t *sock)
@@ -517,7 +517,7 @@ PJ_DEF(pj_status_t) pj_sock_socket(int af,
 /*
  * Create new socket/endpoint for communication and returns a descriptor.
  */
-PJ_DEF(pj_status_t) pj_sock_socket(int af, 
+(pj_status_t) pj_sock_socket(int af, 
 				   int type, 
 				   int proto, 
 				   pj_sock_t *sock)
@@ -554,7 +554,7 @@ PJ_DEF(pj_status_t) pj_sock_socket(int af,
 /*
  * Bind socket.
  */
-PJ_DEF(pj_status_t) pj_sock_bind( pj_sock_t sock, 
+(pj_status_t) pj_sock_bind( pj_sock_t sock, 
 				  const pj_sockaddr_t *addr,
 				  int len)
 {
@@ -574,7 +574,7 @@ PJ_DEF(pj_status_t) pj_sock_bind( pj_sock_t sock,
 /*
  * Bind socket.
  */
-PJ_DEF(pj_status_t) pj_sock_bind_in( pj_sock_t sock, 
+(pj_status_t) pj_sock_bind_in( pj_sock_t sock, 
 				     pj_uint32_t addr32,
 				     pj_uint16_t port)
 {
@@ -595,7 +595,7 @@ PJ_DEF(pj_status_t) pj_sock_bind_in( pj_sock_t sock,
 /*
  * Close socket.
  */
-PJ_DEF(pj_status_t) pj_sock_close(pj_sock_t sock)
+(pj_status_t) pj_sock_close(pj_sock_t sock)
 {
     int rc;
 
@@ -617,7 +617,7 @@ PJ_DEF(pj_status_t) pj_sock_close(pj_sock_t sock)
 /*
  * Get remote's name.
  */
-PJ_DEF(pj_status_t) pj_sock_getpeername( pj_sock_t sock,
+(pj_status_t) pj_sock_getpeername( pj_sock_t sock,
 					 pj_sockaddr_t *addr,
 					 int *namelen)
 {
@@ -633,7 +633,7 @@ PJ_DEF(pj_status_t) pj_sock_getpeername( pj_sock_t sock,
 /*
  * Get socket name.
  */
-PJ_DEF(pj_status_t) pj_sock_getsockname( pj_sock_t sock,
+(pj_status_t) pj_sock_getsockname( pj_sock_t sock,
 					 pj_sockaddr_t *addr,
 					 int *namelen)
 {
@@ -649,7 +649,7 @@ PJ_DEF(pj_status_t) pj_sock_getsockname( pj_sock_t sock,
 /*
  * Send data
  */
-PJ_DEF(pj_status_t) pj_sock_send(pj_sock_t sock,
+(pj_status_t) pj_sock_send(pj_sock_t sock,
 				 const void *buf,
 				 pj_ssize_t *len,
 				 unsigned flags)
@@ -674,7 +674,7 @@ PJ_DEF(pj_status_t) pj_sock_send(pj_sock_t sock,
 /*
  * Send data.
  */
-PJ_DEF(pj_status_t) pj_sock_sendto(pj_sock_t sock,
+(pj_status_t) pj_sock_sendto(pj_sock_t sock,
 				   const void *buf,
 				   pj_ssize_t *len,
 				   unsigned flags,
@@ -698,7 +698,7 @@ PJ_DEF(pj_status_t) pj_sock_sendto(pj_sock_t sock,
 /*
  * Receive data.
  */
-PJ_DEF(pj_status_t) pj_sock_recv(pj_sock_t sock,
+(pj_status_t) pj_sock_recv(pj_sock_t sock,
 				 void *buf,
 				 pj_ssize_t *len,
 				 unsigned flags)
@@ -717,7 +717,7 @@ PJ_DEF(pj_status_t) pj_sock_recv(pj_sock_t sock,
 /*
  * Receive data.
  */
-PJ_DEF(pj_status_t) pj_sock_recvfrom(pj_sock_t sock,
+(pj_status_t) pj_sock_recvfrom(pj_sock_t sock,
 				     void *buf,
 				     pj_ssize_t *len,
 				     unsigned flags,
@@ -743,7 +743,7 @@ PJ_DEF(pj_status_t) pj_sock_recvfrom(pj_sock_t sock,
 /*
  * Get socket option.
  */
-PJ_DEF(pj_status_t) pj_sock_getsockopt( pj_sock_t sock,
+(pj_status_t) pj_sock_getsockopt( pj_sock_t sock,
 					pj_uint16_t level,
 					pj_uint16_t optname,
 					void *optval,
@@ -761,7 +761,7 @@ PJ_DEF(pj_status_t) pj_sock_getsockopt( pj_sock_t sock,
 /*
  * Set socket option.
  */
-PJ_DEF(pj_status_t) pj_sock_setsockopt( pj_sock_t sock,
+(pj_status_t) pj_sock_setsockopt( pj_sock_t sock,
 					pj_uint16_t level,
 					pj_uint16_t optname,
 					const void *optval,
@@ -789,7 +789,7 @@ PJ_DEF(pj_status_t) pj_sock_setsockopt( pj_sock_t sock,
 /*
  * Set socket option.
  */
-PJ_DEF(pj_status_t) pj_sock_setsockopt_params( pj_sock_t sockfd,
+(pj_status_t) pj_sock_setsockopt_params( pj_sock_t sockfd,
 					       const pj_sockopt_params *params)
 {
     unsigned int i = 0;
@@ -817,7 +817,7 @@ PJ_DEF(pj_status_t) pj_sock_setsockopt_params( pj_sock_t sockfd,
 /*
  * Connect socket.
  */
-PJ_DEF(pj_status_t) pj_sock_connect( pj_sock_t sock,
+(pj_status_t) pj_sock_connect( pj_sock_t sock,
 				     const pj_sockaddr_t *addr,
 				     int namelen)
 {
@@ -833,7 +833,7 @@ PJ_DEF(pj_status_t) pj_sock_connect( pj_sock_t sock,
  * Shutdown socket.
  */
 #if PJ_HAS_TCP
-PJ_DEF(pj_status_t) pj_sock_shutdown( pj_sock_t sock,
+(pj_status_t) pj_sock_shutdown( pj_sock_t sock,
 				      int how)
 {
     PJ_CHECK_STACK();
@@ -846,7 +846,7 @@ PJ_DEF(pj_status_t) pj_sock_shutdown( pj_sock_t sock,
 /*
  * Start listening to incoming connections.
  */
-PJ_DEF(pj_status_t) pj_sock_listen( pj_sock_t sock,
+(pj_status_t) pj_sock_listen( pj_sock_t sock,
 				    int backlog)
 {
     PJ_CHECK_STACK();
@@ -859,7 +859,7 @@ PJ_DEF(pj_status_t) pj_sock_listen( pj_sock_t sock,
 /*
  * Accept incoming connections
  */
-PJ_DEF(pj_status_t) pj_sock_accept( pj_sock_t serverfd,
+(pj_status_t) pj_sock_accept( pj_sock_t serverfd,
 				    pj_sock_t *newsock,
 				    pj_sockaddr_t *addr,
 				    int *addrlen)

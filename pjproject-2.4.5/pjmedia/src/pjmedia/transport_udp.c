@@ -171,7 +171,7 @@ static pjmedia_transport_op transport_udp_op =
 /**
  * Create UDP stream transport.
  */
-PJ_DEF(pj_status_t) pjmedia_transport_udp_create( pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_create( pjmedia_endpt *endpt,
 						  const char *name,
 						  int port,
 						  unsigned options,
@@ -184,7 +184,7 @@ PJ_DEF(pj_status_t) pjmedia_transport_udp_create( pjmedia_endpt *endpt,
 /**
  * Create UDP stream transport.
  */
-PJ_DEF(pj_status_t) pjmedia_transport_udp_create2(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_create2(pjmedia_endpt *endpt,
 						  const char *name,
 						  const pj_str_t *addr,
 						  int port,
@@ -198,7 +198,7 @@ PJ_DEF(pj_status_t) pjmedia_transport_udp_create2(pjmedia_endpt *endpt,
 /**
  * Create UDP stream transport.
  */
-PJ_DEF(pj_status_t) pjmedia_transport_udp_create3(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_create3(pjmedia_endpt *endpt,
 						  int af,
 						  const char *name,
 						  const pj_str_t *addr,
@@ -266,7 +266,7 @@ on_error:
 /**
  * Create UDP stream transport from existing socket info.
  */
-PJ_DEF(pj_status_t) pjmedia_transport_udp_attach( pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_attach( pjmedia_endpt *endpt,
 						  const char *name,
 						  const pjmedia_sock_info *si,
 						  unsigned options,

@@ -631,7 +631,7 @@ PJ_INLINE(void) pjmedia_format_init_audio(pjmedia_format *fmt,
  * @param avg_bps	Average bitrate.
  * @param max_bps	Maximum bitrate.
  */
-PJ_DECL(void) pjmedia_format_init_video(pjmedia_format *fmt,
+(void) pjmedia_format_init_video(pjmedia_format *fmt,
 					pj_uint32_t fmt_id,
 					unsigned width,
 					unsigned height,
@@ -646,7 +646,7 @@ PJ_DECL(void) pjmedia_format_init_video(pjmedia_format *fmt,
  *
  * @return		Pointer to destination format.
  */
-PJ_DECL(pjmedia_format*) pjmedia_format_copy(pjmedia_format *dst,
+(pjmedia_format*) pjmedia_format_copy(pjmedia_format *dst,
 					     const pjmedia_format *src);
 
 /**
@@ -662,7 +662,7 @@ PJ_DECL(pjmedia_format*) pjmedia_format_copy(pjmedia_format *dst,
  * 			structure, or NULL if the format doesn't contain
  * 			audio detail.
  */
-PJ_DECL(pjmedia_audio_format_detail*)
+(pjmedia_audio_format_detail*)
 pjmedia_format_get_audio_format_detail(const pjmedia_format *fmt,
 				       pj_bool_t assert_valid);
 
@@ -679,7 +679,7 @@ pjmedia_format_get_audio_format_detail(const pjmedia_format *fmt,
  * 			structure, or NULL if the format doesn't contain
  * 			video detail.
  */
-PJ_DECL(pjmedia_video_format_detail*)
+(pjmedia_video_format_detail*)
 pjmedia_format_get_video_format_detail(const pjmedia_format *fmt,
 				       pj_bool_t assert_valid);
 
@@ -707,7 +707,7 @@ typedef struct pjmedia_video_format_mgr pjmedia_video_format_mgr;
  *
  * @return		PJ_SUCCESS on success, or the appripriate error value.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_video_format_mgr_create(pj_pool_t *pool,
 				unsigned max_fmt,
 				unsigned options,
@@ -718,7 +718,7 @@ pjmedia_video_format_mgr_create(pj_pool_t *pool,
  *
  * @return		The instance.
  */
-PJ_DECL(pjmedia_video_format_mgr*) pjmedia_video_format_mgr_instance(void);
+(pjmedia_video_format_mgr*) pjmedia_video_format_mgr_instance(void);
 
 /**
  * Manually assign a specific video manager instance as the singleton
@@ -730,7 +730,7 @@ PJ_DECL(pjmedia_video_format_mgr*) pjmedia_video_format_mgr_instance(void);
  * 			Application may specify NULL to clear the singleton
  * 			singleton instance.
  */
-PJ_DECL(void)
+(void)
 pjmedia_video_format_mgr_set_instance(pjmedia_video_format_mgr *mgr);
 
 /**
@@ -745,7 +745,7 @@ pjmedia_video_format_mgr_set_instance(pjmedia_video_format_mgr *mgr);
  *
  * @return		The video format info.
  */
-PJ_DECL(const pjmedia_video_format_info*)
+(const pjmedia_video_format_info*)
 pjmedia_get_video_format_info(pjmedia_video_format_mgr *mgr,
 			      pj_uint32_t id);
 
@@ -767,7 +767,7 @@ pjmedia_get_video_format_info(pjmedia_video_format_mgr *mgr,
  *
  * @return		PJ_SUCCESS on success, or the appripriate error value.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_register_video_format_info(pjmedia_video_format_mgr *mgr,
 				   pjmedia_video_format_info *vfi);
 
@@ -780,7 +780,7 @@ pjmedia_register_video_format_info(pjmedia_video_format_mgr *mgr,
  * 			manager still must have been created prior to
  * 			calling this function).
  */
-PJ_DECL(void) pjmedia_video_format_mgr_destroy(pjmedia_video_format_mgr *mgr);
+(void) pjmedia_video_format_mgr_destroy(pjmedia_video_format_mgr *mgr);
 
 PJ_END_DECL
 

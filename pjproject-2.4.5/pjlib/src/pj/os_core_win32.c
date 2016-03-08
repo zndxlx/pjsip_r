@@ -140,7 +140,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name);
  * pj_init(void).
  * Init PJLIB!
  */
-PJ_DEF(pj_status_t) pj_init(void)
+(pj_status_t) pj_init(void)
 {
     WSADATA wsa;
     char dummy_guid[32]; /* use maximum GUID length */
@@ -211,7 +211,7 @@ PJ_DEF(pj_status_t) pj_init(void)
 /*
  * pj_atexit()
  */
-PJ_DEF(pj_status_t) pj_atexit(void (*func)(void))
+(pj_status_t) pj_atexit(void (*func)(void))
 {
     if (atexit_count >= PJ_ARRAY_SIZE(atexit_func))
 	return PJ_ETOOMANY;
@@ -224,7 +224,7 @@ PJ_DEF(pj_status_t) pj_atexit(void (*func)(void))
 /*
  * pj_shutdown(void)
  */
-PJ_DEF(void) pj_shutdown()
+(void) pj_shutdown()
 {
     int i;
 
@@ -277,7 +277,7 @@ PJ_DEF(void) pj_shutdown()
 /*
  * pj_getpid(void)
  */
-PJ_DEF(pj_uint32_t) pj_getpid(void)
+(pj_uint32_t) pj_getpid(void)
 {
     PJ_CHECK_STACK();
     return GetCurrentProcessId();
@@ -286,7 +286,7 @@ PJ_DEF(pj_uint32_t) pj_getpid(void)
 /*
  * Check if this thread has been registered to PJLIB.
  */
-PJ_DEF(pj_bool_t) pj_thread_is_registered(void)
+(pj_bool_t) pj_thread_is_registered(void)
 {
     return pj_thread_local_get(thread_tls_id) != 0;
 }
@@ -295,7 +295,7 @@ PJ_DEF(pj_bool_t) pj_thread_is_registered(void)
 /*
  * Get thread priority value for the thread.
  */
-PJ_DEF(int) pj_thread_get_prio(pj_thread_t *thread)
+(int) pj_thread_get_prio(pj_thread_t *thread)
 {
     return GetThreadPriority(thread->hthread);
 }
@@ -304,7 +304,7 @@ PJ_DEF(int) pj_thread_get_prio(pj_thread_t *thread)
 /*
  * Set the thread priority.
  */
-PJ_DEF(pj_status_t) pj_thread_set_prio(pj_thread_t *thread,  int prio)
+(pj_status_t) pj_thread_set_prio(pj_thread_t *thread,  int prio)
 {
 #if PJ_HAS_THREADS
     PJ_ASSERT_RETURN(thread, PJ_EINVAL);
@@ -329,7 +329,7 @@ PJ_DEF(pj_status_t) pj_thread_set_prio(pj_thread_t *thread,  int prio)
 /*
  * Get the lowest priority value available on this system.
  */
-PJ_DEF(int) pj_thread_get_prio_min(pj_thread_t *thread)
+(int) pj_thread_get_prio_min(pj_thread_t *thread)
 {
     PJ_UNUSED_ARG(thread);
     return THREAD_PRIORITY_IDLE;
@@ -339,7 +339,7 @@ PJ_DEF(int) pj_thread_get_prio_min(pj_thread_t *thread)
 /*
  * Get the highest priority value available on this system.
  */
-PJ_DEF(int) pj_thread_get_prio_max(pj_thread_t *thread)
+(int) pj_thread_get_prio_max(pj_thread_t *thread)
 {
     PJ_UNUSED_ARG(thread);
     return THREAD_PRIORITY_TIME_CRITICAL;
@@ -349,7 +349,7 @@ PJ_DEF(int) pj_thread_get_prio_max(pj_thread_t *thread)
 /*
  * Get native thread handle
  */
-PJ_DEF(void*) pj_thread_get_os_handle(pj_thread_t *thread) 
+(void*) pj_thread_get_os_handle(pj_thread_t *thread) 
 {
     PJ_ASSERT_RETURN(thread, NULL);
 
@@ -364,7 +364,7 @@ PJ_DEF(void*) pj_thread_get_os_handle(pj_thread_t *thread)
 /*
  * pj_thread_register(..)
  */
-PJ_DEF(pj_status_t) pj_thread_register ( const char *cstr_thread_name,
+(pj_status_t) pj_thread_register ( const char *cstr_thread_name,
 					 pj_thread_desc desc,
                                          pj_thread_t **thread_ptr)
 {
@@ -462,7 +462,7 @@ static DWORD WINAPI thread_main(void *param)
 /*
  * pj_thread_create(...)
  */
-PJ_DEF(pj_status_t) pj_thread_create( pj_pool_t *pool, 
+(pj_status_t) pj_thread_create( pj_pool_t *pool, 
                                       const char *thread_name,
 				      pj_thread_proc *proc, 
                                       void *arg,
@@ -520,7 +520,7 @@ PJ_DEF(pj_status_t) pj_thread_create( pj_pool_t *pool,
 /*
  * pj_thread-get_name()
  */
-PJ_DEF(const char*) pj_thread_get_name(pj_thread_t *p)
+(const char*) pj_thread_get_name(pj_thread_t *p)
 {
     pj_thread_t *rec = (pj_thread_t*)p;
 
@@ -533,7 +533,7 @@ PJ_DEF(const char*) pj_thread_get_name(pj_thread_t *p)
 /*
  * pj_thread_resume()
  */
-PJ_DEF(pj_status_t) pj_thread_resume(pj_thread_t *p)
+(pj_status_t) pj_thread_resume(pj_thread_t *p)
 {
     pj_thread_t *rec = (pj_thread_t*)p;
 
@@ -549,7 +549,7 @@ PJ_DEF(pj_status_t) pj_thread_resume(pj_thread_t *p)
 /*
  * pj_thread_this()
  */
-PJ_DEF(pj_thread_t*) pj_thread_this(void)
+(pj_thread_t*) pj_thread_this(void)
 {
     pj_thread_t *rec = pj_thread_local_get(thread_tls_id);
 
@@ -571,7 +571,7 @@ PJ_DEF(pj_thread_t*) pj_thread_this(void)
 /*
  * pj_thread_join()
  */
-PJ_DEF(pj_status_t) pj_thread_join(pj_thread_t *p)
+(pj_status_t) pj_thread_join(pj_thread_t *p)
 {
     pj_thread_t *rec = (pj_thread_t *)p;
     DWORD rc;
@@ -597,7 +597,7 @@ PJ_DEF(pj_status_t) pj_thread_join(pj_thread_t *p)
 /*
  * pj_thread_destroy()
  */
-PJ_DEF(pj_status_t) pj_thread_destroy(pj_thread_t *p)
+(pj_status_t) pj_thread_destroy(pj_thread_t *p)
 {
     pj_thread_t *rec = (pj_thread_t *)p;
 
@@ -613,7 +613,7 @@ PJ_DEF(pj_status_t) pj_thread_destroy(pj_thread_t *p)
 /*
  * pj_thread_sleep()
  */
-PJ_DEF(pj_status_t) pj_thread_sleep(unsigned msec)
+(pj_status_t) pj_thread_sleep(unsigned msec)
 {
     PJ_CHECK_STACK();
     Sleep(msec);
@@ -625,7 +625,7 @@ PJ_DEF(pj_status_t) pj_thread_sleep(unsigned msec)
  * pj_thread_check_stack()
  * Implementation for PJ_CHECK_STACK()
  */
-PJ_DEF(void) pj_thread_check_stack(const char *file, int line)
+(void) pj_thread_check_stack(const char *file, int line)
 {
     char stk_ptr;
     pj_uint32_t usage;
@@ -653,7 +653,7 @@ PJ_DEF(void) pj_thread_check_stack(const char *file, int line)
 /*
  * pj_thread_get_stack_max_usage()
  */
-PJ_DEF(pj_uint32_t) pj_thread_get_stack_max_usage(pj_thread_t *thread)
+(pj_uint32_t) pj_thread_get_stack_max_usage(pj_thread_t *thread)
 {
     return thread->stk_max_usage;
 }
@@ -661,7 +661,7 @@ PJ_DEF(pj_uint32_t) pj_thread_get_stack_max_usage(pj_thread_t *thread)
 /*
  * pj_thread_get_stack_info()
  */
-PJ_DEF(pj_status_t) pj_thread_get_stack_info( pj_thread_t *thread,
+(pj_status_t) pj_thread_get_stack_info( pj_thread_t *thread,
 					      const char **file,
 					      int *line )
 {
@@ -680,7 +680,7 @@ PJ_DEF(pj_status_t) pj_thread_get_stack_info( pj_thread_t *thread,
 /*
  * pj_atomic_create()
  */
-PJ_DEF(pj_status_t) pj_atomic_create( pj_pool_t *pool, 
+(pj_status_t) pj_atomic_create( pj_pool_t *pool, 
                                       pj_atomic_value_t initial,
                                       pj_atomic_t **atomic_ptr)
 {
@@ -697,7 +697,7 @@ PJ_DEF(pj_status_t) pj_atomic_create( pj_pool_t *pool,
 /*
  * pj_atomic_destroy()
  */
-PJ_DEF(pj_status_t) pj_atomic_destroy( pj_atomic_t *var )
+(pj_status_t) pj_atomic_destroy( pj_atomic_t *var )
 {
     PJ_UNUSED_ARG(var);
     PJ_ASSERT_RETURN(var, PJ_EINVAL);
@@ -708,7 +708,7 @@ PJ_DEF(pj_status_t) pj_atomic_destroy( pj_atomic_t *var )
 /*
  * pj_atomic_set()
  */
-PJ_DEF(void) pj_atomic_set( pj_atomic_t *atomic_var, pj_atomic_value_t value)
+(void) pj_atomic_set( pj_atomic_t *atomic_var, pj_atomic_value_t value)
 {
     PJ_CHECK_STACK();
 
@@ -718,7 +718,7 @@ PJ_DEF(void) pj_atomic_set( pj_atomic_t *atomic_var, pj_atomic_value_t value)
 /*
  * pj_atomic_get()
  */
-PJ_DEF(pj_atomic_value_t) pj_atomic_get(pj_atomic_t *atomic_var)
+(pj_atomic_value_t) pj_atomic_get(pj_atomic_t *atomic_var)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(atomic_var, 0);
@@ -729,7 +729,7 @@ PJ_DEF(pj_atomic_value_t) pj_atomic_get(pj_atomic_t *atomic_var)
 /*
  * pj_atomic_inc_and_get()
  */
-PJ_DEF(pj_atomic_value_t) pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
+(pj_atomic_value_t) pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
 {
     PJ_CHECK_STACK();
 
@@ -743,7 +743,7 @@ PJ_DEF(pj_atomic_value_t) pj_atomic_inc_and_get(pj_atomic_t *atomic_var)
 /*
  * pj_atomic_inc()
  */
-PJ_DEF(void) pj_atomic_inc(pj_atomic_t *atomic_var)
+(void) pj_atomic_inc(pj_atomic_t *atomic_var)
 {
     pj_atomic_inc_and_get(atomic_var);
 }
@@ -751,7 +751,7 @@ PJ_DEF(void) pj_atomic_inc(pj_atomic_t *atomic_var)
 /*
  * pj_atomic_dec_and_get()
  */
-PJ_DEF(pj_atomic_value_t) pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
+(pj_atomic_value_t) pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
 {
     PJ_CHECK_STACK();
 
@@ -765,7 +765,7 @@ PJ_DEF(pj_atomic_value_t) pj_atomic_dec_and_get(pj_atomic_t *atomic_var)
 /*
  * pj_atomic_dec()
  */
-PJ_DEF(void) pj_atomic_dec(pj_atomic_t *atomic_var)
+(void) pj_atomic_dec(pj_atomic_t *atomic_var)
 {
     pj_atomic_dec_and_get(atomic_var);
 }
@@ -773,7 +773,7 @@ PJ_DEF(void) pj_atomic_dec(pj_atomic_t *atomic_var)
 /*
  * pj_atomic_add()
  */
-PJ_DEF(void) pj_atomic_add( pj_atomic_t *atomic_var,
+(void) pj_atomic_add( pj_atomic_t *atomic_var,
 			    pj_atomic_value_t value )
 {
 #if defined(PJ_WIN32_WINNT) && PJ_WIN32_WINNT >= 0x0400
@@ -786,7 +786,7 @@ PJ_DEF(void) pj_atomic_add( pj_atomic_t *atomic_var,
 /*
  * pj_atomic_add_and_get()
  */
-PJ_DEF(pj_atomic_value_t) pj_atomic_add_and_get( pj_atomic_t *atomic_var,
+(pj_atomic_value_t) pj_atomic_add_and_get( pj_atomic_t *atomic_var,
 			                         pj_atomic_value_t value)
 {
 #if defined(PJ_WIN32_WINNT) && PJ_WIN32_WINNT >= 0x0400
@@ -802,7 +802,7 @@ PJ_DEF(pj_atomic_value_t) pj_atomic_add_and_get( pj_atomic_t *atomic_var,
 /*
  * pj_thread_local_alloc()
  */
-PJ_DEF(pj_status_t) pj_thread_local_alloc(long *index)
+(pj_status_t) pj_thread_local_alloc(long *index)
 {
     PJ_ASSERT_RETURN(index != NULL, PJ_EINVAL);
 
@@ -821,7 +821,7 @@ PJ_DEF(pj_status_t) pj_thread_local_alloc(long *index)
 /*
  * pj_thread_local_free()
  */
-PJ_DEF(void) pj_thread_local_free(long index)
+(void) pj_thread_local_free(long index)
 {
     PJ_CHECK_STACK();
     TlsFree(index);
@@ -830,7 +830,7 @@ PJ_DEF(void) pj_thread_local_free(long index)
 /*
  * pj_thread_local_set()
  */
-PJ_DEF(pj_status_t) pj_thread_local_set(long index, void *value)
+(pj_status_t) pj_thread_local_set(long index, void *value)
 {
     BOOL rc;
 
@@ -844,7 +844,7 @@ PJ_DEF(pj_status_t) pj_thread_local_set(long index, void *value)
 /*
  * pj_thread_local_get()
  */
-PJ_DEF(void*) pj_thread_local_get(long index)
+(void*) pj_thread_local_get(long index)
 {
     //Can't check stack because this function is called
     //by PJ_CHECK_STACK() itself!!!
@@ -891,7 +891,7 @@ static pj_status_t init_mutex(pj_mutex_t *mutex, const char *name)
 /*
  * pj_mutex_create()
  */
-PJ_DEF(pj_status_t) pj_mutex_create(pj_pool_t *pool, 
+(pj_status_t) pj_mutex_create(pj_pool_t *pool, 
                                     const char *name, 
                                     int type,
                                     pj_mutex_t **mutex_ptr)
@@ -918,7 +918,7 @@ PJ_DEF(pj_status_t) pj_mutex_create(pj_pool_t *pool,
 /*
  * pj_mutex_create_simple()
  */
-PJ_DEF(pj_status_t) pj_mutex_create_simple( pj_pool_t *pool, 
+(pj_status_t) pj_mutex_create_simple( pj_pool_t *pool, 
                                             const char *name,
 					    pj_mutex_t **mutex )
 {
@@ -928,7 +928,7 @@ PJ_DEF(pj_status_t) pj_mutex_create_simple( pj_pool_t *pool,
 /*
  * pj_mutex_create_recursive()
  */
-PJ_DEF(pj_status_t) pj_mutex_create_recursive( pj_pool_t *pool,
+(pj_status_t) pj_mutex_create_recursive( pj_pool_t *pool,
 					       const char *name,
 					       pj_mutex_t **mutex )
 {
@@ -938,7 +938,7 @@ PJ_DEF(pj_status_t) pj_mutex_create_recursive( pj_pool_t *pool,
 /*
  * pj_mutex_lock()
  */
-PJ_DEF(pj_status_t) pj_mutex_lock(pj_mutex_t *mutex)
+(pj_status_t) pj_mutex_lock(pj_mutex_t *mutex)
 {
     pj_status_t status;
 
@@ -975,7 +975,7 @@ PJ_DEF(pj_status_t) pj_mutex_lock(pj_mutex_t *mutex)
 /*
  * pj_mutex_unlock()
  */
-PJ_DEF(pj_status_t) pj_mutex_unlock(pj_mutex_t *mutex)
+(pj_status_t) pj_mutex_unlock(pj_mutex_t *mutex)
 {
     pj_status_t status;
 
@@ -1005,7 +1005,7 @@ PJ_DEF(pj_status_t) pj_mutex_unlock(pj_mutex_t *mutex)
 /*
  * pj_mutex_trylock()
  */
-PJ_DEF(pj_status_t) pj_mutex_trylock(pj_mutex_t *mutex)
+(pj_status_t) pj_mutex_trylock(pj_mutex_t *mutex)
 {
     pj_status_t status;
 
@@ -1040,7 +1040,7 @@ PJ_DEF(pj_status_t) pj_mutex_trylock(pj_mutex_t *mutex)
 /*
  * pj_mutex_destroy()
  */
-PJ_DEF(pj_status_t) pj_mutex_destroy(pj_mutex_t *mutex)
+(pj_status_t) pj_mutex_destroy(pj_mutex_t *mutex)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(mutex, PJ_EINVAL);
@@ -1059,7 +1059,7 @@ PJ_DEF(pj_status_t) pj_mutex_destroy(pj_mutex_t *mutex)
 /*
  * pj_mutex_is_locked()
  */
-PJ_DEF(pj_bool_t) pj_mutex_is_locked(pj_mutex_t *mutex)
+(pj_bool_t) pj_mutex_is_locked(pj_mutex_t *mutex)
 {
 #if PJ_DEBUG
     return mutex->owner == pj_thread_this();
@@ -1080,7 +1080,7 @@ PJ_DEF(pj_bool_t) pj_mutex_is_locked(pj_mutex_t *mutex)
 /*
  * pj_enter_critical_section()
  */
-PJ_DEF(void) pj_enter_critical_section(void)
+(void) pj_enter_critical_section(void)
 {
     pj_mutex_lock(&critical_section_mutex);
 }
@@ -1089,7 +1089,7 @@ PJ_DEF(void) pj_enter_critical_section(void)
 /*
  * pj_leave_critical_section()
  */
-PJ_DEF(void) pj_leave_critical_section(void)
+(void) pj_leave_critical_section(void)
 {
     pj_mutex_unlock(&critical_section_mutex);
 }
@@ -1100,7 +1100,7 @@ PJ_DEF(void) pj_leave_critical_section(void)
 /*
  * pj_sem_create()
  */
-PJ_DEF(pj_status_t) pj_sem_create( pj_pool_t *pool, 
+(pj_status_t) pj_sem_create( pj_pool_t *pool, 
                                    const char *name,
 				   unsigned initial, 
                                    unsigned max,
@@ -1163,7 +1163,7 @@ static pj_status_t pj_sem_wait_for(pj_sem_t *sem, unsigned timeout)
 /*
  * pj_sem_wait()
  */
-PJ_DEF(pj_status_t) pj_sem_wait(pj_sem_t *sem)
+(pj_status_t) pj_sem_wait(pj_sem_t *sem)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(sem, PJ_EINVAL);
@@ -1174,7 +1174,7 @@ PJ_DEF(pj_status_t) pj_sem_wait(pj_sem_t *sem)
 /*
  * pj_sem_trywait()
  */
-PJ_DEF(pj_status_t) pj_sem_trywait(pj_sem_t *sem)
+(pj_status_t) pj_sem_trywait(pj_sem_t *sem)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(sem, PJ_EINVAL);
@@ -1185,7 +1185,7 @@ PJ_DEF(pj_status_t) pj_sem_trywait(pj_sem_t *sem)
 /*
  * pj_sem_post()
  */
-PJ_DEF(pj_status_t) pj_sem_post(pj_sem_t *sem)
+(pj_status_t) pj_sem_post(pj_sem_t *sem)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(sem, PJ_EINVAL);
@@ -1202,7 +1202,7 @@ PJ_DEF(pj_status_t) pj_sem_post(pj_sem_t *sem)
 /*
  * pj_sem_destroy()
  */
-PJ_DEF(pj_status_t) pj_sem_destroy(pj_sem_t *sem)
+(pj_status_t) pj_sem_destroy(pj_sem_t *sem)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(sem, PJ_EINVAL);
@@ -1225,7 +1225,7 @@ PJ_DEF(pj_status_t) pj_sem_destroy(pj_sem_t *sem)
 /*
  * pj_event_create()
  */
-PJ_DEF(pj_status_t) pj_event_create( pj_pool_t *pool, 
+(pj_status_t) pj_event_create( pj_pool_t *pool, 
                                      const char *name,
 				     pj_bool_t manual_reset, 
                                      pj_bool_t initial,
@@ -1293,7 +1293,7 @@ static pj_status_t pj_event_wait_for(pj_event_t *event, unsigned timeout)
 /*
  * pj_event_wait()
  */
-PJ_DEF(pj_status_t) pj_event_wait(pj_event_t *event)
+(pj_status_t) pj_event_wait(pj_event_t *event)
 {
     PJ_ASSERT_RETURN(event, PJ_EINVAL);
 
@@ -1303,7 +1303,7 @@ PJ_DEF(pj_status_t) pj_event_wait(pj_event_t *event)
 /*
  * pj_event_trywait()
  */
-PJ_DEF(pj_status_t) pj_event_trywait(pj_event_t *event)
+(pj_status_t) pj_event_trywait(pj_event_t *event)
 {
     PJ_ASSERT_RETURN(event, PJ_EINVAL);
 
@@ -1313,7 +1313,7 @@ PJ_DEF(pj_status_t) pj_event_trywait(pj_event_t *event)
 /*
  * pj_event_set()
  */
-PJ_DEF(pj_status_t) pj_event_set(pj_event_t *event)
+(pj_status_t) pj_event_set(pj_event_t *event)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(event, PJ_EINVAL);
@@ -1329,7 +1329,7 @@ PJ_DEF(pj_status_t) pj_event_set(pj_event_t *event)
 /*
  * pj_event_pulse()
  */
-PJ_DEF(pj_status_t) pj_event_pulse(pj_event_t *event)
+(pj_status_t) pj_event_pulse(pj_event_t *event)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(event, PJ_EINVAL);
@@ -1345,7 +1345,7 @@ PJ_DEF(pj_status_t) pj_event_pulse(pj_event_t *event)
 /*
  * pj_event_reset()
  */
-PJ_DEF(pj_status_t) pj_event_reset(pj_event_t *event)
+(pj_status_t) pj_event_reset(pj_event_t *event)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(event, PJ_EINVAL);
@@ -1361,7 +1361,7 @@ PJ_DEF(pj_status_t) pj_event_reset(pj_event_t *event)
 /*
  * pj_event_destroy()
  */
-PJ_DEF(pj_status_t) pj_event_destroy(pj_event_t *event)
+(pj_status_t) pj_event_destroy(pj_event_t *event)
 {
     PJ_CHECK_STACK();
     PJ_ASSERT_RETURN(event, PJ_EINVAL);
@@ -1418,7 +1418,7 @@ static pj_color_t os_attr_to_pj_color(WORD attr)
 /*
  * pj_term_set_color()
  */
-PJ_DEF(pj_status_t) pj_term_set_color(pj_color_t color)
+(pj_status_t) pj_term_set_color(pj_color_t color)
 {
     BOOL rc;
     WORD attr = 0;
@@ -1434,7 +1434,7 @@ PJ_DEF(pj_status_t) pj_term_set_color(pj_color_t color)
  * pj_term_get_color()
  * Get current terminal foreground color.
  */
-PJ_DEF(pj_color_t) pj_term_get_color(void)
+(pj_color_t) pj_term_get_color(void)
 {
     CONSOLE_SCREEN_BUFFER_INFO info;
 
@@ -1449,7 +1449,7 @@ PJ_DEF(pj_color_t) pj_term_get_color(void)
 /*
  * pj_run_app()
  */
-PJ_DEF(int) pj_run_app(pj_main_func_ptr main_func, int argc, char *argv[],
+(int) pj_run_app(pj_main_func_ptr main_func, int argc, char *argv[],
                        unsigned flags)
 {
     PJ_UNUSED_ARG(flags);

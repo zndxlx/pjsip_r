@@ -597,7 +597,7 @@ static pj_status_t parse_auth_chal(pj_pool_t *pool, pj_str_t *input,
 /* The same as #pj_http_headers_add_elmt() with char * as
  * its parameters.
  */
-PJ_DEF(pj_status_t) pj_http_headers_add_elmt2(pj_http_headers *headers, 
+(pj_status_t) pj_http_headers_add_elmt2(pj_http_headers *headers, 
                                               char *name, char *val)
 {
     pj_str_t f, v;
@@ -606,7 +606,7 @@ PJ_DEF(pj_status_t) pj_http_headers_add_elmt2(pj_http_headers *headers,
     return pj_http_headers_add_elmt(headers, &f, &v);
 }   
 
-PJ_DEF(pj_status_t) pj_http_headers_add_elmt(pj_http_headers *headers, 
+(pj_status_t) pj_http_headers_add_elmt(pj_http_headers *headers, 
                                              pj_str_t *name, 
                                              pj_str_t *val)
 {
@@ -757,7 +757,7 @@ static pj_status_t http_headers_parse(char *hdata, pj_size_t size,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(void) pj_http_req_param_default(pj_http_req_param *param)
+(void) pj_http_req_param_default(pj_http_req_param *param)
 {
     pj_assert(param);
     pj_bzero(param, sizeof(*param));
@@ -797,7 +797,7 @@ static char *get_url_at_pos(const char *str, pj_size_t len)
 }
 
 
-PJ_DEF(pj_status_t) pj_http_req_parse_url(const pj_str_t *url, 
+(pj_status_t) pj_http_req_parse_url(const pj_str_t *url, 
                                           pj_http_url *hurl)
 {
     pj_scanner scanner;
@@ -881,13 +881,13 @@ PJ_DEF(pj_status_t) pj_http_req_parse_url(const pj_str_t *url,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(void) pj_http_req_set_timeout(pj_http_req *http_req,
+(void) pj_http_req_set_timeout(pj_http_req *http_req,
                                      const pj_time_val* timeout)
 {
     pj_memcpy(&http_req->param.timeout, timeout, sizeof(*timeout));
 }
 
-PJ_DEF(pj_status_t) pj_http_req_create(pj_pool_t *pool,
+(pj_status_t) pj_http_req_create(pj_pool_t *pool,
                                        const pj_str_t *url,
                                        pj_timer_heap_t *timer,
                                        pj_ioqueue_t *ioqueue,
@@ -995,13 +995,13 @@ PJ_DEF(pj_status_t) pj_http_req_create(pj_pool_t *pool,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_bool_t) pj_http_req_is_running(const pj_http_req *http_req)
+(pj_bool_t) pj_http_req_is_running(const pj_http_req *http_req)
 {
    PJ_ASSERT_RETURN(http_req, PJ_FALSE);
    return (http_req->state != IDLE);
 }
 
-PJ_DEF(void*) pj_http_req_get_user_data(pj_http_req *http_req)
+(void*) pj_http_req_get_user_data(pj_http_req *http_req)
 {
     PJ_ASSERT_RETURN(http_req, NULL);
     return http_req->param.user_data;
@@ -1124,7 +1124,7 @@ on_return:
 }
 
 /* Starts an asynchronous HTTP request to the URL specified. */
-PJ_DEF(pj_status_t) pj_http_req_start(pj_http_req *http_req)
+(pj_status_t) pj_http_req_start(pj_http_req *http_req)
 {
     return start_http_req(http_req, PJ_FALSE);
 }
@@ -1628,7 +1628,7 @@ static pj_status_t http_req_end_request(pj_http_req *hreq)
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pj_http_req_cancel(pj_http_req *http_req,
+(pj_status_t) pj_http_req_cancel(pj_http_req *http_req,
                                        pj_bool_t notify)
 {
     http_req->state = ABORTING;
@@ -1644,7 +1644,7 @@ PJ_DEF(pj_status_t) pj_http_req_cancel(pj_http_req *http_req,
 }
 
 
-PJ_DEF(pj_status_t) pj_http_req_destroy(pj_http_req *http_req)
+(pj_status_t) pj_http_req_destroy(pj_http_req *http_req)
 {
     PJ_ASSERT_RETURN(http_req, PJ_EINVAL);
     

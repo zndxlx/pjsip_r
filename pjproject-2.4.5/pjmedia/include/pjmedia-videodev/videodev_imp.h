@@ -216,7 +216,7 @@ pjmedia_vid_dev_get_local_index(pjmedia_vid_dev_index id,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_vid_dev_get_global_index(const pjmedia_vid_dev_factory *f,
                                  unsigned local_idx,
                                  pjmedia_vid_dev_index *pid);

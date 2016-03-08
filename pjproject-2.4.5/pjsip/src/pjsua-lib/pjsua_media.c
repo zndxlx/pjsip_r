@@ -942,7 +942,7 @@ on_error:
  * Create media transports for all the calls. This function creates
  * one UDP media transport for each call.
  */
-PJ_DEF(pj_status_t) pjsua_media_transports_create(
+(pj_status_t) pjsua_media_transports_create(
 			const pjsua_transport_config *app_cfg)
 {
     pjsua_transport_config cfg;
@@ -1001,7 +1001,7 @@ PJ_DEF(pj_status_t) pjsua_media_transports_create(
 /*
  * Attach application's created media transports.
  */
-PJ_DEF(pj_status_t) pjsua_media_transports_attach(pjsua_media_transport tp[],
+(pj_status_t) pjsua_media_transports_attach(pjsua_media_transport tp[],
 						  unsigned count,
 						  pj_bool_t auto_delete)
 {
@@ -3092,7 +3092,7 @@ on_error:
 /*
  * Enum all supported codecs in the system.
  */
-PJ_DEF(pj_status_t) pjsua_enum_codecs( pjsua_codec_info id[],
+(pj_status_t) pjsua_enum_codecs( pjsua_codec_info id[],
 				       unsigned *p_count )
 {
     pjmedia_codec_mgr *codec_mgr;
@@ -3127,7 +3127,7 @@ PJ_DEF(pj_status_t) pjsua_enum_codecs( pjsua_codec_info id[],
 /*
  * Change codec priority.
  */
-PJ_DEF(pj_status_t) pjsua_codec_set_priority( const pj_str_t *codec_id,
+(pj_status_t) pjsua_codec_set_priority( const pj_str_t *codec_id,
 					      pj_uint8_t priority )
 {
     const pj_str_t all = { NULL, 0 };
@@ -3146,7 +3146,7 @@ PJ_DEF(pj_status_t) pjsua_codec_set_priority( const pj_str_t *codec_id,
 /*
  * Get codec parameters.
  */
-PJ_DEF(pj_status_t) pjsua_codec_get_param( const pj_str_t *codec_id,
+(pj_status_t) pjsua_codec_get_param( const pj_str_t *codec_id,
 					   pjmedia_codec_param *param )
 {
     const pj_str_t all = { NULL, 0 };
@@ -3176,7 +3176,7 @@ PJ_DEF(pj_status_t) pjsua_codec_get_param( const pj_str_t *codec_id,
 /*
  * Set codec parameters.
  */
-PJ_DEF(pj_status_t) pjsua_codec_set_param( const pj_str_t *codec_id,
+(pj_status_t) pjsua_codec_set_param( const pj_str_t *codec_id,
 					   const pjmedia_codec_param *param)
 {
     const pjmedia_codec_info *info[2];

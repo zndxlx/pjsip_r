@@ -248,7 +248,7 @@ on_return:
 /*
  * Dump STUN message to a printable string output.
  */
-PJ_DEF(char*) pj_stun_msg_dump(const pj_stun_msg *msg,
+(char*) pj_stun_msg_dump(const pj_stun_msg *msg,
 			       char *buffer,
 			       unsigned length,
 			       unsigned *printed_len)

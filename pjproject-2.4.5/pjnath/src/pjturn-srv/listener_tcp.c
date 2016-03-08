@@ -60,7 +60,7 @@ static void show_err(const char *sender, const char *title,
 /*
  * Create a new listener on the specified port.
  */
-PJ_DEF(pj_status_t) pj_turn_listener_create_tcp(pj_turn_srv *srv,
+(pj_status_t) pj_turn_listener_create_tcp(pj_turn_srv *srv,
 					        int af,
 					        const pj_str_t *bound_addr,
 					        unsigned port,

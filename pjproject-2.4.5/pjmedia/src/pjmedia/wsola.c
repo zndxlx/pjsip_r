@@ -498,7 +498,7 @@ static void wsola_fade_out(pjmedia_wsola *wsola,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_create( pj_pool_t *pool, 
+(pj_status_t) pjmedia_wsola_create( pj_pool_t *pool, 
 					  unsigned clock_rate,
 					  unsigned samples_per_frame,
 					  unsigned channel_count,
@@ -582,7 +582,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_create( pj_pool_t *pool,
 
 }
 
-PJ_DEF(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola)
+(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola)
 {
     /* Nothing to do */
     PJ_UNUSED_ARG(wsola);
@@ -590,7 +590,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola)
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_wsola_set_max_expand(pjmedia_wsola *wsola,
+(pj_status_t) pjmedia_wsola_set_max_expand(pjmedia_wsola *wsola,
 						  unsigned msec)
 {
     PJ_ASSERT_RETURN(wsola, PJ_EINVAL);
@@ -598,7 +598,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_set_max_expand(pjmedia_wsola *wsola,
     return PJ_SUCCESS;
 }
 
-PJ_DEF(pj_status_t) pjmedia_wsola_reset( pjmedia_wsola *wsola,
+(pj_status_t) pjmedia_wsola_reset( pjmedia_wsola *wsola,
 					 unsigned options)
 {
     PJ_ASSERT_RETURN(wsola && options==0, PJ_EINVAL);
@@ -747,7 +747,7 @@ static unsigned compress(pjmedia_wsola *wsola, pj_int16_t *buf, unsigned count,
 
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_save( pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_save( pjmedia_wsola *wsola, 
 					pj_int16_t frm[], 
 					pj_bool_t prev_lost)
 {
@@ -891,7 +891,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_save( pjmedia_wsola *wsola,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_generate( pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_generate( pjmedia_wsola *wsola, 
 					    pj_int16_t frm[])
 {
     unsigned samples_len, samples_req;
@@ -933,7 +933,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_generate( pjmedia_wsola *wsola,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_discard( pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_discard( pjmedia_wsola *wsola, 
 					   pj_int16_t buf1[],
 					   unsigned buf1_cnt, 
 					   pj_int16_t buf2[],
@@ -1056,7 +1056,7 @@ struct pjmedia_wsola
 };
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_create( pj_pool_t *pool, 
+(pj_status_t) pjmedia_wsola_create( pj_pool_t *pool, 
 					  unsigned clock_rate,
 					  unsigned samples_per_frame,
 					  unsigned channel_count,
@@ -1078,14 +1078,14 @@ PJ_DEF(pj_status_t) pjmedia_wsola_create( pj_pool_t *pool,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola)
+(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola)
 {
     PJ_UNUSED_ARG(wsola);
     return PJ_SUCCESS;
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_reset( pjmedia_wsola *wsola,
+(pj_status_t) pjmedia_wsola_reset( pjmedia_wsola *wsola,
 					 unsigned options)
 {
     PJ_UNUSED_ARG(wsola);
@@ -1095,7 +1095,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_reset( pjmedia_wsola *wsola,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_save( pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_save( pjmedia_wsola *wsola, 
 					pj_int16_t frm[], 
 					pj_bool_t prev_lost)
 {
@@ -1107,7 +1107,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_save( pjmedia_wsola *wsola,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_generate( pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_generate( pjmedia_wsola *wsola, 
 					    pj_int16_t frm[])
 {
     pjmedia_zero_samples(frm, wsola->samples_per_frame);
@@ -1115,7 +1115,7 @@ PJ_DEF(pj_status_t) pjmedia_wsola_generate( pjmedia_wsola *wsola,
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_wsola_discard( pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_discard( pjmedia_wsola *wsola, 
 					   pj_int16_t buf1[],
 					   unsigned buf1_cnt, 
 					   pj_int16_t buf2[],

@@ -1982,7 +1982,7 @@ static pj_status_t create_channel( pj_pool_t *pool,
 /*
  * Create media stream.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_create( pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_stream_create( pjmedia_endpt *endpt,
 					   pj_pool_t *pool,
 					   const pjmedia_stream_info *info,
 					   pjmedia_transport *tp,
@@ -2447,7 +2447,7 @@ err_cleanup:
 /*
  * Destroy stream.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_destroy( pjmedia_stream *stream )
+(pj_status_t) pjmedia_stream_destroy( pjmedia_stream *stream )
 {
     pj_status_t status;
 
@@ -2553,7 +2553,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_destroy( pjmedia_stream *stream )
 /*
  * Get the last frame frame type retreived from the jitter buffer.
  */
-PJ_DEF(char) pjmedia_stream_get_last_jb_frame_type(pjmedia_stream *stream)
+(char) pjmedia_stream_get_last_jb_frame_type(pjmedia_stream *stream)
 {
     return stream->jb_last_frm;
 }
@@ -2562,7 +2562,7 @@ PJ_DEF(char) pjmedia_stream_get_last_jb_frame_type(pjmedia_stream *stream)
 /*
  * Get the port interface.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_get_port( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_port( pjmedia_stream *stream,
 					     pjmedia_port **p_port )
 {
     *p_port = &stream->port;
@@ -2573,7 +2573,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_get_port( pjmedia_stream *stream,
 /*
  * Get the transport object
  */
-PJ_DEF(pjmedia_transport*) pjmedia_stream_get_transport(pjmedia_stream *st)
+(pjmedia_transport*) pjmedia_stream_get_transport(pjmedia_stream *st)
 {
     return st->transport;
 }
@@ -2582,7 +2582,7 @@ PJ_DEF(pjmedia_transport*) pjmedia_stream_get_transport(pjmedia_stream *st)
 /*
  * Start stream.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_start(pjmedia_stream *stream)
+(pj_status_t) pjmedia_stream_start(pjmedia_stream *stream)
 {
 
     PJ_ASSERT_RETURN(stream && stream->enc && stream->dec, PJ_EINVALIDOP);
@@ -2607,7 +2607,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_start(pjmedia_stream *stream)
 }
 
 
-PJ_DEF(pj_status_t) pjmedia_stream_get_info( const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_info( const pjmedia_stream *stream,
 					     pjmedia_stream_info *info)
 {
     PJ_ASSERT_RETURN(stream && info, PJ_EINVAL);
@@ -2619,7 +2619,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_get_info( const pjmedia_stream *stream,
 /*
  * Get stream statistics.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_get_stat( const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_stat( const pjmedia_stream *stream,
 					     pjmedia_rtcp_stat *stat)
 {
     PJ_ASSERT_RETURN(stream && stat, PJ_EINVAL);
@@ -2632,7 +2632,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_get_stat( const pjmedia_stream *stream,
 /*
  * Reset the stream statistics in the middle of a stream session.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_reset_stat(pjmedia_stream *stream)
+(pj_status_t) pjmedia_stream_reset_stat(pjmedia_stream *stream)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
 
@@ -2646,7 +2646,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_reset_stat(pjmedia_stream *stream)
 /*
  * Get stream extended statistics.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_get_stat_xr( const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_stat_xr( const pjmedia_stream *stream,
 					        pjmedia_rtcp_xr_stat *stat)
 {
     PJ_ASSERT_RETURN(stream && stat, PJ_EINVAL);
@@ -2662,7 +2662,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_get_stat_xr( const pjmedia_stream *stream,
 /*
  * Get jitter buffer state.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_get_stat_jbuf(const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_stat_jbuf(const pjmedia_stream *stream,
 						 pjmedia_jb_state *state)
 {
     PJ_ASSERT_RETURN(stream && state, PJ_EINVAL);
@@ -2672,7 +2672,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_get_stat_jbuf(const pjmedia_stream *stream,
 /*
  * Pause stream.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_pause( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_pause( pjmedia_stream *stream,
 					  pjmedia_dir dir)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -2700,7 +2700,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_pause( pjmedia_stream *stream,
 /*
  * Resume stream
  */
-PJ_DEF(pj_status_t) pjmedia_stream_resume( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_resume( pjmedia_stream *stream,
 					   pjmedia_dir dir)
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -2721,7 +2721,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_resume( pjmedia_stream *stream,
 /*
  * Dial DTMF
  */
-PJ_DEF(pj_status_t) pjmedia_stream_dial_dtmf( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_dial_dtmf( pjmedia_stream *stream,
 					      const pj_str_t *digit_char)
 {
     pj_status_t status = PJ_SUCCESS;
@@ -2800,7 +2800,7 @@ on_return:
 /*
  * See if we have DTMF digits in the rx buffer.
  */
-PJ_DEF(pj_bool_t) pjmedia_stream_check_dtmf(pjmedia_stream *stream)
+(pj_bool_t) pjmedia_stream_check_dtmf(pjmedia_stream *stream)
 {
     return stream->rx_dtmf_count != 0;
 }
@@ -2809,7 +2809,7 @@ PJ_DEF(pj_bool_t) pjmedia_stream_check_dtmf(pjmedia_stream *stream)
 /*
  * Retrieve incoming DTMF digits from the stream's DTMF buffer.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_get_dtmf( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_dtmf( pjmedia_stream *stream,
 					     char *digits,
 					     unsigned *size)
 {
@@ -2844,7 +2844,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_get_dtmf( pjmedia_stream *stream,
 /*
  * Set callback to be called upon receiving DTMF digits.
  */
-PJ_DEF(pj_status_t) pjmedia_stream_set_dtmf_callback(pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_set_dtmf_callback(pjmedia_stream *stream,
 				 void (*cb)(pjmedia_stream*,
 					    void *user_data,
 					    int digit),
@@ -2868,7 +2868,7 @@ PJ_DEF(pj_status_t) pjmedia_stream_set_dtmf_callback(pjmedia_stream *stream,
 /*
  * Send RTCP SDES.
  */
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_stream_send_rtcp_sdes( pjmedia_stream *stream )
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);
@@ -2879,7 +2879,7 @@ pjmedia_stream_send_rtcp_sdes( pjmedia_stream *stream )
 /*
  * Send RTCP BYE.
  */
-PJ_DEF(pj_status_t)
+(pj_status_t)
 pjmedia_stream_send_rtcp_bye( pjmedia_stream *stream )
 {
     PJ_ASSERT_RETURN(stream, PJ_EINVAL);

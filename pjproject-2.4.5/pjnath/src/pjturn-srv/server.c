@@ -60,7 +60,7 @@ struct saved_cred
 /*
  * Get transport type name, normally for logging purpose only.
  */
-PJ_DEF(const char*) pj_turn_tp_type_name(int tp_type)
+(const char*) pj_turn_tp_type_name(int tp_type)
 {
     /* Must be 3 characters long! */
     if (tp_type == PJ_TURN_TP_UDP) {
@@ -76,7 +76,7 @@ PJ_DEF(const char*) pj_turn_tp_type_name(int tp_type)
 /*
  * Create server.
  */
-PJ_DEF(pj_status_t) pj_turn_srv_create(pj_pool_factory *pf,
+(pj_status_t) pj_turn_srv_create(pj_pool_factory *pf,
 				       pj_turn_srv **p_srv)
 {
     pj_pool_t *pool;
@@ -266,7 +266,7 @@ static int server_thread_proc(void *arg)
 /*
  * Destroy the server.
  */
-PJ_DEF(pj_status_t) pj_turn_srv_destroy(pj_turn_srv *srv)
+(pj_status_t) pj_turn_srv_destroy(pj_turn_srv *srv)
 {
     pj_hash_iterator_t itbuf, *it;
     unsigned i;
@@ -356,7 +356,7 @@ PJ_DEF(pj_status_t) pj_turn_srv_destroy(pj_turn_srv *srv)
 /*
  * Add listener.
  */
-PJ_DEF(pj_status_t) pj_turn_srv_add_listener(pj_turn_srv *srv,
+(pj_status_t) pj_turn_srv_add_listener(pj_turn_srv *srv,
 					     pj_turn_listener *lis)
 {
     unsigned index;
@@ -381,7 +381,7 @@ PJ_DEF(pj_status_t) pj_turn_srv_add_listener(pj_turn_srv *srv,
 /*
  * Destroy listener.
  */
-PJ_DEF(pj_status_t) pj_turn_listener_destroy(pj_turn_listener *listener)
+(pj_status_t) pj_turn_listener_destroy(pj_turn_listener *listener)
 {
     pj_turn_srv *srv = listener->server;
     unsigned i;
@@ -406,7 +406,7 @@ PJ_DEF(pj_status_t) pj_turn_listener_destroy(pj_turn_listener *listener)
 /**
  * Add a reference to a transport.
  */
-PJ_DEF(void) pj_turn_transport_add_ref( pj_turn_transport *transport,
+(void) pj_turn_transport_add_ref( pj_turn_transport *transport,
 					pj_turn_allocation *alloc)
 {
     transport->add_ref(transport, alloc);
@@ -416,7 +416,7 @@ PJ_DEF(void) pj_turn_transport_add_ref( pj_turn_transport *transport,
 /**
  * Decrement transport reference counter.
  */
-PJ_DEF(void) pj_turn_transport_dec_ref( pj_turn_transport *transport,
+(void) pj_turn_transport_dec_ref( pj_turn_transport *transport,
 					pj_turn_allocation *alloc)
 {
     transport->dec_ref(transport, alloc);
@@ -426,7 +426,7 @@ PJ_DEF(void) pj_turn_transport_dec_ref( pj_turn_transport *transport,
 /*
  * Register an allocation to the hash tables.
  */
-PJ_DEF(pj_status_t) pj_turn_srv_register_allocation(pj_turn_srv *srv,
+(pj_status_t) pj_turn_srv_register_allocation(pj_turn_srv *srv,
 						    pj_turn_allocation *alloc)
 {
     /* Add to hash tables */
@@ -445,7 +445,7 @@ PJ_DEF(pj_status_t) pj_turn_srv_register_allocation(pj_turn_srv *srv,
 /*
  * Unregister an allocation from the hash tables.
  */
-PJ_DEF(pj_status_t) pj_turn_srv_unregister_allocation(pj_turn_srv *srv,
+(pj_status_t) pj_turn_srv_unregister_allocation(pj_turn_srv *srv,
 						     pj_turn_allocation *alloc)
 {
     /* Unregister from hash tables */
@@ -596,7 +596,7 @@ static void handle_binding_request(pj_turn_pkt *pkt,
  * is found for the client address, or handed over to owned STUN session
  * if an allocation is not found.
  */
-PJ_DEF(void) pj_turn_srv_on_rx_pkt(pj_turn_srv *srv,
+(void) pj_turn_srv_on_rx_pkt(pj_turn_srv *srv,
 				   pj_turn_pkt *pkt)
 {
     pj_turn_allocation *alloc;

@@ -1213,7 +1213,7 @@ static pj_status_t process_vt100_cmd(cli_telnet_sess *sess,
     return status;
 }
 
-PJ_DEF(void) pj_cli_telnet_cfg_default(pj_cli_telnet_cfg *param)
+(void) pj_cli_telnet_cfg_default(pj_cli_telnet_cfg *param)
 {
     pj_assert(param);
 
@@ -1688,7 +1688,7 @@ on_exit:
     return PJ_TRUE;
 }
 
-PJ_DEF(pj_status_t) pj_cli_telnet_create(pj_cli_t *cli,
+(pj_status_t) pj_cli_telnet_create(pj_cli_t *cli,
 					 pj_cli_telnet_cfg *param,
 					 pj_cli_front_end **p_fe)
 {
@@ -1908,7 +1908,7 @@ on_exit:
     return status;
 }
 
-PJ_DEF(pj_status_t) pj_cli_telnet_get_info(pj_cli_front_end *fe,
+(pj_status_t) pj_cli_telnet_get_info(pj_cli_front_end *fe,
 					   pj_cli_telnet_info *info)
 {
     pj_sockaddr hostip;

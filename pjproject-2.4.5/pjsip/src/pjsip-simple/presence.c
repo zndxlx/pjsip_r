@@ -142,7 +142,7 @@ static const pj_str_t STR_APP_XPIDF_XML    = { "application/xpidf+xml", 21 };
 /*
  * Init presence module.
  */
-PJ_DEF(pj_status_t) pjsip_pres_init_module( pjsip_endpoint *endpt,
+(pj_status_t) pjsip_pres_init_module( pjsip_endpoint *endpt,
 					    pjsip_module *mod_evsub)
 {
     pj_status_t status;
@@ -178,7 +178,7 @@ PJ_DEF(pj_status_t) pjsip_pres_init_module( pjsip_endpoint *endpt,
 /*
  * Get presence module instance.
  */
-PJ_DEF(pjsip_module*) pjsip_pres_instance(void)
+(pjsip_module*) pjsip_pres_instance(void)
 {
     return &mod_presence;
 }
@@ -187,7 +187,7 @@ PJ_DEF(pjsip_module*) pjsip_pres_instance(void)
 /*
  * Create client subscription.
  */
-PJ_DEF(pj_status_t) pjsip_pres_create_uac( pjsip_dialog *dlg,
+(pj_status_t) pjsip_pres_create_uac( pjsip_dialog *dlg,
 					   const pjsip_evsub_user *user_cb,
 					   unsigned options,
 					   pjsip_evsub **p_evsub )
@@ -235,7 +235,7 @@ on_return:
 /*
  * Create server subscription.
  */
-PJ_DEF(pj_status_t) pjsip_pres_create_uas( pjsip_dialog *dlg,
+(pj_status_t) pjsip_pres_create_uas( pjsip_dialog *dlg,
 					   const pjsip_evsub_user *user_cb,
 					   pjsip_rx_data *rdata,
 					   pjsip_evsub **p_evsub )
@@ -337,7 +337,7 @@ on_return:
 /*
  * Forcefully terminate presence.
  */
-PJ_DEF(pj_status_t) pjsip_pres_terminate( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_terminate( pjsip_evsub *sub,
 					  pj_bool_t notify )
 {
     return pjsip_evsub_terminate(sub, notify);
@@ -346,7 +346,7 @@ PJ_DEF(pj_status_t) pjsip_pres_terminate( pjsip_evsub *sub,
 /*
  * Create SUBSCRIBE
  */
-PJ_DEF(pj_status_t) pjsip_pres_initiate( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_initiate( pjsip_evsub *sub,
 					 pj_int32_t expires,
 					 pjsip_tx_data **p_tdata)
 {
@@ -358,7 +358,7 @@ PJ_DEF(pj_status_t) pjsip_pres_initiate( pjsip_evsub *sub,
 /*
  * Add custom headers.
  */
-PJ_DEF(pj_status_t) pjsip_pres_add_header( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_add_header( pjsip_evsub *sub,
 					   const pjsip_hdr *hdr_list )
 {
     return pjsip_evsub_add_header( sub, hdr_list );
@@ -368,7 +368,7 @@ PJ_DEF(pj_status_t) pjsip_pres_add_header( pjsip_evsub *sub,
 /*
  * Accept incoming subscription.
  */
-PJ_DEF(pj_status_t) pjsip_pres_accept( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_accept( pjsip_evsub *sub,
 				       pjsip_rx_data *rdata,
 				       int st_code,
 				       const pjsip_hdr *hdr_list )
@@ -380,7 +380,7 @@ PJ_DEF(pj_status_t) pjsip_pres_accept( pjsip_evsub *sub,
 /*
  * Get presence status.
  */
-PJ_DEF(pj_status_t) pjsip_pres_get_status( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_get_status( pjsip_evsub *sub,
 					   pjsip_pres_status *status )
 {
     pjsip_pres *pres;
@@ -405,7 +405,7 @@ PJ_DEF(pj_status_t) pjsip_pres_get_status( pjsip_evsub *sub,
 /*
  * Set presence status.
  */
-PJ_DEF(pj_status_t) pjsip_pres_set_status( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_set_status( pjsip_evsub *sub,
 					   const pjsip_pres_status *status )
 {
     unsigned i;
@@ -492,7 +492,7 @@ static pj_status_t pres_create_msg_body( pjsip_pres *pres,
 /*
  * Create NOTIFY
  */
-PJ_DEF(pj_status_t) pjsip_pres_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_notify( pjsip_evsub *sub,
 				       pjsip_evsub_state state,
 				       const pj_str_t *state_str,
 				       const pj_str_t *reason,
@@ -549,7 +549,7 @@ on_return:
 /*
  * Create NOTIFY that reflect current state.
  */
-PJ_DEF(pj_status_t) pjsip_pres_current_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_current_notify( pjsip_evsub *sub,
 					       pjsip_tx_data **p_tdata )
 {
     pjsip_pres *pres;
@@ -599,7 +599,7 @@ on_return:
 /*
  * Send request.
  */
-PJ_DEF(pj_status_t) pjsip_pres_send_request( pjsip_evsub *sub,
+(pj_status_t) pjsip_pres_send_request( pjsip_evsub *sub,
 					     pjsip_tx_data *tdata )
 {
     return pjsip_evsub_send_request(sub, tdata);
