@@ -49,7 +49,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_bidirectional_port_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_bidirectional_port_create(pj_pool_t *pool,
 						       pjmedia_port *get_port,
 						       pjmedia_port *put_port,
 						       pjmedia_port **p_port );

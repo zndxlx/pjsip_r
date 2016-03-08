@@ -57,14 +57,14 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_transport_loop_create(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_loop_create(pjmedia_endpt *endpt,
 						   pjmedia_transport **p_tp);
 
 
 /**
  * Set this stream as the receiver of incoming packets.
  */
-PJ_DECL(pj_status_t) pjmedia_transport_loop_disable_rx(pjmedia_transport *tp,
+(pj_status_t) pjmedia_transport_loop_disable_rx(pjmedia_transport *tp,
 						       void *user,
 						       pj_bool_t disabled);
 

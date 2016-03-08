@@ -127,7 +127,7 @@ typedef enum pjmedia_echo_flag
  *
  * @return		    PJ_SUCCESS on success, or the appropriate status.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_echo_create(pj_pool_t *pool,
 					 unsigned clock_rate,
 					 unsigned samples_per_frame,
 					 unsigned tail_ms,
@@ -155,7 +155,7 @@ PJ_DECL(pj_status_t) pjmedia_echo_create(pj_pool_t *pool,
  *
  * @return		    PJ_SUCCESS on success, or the appropriate status.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_echo_create2(pj_pool_t *pool,
 					  unsigned clock_rate,
 					  unsigned channel_count,
 					  unsigned samples_per_frame,
@@ -171,7 +171,7 @@ PJ_DECL(pj_status_t) pjmedia_echo_create2(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_destroy(pjmedia_echo_state *echo );
+(pj_status_t) pjmedia_echo_destroy(pjmedia_echo_state *echo );
 
 
 /**
@@ -181,7 +181,7 @@ PJ_DECL(pj_status_t) pjmedia_echo_destroy(pjmedia_echo_state *echo );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_reset(pjmedia_echo_state *echo );
+(pj_status_t) pjmedia_echo_reset(pjmedia_echo_state *echo );
 
 
 /**
@@ -197,7 +197,7 @@ PJ_DECL(pj_status_t) pjmedia_echo_reset(pjmedia_echo_state *echo );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_playback(pjmedia_echo_state *echo,
+(pj_status_t) pjmedia_echo_playback(pjmedia_echo_state *echo,
 					   pj_int16_t *play_frm );
 
 
@@ -219,7 +219,7 @@ PJ_DECL(pj_status_t) pjmedia_echo_playback(pjmedia_echo_state *echo,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_capture(pjmedia_echo_state *echo,
+(pj_status_t) pjmedia_echo_capture(pjmedia_echo_state *echo,
 					  pj_int16_t *rec_frm,
 					  unsigned options );
 
@@ -242,7 +242,7 @@ PJ_DECL(pj_status_t) pjmedia_echo_capture(pjmedia_echo_state *echo,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_echo_cancel( pjmedia_echo_state *echo,
+(pj_status_t) pjmedia_echo_cancel( pjmedia_echo_state *echo,
 					  pj_int16_t *rec_frm,
 					  const pj_int16_t *play_frm,
 					  unsigned options,

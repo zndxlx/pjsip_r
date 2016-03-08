@@ -45,7 +45,7 @@ typedef struct pjsip_multipart_part
     /**
      * Standard list element.
      */
-    PJ_DECL_LIST_MEMBER(struct pjsip_multipart_part);
+    _LIST_MEMBER(struct pjsip_multipart_part);
 
     /**
      * Optional message headers.
@@ -73,7 +73,7 @@ typedef struct pjsip_multipart_part
  *
  * @return		Multipart body instance with no part.
  */
-PJ_DECL(pjsip_msg_body*) pjsip_multipart_create(pj_pool_t *pool,
+(pjsip_msg_body*) pjsip_multipart_create(pj_pool_t *pool,
 						const pjsip_media_type *ctype,
 						const pj_str_t *boundary);
 
@@ -84,7 +84,7 @@ PJ_DECL(pjsip_msg_body*) pjsip_multipart_create(pj_pool_t *pool,
  *
  * @return		The multipart part.
  */
-PJ_DECL(pjsip_multipart_part*) pjsip_multipart_create_part(pj_pool_t *pool);
+(pjsip_multipart_part*) pjsip_multipart_create_part(pj_pool_t *pool);
 
 
 /**
@@ -95,7 +95,7 @@ PJ_DECL(pjsip_multipart_part*) pjsip_multipart_create_part(pj_pool_t *pool);
  *
  * @return		Copy of the multipart part.
  */
-PJ_DECL(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_clone_part(pj_pool_t *pool,
 			   const pjsip_multipart_part *part);
 
@@ -108,7 +108,7 @@ pjsip_multipart_clone_part(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_multipart_add_part(pj_pool_t *pool,
+(pj_status_t) pjsip_multipart_add_part(pj_pool_t *pool,
 					      pjsip_msg_body *mp,
 					      pjsip_multipart_part *part);
 
@@ -120,7 +120,7 @@ PJ_DECL(pj_status_t) pjsip_multipart_add_part(pj_pool_t *pool,
  * @return		The first part, or NULL if the multipart
  * 			bodies currently doesn't hold any elements.
  */
-PJ_DECL(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_get_first_part(const pjsip_msg_body *mp);
 
 /**
@@ -132,7 +132,7 @@ pjsip_multipart_get_first_part(const pjsip_msg_body *mp);
  * @return		The next part, or NULL if there is no other part after
  * 			the part.
  */
-PJ_DECL(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_get_next_part(const pjsip_msg_body *mp,
 			      pjsip_multipart_part *part);
 
@@ -148,7 +148,7 @@ pjsip_multipart_get_next_part(const pjsip_msg_body *mp,
  * @return		The first part with the specified content type
  * 			if found, or NULL.
  */
-PJ_DECL(pjsip_multipart_part*)
+(pjsip_multipart_part*)
 pjsip_multipart_find_part( const pjsip_msg_body *mp,
 			   const pjsip_media_type *content_type,
 			   const pjsip_multipart_part *start);
@@ -164,7 +164,7 @@ pjsip_multipart_find_part( const pjsip_msg_body *mp,
  *
  * @return		Multipart message body.
  */
-PJ_DECL(pjsip_msg_body*) pjsip_multipart_parse(pj_pool_t *pool,
+(pjsip_msg_body*) pjsip_multipart_parse(pj_pool_t *pool,
 					       char *buf, pj_size_t len,
 					       const pjsip_media_type *ctype,
 					       unsigned options);

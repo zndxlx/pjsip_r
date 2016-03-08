@@ -62,7 +62,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_wav_playlist_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_wav_playlist_create(pj_pool_t *pool,
 						 const pj_str_t *port_label,
 						 const pj_str_t file_list[],
 						 int file_count,
@@ -87,7 +87,7 @@ PJ_DECL(pj_status_t) pjmedia_wav_playlist_create(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_wav_playlist_set_eof_cb(pjmedia_port *port,
 			        void *user_data,
 			        pj_status_t (*cb)(pjmedia_port *port,

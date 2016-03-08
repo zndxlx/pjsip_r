@@ -98,7 +98,7 @@ typedef struct pjmedia_wav_player_info
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_wav_player_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_wav_player_port_create( pj_pool_t *pool,
 						     const char *filename,
 						     unsigned ptime,
 						     unsigned flags,
@@ -113,7 +113,7 @@ PJ_DECL(pj_status_t) pjmedia_wav_player_port_create( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_wav_player_get_info(pjmedia_port *port,
+(pj_status_t) pjmedia_wav_player_get_info(pjmedia_port *port,
                                                  pjmedia_wav_player_info *i);
 
 /**
@@ -124,7 +124,7 @@ PJ_DECL(pj_status_t) pjmedia_wav_player_get_info(pjmedia_port *port,
  * @return		The length of the data, in bytes. On error, the
  * 			error code is given as negative value.
  */
-PJ_DECL(pj_ssize_t) pjmedia_wav_player_get_len(pjmedia_port *port);
+(pj_ssize_t) pjmedia_wav_player_get_len(pjmedia_port *port);
 
 
 /**
@@ -136,7 +136,7 @@ PJ_DECL(pj_ssize_t) pjmedia_wav_player_get_len(pjmedia_port *port);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_wav_player_port_set_pos( pjmedia_port *port,
+(pj_status_t) pjmedia_wav_player_port_set_pos( pjmedia_port *port,
 						      pj_uint32_t offset );
 
 
@@ -148,7 +148,7 @@ PJ_DECL(pj_status_t) pjmedia_wav_player_port_set_pos( pjmedia_port *port,
  * @return		The current play position, in bytes. On error, the
  * 			error code is given as negative value.
  */
-PJ_DECL(pj_ssize_t) pjmedia_wav_player_port_get_pos( pjmedia_port *port );
+(pj_ssize_t) pjmedia_wav_player_port_get_pos( pjmedia_port *port );
 
 
 /**
@@ -166,7 +166,7 @@ PJ_DECL(pj_ssize_t) pjmedia_wav_player_port_get_pos( pjmedia_port *port );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_wav_player_set_eof_cb( pjmedia_port *port,
 			       void *user_data,
 			       pj_status_t (*cb)(pjmedia_port *port,
@@ -230,7 +230,7 @@ enum pjmedia_file_writer_option
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_wav_writer_port_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_wav_writer_port_create(pj_pool_t *pool,
 						    const char *filename,
 						    unsigned clock_rate,
 						    unsigned channel_count,
@@ -252,7 +252,7 @@ PJ_DECL(pj_status_t) pjmedia_wav_writer_port_create(pj_pool_t *pool,
  * @return		Positive value to indicate the position (in bytes), 
  *			or negative value containing the error code.
  */
-PJ_DECL(pj_ssize_t) pjmedia_wav_writer_port_get_pos( pjmedia_port *port );
+(pj_ssize_t) pjmedia_wav_writer_port_get_pos( pjmedia_port *port );
 
 
 /**
@@ -271,7 +271,7 @@ PJ_DECL(pj_ssize_t) pjmedia_wav_writer_port_get_pos( pjmedia_port *port );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_wav_writer_port_set_cb( pjmedia_port *port,
 				pj_size_t pos,
 				void *user_data,

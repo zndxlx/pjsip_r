@@ -35,7 +35,7 @@ typedef struct ec_operations ec_operations;
 
 struct frame
 {
-    PJ_DECL_LIST_MEMBER(struct frame);
+    _LIST_MEMBER(struct frame);
     short   buf[1];
 };
 

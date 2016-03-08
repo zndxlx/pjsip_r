@@ -375,7 +375,7 @@ typedef struct pjmedia_rtcp_xr_session pjmedia_rtcp_xr_session;
  * @param len	    Upon return, it will indicate the size of the generated 
  *		    RTCP XR packet.
  */
-PJ_DECL(void) pjmedia_rtcp_build_rtcp_xr( pjmedia_rtcp_xr_session *session,
+(void) pjmedia_rtcp_build_rtcp_xr( pjmedia_rtcp_xr_session *session,
 					  unsigned rpt_types,
 					  void **rtcp_pkt, int *len);
 
@@ -388,7 +388,7 @@ PJ_DECL(void) pjmedia_rtcp_build_rtcp_xr( pjmedia_rtcp_xr_session *session,
  * @param info	    Info type to be updated, @see pjmedia_rtcp_xr_info.
  * @param val	    Value.
  */
-PJ_DECL(pj_status_t) pjmedia_rtcp_xr_update_info(
+(pj_status_t) pjmedia_rtcp_xr_update_info(
 					  pjmedia_rtcp_xr_session *session,
 					  unsigned info,
 					  pj_int32_t val);

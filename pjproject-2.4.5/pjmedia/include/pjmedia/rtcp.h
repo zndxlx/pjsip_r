@@ -289,7 +289,7 @@ typedef struct pjmedia_rtcp_session_setting
  *
  * @param settings	    The RTCP session setting to be initialized.
  */
-PJ_DECL(void) pjmedia_rtcp_session_setting_default(
+(void) pjmedia_rtcp_session_setting_default(
 				    pjmedia_rtcp_session_setting *settings);
 
 
@@ -298,7 +298,7 @@ PJ_DECL(void) pjmedia_rtcp_session_setting_default(
  *
  * @param stat		    The bidirectional RTCP statistics.
  */
-PJ_DECL(void) pjmedia_rtcp_init_stat(pjmedia_rtcp_stat *stat);
+(void) pjmedia_rtcp_init_stat(pjmedia_rtcp_stat *stat);
 
 
 /**
@@ -311,7 +311,7 @@ PJ_DECL(void) pjmedia_rtcp_init_stat(pjmedia_rtcp_stat *stat);
  * @param samples_per_frame Average number of samples per frame.
  * @param ssrc		    The SSRC used in to identify the session.
  */
-PJ_DECL(void) pjmedia_rtcp_init( pjmedia_rtcp_session *session, 
+(void) pjmedia_rtcp_init( pjmedia_rtcp_session *session, 
 				 char *name,
 				 unsigned clock_rate,
 				 unsigned samples_per_frame,
@@ -324,7 +324,7 @@ PJ_DECL(void) pjmedia_rtcp_init( pjmedia_rtcp_session *session,
  * @param session	    The session
  * @param settings	    The RTCP session settings.
  */
-PJ_DECL(void) pjmedia_rtcp_init2(pjmedia_rtcp_session *session,
+(void) pjmedia_rtcp_init2(pjmedia_rtcp_session *session,
 				 const pjmedia_rtcp_session_setting *settings);
 
 
@@ -336,7 +336,7 @@ PJ_DECL(void) pjmedia_rtcp_init2(pjmedia_rtcp_session *session,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_rtcp_get_ntp_time(const pjmedia_rtcp_session *sess,
+(pj_status_t) pjmedia_rtcp_get_ntp_time(const pjmedia_rtcp_session *sess,
 					       pjmedia_rtcp_ntp_rec *ntp);
 
 
@@ -345,7 +345,7 @@ PJ_DECL(pj_status_t) pjmedia_rtcp_get_ntp_time(const pjmedia_rtcp_session *sess,
  *
  * @param session   The session.
  */
-PJ_DECL(void) pjmedia_rtcp_fini( pjmedia_rtcp_session *session);
+(void) pjmedia_rtcp_fini( pjmedia_rtcp_session *session);
 
 
 /**
@@ -357,7 +357,7 @@ PJ_DECL(void) pjmedia_rtcp_fini( pjmedia_rtcp_session *session);
  * @param ts	    The RTP packet timestamp, in host byte order.
  * @param payload   Size of the payload.
  */
-PJ_DECL(void) pjmedia_rtcp_rx_rtp( pjmedia_rtcp_session *session, 
+(void) pjmedia_rtcp_rx_rtp( pjmedia_rtcp_session *session, 
 				   unsigned seq, 
 				   unsigned ts,
 				   unsigned payload);
@@ -373,7 +373,7 @@ PJ_DECL(void) pjmedia_rtcp_rx_rtp( pjmedia_rtcp_session *session,
  * @param payload   Size of the payload.
  * @param discarded Flag to specify whether the packet is discarded.
  */
-PJ_DECL(void) pjmedia_rtcp_rx_rtp2(pjmedia_rtcp_session *session, 
+(void) pjmedia_rtcp_rx_rtp2(pjmedia_rtcp_session *session, 
 				   unsigned seq, 
 				   unsigned ts,
 				   unsigned payload,
@@ -388,7 +388,7 @@ PJ_DECL(void) pjmedia_rtcp_rx_rtp2(pjmedia_rtcp_session *session,
  * @param ptsize    The payload size of the RTP packet (ie packet minus
  *		    RTP header) in bytes.
  */
-PJ_DECL(void) pjmedia_rtcp_tx_rtp( pjmedia_rtcp_session *session, 
+(void) pjmedia_rtcp_tx_rtp( pjmedia_rtcp_session *session, 
 				   unsigned ptsize );
 
 
@@ -401,7 +401,7 @@ PJ_DECL(void) pjmedia_rtcp_tx_rtp( pjmedia_rtcp_session *session,
  * @param rtcp_pkt  The received RTCP packet.
  * @param size	    Size of the incoming packet.
  */
-PJ_DECL(void) pjmedia_rtcp_rx_rtcp( pjmedia_rtcp_session *session,
+(void) pjmedia_rtcp_rx_rtcp( pjmedia_rtcp_session *session,
 				    const void *rtcp_pkt,
 				    pj_size_t size);
 
@@ -419,7 +419,7 @@ PJ_DECL(void) pjmedia_rtcp_rx_rtcp( pjmedia_rtcp_session *session,
  * @param len	    Upon return, it will indicate the size of 
  *		    the RTCP packet.
  */
-PJ_DECL(void) pjmedia_rtcp_build_rtcp( pjmedia_rtcp_session *session, 
+(void) pjmedia_rtcp_build_rtcp( pjmedia_rtcp_session *session, 
 				       void **rtcp_pkt, int *len);
 
 
@@ -437,7 +437,7 @@ PJ_DECL(void) pjmedia_rtcp_build_rtcp( pjmedia_rtcp_session *session,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_rtcp_build_rtcp_sdes(
+(pj_status_t) pjmedia_rtcp_build_rtcp_sdes(
 					    pjmedia_rtcp_session *session, 
 					    void *buf,
 					    pj_size_t *length,
@@ -456,7 +456,7 @@ PJ_DECL(pj_status_t) pjmedia_rtcp_build_rtcp_sdes(
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_rtcp_build_rtcp_bye(
+(pj_status_t) pjmedia_rtcp_build_rtcp_bye(
 					    pjmedia_rtcp_session *session, 
 					    void *buf,
 					    pj_size_t *length,
@@ -472,7 +472,7 @@ PJ_DECL(pj_status_t) pjmedia_rtcp_build_rtcp_bye(
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_rtcp_enable_xr( pjmedia_rtcp_session *session, 
+(pj_status_t) pjmedia_rtcp_enable_xr( pjmedia_rtcp_session *session, 
 					     pj_bool_t enable);
 
 

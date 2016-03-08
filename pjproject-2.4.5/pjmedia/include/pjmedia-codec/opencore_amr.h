@@ -69,7 +69,7 @@ typedef pjmedia_codec_amr_config pjmedia_codec_amrwb_config;
  *
  * @return          PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_opencore_amr_init(pjmedia_endpt* endpt,
+(pj_status_t) pjmedia_codec_opencore_amr_init(pjmedia_endpt* endpt,
                                                      unsigned options);
 
 /**
@@ -80,7 +80,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_opencore_amr_init(pjmedia_endpt* endpt,
  *
  * @return	PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_codec_opencore_amr_init_default(pjmedia_endpt* endpt);
 
 /**
@@ -89,7 +89,7 @@ pjmedia_codec_opencore_amr_init_default(pjmedia_endpt* endpt);
  *
  * @return	PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_opencore_amr_deinit(void);
+(pj_status_t) pjmedia_codec_opencore_amr_deinit(void);
 
 /**
  * Initialize and register AMR-NB codec factory to pjmedia endpoint. Calling
@@ -103,7 +103,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_opencore_amr_deinit(void);
  *
  * @return	PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrnb_init(pjmedia_endpt* endpt);
+(pj_status_t) pjmedia_codec_opencore_amrnb_init(pjmedia_endpt* endpt);
 
 /**
  * Unregister AMR-NB codec factory from pjmedia endpoint and deinitialize
@@ -111,7 +111,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrnb_init(pjmedia_endpt* endpt);
  *
  * @return	PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrnb_deinit(void);
+(pj_status_t) pjmedia_codec_opencore_amrnb_deinit(void);
 
 
 /**
@@ -121,7 +121,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrnb_deinit(void);
  *
  * @return	PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrnb_set_config(
+(pj_status_t) pjmedia_codec_opencore_amrnb_set_config(
 				const pjmedia_codec_amrnb_config* cfg);
 
 
@@ -132,7 +132,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrnb_set_config(
  *
  * @return	PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_opencore_amrwb_set_config(
+(pj_status_t) pjmedia_codec_opencore_amrwb_set_config(
                                         const pjmedia_codec_amrwb_config* cfg);
 
 PJ_END_DECL

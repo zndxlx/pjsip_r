@@ -91,7 +91,7 @@ enum pj_file_seek_type
  *
  * @return              PJ_SUCCESS or the appropriate error code on error.
  */
-PJ_DECL(pj_status_t) pj_file_open(pj_pool_t *pool,
+(pj_status_t) pj_file_open(pj_pool_t *pool,
                                   const char *pathname, 
                                   unsigned flags,
                                   pj_oshandle_t *fd);
@@ -103,7 +103,7 @@ PJ_DECL(pj_status_t) pj_file_open(pj_pool_t *pool,
  *
  * @return              PJ_SUCCESS or the appropriate error code on error.
  */
-PJ_DECL(pj_status_t) pj_file_close(pj_oshandle_t fd);
+(pj_status_t) pj_file_close(pj_oshandle_t fd);
 
 /**
  * Write data with the specified size to an opened file.
@@ -116,7 +116,7 @@ PJ_DECL(pj_status_t) pj_file_close(pj_oshandle_t fd);
  *
  * @return              PJ_SUCCESS or the appropriate error code on error.
  */
-PJ_DECL(pj_status_t) pj_file_write(pj_oshandle_t fd,
+(pj_status_t) pj_file_write(pj_oshandle_t fd,
                                    const void *data,
                                    pj_ssize_t *size);
 
@@ -135,7 +135,7 @@ PJ_DECL(pj_status_t) pj_file_write(pj_oshandle_t fd,
  *                      When EOF occurs, the return is PJ_SUCCESS but size
  *                      will report zero.
  */
-PJ_DECL(pj_status_t) pj_file_read(pj_oshandle_t fd,
+(pj_status_t) pj_file_read(pj_oshandle_t fd,
                                   void *data,
                                   pj_ssize_t *size);
 
@@ -148,7 +148,7 @@ PJ_DECL(pj_status_t) pj_file_read(pj_oshandle_t fd,
  *
  * @return              PJ_SUCCESS or the appropriate error code on error.
  */
-PJ_DECL(pj_status_t) pj_file_setpos(pj_oshandle_t fd,
+(pj_status_t) pj_file_setpos(pj_oshandle_t fd,
                                     pj_off_t offset,
                                     enum pj_file_seek_type whence);
 
@@ -161,7 +161,7 @@ PJ_DECL(pj_status_t) pj_file_setpos(pj_oshandle_t fd,
  *
  * @return              PJ_SUCCESS or the appropriate error code on error.
  */
-PJ_DECL(pj_status_t) pj_file_getpos(pj_oshandle_t fd,
+(pj_status_t) pj_file_getpos(pj_oshandle_t fd,
                                     pj_off_t *pos);
 
 /**
@@ -171,7 +171,7 @@ PJ_DECL(pj_status_t) pj_file_getpos(pj_oshandle_t fd,
  *
  * @return		PJ_SUCCESS or the appropriate error code on error.
  */
-PJ_DECL(pj_status_t) pj_file_flush(pj_oshandle_t fd);
+(pj_status_t) pj_file_flush(pj_oshandle_t fd);
 
 
 /** @} */

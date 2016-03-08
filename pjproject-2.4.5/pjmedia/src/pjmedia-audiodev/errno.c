@@ -120,7 +120,7 @@ PJ_DEF(pj_str_t) pjmedia_audiodev_strerror(pj_status_t statcode,
     {
 	MMRESULT native_err, mr;
 	MMRESULT (WINAPI *waveGetErrText)(UINT mmrError, LPTSTR pszText, UINT cchText);
-	PJ_DECL_UNICODE_TEMP_BUF(wbuf, 80)
+	_UNICODE_TEMP_BUF(wbuf, 80)
 
 	if (statcode >= PJMEDIA_AUDIODEV_WMME_IN_ERROR_START &&
 	    statcode <= PJMEDIA_AUDIODEV_WMME_IN_ERROR_END)

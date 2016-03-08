@@ -56,7 +56,7 @@ typedef struct pj_file_stat
  *
  * @return              Non-zero if the file exists.
  */
-PJ_DECL(pj_bool_t) pj_file_exists(const char *filename);
+(pj_bool_t) pj_file_exists(const char *filename);
 
 /**
  * Returns the size of the file.
@@ -65,7 +65,7 @@ PJ_DECL(pj_bool_t) pj_file_exists(const char *filename);
  *
  * @return              The file size in bytes or -1 on error.
  */
-PJ_DECL(pj_off_t) pj_file_size(const char *filename);
+(pj_off_t) pj_file_size(const char *filename);
 
 /**
  * Delete a file.
@@ -74,7 +74,7 @@ PJ_DECL(pj_off_t) pj_file_size(const char *filename);
  *
  * @return              PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_file_delete(const char *filename);
+(pj_status_t) pj_file_delete(const char *filename);
 
 /**
  * Move a \c oldname to \c newname. If \c newname already exists,
@@ -85,7 +85,7 @@ PJ_DECL(pj_status_t) pj_file_delete(const char *filename);
  *
  * @return              PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_file_move( const char *oldname, 
+(pj_status_t) pj_file_move( const char *oldname, 
                                    const char *newname);
 
 
@@ -98,7 +98,7 @@ PJ_DECL(pj_status_t) pj_file_move( const char *oldname,
  *
  * @return              PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_file_getstat(const char *filename, pj_file_stat *stat);
+(pj_status_t) pj_file_getstat(const char *filename, pj_file_stat *stat);
 
 
 /** @} */

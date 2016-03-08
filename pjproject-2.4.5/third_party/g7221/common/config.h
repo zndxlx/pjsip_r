@@ -20,7 +20,7 @@
 #  define LIBG7221_DECL(type)  PJ_INLINE(type)
 #  define LIBG7221_DEF(type)   PJ_INLINE(type)
 #else
-#  define LIBG7221_DECL(type)  PJ_DECL(type)
+#  define LIBG7221_DECL(type)  (type)
 #  define LIBG7221_DEF(type)   PJ_DEF(type)
 #endif
 

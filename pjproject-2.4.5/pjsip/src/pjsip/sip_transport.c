@@ -80,7 +80,7 @@ static pjsip_module mod_msg_print =
 /* Transport list item */
 typedef struct transport
 {
-    PJ_DECL_LIST_MEMBER(struct transport);
+    _LIST_MEMBER(struct transport);
     pjsip_transport *tp;
 } transport;
 
@@ -117,7 +117,7 @@ struct pjsip_tpmgr
 /* Transport state listener list type */
 typedef struct tp_state_listener
 {
-    PJ_DECL_LIST_MEMBER(struct tp_state_listener);
+    _LIST_MEMBER(struct tp_state_listener);
 
     pjsip_tp_state_callback  cb;
     void *user_data;
@@ -1258,7 +1258,7 @@ PJ_DEF(pj_status_t) pjsip_tpmgr_unregister_tpfactory( pjsip_tpmgr *mgr,
     return PJ_SUCCESS;
 }
 
-PJ_DECL(void) pjsip_tpmgr_fla2_param_default(pjsip_tpmgr_fla2_param *prm)
+(void) pjsip_tpmgr_fla2_param_default(pjsip_tpmgr_fla2_param *prm)
 {
     pj_bzero(prm, sizeof(*prm));
 }

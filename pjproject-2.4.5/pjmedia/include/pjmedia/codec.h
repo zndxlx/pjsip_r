@@ -317,7 +317,7 @@ typedef struct pjmedia_codec_param
  *
  * @return	    Duplicated codec parameter.
  */
-PJ_DECL(pjmedia_codec_param*) pjmedia_codec_param_clone(
+(pjmedia_codec_param*) pjmedia_codec_param_clone(
 					pj_pool_t *pool, 
 					const pjmedia_codec_param *src);
 
@@ -501,7 +501,7 @@ typedef struct pjmedia_codec_factory pjmedia_codec_factory;
 struct pjmedia_codec
 {
     /** Entries to put this codec instance in codec factory's list. */
-    PJ_DECL_LIST_MEMBER(struct pjmedia_codec);
+    _LIST_MEMBER(struct pjmedia_codec);
 
     /** Codec's private data. */
     void		    *codec_data;
@@ -607,7 +607,7 @@ typedef struct pjmedia_codec_factory_op
 struct pjmedia_codec_factory
 {
     /** Entries to put this structure in the codec manager list. */
-    PJ_DECL_LIST_MEMBER(struct pjmedia_codec_factory);
+    _LIST_MEMBER(struct pjmedia_codec_factory);
 
     /** The factory's private data. */
     void		     *factory_data;
@@ -734,7 +734,7 @@ typedef struct pjmedia_codec_mgr
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_mgr_init(pjmedia_codec_mgr *mgr, 
+(pj_status_t) pjmedia_codec_mgr_init(pjmedia_codec_mgr *mgr, 
 					    pj_pool_factory *pf);
 
 
@@ -746,7 +746,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_mgr_init(pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_mgr_destroy(pjmedia_codec_mgr *mgr);
+(pj_status_t) pjmedia_codec_mgr_destroy(pjmedia_codec_mgr *mgr);
 
 
 /** 
@@ -759,7 +759,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_mgr_destroy(pjmedia_codec_mgr *mgr);
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_register_factory( pjmedia_codec_mgr *mgr,
 				    pjmedia_codec_factory *factory);
 
@@ -775,7 +775,7 @@ pjmedia_codec_mgr_register_factory( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_unregister_factory( pjmedia_codec_mgr *mgr, 
 				      pjmedia_codec_factory *factory);
 
@@ -795,7 +795,7 @@ pjmedia_codec_mgr_unregister_factory( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_mgr_enum_codecs( pjmedia_codec_mgr *mgr, 
+(pj_status_t) pjmedia_codec_mgr_enum_codecs( pjmedia_codec_mgr *mgr, 
 						    unsigned *count, 
 						    pjmedia_codec_info info[],
 						    unsigned *prio);
@@ -813,7 +813,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_mgr_enum_codecs( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_get_codec_info( pjmedia_codec_mgr *mgr,
 				  unsigned pt,
 				  const pjmedia_codec_info **inf);
@@ -829,7 +829,7 @@ pjmedia_codec_mgr_get_codec_info( pjmedia_codec_mgr *mgr,
  * @return	    The null terminated codec info string, or NULL if
  *		    the buffer is not long enough.
  */
-PJ_DECL(char*) pjmedia_codec_info_to_id(const pjmedia_codec_info *info,
+(char*) pjmedia_codec_info_to_id(const pjmedia_codec_info *info,
 				        char *id, unsigned max_len );
 
 
@@ -852,7 +852,7 @@ PJ_DECL(char*) pjmedia_codec_info_to_id(const pjmedia_codec_info *info,
  *
  * @return	    PJ_SUCCESS if at least one codec info is found.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_find_codecs_by_id( pjmedia_codec_mgr *mgr,
 				     const pj_str_t *codec_id,
 				     unsigned *count,
@@ -876,7 +876,7 @@ pjmedia_codec_mgr_find_codecs_by_id( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS if at least one codec info is found.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_codec_mgr_set_codec_priority(pjmedia_codec_mgr *mgr, 
 				     const pj_str_t *codec_id,
 				     pj_uint8_t prio);
@@ -894,7 +894,7 @@ pjmedia_codec_mgr_set_codec_priority(pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_get_default_param( pjmedia_codec_mgr *mgr,
 				     const pjmedia_codec_info *info,
 				     pjmedia_codec_param *param );
@@ -912,7 +912,7 @@ pjmedia_codec_mgr_get_default_param( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_set_default_param( pjmedia_codec_mgr *mgr,
 				     const pjmedia_codec_info *info,
 				     const pjmedia_codec_param *param );
@@ -930,7 +930,7 @@ pjmedia_codec_mgr_set_default_param( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_codec_mgr_alloc_codec( pjmedia_codec_mgr *mgr, 
 			       const pjmedia_codec_info *info,
 			       pjmedia_codec **p_codec);
@@ -945,7 +945,7 @@ pjmedia_codec_mgr_alloc_codec( pjmedia_codec_mgr *mgr,
  *
  * @return	    PJ_SUCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_mgr_dealloc_codec(pjmedia_codec_mgr *mgr, 
+(pj_status_t) pjmedia_codec_mgr_dealloc_codec(pjmedia_codec_mgr *mgr, 
 						     pjmedia_codec *codec);
 
 

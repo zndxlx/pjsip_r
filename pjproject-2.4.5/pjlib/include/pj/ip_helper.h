@@ -69,7 +69,7 @@ typedef union pj_ip_route_entry
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_enum_ip_interface(int af,
+(pj_status_t) pj_enum_ip_interface(int af,
 					  unsigned *count,
 					  pj_sockaddr ifs[]);
 
@@ -83,7 +83,7 @@ PJ_DECL(pj_status_t) pj_enum_ip_interface(int af,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_enum_ip_route(unsigned *count,
+(pj_status_t) pj_enum_ip_route(unsigned *count,
 				      pj_ip_route_entry routes[]);
 
 

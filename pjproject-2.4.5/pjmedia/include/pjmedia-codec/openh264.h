@@ -47,7 +47,7 @@ PJ_BEGIN_DECL
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_openh264_vid_init(pjmedia_vid_codec_mgr *mgr,
+(pj_status_t) pjmedia_codec_openh264_vid_init(pjmedia_vid_codec_mgr *mgr,
                                                      pj_pool_factory *pf);
 
 /**
@@ -56,7 +56,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_openh264_vid_init(pjmedia_vid_codec_mgr *mgr,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_openh264_vid_deinit(void);
+(pj_status_t) pjmedia_codec_openh264_vid_deinit(void);
 
 
 /**

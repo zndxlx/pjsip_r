@@ -75,7 +75,7 @@ typedef struct pjmedia_vid_port pjmedia_vid_port;
  *
  * @param prm	The parameter.
  */
-PJ_DECL(void) pjmedia_vid_port_param_default(pjmedia_vid_port_param *prm);
+(void) pjmedia_vid_port_param_default(pjmedia_vid_port_param *prm);
 
 /**
  * Create a video port with the specified parameter. When video port opens
@@ -90,7 +90,7 @@ PJ_DECL(void) pjmedia_vid_port_param_default(pjmedia_vid_port_param *prm);
  * @return		PJ_SUCCESS if video port has been created
  * 			successfully, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_port_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_vid_port_create(pj_pool_t *pool,
 					     const pjmedia_vid_port_param *prm,
 					     pjmedia_vid_port **p_vp);
 
@@ -103,7 +103,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_port_create(pj_pool_t *pool,
  * @param user_data     Arbitrary user data, which will be given back in the
  *                      callbacks.
  */
-PJ_DECL(void) pjmedia_vid_port_set_cb(pjmedia_vid_port *vid_port,
+(void) pjmedia_vid_port_set_cb(pjmedia_vid_port *vid_port,
 				      const pjmedia_vid_dev_cb *cb,
                                       void *user_data);
 
@@ -114,7 +114,7 @@ PJ_DECL(void) pjmedia_vid_port_set_cb(pjmedia_vid_port *vid_port,
  *
  * @return		The video stream.
  */
-PJ_DECL(pjmedia_vid_dev_stream*)
+(pjmedia_vid_dev_stream*)
 pjmedia_vid_port_get_stream(pjmedia_vid_port *vid_port);
 
 /**
@@ -127,7 +127,7 @@ pjmedia_vid_port_get_stream(pjmedia_vid_port *vid_port);
  *
  *  @return		The media port instance, or NULL.
  */
-PJ_DECL(pjmedia_port*)
+(pjmedia_port*)
 pjmedia_vid_port_get_passive_port(pjmedia_vid_port *vid_port);
 
 /**
@@ -137,7 +137,7 @@ pjmedia_vid_port_get_passive_port(pjmedia_vid_port *vid_port);
  *
  * @return	    The clock source.
  */
-PJ_DECL(pjmedia_clock_src *)
+(pjmedia_clock_src *)
 pjmedia_vid_port_get_clock_src( pjmedia_vid_port *vid_port );
 
 /**
@@ -148,7 +148,7 @@ pjmedia_vid_port_get_clock_src( pjmedia_vid_port *vid_port );
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_port_set_clock_src( pjmedia_vid_port *vid_port,
                                 pjmedia_clock_src *clocksrc );
 
@@ -166,7 +166,7 @@ pjmedia_vid_port_set_clock_src( pjmedia_vid_port *vid_port,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_port_connect(pjmedia_vid_port *vid_port,
+(pj_status_t) pjmedia_vid_port_connect(pjmedia_vid_port *vid_port,
 					      pjmedia_port *port,
 					      pj_bool_t destroy);
 
@@ -180,7 +180,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_port_connect(pjmedia_vid_port *vid_port,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_port_disconnect(pjmedia_vid_port *vid_port);
+(pj_status_t) pjmedia_vid_port_disconnect(pjmedia_vid_port *vid_port);
 
 /**
  * Retrieve the media port currently connected as downstream media port of the
@@ -193,7 +193,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_port_disconnect(pjmedia_vid_port *vid_port);
  * @return		Media port currently connected to the video port,
  * 			if any.
  */
-PJ_DECL(pjmedia_port*)
+(pjmedia_port*)
 pjmedia_vid_port_get_connected_port(pjmedia_vid_port *vid_port);
 
 /**
@@ -203,7 +203,7 @@ pjmedia_vid_port_get_connected_port(pjmedia_vid_port *vid_port);
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_port_start(pjmedia_vid_port *vid_port);
+(pj_status_t) pjmedia_vid_port_start(pjmedia_vid_port *vid_port);
 
 /**
  * Query whether the video port has been started.
@@ -212,7 +212,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_port_start(pjmedia_vid_port *vid_port);
  *
  * @return		PJ_TRUE if the video port has been started.
  */
-PJ_DECL(pj_bool_t) pjmedia_vid_port_is_running(pjmedia_vid_port *vid_port);
+(pj_bool_t) pjmedia_vid_port_is_running(pjmedia_vid_port *vid_port);
 
 /**
  * Stop the video port.
@@ -221,7 +221,7 @@ PJ_DECL(pj_bool_t) pjmedia_vid_port_is_running(pjmedia_vid_port *vid_port);
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_port_stop(pjmedia_vid_port *vid_port);
+(pj_status_t) pjmedia_vid_port_stop(pjmedia_vid_port *vid_port);
 
 /**
  * Destroy the video port, along with its video stream. If the video port is
@@ -230,7 +230,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_port_stop(pjmedia_vid_port *vid_port);
  *
  * @param vid_port	The video port.
  */
-PJ_DECL(void) pjmedia_vid_port_destroy(pjmedia_vid_port *vid_port);
+(void) pjmedia_vid_port_destroy(pjmedia_vid_port *vid_port);
 
 
 PJ_END_DECL

@@ -143,7 +143,7 @@ int platform_strerror( pj_os_err_type os_errcode,
                        char *buf, pj_size_t bufsize)
 {
     pj_size_t len = 0;
-    PJ_DECL_UNICODE_TEMP_BUF(wbuf,128);
+    _UNICODE_TEMP_BUF(wbuf,128);
 
     pj_assert(buf != NULL);
     pj_assert(bufsize >= 0);

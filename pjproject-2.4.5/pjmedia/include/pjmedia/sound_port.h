@@ -135,7 +135,7 @@ typedef struct pjmedia_snd_port_param
  *
  * @param prm		    The parameter.
  */
-PJ_DECL(void) pjmedia_snd_port_param_default(pjmedia_snd_port_param *prm);
+(void) pjmedia_snd_port_param_default(pjmedia_snd_port_param *prm);
 
 /**
  * This opaque type describes sound device port connection.
@@ -167,7 +167,7 @@ typedef struct pjmedia_snd_port pjmedia_snd_port;
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_snd_port_create( pj_pool_t *pool,
 					      int rec_id,
 					      int play_id,
 					      unsigned clock_rate,
@@ -197,7 +197,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_create( pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_create_rec(pj_pool_t *pool,
+(pj_status_t) pjmedia_snd_port_create_rec(pj_pool_t *pool,
 						 int index,
 						 unsigned clock_rate,
 						 unsigned channel_count,
@@ -226,7 +226,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_create_rec(pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_create_player(pj_pool_t *pool,
+(pj_status_t) pjmedia_snd_port_create_player(pj_pool_t *pool,
 						    int index,
 						    unsigned clock_rate,
 						    unsigned channel_count,
@@ -246,7 +246,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_create_player(pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_snd_port_create2(pj_pool_t *pool,
 					      const pjmedia_snd_port_param *prm,
 					      pjmedia_snd_port **p_port);
 
@@ -259,7 +259,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_create2(pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_destroy(pjmedia_snd_port *snd_port);
+(pj_status_t) pjmedia_snd_port_destroy(pjmedia_snd_port *snd_port);
 
 
 /**
@@ -269,7 +269,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_destroy(pjmedia_snd_port *snd_port);
  *
  * @return		    The sound stream instance.
  */
-PJ_DECL(pjmedia_aud_stream*) pjmedia_snd_port_get_snd_stream(
+(pjmedia_aud_stream*) pjmedia_snd_port_get_snd_stream(
 						pjmedia_snd_port *snd_port);
 
 
@@ -297,7 +297,7 @@ PJ_DECL(pjmedia_aud_stream*) pjmedia_snd_port_get_snd_stream(
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_set_ec( pjmedia_snd_port *snd_port,
+(pj_status_t) pjmedia_snd_port_set_ec( pjmedia_snd_port *snd_port,
 					      pj_pool_t *pool,
 					      unsigned tail_ms,
 					      unsigned options);
@@ -312,7 +312,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_set_ec( pjmedia_snd_port *snd_port,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_get_ec_tail(pjmedia_snd_port *snd_port,
+(pj_status_t) pjmedia_snd_port_get_ec_tail(pjmedia_snd_port *snd_port,
 						  unsigned *p_length);
 
 
@@ -324,7 +324,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_get_ec_tail(pjmedia_snd_port *snd_port,
  *
  * @return	    The clock source.
  */
-PJ_DECL(pjmedia_clock_src *)
+(pjmedia_clock_src *)
 pjmedia_snd_port_get_clock_src( pjmedia_snd_port *snd_port,
                                 pjmedia_dir dir );
 
@@ -347,7 +347,7 @@ pjmedia_snd_port_get_clock_src( pjmedia_snd_port *snd_port,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_connect(pjmedia_snd_port *snd_port,
+(pj_status_t) pjmedia_snd_port_connect(pjmedia_snd_port *snd_port,
 					      pjmedia_port *port);
 
 
@@ -360,7 +360,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_port_connect(pjmedia_snd_port *snd_port,
  *			    sound device port, or NULL if there is no port
  *			    currently attached to the sound device port.
  */
-PJ_DECL(pjmedia_port*) pjmedia_snd_port_get_port(pjmedia_snd_port *snd_port);
+(pjmedia_port*) pjmedia_snd_port_get_port(pjmedia_snd_port *snd_port);
 
 
 /**
@@ -370,7 +370,7 @@ PJ_DECL(pjmedia_port*) pjmedia_snd_port_get_port(pjmedia_snd_port *snd_port);
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_port_disconnect(pjmedia_snd_port *snd_port);
+(pj_status_t) pjmedia_snd_port_disconnect(pjmedia_snd_port *snd_port);
 
 
 /**

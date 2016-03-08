@@ -133,7 +133,7 @@ typedef struct pj_stun_tsx_cb
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_create(	pj_stun_config *cfg,
+(pj_status_t) pj_stun_client_tsx_create(	pj_stun_config *cfg,
 					        pj_pool_t *pool,
 					        pj_grp_lock_t *grp_lock,
 						const pj_stun_tsx_cb *cb,
@@ -156,7 +156,7 @@ PJ_DECL(pj_status_t) pj_stun_client_tsx_create(	pj_stun_config *cfg,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pj_stun_client_tsx_schedule_destroy(pj_stun_client_tsx *tsx,
 				    const pj_time_val *delay);
 
@@ -169,7 +169,7 @@ pj_stun_client_tsx_schedule_destroy(pj_stun_client_tsx *tsx,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_destroy(pj_stun_client_tsx *tsx);
+(pj_status_t) pj_stun_client_tsx_destroy(pj_stun_client_tsx *tsx);
 
 
 /**
@@ -180,7 +180,7 @@ PJ_DECL(pj_status_t) pj_stun_client_tsx_destroy(pj_stun_client_tsx *tsx);
  * @return		PJ_SUCCESS on success or PJ_EINVAL if the parameter
  *			is NULL.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_stop(pj_stun_client_tsx *tsx);
+(pj_status_t) pj_stun_client_tsx_stop(pj_stun_client_tsx *tsx);
 
 
 /**
@@ -190,7 +190,7 @@ PJ_DECL(pj_status_t) pj_stun_client_tsx_stop(pj_stun_client_tsx *tsx);
  *
  * @return		Non-zero if transaction has completed.
  */
-PJ_DECL(pj_bool_t) pj_stun_client_tsx_is_complete(pj_stun_client_tsx *tsx);
+(pj_bool_t) pj_stun_client_tsx_is_complete(pj_stun_client_tsx *tsx);
 
 
 /**
@@ -204,7 +204,7 @@ PJ_DECL(pj_bool_t) pj_stun_client_tsx_is_complete(pj_stun_client_tsx *tsx);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_set_data(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_set_data(pj_stun_client_tsx *tsx,
 						 void *data);
 
 
@@ -216,7 +216,7 @@ PJ_DECL(pj_status_t) pj_stun_client_tsx_set_data(pj_stun_client_tsx *tsx,
  *
  * @return		The user data.
  */
-PJ_DECL(void*) pj_stun_client_tsx_get_data(pj_stun_client_tsx *tsx);
+(void*) pj_stun_client_tsx_get_data(pj_stun_client_tsx *tsx);
 
 
 /**
@@ -236,7 +236,7 @@ PJ_DECL(void*) pj_stun_client_tsx_get_data(pj_stun_client_tsx *tsx);
  *			\a on_send_msg() callback, or any other error code
  *			as returned by \a on_send_msg() callback.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_send_msg(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_send_msg(pj_stun_client_tsx *tsx,
 						 pj_bool_t retransmit,
 						 void *pkt,
 						 unsigned pkt_len);
@@ -255,7 +255,7 @@ PJ_DECL(pj_status_t) pj_stun_client_tsx_send_msg(pj_stun_client_tsx *tsx,
  *			\a on_send_msg() callback, or any other error code
  *			as returned by \a on_send_msg() callback.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_retransmit(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_retransmit(pj_stun_client_tsx *tsx,
                                                    pj_bool_t mod_count);
 
 
@@ -274,7 +274,7 @@ PJ_DECL(pj_status_t) pj_stun_client_tsx_retransmit(pj_stun_client_tsx *tsx,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_stun_client_tsx_on_rx_msg(pj_stun_client_tsx *tsx,
+(pj_status_t) pj_stun_client_tsx_on_rx_msg(pj_stun_client_tsx *tsx,
 						  const pj_stun_msg *msg,
 						  const pj_sockaddr_t*src_addr,
 						  unsigned src_addr_len);

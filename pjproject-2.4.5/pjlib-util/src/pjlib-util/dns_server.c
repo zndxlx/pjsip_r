@@ -43,7 +43,7 @@ struct label_tab
 
 struct rr
 {
-    PJ_DECL_LIST_MEMBER(struct rr);
+    _LIST_MEMBER(struct rr);
     pj_dns_parsed_rr	rec;
 };
 

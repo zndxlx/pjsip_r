@@ -63,7 +63,7 @@ static int PJ_THREAD_FUNC worker_proc(void*);
 /* List of media endpoint exit callback. */
 typedef struct exit_cb
 {
-    PJ_DECL_LIST_MEMBER		    (struct exit_cb);
+    _LIST_MEMBER		    (struct exit_cb);
     pjmedia_endpt_exit_callback	    func;
 } exit_cb;
 

@@ -152,11 +152,11 @@ PJ_BEGIN_DECL
 
     \code
      // Set QoS parameters
-     PJ_DECL(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
+     (pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
 					       pj_qos_type val);
 
      // Get QoS parameters
-     PJ_DECL(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
+     (pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
 					       pj_qos_type *p_val);
     \endcode
 
@@ -206,15 +206,15 @@ PJ_BEGIN_DECL
 
     \code
      // Retrieve QoS params for the specified traffic type
-     PJ_DECL(pj_status_t) pj_qos_get_params(pj_qos_type type, 
+     (pj_status_t) pj_qos_get_params(pj_qos_type type, 
 					    pj_qos_params *p);
 
      // Set QoS parameters to the socket
-     PJ_DECL(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
+     (pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
 						 const pj_qos_params *p);
 
      // Get QoS parameters from the socket
-     PJ_DECL(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
+     (pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
 						 pj_qos_params *p);
     \endcode
 
@@ -290,7 +290,7 @@ typedef struct pj_qos_params
  *		    successfully set. If both Layer 2 and Layer 3 settings
  *		    can't be set, this function will return error.
  */
-PJ_DECL(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
+(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
 					  pj_qos_type type);
 
 /**
@@ -305,7 +305,7 @@ PJ_DECL(pj_status_t) pj_sock_set_qos_type(pj_sock_t sock,
  * @return	    PJ_SUCCESS if traffic type for the socket can be obtained
  *		    or approximated..
  */
-PJ_DECL(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
+(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
 					  pj_qos_type *p_type);
 
 
@@ -333,7 +333,7 @@ PJ_DECL(pj_status_t) pj_sock_get_qos_type(pj_sock_t sock,
  *
  * @see pj_sock_apply_qos2()
  */
-PJ_DECL(pj_status_t) pj_sock_apply_qos(pj_sock_t sock,
+(pj_status_t) pj_sock_apply_qos(pj_sock_t sock,
 				       pj_qos_type qos_type,
 				       pj_qos_params *qos_params,
 				       unsigned log_level,
@@ -346,7 +346,7 @@ PJ_DECL(pj_status_t) pj_sock_apply_qos(pj_sock_t sock,
  *
  * @see pj_sock_apply_qos()
  */
-PJ_DECL(pj_status_t) pj_sock_apply_qos2(pj_sock_t sock,
+(pj_status_t) pj_sock_apply_qos2(pj_sock_t sock,
  				        pj_qos_type qos_type,
 				        const pj_qos_params *qos_params,
 				        unsigned log_level,
@@ -363,7 +363,7 @@ PJ_DECL(pj_status_t) pj_sock_apply_qos2(pj_sock_t sock,
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */ 
-PJ_DECL(pj_status_t) pj_qos_get_params(pj_qos_type type, 
+(pj_status_t) pj_qos_get_params(pj_qos_type type, 
 				       pj_qos_params *p_param);
 
 
@@ -379,7 +379,7 @@ PJ_DECL(pj_status_t) pj_qos_get_params(pj_qos_type type,
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */ 
-PJ_DECL(pj_status_t) pj_qos_get_type(const pj_qos_params *param,
+(pj_status_t) pj_qos_get_type(const pj_qos_params *param,
 				     pj_qos_type *p_type);
 
 
@@ -397,7 +397,7 @@ PJ_DECL(pj_status_t) pj_qos_get_type(const pj_qos_params *param,
  *		    successfully set. If no setting can't be set, 
  *		    this function will return error.
  */ 
-PJ_DECL(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
+(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
 					    pj_qos_params *param);
 
 /**
@@ -412,7 +412,7 @@ PJ_DECL(pj_status_t) pj_sock_set_qos_params(pj_sock_t sock,
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
+(pj_status_t) pj_sock_get_qos_params(pj_sock_t sock,
 					    pj_qos_params *p_param);
 
 

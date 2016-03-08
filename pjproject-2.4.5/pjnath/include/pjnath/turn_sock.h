@@ -192,7 +192,7 @@ typedef struct pj_turn_sock_cfg
 /**
  * Initialize pj_turn_sock_cfg structure with default values.
  */
-PJ_DECL(void) pj_turn_sock_cfg_default(pj_turn_sock_cfg *cfg);
+(void) pj_turn_sock_cfg_default(pj_turn_sock_cfg *cfg);
 
 
 /**
@@ -220,7 +220,7 @@ PJ_DECL(void) pj_turn_sock_cfg_default(pj_turn_sock_cfg *cfg);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_create(pj_stun_config *cfg,
+(pj_status_t) pj_turn_sock_create(pj_stun_config *cfg,
 					 int af,
 					 pj_turn_tp_type conn_type,
 					 const pj_turn_sock_cb *cb,
@@ -237,7 +237,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_create(pj_stun_config *cfg,
  *
  * @param turn_sock	The TURN transport instance.
  */
-PJ_DECL(void) pj_turn_sock_destroy(pj_turn_sock *turn_sock);
+(void) pj_turn_sock_destroy(pj_turn_sock *turn_sock);
 
 
 /**
@@ -250,7 +250,7 @@ PJ_DECL(void) pj_turn_sock_destroy(pj_turn_sock *turn_sock);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_set_user_data(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_set_user_data(pj_turn_sock *turn_sock,
 					        void *user_data);
 
 /**
@@ -261,7 +261,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_set_user_data(pj_turn_sock *turn_sock,
  *
  * @return		The user/application data.
  */
-PJ_DECL(void*) pj_turn_sock_get_user_data(pj_turn_sock *turn_sock);
+(void*) pj_turn_sock_get_user_data(pj_turn_sock *turn_sock);
 
 
 /**
@@ -271,7 +271,7 @@ PJ_DECL(void*) pj_turn_sock_get_user_data(pj_turn_sock *turn_sock);
  *
  * @return	        The group lock.
  */
-PJ_DECL(pj_grp_lock_t *) pj_turn_sock_get_grp_lock(pj_turn_sock *turn_sock);
+(pj_grp_lock_t *) pj_turn_sock_get_grp_lock(pj_turn_sock *turn_sock);
 
 
 /**
@@ -284,7 +284,7 @@ PJ_DECL(pj_grp_lock_t *) pj_turn_sock_get_grp_lock(pj_turn_sock *turn_sock);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_get_info(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_get_info(pj_turn_sock *turn_sock,
 					   pj_turn_session_info *info);
 
 /**
@@ -297,7 +297,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_get_info(pj_turn_sock *turn_sock,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_lock(pj_turn_sock *turn_sock);
+(pj_status_t) pj_turn_sock_lock(pj_turn_sock *turn_sock);
 
 
 /**
@@ -308,7 +308,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_lock(pj_turn_sock *turn_sock);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_unlock(pj_turn_sock *turn_sock);
+(pj_status_t) pj_turn_sock_unlock(pj_turn_sock *turn_sock);
 
 
 /**
@@ -318,7 +318,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_unlock(pj_turn_sock *turn_sock);
  * @param turn_sock	The TURN transport instance.
  * @param flags		Bitmask combination of #pj_stun_sess_msg_log_flag
  */
-PJ_DECL(void) pj_turn_sock_set_log(pj_turn_sock *turn_sock,
+(void) pj_turn_sock_set_log(pj_turn_sock *turn_sock,
 				   unsigned flags);
 
 /**
@@ -332,7 +332,7 @@ PJ_DECL(void) pj_turn_sock_set_log(pj_turn_sock *turn_sock,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_set_software_name(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_set_software_name(pj_turn_sock *turn_sock,
 						    const pj_str_t *sw);
 
 
@@ -371,7 +371,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_set_software_name(pj_turn_sock *turn_sock,
  *			to application in \a on_state() callback.
  *			
  */
-PJ_DECL(pj_status_t) pj_turn_sock_alloc(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_alloc(pj_turn_sock *turn_sock,
 				        const pj_str_t *domain,
 				        int default_port,
 				        pj_dns_resolver *resolver,
@@ -396,7 +396,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_alloc(pj_turn_sock *turn_sock,
  *			issued, or the appropriate error code. Note that
  *			the operation itself will complete asynchronously.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_set_perm(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_set_perm(pj_turn_sock *turn_sock,
 					   unsigned addr_cnt,
 					   const pj_sockaddr addr[],
 					   unsigned options);
@@ -420,7 +420,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_set_perm(pj_turn_sock *turn_sock,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */ 
-PJ_DECL(pj_status_t) pj_turn_sock_sendto(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_sendto(pj_turn_sock *turn_sock,
 					const pj_uint8_t *pkt,
 					unsigned pkt_len,
 					const pj_sockaddr_t *peer_addr,
@@ -442,7 +442,7 @@ PJ_DECL(pj_status_t) pj_turn_sock_sendto(pj_turn_sock *turn_sock,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_sock_bind_channel(pj_turn_sock *turn_sock,
+(pj_status_t) pj_turn_sock_bind_channel(pj_turn_sock *turn_sock,
 					       const pj_sockaddr_t *peer,
 					       unsigned addr_len);
 

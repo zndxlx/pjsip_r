@@ -201,7 +201,7 @@ struct pjmedia_vid_dev_stream
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_dev_get_local_index(pjmedia_vid_dev_index id,
                                 pjmedia_vid_dev_factory **p_f,
                                 unsigned *p_local_index);

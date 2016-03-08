@@ -72,7 +72,7 @@ typedef struct pjmedia_avi_streams pjmedia_avi_streams;
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_avi_player_create_streams(pj_pool_t *pool,
                                   const char *filename,
                                   unsigned flags,
@@ -85,7 +85,7 @@ pjmedia_avi_player_create_streams(pj_pool_t *pool,
  *
  * @return		The number of AVI stream.
  */
-PJ_DECL(unsigned)
+(unsigned)
 pjmedia_avi_streams_get_num_streams(pjmedia_avi_streams *streams);
 
 /**
@@ -96,7 +96,7 @@ pjmedia_avi_streams_get_num_streams(pjmedia_avi_streams *streams);
  *
  * @return		The AVI stream or NULL if it does not exist.
  */
-PJ_DECL(pjmedia_avi_stream *)
+(pjmedia_avi_stream *)
 pjmedia_avi_streams_get_stream(pjmedia_avi_streams *streams,
                                unsigned idx);
 
@@ -109,7 +109,7 @@ pjmedia_avi_streams_get_stream(pjmedia_avi_streams *streams,
  *
  * @return		The AVI stream or NULL if it does not exist.
  */
-PJ_DECL(pjmedia_avi_stream *)
+(pjmedia_avi_stream *)
 pjmedia_avi_streams_get_stream_by_media(pjmedia_avi_streams *streams,
                                         unsigned start_idx,
                                         pjmedia_type media_type);
@@ -135,7 +135,7 @@ pjmedia_avi_stream_get_port(pjmedia_avi_stream *stream)
  * @return		The length of the data, in bytes. Upon error it will
  *			return negative value.
  */
-PJ_DECL(pj_ssize_t) pjmedia_avi_stream_get_len(pjmedia_avi_stream *stream);
+(pj_ssize_t) pjmedia_avi_stream_get_len(pjmedia_avi_stream *stream);
 
 
 /**
@@ -153,7 +153,7 @@ PJ_DECL(pj_ssize_t) pjmedia_avi_stream_get_len(pjmedia_avi_stream *stream);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_avi_stream_set_eof_cb(pjmedia_avi_stream *stream,
 			      void *user_data,
 			      pj_status_t (*cb)(pjmedia_avi_stream *stream,

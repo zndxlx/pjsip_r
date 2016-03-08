@@ -335,7 +335,7 @@ PJ_INLINE(void) pjsip_tls_setting_copy(pj_pool_t *pool,
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_tls_transport_start(pjsip_endpoint *endpt,
+(pj_status_t) pjsip_tls_transport_start(pjsip_endpoint *endpt,
 					       const pjsip_tls_setting *opt,
 					       const pj_sockaddr_in *local,
 					       const pjsip_host_port *a_name,
@@ -373,7 +373,7 @@ PJ_DECL(pj_status_t) pjsip_tls_transport_start(pjsip_endpoint *endpt,
  *			started and registered to transport manager, or
  *			the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_tls_transport_start2(pjsip_endpoint *endpt,
+(pj_status_t) pjsip_tls_transport_start2(pjsip_endpoint *endpt,
  					        const pjsip_tls_setting *opt,
 					        const pj_sockaddr *local,
 					        const pjsip_host_port *a_name,

@@ -35,14 +35,14 @@
 /** This structure describes incoming packet. */
 struct recv_list
 {
-    PJ_DECL_LIST_MEMBER(struct recv_list);
+    _LIST_MEMBER(struct recv_list);
     pjsip_rx_data  rdata;
 };
 
 /** This structure is used to keep delayed send failure. */
 struct send_list
 {
-    PJ_DECL_LIST_MEMBER(struct send_list);
+    _LIST_MEMBER(struct send_list);
     pj_time_val    sent_time;
     pj_ssize_t	   sent;
     pjsip_tx_data *tdata;

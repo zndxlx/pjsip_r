@@ -36,7 +36,7 @@
  *
  * @return              Non-zero if file is EOF.
  */
-PJ_DECL(pj_bool_t) pj_file_eof(pj_oshandle_t fd, 
+(pj_bool_t) pj_file_eof(pj_oshandle_t fd, 
                                enum pj_file_access access);
 
 
@@ -45,7 +45,7 @@ PJ_DEF(pj_status_t) pj_file_open( pj_pool_t *pool,
                                   unsigned flags,
                                   pj_oshandle_t *fd)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(wpathname,256)
+    _UNICODE_TEMP_BUF(wpathname,256)
     HANDLE hFile;
     DWORD dwDesiredAccess = 0;
     DWORD dwShareMode = 0;

@@ -144,7 +144,7 @@ PJ_BEGIN_DECL
  * @return	    The error message as NULL terminated string,
  *                  wrapped with pj_str_t.
  */
-PJ_DECL(pj_str_t) pjmedia_videodev_strerror(pj_status_t status, char *buffer,
+(pj_str_t) pjmedia_videodev_strerror(pj_status_t status, char *buffer,
 					    pj_size_t bufsize);
 
 

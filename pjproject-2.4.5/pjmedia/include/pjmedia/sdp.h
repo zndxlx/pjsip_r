@@ -103,7 +103,7 @@ typedef struct pjmedia_sdp_attr pjmedia_sdp_attr;
  *
  * @return		The new SDP attribute.
  */
-PJ_DECL(pjmedia_sdp_attr*) pjmedia_sdp_attr_create(pj_pool_t *pool,
+(pjmedia_sdp_attr*) pjmedia_sdp_attr_create(pj_pool_t *pool,
 						   const char *name,
 						   const pj_str_t *value);
 
@@ -115,7 +115,7 @@ PJ_DECL(pjmedia_sdp_attr*) pjmedia_sdp_attr_create(pj_pool_t *pool,
  *
  * @return		New attribute as cloned from the attribute.
  */
-PJ_DECL(pjmedia_sdp_attr*) pjmedia_sdp_attr_clone(pj_pool_t *pool, 
+(pjmedia_sdp_attr*) pjmedia_sdp_attr_clone(pj_pool_t *pool, 
 						  const pjmedia_sdp_attr*attr);
 
 /** 
@@ -133,7 +133,7 @@ PJ_DECL(pjmedia_sdp_attr*) pjmedia_sdp_attr_clone(pj_pool_t *pool,
  * @see pjmedia_sdp_attr_find2, pjmedia_sdp_media_find_attr, 
  *	pjmedia_sdp_media_find_attr2
  */
-PJ_DECL(pjmedia_sdp_attr*) 
+(pjmedia_sdp_attr*) 
 pjmedia_sdp_attr_find(unsigned count, 
 		      pjmedia_sdp_attr *const attr_array[],
 		      const pj_str_t *name, const pj_str_t *fmt);
@@ -153,7 +153,7 @@ pjmedia_sdp_attr_find(unsigned count,
  * @see pjmedia_sdp_attr_find, pjmedia_sdp_media_find_attr,
  *	pjmedia_sdp_media_find_attr2
  */
-PJ_DECL(pjmedia_sdp_attr*) 
+(pjmedia_sdp_attr*) 
 pjmedia_sdp_attr_find2(unsigned count, 
 		       pjmedia_sdp_attr *const attr_array[],
 		       const char *name, const pj_str_t *fmt);
@@ -169,7 +169,7 @@ pjmedia_sdp_attr_find2(unsigned count,
  *
  * @see pjmedia_sdp_media_add_attr
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_attr_add(unsigned *count,
+(pj_status_t) pjmedia_sdp_attr_add(unsigned *count,
 					  pjmedia_sdp_attr *attr_array[],
 					  pjmedia_sdp_attr *attr);
 
@@ -184,7 +184,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_attr_add(unsigned *count,
  *
  * @see pjmedia_sdp_media_remove_all_attr
  */
-PJ_DECL(unsigned) pjmedia_sdp_attr_remove_all(unsigned *count,
+(unsigned) pjmedia_sdp_attr_remove_all(unsigned *count,
 					      pjmedia_sdp_attr *attr_array[],
 					      const char *name);
 
@@ -201,7 +201,7 @@ PJ_DECL(unsigned) pjmedia_sdp_attr_remove_all(unsigned *count,
  *
  * @see pjmedia_sdp_media_remove_attr
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_attr_remove(unsigned *count,
+(pj_status_t) pjmedia_sdp_attr_remove(unsigned *count,
 					     pjmedia_sdp_attr *attr_array[],
 					     pjmedia_sdp_attr *attr);
 
@@ -237,7 +237,7 @@ typedef struct pjmedia_sdp_rtpmap pjmedia_sdp_rtpmap;
  *
  * @see pjmedia_sdp_attr_get_rtpmap
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_attr_to_rtpmap(pj_pool_t *pool,
+(pj_status_t) pjmedia_sdp_attr_to_rtpmap(pj_pool_t *pool,
 						const pjmedia_sdp_attr *attr,
 						pjmedia_sdp_rtpmap **p_rtpmap);
 
@@ -254,7 +254,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_attr_to_rtpmap(pj_pool_t *pool,
  *
  * @see pjmedia_sdp_attr_to_rtpmap
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_attr_get_rtpmap(const pjmedia_sdp_attr *attr,
+(pj_status_t) pjmedia_sdp_attr_get_rtpmap(const pjmedia_sdp_attr *attr,
 						 pjmedia_sdp_rtpmap *rtpmap);
 
 
@@ -267,7 +267,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_attr_get_rtpmap(const pjmedia_sdp_attr *attr,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_rtpmap_to_attr( pj_pool_t *pool,
 			    const pjmedia_sdp_rtpmap *rtpmap,
 			    pjmedia_sdp_attr **p_attr);
@@ -292,7 +292,7 @@ typedef struct pjmedia_sdp_fmtp
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_attr_get_fmtp(const pjmedia_sdp_attr *attr,
+(pj_status_t) pjmedia_sdp_attr_get_fmtp(const pjmedia_sdp_attr *attr,
 					       pjmedia_sdp_fmtp *fmtp);
 
 
@@ -317,7 +317,7 @@ typedef struct pjmedia_sdp_rtcp_attr
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_attr_get_rtcp(const pjmedia_sdp_attr *attr,
+(pj_status_t) pjmedia_sdp_attr_get_rtcp(const pjmedia_sdp_attr *attr,
 					       pjmedia_sdp_rtcp_attr *rtcp);
 
 
@@ -329,7 +329,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_attr_get_rtcp(const pjmedia_sdp_attr *attr,
  *
  * @return		SDP RTCP attribute.
  */
-PJ_DECL(pjmedia_sdp_attr*) pjmedia_sdp_attr_create_rtcp(pj_pool_t *pool,
+(pjmedia_sdp_attr*) pjmedia_sdp_attr_create_rtcp(pj_pool_t *pool,
 							const pj_sockaddr *a);
 
 
@@ -363,7 +363,7 @@ typedef struct pjmedia_sdp_conn pjmedia_sdp_conn;
  *
  * @return	    The new connection info.
  */
-PJ_DECL(pjmedia_sdp_conn*) pjmedia_sdp_conn_clone(pj_pool_t *pool, 
+(pjmedia_sdp_conn*) pjmedia_sdp_conn_clone(pj_pool_t *pool, 
 						  const pjmedia_sdp_conn *rhs);
 
 
@@ -377,7 +377,7 @@ PJ_DECL(pjmedia_sdp_conn*) pjmedia_sdp_conn_clone(pj_pool_t *pool,
  * @return	    PJ_SUCCESS when both connection info are equal, otherwise
  *		    returns PJMEDIA_SDP_ECONNNOTEQUAL.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_conn_cmp(const pjmedia_sdp_conn *conn1, 
+(pj_status_t) pjmedia_sdp_conn_cmp(const pjmedia_sdp_conn *conn1, 
 					  const pjmedia_sdp_conn *conn2,
 					  unsigned option);
 
@@ -405,7 +405,7 @@ typedef struct pjmedia_sdp_bandw
  *
  * @return	    The new bandwidth info.
  */
-PJ_DECL(pjmedia_sdp_bandw*)
+(pjmedia_sdp_bandw*)
 pjmedia_sdp_bandw_clone(pj_pool_t *pool, const pjmedia_sdp_bandw *rhs);
 
 
@@ -456,7 +456,7 @@ typedef struct pjmedia_sdp_media pjmedia_sdp_media;
  *
  * @return	    New media description.
  */
-PJ_DECL(pjmedia_sdp_media*) 
+(pjmedia_sdp_media*) 
 pjmedia_sdp_media_clone( pj_pool_t *pool, 
 			 const pjmedia_sdp_media *rhs);
 
@@ -473,7 +473,7 @@ pjmedia_sdp_media_clone( pj_pool_t *pool,
  *
  * @return		The first instance of the specified attribute or NULL.
  */
-PJ_DECL(pjmedia_sdp_attr*) 
+(pjmedia_sdp_attr*) 
 pjmedia_sdp_media_find_attr(const pjmedia_sdp_media *m,
 			    const pj_str_t *name, const pj_str_t *fmt);
 
@@ -491,7 +491,7 @@ pjmedia_sdp_media_find_attr(const pjmedia_sdp_media *m,
  *
  * @return		The first instance of the specified attribute or NULL.
  */
-PJ_DECL(pjmedia_sdp_attr*) 
+(pjmedia_sdp_attr*) 
 pjmedia_sdp_media_find_attr2(const pjmedia_sdp_media *m,
 			     const char *name, const pj_str_t *fmt);
 
@@ -503,7 +503,7 @@ pjmedia_sdp_media_find_attr2(const pjmedia_sdp_media *m,
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_media_add_attr(pjmedia_sdp_media *m,
+(pj_status_t) pjmedia_sdp_media_add_attr(pjmedia_sdp_media *m,
 						pjmedia_sdp_attr *attr);
 
 /**
@@ -515,7 +515,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_media_add_attr(pjmedia_sdp_media *m,
  *
  * @return		The number of attributes removed.
  */
-PJ_DECL(unsigned) 
+(unsigned) 
 pjmedia_sdp_media_remove_all_attr(pjmedia_sdp_media *m,
 				  const char *name);
 
@@ -530,7 +530,7 @@ pjmedia_sdp_media_remove_all_attr(pjmedia_sdp_media *m,
  * @return		PJ_SUCCESS if the attribute can be found and has
  *			been removed from the array.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_sdp_media_remove_attr(pjmedia_sdp_media *m,
 			      pjmedia_sdp_attr *attr);
 
@@ -546,7 +546,7 @@ pjmedia_sdp_media_remove_attr(pjmedia_sdp_media *m,
  *		    appropriate status code describing which part of
  *		    the descriptors that are not equal.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_media_cmp(const pjmedia_sdp_media *sd1,
+(pj_status_t) pjmedia_sdp_media_cmp(const pjmedia_sdp_media *sd1,
 					   const pjmedia_sdp_media *sd2,
 					   unsigned option);
 
@@ -560,7 +560,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_media_cmp(const pjmedia_sdp_media *sd1,
  * @return	    PJ_SUCCESS when both media transports are compatible,
  *		    otherwise returns PJMEDIA_SDP_ETPORTNOTEQUAL.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_transport_cmp(const pj_str_t *t1,
+(pj_status_t) pjmedia_sdp_transport_cmp(const pj_str_t *t1,
 					       const pj_str_t *t2);
 
 
@@ -573,7 +573,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_transport_cmp(const pj_str_t *t1,
  * @return	    PJ_SUCCESS when SDP media successfully deactivated,
  *		    otherwise appropriate status code returned.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_media_deactivate(pj_pool_t *pool,
+(pj_status_t) pjmedia_sdp_media_deactivate(pj_pool_t *pool,
 						  pjmedia_sdp_media *m);
 
 
@@ -585,7 +585,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_media_deactivate(pj_pool_t *pool,
  *
  * @return	    New media descrption with deactivated indication.
  */
-PJ_DECL(pjmedia_sdp_media*) pjmedia_sdp_media_clone_deactivate(
+(pjmedia_sdp_media*) pjmedia_sdp_media_clone_deactivate(
 						pj_pool_t *pool,
 						const pjmedia_sdp_media *rhs);
 
@@ -653,7 +653,7 @@ typedef struct pjmedia_sdp_session pjmedia_sdp_session;
  * @return	    PJ_SUCCESS if message was successfully parsed into
  *		    SDP session descriptor.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_parse( pj_pool_t *pool,
+(pj_status_t) pjmedia_sdp_parse( pj_pool_t *pool,
 				        char *buf, pj_size_t len, 
 					pjmedia_sdp_session **p_sdp );
 
@@ -667,7 +667,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_parse( pj_pool_t *pool,
  * @return	    the length printed, or -1 if the buffer is too
  *		    short.
  */
-PJ_DECL(int) pjmedia_sdp_print( const pjmedia_sdp_session *sdp, 
+(int) pjmedia_sdp_print( const pjmedia_sdp_session *sdp, 
 				char *buf, pj_size_t size);
 
 
@@ -682,7 +682,7 @@ PJ_DECL(int) pjmedia_sdp_print( const pjmedia_sdp_session *sdp,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_validate(const pjmedia_sdp_session *sdp);
+(pj_status_t) pjmedia_sdp_validate(const pjmedia_sdp_session *sdp);
 
 
 /**
@@ -698,7 +698,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_validate(const pjmedia_sdp_session *sdp);
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_validate2(const pjmedia_sdp_session *sdp,
+(pj_status_t) pjmedia_sdp_validate2(const pjmedia_sdp_session *sdp,
 					   pj_bool_t strict);
 
 
@@ -710,7 +710,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_validate2(const pjmedia_sdp_session *sdp,
  *
  * @return	    New SDP session.
  */
-PJ_DECL(pjmedia_sdp_session*) 
+(pjmedia_sdp_session*) 
 pjmedia_sdp_session_clone( pj_pool_t *pool,
 			   const pjmedia_sdp_session *sdp);
 
@@ -726,7 +726,7 @@ pjmedia_sdp_session_clone( pj_pool_t *pool,
  *		    the status code indicates which part of the session
  *		    descriptors are not equal.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_session_cmp(const pjmedia_sdp_session *sd1,
+(pj_status_t) pjmedia_sdp_session_cmp(const pjmedia_sdp_session *sd1,
 					     const pjmedia_sdp_session *sd2,
 					     unsigned option);
 
@@ -739,7 +739,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_session_cmp(const pjmedia_sdp_session *sd1,
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_session_add_attr(pjmedia_sdp_session *s,
+(pj_status_t) pjmedia_sdp_session_add_attr(pjmedia_sdp_session *s,
 						  pjmedia_sdp_attr *attr);
 
 

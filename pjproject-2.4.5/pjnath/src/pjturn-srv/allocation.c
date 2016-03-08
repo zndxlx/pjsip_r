@@ -461,7 +461,7 @@ static void destroy_allocation(pj_turn_allocation *alloc)
 }
 
 
-PJ_DECL(void) pj_turn_allocation_destroy(pj_turn_allocation *alloc)
+(void) pj_turn_allocation_destroy(pj_turn_allocation *alloc)
 {
     destroy_allocation(alloc);
 }

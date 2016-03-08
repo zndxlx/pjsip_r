@@ -82,7 +82,7 @@ typedef enum pjmedia_vid_tee_flag
  * @return		    PJ_SUCCESS on success, or the appropriate
  *			    error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_tee_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_vid_tee_create(pj_pool_t *pool,
 					    const pjmedia_format *fmt,
 					    unsigned max_dst_cnt,
 					    pjmedia_port **p_vid_tee);
@@ -98,7 +98,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_tee_create(pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_tee_add_dst_port(pjmedia_port *vid_tee,
+(pj_status_t) pjmedia_vid_tee_add_dst_port(pjmedia_port *vid_tee,
 						  unsigned option,
 						  pjmedia_port *port);
 
@@ -115,7 +115,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_tee_add_dst_port(pjmedia_port *vid_tee,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_tee_add_dst_port2(pjmedia_port *vid_tee,
+(pj_status_t) pjmedia_vid_tee_add_dst_port2(pjmedia_port *vid_tee,
                                                    unsigned option,
 						   pjmedia_port *port);
 
@@ -129,7 +129,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_tee_add_dst_port2(pjmedia_port *vid_tee,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_tee_remove_dst_port(pjmedia_port *vid_tee,
+(pj_status_t) pjmedia_vid_tee_remove_dst_port(pjmedia_port *vid_tee,
 						     pjmedia_port *port);
 
 

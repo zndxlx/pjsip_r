@@ -78,8 +78,8 @@
     typedef jmp_buf sigjmp_buf;
     typedef jmp_buf pj_jmp_buf;
 
-    PJ_DECL(int) pj_setjmp(pj_jmp_buf env);
-    PJ_DECL(void) pj_longjmp(pj_jmp_buf env, int val) __attribute__((noreturn));
+    (int) pj_setjmp(pj_jmp_buf env);
+    (void) pj_longjmp(pj_jmp_buf env, int val) __attribute__((noreturn));
 
 # endif   /* _ASM */
 

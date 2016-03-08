@@ -184,7 +184,7 @@ typedef struct pjmedia_vid_stream_info
  *
  * @return		PJ_SUCCESS if stream info is successfully initialized.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_stream_info_from_sdp(pjmedia_vid_stream_info *si,
 			         pj_pool_t *pool,
 				 pjmedia_endpt *endpt,
@@ -198,7 +198,7 @@ pjmedia_vid_stream_info_from_sdp(pjmedia_vid_stream_info *si,
  *
  * @param cfg		Video stream rate control structure to be initialized.
  */
-PJ_DECL(void)
+(void)
 pjmedia_vid_stream_rc_config_default(pjmedia_vid_stream_rc_config *cfg);
 
 
@@ -237,7 +237,7 @@ typedef struct pjmedia_vid_stream pjmedia_vid_stream;
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_create(
+(pj_status_t) pjmedia_vid_stream_create(
 					pjmedia_endpt *endpt,
 					pj_pool_t *pool,
 					pjmedia_vid_stream_info *info,
@@ -252,7 +252,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_create(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_destroy(pjmedia_vid_stream *stream);
+(pj_status_t) pjmedia_vid_stream_destroy(pjmedia_vid_stream *stream);
 
 
 /**
@@ -269,7 +269,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_destroy(pjmedia_vid_stream *stream);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_get_port(
+(pj_status_t) pjmedia_vid_stream_get_port(
 					    pjmedia_vid_stream *stream,
 					    pjmedia_dir dir,
 					    pjmedia_port **p_port);
@@ -282,7 +282,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_get_port(
  *
  * @return		The transport object being used by the stream.
  */
-PJ_DECL(pjmedia_transport*) pjmedia_vid_stream_get_transport(
+(pjmedia_transport*) pjmedia_vid_stream_get_transport(
 					    pjmedia_vid_stream *st);
 
 
@@ -294,7 +294,7 @@ PJ_DECL(pjmedia_transport*) pjmedia_vid_stream_get_transport(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_get_stat(
+(pj_status_t) pjmedia_vid_stream_get_stat(
 					    const pjmedia_vid_stream *stream,
 					    pjmedia_rtcp_stat *stat);
 
@@ -305,7 +305,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_get_stat(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_reset_stat(pjmedia_vid_stream *stream);
+(pj_status_t) pjmedia_vid_stream_reset_stat(pjmedia_vid_stream *stream);
 
 
 /**
@@ -316,7 +316,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_reset_stat(pjmedia_vid_stream *stream);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_get_stat_jbuf(
+(pj_status_t) pjmedia_vid_stream_get_stat_jbuf(
 					    const pjmedia_vid_stream *stream,
 					    pjmedia_jb_state *state);
 
@@ -329,7 +329,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_get_stat_jbuf(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_get_info(
+(pj_status_t) pjmedia_vid_stream_get_info(
 					    const pjmedia_vid_stream *stream,
 					    pjmedia_vid_stream_info *info);
 
@@ -343,7 +343,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_get_info(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_start(pjmedia_vid_stream *stream);
+(pj_status_t) pjmedia_vid_stream_start(pjmedia_vid_stream *stream);
 
 
 /**
@@ -354,7 +354,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_start(pjmedia_vid_stream *stream);
  *
  * @return		PJ_TRUE if stream is started.
  */
-PJ_DECL(pj_bool_t) pjmedia_vid_stream_is_running(pjmedia_vid_stream *stream,
+(pj_bool_t) pjmedia_vid_stream_is_running(pjmedia_vid_stream *stream,
                                                  pjmedia_dir dir);
 
 /**
@@ -365,7 +365,7 @@ PJ_DECL(pj_bool_t) pjmedia_vid_stream_is_running(pjmedia_vid_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_pause(pjmedia_vid_stream *stream,
+(pj_status_t) pjmedia_vid_stream_pause(pjmedia_vid_stream *stream,
 					      pjmedia_dir dir);
 
 /**
@@ -376,7 +376,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_pause(pjmedia_vid_stream *stream,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_resume(pjmedia_vid_stream *stream,
+(pj_status_t) pjmedia_vid_stream_resume(pjmedia_vid_stream *stream,
 					       pjmedia_dir dir);
 
 
@@ -387,7 +387,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_resume(pjmedia_vid_stream *stream,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_send_keyframe(
+(pj_status_t) pjmedia_vid_stream_send_keyframe(
 						pjmedia_vid_stream *stream);
 
 
@@ -398,7 +398,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_send_keyframe(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_send_rtcp_sdes(
+(pj_status_t) pjmedia_vid_stream_send_rtcp_sdes(
 						pjmedia_vid_stream *stream);
 
 
@@ -409,7 +409,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_stream_send_rtcp_sdes(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_stream_send_rtcp_bye(
+(pj_status_t) pjmedia_vid_stream_send_rtcp_bye(
 						pjmedia_vid_stream *stream);
 
 

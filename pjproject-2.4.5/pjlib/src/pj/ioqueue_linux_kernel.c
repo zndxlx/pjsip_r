@@ -50,7 +50,7 @@
 
 struct pj_ioqueue_key_t
 {
-    PJ_DECL_LIST_MEMBER(struct pj_ioqueue_key_t)
+    _LIST_MEMBER(struct pj_ioqueue_key_t)
     pj_sock_t		    fd;
     pj_ioqueue_operation_e  op;
     void		   *user_data;

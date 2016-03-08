@@ -165,7 +165,7 @@ typedef void pj_stun_nat_detect_cb(void *user_data,
  *
  * @return		NAT name.
  */
-PJ_DECL(const char*) pj_stun_get_nat_name(pj_stun_nat_type type);
+(const char*) pj_stun_get_nat_name(pj_stun_nat_type type);
 
 
 /**
@@ -190,7 +190,7 @@ PJ_DECL(const char*) pj_stun_get_nat_name(pj_stun_nat_type type);
  *			values, it means that an error has occured and
  *			the procedure did not start.
  */
-PJ_DECL(pj_status_t) pj_stun_detect_nat_type(const pj_sockaddr_in *server,
+(pj_status_t) pj_stun_detect_nat_type(const pj_sockaddr_in *server,
 					     pj_stun_config *stun_cfg,
 					     void *user_data,
 					     pj_stun_nat_detect_cb *cb);

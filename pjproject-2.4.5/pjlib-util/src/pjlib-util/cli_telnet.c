@@ -257,7 +257,7 @@ typedef struct telnet_recv_buf {
  */
 typedef struct cmd_history
 {
-    PJ_DECL_LIST_MEMBER(struct cmd_history);
+    _LIST_MEMBER(struct cmd_history);
     pj_str_t command;
 } cmd_history;
 

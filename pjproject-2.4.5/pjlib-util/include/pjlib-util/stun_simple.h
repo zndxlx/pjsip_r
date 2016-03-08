@@ -135,13 +135,13 @@ typedef struct pjstun_msg
 
 /* STUN message API (stun.c). */
 
-PJ_DECL(pj_status_t) pjstun_create_bind_req( pj_pool_t *pool, 
+(pj_status_t) pjstun_create_bind_req( pj_pool_t *pool, 
 					      void **msg, pj_size_t *len,
 					      pj_uint32_t id_hi,
 					      pj_uint32_t id_lo);
-PJ_DECL(pj_status_t) pjstun_parse_msg( void *buf, pj_size_t len,
+(pj_status_t) pjstun_parse_msg( void *buf, pj_size_t len,
 				        pjstun_msg *msg);
-PJ_DECL(void*) pjstun_msg_find_attr( pjstun_msg *msg, pjstun_attr_type t);
+(void*) pjstun_msg_find_attr( pjstun_msg *msg, pjstun_attr_type t);
 
 
 /**
@@ -193,7 +193,7 @@ PJ_DECL(void*) pjstun_msg_find_attr( pjstun_msg *msg, pjstun_attr_type t);
  *			- etc.
  *
  */
-PJ_DECL(pj_status_t) pjstun_get_mapped_addr( pj_pool_factory *pf,
+(pj_status_t) pjstun_get_mapped_addr( pj_pool_factory *pf,
 					      int sock_cnt, pj_sock_t sock[],
 					      const pj_str_t *srv1, int port1,
 					      const pj_str_t *srv2, int port2,
@@ -267,7 +267,7 @@ typedef struct pjstun_setting
  *			- etc.
  *
  */
-PJ_DECL(pj_status_t) pjstun_get_mapped_addr2( pj_pool_factory *pf,
+(pj_status_t) pjstun_get_mapped_addr2( pj_pool_factory *pf,
 					      const pjstun_setting *opt,
 					      int sock_cnt,
 					      pj_sock_t sock[],

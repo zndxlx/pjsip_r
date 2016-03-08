@@ -63,17 +63,17 @@ PJ_BEGIN_DECL
 
 
 /** Declaration for REFER method constant. */
-PJ_DECL_DATA(const pjsip_method) pjsip_refer_method;
+_DATA(const pjsip_method) pjsip_refer_method;
 
 /** Get REFER method constant */
-PJ_DECL(const pjsip_method*) pjsip_get_refer_method(void);
+(const pjsip_method*) pjsip_get_refer_method(void);
 
 
 /**
  * Initialize the REFER subsystem.
  * This currently does very little (only register REFER as supported method).
  */
-PJ_DECL(pj_status_t) pjsip_xfer_init_module(pjsip_endpoint *endpt);
+(pj_status_t) pjsip_xfer_init_module(pjsip_endpoint *endpt);
 
 
 
@@ -88,7 +88,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_init_module(pjsip_endpoint *endpt);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_create_uac( pjsip_dialog *dlg,
+(pj_status_t) pjsip_xfer_create_uac( pjsip_dialog *dlg,
 					    const pjsip_evsub_user *user_cb,
 					    pjsip_evsub **p_evsub );
 
@@ -106,7 +106,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_create_uac( pjsip_dialog *dlg,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_create_uas( pjsip_dialog *dlg,
+(pj_status_t) pjsip_xfer_create_uas( pjsip_dialog *dlg,
 					    const pjsip_evsub_user *user_cb,
 					    pjsip_rx_data *rdata,
 					    pjsip_evsub **p_evsub );
@@ -123,7 +123,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_create_uas( pjsip_dialog *dlg,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_initiate( pjsip_evsub *sub,
+(pj_status_t) pjsip_xfer_initiate( pjsip_evsub *sub,
 					  const pj_str_t *refer_to_uri,
 					  pjsip_tx_data **p_tdata);
 
@@ -138,7 +138,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_initiate( pjsip_evsub *sub,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_accept( pjsip_evsub *sub,
+(pj_status_t) pjsip_xfer_accept( pjsip_evsub *sub,
 					pjsip_rx_data *rdata,
 				        int st_code,
 					const pjsip_hdr *hdr_list );
@@ -159,7 +159,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_accept( pjsip_evsub *sub,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_xfer_notify( pjsip_evsub *sub,
 					pjsip_evsub_state state,
 					int xfer_st_code,
 					const pj_str_t *xfer_st_text,
@@ -177,7 +177,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_notify( pjsip_evsub *sub,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_current_notify( pjsip_evsub *sub,
+(pj_status_t) pjsip_xfer_current_notify( pjsip_evsub *sub,
 					        pjsip_tx_data **p_tdata );
 
 
@@ -194,7 +194,7 @@ PJ_DECL(pj_status_t) pjsip_xfer_current_notify( pjsip_evsub *sub,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_xfer_send_request( pjsip_evsub *sub,
+(pj_status_t) pjsip_xfer_send_request( pjsip_evsub *sub,
 					      pjsip_tx_data *tdata);
 
 

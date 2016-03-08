@@ -110,7 +110,7 @@ typedef struct pjmedia_clock_src
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_src_init( pjmedia_clock_src *clocksrc,
+(pj_status_t) pjmedia_clock_src_init( pjmedia_clock_src *clocksrc,
                                              pjmedia_type media_type,
                                              unsigned clock_rate,
                                              unsigned ptime_usec );
@@ -127,7 +127,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_src_init( pjmedia_clock_src *clocksrc,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_src_update( pjmedia_clock_src *clocksrc,
+(pj_status_t) pjmedia_clock_src_update( pjmedia_clock_src *clocksrc,
                                                const pj_timestamp *timestamp );
 
 /**
@@ -141,7 +141,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_src_update( pjmedia_clock_src *clocksrc,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_clock_src_get_current_timestamp( const pjmedia_clock_src *clocksrc,
                                          pj_timestamp *timestamp);
 
@@ -152,7 +152,7 @@ pjmedia_clock_src_get_current_timestamp( const pjmedia_clock_src *clocksrc,
  *
  * @return		    The clock source's time (in msec).
  */
-PJ_DECL(pj_uint32_t)
+(pj_uint32_t)
 pjmedia_clock_src_get_time_msec( const pjmedia_clock_src *clocksrc );
 
 
@@ -228,7 +228,7 @@ typedef void pjmedia_clock_callback(const pj_timestamp *ts,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_clock_create( pj_pool_t *pool,
 					   unsigned clock_rate,
 					   unsigned channel_count,
 					   unsigned samples_per_frame,
@@ -253,7 +253,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_create( pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate error
  *			    code.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_clock_create2(pj_pool_t *pool,
                                            const pjmedia_clock_param *param,
 					   unsigned options,
 					   pjmedia_clock_callback *cb,
@@ -269,7 +269,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_create2(pj_pool_t *pool,
  *
  * @return		    PJ_SUCCES on success.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_start(pjmedia_clock *clock);
+(pj_status_t) pjmedia_clock_start(pjmedia_clock *clock);
 
 
 /**
@@ -279,7 +279,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_start(pjmedia_clock *clock);
  *
  * @return		    PJ_SUCCES on success.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_stop(pjmedia_clock *clock);
+(pj_status_t) pjmedia_clock_stop(pjmedia_clock *clock);
 
 
 /**
@@ -289,7 +289,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_stop(pjmedia_clock *clock);
  * @param param	            The clock's new parameter.
  * @return		    PJ_SUCCES on success.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_modify(pjmedia_clock *clock,
+(pj_status_t) pjmedia_clock_modify(pjmedia_clock *clock,
                                           const pjmedia_clock_param *param);
 
 
@@ -308,7 +308,7 @@ PJ_DECL(pj_status_t) pjmedia_clock_modify(pjmedia_clock *clock,
  *			    the function returns before a clock tick has
  *			    elapsed.
  */
-PJ_DECL(pj_bool_t) pjmedia_clock_wait(pjmedia_clock *clock,
+(pj_bool_t) pjmedia_clock_wait(pjmedia_clock *clock,
 				      pj_bool_t wait,
 				      pj_timestamp *ts);
 
@@ -320,7 +320,7 @@ PJ_DECL(pj_bool_t) pjmedia_clock_wait(pjmedia_clock *clock,
  *
  * @return		    PJ_SUCCES on success.
  */
-PJ_DECL(pj_status_t) pjmedia_clock_destroy(pjmedia_clock *clock);
+(pj_status_t) pjmedia_clock_destroy(pjmedia_clock *clock);
 
 
 

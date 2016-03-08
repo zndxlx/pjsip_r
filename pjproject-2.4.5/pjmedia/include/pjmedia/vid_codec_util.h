@@ -54,7 +54,7 @@ typedef struct pjmedia_vid_codec_h263_fmtp
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_codec_h263_parse_fmtp(
+(pj_status_t) pjmedia_vid_codec_h263_parse_fmtp(
 				const pjmedia_codec_fmtp *fmtp,
 				pjmedia_vid_codec_h263_fmtp *h263_fmtp);
 
@@ -67,7 +67,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_codec_h263_parse_fmtp(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_codec_h263_apply_fmtp(
+(pj_status_t) pjmedia_vid_codec_h263_apply_fmtp(
 				pjmedia_vid_codec_param *param);
 
 
@@ -107,7 +107,7 @@ typedef struct pjmedia_vid_codec_h264_fmtp
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_codec_h264_parse_fmtp(
+(pj_status_t) pjmedia_vid_codec_h264_parse_fmtp(
 				const pjmedia_codec_fmtp *fmtp,
 				pjmedia_vid_codec_h264_fmtp *h264_fmtp);
 
@@ -130,7 +130,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_codec_h264_parse_fmtp(
  *
  * @return		PJ_SUCCESS when the formats in offer and answer match.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_codec_h264_match_sdp(
+(pj_status_t) pjmedia_vid_codec_h264_match_sdp(
 						pj_pool_t *pool,
 						pjmedia_sdp_media *offer,
 						unsigned o_fmt_idx,
@@ -148,7 +148,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_codec_h264_match_sdp(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_codec_h264_apply_fmtp(
+(pj_status_t) pjmedia_vid_codec_h264_apply_fmtp(
 				pjmedia_vid_codec_param *param);
 
 

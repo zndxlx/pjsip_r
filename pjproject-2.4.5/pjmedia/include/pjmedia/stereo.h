@@ -189,7 +189,7 @@ typedef enum pjmedia_stereo_port_options
  *
  * @return PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stereo_port_create( pj_pool_t *pool,
+(pj_status_t) pjmedia_stereo_port_create( pj_pool_t *pool,
 						 pjmedia_port *dn_port,
 						 unsigned channel_count,
 						 unsigned options,

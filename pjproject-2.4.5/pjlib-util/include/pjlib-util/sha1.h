@@ -50,14 +50,14 @@ typedef struct pj_sha1_context
 /** Initialize the algorithm. 
  *  @param ctx		SHA1 context.
  */
-PJ_DECL(void) pj_sha1_init(pj_sha1_context *ctx);
+(void) pj_sha1_init(pj_sha1_context *ctx);
 
 /** Append a stream to the message. 
  *  @param ctx		SHA1 context.
  *  @param data		Data.
  *  @param nbytes	Length of data.
  */
-PJ_DECL(void) pj_sha1_update(pj_sha1_context *ctx, 
+(void) pj_sha1_update(pj_sha1_context *ctx, 
 			     const pj_uint8_t *data, 
 			     const pj_size_t nbytes);
 
@@ -65,7 +65,7 @@ PJ_DECL(void) pj_sha1_update(pj_sha1_context *ctx,
  *  @param ctx		SHA1 context.
  *  @param digest	16 byte digest.
  */
-PJ_DECL(void) pj_sha1_final(pj_sha1_context *ctx, 
+(void) pj_sha1_final(pj_sha1_context *ctx, 
 			    pj_uint8_t digest[PJ_SHA1_DIGEST_SIZE]);
 
 

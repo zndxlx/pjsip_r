@@ -124,7 +124,7 @@ typedef struct pjsip_authorization_hdr pjsip_proxy_authorization_hdr;
  * @param pool	    Pool where memory will be allocated from.
  * @return	    SIP Authorization header.
  */
-PJ_DECL(pjsip_authorization_hdr*) 
+(pjsip_authorization_hdr*) 
 pjsip_authorization_hdr_create(pj_pool_t *pool);
 
 /**
@@ -132,7 +132,7 @@ pjsip_authorization_hdr_create(pj_pool_t *pool);
  * @param pool	    Pool where memory will be allocated from.
  * @return SIP	    Proxy-Authorization header.
  */
-PJ_DECL(pjsip_proxy_authorization_hdr*) 
+(pjsip_proxy_authorization_hdr*) 
 pjsip_proxy_authorization_hdr_create(pj_pool_t *pool);
 
 
@@ -231,7 +231,7 @@ typedef struct pjsip_www_authenticate_hdr pjsip_proxy_authenticate_hdr;
  * @param pool	    Pool where memory will be allocated from.
  * @return	    SIP WWW-Authenticate header.
  */
-PJ_DECL(pjsip_www_authenticate_hdr*) 
+(pjsip_www_authenticate_hdr*) 
 pjsip_www_authenticate_hdr_create(pj_pool_t *pool);
 
 /**
@@ -240,7 +240,7 @@ pjsip_www_authenticate_hdr_create(pj_pool_t *pool);
  * @param pool	    Pool where memory will be allocated from.
  * @return	    SIP Proxy-Authenticate header.
  */
-PJ_DECL(pjsip_proxy_authenticate_hdr*) 
+(pjsip_proxy_authenticate_hdr*) 
 pjsip_proxy_authenticate_hdr_create(pj_pool_t *pool);
 
 /**

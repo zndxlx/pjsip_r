@@ -324,7 +324,7 @@ enum pj_dns_dup_options
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_dns_make_query(void *packet,
+(pj_status_t) pj_dns_make_query(void *packet,
 				       unsigned *size,
 				       pj_uint16_t id,
 				       int qtype,
@@ -343,7 +343,7 @@ PJ_DECL(pj_status_t) pj_dns_make_query(void *packet,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_dns_parse_packet(pj_pool_t *pool,
+(pj_status_t) pj_dns_parse_packet(pj_pool_t *pool,
 					 const void *packet,
 					 unsigned size,
 					 pj_dns_parsed_packet **p_res);
@@ -356,7 +356,7 @@ PJ_DECL(pj_status_t) pj_dns_parse_packet(pj_pool_t *pool,
  * @param options	Option flags, from pj_dns_dup_options.
  * @param p_dst		Pointer to store the cloned DNS packet.
  */
-PJ_DECL(void) pj_dns_packet_dup(pj_pool_t *pool,
+(void) pj_dns_packet_dup(pj_pool_t *pool,
 				const pj_dns_parsed_packet*p,
 				unsigned options,
 				pj_dns_parsed_packet **p_dst);
@@ -369,7 +369,7 @@ PJ_DECL(void) pj_dns_packet_dup(pj_pool_t *pool,
  *
  * @return		String name of the type (e.g. "A", "SRV", etc.).
  */
-PJ_DECL(const char *) pj_dns_get_type_name(int type);
+(const char *) pj_dns_get_type_name(int type);
 
 
 /**
@@ -385,7 +385,7 @@ PJ_DECL(const char *) pj_dns_get_type_name(int type);
  * @param port		Target port.
  * @param target	Target name.
  */
-PJ_DECL(void) pj_dns_init_srv_rr(pj_dns_parsed_rr *rec,
+(void) pj_dns_init_srv_rr(pj_dns_parsed_rr *rec,
 				 const pj_str_t *res_name,
 				 unsigned dnsclass,
 				 unsigned ttl,
@@ -404,7 +404,7 @@ PJ_DECL(void) pj_dns_init_srv_rr(pj_dns_parsed_rr *rec,
  * @param ttl		Resource TTL value.
  * @param name		Host name.
  */
-PJ_DECL(void) pj_dns_init_cname_rr(pj_dns_parsed_rr *rec,
+(void) pj_dns_init_cname_rr(pj_dns_parsed_rr *rec,
 				   const pj_str_t *res_name,
 				   unsigned dnsclass,
 				   unsigned ttl,
@@ -420,7 +420,7 @@ PJ_DECL(void) pj_dns_init_cname_rr(pj_dns_parsed_rr *rec,
  * @param ttl		Resource TTL value.
  * @param ip_addr	Host address.
  */
-PJ_DECL(void) pj_dns_init_a_rr(pj_dns_parsed_rr *rec,
+(void) pj_dns_init_a_rr(pj_dns_parsed_rr *rec,
 			       const pj_str_t *res_name,
 			       unsigned dnsclass,
 			       unsigned ttl,
@@ -431,7 +431,7 @@ PJ_DECL(void) pj_dns_init_a_rr(pj_dns_parsed_rr *rec,
  *
  * @param res		The DNS packet.
  */
-PJ_DECL(void) pj_dns_dump_packet(const pj_dns_parsed_packet *res);
+(void) pj_dns_dump_packet(const pj_dns_parsed_packet *res);
 
 
 /**

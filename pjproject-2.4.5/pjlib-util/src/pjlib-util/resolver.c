@@ -97,7 +97,7 @@ struct nameserver
  */
 struct query_head
 {
-    PJ_DECL_LIST_MEMBER(pj_dns_async_query);
+    _LIST_MEMBER(pj_dns_async_query);
 };
 
 
@@ -127,7 +127,7 @@ struct res_key
  */
 struct pj_dns_async_query
 {
-    PJ_DECL_LIST_MEMBER(pj_dns_async_query);	/**< List member.	    */
+    _LIST_MEMBER(pj_dns_async_query);	/**< List member.	    */
 
     pj_dns_resolver	*resolver;	/**< The resolver instance.	    */
     pj_uint16_t		 id;		/**< Transaction ID.		    */
@@ -150,7 +150,7 @@ struct pj_dns_async_query
  */
 struct cached_res
 {
-    PJ_DECL_LIST_MEMBER(struct cached_res);
+    _LIST_MEMBER(struct cached_res);
 
     pj_pool_t		    *pool;	    /**< Cache's pool.		    */
     struct res_key	     key;	    /**< Resource key.		    */

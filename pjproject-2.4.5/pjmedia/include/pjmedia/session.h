@@ -94,7 +94,7 @@ typedef struct pjmedia_session_info pjmedia_session_info;
  *
  * @return		PJ_SUCCESS if stream info is successfully initialized.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_session_info_from_sdp( pj_pool_t *pool,
 			       pjmedia_endpt *endpt,
 			       unsigned max_streams,
@@ -119,7 +119,7 @@ pjmedia_session_info_from_sdp( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS if stream info is successfully initialized.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_stream_info_from_sdp( pjmedia_stream_info *si,
 			      pj_pool_t *pool,
 			      pjmedia_endpt *endpt,
@@ -149,7 +149,7 @@ pjmedia_stream_info_from_sdp( pjmedia_stream_info *si,
  * @return		PJ_SUCCESS if media session can be created 
  *			successfully.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_session_create( pjmedia_endpt *endpt, 
 			const pjmedia_session_info *si,
 			pjmedia_transport *transports[],
@@ -165,7 +165,7 @@ pjmedia_session_create( pjmedia_endpt *endpt,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_get_info( pjmedia_session *session,
+(pj_status_t) pjmedia_session_get_info( pjmedia_session *session,
 					       pjmedia_session_info *info );
 
 /**
@@ -175,7 +175,7 @@ PJ_DECL(pj_status_t) pjmedia_session_get_info( pjmedia_session *session,
  *
  * @return		User data of the session.
  */
-PJ_DECL(void*) pjmedia_session_get_user_data( pjmedia_session *session);
+(void*) pjmedia_session_get_user_data( pjmedia_session *session);
 
 
 /**
@@ -188,7 +188,7 @@ PJ_DECL(void*) pjmedia_session_get_user_data( pjmedia_session *session);
  *
  * @return		PJ_SUCCESS if success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_resume(pjmedia_session *session,
+(pj_status_t) pjmedia_session_resume(pjmedia_session *session,
 					    pjmedia_dir dir);
 
 
@@ -201,7 +201,7 @@ PJ_DECL(pj_status_t) pjmedia_session_resume(pjmedia_session *session,
  *
  * @return		PJ_SUCCESS if success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_pause(pjmedia_session *session,
+(pj_status_t) pjmedia_session_pause(pjmedia_session *session,
 					   pjmedia_dir dir);
 
 /**
@@ -214,7 +214,7 @@ PJ_DECL(pj_status_t) pjmedia_session_pause(pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_pause_stream( pjmedia_session *session,
+(pj_status_t) pjmedia_session_pause_stream( pjmedia_session *session,
 						   unsigned index,
 						   pjmedia_dir dir);
 
@@ -227,7 +227,7 @@ PJ_DECL(pj_status_t) pjmedia_session_pause_stream( pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_resume_stream(pjmedia_session *session,
+(pj_status_t) pjmedia_session_resume_stream(pjmedia_session *session,
 						   unsigned index,
 						   pjmedia_dir dir);
 
@@ -238,7 +238,7 @@ PJ_DECL(pj_status_t) pjmedia_session_resume_stream(pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_session_send_rtcp_sdes( const pjmedia_session *session );
 
 /**
@@ -248,7 +248,7 @@ pjmedia_session_send_rtcp_sdes( const pjmedia_session *session );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_session_send_rtcp_bye( const pjmedia_session *session );
 
 /**
@@ -262,7 +262,7 @@ pjmedia_session_send_rtcp_bye( const pjmedia_session *session );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_session_enum_streams( const pjmedia_session *session,
 			      unsigned *count, 
 			      pjmedia_stream_info strm_info[]);
@@ -281,7 +281,7 @@ pjmedia_session_enum_streams( const pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_get_port( pjmedia_session *session,
+(pj_status_t) pjmedia_session_get_port( pjmedia_session *session,
 					       unsigned index,
 					       pjmedia_port **p_port);
 
@@ -297,7 +297,7 @@ PJ_DECL(pj_status_t) pjmedia_session_get_port( pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_get_stream_stat(pjmedia_session *session,
+(pj_status_t) pjmedia_session_get_stream_stat(pjmedia_session *session,
 						     unsigned index,
 						     pjmedia_rtcp_stat *stat);
 
@@ -310,7 +310,7 @@ PJ_DECL(pj_status_t) pjmedia_session_get_stream_stat(pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_reset_stream_stat(pjmedia_session *session,
+(pj_status_t) pjmedia_session_reset_stream_stat(pjmedia_session *session,
 						       unsigned index);
 
 
@@ -326,7 +326,7 @@ PJ_DECL(pj_status_t) pjmedia_session_reset_stream_stat(pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_get_stream_stat_xr(
+(pj_status_t) pjmedia_session_get_stream_stat_xr(
 					     pjmedia_session *session,
 					     unsigned index,
 					     pjmedia_rtcp_xr_stat *stat_xr);
@@ -343,7 +343,7 @@ PJ_DECL(pj_status_t) pjmedia_session_get_stream_stat_xr(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_get_stream_stat_jbuf(
+(pj_status_t) pjmedia_session_get_stream_stat_jbuf(
 					    pjmedia_session *session,
 					    unsigned index,
 					    pjmedia_jb_state *state);
@@ -357,7 +357,7 @@ PJ_DECL(pj_status_t) pjmedia_session_get_stream_stat_jbuf(
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_dial_dtmf( pjmedia_session *session,
+(pj_status_t) pjmedia_session_dial_dtmf( pjmedia_session *session,
 					        unsigned index,
 						const pj_str_t *ascii_digits );
 
@@ -370,7 +370,7 @@ PJ_DECL(pj_status_t) pjmedia_session_dial_dtmf( pjmedia_session *session,
  *
  * @return		Non-zero (PJ_TRUE) if the stream has DTMF digits.
  */
-PJ_DECL(pj_status_t) pjmedia_session_check_dtmf( pjmedia_session *session,
+(pj_status_t) pjmedia_session_check_dtmf( pjmedia_session *session,
 					         unsigned index);
 
 
@@ -388,7 +388,7 @@ PJ_DECL(pj_status_t) pjmedia_session_check_dtmf( pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_get_dtmf( pjmedia_session *session,
+(pj_status_t) pjmedia_session_get_dtmf( pjmedia_session *session,
 					       unsigned index,
 					       char *ascii_digits,
 					       unsigned *size );
@@ -408,7 +408,7 @@ PJ_DECL(pj_status_t) pjmedia_session_get_dtmf( pjmedia_session *session,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_session_set_dtmf_callback(pjmedia_session *session,
 				  unsigned index,
 				  void (*cb)(pjmedia_stream*, 
@@ -423,7 +423,7 @@ pjmedia_session_set_dtmf_callback(pjmedia_session *session,
  *
  * @return		PJ_SUCCESS if success.
  */
-PJ_DECL(pj_status_t) pjmedia_session_destroy(pjmedia_session *session);
+(pj_status_t) pjmedia_session_destroy(pjmedia_session *session);
 
 
 

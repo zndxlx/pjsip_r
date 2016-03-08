@@ -72,7 +72,7 @@ typedef struct pj_cli_console_cfg
  *
  * @param param		The structure to be initialized.
  */
-PJ_DECL(void) pj_cli_console_cfg_default(pj_cli_console_cfg *param);
+(void) pj_cli_console_cfg_default(pj_cli_console_cfg *param);
 
 
 /**
@@ -90,7 +90,7 @@ PJ_DECL(void) pj_cli_console_cfg_default(pj_cli_console_cfg *param);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_cli_console_create(pj_cli_t *cli,
+(pj_status_t) pj_cli_console_create(pj_cli_t *cli,
 					   const pj_cli_console_cfg *param,
 					   pj_cli_sess **p_sess,
 					   pj_cli_front_end **p_fe);
@@ -104,7 +104,7 @@ PJ_DECL(pj_status_t) pj_cli_console_create(pj_cli_t *cli,
  *
  * @return		PJ_SUCCESS if an input was read
  */
-PJ_DECL(pj_status_t) pj_cli_console_process(pj_cli_sess *sess, 
+(pj_status_t) pj_cli_console_process(pj_cli_sess *sess, 
 					    char *buf,
 					    unsigned maxlen);
 

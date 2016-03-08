@@ -51,7 +51,7 @@ PJ_BEGIN_DECL
  */
 typedef struct pjsip_param
 {
-    PJ_DECL_LIST_MEMBER(struct pjsip_param);	/**< Generic list member.   */
+    _LIST_MEMBER(struct pjsip_param);	/**< Generic list member.   */
     pj_str_t	    name;			/**< Param/header name.	    */
     pj_str_t	    value;			/**< Param/header value.    */
 } pjsip_param;
@@ -66,7 +66,7 @@ typedef struct pjsip_param
  *
  * @return		The parameter if found, or NULL.
  */
-PJ_DECL(pjsip_param*) pjsip_param_find( const pjsip_param *param_list,
+(pjsip_param*) pjsip_param_find( const pjsip_param *param_list,
 					const pj_str_t *name );
 
 
@@ -90,7 +90,7 @@ PJ_INLINE(pjsip_param*) pjsip_param_cfind(const pjsip_param *param_list,
  * @return		Zero if the parameter list are equal, non-zero
  * 			otherwise.
  */
-PJ_DECL(int) pjsip_param_cmp(const pjsip_param *param_list1,
+(int) pjsip_param_cmp(const pjsip_param *param_list1,
 			     const pjsip_param *param_list2,
 			     pj_bool_t ig_nf);
 
@@ -101,7 +101,7 @@ PJ_DECL(int) pjsip_param_cmp(const pjsip_param *param_list1,
  * @param dst_list	Destination list.
  * @param src_list	Source list.
  */
-PJ_DECL(void) pjsip_param_clone(pj_pool_t *pool, pjsip_param *dst_list,
+(void) pjsip_param_clone(pj_pool_t *pool, pjsip_param *dst_list,
 				const pjsip_param *src_list);
 
 /**
@@ -111,7 +111,7 @@ PJ_DECL(void) pjsip_param_clone(pj_pool_t *pool, pjsip_param *dst_list,
  * @param dst_list	Destination list.
  * @param src_list	Source list.
  */
-PJ_DECL(void) pjsip_param_shallow_clone(pj_pool_t *pool, 
+(void) pjsip_param_shallow_clone(pj_pool_t *pool, 
 					pjsip_param *dst_list,
 					const pjsip_param *src_list);
 
@@ -130,7 +130,7 @@ PJ_DECL(void) pjsip_param_shallow_clone(pj_pool_t *pool,
  *
  * @return		The number of bytes printed, or -1 on errr.
  */
-PJ_DECL(pj_ssize_t) pjsip_param_print_on(const pjsip_param *param_list,
+(pj_ssize_t) pjsip_param_print_on(const pjsip_param *param_list,
 					 char *buf, pj_size_t size,
 					 const pj_cis_t *pname_unres,
 					 const pj_cis_t *pvalue_unres,
@@ -375,7 +375,7 @@ typedef struct pjsip_name_addr
  * @param secure    Flag to indicate whether secure transport should be used.
  * @return SIP URL.
  */
-PJ_DECL(pjsip_sip_uri*) pjsip_sip_uri_create( pj_pool_t *pool, 
+(pjsip_sip_uri*) pjsip_sip_uri_create( pj_pool_t *pool, 
 					      pj_bool_t secure );
 
 /**
@@ -384,7 +384,7 @@ PJ_DECL(pjsip_sip_uri*) pjsip_sip_uri_create( pj_pool_t *pool,
  * @param uri	    The URI
  * @param secure    Non-zero if sips is wanted.
  */
-PJ_DECL(void) pjsip_sip_uri_set_secure( pjsip_sip_uri *uri, 
+(void) pjsip_sip_uri_set_secure( pjsip_sip_uri *uri, 
 				        pj_bool_t secure );
 
 /**
@@ -392,7 +392,7 @@ PJ_DECL(void) pjsip_sip_uri_set_secure( pjsip_sip_uri *uri,
  * @param url	    The URL.
  * @param secure    Create sips URI?
  */
-PJ_DECL(void)  pjsip_sip_uri_init(pjsip_sip_uri *url, pj_bool_t secure);
+(void)  pjsip_sip_uri_init(pjsip_sip_uri *url, pj_bool_t secure);
 
 /**
  * Perform full assignment to the SIP URL.
@@ -400,7 +400,7 @@ PJ_DECL(void)  pjsip_sip_uri_init(pjsip_sip_uri *url, pj_bool_t secure);
  * @param url	    Destination URL.
  * @param rhs	    The source URL.
  */
-PJ_DECL(void)  pjsip_sip_uri_assign(pj_pool_t *pool, pjsip_sip_uri *url, 
+(void)  pjsip_sip_uri_assign(pj_pool_t *pool, pjsip_sip_uri *url, 
 				    const pjsip_sip_uri *rhs);
 
 /**
@@ -409,13 +409,13 @@ PJ_DECL(void)  pjsip_sip_uri_assign(pj_pool_t *pool, pjsip_sip_uri *url,
  * @param pool	    The pool.
  * @return	    New SIP name address.
  */
-PJ_DECL(pjsip_name_addr*) pjsip_name_addr_create(pj_pool_t *pool);
+(pjsip_name_addr*) pjsip_name_addr_create(pj_pool_t *pool);
 
 /**
  * Initialize with default value.
  * @param name_addr The name address.
  */
-PJ_DECL(void) pjsip_name_addr_init(pjsip_name_addr *name_addr);
+(void) pjsip_name_addr_init(pjsip_name_addr *name_addr);
 
 /**
  * Perform full assignment to the name address.
@@ -423,7 +423,7 @@ PJ_DECL(void) pjsip_name_addr_init(pjsip_name_addr *name_addr);
  * @param addr	    The destination name address.
  * @param rhs	    The source name address.
  */
-PJ_DECL(void)  pjsip_name_addr_assign(pj_pool_t *pool, 
+(void)  pjsip_name_addr_assign(pj_pool_t *pool, 
 				      pjsip_name_addr *addr, 
 				      const pjsip_name_addr *rhs);
 
@@ -456,7 +456,7 @@ typedef struct pjsip_other_uri
  *
  * @return	    The URI instance.
  */
-PJ_DECL(pjsip_other_uri*) pjsip_other_uri_create(pj_pool_t *pool);
+(pjsip_other_uri*) pjsip_other_uri_create(pj_pool_t *pool);
 
 
 /**

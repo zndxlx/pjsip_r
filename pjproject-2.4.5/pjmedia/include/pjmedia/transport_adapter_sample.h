@@ -57,7 +57,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_tp_adapter_create( pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_tp_adapter_create( pjmedia_endpt *endpt,
 					        const char *name,
 					        pjmedia_transport *base_tp,
 					        pj_bool_t del_base,

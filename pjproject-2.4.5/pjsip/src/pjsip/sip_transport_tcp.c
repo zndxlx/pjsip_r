@@ -76,7 +76,7 @@ struct tcp_listener
  */
 struct delayed_tdata
 {
-    PJ_DECL_LIST_MEMBER(struct delayed_tdata);
+    _LIST_MEMBER(struct delayed_tdata);
     pjsip_tx_data_op_key    *tdata_op_key;
     pj_time_val              timeout;
 };

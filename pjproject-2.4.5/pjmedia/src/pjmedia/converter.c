@@ -30,12 +30,12 @@ struct pjmedia_converter_mgr
 static pjmedia_converter_mgr *converter_manager_instance;
 
 #if PJMEDIA_HAS_LIBSWSCALE && PJMEDIA_HAS_LIBAVUTIL
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_libswscale_converter_init(pjmedia_converter_mgr *mgr);
 #endif
 
 #if defined(PJMEDIA_HAS_LIBYUV) && PJMEDIA_HAS_LIBYUV != 0
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_libyuv_converter_init(pjmedia_converter_mgr *mgr);
 #endif
 

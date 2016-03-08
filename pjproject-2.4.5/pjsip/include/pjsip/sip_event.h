@@ -81,7 +81,7 @@ typedef enum pjsip_event_id_e
 struct pjsip_event
 {
     /** This is necessary so that we can put events as a list. */
-    PJ_DECL_LIST_MEMBER(struct pjsip_event);
+    _LIST_MEMBER(struct pjsip_event);
 
     /** The event type, can be any value of \b pjsip_event_id_e.
      */
@@ -220,7 +220,7 @@ struct pjsip_event
  * @param e the event ID.
  * @note defined in sip_util.c
  */
-PJ_DECL(const char *) pjsip_event_str(pjsip_event_id_e e);
+(const char *) pjsip_event_str(pjsip_event_id_e e);
 
 /**
  * @}

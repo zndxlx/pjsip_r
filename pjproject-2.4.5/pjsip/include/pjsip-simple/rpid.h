@@ -99,7 +99,7 @@ typedef struct pjrpid_element
  * @param dst	    Destination structure.
  * @param src	    Source structure.
  */
-PJ_DECL(void) pjrpid_element_dup(pj_pool_t *pool, pjrpid_element *dst,
+(void) pjrpid_element_dup(pj_pool_t *pool, pjrpid_element *dst,
 				 const pjrpid_element *src);
 
 
@@ -117,7 +117,7 @@ PJ_DECL(void) pjrpid_element_dup(pj_pool_t *pool, pjrpid_element *dst,
  *
  * @return PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjrpid_add_element(pjpidf_pres *pres,
+(pj_status_t) pjrpid_add_element(pjpidf_pres *pres,
 				        pj_pool_t *pool,
 					unsigned options,
 				        const pjrpid_element *elem);
@@ -132,7 +132,7 @@ PJ_DECL(pj_status_t) pjrpid_add_element(pjpidf_pres *pres,
  * @return PJ_SUCCESS	if the document does contain RPID element
  *			and the information has been parsed successfully.
  */
-PJ_DECL(pj_status_t) pjrpid_get_element(const pjpidf_pres *pres,
+(pj_status_t) pjrpid_get_element(const pjpidf_pres *pres,
 				        pj_pool_t *pool,
 				        pjrpid_element *elem);
 

@@ -1106,7 +1106,7 @@ PJ_DEF(void) pj_leave_critical_section(void)
 ///////////////////////////////////////////////////////////////////////////////
 #if defined(PJ_LINUX) && PJ_LINUX!=0
 PJ_BEGIN_DECL
-PJ_DECL(int) pthread_mutexattr_settype(pthread_mutexattr_t*,int);
+(int) pthread_mutexattr_settype(pthread_mutexattr_t*,int);
 PJ_END_DECL
 #endif
 

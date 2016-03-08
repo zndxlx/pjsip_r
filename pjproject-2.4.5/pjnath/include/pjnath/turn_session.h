@@ -381,7 +381,7 @@ typedef struct pj_turn_session_info
  *
  * @param prm	The TURN allocation parameter to be initialized.
  */
-PJ_DECL(void) pj_turn_alloc_param_default(pj_turn_alloc_param *prm);
+(void) pj_turn_alloc_param_default(pj_turn_alloc_param *prm);
 
 
 /**
@@ -391,7 +391,7 @@ PJ_DECL(void) pj_turn_alloc_param_default(pj_turn_alloc_param *prm);
  * @param dst	Destination parameter.
  * @param src	Source parameter.
  */
-PJ_DECL(void) pj_turn_alloc_param_copy(pj_pool_t *pool, 
+(void) pj_turn_alloc_param_copy(pj_pool_t *pool, 
 				       pj_turn_alloc_param *dst,
 				       const pj_turn_alloc_param *src);
 
@@ -402,7 +402,7 @@ PJ_DECL(void) pj_turn_alloc_param_copy(pj_pool_t *pool,
  *
  * @return	The state name as NULL terminated string.
  */
-PJ_DECL(const char*) pj_turn_state_name(pj_turn_state_t state);
+(const char*) pj_turn_state_name(pj_turn_state_t state);
 
 
 /**
@@ -431,7 +431,7 @@ PJ_DECL(const char*) pj_turn_state_name(pj_turn_state_t state);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_create(const pj_stun_config *cfg,
+(pj_status_t) pj_turn_session_create(const pj_stun_config *cfg,
 					    const char *name,
 					    int af,
 					    pj_turn_tp_type conn_type,
@@ -450,7 +450,7 @@ PJ_DECL(pj_status_t) pj_turn_session_create(const pj_stun_config *cfg,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_shutdown(pj_turn_session *sess);
+(pj_status_t) pj_turn_session_shutdown(pj_turn_session *sess);
 
 
 /**
@@ -470,7 +470,7 @@ PJ_DECL(pj_status_t) pj_turn_session_shutdown(pj_turn_session *sess);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_destroy(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_destroy(pj_turn_session *sess,
 					     pj_status_t last_err);
 
 
@@ -485,7 +485,7 @@ PJ_DECL(pj_status_t) pj_turn_session_destroy(pj_turn_session *sess,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_get_info(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_get_info(pj_turn_session *sess,
 					      pj_turn_session_info *info);
 
 /**
@@ -498,7 +498,7 @@ PJ_DECL(pj_status_t) pj_turn_session_get_info(pj_turn_session *sess,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_set_user_data(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_user_data(pj_turn_session *sess,
 						   void *user_data);
 
 /**
@@ -509,7 +509,7 @@ PJ_DECL(pj_status_t) pj_turn_session_set_user_data(pj_turn_session *sess,
  *
  * @return		The user/application data.
  */
-PJ_DECL(void*) pj_turn_session_get_user_data(pj_turn_session *sess);
+(void*) pj_turn_session_get_user_data(pj_turn_session *sess);
 
 
 /**
@@ -519,7 +519,7 @@ PJ_DECL(void*) pj_turn_session_get_user_data(pj_turn_session *sess);
  *
  * @return	        The group lock.
  */
-PJ_DECL(pj_grp_lock_t *) pj_turn_session_get_grp_lock(pj_turn_session *sess);
+(pj_grp_lock_t *) pj_turn_session_get_grp_lock(pj_turn_session *sess);
 
 
 /**
@@ -528,7 +528,7 @@ PJ_DECL(pj_grp_lock_t *) pj_turn_session_get_grp_lock(pj_turn_session *sess);
  * @param sess		The TURN client session.
  * @param flags		Bitmask combination of #pj_stun_sess_msg_log_flag
  */
-PJ_DECL(void) pj_turn_session_set_log(pj_turn_session *sess,
+(void) pj_turn_session_set_log(pj_turn_session *sess,
 				      unsigned flags);
 
 
@@ -543,7 +543,7 @@ PJ_DECL(void) pj_turn_session_set_log(pj_turn_session *sess,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_turn_session_set_software_name(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_software_name(pj_turn_session *sess,
 						       const pj_str_t *sw);
 
 
@@ -582,7 +582,7 @@ PJ_DECL(pj_status_t) pj_turn_session_set_software_name(pj_turn_session *sess,
  *			result of the resolution process will be notified
  *			to application in \a on_state() callback.
  */
-PJ_DECL(pj_status_t) pj_turn_session_set_server(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_server(pj_turn_session *sess,
 					        const pj_str_t *domain,
 						int default_port,
 						pj_dns_resolver *resolver);
@@ -599,7 +599,7 @@ PJ_DECL(pj_status_t) pj_turn_session_set_server(pj_turn_session *sess,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_set_credential(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_credential(pj_turn_session *sess,
 					      const pj_stun_auth_cred *cred);
 
 
@@ -625,7 +625,7 @@ PJ_DECL(pj_status_t) pj_turn_session_set_credential(pj_turn_session *sess,
  * @return		PJ_SUCCESS if the operation has been successfully
  *			initiated or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_alloc(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_alloc(pj_turn_session *sess,
 					   const pj_turn_alloc_param *param);
 
 
@@ -647,7 +647,7 @@ PJ_DECL(pj_status_t) pj_turn_session_alloc(pj_turn_session *sess,
  *			issued, or the appropriate error code. Note that
  *			the operation itself will complete asynchronously.
  */
-PJ_DECL(pj_status_t) pj_turn_session_set_perm(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_set_perm(pj_turn_session *sess,
 					      unsigned addr_cnt,
 					      const pj_sockaddr addr[],
 					      unsigned options);
@@ -676,7 +676,7 @@ PJ_DECL(pj_status_t) pj_turn_session_set_perm(pj_turn_session *sess,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_sendto(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_sendto(pj_turn_session *sess,
 					    const pj_uint8_t *pkt,
 					    unsigned pkt_len,
 					    const pj_sockaddr_t *peer_addr,
@@ -701,7 +701,7 @@ PJ_DECL(pj_status_t) pj_turn_session_sendto(pj_turn_session *sess,
  * @return		PJ_SUCCESS if the operation has been successfully
  *			initiated, or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_turn_session_bind_channel(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_bind_channel(pj_turn_session *sess,
 						  const pj_sockaddr_t *peer,
 						  unsigned addr_len);
 
@@ -726,7 +726,7 @@ PJ_DECL(pj_status_t) pj_turn_session_bind_channel(pj_turn_session *sess,
  *			non-STUN and non-ChannelData packet, or if the
  *			\a on_rx_data() returns non-PJ_SUCCESS;
  */
-PJ_DECL(pj_status_t) pj_turn_session_on_rx_pkt(pj_turn_session *sess,
+(pj_status_t) pj_turn_session_on_rx_pkt(pj_turn_session *sess,
 					       void *pkt,
 					       pj_size_t pkt_len,
 					       pj_size_t *parsed_len);

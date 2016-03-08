@@ -255,7 +255,7 @@ typedef struct pj_activesock_cfg
  *
  * @param cfg		The configuration to be initialized.
  */
-PJ_DECL(void) pj_activesock_cfg_default(pj_activesock_cfg *cfg);
+(void) pj_activesock_cfg_default(pj_activesock_cfg *cfg);
 
 
 /**
@@ -280,7 +280,7 @@ PJ_DECL(void) pj_activesock_cfg_default(pj_activesock_cfg *cfg);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_create(pj_pool_t *pool,
+(pj_status_t) pj_activesock_create(pj_pool_t *pool,
 					  pj_sock_t sock,
 					  int sock_type,
 					  const pj_activesock_cfg *opt,
@@ -311,7 +311,7 @@ PJ_DECL(pj_status_t) pj_activesock_create(pj_pool_t *pool,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_create_udp(pj_pool_t *pool,
+(pj_status_t) pj_activesock_create_udp(pj_pool_t *pool,
 					      const pj_sockaddr *addr,
 					      const pj_activesock_cfg *opt,
 					      pj_ioqueue_t *ioqueue,
@@ -329,7 +329,7 @@ PJ_DECL(pj_status_t) pj_activesock_create_udp(pj_pool_t *pool,
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_close(pj_activesock_t *asock);
+(pj_status_t) pj_activesock_close(pj_activesock_t *asock);
 
 #if (defined(PJ_IPHONE_OS_HAS_MULTITASKING_SUPPORT) && \
      PJ_IPHONE_OS_HAS_MULTITASKING_SUPPORT!=0) || \
@@ -347,7 +347,7 @@ PJ_DECL(pj_status_t) pj_activesock_close(pj_activesock_t *asock);
  * @param val	    The value of background mode setting.
  *
  */
-PJ_DECL(void) pj_activesock_set_iphone_os_bg(pj_activesock_t *asock,
+(void) pj_activesock_set_iphone_os_bg(pj_activesock_t *asock,
 					     int val);
 
 /**
@@ -363,7 +363,7 @@ PJ_DECL(void) pj_activesock_set_iphone_os_bg(pj_activesock_t *asock,
  * @param val	    The value of global background mode setting.
  *
  */
-PJ_DECL(void) pj_activesock_enable_iphone_os_bg(pj_bool_t val);
+(void) pj_activesock_enable_iphone_os_bg(pj_bool_t val);
 #endif
 
 /**
@@ -378,7 +378,7 @@ PJ_DECL(void) pj_activesock_enable_iphone_os_bg(pj_bool_t val);
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_set_user_data(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_set_user_data(pj_activesock_t *asock,
 						 void *user_data);
 
 /**
@@ -389,7 +389,7 @@ PJ_DECL(pj_status_t) pj_activesock_set_user_data(pj_activesock_t *asock,
  *
  * @return	    The user data.
  */
-PJ_DECL(void*) pj_activesock_get_user_data(pj_activesock_t *asock);
+(void*) pj_activesock_get_user_data(pj_activesock_t *asock);
 
 
 /**
@@ -414,7 +414,7 @@ PJ_DECL(void*) pj_activesock_get_user_data(pj_activesock_t *asock);
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_start_read(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_start_read(pj_activesock_t *asock,
 					      pj_pool_t *pool,
 					      unsigned buff_size,
 					      pj_uint32_t flags);
@@ -433,7 +433,7 @@ PJ_DECL(pj_status_t) pj_activesock_start_read(pj_activesock_t *asock,
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_start_read2(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_start_read2(pj_activesock_t *asock,
 					       pj_pool_t *pool,
 					       unsigned buff_size,
 					       void *readbuf[],
@@ -452,7 +452,7 @@ PJ_DECL(pj_status_t) pj_activesock_start_read2(pj_activesock_t *asock,
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_start_recvfrom(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_start_recvfrom(pj_activesock_t *asock,
 						  pj_pool_t *pool,
 						  unsigned buff_size,
 						  pj_uint32_t flags);
@@ -471,7 +471,7 @@ PJ_DECL(pj_status_t) pj_activesock_start_recvfrom(pj_activesock_t *asock,
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_start_recvfrom2(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_start_recvfrom2(pj_activesock_t *asock,
 						   pj_pool_t *pool,
 						   unsigned buff_size,
 						   void *readbuf[],
@@ -497,7 +497,7 @@ PJ_DECL(pj_status_t) pj_activesock_start_recvfrom2(pj_activesock_t *asock,
  *		    called when data is actually sent. Any other return
  *		    value indicates error condition.
  */
-PJ_DECL(pj_status_t) pj_activesock_send(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_send(pj_activesock_t *asock,
 					pj_ioqueue_op_key_t *send_key,
 					const void *data,
 					pj_ssize_t *size,
@@ -524,7 +524,7 @@ PJ_DECL(pj_status_t) pj_activesock_send(pj_activesock_t *asock,
  *		    called when data is actually sent. Any other return
  *		    value indicates error condition.
  */
-PJ_DECL(pj_status_t) pj_activesock_sendto(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_sendto(pj_activesock_t *asock,
 					  pj_ioqueue_op_key_t *send_key,
 					  const void *data,
 					  pj_ssize_t *size,
@@ -552,7 +552,7 @@ PJ_DECL(pj_status_t) pj_activesock_sendto(pj_activesock_t *asock,
  * @return	    PJ_SUCCESS if the operation has been successful,
  *		    or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_activesock_start_accept(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_start_accept(pj_activesock_t *asock,
 						pj_pool_t *pool);
 
 /**
@@ -572,7 +572,7 @@ PJ_DECL(pj_status_t) pj_activesock_start_accept(pj_activesock_t *asock,
  *		    callback will be called when connection is complete. 
  *		    Any other return value indicates error condition.
  */
-PJ_DECL(pj_status_t) pj_activesock_start_connect(pj_activesock_t *asock,
+(pj_status_t) pj_activesock_start_connect(pj_activesock_t *asock,
 						 pj_pool_t *pool,
 						 const pj_sockaddr_t *remaddr,
 						 int addr_len);

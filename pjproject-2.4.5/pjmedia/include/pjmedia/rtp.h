@@ -256,7 +256,7 @@ typedef struct pjmedia_rtp_status pjmedia_rtp_status;
  *
  * @return		PJ_SUCCESS if successfull.
  */
-PJ_DECL(pj_status_t) pjmedia_rtp_session_init( pjmedia_rtp_session *ses,
+(pj_status_t) pjmedia_rtp_session_init( pjmedia_rtp_session *ses,
 					       int default_pt, 
 					       pj_uint32_t sender_ssrc );
 
@@ -269,7 +269,7 @@ PJ_DECL(pj_status_t) pjmedia_rtp_session_init( pjmedia_rtp_session *ses,
  *
  * @return		PJ_SUCCESS if successfull.
  */
-PJ_DECL(pj_status_t) pjmedia_rtp_session_init2( 
+(pj_status_t) pjmedia_rtp_session_init2( 
 				    pjmedia_rtp_session *ses,
 				    pjmedia_rtp_session_setting settings);
 
@@ -288,7 +288,7 @@ PJ_DECL(pj_status_t) pjmedia_rtp_session_init2(
  *
  * @return		PJ_SUCCESS if successfull.
  */
-PJ_DECL(pj_status_t) pjmedia_rtp_encode_rtp( pjmedia_rtp_session *ses, 
+(pj_status_t) pjmedia_rtp_encode_rtp( pjmedia_rtp_session *ses, 
 					     int pt, int m,
 					     int payload_len, int ts_len,
 					     const void **rtphdr, 
@@ -315,7 +315,7 @@ PJ_DECL(pj_status_t) pjmedia_rtp_encode_rtp( pjmedia_rtp_session *ses,
  *
  * @return		PJ_SUCCESS if successfull.
  */
-PJ_DECL(pj_status_t) pjmedia_rtp_decode_rtp( pjmedia_rtp_session *ses, 
+(pj_status_t) pjmedia_rtp_decode_rtp( pjmedia_rtp_session *ses, 
 					     const void *pkt, int pkt_len,
 					     const pjmedia_rtp_hdr **hdr,
 					     const void **payload,
@@ -332,7 +332,7 @@ PJ_DECL(pj_status_t) pjmedia_rtp_decode_rtp( pjmedia_rtp_session *ses,
  * @param seq_st    Optional structure to receive the status of the RTP packet
  *		    processing.
  */
-PJ_DECL(void) pjmedia_rtp_session_update( pjmedia_rtp_session *ses, 
+(void) pjmedia_rtp_session_update( pjmedia_rtp_session *ses, 
 					  const pjmedia_rtp_hdr *hdr,
 					  pjmedia_rtp_status *seq_st);
 
@@ -351,7 +351,7 @@ PJ_DECL(void) pjmedia_rtp_session_update( pjmedia_rtp_session *ses,
  *
  * @see pjmedia_rtp_session_update()
  */
-PJ_DECL(void) pjmedia_rtp_session_update2(pjmedia_rtp_session *ses, 
+(void) pjmedia_rtp_session_update2(pjmedia_rtp_session *ses, 
 					  const pjmedia_rtp_hdr *hdr,
 					  pjmedia_rtp_status *seq_st,
 					  pj_bool_t check_pt);

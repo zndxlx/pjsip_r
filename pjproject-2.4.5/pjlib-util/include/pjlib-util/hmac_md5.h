@@ -62,7 +62,7 @@ typedef struct pj_hmac_md5_context
  * @param key_len	Length of the authentication key.
  * @param digest	Buffer to be filled with HMAC MD5 digest.
  */
-PJ_DECL(void) pj_hmac_md5(const pj_uint8_t *input, unsigned input_len, 
+(void) pj_hmac_md5(const pj_uint8_t *input, unsigned input_len, 
 			  const pj_uint8_t *key, unsigned key_len, 
 			  pj_uint8_t digest[16]);
 
@@ -74,7 +74,7 @@ PJ_DECL(void) pj_hmac_md5(const pj_uint8_t *input, unsigned input_len,
  * @param key		Pointer to the authentication key.
  * @param key_len	Length of the authentication key.
  */
-PJ_DECL(void) pj_hmac_md5_init(pj_hmac_md5_context *hctx, 
+(void) pj_hmac_md5_init(pj_hmac_md5_context *hctx, 
 			       const pj_uint8_t *key, unsigned key_len);
 
 /**
@@ -84,7 +84,7 @@ PJ_DECL(void) pj_hmac_md5_init(pj_hmac_md5_context *hctx,
  * @param input		Pointer to the input stream.
  * @param input_len	Length of input stream in bytes.
  */
-PJ_DECL(void) pj_hmac_md5_update(pj_hmac_md5_context *hctx,
+(void) pj_hmac_md5_update(pj_hmac_md5_context *hctx,
 				 const pj_uint8_t *input, 
 				 unsigned input_len);
 
@@ -94,7 +94,7 @@ PJ_DECL(void) pj_hmac_md5_update(pj_hmac_md5_context *hctx,
  * @param hctx		HMAC-MD5 context.
  * @param digest	Buffer to be filled with HMAC MD5 digest.
  */
-PJ_DECL(void) pj_hmac_md5_final(pj_hmac_md5_context *hctx,
+(void) pj_hmac_md5_final(pj_hmac_md5_context *hctx,
 				pj_uint8_t digest[16]);
 
 /**

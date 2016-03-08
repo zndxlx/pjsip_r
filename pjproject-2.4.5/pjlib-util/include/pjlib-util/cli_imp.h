@@ -125,7 +125,7 @@ struct pj_cli_front_end
     /**
      * Linked list members
      */
-    PJ_DECL_LIST_MEMBER(struct pj_cli_front_end);
+    _LIST_MEMBER(struct pj_cli_front_end);
 
     /**
      * Front end type.
@@ -173,7 +173,7 @@ struct pj_cli_sess
     /**
      * Linked list members
      */
-    PJ_DECL_LIST_MEMBER(struct pj_cli_sess);
+    _LIST_MEMBER(struct pj_cli_sess);
 
     /**
      * Pointer to the front-end instance which created this session.

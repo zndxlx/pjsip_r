@@ -73,7 +73,7 @@ enum pjmedia_transport_udp_options
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_transport_udp_create(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_create(pjmedia_endpt *endpt,
 						  const char *name,
 						  int port,
 						  unsigned options,
@@ -96,7 +96,7 @@ PJ_DECL(pj_status_t) pjmedia_transport_udp_create(pjmedia_endpt *endpt,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_transport_udp_create2(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_create2(pjmedia_endpt *endpt,
 						   const char *name,
 						   const pj_str_t *addr,
 						   int port,
@@ -121,7 +121,7 @@ PJ_DECL(pj_status_t) pjmedia_transport_udp_create2(pjmedia_endpt *endpt,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_transport_udp_create3(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_create3(pjmedia_endpt *endpt,
 						   int af,
 						   const char *name,
 						   const pj_str_t *addr,
@@ -142,7 +142,7 @@ PJ_DECL(pj_status_t) pjmedia_transport_udp_create3(pjmedia_endpt *endpt,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_transport_udp_attach(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_transport_udp_attach(pjmedia_endpt *endpt,
 						  const char *name,
 						  const pjmedia_sock_info *si,
 						  unsigned options,

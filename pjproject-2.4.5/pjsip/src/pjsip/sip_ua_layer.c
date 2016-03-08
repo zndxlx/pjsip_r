@@ -51,7 +51,7 @@ extern long pjsip_dlg_lock_tls_id;	/* defined in sip_dialog.c */
  */
 struct dlg_set_head
 {
-    PJ_DECL_LIST_MEMBER(pjsip_dialog);
+    _LIST_MEMBER(pjsip_dialog);
 };
 
 /* This struct represents a dialog set.
@@ -60,7 +60,7 @@ struct dlg_set_head
 struct dlg_set
 {
     /* To put this node in free dlg_set nodes in UA. */
-    PJ_DECL_LIST_MEMBER(struct dlg_set);
+    _LIST_MEMBER(struct dlg_set);
 
     /* This is the buffer to store this entry in the hash table. */
     pj_hash_entry_buf ht_entry;

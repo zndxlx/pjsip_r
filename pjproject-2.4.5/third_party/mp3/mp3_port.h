@@ -102,7 +102,7 @@ typedef struct pjmedia_mp3_encoder_option
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_mp3_writer_port_create(pj_pool_t *pool,
 			       const char *filename,
 			       unsigned clock_rate,
@@ -128,7 +128,7 @@ pjmedia_mp3_writer_port_create(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_mp3_writer_port_set_cb( pjmedia_port *port,
 				pj_size_t pos,
 				void *user_data,

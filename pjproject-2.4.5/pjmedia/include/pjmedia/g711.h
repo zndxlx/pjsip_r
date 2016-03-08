@@ -67,7 +67,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_g711_init(pjmedia_endpt *endpt);
+(pj_status_t) pjmedia_codec_g711_init(pjmedia_endpt *endpt);
 
 
 
@@ -76,7 +76,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_g711_init(pjmedia_endpt *endpt);
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_g711_deinit(void);
+(pj_status_t) pjmedia_codec_g711_deinit(void);
 
 
 PJ_END_DECL

@@ -33,7 +33,7 @@ typedef struct esub esub;
 
 struct esub
 {
-    PJ_DECL_LIST_MEMBER(esub);
+    _LIST_MEMBER(esub);
 
     pjmedia_event_cb    *cb;
     void                *user_data;

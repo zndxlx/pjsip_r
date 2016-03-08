@@ -33,7 +33,7 @@
 //
 //  struct my_node
 //  {
-//      PJ_DECL_LIST_MEMBER(struct my_node);
+//      _LIST_MEMBER(struct my_node);
 //      ..
 //  };
 //
@@ -335,7 +335,7 @@ public:
 private:
     struct RootNode
     {
-	PJ_DECL_LIST_MEMBER(List_Node);
+	_LIST_MEMBER(List_Node);
     } root_;
 
     void compiletest()

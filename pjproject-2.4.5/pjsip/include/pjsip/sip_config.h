@@ -251,7 +251,7 @@ typedef struct pjsip_cfg_t
  *
  * @return  Configuration instance.
  */
-PJ_DECL(pjsip_cfg_t*) pjsip_cfg(void);
+(pjsip_cfg_t*) pjsip_cfg(void);
 
 #else	/* PJ_DLL */
 

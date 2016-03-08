@@ -58,7 +58,7 @@ typedef struct pjsip_tel_uri
  *
  * @return	    New instance of tel: URI.
  */
-PJ_DECL(pjsip_tel_uri*) pjsip_tel_uri_create(pj_pool_t *pool);
+(pjsip_tel_uri*) pjsip_tel_uri_create(pj_pool_t *pool);
 
 /**
  * This function compares two numbers for equality, according to rules as
@@ -70,7 +70,7 @@ PJ_DECL(pjsip_tel_uri*) pjsip_tel_uri_create(pj_pool_t *pool);
  * @return	    Zero if equal, -1 if nb1 is less than nb2, or +1 if
  *		    nb1 is greater than nb2.
  */
-PJ_DECL(int) pjsip_tel_nb_cmp(const pj_str_t *nb1, const pj_str_t *nb2);
+(int) pjsip_tel_nb_cmp(const pj_str_t *nb1, const pj_str_t *nb2);
 
 
 PJ_END_DECL

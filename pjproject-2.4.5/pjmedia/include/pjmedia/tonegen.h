@@ -140,7 +140,7 @@ enum
  * @return		    PJ_SUCCESS on success, or the appropriate
  *			    error code.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_tonegen_create(pj_pool_t *pool,
 					    unsigned clock_rate,
 					    unsigned channel_count,
 					    unsigned samples_per_frame,
@@ -169,7 +169,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_create(pj_pool_t *pool,
  * @return		    PJ_SUCCESS on success, or the appropriate
  *			    error code.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_create2(pj_pool_t *pool,
+(pj_status_t) pjmedia_tonegen_create2(pj_pool_t *pool,
 					     const pj_str_t *name,
 					     unsigned clock_rate,
 					     unsigned channel_count,
@@ -186,7 +186,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_create2(pj_pool_t *pool,
  *
  * @return		    Non-zero if busy.
  */
-PJ_DECL(pj_bool_t) pjmedia_tonegen_is_busy(pjmedia_port *tonegen);
+(pj_bool_t) pjmedia_tonegen_is_busy(pjmedia_port *tonegen);
 
 
 /**
@@ -196,7 +196,7 @@ PJ_DECL(pj_bool_t) pjmedia_tonegen_is_busy(pjmedia_port *tonegen);
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_stop(pjmedia_port *tonegen);
+(pj_status_t) pjmedia_tonegen_stop(pjmedia_port *tonegen);
 
 
 /**
@@ -207,7 +207,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_stop(pjmedia_port *tonegen);
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_rewind(pjmedia_port *tonegen);
+(pj_status_t) pjmedia_tonegen_rewind(pjmedia_port *tonegen);
 
 
 /**
@@ -226,7 +226,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_rewind(pjmedia_port *tonegen);
  * @return		    PJ_SUCCESS on success, or PJ_ETOOMANY if
  *			    there are too many digits in the queue.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_play(pjmedia_port *tonegen,
+(pj_status_t) pjmedia_tonegen_play(pjmedia_port *tonegen,
 					  unsigned count,
 					  const pjmedia_tone_desc tones[],
 					  unsigned options);
@@ -251,7 +251,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_play(pjmedia_port *tonegen,
  *			    PJMEDIA_RTP_EINDTMF if invalid digit is
  *			    specified.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_play_digits(pjmedia_port *tonegen,
+(pj_status_t) pjmedia_tonegen_play_digits(pjmedia_port *tonegen,
 						 unsigned count,
 						 const pjmedia_tone_digit digits[],
 						 unsigned options);
@@ -266,7 +266,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_play_digits(pjmedia_port *tonegen,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_get_digit_map(pjmedia_port *tonegen,
+(pj_status_t) pjmedia_tonegen_get_digit_map(pjmedia_port *tonegen,
 						   const pjmedia_tone_digit_map **m);
 
 
@@ -278,7 +278,7 @@ PJ_DECL(pj_status_t) pjmedia_tonegen_get_digit_map(pjmedia_port *tonegen,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_tonegen_set_digit_map(pjmedia_port *tonegen,
+(pj_status_t) pjmedia_tonegen_set_digit_map(pjmedia_port *tonegen,
 						   pjmedia_tone_digit_map *m);
 
 

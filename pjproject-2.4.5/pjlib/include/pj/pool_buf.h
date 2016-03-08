@@ -91,7 +91,7 @@ PJ_BEGIN_DECL
  *
  * @return	    The memory pool instance.
  */
-PJ_DECL(pj_pool_t*) pj_pool_create_on_buf(const char *name,
+(pj_pool_t*) pj_pool_create_on_buf(const char *name,
 					  void *buf,
 					  pj_size_t size);
 

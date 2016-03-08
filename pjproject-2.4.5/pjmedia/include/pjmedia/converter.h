@@ -82,7 +82,7 @@ typedef struct pjmedia_converter_factory
     /**
      * Standard list members.
      */
-    PJ_DECL_LIST_MEMBER(struct pjmedia_converter_factory);
+    _LIST_MEMBER(struct pjmedia_converter_factory);
 
     /**
      * Factory name.
@@ -206,7 +206,7 @@ typedef struct pjmedia_converter_mgr pjmedia_converter_mgr;
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
 						  pjmedia_converter_mgr **mgr);
 
 /**
@@ -214,7 +214,7 @@ PJ_DECL(pj_status_t) pjmedia_converter_mgr_create(pj_pool_t *pool,
  *
  * @return		The instance.
  */
-PJ_DECL(pjmedia_converter_mgr*) pjmedia_converter_mgr_instance(void);
+(pjmedia_converter_mgr*) pjmedia_converter_mgr_instance(void);
 
 /**
  * Manually assign a specific video manager instance as the singleton
@@ -226,7 +226,7 @@ PJ_DECL(pjmedia_converter_mgr*) pjmedia_converter_mgr_instance(void);
  * 			Application may specify NULL to clear the singleton
  * 			singleton instance.
  */
-PJ_DECL(void) pjmedia_converter_mgr_set_instance(pjmedia_converter_mgr *mgr);
+(void) pjmedia_converter_mgr_set_instance(pjmedia_converter_mgr *mgr);
 
 /**
  * Destroy a converter manager. If the manager happens to be the singleton
@@ -235,7 +235,7 @@ PJ_DECL(void) pjmedia_converter_mgr_set_instance(pjmedia_converter_mgr *mgr);
  * @param mgr		The converter manager. Specify NULL to use
  * 			the singleton instance.
  */
-PJ_DECL(void) pjmedia_converter_mgr_destroy(pjmedia_converter_mgr *mgr);
+(void) pjmedia_converter_mgr_destroy(pjmedia_converter_mgr *mgr);
 
 /**
  * Register a converter factory to the converter manager.
@@ -246,7 +246,7 @@ PJ_DECL(void) pjmedia_converter_mgr_destroy(pjmedia_converter_mgr *mgr);
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_converter_mgr_register_factory(pjmedia_converter_mgr *mgr,
 				       pjmedia_converter_factory *f);
 
@@ -263,7 +263,7 @@ pjmedia_converter_mgr_register_factory(pjmedia_converter_mgr *mgr,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_converter_mgr_unregister_factory(pjmedia_converter_mgr *mgr,
 				         pjmedia_converter_factory *f,
 				         pj_bool_t call_destroy);
@@ -281,7 +281,7 @@ pjmedia_converter_mgr_unregister_factory(pjmedia_converter_mgr *mgr,
  * @return		PJ_SUCCESS if a converter has been created successfully
  * 			or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_converter_create(pjmedia_converter_mgr *mgr,
+(pj_status_t) pjmedia_converter_create(pjmedia_converter_mgr *mgr,
 					      pj_pool_t *pool,
 					      pjmedia_conversion_param *param,
 					      pjmedia_converter **p_cv);
@@ -298,7 +298,7 @@ PJ_DECL(pj_status_t) pjmedia_converter_create(pjmedia_converter_mgr *mgr,
  * @return		PJ_SUCCESS if conversion has been performed
  * 			successfully.
  */
-PJ_DECL(pj_status_t) pjmedia_converter_convert(pjmedia_converter *cv,
+(pj_status_t) pjmedia_converter_convert(pjmedia_converter *cv,
 					       pjmedia_frame *src_frame,
 					       pjmedia_frame *dst_frame);
 
@@ -307,7 +307,7 @@ PJ_DECL(pj_status_t) pjmedia_converter_convert(pjmedia_converter *cv,
  *
  * @param cv		The converter instance.
  */
-PJ_DECL(void) pjmedia_converter_destroy(pjmedia_converter *cv);
+(void) pjmedia_converter_destroy(pjmedia_converter *cv);
 
 
 PJ_END_DECL

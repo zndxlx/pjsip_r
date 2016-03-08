@@ -529,7 +529,7 @@ PJ_DEF(void*) pj_stun_sock_get_user_data(pj_stun_sock *stun_sock)
 }
 
 /* Get group lock */
-PJ_DECL(pj_grp_lock_t *) pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock)
+(pj_grp_lock_t *) pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock)
 {
     PJ_ASSERT_RETURN(stun_sock, NULL);
     return stun_sock->grp_lock;

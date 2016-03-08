@@ -75,7 +75,7 @@ enum pjmedia_mem_player_option
  * @return		    PJ_SUCCESS on success, or the appropriate
  *			    error code.
  */
-PJ_DECL(pj_status_t) pjmedia_mem_player_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_mem_player_create(pj_pool_t *pool,
 					       const void *buffer,
 					       pj_size_t size,
 					       unsigned clock_rate,
@@ -101,7 +101,7 @@ PJ_DECL(pj_status_t) pjmedia_mem_player_create(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_mem_player_set_eof_cb( pjmedia_port *port,
 			       void *user_data,
 			       pj_status_t (*cb)(pjmedia_port *port,
@@ -140,7 +140,7 @@ pjmedia_mem_player_set_eof_cb( pjmedia_port *port,
  * @return		    PJ_SUCCESS on success, or the appropriate
  *			    error code.
  */
-PJ_DECL(pj_status_t) pjmedia_mem_capture_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_mem_capture_create(pj_pool_t *pool,
 						void *buffer,
 						pj_size_t size,
 						unsigned clock_rate,
@@ -169,7 +169,7 @@ PJ_DECL(pj_status_t) pjmedia_mem_capture_create(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_mem_capture_set_eof_cb(pjmedia_port *port,
                                void *user_data,
                                pj_status_t (*cb)(pjmedia_port *port,
@@ -181,7 +181,7 @@ pjmedia_mem_capture_set_eof_cb(pjmedia_port *port,
  * @param port		The memory recorder port.
  * @return		The size of buffer data..
  */
-PJ_DECL(pj_size_t)
+(pj_size_t)
 pjmedia_mem_capture_get_size(pjmedia_port *port);
 
 

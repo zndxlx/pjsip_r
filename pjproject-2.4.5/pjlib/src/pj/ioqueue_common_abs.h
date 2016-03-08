@@ -38,13 +38,13 @@
 
 struct generic_operation
 {
-    PJ_DECL_LIST_MEMBER(struct generic_operation);
+    _LIST_MEMBER(struct generic_operation);
     pj_ioqueue_operation_e  op;
 };
 
 struct read_operation
 {
-    PJ_DECL_LIST_MEMBER(struct read_operation);
+    _LIST_MEMBER(struct read_operation);
     pj_ioqueue_operation_e  op;
 
     void		   *buf;
@@ -56,7 +56,7 @@ struct read_operation
 
 struct write_operation
 {
-    PJ_DECL_LIST_MEMBER(struct write_operation);
+    _LIST_MEMBER(struct write_operation);
     pj_ioqueue_operation_e  op;
 
     char		   *buf;
@@ -69,7 +69,7 @@ struct write_operation
 
 struct accept_operation
 {
-    PJ_DECL_LIST_MEMBER(struct accept_operation);
+    _LIST_MEMBER(struct accept_operation);
     pj_ioqueue_operation_e  op;
 
     pj_sock_t              *accept_fd;
@@ -99,7 +99,7 @@ union operation_key
 #endif
 
 #define DECLARE_COMMON_KEY                          \
-    PJ_DECL_LIST_MEMBER(struct pj_ioqueue_key_t);   \
+    _LIST_MEMBER(struct pj_ioqueue_key_t);   \
     pj_ioqueue_t           *ioqueue;                \
     pj_grp_lock_t 	   *grp_lock;		    \
     pj_lock_t              *lock;                   \

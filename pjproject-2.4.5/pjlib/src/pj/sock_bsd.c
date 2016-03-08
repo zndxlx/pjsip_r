@@ -312,7 +312,7 @@ PJ_DEF(pj_status_t) pj_inet_pton(int af, const pj_str_t *src, void *dst)
      * Should also work on Unicode systems.
      */
     {
-	PJ_DECL_UNICODE_TEMP_BUF(wtempaddr,PJ_INET6_ADDRSTRLEN)
+	_UNICODE_TEMP_BUF(wtempaddr,PJ_INET6_ADDRSTRLEN)
 	pj_sockaddr sock_addr;
 	int addr_len = sizeof(sock_addr);
 	int rc;
@@ -386,7 +386,7 @@ PJ_DEF(pj_status_t) pj_inet_ntop(int af, const void *src,
      * Should also work on Unicode systems.
      */
     {
-	PJ_DECL_UNICODE_TEMP_BUF(wtempaddr,PJ_INET6_ADDRSTRLEN)
+	_UNICODE_TEMP_BUF(wtempaddr,PJ_INET6_ADDRSTRLEN)
 	pj_sockaddr sock_addr;
 	DWORD addr_len, addr_str_len;
 	int rc;

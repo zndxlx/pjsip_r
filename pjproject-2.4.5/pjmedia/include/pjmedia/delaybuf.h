@@ -104,7 +104,7 @@ typedef enum pjmedia_delay_buf_flag
  *			    created successfully, otherwise the appropriate
  *			    error will be returned.
  */
-PJ_DECL(pj_status_t) pjmedia_delay_buf_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_delay_buf_create(pj_pool_t *pool,
 					      const char *name,
 					      unsigned clock_rate,
 					      unsigned samples_per_frame,
@@ -127,7 +127,7 @@ PJ_DECL(pj_status_t) pjmedia_delay_buf_create(pj_pool_t *pool,
  *			    case the new frame will overwrite the oldest
  *			    frame in the buffer.
  */
-PJ_DECL(pj_status_t) pjmedia_delay_buf_put(pjmedia_delay_buf *b,
+(pj_status_t) pjmedia_delay_buf_put(pjmedia_delay_buf *b,
 					   pj_int16_t frame[]);
 
 /**
@@ -144,7 +144,7 @@ PJ_DECL(pj_status_t) pjmedia_delay_buf_put(pjmedia_delay_buf *b,
  *			    On non-successful return, the frame will be
  *			    filled with zeroes.
  */
-PJ_DECL(pj_status_t) pjmedia_delay_buf_get(pjmedia_delay_buf *b,
+(pj_status_t) pjmedia_delay_buf_get(pjmedia_delay_buf *b,
 					   pj_int16_t frame[]);
 
 /**
@@ -155,7 +155,7 @@ PJ_DECL(pj_status_t) pjmedia_delay_buf_get(pjmedia_delay_buf *b,
  *
  * @return		    PJ_SUCCESS on success or the appropriate error.
  */
-PJ_DECL(pj_status_t) pjmedia_delay_buf_reset(pjmedia_delay_buf *b);
+(pj_status_t) pjmedia_delay_buf_reset(pjmedia_delay_buf *b);
 
 /**
  * Destroy delay buffer.
@@ -164,7 +164,7 @@ PJ_DECL(pj_status_t) pjmedia_delay_buf_reset(pjmedia_delay_buf *b);
  *
  * @return	    PJ_SUCCESS normally.
  */
-PJ_DECL(pj_status_t) pjmedia_delay_buf_destroy(pjmedia_delay_buf *b);
+(pj_status_t) pjmedia_delay_buf_destroy(pjmedia_delay_buf *b);
 
 
 PJ_END_DECL

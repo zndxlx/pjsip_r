@@ -95,7 +95,7 @@ extern const pj_int16_t pjmedia_alaw2linear_tab[256];
  * @param pcm_val   16-bit linear PCM value.
  * @return	    8-bit A-Law value.
  */
-PJ_DECL(pj_uint8_t) pjmedia_linear2alaw(int pcm_val);
+(pj_uint8_t) pjmedia_linear2alaw(int pcm_val);
 
 /**
  * Convert 8-bit A-Law value to 16-bit linear PCM value.
@@ -103,7 +103,7 @@ PJ_DECL(pj_uint8_t) pjmedia_linear2alaw(int pcm_val);
  * @param chara_val 8-bit A-Law value.
  * @return	    16-bit linear PCM value.
  */
-PJ_DECL(int) pjmedia_alaw2linear(unsigned chara_val);
+(int) pjmedia_alaw2linear(unsigned chara_val);
 
 /**
  * Convert 16-bit linear PCM value to 8-bit U-Law.
@@ -111,7 +111,7 @@ PJ_DECL(int) pjmedia_alaw2linear(unsigned chara_val);
  * @param pcm_val   16-bit linear PCM value.
  * @return	    U-bit A-Law value.
  */
-PJ_DECL(unsigned char) pjmedia_linear2ulaw(int pcm_val);
+(unsigned char) pjmedia_linear2ulaw(int pcm_val);
 
 /**
  * Convert 8-bit U-Law value to 16-bit linear PCM value.
@@ -119,7 +119,7 @@ PJ_DECL(unsigned char) pjmedia_linear2ulaw(int pcm_val);
  * @param u_val	    8-bit U-Law value.
  * @return	    16-bit linear PCM value.
  */
-PJ_DECL(int) pjmedia_ulaw2linear(unsigned char u_val);
+(int) pjmedia_ulaw2linear(unsigned char u_val);
 
 /**
  * Convert 8-bit A-Law value to 8-bit U-Law value.
@@ -127,7 +127,7 @@ PJ_DECL(int) pjmedia_ulaw2linear(unsigned char u_val);
  * @param aval	    8-bit A-Law value.
  * @return	    8-bit U-Law value.
  */
-PJ_DECL(unsigned char) pjmedia_alaw2ulaw(unsigned char aval);
+(unsigned char) pjmedia_alaw2ulaw(unsigned char aval);
 
 /**
  * Convert 8-bit U-Law value to 8-bit A-Law value.
@@ -135,7 +135,7 @@ PJ_DECL(unsigned char) pjmedia_alaw2ulaw(unsigned char aval);
  * @param uval	    8-bit U-Law value.
  * @return	    8-bit A-Law value.
  */
-PJ_DECL(unsigned char) pjmedia_ulaw2alaw(unsigned char uval);
+(unsigned char) pjmedia_ulaw2alaw(unsigned char uval);
 
 #endif
 

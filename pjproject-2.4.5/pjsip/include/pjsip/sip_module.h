@@ -54,7 +54,7 @@ PJ_BEGIN_DECL
 struct pjsip_module
 {
     /** To allow chaining of modules in the endpoint. */
-    PJ_DECL_LIST_MEMBER(struct pjsip_module);
+    _LIST_MEMBER(struct pjsip_module);
 
     /**
      * Module name to identify the module.

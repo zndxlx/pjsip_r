@@ -128,13 +128,13 @@ PJ_BEGIN_DECL
  * PRACK method constant. 
  * @see pjsip_get_prack_method() 
   */
-PJ_DECL_DATA(const pjsip_method) pjsip_prack_method;
+_DATA(const pjsip_method) pjsip_prack_method;
 
 
 /** 
  * Get #pjsip_invite_method constant. 
  */
-PJ_DECL(const pjsip_method*) pjsip_get_prack_method(void);
+(const pjsip_method*) pjsip_get_prack_method(void);
 
 
 /**
@@ -145,7 +145,7 @@ PJ_DECL(const pjsip_method*) pjsip_get_prack_method(void);
  *
  * @return		PJ_SUCCESS if module is successfully initialized.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_init_module(pjsip_endpoint *endpt);
+(pj_status_t) pjsip_100rel_init_module(pjsip_endpoint *endpt);
 
 
 /**
@@ -157,7 +157,7 @@ PJ_DECL(pj_status_t) pjsip_100rel_init_module(pjsip_endpoint *endpt);
  *
  * @return		PJ_SUCCESS on successful.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_attach(pjsip_inv_session *inv);
+(pj_status_t) pjsip_100rel_attach(pjsip_inv_session *inv);
 
 
 /**
@@ -167,7 +167,7 @@ PJ_DECL(pj_status_t) pjsip_100rel_attach(pjsip_inv_session *inv);
  *
  * @return		PJ_TRUE if the provisional response is reliable.
  */
-PJ_DECL(pj_bool_t) pjsip_100rel_is_reliable(pjsip_rx_data *rdata);
+(pj_bool_t) pjsip_100rel_is_reliable(pjsip_rx_data *rdata);
 
 
 /**
@@ -181,7 +181,7 @@ PJ_DECL(pj_bool_t) pjsip_100rel_is_reliable(pjsip_rx_data *rdata);
  *
  * @return		PJ_SUCCESS on successful.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_create_prack(pjsip_inv_session *inv,
+(pj_status_t) pjsip_100rel_create_prack(pjsip_inv_session *inv,
 					       pjsip_rx_data *rdata,
 					       pjsip_tx_data **p_tdata);
 
@@ -193,7 +193,7 @@ PJ_DECL(pj_status_t) pjsip_100rel_create_prack(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS on successful.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_send_prack(pjsip_inv_session *inv,
+(pj_status_t) pjsip_100rel_send_prack(pjsip_inv_session *inv,
 					     pjsip_tx_data *tdata);
 
 
@@ -205,7 +205,7 @@ PJ_DECL(pj_status_t) pjsip_100rel_send_prack(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS on successful.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_on_rx_prack(pjsip_inv_session *inv,
+(pj_status_t) pjsip_100rel_on_rx_prack(pjsip_inv_session *inv,
 					      pjsip_rx_data *rdata);
 
 
@@ -221,7 +221,7 @@ PJ_DECL(pj_status_t) pjsip_100rel_on_rx_prack(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS on successful.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_tx_response(pjsip_inv_session *inv,
+(pj_status_t) pjsip_100rel_tx_response(pjsip_inv_session *inv,
 					      pjsip_tx_data *tdata);
 
 
@@ -232,7 +232,7 @@ PJ_DECL(pj_status_t) pjsip_100rel_tx_response(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS on successful.
  */
-PJ_DECL(pj_status_t) pjsip_100rel_end_session(pjsip_inv_session *inv);
+(pj_status_t) pjsip_100rel_end_session(pjsip_inv_session *inv);
 
 
 PJ_END_DECL

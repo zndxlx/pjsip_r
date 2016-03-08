@@ -206,7 +206,7 @@ PJ_DEF(pj_status_t) pj_lock_destroy( pj_lock_t *lock )
 /* Individual lock in the group lock */
 typedef struct grp_lock_item
 {
-    PJ_DECL_LIST_MEMBER(struct grp_lock_item);
+    _LIST_MEMBER(struct grp_lock_item);
     int		 prio;
     pj_lock_t	*lock;
 
@@ -215,7 +215,7 @@ typedef struct grp_lock_item
 /* Destroy callbacks */
 typedef struct grp_destroy_callback
 {
-    PJ_DECL_LIST_MEMBER(struct grp_destroy_callback);
+    _LIST_MEMBER(struct grp_destroy_callback);
     void	*comp;
     void	(*handler)(void*);
 } grp_destroy_callback;
@@ -224,7 +224,7 @@ typedef struct grp_destroy_callback
 /* Store each add_ref caller */
 typedef struct grp_lock_ref
 {
-    PJ_DECL_LIST_MEMBER(struct grp_lock_ref);
+    _LIST_MEMBER(struct grp_lock_ref);
     const char	*file;
     int		 line;
 } grp_lock_ref;

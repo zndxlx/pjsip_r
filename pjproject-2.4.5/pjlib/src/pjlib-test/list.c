@@ -50,7 +50,7 @@
 
 typedef struct list_node
 {
-    PJ_DECL_LIST_MEMBER(struct list_node);
+    _LIST_MEMBER(struct list_node);
     int value;
 } list_node;
 

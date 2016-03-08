@@ -314,7 +314,7 @@ typedef enum pj_ioqueue_operation_e
  *
  * @return		Implementation name.
  */
-PJ_DECL(const char*) pj_ioqueue_name(void);
+(const char*) pj_ioqueue_name(void);
 
 
 /**
@@ -327,7 +327,7 @@ PJ_DECL(const char*) pj_ioqueue_name(void);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_create( pj_pool_t *pool, 
+(pj_status_t) pj_ioqueue_create( pj_pool_t *pool, 
 					pj_size_t max_fd,
 					pj_ioqueue_t **ioqueue);
 
@@ -338,7 +338,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_create( pj_pool_t *pool,
  *
  * @return              PJ_SUCCESS if success.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_destroy( pj_ioqueue_t *ioque );
+(pj_status_t) pj_ioqueue_destroy( pj_ioqueue_t *ioque );
 
 /**
  * Set the lock object to be used by the I/O Queue. This function can only
@@ -355,7 +355,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_destroy( pj_ioqueue_t *ioque );
  *
  * @return              PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_set_lock( pj_ioqueue_t *ioque, 
+(pj_status_t) pj_ioqueue_set_lock( pj_ioqueue_t *ioque, 
 					  pj_lock_t *lock,
 					  pj_bool_t auto_delete );
 
@@ -374,7 +374,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_set_lock( pj_ioqueue_t *ioque,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_set_default_concurrency(pj_ioqueue_t *ioqueue,
+(pj_status_t) pj_ioqueue_set_default_concurrency(pj_ioqueue_t *ioqueue,
 							pj_bool_t allow);
 
 /**
@@ -397,7 +397,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_set_default_concurrency(pj_ioqueue_t *ioqueue,
  *
  * @return	    PJ_SUCCESS on success, or the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_register_sock( pj_pool_t *pool,
+(pj_status_t) pj_ioqueue_register_sock( pj_pool_t *pool,
 					       pj_ioqueue_t *ioque,
 					       pj_sock_t sock,
 					       void *user_data,
@@ -409,7 +409,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_register_sock( pj_pool_t *pool,
  * If group lock is set for the key, the key will add the reference counter
  * when the socket is registered and decrease it when it is destroyed.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_register_sock2(pj_pool_t *pool,
+(pj_status_t) pj_ioqueue_register_sock2(pj_pool_t *pool,
 					       pj_ioqueue_t *ioque,
 					       pj_sock_t sock,
 					       pj_grp_lock_t *grp_lock,
@@ -438,7 +438,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_register_sock2(pj_pool_t *pool,
  *
  * @see pj_ioqueue_is_pending
  */
-PJ_DECL(pj_status_t) pj_ioqueue_unregister( pj_ioqueue_key_t *key );
+(pj_status_t) pj_ioqueue_unregister( pj_ioqueue_key_t *key );
 
 
 /**
@@ -450,7 +450,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_unregister( pj_ioqueue_key_t *key );
  *                  on error or if no data is associated with the key during
  *                  registration.
  */
-PJ_DECL(void*) pj_ioqueue_get_user_data( pj_ioqueue_key_t *key );
+(void*) pj_ioqueue_get_user_data( pj_ioqueue_key_t *key );
 
 /**
  * Set or change the user data to be associated with the file descriptor or
@@ -462,7 +462,7 @@ PJ_DECL(void*) pj_ioqueue_get_user_data( pj_ioqueue_key_t *key );
  *
  * @return          PJ_SUCCESS on success or the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
                                                void *user_data,
                                                void **old_data);
 
@@ -488,7 +488,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_set_user_data( pj_ioqueue_key_t *key,
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
 						pj_bool_t allow);
 
 /**
@@ -501,7 +501,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_set_concurrency(pj_ioqueue_key_t *key,
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_lock_key(pj_ioqueue_key_t *key);
+(pj_status_t) pj_ioqueue_lock_key(pj_ioqueue_key_t *key);
 
 /**
  * Release the lock previously acquired with pj_ioqueue_lock_key().
@@ -510,7 +510,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_lock_key(pj_ioqueue_key_t *key);
  *
  * @return	    PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_unlock_key(pj_ioqueue_key_t *key);
+(pj_status_t) pj_ioqueue_unlock_key(pj_ioqueue_key_t *key);
 
 /**
  * Initialize operation key.
@@ -518,7 +518,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_unlock_key(pj_ioqueue_key_t *key);
  * @param op_key    The operation key to be initialied.
  * @param size	    The size of the operation key.
  */
-PJ_DECL(void) pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
+(void) pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
 				      pj_size_t size );
 
 /**
@@ -533,7 +533,7 @@ PJ_DECL(void) pj_ioqueue_op_key_init( pj_ioqueue_op_key_t *op_key,
  *
  * @return          Non-zero if operation is still pending.
  */
-PJ_DECL(pj_bool_t) pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
+(pj_bool_t) pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
                                           pj_ioqueue_op_key_t *op_key );
 
 
@@ -551,7 +551,7 @@ PJ_DECL(pj_bool_t) pj_ioqueue_is_pending( pj_ioqueue_key_t *key,
  * @return              PJ_SUCCESS if completion status has been successfully
  *                      sent.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
                                                  pj_ioqueue_op_key_t *op_key,
                                                  pj_ssize_t bytes_status );
 
@@ -590,7 +590,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_post_completion( pj_ioqueue_key_t *key,
  *                  connection arrives, the callback will be called.
  *  - non-zero      which indicates the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_accept( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_accept( pj_ioqueue_key_t *key,
                                         pj_ioqueue_op_key_t *op_key,
 					pj_sock_t *new_sock,
 					pj_sockaddr_t *local,
@@ -614,7 +614,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_accept( pj_ioqueue_key_t *key,
  *  - PJ_EPENDING   If operation is queued, or 
  *  - non-zero      Indicates the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_connect( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_connect( pj_ioqueue_key_t *key,
 					 const pj_sockaddr_t *addr,
 					 int addrlen );
 
@@ -635,7 +635,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_connect( pj_ioqueue_key_t *key,
  *  - (<0) if error occured during polling. Callback will NOT be called.
  *  - (>1) to indicate numbers of events. Callbacks have been called.
  */
-PJ_DECL(int) pj_ioqueue_poll( pj_ioqueue_t *ioque,
+(int) pj_ioqueue_poll( pj_ioqueue_t *ioque,
 			      const pj_time_val *timeout);
 
 
@@ -674,7 +674,7 @@ PJ_DECL(int) pj_ioqueue_poll( pj_ioqueue_t *ioque,
  *                  called when data has been received.
  *  - non-zero      The return value indicates the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_recv( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_recv( pj_ioqueue_key_t *key,
                                       pj_ioqueue_op_key_t *op_key,
 				      void *buffer,
 				      pj_ssize_t *length,
@@ -717,7 +717,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_recv( pj_ioqueue_key_t *key,
  *  - PJ_EPENDING   If the operation has been queued.
  *  - non-zero      The return value indicates the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
                                           pj_ioqueue_op_key_t *op_key,
 					  void *buffer,
 					  pj_ssize_t *length,
@@ -759,7 +759,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_recvfrom( pj_ioqueue_key_t *key,
  *                  transferred, the callback will be called.
  *  - non-zero      The return value indicates the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_send( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_send( pj_ioqueue_key_t *key,
                                       pj_ioqueue_op_key_t *op_key,
 				      const void *data,
 				      pj_ssize_t *length,
@@ -799,7 +799,7 @@ PJ_DECL(pj_status_t) pj_ioqueue_send( pj_ioqueue_key_t *key,
  *  - PJ_EPENDING   If the operation has been queued.
  *  - non-zero      The return value indicates the error code.
  */
-PJ_DECL(pj_status_t) pj_ioqueue_sendto( pj_ioqueue_key_t *key,
+(pj_status_t) pj_ioqueue_sendto( pj_ioqueue_key_t *key,
                                         pj_ioqueue_op_key_t *op_key,
 					const void *data,
 					pj_ssize_t *length,

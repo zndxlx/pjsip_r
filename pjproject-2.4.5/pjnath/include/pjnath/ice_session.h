@@ -549,7 +549,7 @@ typedef enum pj_ice_sess_role
  */
 typedef struct pj_ice_rx_check
 {
-    PJ_DECL_LIST_MEMBER(struct pj_ice_rx_check); /**< Standard list     */
+    _LIST_MEMBER(struct pj_ice_rx_check); /**< Standard list     */
 
     unsigned		 comp_id;	/**< Component ID.		*/
     unsigned		 transport_id;	/**< Transport ID.		*/
@@ -680,7 +680,7 @@ struct pj_ice_sess
  *
  * @return		The string representation of the candidate type.
  */
-PJ_DECL(const char*) pj_ice_get_cand_type_name(pj_ice_cand_type type);
+(const char*) pj_ice_get_cand_type_name(pj_ice_cand_type type);
 
 
 /**
@@ -691,7 +691,7 @@ PJ_DECL(const char*) pj_ice_get_cand_type_name(pj_ice_cand_type type);
  *
  * @return		The string representation of the role.
  */
-PJ_DECL(const char*) pj_ice_sess_role_name(pj_ice_sess_role role);
+(const char*) pj_ice_sess_role_name(pj_ice_sess_role role);
 
 
 /**
@@ -703,7 +703,7 @@ PJ_DECL(const char*) pj_ice_sess_role_name(pj_ice_sess_role role);
  * @param type		Candidate type.
  * @param base_addr	Base address of the candidate.
  */
-PJ_DECL(void) pj_ice_calc_foundation(pj_pool_t *pool,
+(void) pj_ice_calc_foundation(pj_pool_t *pool,
 				     pj_str_t *foundation,
 				     pj_ice_cand_type type,
 				     const pj_sockaddr *base_addr);
@@ -713,7 +713,7 @@ PJ_DECL(void) pj_ice_calc_foundation(pj_pool_t *pool,
  *
  * @param opt		ICE session options.
  */
-PJ_DECL(void) pj_ice_sess_options_default(pj_ice_sess_options *opt);
+(void) pj_ice_sess_options_default(pj_ice_sess_options *opt);
 
 /**
  * Create ICE session with the specified role and number of components.
@@ -741,7 +741,7 @@ PJ_DECL(void) pj_ice_sess_options_default(pj_ice_sess_options *opt);
  *
  * @return		PJ_SUCCESS if ICE session is created successfully.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_create(pj_stun_config *stun_cfg,
+(pj_status_t) pj_ice_sess_create(pj_stun_config *stun_cfg,
 				        const char *name,
 				        pj_ice_sess_role role,
 				        unsigned comp_cnt,
@@ -760,7 +760,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_create(pj_stun_config *stun_cfg,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_get_options(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_get_options(pj_ice_sess *ice,
 					     pj_ice_sess_options *opt);
 
 /**
@@ -776,7 +776,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_get_options(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_set_options(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_set_options(pj_ice_sess *ice,
 					     const pj_ice_sess_options *opt);
 
 /**
@@ -788,7 +788,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_set_options(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_destroy(pj_ice_sess *ice);
+(pj_status_t) pj_ice_sess_destroy(pj_ice_sess *ice);
 
 
 /**
@@ -802,7 +802,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_destroy(pj_ice_sess *ice);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_change_role(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_change_role(pj_ice_sess *ice,
 					     pj_ice_sess_role new_role);
 
 
@@ -823,7 +823,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_change_role(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_set_prefs(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_set_prefs(pj_ice_sess *ice,
 					   const pj_uint8_t prefs[4]);
 
 
@@ -849,7 +849,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_set_prefs(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS if candidate is successfully added.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_add_cand(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_add_cand(pj_ice_sess *ice,
 					  unsigned comp_id,
 					  unsigned transport_id,
 					  pj_ice_cand_type type,
@@ -875,7 +875,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_add_cand(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS if a candidate has been selected.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_find_default_cand(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_find_default_cand(pj_ice_sess *ice,
 						   unsigned comp_id,
 						   int *p_cand_id);
 
@@ -900,7 +900,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_find_default_cand(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pj_ice_sess_create_check_list(pj_ice_sess *ice,
 			      const pj_str_t *rem_ufrag,
 			      const pj_str_t *rem_passwd,
@@ -916,7 +916,7 @@ pj_ice_sess_create_check_list(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_start_check(pj_ice_sess *ice);
+(pj_status_t) pj_ice_sess_start_check(pj_ice_sess *ice);
 
 
 /**
@@ -936,7 +936,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_start_check(pj_ice_sess *ice);
  *
  * @return		PJ_SUCCESS if data is sent successfully.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_send_data(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_send_data(pj_ice_sess *ice,
 					   unsigned comp_id,
 					   const void *data,
 					   pj_size_t data_len);
@@ -960,7 +960,7 @@ PJ_DECL(pj_status_t) pj_ice_sess_send_data(pj_ice_sess *ice,
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_ice_sess_on_rx_pkt(pj_ice_sess *ice,
+(pj_status_t) pj_ice_sess_on_rx_pkt(pj_ice_sess *ice,
 					   unsigned comp_id,
 					   unsigned transport_id,
 					   void *pkt,

@@ -67,7 +67,7 @@ struct pj_cli_cmd_spec
     /**
      * To make list of child cmds.
      */
-    PJ_DECL_LIST_MEMBER(struct pj_cli_cmd_spec);
+    _LIST_MEMBER(struct pj_cli_cmd_spec);
 
     /**
      * Command ID assigned to this command by the application during command
@@ -952,7 +952,7 @@ PJ_DEF(pj_status_t) pj_cli_sess_parse(pj_cli_sess *sess,
     return status;
 }
 
-PJ_DECL(pj_status_t) pj_cli_sess_exec(pj_cli_sess *sess,
+(pj_status_t) pj_cli_sess_exec(pj_cli_sess *sess,
 				      char *cmdline,
 				      pj_pool_t *pool,
 				      pj_cli_exec_info *info)

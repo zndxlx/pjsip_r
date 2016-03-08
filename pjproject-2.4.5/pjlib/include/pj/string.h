@@ -482,7 +482,7 @@ PJ_INLINE(char*) pj_strchr( const pj_str_t *str, int chr)
  *         that if str is not NULL terminated, the returned pointer
  *         is pointing to non-NULL terminated string.
  */
-PJ_DECL(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr);
+(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr);
 
 /**
  * Performs substring lookup like pj_strstr() but ignores the case of
@@ -495,7 +495,7 @@ PJ_DECL(char*) pj_strstr(const pj_str_t *str, const pj_str_t *substr);
  *         that if str is not NULL terminated, the returned pointer
  *         is pointing to non-NULL terminated string.
  */
-PJ_DECL(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr);
+(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr);
 
 /**
  * Remove (trim) leading whitespaces from the string.
@@ -504,7 +504,7 @@ PJ_DECL(char*) pj_stristr(const pj_str_t *str, const pj_str_t *substr);
  *
  * @return the string.
  */
-PJ_DECL(pj_str_t*) pj_strltrim( pj_str_t *str );
+(pj_str_t*) pj_strltrim( pj_str_t *str );
 
 /**
  * Remove (trim) the trailing whitespaces from the string.
@@ -513,7 +513,7 @@ PJ_DECL(pj_str_t*) pj_strltrim( pj_str_t *str );
  *
  * @return the string.
  */
-PJ_DECL(pj_str_t*) pj_strrtrim( pj_str_t *str );
+(pj_str_t*) pj_strrtrim( pj_str_t *str );
 
 /**
  * Remove (trim) leading and trailing whitespaces from the string.
@@ -533,7 +533,7 @@ PJ_IDECL(pj_str_t*) pj_strtrim( pj_str_t *str );
  *
  * @return the string.
  */
-PJ_DECL(char*) pj_create_random_string(char *str, pj_size_t length);
+(char*) pj_create_random_string(char *str, pj_size_t length);
 
 /**
  * Convert string to signed integer. The conversion will stop as
@@ -544,7 +544,7 @@ PJ_DECL(char*) pj_create_random_string(char *str, pj_size_t length);
  *
  * @return the integer.
  */
-PJ_DECL(long) pj_strtol(const pj_str_t *str);
+(long) pj_strtol(const pj_str_t *str);
 
 /**
  * Convert string to unsigned integer. The conversion will stop as
@@ -555,7 +555,7 @@ PJ_DECL(long) pj_strtol(const pj_str_t *str);
  *
  * @return the unsigned integer.
  */
-PJ_DECL(unsigned long) pj_strtoul(const pj_str_t *str);
+(unsigned long) pj_strtoul(const pj_str_t *str);
 
 /**
  * Convert strings to an unsigned long-integer value.
@@ -571,7 +571,7 @@ PJ_DECL(unsigned long) pj_strtoul(const pj_str_t *str);
  *
  * @return the unsigned integer number.
  */
-PJ_DECL(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
+(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
 				   unsigned base);
 
 /**
@@ -581,7 +581,7 @@ PJ_DECL(unsigned long) pj_strtoul2(const pj_str_t *str, pj_str_t *endptr,
  *
  * @return the value.
  */
-PJ_DECL(float) pj_strtof(const pj_str_t *str);
+(float) pj_strtof(const pj_str_t *str);
 
 /**
  * Utility to convert unsigned integer to string. Note that the
@@ -592,7 +592,7 @@ PJ_DECL(float) pj_strtof(const pj_str_t *str);
  *
  * @return the number of characters written
  */
-PJ_DECL(int) pj_utoa(unsigned long val, char *buf);
+(int) pj_utoa(unsigned long val, char *buf);
 
 /**
  * Convert unsigned integer to string with minimum digits. Note that the
@@ -607,7 +607,7 @@ PJ_DECL(int) pj_utoa(unsigned long val, char *buf);
  *
  * @return the number of characters written.
  */
-PJ_DECL(int) pj_utoa_pad( unsigned long val, char *buf, int min_dig, int pad);
+(int) pj_utoa_pad( unsigned long val, char *buf, int min_dig, int pad);
 
 
 /**

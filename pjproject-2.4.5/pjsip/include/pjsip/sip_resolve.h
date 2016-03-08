@@ -248,7 +248,7 @@ typedef struct pjsip_ext_resolver
  *
  * @return	    PJ_SUCCESS when resolver can be successfully created.
  */
-PJ_DECL(pj_status_t) pjsip_resolver_create(pj_pool_t *pool,
+(pj_status_t) pjsip_resolver_create(pj_pool_t *pool,
 					   pjsip_resolver_t **p_res);
 
 /**
@@ -266,7 +266,7 @@ PJ_DECL(pj_status_t) pjsip_resolver_create(pj_pool_t *pool,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_resolver_set_resolver(pjsip_resolver_t *res,
+(pj_status_t) pjsip_resolver_set_resolver(pjsip_resolver_t *res,
 						 pj_dns_resolver *dns_res);
 
 
@@ -288,7 +288,7 @@ PJ_DECL(pj_status_t) pjsip_resolver_set_resolver(pjsip_resolver_t *res,
  * 
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_resolver_set_ext_resolver(
+(pj_status_t) pjsip_resolver_set_ext_resolver(
 						pjsip_resolver_t *res,
 					        pjsip_ext_resolver *ext_res);
 
@@ -302,7 +302,7 @@ PJ_DECL(pj_status_t) pjsip_resolver_set_ext_resolver(
  *
  * @return	    The DNS resolver instance (may be NULL)
  */
-PJ_DECL(pj_dns_resolver*) pjsip_resolver_get_resolver(pjsip_resolver_t *res);
+(pj_dns_resolver*) pjsip_resolver_get_resolver(pjsip_resolver_t *res);
 
 /**
  * Destroy resolver engine. Note that this will also destroy the internal
@@ -315,7 +315,7 @@ PJ_DECL(pj_dns_resolver*) pjsip_resolver_get_resolver(pjsip_resolver_t *res);
  *
  * @param resolver The resolver.
  */
-PJ_DECL(void) pjsip_resolver_destroy(pjsip_resolver_t *resolver);
+(void) pjsip_resolver_destroy(pjsip_resolver_t *resolver);
 
 /**
  * Asynchronously resolve a SIP target host or domain according to rule 
@@ -331,7 +331,7 @@ PJ_DECL(void) pjsip_resolver_destroy(pjsip_resolver_t *resolver);
  * @param token		A user defined token to be passed back to callback function.
  * @param cb		The callback function.
  */
-PJ_DECL(void) pjsip_resolve( pjsip_resolver_t *resolver,
+(void) pjsip_resolve( pjsip_resolver_t *resolver,
 			     pj_pool_t *pool,
 			     const pjsip_host_info *target,
 			     void *token,

@@ -335,7 +335,7 @@ typedef enum pjmedia_mod_offer_flag
  *
  * @return		String description of the state.
  */
-PJ_DECL(const char*) pjmedia_sdp_neg_state_str(pjmedia_sdp_neg_state state);
+(const char*) pjmedia_sdp_neg_state_str(pjmedia_sdp_neg_state state);
 
 
 /**
@@ -356,7 +356,7 @@ PJ_DECL(const char*) pjmedia_sdp_neg_state_str(pjmedia_sdp_neg_state state);
  * @return		PJ_SUCCESS on success, or the appropriate error
  *			code.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_create_w_local_offer( pj_pool_t *pool,
 				      const pjmedia_sdp_session *local,
 				      pjmedia_sdp_neg **p_neg);
@@ -387,7 +387,7 @@ pjmedia_sdp_neg_create_w_local_offer( pj_pool_t *pool,
  * @return		PJ_SUCCESS on success, or the appropriate error
  *			code.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_create_w_remote_offer(pj_pool_t *pool,
 				      const pjmedia_sdp_session *initial,
 				      const pjmedia_sdp_session *remote,
@@ -412,7 +412,7 @@ pjmedia_sdp_neg_create_w_remote_offer(pj_pool_t *pool,
  *			order as specified in remote offer. If zero, it
  *			will prefer to use the local codec order.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_sdp_neg_set_prefer_remote_codec_order(pjmedia_sdp_neg *neg,
 					      pj_bool_t prefer_remote);
 
@@ -429,7 +429,7 @@ pjmedia_sdp_neg_set_prefer_remote_codec_order(pjmedia_sdp_neg *neg,
  *                      multiple formats. If zero only a single format
  *                      will be returned.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_sdp_neg_set_answer_multiple_codecs(pjmedia_sdp_neg *neg,
                                            pj_bool_t answer_multiple);
 
@@ -441,7 +441,7 @@ pjmedia_sdp_neg_set_answer_multiple_codecs(pjmedia_sdp_neg *neg,
  *
  * @return		The negotiator state.
  */
-PJ_DECL(pjmedia_sdp_neg_state)
+(pjmedia_sdp_neg_state)
 pjmedia_sdp_neg_get_state( pjmedia_sdp_neg *neg );
 
 /**
@@ -455,7 +455,7 @@ pjmedia_sdp_neg_get_state( pjmedia_sdp_neg *neg );
  *
  * @return		PJ_SUCCESS if local active SDP is present.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_get_active_local( pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session **local);
 
@@ -470,7 +470,7 @@ pjmedia_sdp_neg_get_active_local( pjmedia_sdp_neg *neg,
  *
  * @return		PJ_SUCCESS if remote active SDP is present.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_get_active_remote( pjmedia_sdp_neg *neg,
 				   const pjmedia_sdp_session **remote);
 
@@ -486,7 +486,7 @@ pjmedia_sdp_neg_get_active_remote( pjmedia_sdp_neg *neg,
  *			otherwise zero if it was local who supplied
  *			answer.
  */
-PJ_DECL(pj_bool_t)
+(pj_bool_t)
 pjmedia_sdp_neg_was_answer_remote(pjmedia_sdp_neg *neg);
 
 
@@ -504,7 +504,7 @@ pjmedia_sdp_neg_was_answer_remote(pjmedia_sdp_neg *neg);
  * @return		PJ_SUCCESS if the negotiator currently has
  *			remote offer or answer.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_sdp_neg_get_neg_remote( pjmedia_sdp_neg *neg,
 				const pjmedia_sdp_session **remote);
 
@@ -523,7 +523,7 @@ pjmedia_sdp_neg_get_neg_remote( pjmedia_sdp_neg *neg,
  * @return		PJ_SUCCESS if the negotiator currently has
  *			local offer or answer.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_get_neg_local( pjmedia_sdp_neg *neg,
 			       const pjmedia_sdp_session **local);
 
@@ -544,7 +544,7 @@ pjmedia_sdp_neg_get_neg_local( pjmedia_sdp_neg *neg,
  * @return		PJ_SUCCESS on success, or the appropriate
  *			error code.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_modify_local_offer( pj_pool_t *pool,
 				    pjmedia_sdp_neg *neg,
 				    const pjmedia_sdp_session *local);
@@ -566,7 +566,7 @@ pjmedia_sdp_neg_modify_local_offer( pj_pool_t *pool,
  * @return		PJ_SUCCESS on success, or the appropriate
  *			error code.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_modify_local_offer2( pj_pool_t *pool,
 				     pjmedia_sdp_neg *neg,
                                      unsigned flags,
@@ -590,7 +590,7 @@ pjmedia_sdp_neg_modify_local_offer2( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS if local offer can be created.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_send_local_offer( pj_pool_t *pool,
 			          pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session **offer);
@@ -610,7 +610,7 @@ pjmedia_sdp_neg_send_local_offer( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_set_remote_answer( pj_pool_t *pool,
 				   pjmedia_sdp_neg *neg,
 				   const pjmedia_sdp_session *remote);
@@ -632,7 +632,7 @@ pjmedia_sdp_neg_set_remote_answer( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_set_remote_offer( pj_pool_t *pool,
 				  pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session *remote);
@@ -659,7 +659,7 @@ pjmedia_sdp_neg_set_remote_offer( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_sdp_neg_set_local_answer( pj_pool_t *pool,
 				  pjmedia_sdp_neg *neg,
 				  const pjmedia_sdp_session *local);
@@ -675,7 +675,7 @@ pjmedia_sdp_neg_set_local_answer( pj_pool_t *pool,
  * @return		PJ_TRUE if it is local is answering an offer, PJ_FALSE
  *			if remote has answered local offer.
  */
-PJ_DECL(pj_bool_t) pjmedia_sdp_neg_has_local_answer(pjmedia_sdp_neg *neg);
+(pj_bool_t) pjmedia_sdp_neg_has_local_answer(pjmedia_sdp_neg *neg);
 
 
 /**
@@ -689,7 +689,7 @@ PJ_DECL(pj_bool_t) pjmedia_sdp_neg_has_local_answer(pjmedia_sdp_neg *neg);
  *
  * @return		PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_neg_cancel_offer(pjmedia_sdp_neg *neg);
+(pj_status_t) pjmedia_sdp_neg_cancel_offer(pjmedia_sdp_neg *neg);
 
 
 /**
@@ -715,7 +715,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_neg_cancel_offer(pjmedia_sdp_neg *neg);
  *			is actuve common in both offer and answer, or 
  *			failure code when negotiation has failed.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_neg_negotiate( pj_pool_t *pool,
+(pj_status_t) pjmedia_sdp_neg_negotiate( pj_pool_t *pool,
 					        pjmedia_sdp_neg *neg,
 						pj_bool_t allow_asym);
 
@@ -781,7 +781,7 @@ typedef pj_status_t (*pjmedia_sdp_neg_fmt_match_cb)(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_neg_register_fmt_match_cb(
+(pj_status_t) pjmedia_sdp_neg_register_fmt_match_cb(
 					const pj_str_t *fmt_name,
 					pjmedia_sdp_neg_fmt_match_cb cb);
 
@@ -804,7 +804,7 @@ PJ_DECL(pj_status_t) pjmedia_sdp_neg_register_fmt_match_cb(
  *
  * @return		PJ_SUCCESS when the formats in offer and answer match.
  */
-PJ_DECL(pj_status_t) pjmedia_sdp_neg_fmt_match( pj_pool_t *pool,
+(pj_status_t) pjmedia_sdp_neg_fmt_match( pj_pool_t *pool,
 					        pjmedia_sdp_media *offer,
 					        unsigned o_fmt_idx,
 					        pjmedia_sdp_media *answer,

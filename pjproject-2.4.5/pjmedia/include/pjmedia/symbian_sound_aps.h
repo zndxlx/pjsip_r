@@ -39,7 +39,7 @@ PJ_BEGIN_DECL
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_aps_set_route( pjmedia_snd_stream *stream,
+(pj_status_t) pjmedia_snd_aps_set_route( pjmedia_snd_stream *stream,
 						pjmedia_snd_route route);
 
 PJ_END_DECL

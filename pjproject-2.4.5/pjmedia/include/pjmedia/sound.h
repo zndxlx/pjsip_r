@@ -139,7 +139,7 @@ typedef pj_status_t (*pjmedia_snd_rec_cb)(/* in */   void *user_data,
  *
  * @return		Zero on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_init(pj_pool_factory *factory);
+(pj_status_t) pjmedia_snd_init(pj_pool_factory *factory);
 
 
 /**
@@ -147,7 +147,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_init(pj_pool_factory *factory);
  *
  * @return		Number of devices.
  */
-PJ_DECL(int) pjmedia_snd_get_dev_count(void);
+(int) pjmedia_snd_get_dev_count(void);
 
 
 /**
@@ -156,7 +156,7 @@ PJ_DECL(int) pjmedia_snd_get_dev_count(void);
  * @param index		The index of the device, which should be in the range
  *			from zero to #pjmedia_snd_get_dev_count - 1.
  */
-PJ_DECL(const pjmedia_snd_dev_info*) pjmedia_snd_get_dev_info(unsigned index);
+(const pjmedia_snd_dev_info*) pjmedia_snd_get_dev_info(unsigned index);
 
 
 /**
@@ -177,7 +177,7 @@ PJ_DECL(const pjmedia_snd_dev_info*) pjmedia_snd_get_dev_info(unsigned index);
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_set_latency(unsigned input_latency, 
+(pj_status_t) pjmedia_snd_set_latency(unsigned input_latency, 
 					     unsigned output_latency);
 
 
@@ -207,7 +207,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_set_latency(unsigned input_latency,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_open(int rec_id,
+(pj_status_t) pjmedia_snd_open(int rec_id,
 				      int play_id,
 				      unsigned clock_rate,
 				      unsigned channel_count,
@@ -238,7 +238,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_open(int rec_id,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_open_rec( int index,
+(pj_status_t) pjmedia_snd_open_rec( int index,
 					   unsigned clock_rate,
 					   unsigned channel_count,
 					   unsigned samples_per_frame,
@@ -267,7 +267,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_open_rec( int index,
  *
  * @return		    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_open_player( int index,
+(pj_status_t) pjmedia_snd_open_player( int index,
 					 unsigned clock_rate,
 					 unsigned channel_count,
 					 unsigned samples_per_frame,
@@ -286,7 +286,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_open_player( int index,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_stream_get_info(pjmedia_snd_stream *strm,
+(pj_status_t) pjmedia_snd_stream_get_info(pjmedia_snd_stream *strm,
 						 pjmedia_snd_stream_info *pi);
 
 
@@ -297,7 +297,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_stream_get_info(pjmedia_snd_stream *strm,
  *
  * @return		Zero on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_stream_start(pjmedia_snd_stream *stream);
+(pj_status_t) pjmedia_snd_stream_start(pjmedia_snd_stream *stream);
 
 /**
  * Stop the stream.
@@ -306,7 +306,7 @@ PJ_DECL(pj_status_t) pjmedia_snd_stream_start(pjmedia_snd_stream *stream);
  *
  * @return		Zero on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_stream_stop(pjmedia_snd_stream *stream);
+(pj_status_t) pjmedia_snd_stream_stop(pjmedia_snd_stream *stream);
 
 /**
  * Destroy the stream.
@@ -315,14 +315,14 @@ PJ_DECL(pj_status_t) pjmedia_snd_stream_stop(pjmedia_snd_stream *stream);
  *
  * @return		Zero on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_stream_close(pjmedia_snd_stream *stream);
+(pj_status_t) pjmedia_snd_stream_close(pjmedia_snd_stream *stream);
 
 /**
  * Deinitialize sound library.
  *
  * @return		Zero on success.
  */
-PJ_DECL(pj_status_t) pjmedia_snd_deinit(void);
+(pj_status_t) pjmedia_snd_deinit(void);
 
 
 

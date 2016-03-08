@@ -239,7 +239,7 @@ PJ_BEGIN_DECL
  * @return          PJ_SUCCESS on success or PJ_ETOOMANY if the library 
  *                  is running out out ids.
  */
-PJ_DECL(pj_status_t) pj_exception_id_alloc(const char *name,
+(pj_status_t) pj_exception_id_alloc(const char *name,
                                            pj_exception_id_t *id);
 
 /**
@@ -249,7 +249,7 @@ PJ_DECL(pj_status_t) pj_exception_id_alloc(const char *name,
  *
  * @return          PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_exception_id_free(pj_exception_id_t id);
+(pj_status_t) pj_exception_id_free(pj_exception_id_t id);
 
 /**
  * Retrieve name associated with the exception id.
@@ -258,7 +258,7 @@ PJ_DECL(pj_status_t) pj_exception_id_free(pj_exception_id_t id);
  *
  * @return          The name associated with the specified ID.
  */
-PJ_DECL(const char*) pj_exception_id_name(pj_exception_id_t id);
+(const char*) pj_exception_id_name(pj_exception_id_t id);
 
 
 /** @} */
@@ -348,18 +348,18 @@ struct pj_exception_state_t
  * Throw exception.
  * @param id    Exception Id.
  */
-PJ_DECL_NO_RETURN(void) 
+_NO_RETURN(void) 
 pj_throw_exception_(pj_exception_id_t id) PJ_ATTR_NORETURN;
 
 /**
  * Push exception handler.
  */
-PJ_DECL(void) pj_push_exception_handler_(struct pj_exception_state_t *rec);
+(void) pj_push_exception_handler_(struct pj_exception_state_t *rec);
 
 /**
  * Pop exception handler.
  */
-PJ_DECL(void) pj_pop_exception_handler_(struct pj_exception_state_t *rec);
+(void) pj_pop_exception_handler_(struct pj_exception_state_t *rec);
 
 /**
  * Declare that the function will use exception.

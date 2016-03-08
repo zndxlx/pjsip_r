@@ -61,7 +61,7 @@ const pjsip_method pjsip_publish_method =
  */
 typedef struct pending_publish
 {
-    PJ_DECL_LIST_MEMBER(struct pending_publish);
+    _LIST_MEMBER(struct pending_publish);
     pjsip_tx_data		*tdata;
 } pending_publish;
 

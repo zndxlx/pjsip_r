@@ -51,7 +51,7 @@ static HFONT		    hFixedFont;
 
 static void write_log(int level, const char *data, int len)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(wdata,256);
+    _UNICODE_TEMP_BUF(wdata,256);
 
     PJ_UNUSED_ARG(level);
     PJ_UNUSED_ARG(len);

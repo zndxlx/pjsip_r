@@ -495,7 +495,7 @@ pjmedia_vid_dev_switch_param_default(pjmedia_vid_dev_switch_param *p)
  *
  * @return          Capability name.
  */
-PJ_DECL(const char*) pjmedia_vid_dev_cap_name(pjmedia_vid_dev_cap cap,
+(const char*) pjmedia_vid_dev_cap_name(pjmedia_vid_dev_cap cap,
                                               const char **p_desc);
 
 
@@ -511,7 +511,7 @@ PJ_DECL(const char*) pjmedia_vid_dev_cap_name(pjmedia_vid_dev_cap cap,
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_dev_param_set_cap(pjmedia_vid_dev_param *param,
                               pjmedia_vid_dev_cap cap,
                               const void *pval);
@@ -530,7 +530,7 @@ pjmedia_vid_dev_param_set_cap(pjmedia_vid_dev_param *param,
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_dev_param_get_cap(const pjmedia_vid_dev_param *param,
                               pjmedia_vid_dev_cap cap,
                               void *pval);
@@ -546,7 +546,7 @@ pjmedia_vid_dev_param_get_cap(const pjmedia_vid_dev_param *param,
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_subsys_init(pj_pool_factory *pf);
+(pj_status_t) pjmedia_vid_dev_subsys_init(pj_pool_factory *pf);
 
 
 /**
@@ -554,7 +554,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_subsys_init(pj_pool_factory *pf);
  *
  * @return          The pool factory.
  */
-PJ_DECL(pj_pool_factory*) pjmedia_vid_dev_subsys_get_pool_factory(void);
+(pj_pool_factory*) pjmedia_vid_dev_subsys_get_pool_factory(void);
 
 
 /**
@@ -566,7 +566,7 @@ PJ_DECL(pj_pool_factory*) pjmedia_vid_dev_subsys_get_pool_factory(void);
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_subsys_shutdown(void);
+(pj_status_t) pjmedia_vid_dev_subsys_shutdown(void);
 
 
 /**
@@ -585,7 +585,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_subsys_shutdown(void);
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_register_factory(pjmedia_vid_dev_factory_create_func_ptr vdf,
                              pjmedia_vid_dev_factory *factory);
 
@@ -604,7 +604,7 @@ pjmedia_vid_register_factory(pjmedia_vid_dev_factory_create_func_ptr vdf,
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_unregister_factory(pjmedia_vid_dev_factory_create_func_ptr vdf,
                                pjmedia_vid_dev_factory *factory);
 
@@ -620,7 +620,7 @@ pjmedia_vid_unregister_factory(pjmedia_vid_dev_factory_create_func_ptr vdf,
  * @return		PJ_SUCCESS on successful operation or the appropriate
  *			error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_refresh(void);
+(pj_status_t) pjmedia_vid_dev_refresh(void);
 
 
 /**
@@ -628,7 +628,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_refresh(void);
  *
  * @return          The number of video devices installed in the system.
  */
-PJ_DECL(unsigned) pjmedia_vid_dev_count(void);
+(unsigned) pjmedia_vid_dev_count(void);
 
 
 /**
@@ -641,7 +641,7 @@ PJ_DECL(unsigned) pjmedia_vid_dev_count(void);
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_get_info(pjmedia_vid_dev_index id,
+(pj_status_t) pjmedia_vid_dev_get_info(pjmedia_vid_dev_index id,
                                               pjmedia_vid_dev_info *info);
 
 
@@ -654,7 +654,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_get_info(pjmedia_vid_dev_index id,
  *
  * @return          PJ_SUCCESS if the device can be found.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_lookup(const char *drv_name,
+(pj_status_t) pjmedia_vid_dev_lookup(const char *drv_name,
                                             const char *dev_name,
                                             pjmedia_vid_dev_index *id);
 
@@ -670,7 +670,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_lookup(const char *drv_name,
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_vid_dev_default_param(pj_pool_t *pool,
                               pjmedia_vid_dev_index id,
                               pjmedia_vid_dev_param *param);
@@ -701,7 +701,7 @@ pjmedia_vid_dev_default_param(pj_pool_t *pool,
  * @return              PJ_SUCCESS on successful operation or the appropriate
  *                      error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_create(
+(pj_status_t) pjmedia_vid_dev_stream_create(
 					    pjmedia_vid_dev_param *param,
 					    const pjmedia_vid_dev_cb *cb,
 					    void *user_data,
@@ -717,7 +717,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_create(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_get_param(
+(pj_status_t) pjmedia_vid_dev_stream_get_param(
 					    pjmedia_vid_dev_stream *strm,
                                             pjmedia_vid_dev_param *param);
 
@@ -734,7 +734,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_get_param(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_get_cap(
+(pj_status_t) pjmedia_vid_dev_stream_get_cap(
 					    pjmedia_vid_dev_stream *strm,
 					    pjmedia_vid_dev_cap cap,
                                             void *value);
@@ -750,7 +750,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_get_cap(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_set_cap(
+(pj_status_t) pjmedia_vid_dev_stream_set_cap(
 					    pjmedia_vid_dev_stream *strm,
 					    pjmedia_vid_dev_cap cap,
 					    const void *value);
@@ -763,7 +763,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_set_cap(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_start(
+(pj_status_t) pjmedia_vid_dev_stream_start(
 					    pjmedia_vid_dev_stream *strm);
 
 /**
@@ -773,7 +773,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_start(
  *
  * @return	    PJ_TRUE if the video stream has been started.
  */
-PJ_DECL(pj_bool_t) pjmedia_vid_dev_stream_is_running(pjmedia_vid_dev_stream *strm);
+(pj_bool_t) pjmedia_vid_dev_stream_is_running(pjmedia_vid_dev_stream *strm);
 
 
 /**
@@ -787,7 +787,7 @@ PJ_DECL(pj_bool_t) pjmedia_vid_dev_stream_is_running(pjmedia_vid_dev_stream *str
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_get_frame(
+(pj_status_t) pjmedia_vid_dev_stream_get_frame(
 					    pjmedia_vid_dev_stream *strm,
                                             pjmedia_frame *frame);
 
@@ -802,7 +802,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_get_frame(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_put_frame(
+(pj_status_t) pjmedia_vid_dev_stream_put_frame(
 					    pjmedia_vid_dev_stream *strm,
                                             const pjmedia_frame *frame);
 
@@ -814,7 +814,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_put_frame(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_stop(
+(pj_status_t) pjmedia_vid_dev_stream_stop(
 					    pjmedia_vid_dev_stream *strm);
 
 /**
@@ -825,7 +825,7 @@ PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_stop(
  * @return          PJ_SUCCESS on successful operation or the appropriate
  *                  error code.
  */
-PJ_DECL(pj_status_t) pjmedia_vid_dev_stream_destroy(
+(pj_status_t) pjmedia_vid_dev_stream_destroy(
 					    pjmedia_vid_dev_stream *strm);
 
 

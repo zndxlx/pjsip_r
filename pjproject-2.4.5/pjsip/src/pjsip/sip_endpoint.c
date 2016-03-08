@@ -44,7 +44,7 @@
 /* List of SIP endpoint exit callback. */
 typedef struct exit_cb
 {
-    PJ_DECL_LIST_MEMBER		    (struct exit_cb);
+    _LIST_MEMBER		    (struct exit_cb);
     pjsip_endpt_exit_callback	    func;
 } exit_cb;
 

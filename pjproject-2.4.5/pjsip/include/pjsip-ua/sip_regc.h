@@ -124,7 +124,7 @@ typedef struct pjsip_regc_info pjsip_regc_info;
  *
  * @return	    client registration module.
  */
-PJ_DECL(pjsip_module*) pjsip_regc_get_module(void);
+(pjsip_module*) pjsip_regc_get_module(void);
 
 
 /**
@@ -137,7 +137,7 @@ PJ_DECL(pjsip_module*) pjsip_regc_get_module(void);
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_create( pjsip_endpoint *endpt, void *token,
+(pj_status_t) pjsip_regc_create( pjsip_endpoint *endpt, void *token,
 				        pjsip_regc_cb *cb, 
 					pjsip_regc **p_regc);
 
@@ -151,7 +151,7 @@ PJ_DECL(pj_status_t) pjsip_regc_create( pjsip_endpoint *endpt, void *token,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_destroy(pjsip_regc *regc);
+(pj_status_t) pjsip_regc_destroy(pjsip_regc *regc);
 
 /**
  * Get registration info.
@@ -161,7 +161,7 @@ PJ_DECL(pj_status_t) pjsip_regc_destroy(pjsip_regc *regc);
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_get_info( pjsip_regc *regc,
+(pj_status_t) pjsip_regc_get_info( pjsip_regc *regc,
 					  pjsip_regc_info *info );
 
 
@@ -171,7 +171,7 @@ PJ_DECL(pj_status_t) pjsip_regc_get_info( pjsip_regc *regc,
  * @param regc	    The client registration structure.
  * @return pool	    handle.
  */
-PJ_DECL(pj_pool_t*) pjsip_regc_get_pool(pjsip_regc *regc);
+(pj_pool_t*) pjsip_regc_get_pool(pjsip_regc *regc);
 
 /**
  * Initialize client registration structure with various information needed to
@@ -198,7 +198,7 @@ PJ_DECL(pj_pool_t*) pjsip_regc_get_pool(pjsip_regc *regc);
  *		    no default expiration will be applied.
  * @return	    zero on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_init(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_init(pjsip_regc *regc,
 				     const pj_str_t *srv_url,
 				     const pj_str_t *from_url,
 				     const pj_str_t *to_url,
@@ -218,7 +218,7 @@ PJ_DECL(pj_status_t) pjsip_regc_init(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_set_reg_tsx_cb(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_set_reg_tsx_cb(pjsip_regc *regc,
 				               pjsip_regc_tsx_cb *tsx_cb);
 
 /**
@@ -232,7 +232,7 @@ PJ_DECL(pj_status_t) pjsip_regc_set_reg_tsx_cb(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_set_via_sent_by(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_set_via_sent_by(pjsip_regc *regc,
 				                pjsip_host_port *via_addr,
                                                 pjsip_transport *via_tp);
 
@@ -246,7 +246,7 @@ PJ_DECL(pj_status_t) pjsip_regc_set_via_sent_by(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjsip_regc_set_delay_before_refresh( pjsip_regc *regc,
 				     pj_uint32_t delay );
 
@@ -260,7 +260,7 @@ pjsip_regc_set_delay_before_refresh( pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_set_credentials( pjsip_regc *regc,
+(pj_status_t) pjsip_regc_set_credentials( pjsip_regc *regc,
 						 int count,
 						 const pjsip_cred_info cred[] );
 
@@ -272,7 +272,7 @@ PJ_DECL(pj_status_t) pjsip_regc_set_credentials( pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_set_prefs( pjsip_regc *regc,
+(pj_status_t) pjsip_regc_set_prefs( pjsip_regc *regc,
 					   const pjsip_auth_clt_pref *pref);
 
 /**
@@ -283,7 +283,7 @@ PJ_DECL(pj_status_t) pjsip_regc_set_prefs( pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_set_route_set(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_set_route_set(pjsip_regc *regc,
 					      const pjsip_route_hdr*route_set);
 
 
@@ -308,7 +308,7 @@ PJ_DECL(pj_status_t) pjsip_regc_set_route_set(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_regc_set_transport(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_set_transport(pjsip_regc *regc,
 					      const pjsip_tpselector *sel);
 
 /**
@@ -323,7 +323,7 @@ PJ_DECL(pj_status_t) pjsip_regc_set_transport(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_regc_release_transport(pjsip_regc *regc);
+(pj_status_t) pjsip_regc_release_transport(pjsip_regc *regc);
 
 /**
  * Add headers to be added to outgoing REGISTER requests.
@@ -334,7 +334,7 @@ PJ_DECL(pj_status_t) pjsip_regc_release_transport(pjsip_regc *regc);
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_add_headers(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_add_headers(pjsip_regc *regc,
 					    const pjsip_hdr *hdr_list);
 
 
@@ -352,7 +352,7 @@ PJ_DECL(pj_status_t) pjsip_regc_add_headers(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_register(pjsip_regc *regc, pj_bool_t autoreg,
+(pj_status_t) pjsip_regc_register(pjsip_regc *regc, pj_bool_t autoreg,
 					 pjsip_tx_data **p_tdata);
 
 
@@ -365,7 +365,7 @@ PJ_DECL(pj_status_t) pjsip_regc_register(pjsip_regc *regc, pj_bool_t autoreg,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_unregister(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_unregister(pjsip_regc *regc,
 					   pjsip_tx_data **p_tdata);
 
 /**
@@ -380,7 +380,7 @@ PJ_DECL(pj_status_t) pjsip_regc_unregister(pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_unregister_all(pjsip_regc *regc,
+(pj_status_t) pjsip_regc_unregister_all(pjsip_regc *regc,
 					       pjsip_tx_data **p_tdata);
 
 /**
@@ -410,7 +410,7 @@ PJ_DECL(pj_status_t) pjsip_regc_unregister_all(pjsip_regc *regc,
  *		    character set is desired.
  * @return	    PJ_SUCCESS if sucessfull.
  */
-PJ_DECL(pj_status_t) pjsip_regc_update_contact( pjsip_regc *regc,
+(pj_status_t) pjsip_regc_update_contact( pjsip_regc *regc,
 					        int ccnt,
 						const pj_str_t contact[] );
 
@@ -422,7 +422,7 @@ PJ_DECL(pj_status_t) pjsip_regc_update_contact( pjsip_regc *regc,
  * @param expires   The new expires value.
  * @return	    zero on successfull.
  */
-PJ_DECL(pj_status_t) pjsip_regc_update_expires( pjsip_regc *regc,
+(pj_status_t) pjsip_regc_update_expires( pjsip_regc *regc,
 					        pj_uint32_t expires );
 
 /**
@@ -435,7 +435,7 @@ PJ_DECL(pj_status_t) pjsip_regc_update_expires( pjsip_regc *regc,
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_regc_send(pjsip_regc *regc, pjsip_tx_data *tdata);
+(pj_status_t) pjsip_regc_send(pjsip_regc *regc, pjsip_tx_data *tdata);
 
 
 PJ_END_DECL

@@ -128,7 +128,7 @@ typedef struct pj_cli_telnet_cfg
  *
  * @param param		The structure to be initialized.
  */
-PJ_DECL(void) pj_cli_telnet_cfg_default(pj_cli_telnet_cfg *param);
+(void) pj_cli_telnet_cfg_default(pj_cli_telnet_cfg *param);
 
 
 /**
@@ -142,7 +142,7 @@ PJ_DECL(void) pj_cli_telnet_cfg_default(pj_cli_telnet_cfg *param);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_cli_telnet_create(pj_cli_t *cli,
+(pj_status_t) pj_cli_telnet_create(pj_cli_t *cli,
 					  pj_cli_telnet_cfg *param,
 					  pj_cli_front_end **p_fe);
 
@@ -154,7 +154,7 @@ PJ_DECL(pj_status_t) pj_cli_telnet_create(pj_cli_t *cli,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_cli_telnet_get_info(pj_cli_front_end *fe, 
+(pj_status_t) pj_cli_telnet_get_info(pj_cli_front_end *fe, 
 					    pj_cli_telnet_info *info); 
 
 /**

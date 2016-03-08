@@ -447,7 +447,7 @@ typedef struct pjsua_logging_config
  *
  * @param cfg	The logging config to be initialized.
  */
-PJ_DECL(void) pjsua_logging_config_default(pjsua_logging_config *cfg);
+(void) pjsua_logging_config_default(pjsua_logging_config *cfg);
 
 
 /**
@@ -457,7 +457,7 @@ PJ_DECL(void) pjsua_logging_config_default(pjsua_logging_config *cfg);
  * @param dst	    Destination config.
  * @param src	    Source config.
  */
-PJ_DECL(void) pjsua_logging_config_dup(pj_pool_t *pool,
+(void) pjsua_logging_config_dup(pj_pool_t *pool,
 				       pjsua_logging_config *dst,
 				       const pjsua_logging_config *src);
 
@@ -1730,7 +1730,7 @@ typedef enum pjsua_destroy_flag
  *
  * @param cfg	pjsua config to be initialized.
  */
-PJ_DECL(void) pjsua_config_default(pjsua_config *cfg);
+(void) pjsua_config_default(pjsua_config *cfg);
 
 
 /** The implementation has been moved to sip_auth.h */
@@ -1744,7 +1744,7 @@ PJ_DECL(void) pjsua_config_default(pjsua_config *cfg);
  * @param dst	    Destination config.
  * @param src	    Source config.
  */
-PJ_DECL(void) pjsua_config_dup(pj_pool_t *pool,
+(void) pjsua_config_dup(pj_pool_t *pool,
 			       pjsua_config *dst,
 			       const pjsua_config *src);
 
@@ -1809,7 +1809,7 @@ struct pjsua_msg_data
  *
  * @param msg_data  Message data to be initialized.
  */
-PJ_DECL(void) pjsua_msg_data_init(pjsua_msg_data *msg_data);
+(void) pjsua_msg_data_init(pjsua_msg_data *msg_data);
 
 
 /**
@@ -1820,7 +1820,7 @@ PJ_DECL(void) pjsua_msg_data_init(pjsua_msg_data *msg_data);
  *
  * @return          The new message data.
  */
-PJ_DECL(pjsua_msg_data*) pjsua_msg_data_clone(pj_pool_t *pool,
+(pjsua_msg_data*) pjsua_msg_data_clone(pj_pool_t *pool,
                                               const pjsua_msg_data *rhs);
 
 
@@ -1832,7 +1832,7 @@ PJ_DECL(pjsua_msg_data*) pjsua_msg_data_clone(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_create(void);
+(pj_status_t) pjsua_create(void);
 
 
 /** Forward declaration */
@@ -1852,7 +1852,7 @@ typedef struct pjsua_media_config pjsua_media_config;
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_init(const pjsua_config *ua_cfg,
+(pj_status_t) pjsua_init(const pjsua_config *ua_cfg,
 				const pjsua_logging_config *log_cfg,
 				const pjsua_media_config *media_cfg);
 
@@ -1866,7 +1866,7 @@ PJ_DECL(pj_status_t) pjsua_init(const pjsua_config *ua_cfg,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_start(void);
+(pj_status_t) pjsua_start(void);
 
 
 /**
@@ -1884,7 +1884,7 @@ PJ_DECL(pj_status_t) pjsua_start(void);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_destroy(void);
+(pj_status_t) pjsua_destroy(void);
 
 
 /**
@@ -1892,7 +1892,7 @@ PJ_DECL(pj_status_t) pjsua_destroy(void);
  *
  * @return 	pjsua state.
  */
-PJ_DECL(pjsua_state) pjsua_get_state(void);
+(pjsua_state) pjsua_get_state(void);
 
 
 /**
@@ -1902,7 +1902,7 @@ PJ_DECL(pjsua_state) pjsua_get_state(void);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_destroy2(unsigned flags);
+(pj_status_t) pjsua_destroy2(unsigned flags);
 
 
 /**
@@ -1919,14 +1919,14 @@ PJ_DECL(pj_status_t) pjsua_destroy2(unsigned flags);
  *	    poll. Negative value indicates error, and application
  *	    can retrieve the error as (status = -return_value).
  */
-PJ_DECL(int) pjsua_handle_events(unsigned msec_timeout);
+(int) pjsua_handle_events(unsigned msec_timeout);
 
 
 /**
  * Signal all worker threads to quit. This will only wait until internal
  * threads are done.
  */
-PJ_DECL(void) pjsua_stop_worker_threads(void);
+(void) pjsua_stop_worker_threads(void);
 
 
 /**
@@ -1939,7 +1939,7 @@ PJ_DECL(void) pjsua_stop_worker_threads(void);
  *
  * @return		The pool, or NULL when there's no memory.
  */
-PJ_DECL(pj_pool_t*) pjsua_pool_create(const char *name, pj_size_t init_size,
+(pj_pool_t*) pjsua_pool_create(const char *name, pj_size_t init_size,
 				      pj_size_t increment);
 
 
@@ -1951,7 +1951,7 @@ PJ_DECL(pj_pool_t*) pjsua_pool_create(const char *name, pj_size_t init_size,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_reconfigure_logging(const pjsua_logging_config *c);
+(pj_status_t) pjsua_reconfigure_logging(const pjsua_logging_config *c);
 
 
 /**
@@ -1961,7 +1961,7 @@ PJ_DECL(pj_status_t) pjsua_reconfigure_logging(const pjsua_logging_config *c);
  * 
  * @return		SIP endpoint instance.
  */
-PJ_DECL(pjsip_endpoint*) pjsua_get_pjsip_endpt(void);
+(pjsip_endpoint*) pjsua_get_pjsip_endpt(void);
 
 /**
  * Internal function to get media endpoint instance.
@@ -1969,7 +1969,7 @@ PJ_DECL(pjsip_endpoint*) pjsua_get_pjsip_endpt(void);
  *
  * @return		Media endpoint instance.
  */
-PJ_DECL(pjmedia_endpt*) pjsua_get_pjmedia_endpt(void);
+(pjmedia_endpt*) pjsua_get_pjmedia_endpt(void);
 
 /**
  * Internal function to get PJSUA pool factory.
@@ -1977,7 +1977,7 @@ PJ_DECL(pjmedia_endpt*) pjsua_get_pjmedia_endpt(void);
  *
  * @return		Pool factory currently used by PJSUA.
  */
-PJ_DECL(pj_pool_factory*) pjsua_get_pool_factory(void);
+(pj_pool_factory*) pjsua_get_pool_factory(void);
 
 
 
@@ -2036,7 +2036,7 @@ struct pj_stun_resolve_result
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_detect_nat_type(void);
+(pj_status_t) pjsua_detect_nat_type(void);
 
 
 /**
@@ -2056,7 +2056,7 @@ PJ_DECL(pj_status_t) pjsua_detect_nat_type(void);
  *
  * @see pjsua_call_get_rem_nat_type()
  */
-PJ_DECL(pj_status_t) pjsua_get_nat_type(pj_stun_nat_type *type);
+(pj_status_t) pjsua_get_nat_type(pj_stun_nat_type *type);
 
 
 /**
@@ -2084,7 +2084,7 @@ PJ_DECL(pj_status_t) pjsua_get_nat_type(pj_stun_nat_type *type);
  *			application will be notified about the result in
  *			the callback.
  */
-PJ_DECL(pj_status_t) pjsua_resolve_stun_servers(unsigned count,
+(pj_status_t) pjsua_resolve_stun_servers(unsigned count,
 						pj_str_t srv[],
 						pj_bool_t wait,
 						void *token,
@@ -2104,7 +2104,7 @@ PJ_DECL(pj_status_t) pjsua_resolve_stun_servers(unsigned count,
  *			resolution cancelled, or PJ_ENOTFOUND if there is
  *			no matching one, or other error.
  */
-PJ_DECL(pj_status_t) pjsua_cancel_stun_resolution(void *token,
+(pj_status_t) pjsua_cancel_stun_resolution(void *token,
 						  pj_bool_t notify_cb);
 
 
@@ -2118,7 +2118,7 @@ PJ_DECL(pj_status_t) pjsua_cancel_stun_resolution(void *token,
  *
  * @see pjsua_verify_url()
  */
-PJ_DECL(pj_status_t) pjsua_verify_sip_url(const char *url);
+(pj_status_t) pjsua_verify_sip_url(const char *url);
 
 
 /**
@@ -2132,7 +2132,7 @@ PJ_DECL(pj_status_t) pjsua_verify_sip_url(const char *url);
  *
  * @see pjsua_verify_sip_url()
  */
-PJ_DECL(pj_status_t) pjsua_verify_url(const char *url);
+(pj_status_t) pjsua_verify_url(const char *url);
 
 
 /**
@@ -2151,12 +2151,12 @@ PJ_DECL(pj_status_t) pjsua_verify_url(const char *url);
 #define pjsua_schedule_timer(e,d) pjsua_schedule_timer_dbg(e,d,\
                                                            __FILE__,__LINE__)
 
-PJ_DECL(pj_status_t) pjsua_schedule_timer_dbg(pj_timer_entry *entry,
+(pj_status_t) pjsua_schedule_timer_dbg(pj_timer_entry *entry,
                                               const pj_time_val *delay,
                                               const char *src_file,
                                               int src_line);
 #else
-PJ_DECL(pj_status_t) pjsua_schedule_timer(pj_timer_entry *entry,
+(pj_status_t) pjsua_schedule_timer(pj_timer_entry *entry,
 					  const pj_time_val *delay);
 #endif
 
@@ -2175,13 +2175,13 @@ PJ_DECL(pj_status_t) pjsua_schedule_timer(pj_timer_entry *entry,
 #define pjsua_schedule_timer2(cb,u,d) \
 			pjsua_schedule_timer2_dbg(cb,u,d,__FILE__,__LINE__)
 
-PJ_DECL(pj_status_t) pjsua_schedule_timer2_dbg(void (*cb)(void *user_data),
+(pj_status_t) pjsua_schedule_timer2_dbg(void (*cb)(void *user_data),
                                                void *user_data,
                                                unsigned msec_delay,
                                                const char *src_file,
                                                int src_line);
 #else
-PJ_DECL(pj_status_t) pjsua_schedule_timer2(void (*cb)(void *user_data),
+(pj_status_t) pjsua_schedule_timer2(void (*cb)(void *user_data),
                                            void *user_data,
                                            unsigned msec_delay);
 #endif
@@ -2193,7 +2193,7 @@ PJ_DECL(pj_status_t) pjsua_schedule_timer2(void (*cb)(void *user_data),
  *
  * @see pjsip_endpt_cancel_timer()
  */
-PJ_DECL(void) pjsua_cancel_timer(pj_timer_entry *entry);
+(void) pjsua_cancel_timer(pj_timer_entry *entry);
 
 
 /**
@@ -2204,7 +2204,7 @@ PJ_DECL(void) pjsua_cancel_timer(pj_timer_entry *entry);
  * @param title		Message title for the error.
  * @param status	Status code.
  */
-PJ_DECL(void) pjsua_perror(const char *sender, const char *title, 
+(void) pjsua_perror(const char *sender, const char *title, 
 			   pj_status_t status);
 
 
@@ -2215,7 +2215,7 @@ PJ_DECL(void) pjsua_perror(const char *sender, const char *title,
  * @param detail	Will print detailed output (such as list of
  *			SIP transactions) when non-zero.
  */
-PJ_DECL(void) pjsua_dump(pj_bool_t detail);
+(void) pjsua_dump(pj_bool_t detail);
 
 /**
  * @}
@@ -2334,7 +2334,7 @@ typedef struct pjsua_transport_config
  *
  * @param cfg	    The UDP config to be initialized.
  */
-PJ_DECL(void) pjsua_transport_config_default(pjsua_transport_config *cfg);
+(void) pjsua_transport_config_default(pjsua_transport_config *cfg);
 
 
 /**
@@ -2344,7 +2344,7 @@ PJ_DECL(void) pjsua_transport_config_default(pjsua_transport_config *cfg);
  * @param dst		The destination config.
  * @param src		The source config.
  */
-PJ_DECL(void) pjsua_transport_config_dup(pj_pool_t *pool,
+(void) pjsua_transport_config_dup(pj_pool_t *pool,
 					 pjsua_transport_config *dst,
 					 const pjsua_transport_config *src);
 
@@ -2414,7 +2414,7 @@ typedef struct pjsua_transport_info
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_transport_create(pjsip_transport_type_e type,
+(pj_status_t) pjsua_transport_create(pjsip_transport_type_e type,
 					    const pjsua_transport_config *cfg,
 					    pjsua_transport_id *p_id);
 
@@ -2428,7 +2428,7 @@ PJ_DECL(pj_status_t) pjsua_transport_create(pjsip_transport_type_e type,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_transport_register(pjsip_transport *tp,
+(pj_status_t) pjsua_transport_register(pjsip_transport *tp,
 					      pjsua_transport_id *p_id);
 
 
@@ -2444,7 +2444,7 @@ PJ_DECL(pj_status_t) pjsua_transport_register(pjsip_transport *tp,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_transports( pjsua_transport_id id[],
+(pj_status_t) pjsua_enum_transports( pjsua_transport_id id[],
 					    unsigned *count );
 
 
@@ -2456,7 +2456,7 @@ PJ_DECL(pj_status_t) pjsua_enum_transports( pjsua_transport_id id[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_transport_get_info(pjsua_transport_id id,
+(pj_status_t) pjsua_transport_get_info(pjsua_transport_id id,
 					      pjsua_transport_info *info);
 
 
@@ -2471,7 +2471,7 @@ PJ_DECL(pj_status_t) pjsua_transport_get_info(pjsua_transport_id id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_transport_set_enable(pjsua_transport_id id,
+(pj_status_t) pjsua_transport_set_enable(pjsua_transport_id id,
 						pj_bool_t enabled);
 
 
@@ -2489,7 +2489,7 @@ PJ_DECL(pj_status_t) pjsua_transport_set_enable(pjsua_transport_id id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_transport_close( pjsua_transport_id id,
+(pj_status_t) pjsua_transport_close( pjsua_transport_id id,
 					    pj_bool_t force );
 
 /**
@@ -3418,7 +3418,7 @@ typedef struct pjsua_acc_config
  * @param dst	    Destination config.
  * @param src	    Source config.
  */
-PJ_DECL(void) pjsua_ice_config_from_media_config(pj_pool_t *pool,
+(void) pjsua_ice_config_from_media_config(pj_pool_t *pool,
                                               pjsua_ice_config *dst,
                                               const pjsua_media_config *src);
 
@@ -3429,7 +3429,7 @@ PJ_DECL(void) pjsua_ice_config_from_media_config(pj_pool_t *pool,
  * @param dst	    Destination config.
  * @param src	    Source config.
  */
-PJ_DECL(void) pjsua_ice_config_dup( pj_pool_t *pool,
+(void) pjsua_ice_config_dup( pj_pool_t *pool,
                                     pjsua_ice_config *dst,
                                     const pjsua_ice_config *src);
 
@@ -3441,7 +3441,7 @@ PJ_DECL(void) pjsua_ice_config_dup( pj_pool_t *pool,
  * @param dst	    Destination config.
  * @param src	    Source config.
  */
-PJ_DECL(void) pjsua_turn_config_from_media_config(pj_pool_t *pool,
+(void) pjsua_turn_config_from_media_config(pj_pool_t *pool,
                                                pjsua_turn_config *dst,
                                                const pjsua_media_config *src);
 
@@ -3452,7 +3452,7 @@ PJ_DECL(void) pjsua_turn_config_from_media_config(pj_pool_t *pool,
  * @param dst	    Destination config.
  * @param src	    Source config.
  */
-PJ_DECL(void) pjsua_turn_config_dup(pj_pool_t *pool,
+(void) pjsua_turn_config_dup(pj_pool_t *pool,
                                     pjsua_turn_config *dst,
                                     const pjsua_turn_config *src);
 
@@ -3461,7 +3461,7 @@ PJ_DECL(void) pjsua_turn_config_dup(pj_pool_t *pool,
  *
  * @param cfg	    The account config to be initialized.
  */
-PJ_DECL(void) pjsua_acc_config_default(pjsua_acc_config *cfg);
+(void) pjsua_acc_config_default(pjsua_acc_config *cfg);
 
 
 /**
@@ -3471,7 +3471,7 @@ PJ_DECL(void) pjsua_acc_config_default(pjsua_acc_config *cfg);
  * @param dst	    Destination configuration.
  * @param src	    Source configuration.
  */
-PJ_DECL(void) pjsua_acc_config_dup(pj_pool_t *pool,
+(void) pjsua_acc_config_dup(pj_pool_t *pool,
 				   pjsua_acc_config *dst,
 				   const pjsua_acc_config *src);
 
@@ -3557,7 +3557,7 @@ typedef struct pjsua_acc_info
  *
  * @return		Current number of accounts.
  */
-PJ_DECL(unsigned) pjsua_acc_get_count(void);
+(unsigned) pjsua_acc_get_count(void);
 
 
 /**
@@ -3567,7 +3567,7 @@ PJ_DECL(unsigned) pjsua_acc_get_count(void);
  *
  * @return		Non-zero if account ID is valid.
  */
-PJ_DECL(pj_bool_t) pjsua_acc_is_valid(pjsua_acc_id acc_id);
+(pj_bool_t) pjsua_acc_is_valid(pjsua_acc_id acc_id);
 
 
 /**
@@ -3578,7 +3578,7 @@ PJ_DECL(pj_bool_t) pjsua_acc_is_valid(pjsua_acc_id acc_id);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_acc_set_default(pjsua_acc_id acc_id);
+(pj_status_t) pjsua_acc_set_default(pjsua_acc_id acc_id);
 
 
 /**
@@ -3589,7 +3589,7 @@ PJ_DECL(pj_status_t) pjsua_acc_set_default(pjsua_acc_id acc_id);
  * @return		The default account ID, or PJSUA_INVALID_ID if no
  *			default account is configured.
  */
-PJ_DECL(pjsua_acc_id) pjsua_acc_get_default(void);
+(pjsua_acc_id) pjsua_acc_get_default(void);
 
 
 /**
@@ -3612,7 +3612,7 @@ PJ_DECL(pjsua_acc_id) pjsua_acc_get_default(void);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_add(const pjsua_acc_config *acc_cfg,
+(pj_status_t) pjsua_acc_add(const pjsua_acc_config *acc_cfg,
 				   pj_bool_t is_default,
 				   pjsua_acc_id *p_acc_id);
 
@@ -3633,7 +3633,7 @@ PJ_DECL(pj_status_t) pjsua_acc_add(const pjsua_acc_config *acc_cfg,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_add_local(pjsua_transport_id tid,
+(pj_status_t) pjsua_acc_add_local(pjsua_transport_id tid,
 					 pj_bool_t is_default,
 					 pjsua_acc_id *p_acc_id);
 
@@ -3645,7 +3645,7 @@ PJ_DECL(pj_status_t) pjsua_acc_add_local(pjsua_transport_id tid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_set_user_data(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_set_user_data(pjsua_acc_id acc_id,
 					     void *user_data);
 
 
@@ -3657,7 +3657,7 @@ PJ_DECL(pj_status_t) pjsua_acc_set_user_data(pjsua_acc_id acc_id,
  * @return		The user data. In the case where the account ID is
  *			not valid, NULL is returned.
  */
-PJ_DECL(void*) pjsua_acc_get_user_data(pjsua_acc_id acc_id);
+(void*) pjsua_acc_get_user_data(pjsua_acc_id acc_id);
 
 
 /**
@@ -3669,7 +3669,7 @@ PJ_DECL(void*) pjsua_acc_get_user_data(pjsua_acc_id acc_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_del(pjsua_acc_id acc_id);
+(pj_status_t) pjsua_acc_del(pjsua_acc_id acc_id);
 
 
 /**
@@ -3685,7 +3685,7 @@ PJ_DECL(pj_status_t) pjsua_acc_del(pjsua_acc_id acc_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_get_config(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_get_config(pjsua_acc_id acc_id,
                                           pj_pool_t *pool,
                                           pjsua_acc_config *acc_cfg);
 
@@ -3711,7 +3711,7 @@ PJ_DECL(pj_status_t) pjsua_acc_get_config(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_modify(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_modify(pjsua_acc_id acc_id,
 				      const pjsua_acc_config *acc_cfg);
 
 
@@ -3728,7 +3728,7 @@ PJ_DECL(pj_status_t) pjsua_acc_modify(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_set_online_status(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_set_online_status(pjsua_acc_id acc_id,
 						 pj_bool_t is_online);
 
 /**
@@ -3746,7 +3746,7 @@ PJ_DECL(pj_status_t) pjsua_acc_set_online_status(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_set_online_status2(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_set_online_status2(pjsua_acc_id acc_id,
 						  pj_bool_t is_online,
 						  const pjrpid_element *pr);
 
@@ -3763,7 +3763,7 @@ PJ_DECL(pj_status_t) pjsua_acc_set_online_status2(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_set_registration(pjsua_acc_id acc_id, 
+(pj_status_t) pjsua_acc_set_registration(pjsua_acc_id acc_id, 
 						pj_bool_t renew);
 
 /**
@@ -3774,7 +3774,7 @@ PJ_DECL(pj_status_t) pjsua_acc_set_registration(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_get_info(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_get_info(pjsua_acc_id acc_id,
 					pjsua_acc_info *info);
 
 
@@ -3791,7 +3791,7 @@ PJ_DECL(pj_status_t) pjsua_acc_get_info(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_accs(pjsua_acc_id ids[],
+(pj_status_t) pjsua_enum_accs(pjsua_acc_id ids[],
 				     unsigned *count );
 
 
@@ -3804,7 +3804,7 @@ PJ_DECL(pj_status_t) pjsua_enum_accs(pjsua_acc_id ids[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_enum_info( pjsua_acc_info info[],
+(pj_status_t) pjsua_acc_enum_info( pjsua_acc_info info[],
 					  unsigned *count );
 
 
@@ -3816,7 +3816,7 @@ PJ_DECL(pj_status_t) pjsua_acc_enum_info( pjsua_acc_info info[],
  *
  * @return		Account id.
  */
-PJ_DECL(pjsua_acc_id) pjsua_acc_find_for_outgoing(const pj_str_t *url);
+(pjsua_acc_id) pjsua_acc_find_for_outgoing(const pj_str_t *url);
 
 
 /**
@@ -3827,7 +3827,7 @@ PJ_DECL(pjsua_acc_id) pjsua_acc_find_for_outgoing(const pj_str_t *url);
  *
  * @return		Account id.
  */
-PJ_DECL(pjsua_acc_id) pjsua_acc_find_for_incoming(pjsip_rx_data *rdata);
+(pjsua_acc_id) pjsua_acc_find_for_incoming(pjsip_rx_data *rdata);
 
 
 /**
@@ -3843,7 +3843,7 @@ PJ_DECL(pjsua_acc_id) pjsua_acc_find_for_incoming(pjsip_rx_data *rdata);
  *
  * @return		PJ_SUCCESS or the error code.
  */
-PJ_DECL(pj_status_t) pjsua_acc_create_request(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_create_request(pjsua_acc_id acc_id,
 					      const pjsip_method *method,
 					      const pj_str_t *target,
 					      pjsip_tx_data **p_tdata);
@@ -3860,7 +3860,7 @@ PJ_DECL(pj_status_t) pjsua_acc_create_request(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, other on error.
  */
-PJ_DECL(pj_status_t) pjsua_acc_create_uac_contact( pj_pool_t *pool,
+(pj_status_t) pjsua_acc_create_uac_contact( pj_pool_t *pool,
 						   pj_str_t *contact,
 						   pjsua_acc_id acc_id,
 						   const pj_str_t *uri);
@@ -3878,7 +3878,7 @@ PJ_DECL(pj_status_t) pjsua_acc_create_uac_contact( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success, other on error.
  */
-PJ_DECL(pj_status_t) pjsua_acc_create_uas_contact( pj_pool_t *pool,
+(pj_status_t) pjsua_acc_create_uas_contact( pj_pool_t *pool,
 						   pj_str_t *contact,
 						   pjsua_acc_id acc_id,
 						   pjsip_rx_data *rdata );
@@ -3901,7 +3901,7 @@ PJ_DECL(pj_status_t) pjsua_acc_create_uas_contact( pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_acc_set_transport(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_acc_set_transport(pjsua_acc_id acc_id,
 					     pjsua_transport_id tp_id);
 
 
@@ -4334,7 +4334,7 @@ typedef struct pjsua_call_vid_strm_op_param
  *
  * @param opt		The call setting to be initialized.
  */
-PJ_DECL(void) pjsua_call_setting_default(pjsua_call_setting *opt);
+(void) pjsua_call_setting_default(pjsua_call_setting *opt);
 
 
 /**
@@ -4342,7 +4342,7 @@ PJ_DECL(void) pjsua_call_setting_default(pjsua_call_setting *opt);
  *
  * @param param		The video stream operation param to be initialized.
  */
-PJ_DECL(void)
+(void)
 pjsua_call_vid_strm_op_param_default(pjsua_call_vid_strm_op_param *param);
 
 
@@ -4351,14 +4351,14 @@ pjsua_call_vid_strm_op_param_default(pjsua_call_vid_strm_op_param *param);
  *
  * @return		Maximum number of calls configured.
  */
-PJ_DECL(unsigned) pjsua_call_get_max_count(void);
+(unsigned) pjsua_call_get_max_count(void);
 
 /**
  * Get number of currently active calls.
  *
  * @return		Number of currently active calls.
  */
-PJ_DECL(unsigned) pjsua_call_get_count(void);
+(unsigned) pjsua_call_get_count(void);
 
 /**
  * Enumerate all active calls. Application may then query the information and
@@ -4370,7 +4370,7 @@ PJ_DECL(unsigned) pjsua_call_get_count(void);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_calls(pjsua_call_id ids[],
+(pj_status_t) pjsua_enum_calls(pjsua_call_id ids[],
 				      unsigned *count);
 
 
@@ -4390,7 +4390,7 @@ PJ_DECL(pj_status_t) pjsua_enum_calls(pjsua_call_id ids[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_make_call(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_call_make_call(pjsua_acc_id acc_id,
 					  const pj_str_t *dst_uri,
 					  const pjsua_call_setting *opt,
 					  void *user_data,
@@ -4406,7 +4406,7 @@ PJ_DECL(pj_status_t) pjsua_call_make_call(pjsua_acc_id acc_id,
  *
  * @return		Non-zero if call is active.
  */
-PJ_DECL(pj_bool_t) pjsua_call_is_active(pjsua_call_id call_id);
+(pj_bool_t) pjsua_call_is_active(pjsua_call_id call_id);
 
 
 /**
@@ -4416,7 +4416,7 @@ PJ_DECL(pj_bool_t) pjsua_call_is_active(pjsua_call_id call_id);
  *
  * @return		Non-zero if yes.
  */
-PJ_DECL(pj_bool_t) pjsua_call_has_media(pjsua_call_id call_id);
+(pj_bool_t) pjsua_call_has_media(pjsua_call_id call_id);
 
 
 /**
@@ -4427,7 +4427,7 @@ PJ_DECL(pj_bool_t) pjsua_call_has_media(pjsua_call_id call_id);
  * @return		Conference port ID, or PJSUA_INVALID_ID when the
  *			media has not been established or is not active.
  */
-PJ_DECL(pjsua_conf_port_id) pjsua_call_get_conf_port(pjsua_call_id call_id);
+(pjsua_conf_port_id) pjsua_call_get_conf_port(pjsua_call_id call_id);
 
 /**
  * Obtain detail information about the specified call.
@@ -4437,7 +4437,7 @@ PJ_DECL(pjsua_conf_port_id) pjsua_call_get_conf_port(pjsua_call_id call_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_get_info(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_get_info(pjsua_call_id call_id,
 					 pjsua_call_info *info);
 
 /**
@@ -4461,7 +4461,7 @@ PJ_DECL(pj_status_t) pjsua_call_get_info(pjsua_call_id call_id,
  *			is explicitly supported, see @pjsip_dialog_cap_status
  *			for more info.
  */
-PJ_DECL(pjsip_dialog_cap_status) pjsua_call_remote_has_cap(
+(pjsip_dialog_cap_status) pjsua_call_remote_has_cap(
 						    pjsua_call_id call_id,
 						    int htype,
 						    const pj_str_t *hname,
@@ -4476,7 +4476,7 @@ PJ_DECL(pjsip_dialog_cap_status) pjsua_call_remote_has_cap(
  *
  * @return		The user data.
  */
-PJ_DECL(pj_status_t) pjsua_call_set_user_data(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_set_user_data(pjsua_call_id call_id,
 					      void *user_data);
 
 
@@ -4488,7 +4488,7 @@ PJ_DECL(pj_status_t) pjsua_call_set_user_data(pjsua_call_id call_id,
  *
  * @return		The user data.
  */
-PJ_DECL(void*) pjsua_call_get_user_data(pjsua_call_id call_id);
+(void*) pjsua_call_get_user_data(pjsua_call_id call_id);
 
 
 /**
@@ -4512,7 +4512,7 @@ PJ_DECL(void*) pjsua_call_get_user_data(pjsua_call_id call_id);
  *
  * @see pjsua_get_nat_type(), nat_type_in_sdp
  */
-PJ_DECL(pj_status_t) pjsua_call_get_rem_nat_type(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_get_rem_nat_type(pjsua_call_id call_id,
 						 pj_stun_nat_type *p_type);
 
 /**
@@ -4532,7 +4532,7 @@ PJ_DECL(pj_status_t) pjsua_call_get_rem_nat_type(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_answer(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_answer(pjsua_call_id call_id, 
 				       unsigned code,
 				       const pj_str_t *reason,
 				       const pjsua_msg_data *msg_data);
@@ -4563,7 +4563,7 @@ PJ_DECL(pj_status_t) pjsua_call_answer(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_answer2(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_answer2(pjsua_call_id call_id, 
 					const pjsua_call_setting *opt,
 				        unsigned code,
 				        const pj_str_t *reason,
@@ -4589,7 +4589,7 @@ PJ_DECL(pj_status_t) pjsua_call_answer2(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_hangup(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_hangup(pjsua_call_id call_id,
 				       unsigned code,
 				       const pj_str_t *reason,
 				       const pjsua_msg_data *msg_data);
@@ -4618,7 +4618,7 @@ PJ_DECL(pj_status_t) pjsua_call_hangup(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on successful operation.
  */
-PJ_DECL(pj_status_t) pjsua_call_process_redirect(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_process_redirect(pjsua_call_id call_id,
 						 pjsip_redirect_op cmd);
 
 /**
@@ -4634,7 +4634,7 @@ PJ_DECL(pj_status_t) pjsua_call_process_redirect(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_set_hold(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_set_hold(pjsua_call_id call_id,
 					 const pjsua_msg_data *msg_data);
 
 /**
@@ -4652,7 +4652,7 @@ PJ_DECL(pj_status_t) pjsua_call_set_hold(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_set_hold2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_set_hold2(pjsua_call_id call_id,
                                           unsigned options,
 					  const pjsua_msg_data *msg_data);
 
@@ -4671,7 +4671,7 @@ PJ_DECL(pj_status_t) pjsua_call_set_hold2(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_reinvite(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_reinvite(pjsua_call_id call_id,
 					 unsigned options,
 					 const pjsua_msg_data *msg_data);
 
@@ -4694,7 +4694,7 @@ PJ_DECL(pj_status_t) pjsua_call_reinvite(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_reinvite2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_reinvite2(pjsua_call_id call_id,
 					  const pjsua_call_setting *opt,
 					  const pjsua_msg_data *msg_data);
 
@@ -4709,7 +4709,7 @@ PJ_DECL(pj_status_t) pjsua_call_reinvite2(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_update(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_update(pjsua_call_id call_id,
 				       unsigned options,
 				       const pjsua_msg_data *msg_data);
 
@@ -4729,7 +4729,7 @@ PJ_DECL(pj_status_t) pjsua_call_update(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_update2(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_update2(pjsua_call_id call_id,
 				        const pjsua_call_setting *opt,
 				        const pjsua_msg_data *msg_data);
 
@@ -4752,7 +4752,7 @@ PJ_DECL(pj_status_t) pjsua_call_update2(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_xfer(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_xfer(pjsua_call_id call_id, 
 				     const pj_str_t *dest,
 				     const pjsua_msg_data *msg_data);
 
@@ -4780,7 +4780,7 @@ PJ_DECL(pj_status_t) pjsua_call_xfer(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_xfer_replaces(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_xfer_replaces(pjsua_call_id call_id, 
 					      pjsua_call_id dest_call_id,
 					      unsigned options,
 					      const pjsua_msg_data *msg_data);
@@ -4795,7 +4795,7 @@ PJ_DECL(pj_status_t) pjsua_call_xfer_replaces(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_dial_dtmf(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_dial_dtmf(pjsua_call_id call_id, 
 					  const pj_str_t *digits);
 
 /**
@@ -4813,7 +4813,7 @@ PJ_DECL(pj_status_t) pjsua_call_dial_dtmf(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_send_im( pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_send_im( pjsua_call_id call_id, 
 					 const pj_str_t *mime_type,
 					 const pj_str_t *content,
 					 const pjsua_msg_data *msg_data,
@@ -4831,7 +4831,7 @@ PJ_DECL(pj_status_t) pjsua_call_send_im( pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_send_typing_ind(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_send_typing_ind(pjsua_call_id call_id, 
 						pj_bool_t is_typing,
 						const pjsua_msg_data*msg_data);
 
@@ -4848,7 +4848,7 @@ PJ_DECL(pj_status_t) pjsua_call_send_typing_ind(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_call_send_request(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_send_request(pjsua_call_id call_id,
 					     const pj_str_t *method,
 					     const pjsua_msg_data *msg_data);
 
@@ -4857,7 +4857,7 @@ PJ_DECL(pj_status_t) pjsua_call_send_request(pjsua_call_id call_id,
  * Terminate all calls. This will initiate #pjsua_call_hangup() for all
  * currently active calls. 
  */
-PJ_DECL(void) pjsua_call_hangup_all(void);
+(void) pjsua_call_hangup_all(void);
 
 
 /**
@@ -4871,7 +4871,7 @@ PJ_DECL(void) pjsua_call_hangup_all(void);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_call_dump(pjsua_call_id call_id, 
+(pj_status_t) pjsua_call_dump(pjsua_call_id call_id, 
 				     pj_bool_t with_media, 
 				     char *buffer, 
 				     unsigned maxlen,
@@ -4888,7 +4888,7 @@ PJ_DECL(pj_status_t) pjsua_call_dump(pjsua_call_id call_id,
  * @return		The media stream index or -1 if no video stream
  * 			is present in the call.
  */
-PJ_DECL(int) pjsua_call_get_vid_stream_idx(pjsua_call_id call_id);
+(int) pjsua_call_get_vid_stream_idx(pjsua_call_id call_id);
 
 
 /**
@@ -4904,7 +4904,7 @@ PJ_DECL(int) pjsua_call_get_vid_stream_idx(pjsua_call_id call_id);
  * @return		PJ_TRUE if stream is currently running for the
  * 			specified direction.
  */
-PJ_DECL(pj_bool_t) pjsua_call_vid_stream_is_running(pjsua_call_id call_id,
+(pj_bool_t) pjsua_call_vid_stream_is_running(pjsua_call_id call_id,
                                                     int med_idx,
                                                     pjmedia_dir dir);
 
@@ -4922,7 +4922,7 @@ PJ_DECL(pj_bool_t) pjsua_call_vid_stream_is_running(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success or the appropriate error.
  */
-PJ_DECL(pj_status_t) pjsua_call_set_vid_strm (
+(pj_status_t) pjsua_call_set_vid_strm (
 				pjsua_call_id call_id,
 				pjsua_call_vid_strm_op op,
 				const pjsua_call_vid_strm_op_param *param);
@@ -4937,7 +4937,7 @@ PJ_DECL(pj_status_t) pjsua_call_set_vid_strm (
  *
  * @return		PJ_SUCCESS on success or the appropriate error.
  */
-PJ_DECL(pj_status_t) pjsua_call_get_stream_info(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_get_stream_info(pjsua_call_id call_id,
                                                 unsigned med_idx,
                                                 pjsua_stream_info *psi);
 
@@ -4950,7 +4950,7 @@ PJ_DECL(pj_status_t) pjsua_call_get_stream_info(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success or the appropriate error.
  */
-PJ_DECL(pj_status_t) pjsua_call_get_stream_stat(pjsua_call_id call_id,
+(pj_status_t) pjsua_call_get_stream_stat(pjsua_call_id call_id,
                                                 unsigned med_idx,
                                                 pjsua_stream_stat *stat);
 
@@ -4963,7 +4963,7 @@ PJ_DECL(pj_status_t) pjsua_call_get_stream_stat(pjsua_call_id call_id,
  *
  * @return		PJ_SUCCESS on success or the appropriate error.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjsua_call_get_med_transport_info(pjsua_call_id call_id,
                                   unsigned med_idx,
                                   pjmedia_transport_info *t);
@@ -5154,7 +5154,7 @@ typedef struct pjsua_buddy_info
 /**
  * Set default values to the buddy config.
  */
-PJ_DECL(void) pjsua_buddy_config_default(pjsua_buddy_config *cfg);
+(void) pjsua_buddy_config_default(pjsua_buddy_config *cfg);
 
 
 /**
@@ -5162,7 +5162,7 @@ PJ_DECL(void) pjsua_buddy_config_default(pjsua_buddy_config *cfg);
  *
  * @return		Number of buddies.
  */
-PJ_DECL(unsigned) pjsua_get_buddy_count(void);
+(unsigned) pjsua_get_buddy_count(void);
 
 
 /**
@@ -5172,7 +5172,7 @@ PJ_DECL(unsigned) pjsua_get_buddy_count(void);
  *
  * @return		Non-zero if buddy ID is valid.
  */
-PJ_DECL(pj_bool_t) pjsua_buddy_is_valid(pjsua_buddy_id buddy_id);
+(pj_bool_t) pjsua_buddy_is_valid(pjsua_buddy_id buddy_id);
 
 
 /**
@@ -5187,7 +5187,7 @@ PJ_DECL(pj_bool_t) pjsua_buddy_is_valid(pjsua_buddy_id buddy_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_buddies(pjsua_buddy_id ids[],
+(pj_status_t) pjsua_enum_buddies(pjsua_buddy_id ids[],
 					unsigned *count);
 
 /**
@@ -5197,7 +5197,7 @@ PJ_DECL(pj_status_t) pjsua_enum_buddies(pjsua_buddy_id ids[],
  *
  * @return		The buddy ID, or PJSUA_INVALID_ID if not found.
  */
-PJ_DECL(pjsua_buddy_id) pjsua_buddy_find(const pj_str_t *uri);
+(pjsua_buddy_id) pjsua_buddy_find(const pj_str_t *uri);
 
 
 /**
@@ -5208,7 +5208,7 @@ PJ_DECL(pjsua_buddy_id) pjsua_buddy_find(const pj_str_t *uri);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_buddy_get_info(pjsua_buddy_id buddy_id,
+(pj_status_t) pjsua_buddy_get_info(pjsua_buddy_id buddy_id,
 					  pjsua_buddy_info *info);
 
 /**
@@ -5220,7 +5220,7 @@ PJ_DECL(pj_status_t) pjsua_buddy_get_info(pjsua_buddy_id buddy_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_buddy_set_user_data(pjsua_buddy_id buddy_id,
+(pj_status_t) pjsua_buddy_set_user_data(pjsua_buddy_id buddy_id,
 					       void *user_data);
 
 
@@ -5231,7 +5231,7 @@ PJ_DECL(pj_status_t) pjsua_buddy_set_user_data(pjsua_buddy_id buddy_id,
  *
  * @return		The application data.
  */
-PJ_DECL(void*) pjsua_buddy_get_user_data(pjsua_buddy_id buddy_id);
+(void*) pjsua_buddy_get_user_data(pjsua_buddy_id buddy_id);
 
 
 /**
@@ -5244,7 +5244,7 @@ PJ_DECL(void*) pjsua_buddy_get_user_data(pjsua_buddy_id buddy_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_buddy_add(const pjsua_buddy_config *buddy_cfg,
+(pj_status_t) pjsua_buddy_add(const pjsua_buddy_config *buddy_cfg,
 				     pjsua_buddy_id *p_buddy_id);
 
 
@@ -5256,7 +5256,7 @@ PJ_DECL(pj_status_t) pjsua_buddy_add(const pjsua_buddy_config *buddy_cfg,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_buddy_del(pjsua_buddy_id buddy_id);
+(pj_status_t) pjsua_buddy_del(pjsua_buddy_id buddy_id);
 
 
 /**
@@ -5270,7 +5270,7 @@ PJ_DECL(pj_status_t) pjsua_buddy_del(pjsua_buddy_id buddy_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_buddy_subscribe_pres(pjsua_buddy_id buddy_id,
+(pj_status_t) pjsua_buddy_subscribe_pres(pjsua_buddy_id buddy_id,
 						pj_bool_t subscribe);
 
 
@@ -5294,7 +5294,7 @@ PJ_DECL(pj_status_t) pjsua_buddy_subscribe_pres(pjsua_buddy_id buddy_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_buddy_update_pres(pjsua_buddy_id buddy_id);
+(pj_status_t) pjsua_buddy_update_pres(pjsua_buddy_id buddy_id);
 
 
 /**
@@ -5318,7 +5318,7 @@ PJ_DECL(pj_status_t) pjsua_buddy_update_pres(pjsua_buddy_id buddy_id);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_pres_notify(pjsua_acc_id acc_id,
+(pj_status_t) pjsua_pres_notify(pjsua_acc_id acc_id,
 				       pjsua_srv_pres *srv_pres,
 				       pjsip_evsub_state state,
 				       const pj_str_t *state_str,
@@ -5331,7 +5331,7 @@ PJ_DECL(pj_status_t) pjsua_pres_notify(pjsua_acc_id acc_id,
  *
  * @param verbose	Yes or no.
  */
-PJ_DECL(void) pjsua_pres_dump(pj_bool_t verbose);
+(void) pjsua_pres_dump(pj_bool_t verbose);
 
 
 /**
@@ -5363,7 +5363,7 @@ extern const pjsip_method pjsip_info_method;
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_im_send(pjsua_acc_id acc_id, 
+(pj_status_t) pjsua_im_send(pjsua_acc_id acc_id, 
 				   const pj_str_t *to,
 				   const pj_str_t *mime_type,
 				   const pj_str_t *content,
@@ -5383,7 +5383,7 @@ PJ_DECL(pj_status_t) pjsua_im_send(pjsua_acc_id acc_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_im_typing(pjsua_acc_id acc_id, 
+(pj_status_t) pjsua_im_typing(pjsua_acc_id acc_id, 
 				     const pj_str_t *to, 
 				     pj_bool_t is_typing,
 				     const pjsua_msg_data *msg_data);
@@ -5875,7 +5875,7 @@ struct pjsua_media_config
  *
  * @param cfg	The media config to be initialized.
  */
-PJ_DECL(void) pjsua_media_config_default(pjsua_media_config *cfg);
+(void) pjsua_media_config_default(pjsua_media_config *cfg);
 
 
 /**
@@ -5977,7 +5977,7 @@ typedef struct pjsua_media_transport
  *
  * @return		Maximum number of ports in the conference bridge.
  */
-PJ_DECL(unsigned) pjsua_conf_get_max_ports(void);
+(unsigned) pjsua_conf_get_max_ports(void);
 
 
 /**
@@ -5985,7 +5985,7 @@ PJ_DECL(unsigned) pjsua_conf_get_max_ports(void);
  *
  * @return		The number.
  */
-PJ_DECL(unsigned) pjsua_conf_get_active_ports(void);
+(unsigned) pjsua_conf_get_active_ports(void);
 
 
 /**
@@ -5998,7 +5998,7 @@ PJ_DECL(unsigned) pjsua_conf_get_active_ports(void);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_conf_ports(pjsua_conf_port_id id[],
+(pj_status_t) pjsua_enum_conf_ports(pjsua_conf_port_id id[],
 					   unsigned *count);
 
 
@@ -6010,7 +6010,7 @@ PJ_DECL(pj_status_t) pjsua_enum_conf_ports(pjsua_conf_port_id id[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_get_port_info( pjsua_conf_port_id port_id,
+(pj_status_t) pjsua_conf_get_port_info( pjsua_conf_port_id port_id,
 					       pjsua_conf_port_info *info);
 
 
@@ -6028,7 +6028,7 @@ PJ_DECL(pj_status_t) pjsua_conf_get_port_info( pjsua_conf_port_id port_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_add_port(pj_pool_t *pool,
+(pj_status_t) pjsua_conf_add_port(pj_pool_t *pool,
 					 pjmedia_port *port,
 					 pjsua_conf_port_id *p_id);
 
@@ -6042,7 +6042,7 @@ PJ_DECL(pj_status_t) pjsua_conf_add_port(pj_pool_t *pool,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_remove_port(pjsua_conf_port_id port_id);
+(pj_status_t) pjsua_conf_remove_port(pjsua_conf_port_id port_id);
 
 
 /**
@@ -6061,7 +6061,7 @@ PJ_DECL(pj_status_t) pjsua_conf_remove_port(pjsua_conf_port_id port_id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_connect(pjsua_conf_port_id source,
+(pj_status_t) pjsua_conf_connect(pjsua_conf_port_id source,
 					pjsua_conf_port_id sink);
 
 
@@ -6073,7 +6073,7 @@ PJ_DECL(pj_status_t) pjsua_conf_connect(pjsua_conf_port_id source,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_disconnect(pjsua_conf_port_id source,
+(pj_status_t) pjsua_conf_disconnect(pjsua_conf_port_id source,
 					   pjsua_conf_port_id sink);
 
 
@@ -6087,7 +6087,7 @@ PJ_DECL(pj_status_t) pjsua_conf_disconnect(pjsua_conf_port_id source,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_adjust_tx_level(pjsua_conf_port_id slot,
+(pj_status_t) pjsua_conf_adjust_tx_level(pjsua_conf_port_id slot,
 						float level);
 
 /**
@@ -6100,7 +6100,7 @@ PJ_DECL(pj_status_t) pjsua_conf_adjust_tx_level(pjsua_conf_port_id slot,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_conf_adjust_rx_level(pjsua_conf_port_id slot,
+(pj_status_t) pjsua_conf_adjust_rx_level(pjsua_conf_port_id slot,
 						float level);
 
 /**
@@ -6118,7 +6118,7 @@ PJ_DECL(pj_status_t) pjsua_conf_adjust_rx_level(pjsua_conf_port_id slot,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_conf_get_signal_level(pjsua_conf_port_id slot,
+(pj_status_t) pjsua_conf_get_signal_level(pjsua_conf_port_id slot,
 						 unsigned *tx_level,
 						 unsigned *rx_level);
 
@@ -6141,7 +6141,7 @@ PJ_DECL(pj_status_t) pjsua_conf_get_signal_level(pjsua_conf_port_id slot,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_player_create(const pj_str_t *filename,
+(pj_status_t) pjsua_player_create(const pj_str_t *filename,
 					 unsigned options,
 					 pjsua_player_id *p_id);
 
@@ -6161,7 +6161,7 @@ PJ_DECL(pj_status_t) pjsua_player_create(const pj_str_t *filename,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_playlist_create(const pj_str_t file_names[],
+(pj_status_t) pjsua_playlist_create(const pj_str_t file_names[],
 					   unsigned file_count,
 					   const pj_str_t *label,
 					   unsigned options,
@@ -6174,7 +6174,7 @@ PJ_DECL(pj_status_t) pjsua_playlist_create(const pj_str_t file_names[],
  *
  * @return		Conference port ID associated with this player.
  */
-PJ_DECL(pjsua_conf_port_id) pjsua_player_get_conf_port(pjsua_player_id id);
+(pjsua_conf_port_id) pjsua_player_get_conf_port(pjsua_player_id id);
 
 
 /**
@@ -6185,7 +6185,7 @@ PJ_DECL(pjsua_conf_port_id) pjsua_player_get_conf_port(pjsua_player_id id);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_player_get_port(pjsua_player_id id,
+(pj_status_t) pjsua_player_get_port(pjsua_player_id id,
 					   pjmedia_port **p_port);
 
 /**
@@ -6197,7 +6197,7 @@ PJ_DECL(pj_status_t) pjsua_player_get_port(pjsua_player_id id,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_player_get_info(pjsua_player_id id,
+(pj_status_t) pjsua_player_get_info(pjsua_player_id id,
                                            pjmedia_wav_player_info *info);
 
 
@@ -6209,7 +6209,7 @@ PJ_DECL(pj_status_t) pjsua_player_get_info(pjsua_player_id id,
  * @return		The current playback position, in samples. On error,
  * 			return the error code as negative value.
  */
-PJ_DECL(pj_ssize_t) pjsua_player_get_pos(pjsua_player_id id);
+(pj_ssize_t) pjsua_player_get_pos(pjsua_player_id id);
 
 /**
  * Set playback position. This operation is not valid for playlist.
@@ -6220,7 +6220,7 @@ PJ_DECL(pj_ssize_t) pjsua_player_get_pos(pjsua_player_id id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_player_set_pos(pjsua_player_id id,
+(pj_status_t) pjsua_player_set_pos(pjsua_player_id id,
 					  pj_uint32_t samples);
 
 /**
@@ -6231,7 +6231,7 @@ PJ_DECL(pj_status_t) pjsua_player_set_pos(pjsua_player_id id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_player_destroy(pjsua_player_id id);
+(pj_status_t) pjsua_player_destroy(pjsua_player_id id);
 
 
 /*****************************************************************************
@@ -6260,7 +6260,7 @@ PJ_DECL(pj_status_t) pjsua_player_destroy(pjsua_player_id id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_recorder_create(const pj_str_t *filename,
+(pj_status_t) pjsua_recorder_create(const pj_str_t *filename,
 					   unsigned enc_type,
 					   void *enc_param,
 					   pj_ssize_t max_size,
@@ -6275,7 +6275,7 @@ PJ_DECL(pj_status_t) pjsua_recorder_create(const pj_str_t *filename,
  *
  * @return		Conference port ID associated with this recorder.
  */
-PJ_DECL(pjsua_conf_port_id) pjsua_recorder_get_conf_port(pjsua_recorder_id id);
+(pjsua_conf_port_id) pjsua_recorder_get_conf_port(pjsua_recorder_id id);
 
 
 /**
@@ -6286,7 +6286,7 @@ PJ_DECL(pjsua_conf_port_id) pjsua_recorder_get_conf_port(pjsua_recorder_id id);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_recorder_get_port(pjsua_recorder_id id,
+(pj_status_t) pjsua_recorder_get_port(pjsua_recorder_id id,
 					     pjmedia_port **p_port);
 
 
@@ -6297,7 +6297,7 @@ PJ_DECL(pj_status_t) pjsua_recorder_get_port(pjsua_recorder_id id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_recorder_destroy(pjsua_recorder_id id);
+(pj_status_t) pjsua_recorder_destroy(pjsua_recorder_id id);
 
 
 /*****************************************************************************
@@ -6314,7 +6314,7 @@ PJ_DECL(pj_status_t) pjsua_recorder_destroy(pjsua_recorder_id id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_aud_devs(pjmedia_aud_dev_info info[],
+(pj_status_t) pjsua_enum_aud_devs(pjmedia_aud_dev_info info[],
 					 unsigned *count);
 
 /**
@@ -6327,7 +6327,7 @@ PJ_DECL(pj_status_t) pjsua_enum_aud_devs(pjmedia_aud_dev_info info[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_snd_devs(pjmedia_snd_dev_info info[],
+(pj_status_t) pjsua_enum_snd_devs(pjmedia_snd_dev_info info[],
 					 unsigned *count);
 
 /**
@@ -6342,7 +6342,7 @@ PJ_DECL(pj_status_t) pjsua_enum_snd_devs(pjmedia_snd_dev_info info[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_get_snd_dev(int *capture_dev,
+(pj_status_t) pjsua_get_snd_dev(int *capture_dev,
 				       int *playback_dev);
 
 
@@ -6355,7 +6355,7 @@ PJ_DECL(pj_status_t) pjsua_get_snd_dev(int *capture_dev,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_set_snd_dev(int capture_dev,
+(pj_status_t) pjsua_set_snd_dev(int capture_dev,
 				       int playback_dev);
 
 
@@ -6366,7 +6366,7 @@ PJ_DECL(pj_status_t) pjsua_set_snd_dev(int capture_dev,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_set_null_snd_dev(void);
+(pj_status_t) pjsua_set_null_snd_dev(void);
 
 
 /**
@@ -6377,7 +6377,7 @@ PJ_DECL(pj_status_t) pjsua_set_null_snd_dev(void);
  *			so that application can connect this to it's own
  *			sound device or master port.
  */
-PJ_DECL(pjmedia_port*) pjsua_set_no_snd_dev(void);
+(pjmedia_port*) pjsua_set_no_snd_dev(void);
 
 
 /**
@@ -6405,7 +6405,7 @@ PJ_DECL(pjmedia_port*) pjsua_set_no_snd_dev(void);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_set_ec(unsigned tail_ms, unsigned options);
+(pj_status_t) pjsua_set_ec(unsigned tail_ms, unsigned options);
 
 
 /**
@@ -6416,7 +6416,7 @@ PJ_DECL(pj_status_t) pjsua_set_ec(unsigned tail_ms, unsigned options);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsua_get_ec_tail(unsigned *p_tail_ms);
+(pj_status_t) pjsua_get_ec_tail(unsigned *p_tail_ms);
 
 
 /**
@@ -6426,7 +6426,7 @@ PJ_DECL(pj_status_t) pjsua_get_ec_tail(unsigned *p_tail_ms);
  * if null sound device or no sound device has been configured via the
  * #pjsua_set_no_snd_dev() function.
  */
-PJ_DECL(pj_bool_t) pjsua_snd_is_active(void);
+(pj_bool_t) pjsua_snd_is_active(void);
 
     
 /**
@@ -6458,7 +6458,7 @@ PJ_DECL(pj_bool_t) pjsua_snd_is_active(void);
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_snd_set_setting(pjmedia_aud_dev_cap cap,
+(pj_status_t) pjsua_snd_set_setting(pjmedia_aud_dev_cap cap,
 					   const void *pval,
 					   pj_bool_t keep);
 
@@ -6479,7 +6479,7 @@ PJ_DECL(pj_status_t) pjsua_snd_set_setting(pjmedia_aud_dev_cap cap,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_snd_get_setting(pjmedia_aud_dev_cap cap,
+(pj_status_t) pjsua_snd_get_setting(pjmedia_aud_dev_cap cap,
 					   void *pval);
 
 
@@ -6497,7 +6497,7 @@ PJ_DECL(pj_status_t) pjsua_snd_get_setting(pjmedia_aud_dev_cap cap,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_enum_codecs( pjsua_codec_info id[],
+(pj_status_t) pjsua_enum_codecs( pjsua_codec_info id[],
 				        unsigned *count );
 
 
@@ -6512,7 +6512,7 @@ PJ_DECL(pj_status_t) pjsua_enum_codecs( pjsua_codec_info id[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_codec_set_priority( const pj_str_t *codec_id,
+(pj_status_t) pjsua_codec_set_priority( const pj_str_t *codec_id,
 					       pj_uint8_t priority );
 
 
@@ -6524,7 +6524,7 @@ PJ_DECL(pj_status_t) pjsua_codec_set_priority( const pj_str_t *codec_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_codec_get_param( const pj_str_t *codec_id,
+(pj_status_t) pjsua_codec_get_param( const pj_str_t *codec_id,
 					    pjmedia_codec_param *param );
 
 
@@ -6537,7 +6537,7 @@ PJ_DECL(pj_status_t) pjsua_codec_get_param( const pj_str_t *codec_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_codec_set_param( const pj_str_t *codec_id,
+(pj_status_t) pjsua_codec_set_param( const pj_str_t *codec_id,
 					    const pjmedia_codec_param *param);
 
 
@@ -6552,7 +6552,7 @@ PJ_DECL(pj_status_t) pjsua_codec_set_param( const pj_str_t *codec_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjsua_media_transports_create(const pjsua_transport_config *cfg);
 
 
@@ -6569,7 +6569,7 @@ pjsua_media_transports_create(const pjsua_transport_config *cfg);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjsua_media_transports_attach( pjsua_media_transport tp[],
 			       unsigned count,
 			       pj_bool_t auto_delete);
@@ -6603,7 +6603,7 @@ pjsua_media_transports_attach( pjsua_media_transport tp[],
  *
  * @return		The number of devices.
  */
-PJ_DECL(unsigned) pjsua_vid_dev_count(void);
+(unsigned) pjsua_vid_dev_count(void);
 
 /**
  * Retrieve the video device info for the specified device index.
@@ -6613,7 +6613,7 @@ PJ_DECL(unsigned) pjsua_vid_dev_count(void);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_dev_get_info(pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_dev_get_info(pjmedia_vid_dev_index id,
                                             pjmedia_vid_dev_info *vdi);
 
 /**
@@ -6625,7 +6625,7 @@ PJ_DECL(pj_status_t) pjsua_vid_dev_get_info(pjmedia_vid_dev_index id,
  *
  * @return		PJ_TRUE if active, PJ_FALSE otherwise.
  */
-PJ_DECL(pj_bool_t) pjsua_vid_dev_is_active(pjmedia_vid_dev_index id);
+(pj_bool_t) pjsua_vid_dev_is_active(pjmedia_vid_dev_index id);
 
 /**
  * Configure the capability of a video capture device. If the device is 
@@ -6657,7 +6657,7 @@ PJ_DECL(pj_bool_t) pjsua_vid_dev_is_active(pjmedia_vid_dev_index id);
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_dev_set_setting(pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_dev_set_setting(pjmedia_vid_dev_index id,
 					       pjmedia_vid_dev_cap cap,
 					       const void *pval,
 					       pj_bool_t keep);
@@ -6680,7 +6680,7 @@ PJ_DECL(pj_status_t) pjsua_vid_dev_set_setting(pjmedia_vid_dev_index id,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_dev_get_setting(pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_dev_get_setting(pjmedia_vid_dev_index id,
 					       pjmedia_vid_dev_cap cap,
 					       void *pval);
 
@@ -6694,7 +6694,7 @@ PJ_DECL(pj_status_t) pjsua_vid_dev_get_setting(pjmedia_vid_dev_index id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_enum_devs(pjmedia_vid_dev_info info[],
+(pj_status_t) pjsua_vid_enum_devs(pjmedia_vid_dev_info info[],
 					 unsigned *count);
 
 
@@ -6755,7 +6755,7 @@ typedef struct pjsua_vid_preview_param
  *
  * @param p		The parameter to be initialized.
  */
-PJ_DECL(void) pjsua_vid_preview_param_default(pjsua_vid_preview_param *p);
+(void) pjsua_vid_preview_param_default(pjsua_vid_preview_param *p);
 
 /**
  * Determine if the specified video input device has built-in native
@@ -6767,7 +6767,7 @@ PJ_DECL(void) pjsua_vid_preview_param_default(pjsua_vid_preview_param *p);
  *
  * @return		PJ_TRUE if it has.
  */
-PJ_DECL(pj_bool_t) pjsua_vid_preview_has_native(pjmedia_vid_dev_index id);
+(pj_bool_t) pjsua_vid_preview_has_native(pjmedia_vid_dev_index id);
 
 /**
  * Start video preview window for the specified capture device.
@@ -6779,7 +6779,7 @@ PJ_DECL(pj_bool_t) pjsua_vid_preview_has_native(pjmedia_vid_dev_index id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_preview_start(pjmedia_vid_dev_index id,
+(pj_status_t) pjsua_vid_preview_start(pjmedia_vid_dev_index id,
                                              const pjsua_vid_preview_param *p);
 
 /**
@@ -6791,7 +6791,7 @@ PJ_DECL(pj_status_t) pjsua_vid_preview_start(pjmedia_vid_dev_index id,
  * 			specified capture device ID, or PJSUA_INVALID_ID if
  * 			preview has not been started for the device.
  */
-PJ_DECL(pjsua_vid_win_id) pjsua_vid_preview_get_win(pjmedia_vid_dev_index id);
+(pjsua_vid_win_id) pjsua_vid_preview_get_win(pjmedia_vid_dev_index id);
 
 /**
  * Stop video preview.
@@ -6800,7 +6800,7 @@ PJ_DECL(pjsua_vid_win_id) pjsua_vid_preview_get_win(pjmedia_vid_dev_index id);
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_preview_stop(pjmedia_vid_dev_index id);
+(pj_status_t) pjsua_vid_preview_stop(pjmedia_vid_dev_index id);
 
 
 /*
@@ -6858,7 +6858,7 @@ typedef struct pjsua_vid_win_info
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_enum_wins(pjsua_vid_win_id wids[],
+(pj_status_t) pjsua_vid_enum_wins(pjsua_vid_win_id wids[],
 					 unsigned *count);
 
 
@@ -6870,7 +6870,7 @@ PJ_DECL(pj_status_t) pjsua_vid_enum_wins(pjsua_vid_win_id wids[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_win_get_info(pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_get_info(pjsua_vid_win_id wid,
                                             pjsua_vid_win_info *wi);
 
 /**
@@ -6884,7 +6884,7 @@ PJ_DECL(pj_status_t) pjsua_vid_win_get_info(pjsua_vid_win_id wid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_win_set_show(pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_show(pjsua_vid_win_id wid,
                                             pj_bool_t show);
 
 /**
@@ -6897,7 +6897,7 @@ PJ_DECL(pj_status_t) pjsua_vid_win_set_show(pjsua_vid_win_id wid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_win_set_pos(pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_pos(pjsua_vid_win_id wid,
                                            const pjmedia_coord *pos);
 
 /**
@@ -6910,7 +6910,7 @@ PJ_DECL(pj_status_t) pjsua_vid_win_set_pos(pjsua_vid_win_id wid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_win_set_size(pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_size(pjsua_vid_win_id wid,
                                             const pjmedia_rect_size *size);
 
 /**
@@ -6924,7 +6924,7 @@ PJ_DECL(pj_status_t) pjsua_vid_win_set_size(pjsua_vid_win_id wid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_win_set_win(pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_set_win(pjsua_vid_win_id wid,
                                            const pjmedia_vid_dev_hwnd *win);
 
 /**
@@ -6940,7 +6940,7 @@ PJ_DECL(pj_status_t) pjsua_vid_win_set_win(pjsua_vid_win_id wid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_win_rotate(pjsua_vid_win_id wid,
+(pj_status_t) pjsua_vid_win_rotate(pjsua_vid_win_id wid,
 					  int angle);
 
 
@@ -6958,7 +6958,7 @@ PJ_DECL(pj_status_t) pjsua_vid_win_rotate(pjsua_vid_win_id wid,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_enum_codecs( pjsua_codec_info id[],
+(pj_status_t) pjsua_vid_enum_codecs( pjsua_codec_info id[],
 					    unsigned *count );
 
 
@@ -6973,7 +6973,7 @@ PJ_DECL(pj_status_t) pjsua_vid_enum_codecs( pjsua_codec_info id[],
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_codec_set_priority( const pj_str_t *codec_id,
+(pj_status_t) pjsua_vid_codec_set_priority( const pj_str_t *codec_id,
 						   pj_uint8_t priority );
 
 
@@ -6985,7 +6985,7 @@ PJ_DECL(pj_status_t) pjsua_vid_codec_set_priority( const pj_str_t *codec_id,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_codec_get_param(
+(pj_status_t) pjsua_vid_codec_get_param(
 					const pj_str_t *codec_id,
 					pjmedia_vid_codec_param *param);
 
@@ -6999,7 +6999,7 @@ PJ_DECL(pj_status_t) pjsua_vid_codec_get_param(
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsua_vid_codec_set_param( 
+(pj_status_t) pjsua_vid_codec_set_param( 
 					const pj_str_t *codec_id,
 					const pjmedia_vid_codec_param *param);
 

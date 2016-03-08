@@ -108,7 +108,7 @@ enum { POST_QUIT_LEN = 0xFFFFDEADUL };
  */
 struct pj_ioqueue_key_t
 {
-    PJ_DECL_LIST_MEMBER(struct pj_ioqueue_key_t);
+    _LIST_MEMBER(struct pj_ioqueue_key_t);
 
     pj_ioqueue_t       *ioqueue;
     HANDLE		hnd;

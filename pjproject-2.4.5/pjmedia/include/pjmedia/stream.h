@@ -157,7 +157,7 @@ typedef struct pjmedia_stream_info
  *
  * @return		PJ_SUCCESS if stream info is successfully initialized.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_stream_info_from_sdp( pjmedia_stream_info *si,
 			      pj_pool_t *pool,
 			      pjmedia_endpt *endpt,
@@ -189,7 +189,7 @@ pjmedia_stream_info_from_sdp( pjmedia_stream_info *si,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_create(pjmedia_endpt *endpt,
+(pj_status_t) pjmedia_stream_create(pjmedia_endpt *endpt,
 					   pj_pool_t *pool,
 					   const pjmedia_stream_info *info,
 					   pjmedia_transport *tp,
@@ -203,7 +203,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_create(pjmedia_endpt *endpt,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_destroy(pjmedia_stream *stream);
+(pj_status_t) pjmedia_stream_destroy(pjmedia_stream *stream);
 
 
 /**
@@ -227,7 +227,7 @@ PJ_DEF(char) pjmedia_stream_get_last_jb_frame_type(pjmedia_stream *stream);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_get_port(pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_port(pjmedia_stream *stream,
 					     pjmedia_port **p_port );
 
 
@@ -238,7 +238,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_get_port(pjmedia_stream *stream,
  *
  * @return		The transport object being used by the stream.
  */
-PJ_DECL(pjmedia_transport*) pjmedia_stream_get_transport(pjmedia_stream *st);
+(pjmedia_transport*) pjmedia_stream_get_transport(pjmedia_stream *st);
 
 
 /**
@@ -250,7 +250,7 @@ PJ_DECL(pjmedia_transport*) pjmedia_stream_get_transport(pjmedia_stream *st);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_start(pjmedia_stream *stream);
+(pj_status_t) pjmedia_stream_start(pjmedia_stream *stream);
 
 
 /**
@@ -261,7 +261,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_start(pjmedia_stream *stream);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_get_info( const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_info( const pjmedia_stream *stream,
 					      pjmedia_stream_info *info);
 
 /**
@@ -273,7 +273,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_get_info( const pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_get_stat( const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_stat( const pjmedia_stream *stream,
 					      pjmedia_rtcp_stat *stat);
 
 
@@ -284,7 +284,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_get_stat( const pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_reset_stat(pjmedia_stream *stream);
+(pj_status_t) pjmedia_stream_reset_stat(pjmedia_stream *stream);
 
 
 #if defined(PJMEDIA_HAS_RTCP_XR) && (PJMEDIA_HAS_RTCP_XR != 0)
@@ -296,7 +296,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_reset_stat(pjmedia_stream *stream);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_get_stat_xr( const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_stat_xr( const pjmedia_stream *stream,
 					         pjmedia_rtcp_xr_stat *stat);
 #endif
 
@@ -309,7 +309,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_get_stat_xr( const pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_get_stat_jbuf(const pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_stat_jbuf(const pjmedia_stream *stream,
 						  pjmedia_jb_state *state);
 
 
@@ -321,7 +321,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_get_stat_jbuf(const pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_pause( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_pause( pjmedia_stream *stream,
 					   pjmedia_dir dir);
 
 /**
@@ -332,7 +332,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_pause( pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success;
  */
-PJ_DECL(pj_status_t) pjmedia_stream_resume(pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_resume(pjmedia_stream *stream,
 					   pjmedia_dir dir);
 
 /**
@@ -349,7 +349,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_resume(pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_stream_dial_dtmf(pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_dial_dtmf(pjmedia_stream *stream,
 					      const pj_str_t *ascii_digit);
 
 
@@ -363,7 +363,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_dial_dtmf(pjmedia_stream *stream,
  * @return		Non-zero (PJ_TRUE) if the stream has received DTMF
  *			digits in the .
  */
-PJ_DECL(pj_bool_t) pjmedia_stream_check_dtmf(pjmedia_stream *stream);
+(pj_bool_t) pjmedia_stream_check_dtmf(pjmedia_stream *stream);
 
 
 /**
@@ -382,7 +382,7 @@ PJ_DECL(pj_bool_t) pjmedia_stream_check_dtmf(pjmedia_stream *stream);
  * @return		Non-zero (PJ_TRUE) if the stream has received DTMF
  *			digits in the .
  */
-PJ_DECL(pj_status_t) pjmedia_stream_get_dtmf( pjmedia_stream *stream,
+(pj_status_t) pjmedia_stream_get_dtmf( pjmedia_stream *stream,
 					      char *ascii_digits,
 					      unsigned *size);
 
@@ -401,7 +401,7 @@ PJ_DECL(pj_status_t) pjmedia_stream_get_dtmf( pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_stream_set_dtmf_callback(pjmedia_stream *stream,
 				 void (*cb)(pjmedia_stream*, 
 					    void *user_data, 
@@ -416,7 +416,7 @@ pjmedia_stream_set_dtmf_callback(pjmedia_stream *stream,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) 
+(pj_status_t) 
 pjmedia_stream_send_rtcp_sdes( pjmedia_stream *stream );
 
 /**
@@ -426,7 +426,7 @@ pjmedia_stream_send_rtcp_sdes( pjmedia_stream *stream );
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_stream_send_rtcp_bye( pjmedia_stream *stream );
 
 /**

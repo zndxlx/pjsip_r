@@ -334,7 +334,7 @@ static void build_dev_info(UINT deviceId, struct wmme_dev_info *wdi,
 	wdi->info.name[sizeof(wdi->info.name)-1] = '\0';
     } else {
 	const pj_char_t *szPname = WIC_WOC(wic, woc, szPname);
-	PJ_DECL_ANSI_TEMP_BUF(wTmp, sizeof(wdi->info.name));
+	_ANSI_TEMP_BUF(wTmp, sizeof(wdi->info.name));
 	
 	strncpy(wdi->info.name, 
 		PJ_NATIVE_TO_STRING(szPname, wTmp, PJ_ARRAY_SIZE(wTmp)),

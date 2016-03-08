@@ -83,7 +83,7 @@ static struct mod_100rel
 /* List of pending transmission (may include the final response as well) */
 typedef struct tx_data_list_t
 {
-	PJ_DECL_LIST_MEMBER(struct tx_data_list_t);
+	_LIST_MEMBER(struct tx_data_list_t);
 	pj_uint32_t	 rseq;
 	pjsip_tx_data	*tdata;
 } tx_data_list_t;

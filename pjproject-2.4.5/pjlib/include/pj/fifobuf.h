@@ -32,11 +32,11 @@ struct pj_fifobuf_t
     int full;
 };
 
-PJ_DECL(void)	     pj_fifobuf_init (pj_fifobuf_t *fb, void *buffer, unsigned size);
-PJ_DECL(unsigned)    pj_fifobuf_max_size (pj_fifobuf_t *fb);
-PJ_DECL(void*)	     pj_fifobuf_alloc (pj_fifobuf_t *fb, unsigned size);
-PJ_DECL(pj_status_t) pj_fifobuf_unalloc (pj_fifobuf_t *fb, void *buf);
-PJ_DECL(pj_status_t) pj_fifobuf_free (pj_fifobuf_t *fb, void *buf);
+(void)	     pj_fifobuf_init (pj_fifobuf_t *fb, void *buffer, unsigned size);
+(unsigned)    pj_fifobuf_max_size (pj_fifobuf_t *fb);
+(void*)	     pj_fifobuf_alloc (pj_fifobuf_t *fb, unsigned size);
+(pj_status_t) pj_fifobuf_unalloc (pj_fifobuf_t *fb, void *buf);
+(pj_status_t) pj_fifobuf_free (pj_fifobuf_t *fb, void *buf);
 
 PJ_END_DECL
 

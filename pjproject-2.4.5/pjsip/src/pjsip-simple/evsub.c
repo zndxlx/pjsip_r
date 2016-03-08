@@ -165,7 +165,7 @@ static const char *timer_names[] =
  */
 struct evpkg
 {
-    PJ_DECL_LIST_MEMBER(struct evpkg);
+    _LIST_MEMBER(struct evpkg);
 
     pj_str_t		 pkg_name;
     pjsip_module	*pkg_mod;
@@ -246,7 +246,7 @@ struct pjsip_evsub
  */
 struct dlgsub
 {
-    PJ_DECL_LIST_MEMBER(struct dlgsub);
+    _LIST_MEMBER(struct dlgsub);
     pjsip_evsub *sub;
 };
 
@@ -275,7 +275,7 @@ static pj_status_t mod_evsub_unload(void)
 /* Proto for pjsipsimple_strerror().
  * Defined in errno.c
  */
-PJ_DECL(pj_str_t) pjsipsimple_strerror( pj_status_t statcode, 
+(pj_str_t) pjsipsimple_strerror( pj_status_t statcode, 
 				        char *buf, pj_size_t bufsize );
 
 /*

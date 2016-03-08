@@ -453,7 +453,7 @@ typedef struct pjsip_rdata_sdp_info
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjsip_inv_usage_init(pjsip_endpoint *endpt,
+(pj_status_t) pjsip_inv_usage_init(pjsip_endpoint *endpt,
 					  const pjsip_inv_callback *cb);
 
 /**
@@ -461,13 +461,13 @@ PJ_DECL(pj_status_t) pjsip_inv_usage_init(pjsip_endpoint *endpt,
  *
  * @return		PJ_SUCCESS on success, or the appropriate error code.
  */
-PJ_DECL(pjsip_module*) pjsip_inv_usage_instance(void);
+(pjsip_module*) pjsip_inv_usage_instance(void);
 
 
 /**
  * Dump user agent contents (e.g. all dialogs).
  */
-PJ_DECL(void) pjsip_inv_usage_dump(void);
+(void) pjsip_inv_usage_dump(void);
 
 
 /**
@@ -486,7 +486,7 @@ PJ_DECL(void) pjsip_inv_usage_dump(void);
  *			the session. Otherwise the appropriate error status 
  *			will be returned on failure.
  */
-PJ_DECL(pj_status_t) pjsip_inv_create_uac(pjsip_dialog *dlg,
+(pj_status_t) pjsip_inv_create_uac(pjsip_dialog *dlg,
 					  const pjmedia_sdp_session *local_sdp,
 					  unsigned options,
 					  pjsip_inv_session **p_inv);
@@ -556,7 +556,7 @@ PJ_DECL(pj_status_t) pjsip_inv_create_uac(pjsip_dialog *dlg,
  *
  * @see pjsip_inv_verify_request2()
  */
-PJ_DECL(pj_status_t) pjsip_inv_verify_request(	pjsip_rx_data *rdata,
+(pj_status_t) pjsip_inv_verify_request(	pjsip_rx_data *rdata,
 						unsigned *options,
 						const pjmedia_sdp_session *sdp,
 						pjsip_dialog *dlg,
@@ -570,7 +570,7 @@ PJ_DECL(pj_status_t) pjsip_inv_verify_request(	pjsip_rx_data *rdata,
  *
  * @see pjsip_inv_verify_request()
  */
-PJ_DECL(pj_status_t) pjsip_inv_verify_request2( pjsip_rx_data *rdata,
+(pj_status_t) pjsip_inv_verify_request2( pjsip_rx_data *rdata,
 						unsigned *options,
 						const pjmedia_sdp_session *offer,
 						const pjmedia_sdp_session *answer,
@@ -587,7 +587,7 @@ PJ_DECL(pj_status_t) pjsip_inv_verify_request2( pjsip_rx_data *rdata,
  *
  * @see pjsip_inv_verify_request()
  */
-PJ_DECL(pj_status_t) pjsip_inv_verify_request3( pjsip_rx_data *rdata,
+(pj_status_t) pjsip_inv_verify_request3( pjsip_rx_data *rdata,
                                                 pj_pool_t *tmp_pool,
 						unsigned *options,
 						const pjmedia_sdp_session *offer,
@@ -623,7 +623,7 @@ PJ_DECL(pj_status_t) pjsip_inv_verify_request3( pjsip_rx_data *rdata,
  *			Otherwise the appropriate error status will be returned 
  *			on failure.
  */
-PJ_DECL(pj_status_t) pjsip_inv_create_uas(pjsip_dialog *dlg,
+(pj_status_t) pjsip_inv_create_uas(pjsip_dialog *dlg,
 					  pjsip_rx_data *rdata,
 					  const pjmedia_sdp_session *local_sdp,
 					  unsigned options,
@@ -648,7 +648,7 @@ PJ_DECL(pj_status_t) pjsip_inv_create_uas(pjsip_dialog *dlg,
  * @return		PJ_SUCCESS if the INVITE session has been
  *			terminated.
  */
-PJ_DECL(pj_status_t) pjsip_inv_terminate( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_terminate( pjsip_inv_session *inv,
 				          int st_code,
 					  pj_bool_t notify );
 
@@ -667,7 +667,7 @@ PJ_DECL(pj_status_t) pjsip_inv_terminate( pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS on successful operation.
  */
-PJ_DECL(pj_status_t) pjsip_inv_uac_restart(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_uac_restart(pjsip_inv_session *inv,
 					   pj_bool_t new_offer);
 
 
@@ -695,7 +695,7 @@ PJ_DECL(pj_status_t) pjsip_inv_uac_restart(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS on successful operation.
  */
-PJ_DECL(pj_status_t) pjsip_inv_process_redirect(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_process_redirect(pjsip_inv_session *inv,
 						pjsip_redirect_op cmd,
 						pjsip_event *e);
 
@@ -713,7 +713,7 @@ PJ_DECL(pj_status_t) pjsip_inv_process_redirect(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS if the INVITE request can be created.
  */
-PJ_DECL(pj_status_t) pjsip_inv_invite( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_invite( pjsip_inv_session *inv,
 				       pjsip_tx_data **p_tdata );
 
 
@@ -722,7 +722,7 @@ PJ_DECL(pj_status_t) pjsip_inv_invite( pjsip_inv_session *inv,
  * rdata with  status code st_code and optional status text st_text. Use
  * #pjsip_inv_answer() to create subsequent response message.
  */
-PJ_DECL(pj_status_t) pjsip_inv_initial_answer(	pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_initial_answer(	pjsip_inv_session *inv,
 						pjsip_rx_data *rdata,
 						int st_code,
 						const pj_str_t *st_text,
@@ -754,7 +754,7 @@ PJ_DECL(pj_status_t) pjsip_inv_initial_answer(	pjsip_inv_session *inv,
  * @return		PJ_SUCCESS if response message was created
  *			successfully.
  */
-PJ_DECL(pj_status_t) pjsip_inv_answer(	pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_answer(	pjsip_inv_session *inv,
 					int st_code,
 					const pj_str_t *st_text,
 					const pjmedia_sdp_session *local_sdp,
@@ -772,7 +772,7 @@ PJ_DECL(pj_status_t) pjsip_inv_answer(	pjsip_inv_session *inv,
  * @return		PJ_SUCCESS if local offer/answer can be accepted by
  *			SDP negotiator.
  */
-PJ_DECL(pj_status_t) pjsip_inv_set_local_sdp(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_set_local_sdp(pjsip_inv_session *inv,
 					     const pjmedia_sdp_session *sdp );
 
 
@@ -787,7 +787,7 @@ PJ_DECL(pj_status_t) pjsip_inv_set_local_sdp(pjsip_inv_session *inv,
  * @return		PJ_SUCCESS if local answer can be accepted by
  *			SDP negotiator.
  */
-PJ_DECL(pj_status_t) pjsip_inv_set_sdp_answer(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_set_sdp_answer(pjsip_inv_session *inv,
 					      const pjmedia_sdp_session *sdp );
 
 
@@ -821,7 +821,7 @@ PJ_DECL(pj_status_t) pjsip_inv_set_sdp_answer(pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS if termination is initiated.
  */
-PJ_DECL(pj_status_t) pjsip_inv_end_session( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_end_session( pjsip_inv_session *inv,
 					    int st_code,
 					    const pj_str_t *st_text,
 					    pjsip_tx_data **p_tdata );
@@ -842,7 +842,7 @@ PJ_DECL(pj_status_t) pjsip_inv_end_session( pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS if termination is initiated.
  */
-PJ_DECL(pj_status_t) pjsip_inv_cancel_reinvite( pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_cancel_reinvite( pjsip_inv_session *inv,
 					        pjsip_tx_data **p_tdata );
 
 
@@ -868,7 +868,7 @@ PJ_DECL(pj_status_t) pjsip_inv_cancel_reinvite( pjsip_inv_session *inv,
  *			characteristics (e.g. to contain new offer) can be 
  *			created.
  */
-PJ_DECL(pj_status_t) pjsip_inv_reinvite(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_reinvite(pjsip_inv_session *inv,
 					const pj_str_t *new_contact,
 					const pjmedia_sdp_session *new_offer,
 					pjsip_tx_data **p_tdata );
@@ -892,7 +892,7 @@ PJ_DECL(pj_status_t) pjsip_inv_reinvite(pjsip_inv_session *inv,
  *			characteristics (e.g. to contain new offer) can be 
  *			created.
  */
-PJ_DECL(pj_status_t) pjsip_inv_update (	pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_update (	pjsip_inv_session *inv,
 					const pj_str_t *new_contact,
 					const pjmedia_sdp_session *offer,
 					pjsip_tx_data **p_tdata );
@@ -919,7 +919,7 @@ PJ_DECL(pj_status_t) pjsip_inv_update (	pjsip_inv_session *inv,
  *
  * @return		PJ_SUCCESS if ACK request has been created.
  */
-PJ_DECL(pj_status_t) pjsip_inv_create_ack(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_create_ack(pjsip_inv_session *inv,
 					  int cseq,
 					  pjsip_tx_data **p_tdata);
 
@@ -936,7 +936,7 @@ PJ_DECL(pj_status_t) pjsip_inv_create_ack(pjsip_inv_session *inv,
  *			be reported later, in on_tsx_state_changed()
  *			callback.
  */
-PJ_DECL(pj_status_t) pjsip_inv_send_msg(pjsip_inv_session *inv,
+(pj_status_t) pjsip_inv_send_msg(pjsip_inv_session *inv,
 					pjsip_tx_data *tdata);
 
 
@@ -948,7 +948,7 @@ PJ_DECL(pj_status_t) pjsip_inv_send_msg(pjsip_inv_session *inv,
  * @return		The invite session instance which has been 
  *			associated with this dialog, or NULL.
  */
-PJ_DECL(pjsip_inv_session*) pjsip_dlg_get_inv_session(pjsip_dialog *dlg);
+(pjsip_inv_session*) pjsip_dlg_get_inv_session(pjsip_dialog *dlg);
 
 /**
  * Get the invite session instance associated with transaction tsx, if any.
@@ -959,7 +959,7 @@ PJ_DECL(pjsip_inv_session*) pjsip_dlg_get_inv_session(pjsip_dialog *dlg);
  * @return		The invite session instance which has been 
  *			associated with this transaction, or NULL.
  */
-PJ_DECL(pjsip_inv_session*) pjsip_tsx_get_inv_session(pjsip_transaction *tsx);
+(pjsip_inv_session*) pjsip_tsx_get_inv_session(pjsip_transaction *tsx);
 
 
 /**
@@ -969,7 +969,7 @@ PJ_DECL(pjsip_inv_session*) pjsip_tsx_get_inv_session(pjsip_transaction *tsx);
  *
  * @return		String describing the state.
  */
-PJ_DECL(const char *) pjsip_inv_state_name(pjsip_inv_state state);
+(const char *) pjsip_inv_state_name(pjsip_inv_state state);
 
 
 /**
@@ -982,7 +982,7 @@ PJ_DECL(const char *) pjsip_inv_state_name(pjsip_inv_state state);
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_create_sdp_body(pj_pool_t *pool,
+(pj_status_t) pjsip_create_sdp_body(pj_pool_t *pool,
 					   pjmedia_sdp_session *sdp,
 					   pjsip_msg_body **p_body);
 
@@ -999,7 +999,7 @@ PJ_DECL(pj_status_t) pjsip_create_sdp_body(pj_pool_t *pool,
  *
  * @return		The SDP info.
  */
-PJ_DECL(pjsip_rdata_sdp_info*) pjsip_rdata_get_sdp_info(pjsip_rx_data *rdata);
+(pjsip_rdata_sdp_info*) pjsip_rdata_get_sdp_info(pjsip_rx_data *rdata);
 
 
 PJ_END_DECL

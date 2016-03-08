@@ -43,7 +43,7 @@ PJ_DEF(void) pj_set_netos_error(pj_status_t code)
 
 PJ_BEGIN_DECL
 
-    PJ_DECL(int) platform_strerror(pj_os_err_type code, 
+    (int) platform_strerror(pj_os_err_type code, 
                               	   char *buf, pj_size_t bufsize );
 PJ_END_DECL
 

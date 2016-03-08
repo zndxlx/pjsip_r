@@ -299,7 +299,7 @@ typedef void pj_pool_callback(pj_pool_t *pool, pj_size_t size);
  */
 typedef struct pj_pool_block
 {
-    PJ_DECL_LIST_MEMBER(struct pj_pool_block);  /**< List's prev and next.  */
+    _LIST_MEMBER(struct pj_pool_block);  /**< List's prev and next.  */
     unsigned char    *buf;                      /**< Start of buffer.       */
     unsigned char    *cur;                      /**< Current alloc ptr.     */
     unsigned char    *end;                      /**< End of buffer.         */
@@ -312,7 +312,7 @@ typedef struct pj_pool_block
  */
 struct pj_pool_t
 {
-    PJ_DECL_LIST_MEMBER(struct pj_pool_t);  /**< Standard list elements.    */
+    _LIST_MEMBER(struct pj_pool_t);  /**< Standard list elements.    */
 
     /** Pool name */
     char	    obj_name[PJ_MAX_OBJ_NAME];
@@ -408,7 +408,7 @@ PJ_IDECL(const char *) pj_pool_getobjname( const pj_pool_t *pool );
  *
  * @param pool the pool.
  */
-PJ_DECL(void) pj_pool_reset( pj_pool_t *pool );
+(void) pj_pool_reset( pj_pool_t *pool );
 
 
 /**
@@ -509,7 +509,7 @@ PJ_INLINE(void*) pj_pool_zalloc(pj_pool_t *pool, pj_size_t size)
  * Internal functions
  */
 PJ_IDECL(void*) pj_pool_alloc_from_block(pj_pool_block *block, pj_size_t size);
-PJ_DECL(void*) pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size);
+(void*) pj_pool_allocate_find(pj_pool_t *pool, pj_size_t size);
 
 
 	
@@ -618,12 +618,12 @@ typedef struct pj_pool_factory_policy
  *
  * @see pj_NO_MEMORY_EXCEPTION()
  */
-PJ_DECL_DATA(int) PJ_NO_MEMORY_EXCEPTION;
+_DATA(int) PJ_NO_MEMORY_EXCEPTION;
 
 /**
  * Get #PJ_NO_MEMORY_EXCEPTION constant.
  */ 
-PJ_DECL(int) pj_NO_MEMORY_EXCEPTION(void);
+(int) pj_NO_MEMORY_EXCEPTION(void);
 
 /**
  * This global variable points to default memory pool factory policy.
@@ -634,7 +634,7 @@ PJ_DECL(int) pj_NO_MEMORY_EXCEPTION(void);
  *
  * @see pj_pool_factory_get_default_policy
  */
-PJ_DECL_DATA(pj_pool_factory_policy) pj_pool_factory_default_policy;
+_DATA(pj_pool_factory_policy) pj_pool_factory_default_policy;
 
 
 /**
@@ -642,7 +642,7 @@ PJ_DECL_DATA(pj_pool_factory_policy) pj_pool_factory_default_policy;
  *
  * @return the pool policy.
  */
-PJ_DECL(const pj_pool_factory_policy*) pj_pool_factory_get_default_policy(void);
+(const pj_pool_factory_policy*) pj_pool_factory_get_default_policy(void);
 
 
 /**
@@ -736,7 +736,7 @@ struct pj_pool_factory
  * @param callback          Callback.
  * @return                  The pool object, or NULL.
  */
-PJ_DECL(pj_pool_t*) pj_pool_create_int(	pj_pool_factory *factory, 
+(pj_pool_t*) pj_pool_create_int(	pj_pool_factory *factory, 
 					const char *name,
 					pj_size_t initial_size, 
 					pj_size_t increment_size,
@@ -749,7 +749,7 @@ PJ_DECL(pj_pool_t*) pj_pool_create_int(	pj_pool_factory *factory,
  * @param increment_size    Increment size.
  * @param callback          Callback function.
  */
-PJ_DECL(void) pj_pool_init_int( pj_pool_t *pool, 
+(void) pj_pool_init_int( pj_pool_t *pool, 
 				const char *name,
 				pj_size_t increment_size,
 				pj_pool_callback *callback);
@@ -758,7 +758,7 @@ PJ_DECL(void) pj_pool_init_int( pj_pool_t *pool,
  * This function is intended to be used by pool factory implementors.
  * @param pool      The memory pool.
  */
-PJ_DECL(void) pj_pool_destroy_int( pj_pool_t *pool );
+(void) pj_pool_destroy_int( pj_pool_t *pool );
 
 
 /**
@@ -877,7 +877,7 @@ struct pj_caching_pool
  *			list plus the capacity of the pool is still below this
  *			value.
  */
-PJ_DECL(void) pj_caching_pool_init( pj_caching_pool *ch_pool, 
+(void) pj_caching_pool_init( pj_caching_pool *ch_pool, 
 				    const pj_pool_factory_policy *policy,
 				    pj_size_t max_capacity);
 
@@ -887,7 +887,7 @@ PJ_DECL(void) pj_caching_pool_init( pj_caching_pool *ch_pool,
  *
  * @param ch_pool	The caching pool.
  */
-PJ_DECL(void) pj_caching_pool_destroy( pj_caching_pool *ch_pool );
+(void) pj_caching_pool_destroy( pj_caching_pool *ch_pool );
 
 /**
  * @}	// PJ_CACHING_POOL

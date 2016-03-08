@@ -282,7 +282,7 @@ typedef struct pjmedia_event_mgr pjmedia_event_mgr;
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_event_mgr_create(pj_pool_t *pool,
+(pj_status_t) pjmedia_event_mgr_create(pj_pool_t *pool,
                                               unsigned options,
 				              pjmedia_event_mgr **mgr);
 
@@ -291,7 +291,7 @@ PJ_DECL(pj_status_t) pjmedia_event_mgr_create(pj_pool_t *pool,
  *
  * @return		The instance.
  */
-PJ_DECL(pjmedia_event_mgr*) pjmedia_event_mgr_instance(void);
+(pjmedia_event_mgr*) pjmedia_event_mgr_instance(void);
 
 /**
  * Manually assign a specific event manager instance as the singleton
@@ -303,7 +303,7 @@ PJ_DECL(pjmedia_event_mgr*) pjmedia_event_mgr_instance(void);
  * 			Application may specify NULL to clear the singleton
  * 			singleton instance.
  */
-PJ_DECL(void) pjmedia_event_mgr_set_instance(pjmedia_event_mgr *mgr);
+(void) pjmedia_event_mgr_set_instance(pjmedia_event_mgr *mgr);
 
 /**
  * Destroy an event manager. If the manager happens to be the singleton
@@ -312,7 +312,7 @@ PJ_DECL(void) pjmedia_event_mgr_set_instance(pjmedia_event_mgr *mgr);
  * @param mgr		The eventmanager. Specify NULL to use
  * 			the singleton instance.
  */
-PJ_DECL(void) pjmedia_event_mgr_destroy(pjmedia_event_mgr *mgr);
+(void) pjmedia_event_mgr_destroy(pjmedia_event_mgr *mgr);
 
 /**
  * Initialize event structure with basic data about the event.
@@ -323,7 +323,7 @@ PJ_DECL(void) pjmedia_event_mgr_destroy(pjmedia_event_mgr *mgr);
  * 			timestamp to zero.
  * @param src		Event source.
  */
-PJ_DECL(void) pjmedia_event_init(pjmedia_event *event,
+(void) pjmedia_event_init(pjmedia_event *event,
                                  pjmedia_event_type type,
                                  const pj_timestamp *ts,
                                  const void *src);
@@ -343,7 +343,7 @@ PJ_DECL(void) pjmedia_event_init(pjmedia_event *event,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_event_subscribe(pjmedia_event_mgr *mgr,
+(pj_status_t) pjmedia_event_subscribe(pjmedia_event_mgr *mgr,
                                              pjmedia_event_cb *cb,
                                              void *user_data,
                                              void *epub);
@@ -362,7 +362,7 @@ PJ_DECL(pj_status_t) pjmedia_event_subscribe(pjmedia_event_mgr *mgr,
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_event_unsubscribe(pjmedia_event_mgr *mgr,
                           pjmedia_event_cb *cb,
                           void *user_data,
@@ -384,7 +384,7 @@ pjmedia_event_unsubscribe(pjmedia_event_mgr *mgr,
  * @return		PJ_SUCCESS only if all subscription callbacks returned
  * 			PJ_SUCCESS.
  */
-PJ_DECL(pj_status_t) pjmedia_event_publish(pjmedia_event_mgr *mgr,
+(pj_status_t) pjmedia_event_publish(pjmedia_event_mgr *mgr,
                                            void *epub,
                                            pjmedia_event *event,
                                            pjmedia_event_publish_flag flag);

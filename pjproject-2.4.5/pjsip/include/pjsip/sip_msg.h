@@ -86,38 +86,38 @@ struct pjsip_method
  * For convenience, standard method structures are defined in the library.
  */
 /** INVITE method constant. @see pjsip_get_invite_method() */
-PJ_DECL_DATA(const pjsip_method) pjsip_invite_method;
+_DATA(const pjsip_method) pjsip_invite_method;
 
 /** CANCEL method constant. @see pjsip_get_cancel_method() */
-PJ_DECL_DATA(const pjsip_method) pjsip_cancel_method;
+_DATA(const pjsip_method) pjsip_cancel_method;
 
 /** ACK method constant. @see pjsip_get_ack_method() */
-PJ_DECL_DATA(const pjsip_method) pjsip_ack_method;
+_DATA(const pjsip_method) pjsip_ack_method;
 
 /** BYE method constant. @see pjsip_get_bye_method() */
-PJ_DECL_DATA(const pjsip_method) pjsip_bye_method;
+_DATA(const pjsip_method) pjsip_bye_method;
 
 /** REGISTER method constant. @see pjsip_get_register_method() */
-PJ_DECL_DATA(const pjsip_method) pjsip_register_method;
+_DATA(const pjsip_method) pjsip_register_method;
 
 /** OPTIONS method constant. @see pjsip_get_options_method() */
-PJ_DECL_DATA(const pjsip_method) pjsip_options_method;
+_DATA(const pjsip_method) pjsip_options_method;
 
 /*
  * Accessor functions for standard SIP methods.
  */
 /** Get INVITE method constant. */
-PJ_DECL(const pjsip_method*) pjsip_get_invite_method(void);
+(const pjsip_method*) pjsip_get_invite_method(void);
 /** Get CANCEL method constant. */
-PJ_DECL(const pjsip_method*) pjsip_get_cancel_method(void);
+(const pjsip_method*) pjsip_get_cancel_method(void);
 /** Get ACK method constant. */
-PJ_DECL(const pjsip_method*) pjsip_get_ack_method(void);
+(const pjsip_method*) pjsip_get_ack_method(void);
 /** Get BYE method constant. */
-PJ_DECL(const pjsip_method*) pjsip_get_bye_method(void);
+(const pjsip_method*) pjsip_get_bye_method(void);
 /** Get REGISTER method constant.*/
-PJ_DECL(const pjsip_method*) pjsip_get_register_method(void);
+(const pjsip_method*) pjsip_get_register_method(void);
 /** Get OPTIONS method constant. */
-PJ_DECL(const pjsip_method*) pjsip_get_options_method(void);
+(const pjsip_method*) pjsip_get_options_method(void);
 
 
 /*
@@ -133,7 +133,7 @@ PJ_DECL(const pjsip_method*) pjsip_get_options_method(void);
  * @param pool	Pool where memory allocation will be allocated from, if required.
  * @param str	The method string.
  */
-PJ_DECL(void) pjsip_method_init( pjsip_method *m, 
+(void) pjsip_method_init( pjsip_method *m, 
 				 pj_pool_t *pool, 
 				 const pj_str_t *str);
 
@@ -144,7 +144,7 @@ PJ_DECL(void) pjsip_method_init( pjsip_method *m,
  * @param m	The method structure to be initialized.
  * @param str	The method string.
  */
-PJ_DECL(void) pjsip_method_init_np( pjsip_method *m,
+(void) pjsip_method_init_np( pjsip_method *m,
 				    pj_str_t *str);
 
 /** 
@@ -155,7 +155,7 @@ PJ_DECL(void) pjsip_method_init_np( pjsip_method *m,
  * @param m	The method structure.
  * @param id	The method ID.
  */
-PJ_DECL(void) pjsip_method_set( pjsip_method *m, pjsip_method_e id );
+(void) pjsip_method_set( pjsip_method *m, pjsip_method_e id );
 
 
 /** 
@@ -166,7 +166,7 @@ PJ_DECL(void) pjsip_method_set( pjsip_method *m, pjsip_method_e id );
  * @param method    The destination method to copy to.
  * @param rhs	    The source method to copy from.
  */
-PJ_DECL(void) pjsip_method_copy( pj_pool_t *pool,
+(void) pjsip_method_copy( pj_pool_t *pool,
 				 pjsip_method *method,
 				 const pjsip_method *rhs );
 
@@ -179,7 +179,7 @@ PJ_DECL(void) pjsip_method_copy( pj_pool_t *pool,
  *
  * @return	Zero if equal, otherwise will return -1 if less or +1 if greater.
  */
-PJ_DECL(int) pjsip_method_cmp( const pjsip_method *m1, const pjsip_method *m2);
+(int) pjsip_method_cmp( const pjsip_method *m1, const pjsip_method *m2);
 
 /**
  * @}
@@ -306,7 +306,7 @@ typedef struct pjsip_hdr_vptr
  */
 #define PJSIP_DECL_HDR_MEMBER(hdr)   \
     /** List members. */	\
-    PJ_DECL_LIST_MEMBER(hdr);	\
+    _LIST_MEMBER(hdr);	\
     /** Header type */		\
     pjsip_hdr_e	    type;	\
     /** Header name. */		\
@@ -336,7 +336,7 @@ struct pjsip_hdr
  *
  * @return	    A new instance copied from the original header.
  */
-PJ_DECL(void*) pjsip_hdr_clone( pj_pool_t *pool, const void *hdr );
+(void*) pjsip_hdr_clone( pj_pool_t *pool, const void *hdr );
 
 
 /**
@@ -348,7 +348,7 @@ PJ_DECL(void*) pjsip_hdr_clone( pj_pool_t *pool, const void *hdr );
  *
  * @return	    A new instance copied from the original header.
  */
-PJ_DECL(void*) pjsip_hdr_shallow_clone( pj_pool_t *pool, const void *hdr );
+(void*) pjsip_hdr_shallow_clone( pj_pool_t *pool, const void *hdr );
 
 /**
  * This generic function will print any header, by calling "print" 
@@ -360,7 +360,7 @@ PJ_DECL(void*) pjsip_hdr_shallow_clone( pj_pool_t *pool, const void *hdr );
  *
  * @return	The size copied to buffer, or -1 if there's not enough space.
  */
-PJ_DECL(int) pjsip_hdr_print_on( void *hdr, char *buf, pj_size_t len);
+(int) pjsip_hdr_print_on( void *hdr, char *buf, pj_size_t len);
 
 /**
  * @}
@@ -483,7 +483,7 @@ typedef enum pjsip_status_code
  *
  * @return		    textual message for the status code.
  */ 
-PJ_DECL(const pj_str_t*) pjsip_get_status_text(int status_code);
+(const pj_str_t*) pjsip_get_status_text(int status_code);
 
 /**
  * This macro returns non-zero (TRUE) if the specified status_code is
@@ -526,7 +526,7 @@ typedef struct pjsip_media_type
  * @param type		Optionally specify the media type.
  * @param subtype	Optionally specify the media subtype.
  */
-PJ_DECL(void) pjsip_media_type_init(pjsip_media_type *mt,
+(void) pjsip_media_type_init(pjsip_media_type *mt,
 				    pj_str_t *type,
 				    pj_str_t *subtype);
 
@@ -537,7 +537,7 @@ PJ_DECL(void) pjsip_media_type_init(pjsip_media_type *mt,
  * @param type		Optionally specify the media type.
  * @param subtype	Optionally specify the media subtype.
  */
-PJ_DECL(void) pjsip_media_type_init2(pjsip_media_type *mt,
+(void) pjsip_media_type_init2(pjsip_media_type *mt,
 				     char *type,
 				     char *subtype);
 
@@ -555,7 +555,7 @@ PJ_DECL(void) pjsip_media_type_init2(pjsip_media_type *mt,
  * @return		Zero if both media types are equal, -1 if mt1 < mt2,
  * 			1 if mt1 > mt2.
  */
-PJ_DECL(int) pjsip_media_type_cmp(const pjsip_media_type *mt1,
+(int) pjsip_media_type_cmp(const pjsip_media_type *mt1,
 				  const pjsip_media_type *mt2,
 				  int cmp_param);
 
@@ -566,7 +566,7 @@ PJ_DECL(int) pjsip_media_type_cmp(const pjsip_media_type *mt1,
  * @param dst	    Destination structure.
  * @param src	    Source structure.
  */
-PJ_DECL(void) pjsip_media_type_cp(pj_pool_t *pool,
+(void) pjsip_media_type_cp(pj_pool_t *pool,
 				  pjsip_media_type *dst,
 				  const pjsip_media_type *src);
 
@@ -580,7 +580,7 @@ PJ_DECL(void) pjsip_media_type_cp(pj_pool_t *pool,
  * @return		The number of characters printed to the buffer, or -1
  * 			if there's not enough space in the buffer.
  */
-PJ_DECL(int) pjsip_media_type_print(char *buf, unsigned len,
+(int) pjsip_media_type_print(char *buf, unsigned len,
 				    const pjsip_media_type *mt);
 
 /**
@@ -685,7 +685,7 @@ struct pjsip_msg_body
  *
  * @return		The length copied to the buffer, or -1.
  */
-PJ_DECL(int) pjsip_print_text_body( pjsip_msg_body *msg_body, 
+(int) pjsip_print_text_body( pjsip_msg_body *msg_body, 
 				    char *buf, pj_size_t size);
 
 /**
@@ -700,7 +700,7 @@ PJ_DECL(int) pjsip_print_text_body( pjsip_msg_body *msg_body,
  *
  *  @return		New text duplicated from the original text.
  */
-PJ_DECL(void*) pjsip_clone_text_data( pj_pool_t *pool, const void *data,
+(void*) pjsip_clone_text_data( pj_pool_t *pool, const void *data,
 				      unsigned len);
 
 
@@ -715,7 +715,7 @@ PJ_DECL(void*) pjsip_clone_text_data( pj_pool_t *pool, const void *data,
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjsip_msg_body_copy( pj_pool_t *pool,
+(pj_status_t) pjsip_msg_body_copy( pj_pool_t *pool,
 					  pjsip_msg_body *dst_body,
 					  const pjsip_msg_body *src_body );
 					   
@@ -729,7 +729,7 @@ PJ_DECL(pj_status_t) pjsip_msg_body_copy( pj_pool_t *pool,
  *
  * @return		The cloned message body on successfull.
  */
-PJ_DECL(pjsip_msg_body*) pjsip_msg_body_clone( pj_pool_t *pool,
+(pjsip_msg_body*) pjsip_msg_body_clone( pj_pool_t *pool,
 					       const pjsip_msg_body *body );
 					   
 
@@ -747,7 +747,7 @@ PJ_DECL(pjsip_msg_body*) pjsip_msg_body_clone( pj_pool_t *pool,
  * @return		A new message body with the specified Content-Type and
  *			text.
  */
-PJ_DECL(pjsip_msg_body*) pjsip_msg_body_create( pj_pool_t *pool,
+(pjsip_msg_body*) pjsip_msg_body_create( pj_pool_t *pool,
 					        const pj_str_t *type,
 						const pj_str_t *subtype,
 						const pj_str_t *text );
@@ -812,7 +812,7 @@ struct pjsip_msg
  * @param type	    Message type.
  * @return	    New message, or THROW exception if failed.
  */
-PJ_DECL(pjsip_msg*)  pjsip_msg_create( pj_pool_t *pool, pjsip_msg_type_e type);
+(pjsip_msg*)  pjsip_msg_create( pj_pool_t *pool, pjsip_msg_type_e type);
 
 
 /**
@@ -824,7 +824,7 @@ PJ_DECL(pjsip_msg*)  pjsip_msg_create( pj_pool_t *pool, pjsip_msg_type_e type);
  * @return	    New message, which is duplicated from the original 
  *		    message.
  */
-PJ_DECL(pjsip_msg*) pjsip_msg_clone( pj_pool_t *pool, const pjsip_msg *msg);
+(pjsip_msg*) pjsip_msg_clone( pj_pool_t *pool, const pjsip_msg *msg);
 
 
 /** 
@@ -840,7 +840,7 @@ PJ_DECL(pjsip_msg*) pjsip_msg_clone( pj_pool_t *pool, const pjsip_msg *msg);
  * @return	    The header field, or NULL if no header with the specified 
  *		    type is found.
  */
-PJ_DECL(void*)  pjsip_msg_find_hdr( const pjsip_msg *msg, 
+(void*)  pjsip_msg_find_hdr( const pjsip_msg *msg, 
 				    pjsip_hdr_e type, const void *start);
 
 /** 
@@ -856,7 +856,7 @@ PJ_DECL(void*)  pjsip_msg_find_hdr( const pjsip_msg *msg,
  * @return	    The header field, or NULL if no header with the specified 
  *		    type is found.
  */
-PJ_DECL(void*)  pjsip_msg_find_hdr_by_name( const pjsip_msg *msg, 
+(void*)  pjsip_msg_find_hdr_by_name( const pjsip_msg *msg, 
 					    const pj_str_t *name, 
 					    const void *start);
 
@@ -874,7 +874,7 @@ PJ_DECL(void*)  pjsip_msg_find_hdr_by_name( const pjsip_msg *msg,
  * @return	    The header field, or NULL if no header with the specified 
  *		    type is found.
  */
-PJ_DECL(void*)  pjsip_msg_find_hdr_by_names(const pjsip_msg *msg, 
+(void*)  pjsip_msg_find_hdr_by_names(const pjsip_msg *msg, 
 					    const pj_str_t *name, 
 					    const pj_str_t *sname,
 					    const void *start);
@@ -889,7 +889,7 @@ PJ_DECL(void*)  pjsip_msg_find_hdr_by_names(const pjsip_msg *msg,
  *
  * @return	    The header field, or NULL if not found.
  */
-PJ_DECL(void*)  pjsip_msg_find_remove_hdr( pjsip_msg *msg, 
+(void*)  pjsip_msg_find_remove_hdr( pjsip_msg *msg, 
 					   pjsip_hdr_e hdr, void *start);
 
 /** 
@@ -930,7 +930,7 @@ PJ_INLINE(void) pjsip_msg_insert_first_hdr( pjsip_msg *msg, pjsip_hdr *hdr )
  * @return	The length of the printed characters (in bytes), or NEGATIVE
  *		value if the message is too large for the specified buffer.
  */
-PJ_DECL(pj_ssize_t) pjsip_msg_print(const pjsip_msg *msg, 
+(pj_ssize_t) pjsip_msg_print(const pjsip_msg *msg, 
 				    char *buf, pj_size_t size);
 
 
@@ -1010,7 +1010,7 @@ typedef struct pjsip_generic_string_hdr
  *
  * @return	    The header, or THROW exception.
  */
-PJ_DECL(pjsip_generic_string_hdr*) 
+(pjsip_generic_string_hdr*) 
 pjsip_generic_string_hdr_create( pj_pool_t *pool, 
 				 const pj_str_t *hname,
 				 const pj_str_t *hvalue);
@@ -1033,7 +1033,7 @@ pjsip_generic_string_hdr_create( pj_pool_t *pool,
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_generic_string_hdr*) 
+(pjsip_generic_string_hdr*) 
 pjsip_generic_string_hdr_init( pj_pool_t *pool,
 			       void *mem,
 			       const pj_str_t *hname,
@@ -1053,7 +1053,7 @@ pjsip_generic_string_hdr_init( pj_pool_t *pool,
  *
  * @return	    The header, or THROW exception.
  */
-PJ_DECL(void) pjsip_generic_string_hdr_init2(pjsip_generic_string_hdr *h,
+(void) pjsip_generic_string_hdr_init2(pjsip_generic_string_hdr *h,
 					     pj_str_t *hname,
 					     pj_str_t *hvalue);
 
@@ -1083,7 +1083,7 @@ typedef struct pjsip_generic_int_hdr
  *
  * @return	    The header, or THROW exception.
  */
-PJ_DECL(pjsip_generic_int_hdr*) pjsip_generic_int_hdr_create( pj_pool_t *pool,
+(pjsip_generic_int_hdr*) pjsip_generic_int_hdr_create( pj_pool_t *pool,
 						      const pj_str_t *hname,
 						      int hvalue );
 
@@ -1105,7 +1105,7 @@ PJ_DECL(pjsip_generic_int_hdr*) pjsip_generic_int_hdr_create( pj_pool_t *pool,
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_generic_int_hdr*) pjsip_generic_int_hdr_init( pj_pool_t *pool,
+(pjsip_generic_int_hdr*) pjsip_generic_int_hdr_init( pj_pool_t *pool,
 							    void *mem,
 							    const pj_str_t *hname,
 							    int value );
@@ -1139,7 +1139,7 @@ typedef struct pjsip_generic_array_hdr
  *
  * @return	    New generic array header.
  */
-PJ_DECL(pjsip_generic_array_hdr*) pjsip_generic_array_hdr_create(pj_pool_t *pool,
+(pjsip_generic_array_hdr*) pjsip_generic_array_hdr_create(pj_pool_t *pool,
 							     const pj_str_t *hname);
 
 /**
@@ -1158,7 +1158,7 @@ PJ_DECL(pjsip_generic_array_hdr*) pjsip_generic_array_hdr_create(pj_pool_t *pool
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_generic_array_hdr*) pjsip_generic_array_hdr_init(pj_pool_t *pool,
+(pjsip_generic_array_hdr*) pjsip_generic_array_hdr_init(pj_pool_t *pool,
 							       void *mem,
 							       const pj_str_t *hname);
 
@@ -1178,7 +1178,7 @@ typedef pjsip_generic_array_hdr pjsip_accept_hdr;
  *
  * @return	    New Accept header instance.
  */
-PJ_DECL(pjsip_accept_hdr*) pjsip_accept_hdr_create(pj_pool_t *pool);
+(pjsip_accept_hdr*) pjsip_accept_hdr_create(pj_pool_t *pool);
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1194,7 +1194,7 @@ PJ_DECL(pjsip_accept_hdr*) pjsip_accept_hdr_create(pj_pool_t *pool);
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_accept_hdr*) pjsip_accept_hdr_init( pj_pool_t *pool,
+(pjsip_accept_hdr*) pjsip_accept_hdr_init( pj_pool_t *pool,
 						  void *mem );
 
 
@@ -1212,7 +1212,7 @@ typedef pjsip_generic_array_hdr pjsip_allow_hdr;
  *
  * @return	    New Allow header instance.
  */
-PJ_DECL(pjsip_allow_hdr*) pjsip_allow_hdr_create(pj_pool_t *pool);
+(pjsip_allow_hdr*) pjsip_allow_hdr_create(pj_pool_t *pool);
 
 
 
@@ -1230,7 +1230,7 @@ PJ_DECL(pjsip_allow_hdr*) pjsip_allow_hdr_create(pj_pool_t *pool);
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_allow_hdr*) pjsip_allow_hdr_init( pj_pool_t *pool,
+(pjsip_allow_hdr*) pjsip_allow_hdr_init( pj_pool_t *pool,
 						void *mem );
 
 /* **************************************************************************/
@@ -1252,7 +1252,7 @@ typedef struct pjsip_cid_hdr
  *
  * @return	new Call-ID header.
  */
-PJ_DECL(pjsip_cid_hdr*) pjsip_cid_hdr_create( pj_pool_t *pool );
+(pjsip_cid_hdr*) pjsip_cid_hdr_create( pj_pool_t *pool );
 
 
 /**
@@ -1269,7 +1269,7 @@ PJ_DECL(pjsip_cid_hdr*) pjsip_cid_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_cid_hdr*) pjsip_cid_hdr_init( pj_pool_t *pool,
+(pjsip_cid_hdr*) pjsip_cid_hdr_init( pj_pool_t *pool,
 					    void *mem );
 
 
@@ -1290,7 +1290,7 @@ typedef struct pjsip_clen_hdr
  * @param pool	the pool.
  * @return	A new Content-Length header instance.
  */
-PJ_DECL(pjsip_clen_hdr*) pjsip_clen_hdr_create( pj_pool_t *pool );
+(pjsip_clen_hdr*) pjsip_clen_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1306,7 +1306,7 @@ PJ_DECL(pjsip_clen_hdr*) pjsip_clen_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_clen_hdr*) pjsip_clen_hdr_init( pj_pool_t *pool,
+(pjsip_clen_hdr*) pjsip_clen_hdr_init( pj_pool_t *pool,
 					      void *mem );
 
 
@@ -1327,7 +1327,7 @@ typedef struct pjsip_cseq_hdr
  *  @param pool	The pool.
  *  @return A new CSeq header instance.
  */
-PJ_DECL(pjsip_cseq_hdr*) pjsip_cseq_hdr_create( pj_pool_t *pool );
+(pjsip_cseq_hdr*) pjsip_cseq_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1343,7 +1343,7 @@ PJ_DECL(pjsip_cseq_hdr*) pjsip_cseq_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_cseq_hdr*) pjsip_cseq_hdr_init( pj_pool_t *pool,
+(pjsip_cseq_hdr*) pjsip_cseq_hdr_init( pj_pool_t *pool,
 					      void *mem );
 
 /* **************************************************************************/
@@ -1370,7 +1370,7 @@ typedef struct pjsip_contact_hdr
  * @param pool	The pool.
  * @return	A new instance of Contact header.
  */
-PJ_DECL(pjsip_contact_hdr*) pjsip_contact_hdr_create( pj_pool_t *pool );
+(pjsip_contact_hdr*) pjsip_contact_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1386,7 +1386,7 @@ PJ_DECL(pjsip_contact_hdr*) pjsip_contact_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_contact_hdr*) pjsip_contact_hdr_init( pj_pool_t *pool,
+(pjsip_contact_hdr*) pjsip_contact_hdr_init( pj_pool_t *pool,
 						    void *mem );
 
 
@@ -1407,7 +1407,7 @@ typedef struct pjsip_ctype_hdr
  * @param pool	The pool.
  * @return	A new Content-Type header.
  */
-PJ_DECL(pjsip_ctype_hdr*) pjsip_ctype_hdr_create( pj_pool_t *pool );
+(pjsip_ctype_hdr*) pjsip_ctype_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1423,7 +1423,7 @@ PJ_DECL(pjsip_ctype_hdr*) pjsip_ctype_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_ctype_hdr*) pjsip_ctype_hdr_init( pj_pool_t *pool,
+(pjsip_ctype_hdr*) pjsip_ctype_hdr_init( pj_pool_t *pool,
 						void *mem );
 
 /* **************************************************************************/
@@ -1438,7 +1438,7 @@ typedef pjsip_generic_int_hdr pjsip_expires_hdr;
  *
  * @return	    A new Expires header.
  */
-PJ_DECL(pjsip_expires_hdr*) pjsip_expires_hdr_create( pj_pool_t *pool,
+(pjsip_expires_hdr*) pjsip_expires_hdr_create( pj_pool_t *pool,
 						      int value);
 
 /**
@@ -1456,7 +1456,7 @@ PJ_DECL(pjsip_expires_hdr*) pjsip_expires_hdr_create( pj_pool_t *pool,
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_expires_hdr*) pjsip_expires_hdr_init( pj_pool_t *pool,
+(pjsip_expires_hdr*) pjsip_expires_hdr_init( pj_pool_t *pool,
 						    void *mem,
 						    int value );
 
@@ -1486,7 +1486,7 @@ typedef pjsip_fromto_hdr pjsip_to_hdr;
  * @param pool	The pool.
  * @return	New instance of From header.
  */
-PJ_DECL(pjsip_from_hdr*) pjsip_from_hdr_create( pj_pool_t *pool );
+(pjsip_from_hdr*) pjsip_from_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1502,7 +1502,7 @@ PJ_DECL(pjsip_from_hdr*) pjsip_from_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_from_hdr*) pjsip_from_hdr_init( pj_pool_t *pool,
+(pjsip_from_hdr*) pjsip_from_hdr_init( pj_pool_t *pool,
 					      void *mem );
 
 /**
@@ -1511,7 +1511,7 @@ PJ_DECL(pjsip_from_hdr*) pjsip_from_hdr_init( pj_pool_t *pool,
  * @param pool	The pool.
  * @return	New instance of To header.
  */
-PJ_DECL(pjsip_to_hdr*)   pjsip_to_hdr_create( pj_pool_t *pool );
+(pjsip_to_hdr*)   pjsip_to_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1527,7 +1527,7 @@ PJ_DECL(pjsip_to_hdr*)   pjsip_to_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_to_hdr*) pjsip_to_hdr_init( pj_pool_t *pool,
+(pjsip_to_hdr*) pjsip_to_hdr_init( pj_pool_t *pool,
 					  void *mem );
 
 /**
@@ -1536,7 +1536,7 @@ PJ_DECL(pjsip_to_hdr*) pjsip_to_hdr_init( pj_pool_t *pool,
  * @param hdr	    The generic from/to header.
  * @return	    "From" header.
  */
-PJ_DECL(pjsip_from_hdr*) pjsip_fromto_hdr_set_from( pjsip_fromto_hdr *hdr );
+(pjsip_from_hdr*) pjsip_fromto_hdr_set_from( pjsip_fromto_hdr *hdr );
 
 /**
  * Convert the header to a To header.
@@ -1544,7 +1544,7 @@ PJ_DECL(pjsip_from_hdr*) pjsip_fromto_hdr_set_from( pjsip_fromto_hdr *hdr );
  * @param hdr	    The generic from/to header.
  * @return	    "To" header.
  */
-PJ_DECL(pjsip_to_hdr*)   pjsip_fromto_hdr_set_to( pjsip_fromto_hdr *hdr );
+(pjsip_to_hdr*)   pjsip_fromto_hdr_set_to( pjsip_fromto_hdr *hdr );
 
 
 /* **************************************************************************/
@@ -1561,7 +1561,7 @@ typedef pjsip_generic_int_hdr pjsip_max_fwd_hdr;
  *
  * @return	    New Max-Forwards header instance.
  */
-PJ_DECL(pjsip_max_fwd_hdr*) 
+(pjsip_max_fwd_hdr*) 
 pjsip_max_fwd_hdr_create(pj_pool_t *pool, int value);
 
 
@@ -1580,7 +1580,7 @@ pjsip_max_fwd_hdr_create(pj_pool_t *pool, int value);
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_max_fwd_hdr*) 
+(pjsip_max_fwd_hdr*) 
 pjsip_max_fwd_hdr_init( pj_pool_t *pool, void *mem, int value );
 
 
@@ -1598,7 +1598,7 @@ typedef pjsip_generic_int_hdr pjsip_min_expires_hdr;
  *
  * @return	    New Min-Expires header instance.
  */
-PJ_DECL(pjsip_min_expires_hdr*) pjsip_min_expires_hdr_create(pj_pool_t *pool,
+(pjsip_min_expires_hdr*) pjsip_min_expires_hdr_create(pj_pool_t *pool,
 							     int value);
 
 
@@ -1617,7 +1617,7 @@ PJ_DECL(pjsip_min_expires_hdr*) pjsip_min_expires_hdr_create(pj_pool_t *pool,
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_min_expires_hdr*) pjsip_min_expires_hdr_init( pj_pool_t *pool,
+(pjsip_min_expires_hdr*) pjsip_min_expires_hdr_init( pj_pool_t *pool,
 							    void *mem,
 							    int value );
 
@@ -1646,7 +1646,7 @@ typedef pjsip_routing_hdr pjsip_route_hdr;
  * @param pool	The pool.
  * @return	A new instance of Record-Route header.
  */
-PJ_DECL(pjsip_rr_hdr*)	    pjsip_rr_hdr_create( pj_pool_t *pool );
+(pjsip_rr_hdr*)	    pjsip_rr_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1662,7 +1662,7 @@ PJ_DECL(pjsip_rr_hdr*)	    pjsip_rr_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_rr_hdr*) pjsip_rr_hdr_init( pj_pool_t *pool,
+(pjsip_rr_hdr*) pjsip_rr_hdr_init( pj_pool_t *pool,
 					  void *mem );
 
 /** 
@@ -1671,7 +1671,7 @@ PJ_DECL(pjsip_rr_hdr*) pjsip_rr_hdr_init( pj_pool_t *pool,
  * @param pool	The pool.
  * @return	A new instance of "Route" header.
  */
-PJ_DECL(pjsip_route_hdr*)   pjsip_route_hdr_create( pj_pool_t *pool );
+(pjsip_route_hdr*)   pjsip_route_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1687,7 +1687,7 @@ PJ_DECL(pjsip_route_hdr*)   pjsip_route_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_route_hdr*) pjsip_route_hdr_init( pj_pool_t *pool,
+(pjsip_route_hdr*) pjsip_route_hdr_init( pj_pool_t *pool,
 					        void *mem );
 
 /** 
@@ -1696,7 +1696,7 @@ PJ_DECL(pjsip_route_hdr*) pjsip_route_hdr_init( pj_pool_t *pool,
  * @param r	The generic routing header, or a "Routing" header.
  * @return	Record-Route header.
  */
-PJ_DECL(pjsip_rr_hdr*)	    pjsip_routing_hdr_set_rr( pjsip_routing_hdr *r );
+(pjsip_rr_hdr*)	    pjsip_routing_hdr_set_rr( pjsip_routing_hdr *r );
 
 /** 
  * Convert generic routing header to "Route" header. 
@@ -1704,7 +1704,7 @@ PJ_DECL(pjsip_rr_hdr*)	    pjsip_routing_hdr_set_rr( pjsip_routing_hdr *r );
  * @param r	The generic routing header, or a "Record-Route" header.
  * @return	"Route" header.
  */
-PJ_DECL(pjsip_route_hdr*)   pjsip_routing_hdr_set_route( pjsip_routing_hdr *r );
+(pjsip_route_hdr*)   pjsip_routing_hdr_set_route( pjsip_routing_hdr *r );
 
 /* **************************************************************************/
 /**
@@ -1719,7 +1719,7 @@ typedef pjsip_generic_array_hdr pjsip_require_hdr;
  *
  * @return	    New Require header instance.
  */
-PJ_DECL(pjsip_require_hdr*) pjsip_require_hdr_create(pj_pool_t *pool);
+(pjsip_require_hdr*) pjsip_require_hdr_create(pj_pool_t *pool);
 
 /**
  * Initialize a preallocated memory with the header structure. This function
@@ -1735,7 +1735,7 @@ PJ_DECL(pjsip_require_hdr*) pjsip_require_hdr_create(pj_pool_t *pool);
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_require_hdr*) pjsip_require_hdr_init( pj_pool_t *pool,
+(pjsip_require_hdr*) pjsip_require_hdr_init( pj_pool_t *pool,
 						    void *mem );
 
 
@@ -1761,7 +1761,7 @@ typedef struct pjsip_retry_after_hdr
  *
  * @return	    New Retry-After header instance.
  */
-PJ_DECL(pjsip_retry_after_hdr*) pjsip_retry_after_hdr_create(pj_pool_t *pool,
+(pjsip_retry_after_hdr*) pjsip_retry_after_hdr_create(pj_pool_t *pool,
 							     int value);
 
 /**
@@ -1774,7 +1774,7 @@ PJ_DECL(pjsip_retry_after_hdr*) pjsip_retry_after_hdr_create(pj_pool_t *pool,
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_retry_after_hdr*) pjsip_retry_after_hdr_init( pj_pool_t *pool,
+(pjsip_retry_after_hdr*) pjsip_retry_after_hdr_init( pj_pool_t *pool,
 							    void *mem,
 							    int value );
 
@@ -1792,7 +1792,7 @@ typedef pjsip_generic_array_hdr pjsip_supported_hdr;
  *
  * @return	    New Supported header instance.
  */
-PJ_DECL(pjsip_supported_hdr*) pjsip_supported_hdr_create(pj_pool_t *pool);
+(pjsip_supported_hdr*) pjsip_supported_hdr_create(pj_pool_t *pool);
 
 /**
  * Initialize a preallocated memory with the header structure. 
@@ -1803,7 +1803,7 @@ PJ_DECL(pjsip_supported_hdr*) pjsip_supported_hdr_create(pj_pool_t *pool);
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_supported_hdr*) pjsip_supported_hdr_init( pj_pool_t *pool,
+(pjsip_supported_hdr*) pjsip_supported_hdr_init( pj_pool_t *pool,
 							void *mem );
 
 /* **************************************************************************/
@@ -1819,7 +1819,7 @@ typedef pjsip_generic_array_hdr pjsip_unsupported_hdr;
  *
  * @return	    New Unsupported header instance.
  */
-PJ_DECL(pjsip_unsupported_hdr*) pjsip_unsupported_hdr_create(pj_pool_t *pool);
+(pjsip_unsupported_hdr*) pjsip_unsupported_hdr_create(pj_pool_t *pool);
 
 /**
  * Initialize a preallocated memory with the header structure. 
@@ -1830,7 +1830,7 @@ PJ_DECL(pjsip_unsupported_hdr*) pjsip_unsupported_hdr_create(pj_pool_t *pool);
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_unsupported_hdr*) pjsip_unsupported_hdr_init( pj_pool_t *pool,
+(pjsip_unsupported_hdr*) pjsip_unsupported_hdr_init( pj_pool_t *pool,
 							    void *mem );
 
 /* **************************************************************************/
@@ -1861,7 +1861,7 @@ typedef struct pjsip_via_hdr
  * @param pool	    The pool.
  * @return	    A new "Via" header instance.
  */
-PJ_DECL(pjsip_via_hdr*) pjsip_via_hdr_create( pj_pool_t *pool );
+(pjsip_via_hdr*) pjsip_via_hdr_create( pj_pool_t *pool );
 
 /**
  * Initialize a preallocated memory with the header structure. 
@@ -1872,7 +1872,7 @@ PJ_DECL(pjsip_via_hdr*) pjsip_via_hdr_create( pj_pool_t *pool );
  * @return	    The header instance, which points to the same memory 
  *		    location as the mem argument.
  */
-PJ_DECL(pjsip_via_hdr*) pjsip_via_hdr_init( pj_pool_t *pool,
+(pjsip_via_hdr*) pjsip_via_hdr_init( pj_pool_t *pool,
 					    void *mem );
 
 /* **************************************************************************/
@@ -1894,7 +1894,7 @@ typedef pjsip_generic_string_hdr pjsip_warning_hdr;
  *
  * @return	    The Warning header field.
  */
-PJ_DECL(pjsip_warning_hdr*) pjsip_warning_hdr_create( pj_pool_t *pool,
+(pjsip_warning_hdr*) pjsip_warning_hdr_create( pj_pool_t *pool,
 						      int code,
 						      const pj_str_t *host,
 						      const pj_str_t *text);
@@ -1911,7 +1911,7 @@ PJ_DECL(pjsip_warning_hdr*) pjsip_warning_hdr_create( pj_pool_t *pool,
  *
  * @return	    The Warning header field.
  */
-PJ_DECL(pjsip_warning_hdr*) 
+(pjsip_warning_hdr*) 
 pjsip_warning_hdr_create_from_status( pj_pool_t *pool,
 				      const pj_str_t *host,
 				      pj_status_t status);

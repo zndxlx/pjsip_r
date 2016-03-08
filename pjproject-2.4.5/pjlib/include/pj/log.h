@@ -129,7 +129,7 @@ typedef void pj_log_func(int level, const char *data, int len);
  * @param buffer    Log message.
  * @param len	    Message length.
  */
-PJ_DECL(void) pj_log_write(int level, const char *buffer, int len);
+(void) pj_log_write(int level, const char *buffer, int len);
 
 
 #if PJ_LOG_MAX_LEVEL >= 1
@@ -142,7 +142,7 @@ PJ_DECL(void) pj_log_write(int level, const char *buffer, int len);
  * @param format    Format.
  * @param marker    Marker.
  */
-PJ_DECL(void) pj_log(const char *sender, int level, 
+(void) pj_log(const char *sender, int level, 
 		     const char *format, va_list marker);
 
 /**
@@ -154,14 +154,14 @@ PJ_DECL(void) pj_log(const char *sender, int level,
  * @param func	    The function that will be called to write the log
  *		    messages to the desired device.
  */
-PJ_DECL(void) pj_log_set_log_func( pj_log_func *func );
+(void) pj_log_set_log_func( pj_log_func *func );
 
 /**
  * Get the current log output function that is used to write log messages.
  *
  * @return	    Current log output function.
  */
-PJ_DECL(pj_log_func*) pj_log_get_log_func(void);
+(pj_log_func*) pj_log_get_log_func(void);
 
 /**
  * Set maximum log level. Application can call this function to set 
@@ -173,7 +173,7 @@ PJ_DECL(pj_log_func*) pj_log_get_log_func(void);
  * @param level	    The maximum level of verbosity of the logging
  *		    messages (6=very detailed..1=error only, 0=disabled)
  */
-PJ_DECL(void) pj_log_set_level(int level);
+(void) pj_log_set_level(int level);
 
 /**
  * Get current maximum log verbositylevel.
@@ -181,9 +181,9 @@ PJ_DECL(void) pj_log_set_level(int level);
  * @return	    Current log maximum level.
  */
 #if 1
-PJ_DECL(int) pj_log_get_level(void);
+(int) pj_log_get_level(void);
 #else
-PJ_DECL_DATA(int) pj_log_max_level;
+_DATA(int) pj_log_max_level;
 #define pj_log_get_level()  pj_log_max_level
 #endif
 
@@ -196,14 +196,14 @@ PJ_DECL_DATA(int) pj_log_max_level;
  * @param decor	    Bitmask combination of #pj_log_decoration to control
  *		    the layout of the log message.
  */
-PJ_DECL(void) pj_log_set_decor(unsigned decor);
+(void) pj_log_set_decor(unsigned decor);
 
 /**
  * Get current log decoration flag.
  *
  * @return	    Log decoration flag.
  */
-PJ_DECL(unsigned) pj_log_get_decor(void);
+(unsigned) pj_log_get_decor(void);
 
 /**
  * Add indentation to log message. Indentation will add PJ_LOG_INDENT_CHAR
@@ -213,17 +213,17 @@ PJ_DECL(unsigned) pj_log_get_decor(void);
  * 		    adds current indent, negative value subtracts current
  * 		    indent.
  */
-PJ_DECL(void) pj_log_add_indent(int indent);
+(void) pj_log_add_indent(int indent);
 
 /**
  * Push indentation to the right by default value (PJ_LOG_INDENT).
  */
-PJ_DECL(void) pj_log_push_indent(void);
+(void) pj_log_push_indent(void);
 
 /**
  * Pop indentation (to the left) by default value (PJ_LOG_INDENT).
  */
-PJ_DECL(void) pj_log_pop_indent(void);
+(void) pj_log_pop_indent(void);
 
 /**
  * Set color of log messages.
@@ -231,7 +231,7 @@ PJ_DECL(void) pj_log_pop_indent(void);
  * @param level	    Log level which color will be changed.
  * @param color	    Desired color.
  */
-PJ_DECL(void) pj_log_set_color(int level, pj_color_t color);
+(void) pj_log_set_color(int level, pj_color_t color);
 
 /**
  * Get color of log messages.
@@ -239,7 +239,7 @@ PJ_DECL(void) pj_log_set_color(int level, pj_color_t color);
  * @param level	    Log level which color will be returned.
  * @return	    Log color.
  */
-PJ_DECL(pj_color_t) pj_log_get_color(int level);
+(pj_color_t) pj_log_get_color(int level);
 
 /**
  * Internal function to be called by pj_init()
@@ -371,7 +371,7 @@ pj_status_t pj_log_init(void);
 #if PJ_LOG_MAX_LEVEL >= 1
     #define pj_log_wrapper_1(arg)	pj_log_1 arg
     /** Internal function. */
-    PJ_DECL(void) pj_log_1(const char *src, const char *format, ...);
+    (void) pj_log_1(const char *src, const char *format, ...);
 #else
     #define pj_log_wrapper_1(arg)
 #endif
@@ -385,7 +385,7 @@ pj_status_t pj_log_init(void);
 #if PJ_LOG_MAX_LEVEL >= 2
     #define pj_log_wrapper_2(arg)	pj_log_2 arg
     /** Internal function. */
-    PJ_DECL(void) pj_log_2(const char *src, const char *format, ...);
+    (void) pj_log_2(const char *src, const char *format, ...);
 #else
     #define pj_log_wrapper_2(arg)
 #endif
@@ -399,7 +399,7 @@ pj_status_t pj_log_init(void);
 #if PJ_LOG_MAX_LEVEL >= 3
     #define pj_log_wrapper_3(arg)	pj_log_3 arg
     /** Internal function. */
-    PJ_DECL(void) pj_log_3(const char *src, const char *format, ...);
+    (void) pj_log_3(const char *src, const char *format, ...);
 #else
     #define pj_log_wrapper_3(arg)
 #endif
@@ -413,7 +413,7 @@ pj_status_t pj_log_init(void);
 #if PJ_LOG_MAX_LEVEL >= 4
     #define pj_log_wrapper_4(arg)	pj_log_4 arg
     /** Internal function. */
-    PJ_DECL(void) pj_log_4(const char *src, const char *format, ...);
+    (void) pj_log_4(const char *src, const char *format, ...);
 #else
     #define pj_log_wrapper_4(arg)
 #endif
@@ -427,7 +427,7 @@ pj_status_t pj_log_init(void);
 #if PJ_LOG_MAX_LEVEL >= 5
     #define pj_log_wrapper_5(arg)	pj_log_5 arg
     /** Internal function. */
-    PJ_DECL(void) pj_log_5(const char *src, const char *format, ...);
+    (void) pj_log_5(const char *src, const char *format, ...);
 #else
     #define pj_log_wrapper_5(arg)
 #endif
@@ -441,7 +441,7 @@ pj_status_t pj_log_init(void);
 #if PJ_LOG_MAX_LEVEL >= 6
     #define pj_log_wrapper_6(arg)	pj_log_6 arg
     /** Internal function. */
-    PJ_DECL(void) pj_log_6(const char *src, const char *format, ...);
+    (void) pj_log_6(const char *src, const char *format, ...);
 #else
     #define pj_log_wrapper_6(arg)
 #endif

@@ -239,7 +239,7 @@ typedef struct pjsip_host_info
  *
  * @return              Error code for the specified exception Id.
  */
-PJ_DECL(pj_status_t) pjsip_exception_to_status(int exception_id);
+(pj_status_t) pjsip_exception_to_status(int exception_id);
 
 /**
  * Return standard pj_status_t status from current exception.

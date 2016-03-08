@@ -138,7 +138,7 @@ typedef struct pj_timer_entry
  * @param count     Number of timer entries to be supported.
  * @return          Memory size requirement in bytes.
  */
-PJ_DECL(pj_size_t) pj_timer_heap_mem_size(pj_size_t count);
+(pj_size_t) pj_timer_heap_mem_size(pj_size_t count);
 
 /**
  * Create a timer heap.
@@ -155,7 +155,7 @@ PJ_DECL(pj_size_t) pj_timer_heap_mem_size(pj_size_t count);
  *
  * @return          PJ_SUCCESS, or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pj_timer_heap_create( pj_pool_t *pool,
+(pj_status_t) pj_timer_heap_create( pj_pool_t *pool,
 					   pj_size_t count,
                                            pj_timer_heap_t **ht);
 
@@ -164,7 +164,7 @@ PJ_DECL(pj_status_t) pj_timer_heap_create( pj_pool_t *pool,
  *
  * @param ht        The timer heap.
  */
-PJ_DECL(void) pj_timer_heap_destroy( pj_timer_heap_t *ht );
+(void) pj_timer_heap_destroy( pj_timer_heap_t *ht );
 
 
 /**
@@ -176,7 +176,7 @@ PJ_DECL(void) pj_timer_heap_destroy( pj_timer_heap_t *ht );
  * @param auto_del  If nonzero, the lock object will be destroyed when
  *                  the timer heap is destroyed.
  */
-PJ_DECL(void) pj_timer_heap_set_lock( pj_timer_heap_t *ht,
+(void) pj_timer_heap_set_lock( pj_timer_heap_t *ht,
                                       pj_lock_t *lock,
                                       pj_bool_t auto_del );
 
@@ -188,7 +188,7 @@ PJ_DECL(void) pj_timer_heap_set_lock( pj_timer_heap_t *ht,
  *
  * @return          The old number.
  */
-PJ_DECL(unsigned) pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
+(unsigned) pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
                                                            unsigned count );
 
 /**
@@ -207,7 +207,7 @@ PJ_DECL(unsigned) pj_timer_heap_set_max_timed_out_per_poll(pj_timer_heap_t *ht,
  *
  * @return          The timer entry itself.
  */
-PJ_DECL(pj_timer_entry*) pj_timer_entry_init( pj_timer_entry *entry,
+(pj_timer_entry*) pj_timer_entry_init( pj_timer_entry *entry,
                                               int id,
                                               void *user_data,
                                               pj_timer_heap_callback *cb );
@@ -219,7 +219,7 @@ PJ_DECL(pj_timer_entry*) pj_timer_entry_init( pj_timer_entry *entry,
  *
  * @return          PJ_TRUE if the timer is running.  PJ_FALSE if not.
  */
-PJ_DECL(pj_bool_t) pj_timer_entry_running( pj_timer_entry *entry );
+(pj_bool_t) pj_timer_entry_running( pj_timer_entry *entry );
 
 /**
  * Schedule a timer entry which will expire AFTER the specified delay.
@@ -233,13 +233,13 @@ PJ_DECL(pj_bool_t) pj_timer_entry_running( pj_timer_entry *entry );
 #  define pj_timer_heap_schedule(ht,e,d) \
 			pj_timer_heap_schedule_dbg(ht,e,d,__FILE__,__LINE__)
 
-  PJ_DECL(pj_status_t) pj_timer_heap_schedule_dbg( pj_timer_heap_t *ht,
+  (pj_status_t) pj_timer_heap_schedule_dbg( pj_timer_heap_t *ht,
         					   pj_timer_entry *entry,
         					   const pj_time_val *delay,
         					   const char *src_file,
         					   int src_line);
 #else
-PJ_DECL(pj_status_t) pj_timer_heap_schedule( pj_timer_heap_t *ht,
+(pj_status_t) pj_timer_heap_schedule( pj_timer_heap_t *ht,
 					     pj_timer_entry *entry, 
 					     const pj_time_val *delay);
 #endif	/* PJ_TIMER_DEBUG */
@@ -263,7 +263,7 @@ PJ_DECL(pj_status_t) pj_timer_heap_schedule( pj_timer_heap_t *ht,
 #  define pj_timer_heap_schedule_w_grp_lock(ht,e,d,id,g) \
 	pj_timer_heap_schedule_w_grp_lock_dbg(ht,e,d,id,g,__FILE__,__LINE__)
 
-  PJ_DECL(pj_status_t) pj_timer_heap_schedule_w_grp_lock_dbg(
+  (pj_status_t) pj_timer_heap_schedule_w_grp_lock_dbg(
 						   pj_timer_heap_t *ht,
         					   pj_timer_entry *entry,
         					   const pj_time_val *delay,
@@ -272,7 +272,7 @@ PJ_DECL(pj_status_t) pj_timer_heap_schedule( pj_timer_heap_t *ht,
         					   const char *src_file,
         					   int src_line);
 #else
-PJ_DECL(pj_status_t) pj_timer_heap_schedule_w_grp_lock(
+(pj_status_t) pj_timer_heap_schedule_w_grp_lock(
 						    pj_timer_heap_t *ht,
 						    pj_timer_entry *entry,
 						    const pj_time_val *delay,
@@ -292,7 +292,7 @@ PJ_DECL(pj_status_t) pj_timer_heap_schedule_w_grp_lock(
  *                  entry has really been registered, or zero if no timer was
  *                  cancelled.
  */
-PJ_DECL(int) pj_timer_heap_cancel( pj_timer_heap_t *ht,
+(int) pj_timer_heap_cancel( pj_timer_heap_t *ht,
 				   pj_timer_entry *entry);
 
 /**
@@ -309,7 +309,7 @@ PJ_DECL(int) pj_timer_heap_cancel( pj_timer_heap_t *ht,
  *                  entry has really been registered, or zero if no timer was
  *                  cancelled.
  */
-PJ_DECL(int) pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
+(int) pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
                                             pj_timer_entry *entry,
                                             int id_val);
 
@@ -319,7 +319,7 @@ PJ_DECL(int) pj_timer_heap_cancel_if_active(pj_timer_heap_t *ht,
  * @param ht        The timer heap.
  * @return          The number of timer entries.
  */
-PJ_DECL(pj_size_t) pj_timer_heap_count( pj_timer_heap_t *ht );
+(pj_size_t) pj_timer_heap_count( pj_timer_heap_t *ht );
 
 /**
  * Get the earliest time registered in the timer heap. The timer heap
@@ -331,7 +331,7 @@ PJ_DECL(pj_size_t) pj_timer_heap_count( pj_timer_heap_t *ht );
  *
  * @return          PJ_SUCCESS, or PJ_ENOTFOUND if no entry is scheduled.
  */
-PJ_DECL(pj_status_t) pj_timer_heap_earliest_time( pj_timer_heap_t *ht, 
+(pj_status_t) pj_timer_heap_earliest_time( pj_timer_heap_t *ht, 
 					          pj_time_val *timeval);
 
 /**
@@ -348,7 +348,7 @@ PJ_DECL(pj_status_t) pj_timer_heap_earliest_time( pj_timer_heap_t *ht,
  *
  * @return           The number of timers expired.
  */
-PJ_DECL(unsigned) pj_timer_heap_poll( pj_timer_heap_t *ht, 
+(unsigned) pj_timer_heap_poll( pj_timer_heap_t *ht, 
                                       pj_time_val *next_delay);
 
 #if PJ_TIMER_DEBUG
@@ -357,7 +357,7 @@ PJ_DECL(unsigned) pj_timer_heap_poll( pj_timer_heap_t *ht,
  *
  * @param ht	    The timer heap.
  */
-PJ_DECL(void) pj_timer_heap_dump(pj_timer_heap_t *ht);
+(void) pj_timer_heap_dump(pj_timer_heap_t *ht);
 #endif
 
 /**

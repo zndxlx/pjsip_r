@@ -97,7 +97,7 @@ enum pjmedia_wsola_option
  *
  * @return		    PJ_SUCCESS or the appropriate error code.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_create(pj_pool_t *pool, 
+(pj_status_t) pjmedia_wsola_create(pj_pool_t *pool, 
 					  unsigned clock_rate,
 					  unsigned samples_per_frame,
 					  unsigned channel_count,
@@ -118,7 +118,7 @@ PJ_DECL(pj_status_t) pjmedia_wsola_create(pj_pool_t *pool,
  *
  * @return	    PJ_SUCCESS normally.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_set_max_expand(pjmedia_wsola *wsola,
+(pj_status_t) pjmedia_wsola_set_max_expand(pjmedia_wsola *wsola,
 						  unsigned msec);
 
 
@@ -129,7 +129,7 @@ PJ_DECL(pj_status_t) pjmedia_wsola_set_max_expand(pjmedia_wsola *wsola,
  *
  * @return	    PJ_SUCCESS normally.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola);
+(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola);
 
 
 /**
@@ -140,7 +140,7 @@ PJ_DECL(pj_status_t) pjmedia_wsola_destroy(pjmedia_wsola *wsola);
  *
  * @return	    PJ_SUCCESS normally.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_reset(pjmedia_wsola *wsola,
+(pj_status_t) pjmedia_wsola_reset(pjmedia_wsola *wsola,
 					 unsigned options);
 
 
@@ -163,7 +163,7 @@ PJ_DECL(pj_status_t) pjmedia_wsola_reset(pjmedia_wsola *wsola,
  *
  * @return	    PJ_SUCCESS normally.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_save(pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_save(pjmedia_wsola *wsola, 
 					pj_int16_t frm[], 
 					pj_bool_t prev_lost);
 
@@ -175,7 +175,7 @@ PJ_DECL(pj_status_t) pjmedia_wsola_save(pjmedia_wsola *wsola,
  *
  * @return	    PJ_SUCCESS normally.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_generate(pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_generate(pjmedia_wsola *wsola, 
 					    pj_int16_t frm[]);
 
 
@@ -201,7 +201,7 @@ PJ_DECL(pj_status_t) pjmedia_wsola_generate(pjmedia_wsola *wsola,
  *		    if buffer is too small to be reduced, PJ_EINVAL if any
  *		    of the parameters are not valid.
  */
-PJ_DECL(pj_status_t) pjmedia_wsola_discard(pjmedia_wsola *wsola, 
+(pj_status_t) pjmedia_wsola_discard(pjmedia_wsola *wsola, 
 					   pj_int16_t buf1[],
 					   unsigned buf1_cnt, 
 					   pj_int16_t buf2[],

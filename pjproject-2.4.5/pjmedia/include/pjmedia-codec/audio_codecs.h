@@ -70,7 +70,7 @@ typedef struct pjmedia_audio_codec_config
  *
  * @param cfg		The codec config to be initialized.
  */
-PJ_DECL(void)
+(void)
 pjmedia_audio_codec_config_default(pjmedia_audio_codec_config *cfg);
 
 /**
@@ -83,7 +83,7 @@ pjmedia_audio_codec_config_default(pjmedia_audio_codec_config *cfg);
  *
  * @return		PJ_SUCCESS on success or the appropriate error code.
  */
-PJ_DECL(pj_status_t)
+(pj_status_t)
 pjmedia_codec_register_audio_codecs(pjmedia_endpt *endpt,
                                     const pjmedia_audio_codec_config *c);
 

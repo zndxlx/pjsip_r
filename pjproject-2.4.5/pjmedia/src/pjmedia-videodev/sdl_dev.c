@@ -95,7 +95,7 @@ struct sdl_dev_info
 /* Linked list of streams */
 struct stream_list
 {
-    PJ_DECL_LIST_MEMBER(struct stream_list);
+    _LIST_MEMBER(struct stream_list);
     struct sdl_stream	*stream;
 };
 

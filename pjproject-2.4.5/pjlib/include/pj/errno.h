@@ -100,25 +100,25 @@ PJ_BEGIN_DECL
  *		not call this for socket functions!
  * @see	pj_get_netos_error()
  */
-PJ_DECL(pj_status_t) pj_get_os_error(void);
+(pj_status_t) pj_get_os_error(void);
 
 /**
  * Set last error.
  * @param code	pj_status_t
  */
-PJ_DECL(void) pj_set_os_error(pj_status_t code);
+(void) pj_set_os_error(pj_status_t code);
 
 /**
  * Get the last error from socket operations.
  * @return	Last socket error, folded into pj_status_t.
  */
-PJ_DECL(pj_status_t) pj_get_netos_error(void);
+(pj_status_t) pj_get_netos_error(void);
 
 /**
  * Set error code.
  * @param code	pj_status_t.
  */
-PJ_DECL(void) pj_set_netos_error(pj_status_t code);
+(void) pj_set_netos_error(pj_status_t code);
 
 
 /**
@@ -132,7 +132,7 @@ PJ_DECL(void) pj_set_netos_error(pj_status_t code);
  * @return	    The error message as NULL terminated string,
  *                  wrapped with pj_str_t.
  */
-PJ_DECL(pj_str_t) pj_strerror( pj_status_t statcode, 
+(pj_str_t) pj_strerror( pj_status_t statcode, 
 			       char *buf, pj_size_t bufsize);
 
 /**
@@ -199,7 +199,7 @@ PJ_DECL(pj_str_t) pj_strerror( pj_status_t statcode,
  *
  * @see PJ_PERROR()
  */
-PJ_DECL(void) pj_perror(int log_level, const char *sender, pj_status_t status,
+(void) pj_perror(int log_level, const char *sender, pj_status_t status,
 		        const char *title_fmt, ...);
 
 
@@ -234,7 +234,7 @@ typedef pj_str_t (*pj_error_callback)(pj_status_t e, char *msg, pj_size_t max);
  *			occupied by other handler, or when there are too many
  *			handlers registered to PJLIB.
  */
-PJ_DECL(pj_status_t) pj_register_strerror(pj_status_t start_code,
+(pj_status_t) pj_register_strerror(pj_status_t start_code,
 					  pj_status_t err_space,
 					  pj_error_callback f);
 
@@ -497,7 +497,7 @@ void pj_errno_clear_handlers(void);
 #if PJ_LOG_MAX_LEVEL >= 1
     #define pj_perror_wrapper_1(arg)	pj_perror_1 arg
     /** Internal function. */
-    PJ_DECL(void) pj_perror_1(const char *sender, pj_status_t status, 
+    (void) pj_perror_1(const char *sender, pj_status_t status, 
 			      const char *title_fmt, ...);
 #else
     #define pj_perror_wrapper_1(arg)
@@ -512,7 +512,7 @@ void pj_errno_clear_handlers(void);
 #if PJ_LOG_MAX_LEVEL >= 2
     #define pj_perror_wrapper_2(arg)	pj_perror_2 arg
     /** Internal function. */
-    PJ_DECL(void) pj_perror_2(const char *sender, pj_status_t status, 
+    (void) pj_perror_2(const char *sender, pj_status_t status, 
 			      const char *title_fmt, ...);
 #else
     #define pj_perror_wrapper_2(arg)
@@ -527,7 +527,7 @@ void pj_errno_clear_handlers(void);
 #if PJ_LOG_MAX_LEVEL >= 3
     #define pj_perror_wrapper_3(arg)	pj_perror_3 arg
     /** Internal function. */
-    PJ_DECL(void) pj_perror_3(const char *sender, pj_status_t status, 
+    (void) pj_perror_3(const char *sender, pj_status_t status, 
 			      const char *title_fmt, ...);
 #else
     #define pj_perror_wrapper_3(arg)
@@ -542,7 +542,7 @@ void pj_errno_clear_handlers(void);
 #if PJ_LOG_MAX_LEVEL >= 4
     #define pj_perror_wrapper_4(arg)	pj_perror_4 arg
     /** Internal function. */
-    PJ_DECL(void) pj_perror_4(const char *sender, pj_status_t status, 
+    (void) pj_perror_4(const char *sender, pj_status_t status, 
 			      const char *title_fmt, ...);
 #else
     #define pj_perror_wrapper_4(arg)
@@ -557,7 +557,7 @@ void pj_errno_clear_handlers(void);
 #if PJ_LOG_MAX_LEVEL >= 5
     #define pj_perror_wrapper_5(arg)	pj_perror_5 arg
     /** Internal function. */
-    PJ_DECL(void) pj_perror_5(const char *sender, pj_status_t status, 
+    (void) pj_perror_5(const char *sender, pj_status_t status, 
 			      const char *title_fmt, ...);
 #else
     #define pj_perror_wrapper_5(arg)
@@ -572,7 +572,7 @@ void pj_errno_clear_handlers(void);
 #if PJ_LOG_MAX_LEVEL >= 6
     #define pj_perror_wrapper_6(arg)	pj_perror_6 arg
     /** Internal function. */
-    PJ_DECL(void) pj_perror_6(const char *sender, pj_status_t status, 
+    (void) pj_perror_6(const char *sender, pj_status_t status, 
 			      const char *title_fmt, ...);
 #else
     #define pj_perror_wrapper_6(arg)

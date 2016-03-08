@@ -58,12 +58,12 @@ PJ_BEGIN_DECL
  * @see pj_GUID_STRING_LENGTH()
  * @see PJ_GUID_MAX_LENGTH
  */
-PJ_DECL_DATA(const unsigned) PJ_GUID_STRING_LENGTH;
+_DATA(const unsigned) PJ_GUID_STRING_LENGTH;
 
 /**
  * Get #PJ_GUID_STRING_LENGTH constant.
  */
-PJ_DECL(unsigned) pj_GUID_STRING_LENGTH(void);
+(unsigned) pj_GUID_STRING_LENGTH(void);
 
 /**
  * PJ_GUID_MAX_LENGTH specifies the maximum length of GUID string,
@@ -80,7 +80,7 @@ PJ_DECL(unsigned) pj_GUID_STRING_LENGTH(void);
  *
  * @return          The string.
  */
-PJ_DECL(pj_str_t*) pj_generate_unique_string(pj_str_t *str);
+(pj_str_t*) pj_generate_unique_string(pj_str_t *str);
 
 /**
  * Create a globally unique string in lowercase, which length is
@@ -91,7 +91,7 @@ PJ_DECL(pj_str_t*) pj_generate_unique_string(pj_str_t *str);
  *
  * @return          The string.
  */
-PJ_DECL(pj_str_t*) pj_generate_unique_string_lower(pj_str_t *str);
+(pj_str_t*) pj_generate_unique_string_lower(pj_str_t *str);
 
 /**
  * Generate a unique string.
@@ -99,7 +99,7 @@ PJ_DECL(pj_str_t*) pj_generate_unique_string_lower(pj_str_t *str);
  * @param pool	    Pool to allocate memory from.
  * @param str	    The string.
  */
-PJ_DECL(void) pj_create_unique_string(pj_pool_t *pool, pj_str_t *str);
+(void) pj_create_unique_string(pj_pool_t *pool, pj_str_t *str);
 
 /**
  * Generate a unique string in lowercase.
@@ -107,7 +107,7 @@ PJ_DECL(void) pj_create_unique_string(pj_pool_t *pool, pj_str_t *str);
  * @param pool	    Pool to allocate memory from.
  * @param str	    The string.
  */
-PJ_DECL(void) pj_create_unique_string_lower(pj_pool_t *pool, pj_str_t *str);
+(void) pj_create_unique_string_lower(pj_pool_t *pool, pj_str_t *str);
 
 
 /**

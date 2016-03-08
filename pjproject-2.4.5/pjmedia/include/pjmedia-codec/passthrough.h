@@ -241,7 +241,7 @@ typedef struct pjmedia_codec_passthrough_setting
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_passthrough_init( pjmedia_endpt *endpt );
+(pj_status_t) pjmedia_codec_passthrough_init( pjmedia_endpt *endpt );
 
 
 /**
@@ -253,7 +253,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_passthrough_init( pjmedia_endpt *endpt );
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_passthrough_init2(
+(pj_status_t) pjmedia_codec_passthrough_init2(
 		       pjmedia_endpt *endpt,
 		       const pjmedia_codec_passthrough_setting *setting);
 
@@ -263,7 +263,7 @@ PJ_DECL(pj_status_t) pjmedia_codec_passthrough_init2(
  *
  * @return	    PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pjmedia_codec_passthrough_deinit(void);
+(pj_status_t) pjmedia_codec_passthrough_deinit(void);
 
 
 PJ_END_DECL

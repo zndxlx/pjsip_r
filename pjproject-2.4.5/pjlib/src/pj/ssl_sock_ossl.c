@@ -110,7 +110,7 @@ typedef struct read_data_t
  * Structure of SSL socket write data.
  */
 typedef struct write_data_t {
-    PJ_DECL_LIST_MEMBER(struct write_data_t);
+    _LIST_MEMBER(struct write_data_t);
     pj_ioqueue_op_key_t	 key;
     pj_size_t 	 	 record_len;
     pj_ioqueue_op_key_t	*app_key;
@@ -2044,7 +2044,7 @@ PJ_DEF(pj_status_t) pj_ssl_cert_load_from_files2(pj_pool_t *pool,
 
 
 /* Set SSL socket credentials. */
-PJ_DECL(pj_status_t) pj_ssl_sock_set_certificate(
+(pj_status_t) pj_ssl_sock_set_certificate(
 					    pj_ssl_sock_t *ssock,
 					    pj_pool_t *pool,
 					    const pj_ssl_cert_t *cert)
@@ -2715,7 +2715,7 @@ on_error:
 /**
  * Starts asynchronous socket connect() operation.
  */
-PJ_DECL(pj_status_t) pj_ssl_sock_start_connect(pj_ssl_sock_t *ssock,
+(pj_status_t) pj_ssl_sock_start_connect(pj_ssl_sock_t *ssock,
 					       pj_pool_t *pool,
 					       const pj_sockaddr_t *localaddr,
 					       const pj_sockaddr_t *remaddr,

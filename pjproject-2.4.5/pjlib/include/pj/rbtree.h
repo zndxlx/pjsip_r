@@ -111,7 +111,7 @@ typedef struct pj_rbtree
  * @param tree the tree to be initialized.
  * @param comp key comparison function to be used for this tree.
  */
-PJ_DECL(void) pj_rbtree_init( pj_rbtree *tree, pj_rbtree_comp *comp);
+(void) pj_rbtree_init( pj_rbtree *tree, pj_rbtree_comp *comp);
 
 /**
  * Get the first element in the tree.
@@ -120,7 +120,7 @@ PJ_DECL(void) pj_rbtree_init( pj_rbtree *tree, pj_rbtree_comp *comp);
  * @param tree the tree.
  * @return the tree node, or NULL if the tree has no element.
  */
-PJ_DECL(pj_rbtree_node*) pj_rbtree_first( pj_rbtree *tree );
+(pj_rbtree_node*) pj_rbtree_first( pj_rbtree *tree );
 
 /**
  * Get the last element in the tree.
@@ -129,7 +129,7 @@ PJ_DECL(pj_rbtree_node*) pj_rbtree_first( pj_rbtree *tree );
  * @param tree the tree.
  * @return the tree node, or NULL if the tree has no element.
  */
-PJ_DECL(pj_rbtree_node*) pj_rbtree_last( pj_rbtree *tree );
+(pj_rbtree_node*) pj_rbtree_last( pj_rbtree *tree );
 
 /**
  * Get the successive element for the specified node.
@@ -138,7 +138,7 @@ PJ_DECL(pj_rbtree_node*) pj_rbtree_last( pj_rbtree *tree );
  * @param node the node.
  * @return the successive node, or NULL if the node has no successor.
  */
-PJ_DECL(pj_rbtree_node*) pj_rbtree_next( pj_rbtree *tree, 
+(pj_rbtree_node*) pj_rbtree_next( pj_rbtree *tree, 
 					 pj_rbtree_node *node );
 
 /**
@@ -148,7 +148,7 @@ PJ_DECL(pj_rbtree_node*) pj_rbtree_next( pj_rbtree *tree,
  * @param node the node.
  * @return the previous node, or NULL if the node has no previous node.
  */
-PJ_DECL(pj_rbtree_node*) pj_rbtree_prev( pj_rbtree *tree, 
+(pj_rbtree_node*) pj_rbtree_prev( pj_rbtree *tree, 
 					 pj_rbtree_node *node );
 
 /**
@@ -159,7 +159,7 @@ PJ_DECL(pj_rbtree_node*) pj_rbtree_prev( pj_rbtree *tree,
  * @param node the node to be inserted.
  * @return zero on success, or -1 if the key already exist.
  */
-PJ_DECL(int) pj_rbtree_insert( pj_rbtree *tree, 
+(int) pj_rbtree_insert( pj_rbtree *tree, 
 			       pj_rbtree_node *node );
 
 /**
@@ -169,7 +169,7 @@ PJ_DECL(int) pj_rbtree_insert( pj_rbtree *tree,
  * @return the tree node with the specified key, or NULL if the key can not
  *         be found.
  */
-PJ_DECL(pj_rbtree_node*) pj_rbtree_find( pj_rbtree *tree,
+(pj_rbtree_node*) pj_rbtree_find( pj_rbtree *tree,
 					 const void *key );
 
 /**
@@ -178,7 +178,7 @@ PJ_DECL(pj_rbtree_node*) pj_rbtree_find( pj_rbtree *tree,
  * @param node the node to be erased.
  * @return the tree node itself.
  */
-PJ_DECL(pj_rbtree_node*) pj_rbtree_erase( pj_rbtree *tree,
+(pj_rbtree_node*) pj_rbtree_erase( pj_rbtree *tree,
 					  pj_rbtree_node *node );
 
 /**
@@ -187,7 +187,7 @@ PJ_DECL(pj_rbtree_node*) pj_rbtree_erase( pj_rbtree *tree,
  * @param node the node, or NULL to get the root of the tree.
  * @return the maximum height, which should be at most lg(N)
  */
-PJ_DECL(unsigned) pj_rbtree_max_height( pj_rbtree *tree,
+(unsigned) pj_rbtree_max_height( pj_rbtree *tree,
 					pj_rbtree_node *node );
 
 /**
@@ -196,7 +196,7 @@ PJ_DECL(unsigned) pj_rbtree_max_height( pj_rbtree *tree,
  * @param node the node, or NULL to get the root of the tree.
  * @return the height
  */
-PJ_DECL(unsigned) pj_rbtree_min_height( pj_rbtree *tree,
+(unsigned) pj_rbtree_min_height( pj_rbtree *tree,
 					pj_rbtree_node *node );
 
 

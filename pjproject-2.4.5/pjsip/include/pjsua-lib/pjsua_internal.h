@@ -104,7 +104,7 @@ struct pjsua_call_media
 /* Call answer's list. */
 typedef struct call_answer
 {
-    PJ_DECL_LIST_MEMBER(struct call_answer);
+    _LIST_MEMBER(struct call_answer);
     pjsua_msg_data  *msg_data;      /**< Answer's headers list.       */
     pj_str_t        *reason;        /**< Answer's reason phrase.      */
     unsigned         code;          /**< Answer's status code.        */
@@ -197,7 +197,7 @@ struct pjsua_call
  */
 struct pjsua_srv_pres
 {
-    PJ_DECL_LIST_MEMBER(struct pjsua_srv_pres);
+    _LIST_MEMBER(struct pjsua_srv_pres);
     pjsip_evsub	    *sub;	    /**< The evsub.			    */
     char	    *remote;	    /**< Remote URI.			    */
     int		     acc_id;	    /**< Account ID.			    */
@@ -347,7 +347,7 @@ typedef struct pjsua_conf_setting
 
 typedef struct pjsua_stun_resolve
 {
-    PJ_DECL_LIST_MEMBER(struct pjsua_stun_resolve);
+    _LIST_MEMBER(struct pjsua_stun_resolve);
 
     pj_pool_t		*pool;	    /**< Pool		    */
     int			 ref_cnt;   /**< Reference count    */
@@ -388,7 +388,7 @@ typedef struct pjsua_vid_win
 
 typedef struct pjsua_timer_list
 {
-    PJ_DECL_LIST_MEMBER(struct pjsua_timer_list);
+    _LIST_MEMBER(struct pjsua_timer_list);
     pj_timer_entry         entry;
     void                  (*cb)(void *user_data);
     void                   *user_data;
@@ -513,7 +513,7 @@ extern struct pjsua_data pjsua_var;
 /**
  * Get the instance of pjsua
  */
-PJ_DECL(struct pjsua_data*) pjsua_get_var(void);
+(struct pjsua_data*) pjsua_get_var(void);
 
 
 
@@ -836,7 +836,7 @@ pj_status_t pjsua_vid_channel_update(pjsua_call_media *call_med,
 				     const pjmedia_sdp_session *remote_sdp);
 
 #if PJSUA_HAS_VIDEO
-PJ_DECL(void) pjsua_vid_win_reset(pjsua_vid_win_id wid);
+(void) pjsua_vid_win_reset(pjsua_vid_win_id wid);
 #else
 #  define pjsua_vid_win_reset(wid)
 #endif

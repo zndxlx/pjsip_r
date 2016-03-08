@@ -47,21 +47,21 @@ typedef struct pj_md5_context
 /** Initialize the algorithm. 
  *  @param pms		MD5 context.
  */
-PJ_DECL(void) pj_md5_init(pj_md5_context *pms);
+(void) pj_md5_init(pj_md5_context *pms);
 
 /** Append a string to the message. 
  *  @param pms		MD5 context.
  *  @param data		Data.
  *  @param nbytes	Length of data.
  */
-PJ_DECL(void) pj_md5_update( pj_md5_context *pms, 
+(void) pj_md5_update( pj_md5_context *pms, 
 			     const pj_uint8_t *data, unsigned nbytes);
 
 /** Finish the message and return the digest. 
  *  @param pms		MD5 context.
  *  @param digest	16 byte digest.
  */
-PJ_DECL(void) pj_md5_final(pj_md5_context *pms, pj_uint8_t digest[16]);
+(void) pj_md5_final(pj_md5_context *pms, pj_uint8_t digest[16]);
 
 
 /**

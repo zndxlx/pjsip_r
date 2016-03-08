@@ -59,7 +59,7 @@ PJ_BEGIN_DECL
  * declares additional member @a prev and @a next to the structure.
  * @hideinitializer
  */
-#define PJ_DECL_LIST_MEMBER(type)                       \
+#define _LIST_MEMBER(type)                       \
                                    /** List @a prev. */ \
                                    type *prev;          \
                                    /** List @a next. */ \
@@ -73,7 +73,7 @@ PJ_BEGIN_DECL
  */
 struct pj_list
 {
-    PJ_DECL_LIST_MEMBER(void);
+    _LIST_MEMBER(void);
 } PJ_ATTR_MAY_ALIAS; /* may_alias avoids warning with gcc-4.4 -Wall -O2 */
 
 

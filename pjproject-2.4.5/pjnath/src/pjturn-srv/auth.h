@@ -27,12 +27,12 @@
  *
  * @return		PJ_SUCCESS on success.
  */
-PJ_DECL(pj_status_t) pj_turn_auth_init(const char *realm);
+(pj_status_t) pj_turn_auth_init(const char *realm);
 
 /**
  * Shutdown TURN authentication subsystem.
  */
-PJ_DECL(void) pj_turn_auth_dinit(void);
+(void) pj_turn_auth_dinit(void);
 
 /**
  * This function is called by pj_stun_verify_credential() when
@@ -56,7 +56,7 @@ PJ_DECL(void) pj_turn_auth_dinit(void);
  *			otherwise response message will not be 
  *			created.
  */
-PJ_DECL(pj_status_t) pj_turn_get_auth(void *user_data,
+(pj_status_t) pj_turn_get_auth(void *user_data,
 				      pj_pool_t *pool,
 				      pj_str_t *realm,
 				      pj_str_t *nonce);
@@ -84,7 +84,7 @@ PJ_DECL(pj_status_t) pj_turn_get_auth(void *user_data,
  *			is returned, it is assumed that the
  *			username is not valid.
  */
-PJ_DECL(pj_status_t) pj_turn_get_password(const pj_stun_msg *msg,
+(pj_status_t) pj_turn_get_password(const pj_stun_msg *msg,
 					  void *user_data, 
 					  const pj_str_t *realm,
 					  const pj_str_t *username,
@@ -106,7 +106,7 @@ PJ_DECL(pj_status_t) pj_turn_get_password(const pj_stun_msg *msg,
  * @return		The callback MUST return non-zero if the 
  *			NONCE can be accepted.
  */
-PJ_DECL(pj_bool_t) pj_turn_verify_nonce(const pj_stun_msg *msg,
+(pj_bool_t) pj_turn_verify_nonce(const pj_stun_msg *msg,
 					void *user_data,
 					const pj_str_t *realm,
 					const pj_str_t *username,

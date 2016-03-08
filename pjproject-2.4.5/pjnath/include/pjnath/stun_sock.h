@@ -322,7 +322,7 @@ typedef struct pj_stun_sock_cfg
 /**
  * Retrieve the name representing the specified operation.
  */
-PJ_DECL(const char*) pj_stun_sock_op_name(pj_stun_sock_op op);
+(const char*) pj_stun_sock_op_name(pj_stun_sock_op op);
 
 
 /**
@@ -330,7 +330,7 @@ PJ_DECL(const char*) pj_stun_sock_op_name(pj_stun_sock_op op);
  *
  * @param cfg	The STUN transport config.
  */
-PJ_DECL(void) pj_stun_sock_cfg_default(pj_stun_sock_cfg *cfg);
+(void) pj_stun_sock_cfg_default(pj_stun_sock_cfg *cfg);
 
 
 /**
@@ -354,7 +354,7 @@ PJ_DECL(void) pj_stun_sock_cfg_default(pj_stun_sock_cfg *cfg);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_stun_sock_create(pj_stun_config *stun_cfg,
+(pj_status_t) pj_stun_sock_create(pj_stun_config *stun_cfg,
 					 const char *name,
 					 int af,
 					 const pj_stun_sock_cb *cb,
@@ -393,7 +393,7 @@ PJ_DECL(pj_status_t) pj_stun_sock_create(pj_stun_config *stun_cfg,
  *			result of the allocation process will be notified
  *			to application in \a on_state() callback.
  */
-PJ_DECL(pj_status_t) pj_stun_sock_start(pj_stun_sock *stun_sock,
+(pj_status_t) pj_stun_sock_start(pj_stun_sock *stun_sock,
 				        const pj_str_t *domain,
 				        pj_uint16_t default_port,
 				        pj_dns_resolver *resolver);
@@ -406,7 +406,7 @@ PJ_DECL(pj_status_t) pj_stun_sock_start(pj_stun_sock *stun_sock,
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_stun_sock_destroy(pj_stun_sock *sock);
+(pj_status_t) pj_stun_sock_destroy(pj_stun_sock *sock);
 
 
 /**
@@ -419,7 +419,7 @@ PJ_DECL(pj_status_t) pj_stun_sock_destroy(pj_stun_sock *sock);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_stun_sock_set_user_data(pj_stun_sock *stun_sock,
+(pj_status_t) pj_stun_sock_set_user_data(pj_stun_sock *stun_sock,
 					        void *user_data);
 
 /**
@@ -430,7 +430,7 @@ PJ_DECL(pj_status_t) pj_stun_sock_set_user_data(pj_stun_sock *stun_sock,
  *
  * @return		The user/application data.
  */
-PJ_DECL(void*) pj_stun_sock_get_user_data(pj_stun_sock *stun_sock);
+(void*) pj_stun_sock_get_user_data(pj_stun_sock *stun_sock);
 
 
 /**
@@ -440,7 +440,7 @@ PJ_DECL(void*) pj_stun_sock_get_user_data(pj_stun_sock *stun_sock);
  *
  * @return	        The group lock.
  */
-PJ_DECL(pj_grp_lock_t *) pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock);
+(pj_grp_lock_t *) pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock);
 
 
 /**
@@ -453,7 +453,7 @@ PJ_DECL(pj_grp_lock_t *) pj_stun_sock_get_grp_lock(pj_stun_sock *stun_sock);
  * @return		PJ_SUCCESS if the operation has been successful,
  *			or the appropriate error code on failure.
  */
-PJ_DECL(pj_status_t) pj_stun_sock_get_info(pj_stun_sock *stun_sock,
+(pj_status_t) pj_stun_sock_get_info(pj_stun_sock *stun_sock,
 					   pj_stun_sock_info *info);
 
 
@@ -477,7 +477,7 @@ PJ_DECL(pj_status_t) pj_stun_sock_get_info(pj_stun_sock *stun_sock,
  *			called when data is actually sent. Any other return
  *			value indicates error condition.
  */ 
-PJ_DECL(pj_status_t) pj_stun_sock_sendto(pj_stun_sock *stun_sock,
+(pj_status_t) pj_stun_sock_sendto(pj_stun_sock *stun_sock,
 					 pj_ioqueue_op_key_t *send_key,
 					 const void *pkt,
 					 unsigned pkt_len,

@@ -39,7 +39,7 @@
  */
 PJ_DEF(pj_bool_t) pj_file_exists(const char *filename)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(wfilename,256)
+    _UNICODE_TEMP_BUF(wfilename,256)
     HANDLE hFile;
 
     PJ_ASSERT_RETURN(filename != NULL, 0);
@@ -61,7 +61,7 @@ PJ_DEF(pj_bool_t) pj_file_exists(const char *filename)
  */
 PJ_DEF(pj_off_t) pj_file_size(const char *filename)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(wfilename,256)
+    _UNICODE_TEMP_BUF(wfilename,256)
     HANDLE hFile;
     DWORD sizeLo, sizeHi;
     pj_off_t size;
@@ -97,7 +97,7 @@ PJ_DEF(pj_off_t) pj_file_size(const char *filename)
  */
 PJ_DEF(pj_status_t) pj_file_delete(const char *filename)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(wfilename,256)
+    _UNICODE_TEMP_BUF(wfilename,256)
 
     PJ_ASSERT_RETURN(filename != NULL, PJ_EINVAL);
 
@@ -113,8 +113,8 @@ PJ_DEF(pj_status_t) pj_file_delete(const char *filename)
  */
 PJ_DEF(pj_status_t) pj_file_move( const char *oldname, const char *newname)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(woldname,256)
-    PJ_DECL_UNICODE_TEMP_BUF(wnewname,256)
+    _UNICODE_TEMP_BUF(woldname,256)
+    _UNICODE_TEMP_BUF(wnewname,256)
     BOOL rc;
 
     PJ_ASSERT_RETURN(oldname!=NULL && newname!=NULL, PJ_EINVAL);
@@ -170,7 +170,7 @@ static pj_status_t file_time_to_time_val(const FILETIME *file_time,
  */
 PJ_DEF(pj_status_t) pj_file_getstat(const char *filename, pj_file_stat *stat)
 {
-    PJ_DECL_UNICODE_TEMP_BUF(wfilename,256)
+    _UNICODE_TEMP_BUF(wfilename,256)
     HANDLE hFile;
     DWORD sizeLo, sizeHi;
     FILETIME creationTime, accessTime, writeTime;
